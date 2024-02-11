@@ -1,0 +1,65 @@
+---
+pagetitle: "NHS-R Community"
+page-layout: full
+search: true
+image: img/spc_chart-1.png
+image-alt: "Statistical Process Control Chart of breaches showing the colours and logo from the \"Making Data Count\" programme"
+subtitle: "Promoting the Use of R in the UK Health & Care System"
+repo-actions: [edit, issue]
+
+about:
+  template: solana
+  image-width: 32em
+  id: hero-heading
+  links:
+    - icon: mailbox
+      aria-label: Email
+      href: mailto:nhsr.community@nhs.net
+    - icon: mastodon
+      href: https://fosstodon.org/@NHSrCommunity
+    - icon: github
+      aria-label: GitHub
+      href: https://github.com/nhs-r-community
+    - icon: linkedin
+      aria-label: "LinkedIn"
+      href: https://www.linkedin.com/in/nhs-r-community-2555a6282/
+
+listing:
+  - id: latest-content
+    contents: 
+    - /books
+    - /ideas
+    - /careers
+    - /viewpoints
+    - "!index.qmd"
+    sort: "date desc"
+    type: grid
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    max-items: 3
+    feed: false
+    
+---
+
+
+<br><br>
+
+::: {#hero-heading}
+### Together we aim to promote the use of R in the NHS.
+
+so that we can help improve our health and social care system using open-source data science solutions.
+:::
+
+::: {.content-container}
+::: {.listing-block}
+<a href="books/index.qmd">
+
+## Books
+</a> 
+
+::: {#books}
+:::
+
+:::
+:::

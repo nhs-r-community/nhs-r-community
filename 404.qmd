@@ -1,0 +1,11 @@
+---
+title: "404"
+---
+
+# Oh no! That page is nowhere to be found <i class="fas fa-search pr2"></i>
+
+It might have been removed or renamed. 
+
+Please let us know by raising a GitHub issue or by emailing. 
+Details can be found on the [homepage](/).
+

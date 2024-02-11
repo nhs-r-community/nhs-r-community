@@ -1,0 +1,18 @@
+---
+title: "Contact us"
+sidebar: false
+page-layout: article
+toc: false
+title-block-banner: true
+---
+
+
+- **Email:** [nhs.rcommunity@nhs.net](mailto:nhs.rcommunity@nhs.net)
+
+- **GitHub:** [@nhs-r-community](https://github.com/nhs-r-community)
+
+- **LinkedIn:** [NHS-R Community](https://www.linkedin.com/in/nhs-r-community-2555a6282/)
+
+- **Fosstodon (Mastodon):** [@NHSrCommunity@fosstodon.org](https://fosstodon.org/@NHSrCommunity)
+
+For details on how NHS-R Community use social media can be found in the NHS-R Community book chapter [Community Handbook]( https://nhsrway.nhsrcommunity.com/community-handbook.html#social-media).

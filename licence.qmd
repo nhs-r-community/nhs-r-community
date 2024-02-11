@@ -1,0 +1,14 @@
+---
+date: "2024-02-16T09:00:00+00:00"
+title: "Licence"
+---
+
+This website, its content and code are released under a [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).
+
+Blogs that are published through this site will also be under this license and can be referenced to personal sites if the author wishes.
+
+<center>
+{{< fa brands creative-commons size=2xl >}} {{< fa brands creative-commons-by size=2xl >}} {{< fa brands creative-commons-zero size=2xl >}}
+</center>
+
+For more information on the licences used by NHS-R Community go to the chapter [Style Guide for code](https://nhsrway.nhsrcommunity.com/style-guides.html#style-guide-for-code) in the [NHS-R Way book](https://nhsrway.nhsrcommunity.com/).

@@ -1,0 +1,69 @@
+project:
+  type: website
+
+website:
+  description: "Promoting the Use of R in the UK Health & Care System"
+  page-navigation: true
+  back-to-top-navigation: true
+  favicon: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+
+  navbar:
+    toggle-position: right
+    logo-href: index.qmd
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png
+    logo-alt: "NHS-R Community Logo which consists of the words and incorporating the R logo"
+    title: false
+    collapse-below: lg
+    tools:
+    - icon: github
+      href: https://github.com/nhs-r-community
+    right:
+      - text: Home
+        href: index.qmd
+      - text: "About"
+        href: about/index.qmd
+      - text: Events
+        aria-label: "Events"
+        href: https://nhsrcommunity.com/events
+      - text: "Books"
+        href: books/index.qmd
+      - text: "Contact us"
+        href: contact.qmd
+
+  page-footer:
+    left: >-
+     &#169; 2024 NHS-R Community &#8729; Made with  [![Quarto](https://quarto.org/quarto.png){fig-alt="Quarto logo blue round cirle with a cross within the circumference" width=65px}](https://quarto.org/)
+    center: |
+      <a class="link-dark me-1" href="https://fosstodon.org/@NHSrCommunity" title="mastodon" target="_blank" rel="noopener">{{< fa brands mastodon >}}</a>
+      <a class="link-dark me-1" href="https://github.com/nhs-r-community" title="github" target="_blank" rel="noopener">{{< fa brands github >}}</a>
+      <a class="link-dark me-1" href="https://soundcloud.com/nhs-r-community" title="soundcloud" target="_blank" rel="noopener">{{< fa brands soundcloud >}}</a>
+      <a class="link-dark me-1" href="https://www.linkedin.com/in/nhs-r-community-2555a6282/" title="LinkedIn" target="_blank" rel="noopener">{{< fa brands linkedin >}}</a>
+
+    right:
+      - text: "Accessibility"
+        aria-label: "Accessibility Commitment"
+        href: accessibility.qmd
+      - text: "Contact"
+        aria-label: "Contact Form"
+        href: "contact.qmd"
+      - text: "Licence"
+        aria-label: "Licence Details"
+        href: licence.qmd
+      - icon: rss
+        href: blog/index.xml
+
+format:
+  html:
+    theme:
+      light:
+        - assets/nhsr-font.scss
+        - assets/theme-light.scss
+      dark:
+        - assets/nhsr-font.scss
+        - assets/theme-dark.scss
+    code-link: true
+
+execute:
+  freeze: false
+  echo: false
+  warning: false

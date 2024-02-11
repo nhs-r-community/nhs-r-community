@@ -1,0 +1,31 @@
+---
+title: "Blogs"
+description: |
+  Blogs are submitted from NHS-R Community members.<br>
+  [Subscribe via RSS](/blog/index.xml)
+listing: 
+  contents: 
+    - posts
+  sort: "date desc"
+  type: default
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  fields: [title, author, categories, date, image]
+  page-size: 5
+  feed:
+    categories: [R]
+citation: false
+toc: false
+format: 
+  html: 
+    page-layout: full
+title-block-banner: false
+
+header-includes: >
+  <link rel="stylesheet" href="../assets/listing-default.css">
+resources:
+  - ../assets/listing-default.css 
+---
+
+<!-- Image by <a href="https://pixabay.com/users/andrys-439428/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=447577">Andrys Stienstra</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=447577">Pixabay</a> -->

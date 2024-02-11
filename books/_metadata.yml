@@ -1,0 +1,22 @@
+# Freeze computed outputs
+execute:
+  freeze: false
+
+# Enable banner style title blocks
+title-block-banner: true
+
+# Default for table of contents
+toc: false
+toc-title: Table of contents
+toc-location: right
+
+# Default fields for citation
+citation: false
+appendix-cite-as: display
+
+# Wrap overflow code
+format:
+  html:
+    code-overflow: wrap
+    template-partials:
+      - ../_partials/title-block-link-buttons/title-block.html

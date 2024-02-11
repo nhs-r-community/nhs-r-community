@@ -1,0 +1,19 @@
+---
+pagetitle: Books | Made in Quarto
+title: Books
+search: true
+repo-actions: false
+listing:
+    contents: 
+    - posts
+    type: grid
+    categories: true
+    sort: date-meta
+
+header-includes: >
+  <link rel="stylesheet" href="../assets/listing-default.css">
+
+---
+
+
+<!-- Image by <a href="https://pixabay.com/users/sophkins-1403770/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2390136">Sofia Iivarinen</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2390136">Pixabay</a> -->

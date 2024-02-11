@@ -1,0 +1,70 @@
+---
+sidebar: false
+page-layout: article
+toc: false
+title-block-banner: true
+---
+
+The NHS-R Community started in 2018 to promote the use of R in the NHS and the community has grown rapidly ever since. 
+It is a community that is broader than the NHS as members come from public sector organisations across the UK, including Local Authorities and Civil Service, as well as academics and voluntary sector people who have an interest in healthcare. 
+Whilst R is a core language for support by the community, there is always support for data science tools more generally, particularly where they cross over with R.
+
+:::{.callout-warning collapse=false appearance='default' icon=true}
+## WordPress site availability (warning)
+This site is currently being moved from WordPress to Quarto and parts of the original site are currently unavailable (17/02/2024).
+:::
+
+
+## More information
+
+More can be found in individual books including:
+
+::: grid
+::: g-col-3
+#### NHS-R Way
+
+::: {#NHSRWay}
+:::
+
+[Link →](https://nhsrway.nhsrcommunity.com/){.about-links .subtitle}
+:::
+
+::: g-col-3
+#### Statement on Tools
+
+::: {#statement-on-tools}
+:::
+
+[Link →](https://tools.nhsrcommunity.com/){.about-links .subtitle}
+:::
+
+::: g-col-3
+#### Open Analytics Resources
+
+::: {#open-analytics-resources}
+:::
+
+[Link →](https://resources.nhsrcommunity.com/){.about-links .subtitle}
+:::
+
+::: g-col-3
+#### Training courses
+
+::: {#training-courses}
+:::
+
+[Link →](http://training.nhsrcommunity.com/){.about-links .subtitle}
+:::
+:::
+
+
+## Special thanks
+
+To the creators of Quarto and to those who publish their code to share their knowledge particularly the website [Real World Data Science](https://realworlddatascience.net/) and Silvia Canelón's [personal site](https://silviacanelon.com/).
+
+Both were instrumental in building this site as they share the code from their website but have also contributed to the NHS-R Community Conferences:
+
+* Brian Tarran opened the NHS-R Community Conference in 2023 with his talk [Forging community links: NHS-R, the Royal Statistical Society and Real World Data Science](https://www.youtube.com/watch?v=8jcPwD8x8WE&t=18953s).
+
+* Silvia Canelón ran a two-part Xaringan (including CSS) workshop at the 2020 NHS-R Conference - [Part 1](https://www.youtube.com/watch?v=M3skTMQbCD0) and [Part 2](https://youtu.be/cAtpZxW4bTI?si=NXNA_TeWLlUtovBj). 
+And as part of this workshop Silvia kindly created [{NHSRthemes}](https://github.com/nhs-r-community/NHSRtheme) which contains the code for the NHS Branding colours used in this site.

@@ -1,0 +1,225 @@
+/*-- scss:defaults --*/
+
+// Level 1: NHS blues
+$nhs-DarkBlue   : #003087;
+$nhs-Blue       : #005EB8;
+$nhs-BrightBlue : #0072CE;
+$nhs-LightBlue  : #41B6E6;
+$nhs-AquaBlue   : #00A9CE;
+
+// Level 2: NHS neutrals
+$nhs-Black      : #231f20;
+$nhs-DarkGrey   : #425563;
+$nhs-MidGrey    : #768692;
+$nhs-PaleGrey   : #E8EDEE;
+
+// Level 3: NHS support greens
+$nhs-DarkGreen  : #006747;
+$nhs-Green      : #009639;
+$nhs-LightGreen : #78BE20;
+$nhs-AquaGreen  : #00A499;
+
+// Level 4: NHS highlights
+$nhs-Purple     : #330072;
+$nhs-DarkPink   : #7C2855;
+$nhs-Pink       : #AE2573;
+$nhs-DarkRed    : #8A1538;
+$nhs-Red        : #DA291C;
+$nhs-Orange     : #ED8B00;
+$nhs-WarmYellow : #FFB81C;
+$nhs-Yellow     : #FAE100;
+
+// Base document colors
+$body-color:                 #f5f4f3;
+$link-color:                 $nhs-LightBlue;
+
+// Code blocks
+$code-block-bg:               #2c2825;
+
+// Banner
+$body-bg:                     #2c2825; // Background
+$body-fg:                     #f5f4f3;
+
+// Links
+
+$link-decoration:             underline;
+$link-hover-decoration:       none;
+
+// Navbar icons
+$navbar-fg:                   $nhs-PaleGrey;
+$navbar-hl:                   $nhs-PaleGrey;
+
+// Footer text
+$footer-fg:                   $nhs-PaleGrey;
+
+/*-- scss:rules --*/
+
+// Code
+
+
+// home + about pages
+.about-links .about-link i {
+  color: $nhs-PaleGrey !important;
+
+  &:hover {
+    color: $nhs-Pink !important;
+  }
+}
+
+
+// Categories
+
+// Navbar
+
+// header
+.navbar {
+  background: transparent;
+}
+
+// title
+.navbar-title {
+  font-size: 0.75em;
+  font-weight: 500;
+  color: $nhs-PaleGrey;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+
+  &:hover {
+    border-bottom: 1px solid $nhs-PaleGrey !important;
+  }
+}
+
+.navbar-brand.navbar-brand-logo {
+  display: flex;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-right: 0;
+  margin-left: 1.5em;
+}
+
+.navbar-logo {
+  max-height: 100px;
+  width: auto;
+  align-items: baseline;
+}
+
+
+// links
+.navbar-nav .nav-link {
+    color: $nhs-PaleGrey !important;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    border-bottom: 0px hidden $nhs-PaleGrey;
+    margin: 0px 10px 0px 10px;
+    padding: 2px 2px 4px 2px !important;
+
+    &:hover {
+      border-bottom: 1px solid $nhs-PaleGrey !important;
+      padding: 2px 2px 0px 2px !important;
+    }
+}
+
+// social links
+.link-dark.me-1 i {
+  color: $nhs-PaleGrey !important;
+}
+
+// Footer
+
+// links on left side
+.nav-footer a {
+    color: $nhs-PaleGrey;
+    // link on hover
+    &:hover {
+      color: $nhs-PaleGrey;
+    }
+}
+
+// links on right side
+.nav-footer .nav-link {
+    &:hover {
+      text-decoration: underline;
+    }
+}
+
+
+// Title block
+
+
+// make nav bar be centered in mobile
+.fixed-top {
+  position: absolute;
+}
+
+.aa-DetachedOverlay {
+  position: absolute;
+}
+
+// links in description
+
+.description a {
+  text-decoration: underline !important;
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+// Throughout the site
+
+// title
+.title {
+  font-size: 2.5em;
+  font-weight: 500;
+  line-height: 1.1em;
+}
+
+
+// Mobile
+
+@media screen and (max-width: 991.98px) {
+  // social media links
+  .about-entity .about-links {
+    flex-direction: row !important;
+    justify-content: center !important;
+  }
+
+  // navigation footer
+  .nav-footer {
+      flex-direction: row;
+    }
+
+  .nav-footer-center {
+    order: 1 !important;
+    flex-basis: 100%;
+    margin: 0 0 -1.2em 0;
+  }
+
+  .nav-footer-right {
+    order: 2 !important;
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  .nav-footer-left {
+    order: 3 !important;
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  .navbar .quarto-navbar-tools {
+    text-align: left;
+  }
+}
+
+// subtitle
+.subtitle {
+  font-size: 1.2em;
+  // links within subtitles
+  a {
+    color: white;
+    text-decoration: underline !important;
+    &:hover {
+      text-decoration: none !important;
+    }
+  }
+}
