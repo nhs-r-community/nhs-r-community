@@ -26,7 +26,6 @@ header-includes: >
   <link rel="stylesheet" href="../assets/listing-default.css">
 resources:
   - ../assets/listing-default.css 
-  - CNAME
 ---
 
 <!-- Image by <a href="https://pixabay.com/users/andrys-439428/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=447577">Andrys Stienstra</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=447577">Pixabay</a> -->
