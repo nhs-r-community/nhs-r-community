@@ -202,29 +202,29 @@ ul.task-list li input[type="checkbox"] {
 <p>I was familiar with <code><a href="https://rdrr.io/r/base/length.html">length()</a></code>, it does a count essentially of factors or vectors (type <code><a href="https://rdrr.io/r/base/length.html">?length</a></code> into the Console for information) but <code><a href="https://rdrr.io/r/base/which.html">which()</a></code> wasn’t something I knew about. Chris Beeley explained what which does with the following example:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE</code></pre>
+<pre><code> [1]  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1]  3  7  9 10</code></pre>
+<pre><code>[1] 1 3 5 6 7 8 9</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
+<pre><code>[1] 7</code></pre>
 </div>
 </div>
 <p>Then Chris Beeley suggested just using <code>sum</code> instead of <code>length(which())</code> which counts a logical vector:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
+<pre><code>[1] 7</code></pre>
 </div>
 </div>
 <p>It seems this has been discussed on Stack Overflow before: <a href="https://stackoverflow.com/questions/2190756/how-to-count-true-values-in-a-logical-vector">https://stackoverflow.com/questions/2190756/how-to-count-true-values-in-a-logical-vector</a></p>
 <p>It’s worthy of note that using sum will also count <code>NA</code>s so the example on Stack overflow suggest adding:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
+<pre><code>[1] 7</code></pre>
 </div>
 </div>
 <p>This won’t affect the objects created in this blog as there were no <code>NA</code>s in them but it’s just something that could cause a problem if used in a different context.</p>
