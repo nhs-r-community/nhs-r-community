@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.549">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="author" content="Zoë Turner">
-<meta name="dcterms.date" content="2019-07-16">
-<meta name="description" content="Add">
-<title>Count of working days function</title>
+
+<meta name="dcterms.date" content="2024-02-16">
+<meta name="description" content="Useful links for health and care analysts and data scientists.">
+
+<title>Open Analytics Resources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +23,7 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
+
 
 <script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
@@ -42,7 +45,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
+<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -69,14 +73,41 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-</head>
-<body class="nav-fixed">
+<!-- Thank you to Ben Ruijl for the progress bar code and RWDS for reusing!
+Ben is on GitHub here: https://github.com/benruijl
+And you can see the original code here: https://github.com/quarto-dev/quarto-cli/discussions/3842#discussioncomment-4591721 -->
+
+</head><body class="nav-fixed fullcontent"><div id="progress-bar" style="width: 0%; height:4px; background-color: #939bc9;; position: fixed; top: 0px; z-index: 2000;"></div>
+
+<script id="progressbar" type="text/javascript">
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const bar = document.querySelector('#progress-bar');
+    const post = document.querySelector('#quarto-content');
+    const html = document.documentElement;
+
+    const height = post.scrollHeight + post.offsetTop;
+
+    window.addEventListener('scroll', () => {
+        bar.style.width = (html.scrollTop / (height- html.clientHeight)) * 100 + '%';
+    });
+});
+</script>
+
+
+
+
+
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="index.qmd" class="navbar-brand navbar-brand-logo">
-    <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo"></a>
+    <a href="../../../books/posts/open-analytics-resources/index.html" class="navbar-brand navbar-brand-logo">
+    <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo">
+    </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -84,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-<li class="nav-item">
+  <li class="nav-item">
     <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
@@ -105,158 +136,70 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Contact us</span></a>
   </li>  
 </ul>
-</div> <!-- /navcollapse -->
+          </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
     <a href="https://github.com/nhs-r-community" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns"><div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
-<h1 class="title">Count of working days function</h1>
-<p class="subtitle lead"></p>
-<p>Creating a working days function.</p>
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns">
+<div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
+<h1 class="title">Open Analytics Resources</h1>
     <div class="quarto-categories">
-        <div class="quarto-category">R</div>
+        <div class="quarto-category">data-science</div>
+        <div class="quarto-category">analysis</div>
+        <div class="quarto-category">links</div>
+        <div class="quarto-category">training</div>
       </div>
   </div>
 
 <div>
   <div id="title-block-title-desc" class="description pt-4">
-    Add
+    <p>Useful links for health and care analysts and data scientists.</p>
   </div>
 </div>
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Zoë Turner </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 16, 2019</p>
-    </div>
-  </div>
   
-    <div>
-    <div class="quarto-title-meta-heading">Modified</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 17, 2024</p>
-    </div>
-  </div>
     
   </div>
   
 
 
+<div class="mt-4 d-flex flex-row flex-wrap gap-1 justify-content-left justify-content-sm-start" role="group" aria-label="Links">
+<a href="https://resources.nhsrcommunity.com/" class="btn btn-secondary text-capitalize"><i class="bi bi-journal-text me-1"></i> Open Analytics Resources</a>
+<a href="https://github.com/nhs-r-community/open-analytics-resources" class="btn btn-secondary text-capitalize"><i class="bi bi-github me-1"></i> GitHub</a>
+</div>
 
 </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-<li><a href="#bus-ticket-function" id="toc-bus-ticket-function" class="nav-link active" data-scroll-target="#bus-ticket-function">Bus ticket function</a></li>
-  <li><a href="#going-through-each-line" id="toc-going-through-each-line" class="nav-link" data-scroll-target="#going-through-each-line">Going through each line:</a></li>
-  <li><a href="#a-conclusion-of-sorts" id="toc-a-conclusion-of-sorts" class="nav-link" data-scroll-target="#a-conclusion-of-sorts">A conclusion… of sorts</a></li>
-  </ul></nav>
-    </div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content"><!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html --><!--
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
+<!--
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
---><!-- <header id="title-block-header" class="quarto-title-block default page-columns"> --><!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> --><!-- Image by <a href="https://pixabay.com/users/makamuki0-1102736/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4148978">Marc Pascual</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4148978">Pixabay</a> --><p>It’s at this time of year I need to renew my season ticket and I usually get one for the year. Out of interest, I wanted to find out how much the ticket cost per day, taking into account I don’t use it on weekends or my paid holidays. I started my workings out initially in Excel but got as far as typing the formula <code>=WORKDAYS()</code> before I realised it was going to take some working out and perhaps I should give it a go in R as a function…</p>
-<p>Chris Beeley had recently shown me functions in R and I was surprised how familiar they were as I’ve seen them on Stack Overflow (usually skimmed over those) and they are similar to functions in SQL which I’ve used (not written) where you feed in parameters.</p>
-<p>When I write code I try to work out how each part works and build it up but writing a function requires running the whole thing and then checking the result, the objects that are created in the function do not materialise so are never available to check. Not having objects building up in the environment console is one of the benefits of using a function, that and not repeating scripts which then ALL need updating if something changes.</p>
-<section id="bus-ticket-function" class="level2"><h2 class="anchored" data-anchor-id="bus-ticket-function">Bus ticket function</h2>
-<p>This is the final function which if you run you’ll see just creates a function.</p>
-<p>Running the function you feed in parameters which don’t create their own objects:</p>
-<p>[1] 2.707965</p>
-</section><section id="going-through-each-line" class="level2"><h2 class="anchored" data-anchor-id="going-through-each-line">Going through each line:</h2>
-<p>To make sure each part within the function works it’s best to write it in another script or move the bit betweeen the curly brackets <code><a href="https://rdrr.io/r/base/Paren.html">{}</a></code>.</p>
-<p>Firstly, the <code>startDate</code> is self explanatory but within the function I’ve set the <code>endDate</code> to be dependent upon the <code>startDate</code> and be automatically 1 year later.</p>
-<p>Originally when I was trying to find the “year after” a date I found some documentation about {lubridate}’s function <code>dyear()</code>:</p>
-<p>but this gives an exact year after a given date and doesn’t take into account leap years. I only remember this because 2020 will be a leap year so the end date I got was a day out!</p>
-<p>Instead, Chris Beeley suggested the following:</p>
-<p>Next, the code builds a sequence of days. I got this idea of building up the days from the blogs on getting days between two dates but it has also come in use when plotting over time in things like SPCs when some of the time periods are not in the dataset but would make sense appearing as 0 count.</p>
-<p>All of these return values so trying to open them from the Global Environment won’t do anything. It is possible view the first parts of the values but also typing:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code> Date[1:367], format: "2019-07-11" "2019-07-12" "2019-07-13" "2019-07-14" "2019-07-15" ...</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>        Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
-"2019-07-11" "2019-10-10" "2020-01-10" "2020-01-10" "2020-04-10" "2020-07-11" </code></pre>
-</div>
-</div>
-<p>To find out what a function does type <code><a href="https://rdrr.io/r/utils/str.html">?str</a></code> or<code><a href="https://rdrr.io/r/base/summary.html">?summary</a></code> in the console. The help file will then appear in the bottom right Help screen.</p>
-<p>Next I worked out <code>working_days.</code> I got the idea from a blog which said to use length and which:</p>
-<p>Note that the value appears as <code>262L</code> which is a count of a logical vector. Typing <code><a href="https://rdrr.io/r/base/logical.html">?logical</a></code> into the Console gives this in the Help:</p>
-<p><em>Logical vectors are coerced to integer vectors in contexts where a numerical value is required, with TRUE being mapped to 1L, FALSE to 0L and NA to NA_integer</em>._</p>
-<p>I was familiar with <code><a href="https://rdrr.io/r/base/length.html">length()</a></code>, it does a count essentially of factors or vectors (type <code><a href="https://rdrr.io/r/base/length.html">?length</a></code> into the Console for information) but <code><a href="https://rdrr.io/r/base/which.html">which()</a></code> wasn’t something I knew about. Chris Beeley explained what which does with the following example:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE FALSE  TRUE FALSE</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2 4 5 6 9</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 10</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
-</div>
-</div>
-<p>Then Chris Beeley suggested just using <code>sum</code> instead of <code>length(which())</code> which counts a logical vector:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
-</div>
-</div>
-<p>It seems this has been discussed on Stack Overflow before: <a href="https://stackoverflow.com/questions/2190756/how-to-count-true-values-in-a-logical-vector">https://stackoverflow.com/questions/2190756/how-to-count-true-values-in-a-logical-vector</a></p>
-<p>It’s worthy of note that using sum will also count <code>NA</code>s so the example on Stack overflow suggest adding:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
-</div>
-</div>
-<p>This won’t affect the objects created in this blog as there were no <code>NA</code>s in them but it’s just something that could cause a problem if used in a different context.</p>
-<p>I then wanted to take into account bank/public holidays as I wouldn’t use the ticket on those days so I used the function <code>holidayLONDON(</code> from the package {timeDate}:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 8</code></pre>
-</div>
-</div>
-<p>I used <code><a href="https://lubridate.tidyverse.org/reference/year.html">lubridate::year</a></code> because the package {timeDate} uses a parameter called year so the code would read <code>year = year(startDate)</code> which is confusing to me let alone the function!</p>
-<p>Again, I counted the vectors using <code><a href="https://rdrr.io/r/base/length.html">length()</a></code>. This is a crude way of getting bank/public holidays as it is looking at a calendar year and not a period (July to July in this case).</p>
-<p>I did look at a package called {bizdays} but whilst that seemed to be good for building a calendar I couldn’t work out how to make it work so I just stuck with the {timeDate} package. I think as I get more confident in R it might be something I could look into the actual code for because all packages are open source and available to view through CRAN or GitHub.</p>
-<p>Back to the function…</p>
-<p>I then added <code>- EmployHoliday</code> so I could reduce the days by my paid holidays and <code>- wfh</code> to take into account days I’ve worked from home and therefore not travelled into work.</p>
-<p>The next part of the code takes the entered <code>Cost</code> and divides by the <code>Working_days</code>, printing the output to the screen:</p>
-<p><code>per_day &lt;- Cost/working_days</code></p>
-<p><code>print(per_day)</code></p>
-<p>And so the answer to the cost per day is printed in the Console:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.707965</code></pre>
-</div>
-</div>
-</section><section id="a-conclusion-of-sorts" class="level2"><h2 class="anchored" data-anchor-id="a-conclusion-of-sorts">A conclusion… of sorts</h2>
-<p>Whilst this isn’t really related to the NHS it’s been useful to go through the process of producing a function to solve a problem and then to explain it, line by line, for the benefit of others.</p>
-<p>I’d recommend doing this to further your knowledge of R at whatever level you are and particularly if you are just learning or consider yourself a novice as sometimes blogs don’t always detail the reasons why things were done (or why they were not done because it all went wrong!).</p>
+-->
+<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
+<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
 
 
-</section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-turner2019" class="csl-entry quarto-appendix-citeas" role="listitem">
-Turner, Zoë. 2019. <span>“Count of Working Days Function.”</span> July
-16, 2019.
-</div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+<!-- Image by <a href="https://pixabay.com/users/congerdesign-509903/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2363912">congerdesign</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2363912">Pixabay</a> -->
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -788,7 +731,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
 <p>© 2024 NHS-R Community ∙ Made with <a href="https://quarto.org/"><img src="https://quarto.org/quarto.png" class="img-fluid" alt="Quarto logo blue round cirle with a cross within the circumference" width="65"></a></p>
 </div>   
@@ -797,7 +741,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
-<li class="nav-item">
+    <li class="nav-item">
     <a class="nav-link" href="../../../accessibility.html">
 <p>Accessibility</p>
 </a>
@@ -819,9 +763,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </a>
   </li>  
 </ul>
-</div>
+    </div>
   </div>
 </footer>
+
+
 
 
 </body></html>
