@@ -1,0 +1,40 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/books/posts/health-inequalities/health-inequalities.html",
+      "/books/posts/NHSR-way/NHSR-way.html",
+      "/books/posts/open-analytics-resources/open-analytics-resources.html",
+      "/books/posts/statement-on-tools/statement-on-tools.html"
+    ]
+  },
+  {
+    "listing": "/books/index.html",
+    "items": [
+      "/books/posts/NHSR-way/index.html",
+      "/books/posts/NHSR-way/NHSR-way.html",
+      "/books/posts/statement-on-tools/index.html",
+      "/books/posts/statement-on-tools/statement-on-tools.html",
+      "/books/posts/health-inequalities/health-inequalities.html",
+      "/books/posts/health-inequalities/index.html",
+      "/books/posts/open-analytics-resources/index.html",
+      "/books/posts/open-analytics-resources/open-analytics-resources.html"
+    ]
+  },
+  {
+    "listing": "/blogs/index.html",
+    "items": [
+      "/blogs/posts/20190716_count_of_working_days/count-function.html",
+      "/blogs/posts/20240206_nhsr_committee_experience/NHS-R Committee.html"
+    ]
+  },
+  {
+    "listing": "/latest-content.html",
+    "items": [
+      "/books/posts/health-inequalities/health-inequalities.html",
+      "/books/posts/NHSR-way/NHSR-way.html",
+      "/books/posts/open-analytics-resources/open-analytics-resources.html",
+      "/books/posts/statement-on-tools/statement-on-tools.html"
+    ]
+  }
+]
