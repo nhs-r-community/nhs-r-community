@@ -64,6 +64,5 @@ format:
     code-link: true
 
 execute:
-  freeze: false
-  echo: false
+  freeze: auto
   warning: false
