@@ -1,0 +1,221 @@
+---
+title: 'Count of working days function'
+author: Zoë Turner
+date: "16 July 2019"
+date-modified: '17 February 2024'
+categories:
+  - Function
+subtitle: >
+  Creating a function to work out the number of working days a seasonal bus ticket can be used.
+code-annotations: below
+execute:
+  freeze: true
+  echo: true
+image: img/travelcard.jpg
+image-alt: "A London rail travel ticket"
+---
+
+<!-- Image by <a href="https://pixabay.com/users/ronporter-291009/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=429277">Ron Porter</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=429277">Pixabay</a> -->
+
+```{r setup}
+#| include: false
+
+library(lubridate)
+library(timeDate)
+```
+
+It’s at this time of year I need to renew my season ticket and I usually get one for the year. Out of interest, I wanted to find out how much the ticket cost per day, taking into account I don’t use it on weekends or my paid holidays. I started my workings out initially in Excel but got as far as typing the formula `=WORKDAYS()` before I realised it was going to take some working out and perhaps I should give it a go in R as a function…
+
+Chris Beeley had recently shown me functions in R and I was surprised how familiar they were as I’ve seen them on Stack Overflow (usually skimmed over those) and they are similar to functions in SQL which I've used (not written) where you feed in parameters.
+
+When I write code I try to work out how each part works and build it up but writing a function requires running the whole thing and then checking the result, the objects that are created in the function do not materialise so are never available to check. Not having objects building up in the environment console is one of the benefits of using a function, that and not repeating scripts which then ALL need updating if something changes.
+
+## Bus ticket function
+
+This is the final function which if you run you'll see just creates a function.
+
+```{r FinalFunction}
+# Week starts on Sunday (1)
+DailyBusFare_function <- function(StartDate, EmployHoliday, Cost, wfh){
+
+  startDate <- dmy(StartDate)
+  endDate <- as.Date(startDate) %m+% months(12)
+
+# Now build a sequence between the dates:
+  myDates <-seq(from = startDate, to = endDate, by = "days")
+
+  working_days <- sum(wday(myDates)>1&wday(myDates)<7)-length(holidayLONDON(year = lubridate::year(startDate))) - EmployHoliday - wfh
+
+per_day <- Cost/working_days
+
+print(per_day)
+}
+
+```
+
+Running the function you feed in parameters which don't create their own objects:
+
+```{r RunFinalFunction}
+#| results: asis
+
+DailyBusFare_function("11/07/2019",27,612,1)
+
+```
+
+## Going through each line:
+
+To make sure each part within the function works it's best to write it in another script or move the bit betweeen the curly brackets `{}`.
+
+Firstly, the `startDate` is self explanatory but within the function I've set the `endDate` to be dependent upon the `startDate` and be automatically 1 year later.
+
+Originally when I was trying to find the "year after" a date I found some documentation about {lubridate}'s function `dyear()`:
+
+
+```{r dyear}
+
+# Next couple of lines needed to run the endDate line!
+library(lubridate)
+startDate <- dmy("11/07/2019")
+
+endDate <- startDate + dyears(1)
+
+```
+
+but this gives an exact year after a given date and doesn't take into account leap years. I only remember this because 2020 will be a leap year so the end date I got was a day out!
+
+Instead, Chris Beeley suggested the following:
+
+```{r endDate}
+
+endDate <- as.Date(startDate) %m+% months(12)
+
+```
+
+Next, the code builds a sequence of days. I got this idea of building up the days from the blogs on getting days between two dates but it has also come in use when plotting over time in things like SPCs when some of the time periods are not in the dataset but would make sense appearing as 0 count.
+
+```{r Sequence}
+library(lubridate)
+
+# To run so that the sequencing works
+# using as.Date() returns incorrect date formats 0011-07-20 so use dmy from
+# lubridate to transform the date
+
+  startDate <- dmy("11/07/2019")
+  endDate <- as.Date(startDate) %m+% months(12)
+
+# Now build a sequence between the dates:
+  myDates <- seq(from = startDate, to = endDate, by = "days")
+
+```
+
+All of these return values so trying to open them from the Global Environment won't do anything. It is possible view the first parts of the values but also typing:
+
+```{r StructureOfData}
+# compactly displays the structure of object, including the format (date in this case)
+str(myDates)
+
+# gives a summary of the structure
+summary(myDates)
+
+```
+
+To find out what a function does type `?str` or` ?summary` in the console. The help file will then appear in the bottom right Help screen.
+
+Next I worked out `working_days.` I got the idea from a blog which said to use length and which:
+
+```{r WorkingDays_which}
+
+  working_days <- length(which((wday(myDates)>1&wday(myDates)<7)))
+
+```
+
+Note that the value appears as `262L` which is a count of a logical vector. Typing `?logical` into the Console gives this in the Help:
+
+_Logical vectors are coerced to integer vectors in contexts where a numerical value is required, with TRUE being mapped to 1L, FALSE to 0L and NA to NA_integer_._
+
+I was familiar with `length()`, it does a count essentially of factors or vectors (type `?length` into the Console for information) but `which()` wasn't something I knew about. Chris Beeley explained what which does with the following example:
+
+```{r WhichExample}
+
+# Generate a list of random logical values
+a <- sample(c(TRUE, FALSE), 10, replace = TRUE)
+
+# Look at list
+a
+
+# using which against the list gives the number in the list where the logic = TRUE
+which(a)
+
+# counts how many logical arguments in the list (should be 10)
+length(a)
+
+# counts the number of TRUE logical arguments
+length(which(a))
+
+```
+
+Then Chris Beeley suggested just using `sum` instead of `length(which())` which counts a logical vector:
+
+```{r Sum}
+
+sum(a)
+
+```
+
+It seems this has been discussed on Stack Overflow before: [https://stackoverflow.com/questions/2190756/how-to-count-true-values-in-a-logical-vector](https://stackoverflow.com/questions/2190756/how-to-count-true-values-in-a-logical-vector)
+
+It's worthy of note that using sum will also count `NA`s so the example on Stack overflow suggest adding:
+
+```{r Sum_NA}
+
+sum(a, na.rm = TRUE)
+
+```
+
+This won't affect the objects created in this blog as there were no `NA`s in them but it's just something that could cause a problem if used in a different context.
+
+```{r WorkingDays_Sum}
+
+  working_days <- sum(wday(myDates)>1&wday(myDates)<7)
+
+# Just to check adding na.rm = TRUE gives the same result
+  working_days <- sum(wday(myDates)>1&wday(myDates)<7, na.rm = TRUE)
+
+```
+
+I then wanted to take into account bank/public holidays as I wouldn't use the ticket on those days so I used the function `holidayLONDON(` from the package {timeDate}:
+
+```{r BankHolidays}
+
+length(holidayLONDON(year = lubridate::year(startDate)))
+
+```
+
+I used `lubridate::year` because the package {timeDate} uses a parameter called year so the code would read `year = year(startDate)` which is confusing to me let alone the function!
+
+Again, I counted the vectors using `length()`. This is a crude way of getting bank/public holidays as it is looking at a calendar year and not a period (July to July in this case).
+
+I did look at a package called {bizdays} but whilst that seemed to be good for building a calendar I couldn't work out how to make it work so I just stuck with the {timeDate} package. I think as I get more confident in R it might be something I could look into the actual code for because all packages are open source and available to view through CRAN or GitHub.
+
+Back to the function...
+
+I then added `- EmployHoliday` so I could reduce the days by my paid holidays and `- wfh` to take into account days I've worked from home and therefore not travelled into work.
+
+The next part of the code takes the entered `Cost` and divides by the `Working_days`, printing the output to the screen:
+
+`per_day <- Cost/working_days`
+
+`print(per_day)`
+
+And so the answer to the cost per day is printed in the Console:
+
+```{r Final}
+DailyBusFare_function("11/07/2019",27,612,1)
+
+```
+
+## A conclusion... of sorts
+
+Whilst this isn't really related to the NHS it's been useful to go through the process of producing a function to solve a problem and then to explain it, line by line, for the benefit of others.
+
+I'd recommend doing this to further your knowledge of R at whatever level you are and particularly if you are just learning or consider yourself a novice as sometimes blogs don't always detail the reasons why things were done (or why they were not done because it all went wrong!).

@@ -1,7 +1,7 @@
 ---
 pagetitle: Latest content | NHS-R Community
 title: Latest content
-site-url: https://nhsrcommunity.com/
+site-url: ''
 title-block-banner: true
 sidebar: false
 search: false
@@ -9,10 +9,7 @@ page-layout: article
 listing:
   contents: 
   - /books
-  - /ideas
-  - /careers
-  - /viewpoints
-  - "!index.qmd"
+  - /blog
   sort: "date desc"
   type: grid
   categories: true

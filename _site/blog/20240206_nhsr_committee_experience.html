@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Blogs are submitted from NHS-R Community members.  Subscribe via RSS">
+<meta name="author" content="Prajwal Khairnar">
+<meta name="dcterms.date" content="2024-02-06">
 
-<title>Blogs</title>
+<title>Navigating the Data-Driven Frontier: Insights from an NHS-R Committee Member</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,8 +33,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg" rel="icon" type="image/svg+xml">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,77 +73,18 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-categories','listing-date','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-<link rel="stylesheet" href="../assets/listing-default.css">
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../blogs/index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../blog/index.html" class="navbar-brand navbar-brand-logo">
     <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo">
     </a>
   </div>
@@ -171,6 +111,10 @@ window.Quarto = {
 <span class="menu-text">Books</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../blog/index.html"> 
+<span class="menu-text">Blogs</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact us</span></a>
   </li>  
@@ -184,12 +128,64 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns">
+<div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
+<h1 class="title">Navigating the Data-Driven Frontier: Insights from an NHS-R Committee Member</h1>
+<p class="subtitle lead"></p><p>‘It is with great excitement that I share my recent journey as a committee member with the NHS-R Community, a vibrant hub dedicated to championing the use of R and data science tools in the UK health and care system.’</p><p></p>
+    <div class="quarto-categories">
+        <div class="quarto-category">Committee</div>
+      </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Prajwal Khairnar </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 6, 2024</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">February 24, 2024</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+
+</header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-community" id="toc-the-community" class="nav-link active" data-scroll-target="#the-community">The Community</a></li>
+  <li><a href="#steering-the-course-the-committees-impact" id="toc-steering-the-course-the-committees-impact" class="nav-link" data-scroll-target="#steering-the-course-the-committees-impact">Steering the Course: The Committee’s Impact</a></li>
+  <li><a href="#committee-meetings-a-glimpse-into-our-world" id="toc-committee-meetings-a-glimpse-into-our-world" class="nav-link" data-scroll-target="#committee-meetings-a-glimpse-into-our-world">Committee Meetings: A Glimpse into Our World</a></li>
+  <li><a href="#driving-positive-change" id="toc-driving-positive-change" class="nav-link" data-scroll-target="#driving-positive-change">Driving Positive Change</a></li>
+  <li><a href="#contributions-welcome" id="toc-contributions-welcome" class="nav-link" data-scroll-target="#contributions-welcome">Contributions Welcome</a></li>
+  <li><a href="#join-the-conversation" id="toc-join-the-conversation" class="nav-link" data-scroll-target="#join-the-conversation">Join the Conversation</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 <!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
 <!--
@@ -198,103 +194,44 @@ window.Quarto = {
 -->
 <!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
 <!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
-<header id="title-block-header" class="quarto-title-block default page-columns">
-<div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
-<h1 class="title">Blogs</h1>
-</div>
-
-<div>
-  <div id="title-block-title-desc" class="description pt-4">
-    <p>Blogs are submitted from NHS-R Community members.<br> <a href="..\blog/index.xml">Subscribe via RSS</a></p>
-  </div>
-</div>
-
-
-<div class="quarto-title-meta column-page">
-
-    
-  
-    
-  </div>
-  
 
 
 
-</header>
+<!-- Image by <a href="https://pixabay.com/users/startupstockphotos-690514/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=594090">StartupStockPhotos</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=594090">Pixabay</a> -->
+<p>Greetings, esteemed members of the NHS-R Community, data enthusiasts, and healthcare aficionados! It is with great excitement that I share my recent journey as a committee member with the NHS-R Community, a vibrant hub dedicated to championing the use of R and data science tools in the UK health and care system.</p>
+<section id="the-community" class="level2">
+<h2 class="anchored" data-anchor-id="the-community">The Community</h2>
+<p>Established in 2018, the NHS-R Community has rapidly evolved into a dynamic collective of professionals from diverse backgrounds. Our community encompasses members from public sector organizations, including Local Authorities and Civil Service, academia, and the voluntary sector. We are united by a shared passion for advancing healthcare through the transformative power of data. While our core language is R, we are equally enthusiastic about embracing a broad spectrum of data science tools, recognizing their integral role in shaping the future of healthcare analytics.</p>
+</section>
+<section id="steering-the-course-the-committees-impact" class="level2">
+<h2 class="anchored" data-anchor-id="steering-the-course-the-committees-impact">Steering the Course: The Committee’s Impact</h2>
+<p>As a committee member, my role involves active participation in shaping the community’s approach, focus, and overall strategy. We meet regularly to deliberate on initiatives, conferences, and the overarching direction for the community. The committee serves as a crucial forum for collective decision-making, ensuring that our initiatives align with the evolving needs of the community and contribute to positive change.</p>
+</section>
+<section id="committee-meetings-a-glimpse-into-our-world" class="level2">
+<h2 class="anchored" data-anchor-id="committee-meetings-a-glimpse-into-our-world">Committee Meetings: A Glimpse into Our World</h2>
+<p>Our meetings are a lively exchange of ideas, experiences, and visions for the future. Whether we’re brainstorming innovative projects, refining strategies, or planning impactful conferences, each committee member brings a unique perspective to the table. The collaborative spirit is palpable as we navigate the dynamic landscape of data science in healthcare.</p>
+</section>
+<section id="driving-positive-change" class="level2">
+<h2 class="anchored" data-anchor-id="driving-positive-change">Driving Positive Change</h2>
+<p>Being part of the committee means playing a pivotal role in fostering collaboration and steering the community toward meaningful outcomes. We celebrate diversity in thought and expertise, recognizing that it is the key to unlocking the full potential of data science in healthcare.</p>
+</section>
+<section id="contributions-welcome" class="level2">
+<h2 class="anchored" data-anchor-id="contributions-welcome">Contributions Welcome</h2>
+<p>One of the hallmarks of our community is the open invitation for contributions. Our GitHub repository: <a href="https://github.com/nhs-r-community">NHS-R Community</a> hosts a wealth of resources, including packages and training materials, and we wholeheartedly welcome contributions from community members. It’s an empowering experience to witness the collective impact of our shared knowledge and skills.</p>
+</section>
+<section id="join-the-conversation" class="level2">
+<h2 class="anchored" data-anchor-id="join-the-conversation">Join the Conversation</h2>
+<p>If you’re passionate about data science, healthcare, and making a positive impact, the NHS-R Community is the place to be. Whether you’re an R enthusiast, a data science wizard, or a healthcare professional with an interest in analytics, there’s a place for you in our diverse and welcoming community.</p>
+<p>As I continue my journey as a committee member, I’m excited about the endless possibilities that lie ahead. Together, we’re shaping the future of healthcare analytics, one R script at a time.</p>
+<p>Stay tuned for more updates from the NHS-R Community, where data meets healthcare, and innovation knows no bounds. See you in the data-driven frontier!</p>
 
 
-<!-- Image by <a href="https://pixabay.com/users/andrys-439428/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=447577">Andrys Stienstra</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=447577">Pixabay</a> -->
+</section>
 
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="R" data-listing-date-sort="1563231600000" data-listing-file-modified-sort="1708204805082" data-listing-date-modified-sort="1708128000000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1220">
-<div class="thumbnail">
-<p><a href="../blogs/posts/20190716_count_of_working_days/count-function.html" class="no-external"></a></p><a href="../blogs/posts/20190716_count_of_working_days/count-function.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="../blogs/posts/20190716_count_of_working_days/count-function.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blogs/posts/20190716_count_of_working_days/count-function.html" class="no-external">Count of working days function</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blogs/posts/20190716_count_of_working_days/count-function.html" class="no-external">Creating a working days function. </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blogs/posts/20190716_count_of_working_days/count-function.html" class="no-external">
-<div class="listing-date">
-Jul 16, 2019
-</div>
-<div class="listing-author">
-Zoë Turner
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="R" data-listing-date-sort="1563231600000" data-listing-file-modified-sort="1708204805082" data-listing-date-modified-sort="1708732800000" data-listing-reading-time-sort="3" data-listing-word-count-sort="460">
-<div class="thumbnail">
-<p><a href="../blogs/posts/20240206_nhsr_committee_experience/NHS-R Committee.html" class="no-external"></a></p><a href="../blogs/posts/20240206_nhsr_committee_experience/NHS-R Committee.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="../blogs/posts/20240206_nhsr_committee_experience/NHS-R Committee.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blogs/posts/20240206_nhsr_committee_experience/NHS-R Committee.html" class="no-external">Navigating the Data-Driven Frontier: Insights from an NHS-R Committee Member</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blogs/posts/20240206_nhsr_committee_experience/NHS-R Committee.html" class="no-external">‘Add’ </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blogs/posts/20240206_nhsr_committee_experience/NHS-R Committee.html" class="no-external">
-<div class="listing-date">
-Jul 16, 2019
-</div>
-<div class="listing-author">
-Prajwal Khairnar
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section></div></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-khairnar2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+Khairnar, Prajwal. 2024. <span>“Navigating the Data-Driven Frontier:
+Insights from an NHS-R Committee Member.”</span> February 6, 2024.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
