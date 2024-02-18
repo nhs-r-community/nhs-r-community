@@ -27,6 +27,8 @@ website:
         href: https://nhsrcommunity.com/events
       - text: "Books"
         href: books/index.qmd
+      - text: "Blogs"
+        href: blog/index.qmd
       - text: "Contact us"
         href: contact.qmd
 

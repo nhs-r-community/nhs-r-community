@@ -83,9 +83,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -169,6 +169,10 @@ window.Quarto = {
 <span class="menu-text">Books</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./blog/index.html"> 
+<span class="menu-text">Blogs</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./contact.html"> 
 <span class="menu-text">Contact us</span></a>
   </li>  
@@ -203,7 +207,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="code-of-conduct">code-of-conduct <span class="quarto-category-count">(1)</span></div><div class="category" data-category="data-science">data-science <span class="quarto-category-count">(3)</span></div><div class="category" data-category="getting-started">getting-started <span class="quarto-category-count">(1)</span></div><div class="category" data-category="health-inequalities">health-inequalities <span class="quarto-category-count">(1)</span></div><div class="category" data-category="installation">installation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="links">links <span class="quarto-category-count">(1)</span></div><div class="category" data-category="training">training <span class="quarto-category-count">(2)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="Committee">Committee <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Function">Function <span class="quarto-category-count">(1)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="code-of-conduct">code-of-conduct <span class="quarto-category-count">(1)</span></div><div class="category" data-category="data-science">data-science <span class="quarto-category-count">(3)</span></div><div class="category" data-category="getting-started">getting-started <span class="quarto-category-count">(1)</span></div><div class="category" data-category="health-inequalities">health-inequalities <span class="quarto-category-count">(1)</span></div><div class="category" data-category="installation">installation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="links">links <span class="quarto-category-count">(1)</span></div><div class="category" data-category="training">training <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -226,6 +230,12 @@ window.Quarto = {
          <option value="listing-title" data-direction="asc">
           Title
         </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
          <option value="listing-author" data-direction="asc">
           Author
         </option>
@@ -237,8 +247,30 @@ window.Quarto = {
     </div>
 </div>
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="data-science,health-inequalities" data-listing-file-modified-sort="1708204805098" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="./books/posts/health-inequalities/health-inequalities.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1708280218900" data-listing-reading-time-sort="1" data-listing-word-count-sort="10">
+<a href="./books/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="books\posts\NHSR-way\book-image.jpg" alt="Photo of an open book with glasses on it next to a tea cup with a flower design on a wooden tray. Next to the tray is a white pottery jug with purple small flowers and leaves." style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Books
+</h5>
+<div class="card-text listing-description">
+
+
+
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="data-science,health-inequalities" data-listing-file-modified-sort="1708204805098" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
+<a href="./books/posts/health-inequalities/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
 <img src="./books/posts/health-inequalities/book-image.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of an open book sat upon grass.">
@@ -267,8 +299,8 @@ This project is a collection of information and knowledge related to analytical 
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="code-of-conduct,training" data-listing-file-modified-sort="1708204805098" data-listing-reading-time-sort="1" data-listing-word-count-sort="10">
-<a href="./books/posts/NHSR-way/NHSR-way.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="2" data-categories="code-of-conduct,training" data-listing-file-modified-sort="1708204805098" data-listing-reading-time-sort="1" data-listing-word-count-sort="10">
+<a href="./books/posts/NHSR-way/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
 <img src="./books/posts/NHSR-way/book-image.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of an open book with glasses on it next to a tea cup with a flower design on a wooden tray. Next to the tray is a white pottery jug with purple small flowers and leaves.">
@@ -297,8 +329,8 @@ training
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="data-science,analysis,links,training" data-listing-file-modified-sort="1708204805114" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="./books/posts/open-analytics-resources/open-analytics-resources.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="3" data-categories="data-science,analysis,links,training" data-listing-file-modified-sort="1708204805114" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
+<a href="./books/posts/open-analytics-resources/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
 <img src="./books/posts/open-analytics-resources/book-image.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of an antique book, closed with white flowers resting on top.">
@@ -333,8 +365,8 @@ training
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="data-science,installation,getting-started" data-listing-file-modified-sort="1708204805129" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="./books/posts/statement-on-tools/statement-on-tools.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="4" data-categories="data-science,installation,getting-started" data-listing-file-modified-sort="1708204805129" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
+<a href="./books/posts/statement-on-tools/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
 <img src="./books/posts/statement-on-tools/book-image.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of four open books laid out on top of each other.">
@@ -360,6 +392,86 @@ In this book we’ve compiled a set of technical resources, links and write down
 <div class="card-attribution card-text-small start">
 <div class="listing-author">
 
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1708295642553" data-listing-reading-time-sort="1" data-listing-word-count-sort="10">
+<a href="./blog/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="blog\img\startup.jpg" alt="Photo of a meeting with a laptop, pad and paper and a coffee mug." style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Blogs
+</h5>
+<div class="card-text listing-description">
+<p>Blogs are submitted from NHS-R Community members.<br> <span>Subscribe via RSS</span></p>
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="6" data-categories="Committee" data-listing-date-sort="1707177600000" data-listing-file-modified-sort="1708295506467" data-listing-date-modified-sort="1708732800000" data-listing-reading-time-sort="3" data-listing-word-count-sort="466">
+<a href="./blog/20240206_nhsr_committee_experience.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./blog/img/startup.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of a meeting with a laptop, pad and paper and a coffee mug.">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Navigating the Data-Driven Frontier: Insights from an NHS-R Committee Member
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Committee'); return false;">
+Committee
+</div>
+</div>
+<div class="card-text listing-description">
+Greetings, esteemed members of the NHS-R Community, data enthusiasts, and healthcare aficionados! It is with great excitement that I share my recent journey as a committee…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Prajwal Khairnar
+</div>
+<div class="listing-date">
+Feb 6, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="7" data-categories="Function" data-listing-date-sort="1563231600000" data-listing-file-modified-sort="1708295557988" data-listing-date-modified-sort="1708128000000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1212">
+<a href="./blog/20190716_count_of_working_days.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./blog/img/travelcard.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="A London rail travel ticket">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Count of working days function
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Function'); return false;">
+Function
+</div>
+</div>
+<div class="card-text listing-description">
+It’s at this time of year I need to renew my season ticket and I usually get one for the year. Out of interest, I wanted to find out how much the ticket cost per day, taking…<code></code>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Zoë Turner
+</div>
+<div class="listing-date">
+Jul 16, 2019
 </div>
 </div>
 </div>

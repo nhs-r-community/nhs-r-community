@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Prajwal Khairnar">
-<meta name="dcterms.date" content="2019-07-16">
+<meta name="dcterms.date" content="2024-02-15">
+<meta name="description" content="In this book we’ve compiled a set of technical resources, links and write down our experiences of using open data science programs like R and Python within the NHS and beyond.">
 
-<title>Navigating the Data-Driven Frontier: Insights from an NHS-R Committee Member</title>
+<title>Statement on Tools</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,18 +73,39 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<!-- Thank you to Ben Ruijl for the progress bar code and RWDS for reusing!
+Ben is on GitHub here: https://github.com/benruijl
+And you can see the original code here: https://github.com/quarto-dev/quarto-cli/discussions/3842#discussioncomment-4591721 -->
+
+</head><body class="nav-fixed fullcontent"><div id="progress-bar" style="width: 0%; height:4px; background-color: #939bc9;; position: fixed; top: 0px; z-index: 2000;"></div>
+
+<script id="progressbar" type="text/javascript">
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const bar = document.querySelector('#progress-bar');
+    const post = document.querySelector('#quarto-content');
+    const html = document.documentElement;
+
+    const height = post.scrollHeight + post.offsetTop;
+
+    window.addEventListener('scroll', () => {
+        bar.style.width = (html.scrollTop / (height- html.clientHeight)) * 100 + '%';
+    });
+});
+</script>
 
 
-</head>
 
-<body class="nav-fixed">
+
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="index.qmd" class="navbar-brand navbar-brand-logo">
+    <a href="../../../books/posts/statement-on-tools/index.html" class="navbar-brand navbar-brand-logo">
     <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo">
     </a>
   </div>
@@ -111,6 +132,10 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Books</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../../../blog/index.html"> 
+<span class="menu-text">Blogs</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../../../contact.html"> 
 <span class="menu-text">Contact us</span></a>
   </li>  
@@ -126,63 +151,39 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns">
 <div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
-<h1 class="title">Navigating the Data-Driven Frontier: Insights from an NHS-R Committee Member</h1>
-<p class="subtitle lead"></p><p>‘Add’</p><p></p>
+<h1 class="title">Statement on Tools</h1>
     <div class="quarto-categories">
-        <div class="quarto-category">R</div>
+        <div class="quarto-category">data-science</div>
+        <div class="quarto-category">installation</div>
+        <div class="quarto-category">getting-started</div>
       </div>
   </div>
 
+<div>
+  <div id="title-block-title-desc" class="description pt-4">
+    <p>In this book we’ve compiled a set of technical resources, links and write down our experiences of using open data science programs like R and Python within the NHS and beyond.</p>
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Prajwal Khairnar </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 16, 2019</p>
-    </div>
-  </div>
   
-    <div>
-    <div class="quarto-title-meta-heading">Modified</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 24, 2024</p>
-    </div>
-  </div>
     
   </div>
   
 
 
+<div class="mt-4 d-flex flex-row flex-wrap gap-1 justify-content-left justify-content-sm-start" role="group" aria-label="Links">
+<a href="https://tools.nhsrcommunity.com/" class="btn btn-secondary text-capitalize"><i class="bi bi-journal-text me-1"></i> Statement on Tools</a>
+<a href="https://github.com/nhs-r-community/statements-on-tools" class="btn btn-secondary text-capitalize"><i class="bi bi-github me-1"></i> GitHub</a>
+</div>
 
 </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member" id="toc-navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member" class="nav-link active" data-scroll-target="#navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member">Navigating the Data-Driven Frontier: Insights from an NHS-R Committee Member</a>
-  <ul class="collapse">
-  <li><a href="#the-community" id="toc-the-community" class="nav-link" data-scroll-target="#the-community">The Community</a></li>
-  <li><a href="#steering-the-course-the-committees-impact" id="toc-steering-the-course-the-committees-impact" class="nav-link" data-scroll-target="#steering-the-course-the-committees-impact">Steering the Course: The Committee’s Impact</a></li>
-  <li><a href="#committee-meetings-a-glimpse-into-our-world" id="toc-committee-meetings-a-glimpse-into-our-world" class="nav-link" data-scroll-target="#committee-meetings-a-glimpse-into-our-world">Committee Meetings: A Glimpse into Our World</a></li>
-  <li><a href="#driving-positive-change" id="toc-driving-positive-change" class="nav-link" data-scroll-target="#driving-positive-change">Driving Positive Change</a></li>
-  <li><a href="#contributions-welcome" id="toc-contributions-welcome" class="nav-link" data-scroll-target="#contributions-welcome">Contributions Welcome</a></li>
-  <li><a href="#join-the-conversation" id="toc-join-the-conversation" class="nav-link" data-scroll-target="#join-the-conversation">Join the Conversation</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -196,43 +197,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member" class="level1">
-<h1>Navigating the Data-Driven Frontier: Insights from an NHS-R Committee Member</h1>
-<p>Greetings, esteemed members of the NHS-R Community, data enthusiasts, and healthcare aficionados! It is with great excitement that I share my recent journey as a committee member with the NHS-R Community, a vibrant hub dedicated to championing the use of R and data science tools in the UK health and care system.</p>
-<section id="the-community" class="level2">
-<h2 class="anchored" data-anchor-id="the-community">The Community</h2>
-<p>Established in 2018, the NHS-R Community has rapidly evolved into a dynamic collective of professionals from diverse backgrounds. Our community encompasses members from public sector organizations, including Local Authorities and Civil Service, academia, and the voluntary sector. We are united by a shared passion for advancing healthcare through the transformative power of data. While our core language is R, we are equally enthusiastic about embracing a broad spectrum of data science tools, recognizing their integral role in shaping the future of healthcare analytics.</p>
-</section>
-<section id="steering-the-course-the-committees-impact" class="level2">
-<h2 class="anchored" data-anchor-id="steering-the-course-the-committees-impact">Steering the Course: The Committee’s Impact</h2>
-<p>As a committee member, my role involves active participation in shaping the community’s approach, focus, and overall strategy. We meet regularly to deliberate on initiatives, conferences, and the overarching direction for the community. The committee serves as a crucial forum for collective decision-making, ensuring that our initiatives align with the evolving needs of the community and contribute to positive change.</p>
-</section>
-<section id="committee-meetings-a-glimpse-into-our-world" class="level2">
-<h2 class="anchored" data-anchor-id="committee-meetings-a-glimpse-into-our-world">Committee Meetings: A Glimpse into Our World</h2>
-<p>Our meetings are a lively exchange of ideas, experiences, and visions for the future. Whether we’re brainstorming innovative projects, refining strategies, or planning impactful conferences, each committee member brings a unique perspective to the table. The collaborative spirit is palpable as we navigate the dynamic landscape of data science in healthcare.</p>
-</section>
-<section id="driving-positive-change" class="level2">
-<h2 class="anchored" data-anchor-id="driving-positive-change">Driving Positive Change</h2>
-<p>Being part of the committee means playing a pivotal role in fostering collaboration and steering the community toward meaningful outcomes. We celebrate diversity in thought and expertise, recognizing that it is the key to unlocking the full potential of data science in healthcare.</p>
-</section>
-<section id="contributions-welcome" class="level2">
-<h2 class="anchored" data-anchor-id="contributions-welcome">Contributions Welcome</h2>
-<p>One of the hallmarks of our community is the open invitation for contributions. Our GitHub repository: <a href="https://github.com/nhs-r-community">NHS-R Community</a> hosts a wealth of resources, including packages and training materials, and we wholeheartedly welcome contributions from community members. It’s an empowering experience to witness the collective impact of our shared knowledge and skills.</p>
-</section>
-<section id="join-the-conversation" class="level2">
-<h2 class="anchored" data-anchor-id="join-the-conversation">Join the Conversation</h2>
-<p>If you’re passionate about data science, healthcare, and making a positive impact, the NHS-R Community is the place to be. Whether you’re an R enthusiast, a data science wizard, or a healthcare professional with an interest in analytics, there’s a place for you in our diverse and welcoming community.</p>
-<p>As I continue my journey as a committee member, I’m excited about the endless possibilities that lie ahead. Together, we’re shaping the future of healthcare analytics, one R script at a time.</p>
-<p>Stay tuned for more updates from the NHS-R Community, where data meets healthcare, and innovation knows no bounds. See you in the data-driven frontier!</p>
+<!-- Image by <a href="https://pixabay.com/users/congerdesign-509903/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3964050">congerdesign</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3964050">Pixabay</a> -->
 
 
-</section>
-</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-khairnar2019" class="csl-entry quarto-appendix-citeas" role="listitem">
-Khairnar, Prajwal. 2019. <span>“Navigating the Data-Driven Frontier:
-Insights from an NHS-R Committee Member.”</span> July 16, 2019.
-</div></div></section></div></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

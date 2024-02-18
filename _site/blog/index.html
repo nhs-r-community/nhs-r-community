@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Blogs are submitted from NHS-R Community members.  Subscribe via RSS">
 
-<title>advertising-policy</title>
+<title>Blogs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,6 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -71,18 +74,77 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-categories','listing-date','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+<link rel="stylesheet" href="../assets/listing-default.css">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="index.qmd" class="navbar-brand navbar-brand-logo">
+    <a href="../blog/index.html" class="navbar-brand navbar-brand-logo">
     <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo">
     </a>
   </div>
@@ -109,6 +171,10 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Books</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link active" href="../blog/index.html" aria-current="page"> 
+<span class="menu-text">Blogs</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact us</span></a>
   </li>  
@@ -122,65 +188,119 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
+
+<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
+<!--
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+-->
+<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
+<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
+<header id="title-block-header" class="quarto-title-block default page-columns">
+<div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
+<h1 class="title">Blogs</h1>
+</div>
+
+<div>
+  <div id="title-block-title-desc" class="description pt-4">
+    <p>Blogs are submitted from NHS-R Community members.<br> <a href="..\blog/index.xml">Subscribe via RSS</a></p>
+  </div>
+</div>
+
+
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+
+</header>
+
+
+<!-- Image by <a href="https://pixabay.com/users/andrys-439428/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=447577">Andrys Stienstra</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=447577">Pixabay</a> -->
 
 
 
 
-<p>Advertising policy</p>
-<p>Purpose of the Policy</p>
-<p>In order to enhance, vary or reduce the cost of NHS R Community activities, the NHS R Community may provide opportunities for third parties (eg NHS organisations, private sector, voluntary sector) to advertise content via the NHS-R Community. Such content may be et gratis or sold for a fee to generate income for the NHS-R Community.</p>
-<p>Objectives and Coverage of the Policy</p>
-<p>The Advertising Policy outlines the principles and procedures for accepting and granting of advertising proposals. The Policy is concerned with:</p>
-<p>Assessing and managing risk;</p>
-<p>Accountability and transparency of decision making;</p>
-<p>Financial management and benefits.</p>
-<p>What is Advertising?</p>
-<p>Advertising&nbsp;implies that a payment has been made to place an&nbsp;ad&nbsp;with specific messaging in place. The NHS-R Community may sell advertising space to generate additional income (e.g.&nbsp;website, external and internal poster sites and adverts in magazines).</p>
-<p>Principles</p>
-<p>All advertising agreements will be in the form of a written agreement and comply with principles and procedures outlined in this policy which are based on guidance from NHS England. It is important that advertising must not damage the good reputation of the NHS or the NHS- R Community or the value of the NHS/NHS-R brand. The source of the advertising material must be clearly stated. The NHS-R Community may offer advertising for free where this is deemed appropriate. Any advertising should:</p>
-<p>be suitable for the target audience</p>
-<p>meet public expectations of the NHS/NHS-R brand and support the&nbsp;principles and values&nbsp;underpinning the NHS Identity</p>
-<p>not bring the NHS/NHS-R Community into disrepute</p>
-<p>not give rise to doubts about the integrity, independence or impartiality of the NHS/NHS-R Community</p>
-<p>follow applicable laws and industry codes of practice.</p>
-<p>All advertising must be distinct from editorial content so that it is clear to the audience that it is a commercial message. Advertising must not include any endorsement by the NHS or NHS-R Community.</p>
-<p>The following categories of advertising are prohibited:</p>
-<p>advertising for faith, religion and equivalent systems of belief</p>
-<p>advertising for adult products and services</p>
-<p>advertising for tobacco products</p>
-<p>advertising for weapons and gun clubs</p>
-<p>political or lobby group advertising</p>
-<p>any advertisements that relate to a controversial health issue or public policy (e.g.&nbsp;foods with a high sugar content).</p>
-<p>Advertising the undermines the aims and objectives of the NHS-R Community</p>
-<p>Advertising must not be misleading, harmful or offensive. It must not contain anything that is likely to result in physical, mental or moral harm, contain profane language or seek to exploit children’s credulity, loyalty, vulnerability or lack of experience.</p>
-<p>Risk Assessment</p>
-<p>Each proposal for advertising must be subject to a risk assessment against the above criteria. &nbsp;If the assessment concludes the risks are unacceptably high or the NHS R Community is receiving minimal value from the proposal, the NHS R Community should discontinue consideration of the advertising proposal at this stage.</p>
-<p>Agreements</p>
-<p>The NHS R Community’s approved form of Advertising Agreement shall be used in all circumstances wherever possible. However, it is acknowledged there may be circumstances in which the third party may require its own form of agreement to be used. Notwithstanding this, every sponsorship agreement will require a written agreement incorporating conditions of contract which clearly set out.</p>
-<p>Transparency</p>
-<p>All Advertising Agreements are to be listed in the NHS R Community’s Annual Report</p>
-<p>Approval of Agreements</p>
-<p>All advertising shall be approved by the Director of the NHS R Community in consultation with members of the TAG.</p>
-<p>It is recommended that all parties interested in advertising to or via the NHS-R Community are referred to this policy.</p>
-<p>Access to Policy</p>
-<p>The Advertising Policy is to be placed on the NHS R Community’s website.</p>
-<p>Disclaimer</p>
-<p>Acceptance of advertising or sponsorship does not imply any endorsement of the sponsor’s products or services by the NHS-R Community</p>
-<p>Conflict of Interest</p>
-<p>Board members are required to declare in advance if they have any personal interests, involvement or potential conflict of interest with any potential sponsor. In the event of a potential conflict of interest, member will take no part in the consideration of sponsorship with that particular NHS R Community.</p>
-<p>Policy Review</p>
-<p>This policy is subject to continuous review and will be reviewed on an annual basis.</p>
-<p>Date agreed: 9th February 2021</p>
-
-
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Committee" data-listing-date-sort="1707177600000" data-listing-file-modified-sort="1708295506467" data-listing-date-modified-sort="1708732800000" data-listing-reading-time-sort="3" data-listing-word-count-sort="466">
+<div class="thumbnail">
+<p><a href="../blog/20240206_nhsr_committee_experience.html" class="no-external"></a></p><a href="../blog/20240206_nhsr_committee_experience.html" class="no-external">
+<p><img src="../blog/img/startup.jpg" class="thumbnail-image" alt="Photo of a meeting with a laptop, pad and paper and a coffee mug."></p>
+</a><p><a href="../blog/20240206_nhsr_committee_experience.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../blog/20240206_nhsr_committee_experience.html" class="no-external">Navigating the Data-Driven Frontier: Insights from an NHS-R Committee Member</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../blog/20240206_nhsr_committee_experience.html" class="no-external">‘It is with great excitement that I share my recent journey as a committee member with the NHS-R Community, a vibrant hub dedicated to championing the use of R and data science tools in the UK health and care system.’ </a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Committee'); return false;">
+Committee
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="../blog/20240206_nhsr_committee_experience.html" class="no-external">
+<div class="listing-date">
+Feb 6, 2024
+</div>
+<div class="listing-author">
+Prajwal Khairnar
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Function" data-listing-date-sort="1563231600000" data-listing-file-modified-sort="1708295557988" data-listing-date-modified-sort="1708128000000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1212">
+<div class="thumbnail">
+<p><a href="../blog/20190716_count_of_working_days.html" class="no-external"></a></p><a href="../blog/20190716_count_of_working_days.html" class="no-external">
+<p><img src="../blog/img/travelcard.jpg" class="thumbnail-image" alt="A London rail travel ticket"></p>
+</a><p><a href="../blog/20190716_count_of_working_days.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../blog/20190716_count_of_working_days.html" class="no-external">Count of working days function</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../blog/20190716_count_of_working_days.html" class="no-external">Creating a function to work out the number of working days a seasonal bus ticket can be used. </a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Function'); return false;">
+Function
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="../blog/20190716_count_of_working_days.html" class="no-external">
+<div class="listing-date">
+Jul 16, 2019
+</div>
+<div class="listing-author">
+Zoë Turner
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

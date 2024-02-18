@@ -25,13 +25,22 @@ about:
       href: https://www.linkedin.com/in/nhs-r-community-2555a6282/
 
 listing:
-  - id: latest-content
+  - id: books
     contents: 
     - /books
-    - /ideas
-    - /careers
-    - /viewpoints
-    - "!index.qmd"
+    - "!books/index.qmd"
+    sort: "title"
+    type: grid
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    max-items: 3
+    feed: false
+
+  - id: blog
+    contents: 
+    - /blog
+    - "!blog/index.qmd"
     sort: "date desc"
     type: grid
     categories: false
@@ -63,3 +72,17 @@ so that we can help improve our health and social care system using open-source 
 
 :::
 :::
+
+::: {.content-container}
+::: {.listing-block}
+<a href="blog/index.qmd">
+
+## Blog
+</a> 
+
+::: {#blog}
+:::
+
+:::
+:::
+
