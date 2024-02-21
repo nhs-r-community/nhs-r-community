@@ -1,0 +1,79 @@
+---
+title: 'Importing and exporting Data'
+date: "15 May 2018"
+date-modified: '21 February 2024'
+categories:
+  - R tips
+author: S Zeki
+subtitle: >
+  'There are a large number of file types that are able to store data. R is usually able to import most of them but there are some caveats.'
+code-annotations: below
+execute: 
+  eval: false
+---
+
+This blog originally appeared in [http://gastrodatascience.com](http://gastrodatascience.com)
+
+There are a large number of file types that are able to store data. R is usually able to import most of them but there are some caveats. Below is a summary of methods I use for data imports using the most common file types.
+
+It is worth saying that most datasets will come from excel or csv files. It is unusual to gain direct access to the database and these are the normal export types from most data storage systems.
+
+## Import csv or text
+
+```{r}
+read.table("mydata.txt",header=T,stringsAsFActors=F) 
+
+#or, and using tab as a delimiter:
+
+read_delim("SomeText.txt", "\t",trim_ws = TRUE)
+
+#Maybe get a csv off the internet:
+tbl <- read.csv("http://www.example.com/download/data.csv")
+```
+
+To prevent strings being imported as factors, add the parameter stringsAsFActors=F
+
+## Import from excel
+
+```{r}
+library(XLConnect)
+wk = loadWorkbook("~Mydata.xlsx")
+dfw = readWorksheet(wk, sheet="Sheet3",header=TRUE)
+
+#Alternative and super friendly way
+#For excel imports using readxl package:
+library(readxl)
+read_excel("~Mydata.xlsx")
+```
+
+## Import from database
+
+```{r}
+library(RODBC)
+channel <- odbcConnect("MyDatabase", believeNRows=FALSE)
+#Get one of the tables
+tbl_PatientDetails<-sqlFetch(channel, "tblPtDetails")
+```
+
+## Export to excel
+
+```{r}
+library(XLConnect)
+exc <- loadWorkbook("~Mydata.xls", create = TRUE)
+createSheet(exc,'Input')
+saveWorkbook(exc)
+XLConnect::writeWorksheet(exc,mydata,sheet = "Input", startRow = 1, startCol = 2)
+
+#Another way is:
+library(xlsx)
+write.xlsx(mydata, "c:/mydata.xlsx")
+```
+
+## Export to csv or a tab delimited file
+
+```{r}
+ write.csv(mydata, file="filename", row.names=FALSE)
+ write.table(mydata, "c:/mydata.txt", sep="\t")
+```
+
+There are also many other file types that can be imported and exported but these are the most common so the most practical.

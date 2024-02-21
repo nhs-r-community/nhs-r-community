@@ -1,0 +1,15 @@
+{
+  "hash": "7f945876024c47c7de4d701d8ad83c81",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: 'Importing and exporting Data'\ndate: \"15 May 2018\"\ndate-modified: '21 February 2024'\ncategories:\n  - R tips\nauthor: S Zeki\nsubtitle: >\n  'There are a large number of file types that are able to store data. R is usually able to import most of them but there are some caveats.'\ncode-annotations: below\nexecute: \n  eval: false\n---\n\n\nThis blog originally appeared in [http://gastrodatascience.com](http://gastrodatascience.com)\n\nThere are a large number of file types that are able to store data. R is usually able to import most of them but there are some caveats. Below is a summary of methods I use for data imports using the most common file types.\n\nIt is worth saying that most datasets will come from excel or csv files. It is unusual to gain direct access to the database and these are the normal export types from most data storage systems.\n\n## Import csv or text\n\n\n::: {.cell}\n\n```{.r .cell-code}\nread.table(\"mydata.txt\",header=T,stringsAsFActors=F) \n\n#or, and using tab as a delimiter:\n\nread_delim(\"SomeText.txt\", \"\\t\",trim_ws = TRUE)\n\n#Maybe get a csv off the internet:\ntbl <- read.csv(\"http://www.example.com/download/data.csv\")\n```\n:::\n\n\nTo prevent strings being imported as factors, add the parameter stringsAsFActors=F\n\n## Import from excel\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(XLConnect)\nwk = loadWorkbook(\"~Mydata.xlsx\")\ndfw = readWorksheet(wk, sheet=\"Sheet3\",header=TRUE)\n\n#Alternative and super friendly way\n#For excel imports using readxl package:\nlibrary(readxl)\nread_excel(\"~Mydata.xlsx\")\n```\n:::\n\n\n## Import from database\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(RODBC)\nchannel <- odbcConnect(\"MyDatabase\", believeNRows=FALSE)\n#Get one of the tables\ntbl_PatientDetails<-sqlFetch(channel, \"tblPtDetails\")\n```\n:::\n\n\n## Export to excel\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(XLConnect)\nexc <- loadWorkbook(\"~Mydata.xls\", create = TRUE)\ncreateSheet(exc,'Input')\nsaveWorkbook(exc)\nXLConnect::writeWorksheet(exc,mydata,sheet = \"Input\", startRow = 1, startCol = 2)\n\n#Another way is:\nlibrary(xlsx)\nwrite.xlsx(mydata, \"c:/mydata.xlsx\")\n```\n:::\n\n\n## Export to csv or a tab delimited file\n\n\n::: {.cell}\n\n```{.r .cell-code}\n write.csv(mydata, file=\"filename\", row.names=FALSE)\n write.table(mydata, \"c:/mydata.txt\", sep=\"\\t\")\n```\n:::\n\n\n\nThere are also many other file types that can be imported and exported but these are the most common so the most practical.",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

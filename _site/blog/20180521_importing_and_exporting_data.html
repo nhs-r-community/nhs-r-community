@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.549">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Books | Made in Quarto</title>
+<meta name="author" content="S Zeki">
+<meta name="dcterms.date" content="2018-05-15">
+<title>Importing and exporting Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,8 +19,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
@@ -31,8 +63,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg" rel="icon" type="image/svg+xml">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -45,8 +75,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -73,79 +102,14 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-<link rel="stylesheet" href="../assets/listing-default.css">
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../books/index.html" class="navbar-brand navbar-brand-logo">
-    <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo">
-    </a>
+    <a href="../blog/index.html" class="navbar-brand navbar-brand-logo">
+    <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo"></a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -153,7 +117,7 @@ window.Quarto = {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
@@ -166,7 +130,7 @@ window.Quarto = {
 <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../books/index.html" aria-current="page"> 
+    <a class="nav-link" href="../books/index.html"> 
 <span class="menu-text">Books</span></a>
   </li>  
   <li class="nav-item">
@@ -178,26 +142,45 @@ window.Quarto = {
 <span class="menu-text">Contact us</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
     <a href="https://github.com/nhs-r-community" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns">
-<div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
-<h1 class="title">Books</h1>
-</div>
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns"><div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
+<h1 class="title">Importing and exporting Data</h1>
+<p class="subtitle lead"></p>
+<p>‘There are a large number of file types that are able to store data. R is usually able to import most of them but there are some caveats.’</p>
+    <div class="quarto-categories">
+        <div class="quarto-category">R tips</div>
+      </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>S Zeki </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 15, 2018</p>
+    </div>
+  </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">February 21, 2024</p>
+    </div>
+  </div>
     
   </div>
   
@@ -208,226 +191,77 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="code-of-conduct">code-of-conduct <span class="quarto-category-count">(1)</span></div><div class="category" data-category="data-science">data-science <span class="quarto-category-count">(3)</span></div><div class="category" data-category="getting-started">getting-started <span class="quarto-category-count">(1)</span></div><div class="category" data-category="health-inequalities">health-inequalities <span class="quarto-category-count">(1)</span></div><div class="category" data-category="installation">installation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="links">links <span class="quarto-category-count">(1)</span></div><div class="category" data-category="training">training <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#import-csv-or-text" id="toc-import-csv-or-text" class="nav-link active" data-scroll-target="#import-csv-or-text">Import csv or text</a></li>
+  <li><a href="#import-from-excel" id="toc-import-from-excel" class="nav-link" data-scroll-target="#import-from-excel">Import from excel</a></li>
+  <li><a href="#import-from-database" id="toc-import-from-database" class="nav-link" data-scroll-target="#import-from-database">Import from database</a></li>
+  <li><a href="#export-to-excel" id="toc-export-to-excel" class="nav-link" data-scroll-target="#export-to-excel">Export to excel</a></li>
+  <li><a href="#export-to-csv-or-a-tab-delimited-file" id="toc-export-to-csv-or-a-tab-delimited-file" class="nav-link" data-scroll-target="#export-to-csv-or-a-tab-delimited-file">Export to csv or a tab delimited file</a></li>
+  </ul></nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
-
-<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
-<!--
+<main class="content quarto-banner-title-block" id="quarto-document-content"><!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html --><!--
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
--->
-<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
-<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
+--><!-- <header id="title-block-header" class="quarto-title-block default page-columns"> --><!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> --><p>This blog originally appeared in <a href="http://gastrodatascience.com">http://gastrodatascience.com</a></p>
+<p>There are a large number of file types that are able to store data. R is usually able to import most of them but there are some caveats. Below is a summary of methods I use for data imports using the most common file types.</p>
+<p>It is worth saying that most datasets will come from excel or csv files. It is unusual to gain direct access to the database and these are the normal export types from most data storage systems.</p>
+<section id="import-csv-or-text" class="level2"><h2 class="anchored" data-anchor-id="import-csv-or-text">Import csv or text</h2>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="st">"mydata.txt"</span>,header<span class="op">=</span><span class="cn">T</span>,stringsAsFActors<span class="op">=</span><span class="cn">F</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co">#or, and using tab as a delimiter:</span></span>
+<span></span>
+<span><span class="fu">read_delim</span><span class="op">(</span><span class="st">"SomeText.txt"</span>, <span class="st">"\t"</span>,trim_ws <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#Maybe get a csv off the internet:</span></span>
+<span><span class="va">tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"http://www.example.com/download/data.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To prevent strings being imported as factors, add the parameter stringsAsFActors=F</p>
+</section><section id="import-from-excel" class="level2"><h2 class="anchored" data-anchor-id="import-from-excel">Import from excel</h2>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mirai-solutions.ch">XLConnect</a></span><span class="op">)</span></span>
+<span><span class="va">wk</span> <span class="op">=</span> <span class="fu">loadWorkbook</span><span class="op">(</span><span class="st">"~Mydata.xlsx"</span><span class="op">)</span></span>
+<span><span class="va">dfw</span> <span class="op">=</span> <span class="fu">readWorksheet</span><span class="op">(</span><span class="va">wk</span>, sheet<span class="op">=</span><span class="st">"Sheet3"</span>,header<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#Alternative and super friendly way</span></span>
+<span><span class="co">#For excel imports using readxl package:</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"~Mydata.xlsx"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="import-from-database" class="level2"><h2 class="anchored" data-anchor-id="import-from-database">Import from database</h2>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">RODBC</span><span class="op">)</span></span>
+<span><span class="va">channel</span> <span class="op">&lt;-</span> <span class="fu">odbcConnect</span><span class="op">(</span><span class="st">"MyDatabase"</span>, believeNRows<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="co">#Get one of the tables</span></span>
+<span><span class="va">tbl_PatientDetails</span><span class="op">&lt;-</span><span class="fu">sqlFetch</span><span class="op">(</span><span class="va">channel</span>, <span class="st">"tblPtDetails"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="export-to-excel" class="level2"><h2 class="anchored" data-anchor-id="export-to-excel">Export to excel</h2>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mirai-solutions.ch">XLConnect</a></span><span class="op">)</span></span>
+<span><span class="va">exc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/xlsx/man/Workbook.html">loadWorkbook</a></span><span class="op">(</span><span class="st">"~Mydata.xls"</span>, create <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/xlsx/man/Sheet.html">createSheet</a></span><span class="op">(</span><span class="va">exc</span>,<span class="st">'Input'</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/xlsx/man/Workbook.html">saveWorkbook</a></span><span class="op">(</span><span class="va">exc</span><span class="op">)</span></span>
+<span><span class="fu">XLConnect</span><span class="fu">::</span><span class="fu">writeWorksheet</span><span class="op">(</span><span class="va">exc</span>,<span class="va">mydata</span>,sheet <span class="op">=</span> <span class="st">"Input"</span>, startRow <span class="op">=</span> <span class="fl">1</span>, startCol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#Another way is:</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/colearendt/xlsx">xlsx</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/xlsx/man/write.xlsx.html">write.xlsx</a></span><span class="op">(</span><span class="va">mydata</span>, <span class="st">"c:/mydata.xlsx"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="export-to-csv-or-a-tab-delimited-file" class="level2"><h2 class="anchored" data-anchor-id="export-to-csv-or-a-tab-delimited-file">Export to csv or a tab delimited file</h2>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span> <span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">mydata</span>, file<span class="op">=</span><span class="st">"filename"</span>, row.names<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span> <span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">mydata</span>, <span class="st">"c:/mydata.txt"</span>, sep<span class="op">=</span><span class="st">"\t"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>There are also many other file types that can be imported and exported but these are the most common so the most practical.</p>
 
 
-
-<!-- Image by <a href="https://pixabay.com/users/sophkins-1403770/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2390136">Sofia Iivarinen</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2390136">Pixabay</a> -->
-
-
-
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="code-of-conduct,training" data-listing-file-modified-sort="1708295893414" data-listing-reading-time-sort="1" data-listing-word-count-sort="10">
-<a href="../books/posts/NHSR-way/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../books/posts/NHSR-way/book-image.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of an open book with glasses on it next to a tea cup with a flower design on a wooden tray. Next to the tray is a white pottery jug with purple small flowers and leaves.">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-NHS-R Way book
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('code-of-conduct'); return false;">
-code-of-conduct
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('training'); return false;">
-training
-</div>
-</div>
-<div class="card-text listing-description">
-<p>Everything you need or want to know about NHS-R Community including: how to contribute and get involved, code styles, training preparation materials.</p>
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="data-science,installation,getting-started" data-listing-file-modified-sort="1708295893419" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="../books/posts/statement-on-tools/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../books/posts/statement-on-tools/book-image.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of four open books laid out on top of each other.">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Statement on Tools
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('data-science'); return false;">
-data-science
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('installation'); return false;">
-installation
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('getting-started'); return false;">
-getting-started
-</div>
-</div>
-<div class="card-text listing-description">
-In this book we’ve compiled a set of technical resources, links and write down our experiences of using open data science programs like R and Python within the NHS and…
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="data-science,health-inequalities" data-listing-file-modified-sort="1708295893412" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="../books/posts/health-inequalities/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../books/posts/health-inequalities/book-image.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of an open book sat upon grass.">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Health Inequalities
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('data-science'); return false;">
-data-science
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('health-inequalities'); return false;">
-health-inequalities
-</div>
-</div>
-<div class="card-text listing-description">
-This project is a collection of information and knowledge related to analytical work on “Health Inequalities”, as performed in the NHS and the wider UK Health and Social…
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="data-science,analysis,links,training" data-listing-file-modified-sort="1708295893417" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="../books/posts/open-analytics-resources/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../books/posts/open-analytics-resources/book-image.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of an antique book, closed with white flowers resting on top.">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Open Analytics Resources
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('data-science'); return false;">
-data-science
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('analysis'); return false;">
-analysis
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('links'); return false;">
-links
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('training'); return false;">
-training
-</div>
-</div>
-<div class="card-text listing-description">
-<p>Useful links for health and care analysts and data scientists.</p>
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1708204805098">
-<a href="../books\posts\NHSR-way\book-image.jpg" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<div class="card-text listing-description">
-
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1708204805098">
-<a href="../books\posts\health-inequalities\book-image.jpg" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<div class="card-text listing-description">
-
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1708204805114">
-<a href="../books\posts\open-analytics-resources\book-image.jpg" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<div class="card-text listing-description">
-
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1708204805114">
-<a href="../books\posts\statement-on-tools\book-image.jpg" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<div class="card-text listing-description">
-
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-zeki2018" class="csl-entry quarto-appendix-citeas" role="listitem">
+Zeki, S. 2018. <span>“Importing and Exporting Data.”</span> May 15,
+2018.
+</div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -959,8 +793,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>© 2024 NHS-R Community ∙ Made with <a href="https://quarto.org/"><img src="https://quarto.org/quarto.png" class="img-fluid" alt="Quarto logo blue round cirle with a cross within the circumference" width="65"></a></p>
 </div>   
@@ -969,7 +802,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
-    <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../accessibility.html">
 <p>Accessibility</p>
 </a>
@@ -991,11 +824,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </a>
   </li>  
 </ul>
-    </div>
+</div>
   </div>
 </footer>
-
-
 
 
 </body></html>
