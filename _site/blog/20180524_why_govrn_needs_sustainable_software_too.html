@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Blogs are submitted from NHS-R Community members.  Subscribe via RSS">
+<meta name="author" content="Matthew Upson">
+<meta name="dcterms.date" content="2018-05-24">
 
-<title>Blogs</title>
+<title>Why Government needs sustainable software too</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,8 +33,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg" rel="icon" type="image/svg+xml">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,74 +73,14 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-categories','listing-date','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      page: 5,
-    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-<link rel="stylesheet" href="../assets/listing-default.css">
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -172,7 +111,7 @@ window.Quarto = {
 <span class="menu-text">Books</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../blog/index.html" aria-current="page"> 
+    <a class="nav-link" href="../blog/index.html"> 
 <span class="menu-text">Blogs</span></a>
   </li>  
   <li class="nav-item">
@@ -189,14 +128,74 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns">
+<div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
+<h1 class="title">Why Government needs sustainable software too</h1>
+<p class="subtitle lead"></p><p>“In this blog post I want to talk about why Government needs sustainable software, the work being done to deliver it, and the lessons we learnt after the first year.”</p><p></p>
+    <div class="quarto-categories">
+        <div class="quarto-category">Software</div>
+      </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Matthew Upson </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 24, 2018</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">February 21, 2024</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+
+</header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#government-produces-a-lot-of-statistics" id="toc-government-produces-a-lot-of-statistics" class="nav-link active" data-scroll-target="#government-produces-a-lot-of-statistics">Government produces a lot of statistics</a>
+  <ul class="collapse">
+  <li><a href="#why-sustainability-is-so-important-for-government" id="toc-why-sustainability-is-so-important-for-government" class="nav-link" data-scroll-target="#why-sustainability-is-so-important-for-government">Why sustainability is so important for Government</a>
+  <ul class="collapse">
+  <li><a href="#the-outputs-really-matter" id="toc-the-outputs-really-matter" class="nav-link" data-scroll-target="#the-outputs-really-matter">The outputs really matter</a></li>
+  <li><a href="#publications-are-often-produced-by-multiple-people" id="toc-publications-are-often-produced-by-multiple-people" class="nav-link" data-scroll-target="#publications-are-often-produced-by-multiple-people">Publications are often produced by multiple people</a></li>
+  <li><a href="#the-taxpayer-pays-for-it" id="toc-the-taxpayer-pays-for-it" class="nav-link" data-scroll-target="#the-taxpayer-pays-for-it">The taxpayer pays for it</a></li>
+  <li><a href="#working-towards-sustainability" id="toc-working-towards-sustainability" class="nav-link" data-scroll-target="#working-towards-sustainability">Working towards sustainability</a></li>
+  </ul></li>
+  <li><a href="#lessons-learnt" id="toc-lessons-learnt" class="nav-link" data-scroll-target="#lessons-learnt">Lessons learnt</a></li>
+  <li><a href="#reproducibility-is-technical-sustainability-is-social" id="toc-reproducibility-is-technical-sustainability-is-social" class="nav-link" data-scroll-target="#reproducibility-is-technical-sustainability-is-social">Reproducibility is technical, sustainability is social</a></li>
+  <li><a href="#senior-buy-in-is-critical" id="toc-senior-buy-in-is-critical" class="nav-link" data-scroll-target="#senior-buy-in-is-critical">Senior buy-in is critical</a></li>
+  <li><a href="#time-is-money" id="toc-time-is-money" class="nav-link" data-scroll-target="#time-is-money">Time is money</a></li>
+  <li><a href="#its-not-all-about-the-code" id="toc-its-not-all-about-the-code" class="nav-link" data-scroll-target="#its-not-all-about-the-code">It’s not all about the code</a></li>
+  <li><a href="#call-to-arms" id="toc-call-to-arms" class="nav-link" data-scroll-target="#call-to-arms">Call to arms</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 <!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
 <!--
@@ -205,313 +204,87 @@ window.Quarto = {
 -->
 <!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
 <!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
-<header id="title-block-header" class="quarto-title-block default page-columns">
-<div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
-<h1 class="title">Blogs</h1>
-</div>
-
-<div>
-  <div id="title-block-title-desc" class="description pt-4">
-    <p>Blogs are submitted from NHS-R Community members.<br> <a href="..\blog/index.xml">Subscribe via RSS</a></p>
-  </div>
-</div>
-
-
-<div class="quarto-title-meta column-page">
-
-    
-  
-    
-  </div>
-  
 
 
 
-</header>
+<p>Unlike most of the 2017/2018 cohort, when I applied to become a fellow of the Software Sustainability Institute, I was a civil servant rather than an academic. In this blog post I want to talk about why Government needs sustainable software, the work being done to deliver it, and the lessons we learnt after the first year. But Government already has sustainable software…</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/esther-vargas.png" class="img-fluid figure-img" alt="Man sat at desk with computer, laptop and tablet facing him."></p>
+<figcaption>Image by Esther Vargas</figcaption>
+</figure>
+</div>
+<p>There’s quite a bit of disambiguation that needs to be done to the statement ‘Government needs sustainable software’. In fact, Government already has sustainable software, and lots of it. One need only look at <a href="https://github.com/alphagov">alphagov</a>, the GitHub organisation for the <a href="https://gds.blog.gov.uk/">Government Digital Service</a>. Sustainable, often open source, software is alive and well here, written by professional software developers, and in many other places in central and local Government alike. But this isn’t the whole story.</p>
+<p>There are other parts of Government that write software, but like many in academia, you may have a hard time convincing them of this fact. In central Government (this is where my experience lies, so I will focus largely upon it) there are literally thousands of statisticians, operational researchers, social researchers, economists, scientists, and engineers. Any one of these may be writing code in a variety of languages in the course of their daily work, but don’t identify as software developers. It’s among these professions that there are tasks that will look most familiar to the academic researcher. Government statisticians in particular are tasked with producing periodic publications which incorporate data, visualisations, and analyses, much like academic outputs.</p>
+<p>So in this blog post, I’m really talking about bespoke software that is used to create Government statistical publications.</p>
+<section id="government-produces-a-lot-of-statistics" class="level1">
+<h1>Government produces a lot of statistics</h1>
+<p>A quick browse of <a href="https://www.gov.uk/government/statistics">GOV.UK</a> and we can see the wide range of statistics produced: there’s <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/690479/slaughter-statsnotice-15mar18.pdf">monthly statistics on cattle and pig meat production</a> from <a href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs">Department for Environment Food &amp; Rural Affairs (DEFRA)</a>; <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/685973/sarh-october-to-december-2017.pdf">search and rescue helicopter statistics</a> from the <a href="https://www.gov.uk/government/organisations/department-for-transport">Department for Transport</a> and <a href="https://www.gov.uk/government/organisations/maritime-and-coastguard-agency">Maritime Coastguard Agency</a>; and <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/471395/Op_Herrick_Aircraft_Annex_A_-_Bulletin.pdf">combat aircraft statistics in Afghanistan</a> from the <a href="https://www.gov.uk/government/organisations/ministry-of-defence">Ministry of Defence</a>.</p>
+<p>In fact, at time of writing, there are over 16,000 statistical publications published on GOV.UK, and very likely more published elsewhere. If you clicked on the links above, you will notice that there is a lot of variety among the publications that reflects the diversity of the organisations that produce them. Different departments have differing technology, different levels of technical expertise, and different aims. A publication can be produced by an automated pipeline incorporating version control and continuous integration/deployment; but much more likely it is produced with manual processes that are error prone, time consuming, and difficult to document. However it is done, these publications are increasingly being produced with code in one language or another, be it Stata, SPSS, SAS, R, or Python.</p>
+<section id="why-sustainability-is-so-important-for-government" class="level2">
+<h2 class="anchored" data-anchor-id="why-sustainability-is-so-important-for-government">Why sustainability is so important for Government</h2>
+<p>The reasons for sustainability in academic publications have been well documented by the Software Sustainability Institute, but I would argue that it is even more important that Government writes reproducible and sustainable software for its statistical publications. Here’s why:</p>
+<section id="the-outputs-really-matter" class="level3">
+<h3 class="anchored" data-anchor-id="the-outputs-really-matter">The outputs really matter</h3>
+<p>I don’t want to downplay the importance of research outputs, publishing accurate science is critical to advancing human knowledge. What is different about research is that there is rarely a single source of truth. If a research group publishes a groundbreaking finding, we all take notice; but we don’t trust the findings until they have been replicated preferably by several other groups.</p>
+<p>It’s not like that in Government. If a Government department publishes a statistic, in many cases that is the single source of truth, so it is critical that the statistics are both timely and accurate.</p>
+</section>
+<section id="publications-are-often-produced-by-multiple-people" class="level3">
+<h3 class="anchored" data-anchor-id="publications-are-often-produced-by-multiple-people">Publications are often produced by multiple people</h3>
+<p>The second way that Government statistical publications differ from academic scientific publications is that they are often produced by a team of people that is regularly changing. This means that even at the point that it is being produced it needs to be easy for another member of the team to pick up the work and run with it. If someone goes on holiday, or is sick at the critical moment, their colleagues need to be able to pick up from where they left off immediately, and understand all the idiosyncrasies perfectly. The knowledge simply cannot rest in one person’s head.</p>
+<p>More than that, since publications are often periodic (e.g.&nbsp;monthly, or annual) and analysts typically change role once a year, the work will very likely need to be handed off to someone new on a regular basis. It is essential therefore that these processes are well documented, and that the code that is being handed over works as expected.</p>
+</section>
+<section id="the-taxpayer-pays-for-it" class="level3">
+<h3 class="anchored" data-anchor-id="the-taxpayer-pays-for-it">The taxpayer pays for it</h3>
+<p>Obviously, the longer it takes a team of statisticians to produce a statistical report in Government, the more it costs to the taxpayer, and all Government departments have an interest in being efficient, and reducing unnecessary waste.</p>
+<p>Additionally, since Government statistical publications are paid for by the public, where possible Government should be open and publish its workings. Coding in the open is already an <a href="https://gds.blog.gov.uk/2017/09/04/the-benefits-of-coding-in-the-open/">important part of the culture</a> among digital professions, adopting sustainable software practices allows statistical publications to be produced with the same openness.</p>
+</section>
+<section id="working-towards-sustainability" class="level3">
+<h3 class="anchored" data-anchor-id="working-towards-sustainability">Working towards sustainability</h3>
+<p>I started working in Government as a Data Scientist after doing a PhD and post-doc in environmental science. I’d attended two <a href="https://software-carpentry.org/">Software Carpentry</a> workshops during this time, and wrote my PhD in <a href="http://www.machinegurning.com/rstats/latex-phd/">LaTeX and R</a>. On joining Government it was clear that we could apply some of these lessons to improve the reporting workflow in Government.</p>
+<p>Working with the Department for Digital, Culture, Media, and Sport (<a href="https://www.gov.uk/government/organisations/department-for-digital-culture-media-sport">DCMS</a>) we had a first attempt at implementing a reproducible workflow for a statistical publication that was being produced with manual processes using a number of spreadsheets, a statistical computing package, and a word processor. We used <a href="https://rmarkdown.rstudio.com/">RMarkdown</a> to rewrite the publication, and abstracted the logic into an <a href="https://github.com/DCMSstats/eesectors">R package</a> freely available on GitHub, complete with continuous integration from <a href="https://travis-ci.org/DCMSstats/eesectors">travis</a> and <a href="https://ci.appveyor.com/project/ivyleavedtoadflax/eesectors/branch/master">appveyor</a>.</p>
+<p>In March of 2017 we published this work in a <a href="https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/">blog post</a>, and worked hard to publicise this work with a large number of presentations and demonstrations to other Government departments. The prototype generated lots of interest; in particular an initial estimate that it could save 75% of the time taken to produce the same publication using the old methods.</p>
+<p>By November we <a href="https://dataingovernment.blog.gov.uk/2017/11/27/transforming-the-process-of-producing-official-statistics/">blogged again</a> about successful trials of this approach in two further departments: the Ministry of Justice (MoJ), the Department for Education (DfE). We also produced a <a href="https://ukgovdatascience.github.io/rap_companion/">GitBook</a> describing the various steps in more detail. Most of this is sensible software development practice; but it’s something that many Government analysts have not done before.</p>
+<p>By the end of the year, the ideas had gained enough traction in the Government statistical community, that the Director General for the Office of Statistics Regulation (the body responsible for ensuring quality among official statistics) reported that this work was his <a href="https://www.statisticsauthority.gov.uk/a-robot-by-any-name/">favourite innovation of the year</a>, although he wasn’t so keen on the name!</p>
+<p>Work continues to bring these techniques to a wider audience. There’s now a <a href="https://www.udemy.com/course/reproducible-analytical-pipelines/">free online course</a> built by one of my former <a href="https://twitter.com/mammykins_">colleagues</a> to help civil servants get started, and a number of departments, particularly the <a href="https://github.com/moj-analytical-services">MoJ</a> are making great strides to incorporate these techniques into their workflows.</p>
+</section>
+</section>
+<section id="lessons-learnt" class="level2">
+<h2 class="anchored" data-anchor-id="lessons-learnt">Lessons learnt</h2>
+<p>A year or so after we set out with the intention of bringing sustainable software to Government statisticians, here are some of the lessons that I would like to share.</p>
+</section>
+<section id="reproducibility-is-technical-sustainability-is-social" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility-is-technical-sustainability-is-social">Reproducibility is technical, sustainability is social</h2>
+<p>We called the first prototype a ‘Reproducible Analytical Pipeline’ and acronym ‘RAP’ has stuck. This is not a very good name on reflection because it belies the main difficulty in transitioning from manual workflows into something more automated: making it sustainable. It’s very well creating beautiful, abstracted, replicable data workflows, but they are completely useless if no one knows how to use them, or to update them. That situation is more dangerous than the manual workflows that exist in many places at present, because at least the barrier to entry for tortuous manual processes is lower: you don’t need to know how to program to interpret a complicated spreadsheet, you just need a lot of patience.</p>
+<p>What this move from manual to automated implies is a recognition of the need for specialists; organisations will need to recruit specialists, make use of the ones they already have, and upskill other staff. This is a challenge that all organisations will need to rise to if they are to make these new methods stick.</p>
+<p>This is likely to be less of a problem for academia, where within certain fields there is already an expectation that researchers will be able to use particular tools, and there may be more time to develop expertise away from operational pressures. However, there also exists a powerful disincentive: because journal articles are closer to ‘one off’ than a periodic report, it is less critical that researchers leave the code behind a paper in a good state, as they may never need to come back to it again.</p>
+</section>
+<section id="senior-buy-in-is-critical" class="level2">
+<h2 class="anchored" data-anchor-id="senior-buy-in-is-critical">Senior buy-in is critical</h2>
+<p>In just over a year, we went from seeing an opportunity to scaling the idea across a number of Government departments, traditionally very conservative organisations. Getting the buy-in of senior officials was absolutely critical in our ability to get the idea accepted.</p>
+<p>It’s important to realise early that senior managers are often interested in very different things to the users of the software, so messages need to be targeted to gain traction with the right audience. For instance, an incentive for managers in academia might be: mitigating the risk of errors that could lead to retraction, rather than by the expectation of cost savings.</p>
+</section>
+<section id="time-is-money" class="level2">
+<h2 class="anchored" data-anchor-id="time-is-money">Time is money</h2>
+<p>One of the reasons that we managed to make a big impact quickly is because Government departments are always keen to reduce costs. If a publication takes a team of four people a few weeks to produce, the cost quickly adds up. This is a feature of Government (and indeed industry) which is not shared by academia. Yes, it matters that work is delivered on time, but in my experience researcher time is a much more elastic resource. I was much more likely to work all evening or over the weekend as a PhD student or post doctoral researcher than I was as a civil servant; it was almost an expectation. For this reason, the financial imperative seems to be a much less powerful incentive in academia.</p>
+</section>
+<section id="its-not-all-about-the-code" class="level2">
+<h2 class="anchored" data-anchor-id="its-not-all-about-the-code">It’s not all about the code</h2>
+<p>Notwithstanding my comments about sustainability, it is important to note that reproducibility does not stop with reproducible code. We also need to worry about the data, and the environment. The former is particularly difficult in a Government setting, as one department often relies on another to provide the data, meaning that there is a less clear route to source than many academics enjoy. There are important initiatives underway in Government, such as <a href="https://registers.cloudapps.digital/">GOV.UK Registers</a>, which oversees the development of canonical lists of important information critical to the running of the country. Not all data can be treated in this way, and whilst taking snapshots of data may be a blunt instrument, it works when you don’t have control of where it comes from.</p>
+</section>
+<section id="call-to-arms" class="level2">
+<h2 class="anchored" data-anchor-id="call-to-arms">Call to arms</h2>
+<p>Almost all the projects I have referred to in this blog post are open source, and available on GitHub, so follow the links above if you are interested. There’s also two presentations on the topic available as slides (<a href="https://earlconf.com/2017/downloads/london/presentations/EARL2017_-_London_-_Matthew_Upson_-_Reproducible_analysis_for_government.pdf">Earl conference 2017</a> and <a href="https://gss.civilservice.gov.uk/wp-content/uploads/2018/01/2017-11-22-RAP_GSS_Conference_w_dfe_dcms_moj.pdf">Government Statistical Service conference 2017</a>) which give more technical details on the projects.</p>
+<p>This blog is written by Matthew Upson, Data Scientist at <a href="Juro">Juro</a> and was originally posted on the <a href="https://software.ac.uk/blog/2018-05-21-why-government-needs-sustainable-software-too">Software Sustainability website</a>.</p>
 
 
-<!-- Image by <a href="https://pixabay.com/users/andrys-439428/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=447577">Andrys Stienstra</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=447577">Pixabay</a> -->
+</section>
+</section>
 
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Committee" data-listing-date-sort="1707177600000" data-listing-file-modified-sort="1708554634472" data-listing-date-modified-sort="1708128000000" data-listing-reading-time-sort="3" data-listing-word-count-sort="466">
-<div class="thumbnail">
-<p><a href="../blog/20240206_nhsr_committee_experience.html" class="no-external"></a></p><a href="../blog/20240206_nhsr_committee_experience.html" class="no-external">
-<p><img src="../blog/img/startup.jpg" class="thumbnail-image" alt="Photo of a meeting with a laptop, pad and paper and a coffee mug."></p>
-</a><p><a href="../blog/20240206_nhsr_committee_experience.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/20240206_nhsr_committee_experience.html" class="no-external">Navigating the Data-Driven Frontier: Insights from an NHS-R Committee Member</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/20240206_nhsr_committee_experience.html" class="no-external">‘It is with great excitement that I share my recent journey as a committee member with the NHS-R Community, a vibrant hub dedicated to championing the use of R and data science tools in the UK health and care system.’ </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Committee'); return false;">
-Committee
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/20240206_nhsr_committee_experience.html" class="no-external">
-<div class="listing-date">
-Feb 6, 2024
-</div>
-<div class="listing-author">
-Prajwal Khairnar
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Function" data-listing-date-sort="1563231600000" data-listing-file-modified-sort="1708295893393" data-listing-date-modified-sort="1708128000000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1212">
-<div class="thumbnail">
-<p><a href="../blog/20190716_count_of_working_days.html" class="no-external"></a></p><a href="../blog/20190716_count_of_working_days.html" class="no-external">
-<p><img src="../blog/img/travelcard.jpg" class="thumbnail-image" alt="A London rail travel ticket"></p>
-</a><p><a href="../blog/20190716_count_of_working_days.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/20190716_count_of_working_days.html" class="no-external">Count of working days function</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/20190716_count_of_working_days.html" class="no-external">Creating a function to work out the number of working days a seasonal bus ticket can be used. </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Function'); return false;">
-Function
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/20190716_count_of_working_days.html" class="no-external">
-<div class="listing-date">
-Jul 16, 2019
-</div>
-<div class="listing-author">
-Zoë Turner
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Software" data-listing-date-sort="1527116400000" data-listing-file-modified-sort="1708556215183" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="10" data-listing-word-count-sort="1905">
-<div class="thumbnail">
-<p><a href="../blog/20180524_why_govrn_needs_sustainable_software_too.html" class="no-external"></a></p><a href="../blog/20180524_why_govrn_needs_sustainable_software_too.html" class="no-external">
-<p class="card-img-top"><img src="img\esther-vargas.png" alt="Man sat at desk with computer, laptop and tablet facing him."  class="thumbnail-image card-img"/></p>
-</a><p><a href="../blog/20180524_why_govrn_needs_sustainable_software_too.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/20180524_why_govrn_needs_sustainable_software_too.html" class="no-external">Why Government needs sustainable software too</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/20180524_why_govrn_needs_sustainable_software_too.html" class="no-external">“In this blog post I want to talk about why Government needs sustainable software, the work being done to deliver it, and the lessons we learnt after the first year.” </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Software'); return false;">
-Software
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/20180524_why_govrn_needs_sustainable_software_too.html" class="no-external">
-<div class="listing-date">
-May 24, 2018
-</div>
-<div class="listing-author">
-Matthew Upson
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="R tips" data-listing-date-sort="1526857200000" data-listing-file-modified-sort="1708554942961" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="129">
-<div class="thumbnail">
-<p><a href="../blog/20180521_rstudio_shortcuts.html" class="no-external"></a></p><a href="../blog/20180521_rstudio_shortcuts.html" class="no-external">
-<p class="card-img-top"><img src="letter.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../blog/20180521_rstudio_shortcuts.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/20180521_rstudio_shortcuts.html" class="no-external">R studio shortcuts</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/20180521_rstudio_shortcuts.html" class="no-external">“There is a full list of short cuts here and I have pulled together my three most used shortcuts.” </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R tips'); return false;">
-R tips
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/20180521_rstudio_shortcuts.html" class="no-external">
-<div class="listing-date">
-May 21, 2018
-</div>
-<div class="listing-author">
-Emma Vestesson
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="R tips" data-listing-date-sort="1526857200000" data-listing-file-modified-sort="1708554642126" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="405">
-<div class="thumbnail">
-<p><a href="../blog/20180521_the_operator.html" class="no-external"></a></p><a href="../blog/20180521_the_operator.html" class="no-external">
-<p class="card-img-top"><img src="letter.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../blog/20180521_the_operator.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/20180521_the_operator.html" class="no-external">The :: operator</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/20180521_the_operator.html" class="no-external">“Sometimes two packages will have a function with the same name but they will do different things.” </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R tips'); return false;">
-R tips
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/20180521_the_operator.html" class="no-external">
-<div class="listing-date">
-May 21, 2018
-</div>
-<div class="listing-author">
-Emma Vestesson
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="R tips" data-listing-date-sort="1526338800000" data-listing-file-modified-sort="1708554634472" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="196">
-<div class="thumbnail">
-<p><a href="../blog/20180521_importing_and_exporting_data.html" class="no-external"></a></p><a href="../blog/20180521_importing_and_exporting_data.html" class="no-external">
-<p class="card-img-top"><img data-src="letter.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../blog/20180521_importing_and_exporting_data.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/20180521_importing_and_exporting_data.html" class="no-external">Importing and exporting Data</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/20180521_importing_and_exporting_data.html" class="no-external">‘There are a large number of file types that are able to store data. R is usually able to import most of them but there are some caveats.’ </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R tips'); return false;">
-R tips
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/20180521_importing_and_exporting_data.html" class="no-external">
-<div class="listing-date">
-May 15, 2018
-</div>
-<div class="listing-author">
-S Zeki
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="Personal Story" data-listing-date-sort="1523228400000" data-listing-file-modified-sort="1708554634472" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="5" data-listing-word-count-sort="830">
-<div class="thumbnail">
-<p><a href="../blog/20180409_the_joy_of_r.html" class="no-external"></a></p><a href="../blog/20180409_the_joy_of_r.html" class="no-external">
-<p class="card-img-top"><img data-src="letter.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../blog/20180409_the_joy_of_r.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/20180409_the_joy_of_r.html" class="no-external">The joy of R</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/20180409_the_joy_of_r.html" class="no-external">‘Hello. My name is Julian and I am an R addict. I got hooked about 3 years ago when I took on a new role in Public Health England developing a public health data science team.’ </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Personal Story'); return false;">
-Personal Story
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/20180409_the_joy_of_r.html" class="no-external">
-<div class="listing-date">
-Apr 9, 2018
-</div>
-<div class="listing-author">
-Julian Flowers
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="Personal Story" data-listing-date-sort="1521763200000" data-listing-file-modified-sort="1708554634472" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1193">
-<div class="thumbnail">
-<p><a href="../blog/20180409_aiming_for_a_wrangle_free_world.html" class="no-external"></a></p><a href="../blog/20180409_aiming_for_a_wrangle_free_world.html" class="no-external">
-<p class="card-img-top"><img data-src="letter.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../blog/20180409_aiming_for_a_wrangle_free_world.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/20180409_aiming_for_a_wrangle_free_world.html" class="no-external">Aiming for a wrangle-free (or reduced) world</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/20180409_aiming_for_a_wrangle_free_world.html" class="no-external">‘I work as a Data Scientist at Public Health England. I am part of a small team that have a role in trying to modernise how we “do” data.’ </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Personal Story'); return false;">
-Personal Story
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/20180409_aiming_for_a_wrangle_free_world.html" class="no-external">
-<div class="listing-date">
-Mar 23, 2018
-</div>
-<div class="listing-author">
-Sebastian Fox
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-categories="NHS-R" data-listing-date-sort="1521417600000" data-listing-file-modified-sort="1708554634472" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="523">
-<div class="thumbnail">
-<p><a href="../blog/20180319_nhs_meets_r.html" class="no-external"></a></p><a href="../blog/20180319_nhs_meets_r.html" class="no-external">
-<p class="card-img-top"><img data-src="letter.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../blog/20180319_nhs_meets_r.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/20180319_nhs_meets_r.html" class="no-external">NHS meets R</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/20180319_nhs_meets_r.html" class="no-external">‘Hello and welcome to our nascent NHS-R Community; a community dedicated to promoting the learning, application and utilisation of R in the National Health Service (NHS) in the United Kingdom.’ </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('NHS-R'); return false;">
-NHS-R
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/20180319_nhs_meets_r.html" class="no-external">
-<div class="listing-date">
-Mar 19, 2018
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
-  <ul class="pagination"></ul>
-</nav>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section></div></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-upson2018" class="csl-entry quarto-appendix-citeas" role="listitem">
+Upson, Matthew. 2018. <span>“Why Government Needs Sustainable Software
+Too.”</span> May 24, 2018.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

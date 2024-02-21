@@ -1,0 +1,145 @@
+---
+title: "Why Government needs sustainable software too"
+date: "24 May 2018"
+date-modified: '21 February 2024'
+author: Matthew Upson
+categories:
+  - Software
+subtitle: >
+  "In this blog post I want to talk about why Government needs sustainable software, the work being done to deliver it, and the lessons we learnt after the first year."
+code-annotations: below
+editor: 
+  markdown: 
+    wrap: sentence
+---
+
+Unlike most of the 2017/2018 cohort, when I applied to become a fellow of the Software Sustainability Institute, I was a civil servant rather than an academic.
+In this blog post I want to talk about why Government needs sustainable software, the work being done to deliver it, and the lessons we learnt after the first year.
+But Government already has sustainable software...
+
+![Image by Esther Vargas](img/esther-vargas.png){fig-alt="Man sat at desk with computer, laptop and tablet facing him."}
+
+There's quite a bit of disambiguation that needs to be done to the statement 'Government needs sustainable software'.
+In fact, Government already has sustainable software, and lots of it.
+One need only look at [alphagov](https://github.com/alphagov), the GitHub organisation for the [Government Digital Service](https://gds.blog.gov.uk/).
+Sustainable, often open source, software is alive and well here, written by professional software developers, and in many other places in central and local Government alike.
+But this isn't the whole story.
+
+There are other parts of Government that write software, but like many in academia, you may have a hard time convincing them of this fact.
+In central Government (this is where my experience lies, so I will focus largely upon it) there are literally thousands of statisticians, operational researchers, social researchers, economists, scientists, and engineers.
+Any one of these may be writing code in a variety of languages in the course of their daily work, but don't identify as software developers.
+It's among these professions that there are tasks that will look most familiar to the academic researcher.
+Government statisticians in particular are tasked with producing periodic publications which incorporate data, visualisations, and analyses, much like academic outputs.
+
+So in this blog post, I'm really talking about bespoke software that is used to create Government statistical publications.
+
+# Government produces a lot of statistics 
+
+A quick browse of [GOV.UK](https://www.gov.uk/government/statistics) and we can see the wide range of statistics produced: there's [monthly statistics on cattle and pig meat production](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/690479/slaughter-statsnotice-15mar18.pdf) from [Department for Environment Food & Rural Affairs (DEFRA)](https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs); [search and rescue helicopter statistics](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/685973/sarh-october-to-december-2017.pdf) from the [Department for Transport](https://www.gov.uk/government/organisations/department-for-transport) and [Maritime Coastguard Agency](https://www.gov.uk/government/organisations/maritime-and-coastguard-agency); and [combat aircraft statistics in Afghanistan](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/471395/Op_Herrick_Aircraft_Annex_A_-_Bulletin.pdf) from the [Ministry of Defence](https://www.gov.uk/government/organisations/ministry-of-defence).
+
+In fact, at time of writing, there are over 16,000 statistical publications published on GOV.UK, and very likely more published elsewhere.
+If you clicked on the links above, you will notice that there is a lot of variety among the publications that reflects the diversity of the organisations that produce them.
+Different departments have differing technology, different levels of technical expertise, and different aims.
+A publication can be produced by an automated pipeline incorporating version control and continuous integration/deployment; but much more likely it is produced with manual processes that are error prone, time consuming, and difficult to document.
+However it is done, these publications are increasingly being produced with code in one language or another, be it Stata, SPSS, SAS, R, or Python.
+
+## Why sustainability is so important for Government 
+
+The reasons for sustainability in academic publications have been well documented by the Software Sustainability Institute, but I would argue that it is even more important that Government writes reproducible and sustainable software for its statistical publications.
+Here's why: 
+
+### The outputs really matter 
+
+I don't want to downplay the importance of research outputs, publishing accurate science is critical to advancing human knowledge.
+What is different about research is that there is rarely a single source of truth.
+If a research group publishes a groundbreaking finding, we all take notice; but we don't trust the findings until they have been replicated preferably by several other groups.
+
+It's not like that in Government.
+If a Government department publishes a statistic, in many cases that is the single source of truth, so it is critical that the statistics are both timely and accurate.
+
+### Publications are often produced by multiple people 
+
+The second way that Government statistical publications differ from academic scientific publications is that they are often produced by a team of people that is regularly changing.
+This means that even at the point that it is being produced it needs to be easy for another member of the team to pick up the work and run with it.
+If someone goes on holiday, or is sick at the critical moment, their colleagues need to be able to pick up from where they left off immediately, and understand all the idiosyncrasies perfectly.
+The knowledge simply cannot rest in one person's head.
+
+More than that, since publications are often periodic (e.g. monthly, or annual) and analysts typically change role once a year, the work will very likely need to be handed off to someone new on a regular basis.
+It is essential therefore that these processes are well documented, and that the code that is being handed over works as expected.
+
+### The taxpayer pays for it 
+
+Obviously, the longer it takes a team of statisticians to produce a statistical report in Government, the more it costs to the taxpayer, and all Government departments have an interest in being efficient, and reducing unnecessary waste.
+
+Additionally, since Government statistical publications are paid for by the public, where possible Government should be open and publish its workings.
+Coding in the open is already an [important part of the culture](https://gds.blog.gov.uk/2017/09/04/the-benefits-of-coding-in-the-open/) among digital professions, adopting sustainable software practices allows statistical publications to be produced with the same openness.
+
+### Working towards sustainability 
+
+I started working in Government as a Data Scientist after doing a PhD and post-doc in environmental science.
+I'd attended two [Software Carpentry](https://software-carpentry.org/) workshops during this time, and wrote my PhD in [LaTeX and R](http://www.machinegurning.com/rstats/latex-phd/).
+On joining Government it was clear that we could apply some of these lessons to improve the reporting workflow in Government.
+
+Working with the Department for Digital, Culture, Media, and Sport ([DCMS](https://www.gov.uk/government/organisations/department-for-digital-culture-media-sport)) we had a first attempt at implementing a reproducible workflow for a statistical publication that was being produced with manual processes using a number of spreadsheets, a statistical computing package, and a word processor.
+We used [RMarkdown](https://rmarkdown.rstudio.com/) to rewrite the publication, and abstracted the logic into an [R package](https://github.com/DCMSstats/eesectors) freely available on GitHub, complete with continuous integration from [travis](https://travis-ci.org/DCMSstats/eesectors) and [appveyor](https://ci.appveyor.com/project/ivyleavedtoadflax/eesectors/branch/master).
+
+In March of 2017 we published this work in a [blog post](https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/), and worked hard to publicise this work with a large number of presentations and demonstrations to other Government departments.
+The prototype generated lots of interest; in particular an initial estimate that it could save 75% of the time taken to produce the same publication using the old methods.
+
+By November we [blogged again](https://dataingovernment.blog.gov.uk/2017/11/27/transforming-the-process-of-producing-official-statistics/) about successful trials of this approach in two further departments: the Ministry of Justice (MoJ), the Department for Education (DfE).
+We also produced a [GitBook](https://ukgovdatascience.github.io/rap_companion/) describing the various steps in more detail.
+Most of this is sensible software development practice; but it's something that many Government analysts have not done before.
+
+By the end of the year, the ideas had gained enough traction in the Government statistical community, that the Director General for the Office of Statistics Regulation (the body responsible for ensuring quality among official statistics) reported that this work was his [favourite innovation of the year](https://www.statisticsauthority.gov.uk/a-robot-by-any-name/), although he wasn't so keen on the name!
+
+Work continues to bring these techniques to a wider audience.
+There's now a [free online course](https://www.udemy.com/course/reproducible-analytical-pipelines/) built by one of my former [colleagues](https://twitter.com/mammykins_) to help civil servants get started, and a number of departments, particularly the [MoJ](https://github.com/moj-analytical-services) are making great strides to incorporate these techniques into their workflows.
+
+## Lessons learnt 
+
+A year or so after we set out with the intention of bringing sustainable software to Government statisticians, here are some of the lessons that I would like to share.
+
+## Reproducibility is technical, sustainability is social 
+
+We called the first prototype a 'Reproducible Analytical Pipeline' and acronym 'RAP' has stuck.
+This is not a very good name on reflection because it belies the main difficulty in transitioning from manual workflows into something more automated: making it sustainable.
+It's very well creating beautiful, abstracted, replicable data workflows, but they are completely useless if no one knows how to use them, or to update them.
+That situation is more dangerous than the manual workflows that exist in many places at present, because at least the barrier to entry for tortuous manual processes is lower: you don't need to know how to program to interpret a complicated spreadsheet, you just need a lot of patience.
+
+What this move from manual to automated implies is a recognition of the need for specialists; organisations will need to recruit specialists, make use of the ones they already have, and upskill other staff.
+This is a challenge that all organisations will need to rise to if they are to make these new methods stick.
+
+This is likely to be less of a problem for academia, where within certain fields there is already an expectation that researchers will be able to use particular tools, and there may be more time to develop expertise away from operational pressures.
+However, there also exists a powerful disincentive: because journal articles are closer to 'one off' than a periodic report, it is less critical that researchers leave the code behind a paper in a good state, as they may never need to come back to it again.
+
+## Senior buy-in is critical 
+
+In just over a year, we went from seeing an opportunity to scaling the idea across a number of Government departments, traditionally very conservative organisations.
+Getting the buy-in of senior officials was absolutely critical in our ability to get the idea accepted.
+
+It's important to realise early that senior managers are often interested in very different things to the users of the software, so messages need to be targeted to gain traction with the right audience.
+For instance, an incentive for managers in academia might be: mitigating the risk of errors that could lead to retraction, rather than by the expectation of cost savings.
+
+## Time is money 
+
+One of the reasons that we managed to make a big impact quickly is because Government departments are always keen to reduce costs.
+If a publication takes a team of four people a few weeks to produce, the cost quickly adds up.
+This is a feature of Government (and indeed industry) which is not shared by academia.
+Yes, it matters that work is delivered on time, but in my experience researcher time is a much more elastic resource.
+I was much more likely to work all evening or over the weekend as a PhD student or post doctoral researcher than I was as a civil servant; it was almost an expectation.
+For this reason, the financial imperative seems to be a much less powerful incentive in academia.
+
+## It's not all about the code 
+
+Notwithstanding my comments about sustainability, it is important to note that reproducibility does not stop with reproducible code.
+We also need to worry about the data, and the environment.
+The former is particularly difficult in a Government setting, as one department often relies on another to provide the data, meaning that there is a less clear route to source than many academics enjoy.
+There are important initiatives underway in Government, such as [GOV.UK Registers](https://registers.cloudapps.digital/), which oversees the development of canonical lists of important information critical to the running of the country.
+Not all data can be treated in this way, and whilst taking snapshots of data may be a blunt instrument, it works when you don't have control of where it comes from.
+
+## Call to arms 
+
+Almost all the projects I have referred to in this blog post are open source, and available on GitHub, so follow the links above if you are interested.
+There's also two presentations on the topic available as slides ([Earl conference 2017](https://earlconf.com/2017/downloads/london/presentations/EARL2017_-_London_-_Matthew_Upson_-_Reproducible_analysis_for_government.pdf) and [Government Statistical Service conference 2017](https://gss.civilservice.gov.uk/wp-content/uploads/2018/01/2017-11-22-RAP_GSS_Conference_w_dfe_dcms_moj.pdf)) which give more technical details on the projects.
+
+This blog is written by Matthew Upson, Data Scientist at [Juro](Juro) and was originally posted on the [Software Sustainability website](https://software.ac.uk/blog/2018-05-21-why-government-needs-sustainable-software-too).
