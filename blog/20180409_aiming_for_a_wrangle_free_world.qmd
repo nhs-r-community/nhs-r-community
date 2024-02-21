@@ -1,0 +1,60 @@
+---
+title: 'Aiming for a wrangle-free (or reduced) world'
+date: "23 March 2018"
+date-modified: '21 February 2024'
+categories:
+  - Personal Story
+author: Sebastian Fox
+subtitle: >
+  'I work as a Data Scientist at Public Health England. I am part of a small team that have a role in trying to modernise how we "do" data.'
+code-annotations: below
+---
+
+I work as a Data Scientist at Public Health England. I am part of a small team that have a role in trying to modernise how we "do" data. I have been an analyst in one way or another for most of my working life. In my role as an analyst, as with most analysts, my biggest focus was on the accuracy of my outputs, but I've always got frustrated very quickly with repetitive tasks, which are all too common for analytical roles. In fact, I remember when these frustrations first began. It was during my Masters when, as part of my dissertation, my supervisor asked me to draw a map using ArcMap software. I hadn't had any previous experience of the software before this moment. Instead of asking for help, which I should have done, I went away and tried to import the files I was given. What I didn't know was that I didn't have access to the correct licence to import the files I was using. I thought I was doing something wrong. I did manage to open the files in Excel though and I could see they contained coordinates. I could see that if I interpolated the coordinates of the points, I could create a file that I would be able to upload into ArcMap and it would look like what I was aiming for - the problem was that there were millions of coordinates and they were split over multiple files! This is the moment in my life where I discovered "Record Macro". I managed to record a few instances of what I wanted to do, and then manipulated the recorded code to repeat the task for everything. I felt very smug going to my supervisor the following week and handing him a map with pink, yellow and red blobs illustrating height contours of a water basin. To say he wasn't impressed would be an understatement. He pulled up a map on his screen to show me what it should look like. His screen essentially showed what Google Satellite now provides us. My smugness quickly turned to self-doubt.
+
+In many ways this example is typical of my experience as an analyst. I have received data in many ways, from people or through systems and databases, but to manipulate (or wrangle, as it is commonly called now) those data to what my manager wanted to see would take a number of days. The data may contain a table for each month, where each month was a different tab in a spreadsheet. If I was lucky each tab would be formatted identically, but more often than not there would be different numbers of columns or rows (sigh). Sometimes, one month might (helpfully) have an extra blank row at the top or maybe some merged cells. I would sit there bringing all those data into one place thinking of myself as part of a sandwich assembly line, picking up all the raw ingredients, assembling them in the right way for somebody else to enjoy. I really wanted to enjoy it! Surely this can be done better and faster. How did analysts on detective shows instantly get the information the senior detective required at the tap of a few keys?
+
+I first used R 3 years ago. R has completely changed the way that I see data. It has formalised all my previous frustrations. It has words for things that I have thought but could never explain. It encourages data to be "done" properly. Before R I had never heard of an analytical pipeline (I realise this isn't exclusively an R thing). Everything I had done was about getting data, spending time wrangling it, analysing it and finally presenting it to someone else (for their enjoyment). R gave me R Markdown. Here I could do all of these steps in one script. There was no need for me to write a Word document to sit alongside my Excel workbook to explain where I got the data from, what tabs 2 to 7 do, and why I've hard-coded 34.84552 in cell D4. There was no need for me to write step by step instructions for how to draw a bar chart on one axis and a line chart on another within the same graph. The ability to become transparent in my workings was ideal for my lazy nature as the description is written in the code. Not only was my working transparent, it was also completely reproducible. If someone else had access to the same data as me, they could run my script and it would produce the same outputs.
+
+My biggest revelation though was being introduced to [tidy data](https://www.jstatsoft.org/article/view/v059i10). This was my game changer. I had often heard the quote that analysts spent 80% of their time manipulating data and 20% analysing it. That chimed with me. As is written in the paper referenced above:
+
+"tidy datasets are all alike but every messy dataset is messy in its own way "
+
+As the paper describes, tidy data has three features:
+
+Each variable forms a column. Each observation forms a row. Each type of observational unit forms a table.
+
+It is hard to describe or appreciate this really until you think about the dataset you're working with. Are you really struggling to get it into the format you need to make it easy to work with? The example the paper provides can be seen below:
+
+```{r}
+#| label: tidy-example
+
+library(gt)
+library(tidyr)
+library(dplyr)
+
+untidy_data <- tibble::tribble(
+  ~person, ~treatmentA, ~treatmentB,
+  "John Smith",          NA,          2L,
+  "Jane Doe",         16L,         11L,
+  "Mary Johnson",          3L,          1L
+)
+
+
+gt(untidy_data)
+
+tidy_data <- untidy_data |> 
+  pivot_longer(cols = c("treatmentA", "treatmentB"),
+               names_to = "treatment",
+               values_to = "result") |> 
+  arrange(treatment)
+
+gt(tidy_data)
+
+```
+
+Figure 1, the table on above illustrates an untidily formatted table. The table below presents the same data but in tidy format
+
+As an analyst, working with tidy data is a rare pleasure. Analytical tasks become seamless as it allows you to use the tidyverse package. Summarising data for groups within your dataset or creating models based on subgroups are an additional one or two lines of understandable code rather than 20 to 30.
+
+I look forward to a world where tidy data becomes the norm. In this world analysts will be spending 80% of their time analysing the data. We will be using data in a timely fashion, and it will be informing decision making even more than it currently does. We will be combining different datasets to create fuller pictures for the decisions we are informing. We will be learning new techniques for analysing the data rather than new techniques for manipulating them. Wrangling will become a thing of the past and most importantly, we will get to enjoy the sandwich that we've made.

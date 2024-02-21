@@ -1,0 +1,49 @@
+---
+title: 'NHS meets R'
+date: "19 March 2018"
+date-modified: '21 February 2024'
+categories:
+  - NHS-R
+subtitle: >
+  'Hello and welcome to our nascent NHS-R Community; a community dedicated to promoting the learning, application and utilisation of R in the National Health Service (NHS) in the United Kingdom.'
+code-annotations: below
+---
+
+# Welcome to the NHS-R Community – born March 2018.
+
+Hello and welcome to our nascent NHS-R Community; a community dedicated to promoting the learning, application and utilisation of R in the National Health Service (NHS) in the United Kingdom. Like any community, NHS-R relies on the vibrancy of its participants to be relevant and productive – and fun.
+
+## So why get involved?
+
+The NHS is one of the best healthcare systems in the world[1]. It was launched in 1948 with the guiding principle of being free at the point of delivery – a kind of crowd funded open-source freeware equivalent of healthcare. More than half (52%) of the public say the NHS is what makes them most proud to be British, placing it above the armed forces (47%), the Royal Family (33%), Team GB (26%) and the BBC (22%)1.
+
+The NHS in England deals with about 1 million people every 36 hours[2] and is continually generating vast amounts of data about the health and care of people[3]. This data is one of the most precious, yet under tapped, resources in the NHS. “Data is the new oil of the digital economy”[4] and drilling and mining NHS data could improve the NHS[5]. But mining these mountains of data is a colossal task.
+
+This is where R comes in. R was conceived in 1992[6] as a free open-source statistical programming environment, which is now widely used in industry[7] (Google, Microsoft, Airbnb, New York Times, Lloyds of London, etc) and academia, and is now ranked amongst the most popular (sixth as of 2017) programming languages[8]. But its use in the NHS is almost non-existent. Whilst there are several reasons for this, the absence of R at scale in the NHS, means that the NHS is unable to take advantage of the huge benefits of R, including cutting-edge visualisation and statistical tools, and a worldwide R community, which freely shares learning and resources.
+
+So, our aim is to promote the use of R in the NHS, and help to make the NHS better.
+
+To kick-start the NHS-R Community, we have developed a website [www.nhsrcommunity.com] and are offering four free workshops (3 days each, repeated in Yorkshire and Wales). Workshop (1) will be an introduction to R for healthcare analysts. Subsequent workshops will focus on the following problems:- (2) understanding and reporting hospital mortality statistics, (3) predicting urgent demand for hospital care and (4) evaluation of interventions using matched retrospective controls. Each workshop will be led by experts in both the problem domain and R, and captured electronically for wider dissemination. Registration for the workshops is now open*.
+
+However, anyone can contribute to the NHS-R Community, so why not share your experience (novice, beginner, or otherwise) of using R in the healthcare setting? Write a blog, share R tips, do an on-line R tutorial, suggest topics for ongoing development and support, and share ideas on how to embed R into the NHS.
+
+
+
+
+From the NHS-R Team [Posted: 19 March 2018]
+
+The NHS-R Community project is funded by The Health Foundation.
+
+*NB: To be eligible for the workshops you must have a working NHS email address. Places are limited.
+
+1. [https://www.newscientist.com/article/2140698-us-ranked-worst-healthcare-system-while-the-nhs-is-the-best/](https://www.newscientist.com/article/2140698-us-ranked-worst-healthcare-system-while-the-nhs-is-the-best/) Accessed 20240221
+
+1. [https://www.nhs.uk/NHSEngland/thenhs/about/Pages/overview.aspx](https://www.nhs.uk/NHSEngland/thenhs/about/Pages/overview.aspx) Accessed 20240221
+
+1. [https://www.wired.com/insights/2014/07/data-new-oil-digital-economy/](https://www.wired.com/insights/2014/07/data-new-oil-digital-economy/) Accessed 20240221
+
+1. [http://blog.revolutionanalytics.com/2017/10/updated-history-of-r.html](http://blog.revolutionanalytics.com/2017/10/updated-history-of-r.html) Accessed 20240221
+
+1. [http://makemeanalyst.com/companies-using-r/](http://makemeanalyst.com/companies-using-r/) Accessed 20240221
+
+1. [https://spectrum.ieee.org/computing/software/the-2017-top-programming-languages](https://spectrum.ieee.org/computing/software/the-2017-top-programming-languages) Accessed 20240221

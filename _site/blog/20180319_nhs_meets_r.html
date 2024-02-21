@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2018-03-19">
 
-<title>Books | Made in Quarto</title>
+<title>NHS meets R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg" rel="icon" type="image/svg+xml">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,66 +72,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-<link rel="stylesheet" href="../assets/listing-default.css">
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -143,7 +83,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../books/index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../blog/index.html" class="navbar-brand navbar-brand-logo">
     <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo">
     </a>
   </div>
@@ -166,7 +106,7 @@ window.Quarto = {
 <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../books/index.html" aria-current="page"> 
+    <a class="nav-link" href="../books/index.html"> 
 <span class="menu-text">Books</span></a>
   </li>  
   <li class="nav-item">
@@ -189,15 +129,31 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns">
 <div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
-<h1 class="title">Books</h1>
-</div>
+<h1 class="title">NHS meets R</h1>
+<p class="subtitle lead"></p><p>‘Hello and welcome to our nascent NHS-R Community; a community dedicated to promoting the learning, application and utilisation of R in the National Health Service (NHS) in the United Kingdom.’</p><p></p>
+    <div class="quarto-categories">
+        <div class="quarto-category">NHS-R</div>
+      </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 19, 2018</p>
+    </div>
+  </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">February 21, 2024</p>
+    </div>
+  </div>
     
   </div>
   
@@ -208,7 +164,17 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="code-of-conduct">code-of-conduct <span class="quarto-category-count">(1)</span></div><div class="category" data-category="data-science">data-science <span class="quarto-category-count">(3)</span></div><div class="category" data-category="getting-started">getting-started <span class="quarto-category-count">(1)</span></div><div class="category" data-category="health-inequalities">health-inequalities <span class="quarto-category-count">(1)</span></div><div class="category" data-category="installation">installation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="links">links <span class="quarto-category-count">(1)</span></div><div class="category" data-category="training">training <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#welcome-to-the-nhs-r-community-born-march-2018." id="toc-welcome-to-the-nhs-r-community-born-march-2018." class="nav-link active" data-scroll-target="#welcome-to-the-nhs-r-community-born-march-2018.">Welcome to the NHS-R Community – born March 2018.</a>
+  <ul class="collapse">
+  <li><a href="#so-why-get-involved" id="toc-so-why-get-involved" class="nav-link" data-scroll-target="#so-why-get-involved">So why get involved?</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -222,211 +188,36 @@ window.Quarto = {
 
 
 
-<!-- Image by <a href="https://pixabay.com/users/sophkins-1403770/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2390136">Sofia Iivarinen</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2390136">Pixabay</a> -->
+<section id="welcome-to-the-nhs-r-community-born-march-2018." class="level1">
+<h1>Welcome to the NHS-R Community – born March 2018.</h1>
+<p>Hello and welcome to our nascent NHS-R Community; a community dedicated to promoting the learning, application and utilisation of R in the National Health Service (NHS) in the United Kingdom. Like any community, NHS-R relies on the vibrancy of its participants to be relevant and productive – and fun.</p>
+<section id="so-why-get-involved" class="level2">
+<h2 class="anchored" data-anchor-id="so-why-get-involved">So why get involved?</h2>
+<p>The NHS is one of the best healthcare systems in the world[1]. It was launched in 1948 with the guiding principle of being free at the point of delivery – a kind of crowd funded open-source freeware equivalent of healthcare. More than half (52%) of the public say the NHS is what makes them most proud to be British, placing it above the armed forces (47%), the Royal Family (33%), Team GB (26%) and the BBC (22%)1.</p>
+<p>The NHS in England deals with about 1 million people every 36 hours[2] and is continually generating vast amounts of data about the health and care of people[3]. This data is one of the most precious, yet under tapped, resources in the NHS. “Data is the new oil of the digital economy”[4] and drilling and mining NHS data could improve the NHS[5]. But mining these mountains of data is a colossal task.</p>
+<p>This is where R comes in. R was conceived in 1992[6] as a free open-source statistical programming environment, which is now widely used in industry[7] (Google, Microsoft, Airbnb, New York Times, Lloyds of London, etc) and academia, and is now ranked amongst the most popular (sixth as of 2017) programming languages[8]. But its use in the NHS is almost non-existent. Whilst there are several reasons for this, the absence of R at scale in the NHS, means that the NHS is unable to take advantage of the huge benefits of R, including cutting-edge visualisation and statistical tools, and a worldwide R community, which freely shares learning and resources.</p>
+<p>So, our aim is to promote the use of R in the NHS, and help to make the NHS better.</p>
+<p>To kick-start the NHS-R Community, we have developed a website [www.nhsrcommunity.com] and are offering four free workshops (3 days each, repeated in Yorkshire and Wales). Workshop (1) will be an introduction to R for healthcare analysts. Subsequent workshops will focus on the following problems:- (2) understanding and reporting hospital mortality statistics, (3) predicting urgent demand for hospital care and (4) evaluation of interventions using matched retrospective controls. Each workshop will be led by experts in both the problem domain and R, and captured electronically for wider dissemination. Registration for the workshops is now open*.</p>
+<p>However, anyone can contribute to the NHS-R Community, so why not share your experience (novice, beginner, or otherwise) of using R in the healthcare setting? Write a blog, share R tips, do an on-line R tutorial, suggest topics for ongoing development and support, and share ideas on how to embed R into the NHS.</p>
+<p>From the NHS-R Team [Posted: 19 March 2018]</p>
+<p>The NHS-R Community project is funded by The Health Foundation.</p>
+<p>*NB: To be eligible for the workshops you must have a working NHS email address. Places are limited.</p>
+<ol type="1">
+<li><p><a href="https://www.newscientist.com/article/2140698-us-ranked-worst-healthcare-system-while-the-nhs-is-the-best/">https://www.newscientist.com/article/2140698-us-ranked-worst-healthcare-system-while-the-nhs-is-the-best/</a> Accessed 20240221</p></li>
+<li><p><a href="https://www.nhs.uk/NHSEngland/thenhs/about/Pages/overview.aspx">https://www.nhs.uk/NHSEngland/thenhs/about/Pages/overview.aspx</a> Accessed 20240221</p></li>
+<li><p><a href="https://www.wired.com/insights/2014/07/data-new-oil-digital-economy/">https://www.wired.com/insights/2014/07/data-new-oil-digital-economy/</a> Accessed 20240221</p></li>
+<li><p><a href="http://blog.revolutionanalytics.com/2017/10/updated-history-of-r.html">http://blog.revolutionanalytics.com/2017/10/updated-history-of-r.html</a> Accessed 20240221</p></li>
+<li><p><a href="http://makemeanalyst.com/companies-using-r/">http://makemeanalyst.com/companies-using-r/</a> Accessed 20240221</p></li>
+<li><p><a href="https://spectrum.ieee.org/computing/software/the-2017-top-programming-languages">https://spectrum.ieee.org/computing/software/the-2017-top-programming-languages</a> Accessed 20240221</p></li>
+</ol>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="code-of-conduct,training" data-listing-file-modified-sort="1708295893414" data-listing-reading-time-sort="1" data-listing-word-count-sort="10">
-<a href="../books/posts/NHSR-way/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../books/posts/NHSR-way/book-image.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of an open book with glasses on it next to a tea cup with a flower design on a wooden tray. Next to the tray is a white pottery jug with purple small flowers and leaves.">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-NHS-R Way book
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('code-of-conduct'); return false;">
-code-of-conduct
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('training'); return false;">
-training
-</div>
-</div>
-<div class="card-text listing-description">
-<p>Everything you need or want to know about NHS-R Community including: how to contribute and get involved, code styles, training preparation materials.</p>
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="data-science,installation,getting-started" data-listing-file-modified-sort="1708295893419" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="../books/posts/statement-on-tools/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../books/posts/statement-on-tools/book-image.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of four open books laid out on top of each other.">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Statement on Tools
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('data-science'); return false;">
-data-science
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('installation'); return false;">
-installation
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('getting-started'); return false;">
-getting-started
-</div>
-</div>
-<div class="card-text listing-description">
-In this book we’ve compiled a set of technical resources, links and write down our experiences of using open data science programs like R and Python within the NHS and…
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="data-science,health-inequalities" data-listing-file-modified-sort="1708295893412" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="../books/posts/health-inequalities/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../books/posts/health-inequalities/book-image.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of an open book sat upon grass.">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Health Inequalities
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('data-science'); return false;">
-data-science
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('health-inequalities'); return false;">
-health-inequalities
-</div>
-</div>
-<div class="card-text listing-description">
-This project is a collection of information and knowledge related to analytical work on “Health Inequalities”, as performed in the NHS and the wider UK Health and Social…
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="data-science,analysis,links,training" data-listing-file-modified-sort="1708295893417" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="../books/posts/open-analytics-resources/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../books/posts/open-analytics-resources/book-image.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of an antique book, closed with white flowers resting on top.">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Open Analytics Resources
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('data-science'); return false;">
-data-science
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('analysis'); return false;">
-analysis
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('links'); return false;">
-links
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('training'); return false;">
-training
-</div>
-</div>
-<div class="card-text listing-description">
-<p>Useful links for health and care analysts and data scientists.</p>
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1708204805098">
-<a href="../books\posts\NHSR-way\book-image.jpg" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<div class="card-text listing-description">
-
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1708204805098">
-<a href="../books\posts\health-inequalities\book-image.jpg" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<div class="card-text listing-description">
-
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1708204805114">
-<a href="../books\posts\open-analytics-resources\book-image.jpg" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<div class="card-text listing-description">
-
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1708204805114">
-<a href="../books\posts\statement-on-tools\book-image.jpg" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<div class="card-text listing-description">
-
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-2018" class="csl-entry quarto-appendix-citeas" role="listitem">
+<span>“NHS Meets R.”</span> 2018. March 19, 2018.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -2,7 +2,7 @@
 title: 'Navigating the Data-Driven Frontier: Insights from an NHS-R Committee Member'
 author: Prajwal Khairnar
 date: "06 February 2024"
-date-modified: '24 February 2024'
+date-modified: '17 February 2024'
 categories:
   - Committee
 subtitle: >
