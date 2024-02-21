@@ -1,0 +1,21 @@
+---
+title: "R studio shortcuts"
+date: "21 May 2018"
+date-modified: '21 February 2024'
+categories:
+  - R tips
+author: Emma Vestesson
+subtitle: >
+  "There is a full list of short cuts here and I have pulled together my three most used shortcuts."
+code-annotations: below
+execute: 
+  eval: false
+---
+
+I love keyboard shortcuts. I work in [R studio](https://www.rstudio.com/) and using keyboard shortcuts has saved me a lot of time. There is a full list of [short cuts](https://www.rstudio.com/) and I have pulled together my three most used shortcuts.
+
+`Ctrl+enter or cmd+enter ` (Mac) will run the command where the cursor is and then move the cursor down. This is perfect for when you want to run your code line by line.
+
+`Ctrl+shift+m` or `cmd+shift+m` (Mac) will insert a pipe (if you don’t already use pipes then you can learn more in [R for Data Science](https://r4ds.hadley.nz/workflow-style.html#sec-pipes).
+
+`Ctrl+shift+F10` or `cmd+shift+F10` (Mac) will restart your R session. It unloads your packages but leaves the elements in your environment untouched. I use this a lot when I am jumping between scripts to minimise conflicts between packages.
