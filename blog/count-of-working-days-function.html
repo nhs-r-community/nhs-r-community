@@ -228,6 +228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<!-- Image by <a href="https://pixabay.com/users/ronporter-291009/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=429277">Ron Porter</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=429277">Pixabay</a> -->
 <p>It’s at this time of year I need to renew my season ticket and I usually get one for the year. Out of interest, I wanted to find out how much the ticket cost per day, taking into account I don’t use it on weekends or my paid holidays. I started my workings out initially in Excel but got as far as typing the formula <code>=WORKDAYS()</code> before I realised it was going to take some working out and perhaps I should give it a go in R as a function…</p>
 <p>Chris Beeley had recently shown me functions in R and I was surprised how familiar they were as I’ve seen them on Stack Overflow (usually skimmed over those) and they are similar to functions in SQL which I’ve used (not written) where you feed in parameters.</p>
 <p>When I write code I try to work out how each part works and build it up but writing a function requires running the whole thing and then checking the result, the objects that are created in the function do not materialise so are never available to check. Not having objects building up in the environment console is one of the benefits of using a function, that and not repeating scripts which then ALL need updating if something changes.</p>
@@ -315,12 +316,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at list</span></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  TRUE FALSE  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
+<pre><code> [1] FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using which against the list gives the number in the list where the logic = TRUE</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 3 4 7 9</code></pre>
+<pre><code>[1] 2 6 9</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># counts how many logical arguments in the list (should be 10)</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -330,14 +331,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># counts the number of TRUE logical arguments</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">which</span>(a))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
+<pre><code>[1] 3</code></pre>
 </div>
 </div>
 <p>Then Chris Beeley suggested just using <code>sum</code> instead of <code>length(which())</code> which counts a logical vector:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
+<pre><code>[1] 3</code></pre>
 </div>
 </div>
 <p>It seems this has been discussed on Stack Overflow before: <a href="https://stackoverflow.com/questions/2190756/how-to-count-true-values-in-a-logical-vector">https://stackoverflow.com/questions/2190756/how-to-count-true-values-in-a-logical-vector</a></p>
@@ -345,7 +346,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(a, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
+<pre><code>[1] 3</code></pre>
 </div>
 </div>
 <p>This won’t affect the objects created in this blog as there were no <code>NA</code>s in them but it’s just something that could cause a problem if used in a different context.</p>
