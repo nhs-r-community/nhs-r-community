@@ -1,10 +1,36 @@
 [
   {
-    "listing": "/blog/index.html",
+    "listing": "/latest-content.html",
     "items": [
+      "/books/index.html",
+      "/books/posts/NHSR-way/index.html",
+      "/books/posts/statement-on-tools/index.html",
+      "/books/posts/health-inequalities/index.html",
+      "/books/posts/open-analytics-resources/index.html",
+      "/blog/index.html",
       "/blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html",
       "/blog/count-of-working-days-function.html",
       "/blog/why-government-needs-sustainable-software-too.html",
+      "/blog/diverging-bar-charts-plotting-variance-with-ggplot2.html",
+      "/blog/the-operator.html",
+      "/blog/r-studio-shortcuts.html",
+      "/blog/importing-and-exporting-data.html",
+      "/blog/the-joy-of-r.html",
+      "/blog/aiming-for-a-wrangle-free-or-reduced-world.html",
+      "/blog/nhs-meets-r.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/books/posts/health-inequalities/index.html",
+      "/books/posts/NHSR-way/index.html",
+      "/books/posts/open-analytics-resources/index.html",
+      "/books/posts/statement-on-tools/index.html",
+      "/blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html",
+      "/blog/count-of-working-days-function.html",
+      "/blog/why-government-needs-sustainable-software-too.html",
+      "/blog/diverging-bar-charts-plotting-variance-with-ggplot2.html",
       "/blog/the-operator.html",
       "/blog/r-studio-shortcuts.html",
       "/blog/importing-and-exporting-data.html",
@@ -23,35 +49,12 @@
     ]
   },
   {
-    "listing": "/index.html",
+    "listing": "/blog/index.html",
     "items": [
-      "/books/posts/health-inequalities/index.html",
-      "/books/posts/NHSR-way/index.html",
-      "/books/posts/open-analytics-resources/index.html",
-      "/books/posts/statement-on-tools/index.html",
       "/blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html",
       "/blog/count-of-working-days-function.html",
       "/blog/why-government-needs-sustainable-software-too.html",
-      "/blog/the-operator.html",
-      "/blog/r-studio-shortcuts.html",
-      "/blog/importing-and-exporting-data.html",
-      "/blog/the-joy-of-r.html",
-      "/blog/aiming-for-a-wrangle-free-or-reduced-world.html",
-      "/blog/nhs-meets-r.html"
-    ]
-  },
-  {
-    "listing": "/latest-content.html",
-    "items": [
-      "/books/index.html",
-      "/books/posts/NHSR-way/index.html",
-      "/books/posts/statement-on-tools/index.html",
-      "/books/posts/health-inequalities/index.html",
-      "/books/posts/open-analytics-resources/index.html",
-      "/blog/index.html",
-      "/blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html",
-      "/blog/count-of-working-days-function.html",
-      "/blog/why-government-needs-sustainable-software-too.html",
+      "/blog/diverging-bar-charts-plotting-variance-with-ggplot2.html",
       "/blog/the-operator.html",
       "/blog/r-studio-shortcuts.html",
       "/blog/importing-and-exporting-data.html",
