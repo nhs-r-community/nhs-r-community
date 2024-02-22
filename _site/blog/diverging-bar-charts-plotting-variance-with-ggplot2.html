@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.549">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="description" content="Blogs are submitted from NHS-R Community members.  Subscribe via RSS">
-
-<title>Blogs</title>
+<meta name="author" content="Gary Hutson">
+<meta name="dcterms.date" content="2018-05-24">
+<title>Diverging Bar Charts – Plotting Variance with ggplot2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,8 +19,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
@@ -32,8 +63,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg" rel="icon" type="image/svg+xml">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -46,8 +75,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -74,80 +102,14 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-categories','listing-date','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      page: 5,
-    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-<link rel="stylesheet" href="../assets/listing-default.css">
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../blog/index.html" class="navbar-brand navbar-brand-logo">
-    <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo">
-    </a>
+    <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo"></a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -155,7 +117,7 @@ window.Quarto = {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
@@ -172,7 +134,7 @@ window.Quarto = {
 <span class="menu-text">Books</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../blog/index.html" aria-current="page"> 
+    <a class="nav-link" href="../blog/index.html"> 
 <span class="menu-text">Blogs</span></a>
   </li>  
   <li class="nav-item">
@@ -180,375 +142,152 @@ window.Quarto = {
 <span class="menu-text">Contact us</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
     <a href="https://github.com/nhs-r-community" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns"><div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
+<h1 class="title">Diverging Bar Charts – Plotting Variance with ggplot2</h1>
+<p class="subtitle lead"></p>
+<p>“The aim here is to create a diverging bar chart that shows variance above and below an average line.”</p>
+    <div class="quarto-categories">
+        <div class="quarto-category">R tips</div>
+        <div class="quarto-category">ggplot2</div>
+        <div class="quarto-category">Base R</div>
+      </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gary Hutson </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 24, 2018</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">February 21, 2024</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+
+</header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#diverging-bar-charts" id="toc-diverging-bar-charts" class="nav-link active" data-scroll-target="#diverging-bar-charts">Diverging Bar Charts</a></li>
+  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data preparation</a></li>
+  <li><a href="#adding-a-z-score-calculation" id="toc-adding-a-z-score-calculation" class="nav-link" data-scroll-target="#adding-a-z-score-calculation">Adding a Z Score calculation</a></li>
+  <li><a href="#creating-a-cut-off-abovebelow-mean" id="toc-creating-a-cut-off-abovebelow-mean" class="nav-link" data-scroll-target="#creating-a-cut-off-abovebelow-mean">Creating a cut off (above/below mean)</a></li>
+  <li><a href="#creating-the-plot" id="toc-creating-the-plot" class="nav-link" data-scroll-target="#creating-the-plot">Creating the plot</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
-
-<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
-<!--
+<main class="content quarto-banner-title-block" id="quarto-document-content"><!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html --><!--
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
--->
-<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
-<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
-<header id="title-block-header" class="quarto-title-block default page-columns">
-<div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
-<h1 class="title">Blogs</h1>
+--><!-- <header id="title-block-header" class="quarto-title-block default page-columns"> --><!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> --><section id="diverging-bar-charts" class="level1"><h1>Diverging Bar Charts</h1>
+<p>The aim here is to create a diverging bar chart that shows variance above and below an average line. In this example I will use Z Scores to calculate the variance, in terms of standard deviations, as a diverging bar. This example will use the <code>mtcars</code> stock dataset, as most of the data I deal with day-to-day is patient sensitive.</p>
+</section><section id="data-preparation" class="level1"><h1>Data preparation</h1>
+<p>The code below sets up the plotting libraries, attaches the data and sets a theme:</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"mtcars"</span><span class="op">)</span> <span class="co"># load data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-
+<p>Next, we will change some of the columns in the data frame and perform some calculations on the data frame:</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mtcars</span><span class="op">$</span><span class="va">CarBrand</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span> <span class="co"># Create new column for car brands and names</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>As commented, this line uses the existing <code>mtcars</code> data frame and uses the dollar sign notation i.e.&nbsp;add a new column, or refer to a column, to create a column name called CarBrand. Then we assign the car brand (&lt;-) with the rownames from the data frame. This is obviously predicated on there being some row names in the data frame, otherwise you would have to name the rows using <code><a href="https://rdrr.io/r/base/colnames.html">rownames()</a></code>.</p>
+</section><section id="adding-a-z-score-calculation" class="level1"><h1>Adding a Z Score calculation</h1>
+<p>A <a href="https://stattrek.com/statistics/dictionary?definition=z-score">Z score</a> is a calculation which uses the x observation subtracts said observation from the mean and divides by the standard deviation. The link shows the mathematics behind this, for anyone who is interested.</p>
+<p>The following code shows how we would implement this score:</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg_z_score</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The statistics behind the calculation have already been explained, but I have also used the <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> function to round the results down to 2 digits.</p>
+</section><section id="creating-a-cut-off-abovebelow-mean" class="level1"><h1>Creating a cut off (above/below mean)</h1>
+<p>The next step is to use conditional algebra (first advocated by one of my heroes George Boole) to check whether the Z score I have just created is greater or less than 0:</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg_type</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg_z_score</span> <span class="op">&lt;=</span> <span class="fl">0</span>, <span class="st">"below"</span>, <span class="st">"above"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code> block looks at whether the Z Score is below 0, if so tag as below average, otherwise show this as above.</p>
+<p>The next two steps are to convert the Car Brand into a unique factor and to sort by the Z Score calculations:</p>
+<p>Now, I have everything I need to start to compute the plot. Great stuff, so let’s get plotting.</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mtcars</span> <span class="op">&lt;-</span> <span class="va">mtcars</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg_z_score</span><span class="op">)</span>, <span class="op">]</span> <span class="co">#Ascending sort on Z Score</span></span>
+<span><span class="va">mtcars</span><span class="op">$</span><span class="va">CarBrand</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">CarBrand</span>, levels <span class="op">=</span> <span class="va">mtcars</span><span class="op">$</span><span class="va">CarBrand</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="creating-the-plot" class="level1"><h1>Creating the plot</h1>
+<p>First, I will start with creating the base plot:</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">CarBrand</span>, y<span class="op">=</span><span class="va">mpg_z_score</span>, label<span class="op">=</span><span class="va">mpg_z_score</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here, I pass in the <code>mtcars</code> data frame and set the aesthetics layer (aes) of the x axis to the brand of car (CarBrand). The y axis is the Z score I created for miles per gallon (mpg) and the label is also set to the z score.</p>
+<p>Next, I will add on the geom_bar geometry:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>CarBrand, <span class="at">y=</span>mpg_z_score, <span class="at">label=</span>mpg_z_score)) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">'identity'</span>, <span class="fu">aes</span>(<span class="at">fill=</span>mpg_type), <span class="at">width=</span>.<span class="dv">5</span>) <span class="sc">+</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This indicates that I need to use the mpg_z_score field by forcing the <code>stat="identity"</code> option. If this was not added, then it would simply count the number of times the Car Brand appears as a frequency count (not what I want!). Then, I stipulate the fill type of the bar to be equal to whether the value deviates above and below 0 – remember we created a field in the data preparation stage to store whether this deviates below and above 0 and called it mpg_type. The last parameter is the width parameter to indicate the width of the bars.</p>
+<p>Next:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>CarBrand, <span class="at">y=</span>mpg_z_score, <span class="at">label=</span>mpg_z_score)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">'identity'</span>, <span class="fu">aes</span>(<span class="at">fill=</span>mpg_type), <span class="at">width=</span>.<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_fill_manual</span>(<span class="at">name=</span><span class="st">"Mileage (deviation)"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Above Average"</span>, <span class="st">"Below Average"</span>),</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"above"</span><span class="ot">=</span><span class="st">"#00ba38"</span>, <span class="st">"below"</span><span class="ot">=</span><span class="st">"#0b8fd3"</span>)) <span class="sc">+</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I use the <code><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual()</a></code> ggplot option to add the name to the legend, specify the label names using the combine function and stipulate that the values that are above average need to be hex coded by the value and the below values to a different code. I have weirdly chosen blue and green as an alternative to red, as I know we have accessibility there. We are nearly there, the final step is:</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">CarBrand</span>, y<span class="op">=</span><span class="va">mpg_z_score</span>, label<span class="op">=</span><span class="va">mpg_z_score</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat<span class="op">=</span><span class="st">'identity'</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill<span class="op">=</span><span class="va">mpg_type</span><span class="op">)</span>, width<span class="op">=</span><span class="fl">.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>name<span class="op">=</span><span class="st">"Mileage (deviation)"</span>,</span>
+<span>                    labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Above Average"</span>, <span class="st">"Below Average"</span><span class="op">)</span>,</span>
+<span>                    values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"above"</span><span class="op">=</span><span class="st">"#00ba38"</span>, <span class="st">"below"</span><span class="op">=</span><span class="st">"#0b8fd3"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>subtitle<span class="op">=</span><span class="st">"Z score (normalised) mileage for mtcars'"</span>,</span>
+<span>         title<span class="op">=</span> <span class="st">"Diverging Bar Plot (ggplot2)"</span>, caption<span class="op">=</span><span class="st">"Produced by Gary Hutson"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here, I have added the labs layer on to the plot. This is a way to label your plots to show more meaningful values than would be included by default. So, within labs I use subtitle, title and caption to add labels to the chart. Finally, the important command is to add the <code><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip()</a></code> command to the chart – without this you would have vertical bars instead of horizontal. I think this type of chart looks better horizontal, thus the reason for the inclusion of the command.</p>
+<p>The final chart, looks as illustrated hereunder:</p>
+<div class="cell">
+<div class="cell-output-display">
 <div>
-  <div id="title-block-title-desc" class="description pt-4">
-    <p>Blogs are submitted from NHS-R Community members.<br> <a href="..\blog/index.xml">Subscribe via RSS</a></p>
-  </div>
+<figure class="figure"><p><img src="diverging-bar-charts-plotting-variance-with-ggplot2_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
+</div>
+</div>
+<p>This blog was written by Gary Hutson, Principal Analyst, Activity &amp; Access Team, Information &amp; Insight at Nottingham University Hospitals NHS Trust, and was originally posted at <a href="http://hutsons-hacks.info/diverging-bar-charts-plotting-variance-with-ggplot2">Hutson-Hacks</a>.</p>
 
 
-<div class="quarto-title-meta column-page">
-
-    
-  
-    
-  </div>
-  
-
-
-
-</header>
-
-
-<!-- Image by <a href="https://pixabay.com/users/andrys-439428/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=447577">Andrys Stienstra</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=447577">Pixabay</a> -->
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Committee" data-listing-date-sort="1707177600000" data-listing-file-modified-sort="1708624892697" data-listing-date-modified-sort="1708128000000" data-listing-reading-time-sort="3" data-listing-word-count-sort="466">
-<div class="thumbnail">
-<p><a href="../blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html" class="no-external"></a></p><a href="../blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html" class="no-external">
-<p><img src="../blog/img/startup.jpg" class="thumbnail-image" alt="Photo of a meeting with a laptop, pad and paper and a coffee mug."></p>
-</a><p><a href="../blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html" class="no-external">Navigating the Data-Driven Frontier: Insights from an NHS-R Committee Member</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html" class="no-external">‘It is with great excitement that I share my recent journey as a committee member with the NHS-R Community, a vibrant hub dedicated to championing the use of R and data science tools in the UK health and care system.’ </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Committee'); return false;">
-Committee
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html" class="no-external">
-<div class="listing-date">
-Feb 6, 2024
-</div>
-<div class="listing-author">
-Prajwal Khairnar
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Function" data-listing-date-sort="1563231600000" data-listing-file-modified-sort="1708624892684" data-listing-date-modified-sort="1708128000000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1212">
-<div class="thumbnail">
-<p><a href="../blog/count-of-working-days-function.html" class="no-external"></a></p><a href="../blog/count-of-working-days-function.html" class="no-external">
-<p><img src="../blog/img/travelcard.jpg" class="thumbnail-image" alt="A London rail travel ticket"></p>
-</a><p><a href="../blog/count-of-working-days-function.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/count-of-working-days-function.html" class="no-external">Count of working days function</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/count-of-working-days-function.html" class="no-external">Creating a function to work out the number of working days a seasonal bus ticket can be used. </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Function'); return false;">
-Function
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/count-of-working-days-function.html" class="no-external">
-<div class="listing-date">
-Jul 16, 2019
-</div>
-<div class="listing-author">
-Zoë Turner
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527116400000" data-listing-file-modified-sort="1708641565612" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="5" data-listing-word-count-sort="916">
-<div class="thumbnail">
-<p><a href="../blog/diverging-bar-charts-plotting-variance-with-ggplot2.html" class="no-external"></a></p><a href="../blog/diverging-bar-charts-plotting-variance-with-ggplot2.html" class="no-external">
-<p class="card-img-top"><img src="diverging-bar-charts-plotting-variance-with-ggplot2_files\figure-html\unnamed-chunk-10-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../blog/diverging-bar-charts-plotting-variance-with-ggplot2.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/diverging-bar-charts-plotting-variance-with-ggplot2.html" class="no-external">Diverging Bar Charts – Plotting Variance with ggplot2</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/diverging-bar-charts-plotting-variance-with-ggplot2.html" class="no-external">“The aim here is to create a diverging bar chart that shows variance above and below an average line.” </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R tips'); return false;">
-R tips
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ggplot2'); return false;">
-ggplot2
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Base R'); return false;">
-Base R
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/diverging-bar-charts-plotting-variance-with-ggplot2.html" class="no-external">
-<div class="listing-date">
-May 24, 2018
-</div>
-<div class="listing-author">
-Gary Hutson
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Software" data-listing-date-sort="1527116400000" data-listing-file-modified-sort="1708624892713" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="10" data-listing-word-count-sort="1905">
-<div class="thumbnail">
-<p><a href="../blog/why-government-needs-sustainable-software-too.html" class="no-external"></a></p><a href="../blog/why-government-needs-sustainable-software-too.html" class="no-external">
-<p class="card-img-top"><img src="img\esther-vargas.png" alt="Man sat at desk with computer, laptop and tablet facing him."  class="thumbnail-image card-img"/></p>
-</a><p><a href="../blog/why-government-needs-sustainable-software-too.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/why-government-needs-sustainable-software-too.html" class="no-external">Why Government needs sustainable software too</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/why-government-needs-sustainable-software-too.html" class="no-external">“In this blog post I want to talk about why Government needs sustainable software, the work being done to deliver it, and the lessons we learnt after the first year.” </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Software'); return false;">
-Software
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/why-government-needs-sustainable-software-too.html" class="no-external">
-<div class="listing-date">
-May 24, 2018
-</div>
-<div class="listing-author">
-Matthew Upson
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="R tips" data-listing-date-sort="1526857200000" data-listing-file-modified-sort="1708624892713" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="129">
-<div class="thumbnail">
-<p><a href="../blog/r-studio-shortcuts.html" class="no-external"></a></p><a href="../blog/r-studio-shortcuts.html" class="no-external">
-<p class="card-img-top"><img src="letter.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../blog/r-studio-shortcuts.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/r-studio-shortcuts.html" class="no-external">R studio shortcuts</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/r-studio-shortcuts.html" class="no-external">“There is a full list of short cuts here and I have pulled together my three most used shortcuts.” </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R tips'); return false;">
-R tips
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/r-studio-shortcuts.html" class="no-external">
-<div class="listing-date">
-May 21, 2018
-</div>
-<div class="listing-author">
-Emma Vestesson
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="R tips" data-listing-date-sort="1526857200000" data-listing-file-modified-sort="1708624892713" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="405">
-<div class="thumbnail">
-<p><a href="../blog/the-operator.html" class="no-external"></a></p><a href="../blog/the-operator.html" class="no-external">
-<p class="card-img-top"><img data-src="letter.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../blog/the-operator.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/the-operator.html" class="no-external">The :: operator</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/the-operator.html" class="no-external">“Sometimes two packages will have a function with the same name but they will do different things.” </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R tips'); return false;">
-R tips
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/the-operator.html" class="no-external">
-<div class="listing-date">
-May 21, 2018
-</div>
-<div class="listing-author">
-Emma Vestesson
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="R tips" data-listing-date-sort="1526338800000" data-listing-file-modified-sort="1708624892684" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="196">
-<div class="thumbnail">
-<p><a href="../blog/importing-and-exporting-data.html" class="no-external"></a></p><a href="../blog/importing-and-exporting-data.html" class="no-external">
-<p class="card-img-top"><img data-src="letter.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../blog/importing-and-exporting-data.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/importing-and-exporting-data.html" class="no-external">Importing and exporting Data</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/importing-and-exporting-data.html" class="no-external">‘There are a large number of file types that are able to store data. R is usually able to import most of them but there are some caveats.’ </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R tips'); return false;">
-R tips
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/importing-and-exporting-data.html" class="no-external">
-<div class="listing-date">
-May 15, 2018
-</div>
-<div class="listing-author">
-S Zeki
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="Personal Story" data-listing-date-sort="1523228400000" data-listing-file-modified-sort="1708624892713" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="5" data-listing-word-count-sort="830">
-<div class="thumbnail">
-<p><a href="../blog/the-joy-of-r.html" class="no-external"></a></p><a href="../blog/the-joy-of-r.html" class="no-external">
-<p class="card-img-top"><img data-src="letter.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../blog/the-joy-of-r.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/the-joy-of-r.html" class="no-external">The joy of R</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/the-joy-of-r.html" class="no-external">‘Hello. My name is Julian and I am an R addict. I got hooked about 3 years ago when I took on a new role in Public Health England developing a public health data science team.’ </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Personal Story'); return false;">
-Personal Story
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/the-joy-of-r.html" class="no-external">
-<div class="listing-date">
-Apr 9, 2018
-</div>
-<div class="listing-author">
-Julian Flowers
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-categories="Personal Story" data-listing-date-sort="1521763200000" data-listing-file-modified-sort="1708624892668" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1193">
-<div class="thumbnail">
-<p><a href="../blog/aiming-for-a-wrangle-free-or-reduced-world.html" class="no-external"></a></p><a href="../blog/aiming-for-a-wrangle-free-or-reduced-world.html" class="no-external">
-<p class="card-img-top"><img data-src="letter.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../blog/aiming-for-a-wrangle-free-or-reduced-world.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/aiming-for-a-wrangle-free-or-reduced-world.html" class="no-external">Aiming for a wrangle-free (or reduced) world</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/aiming-for-a-wrangle-free-or-reduced-world.html" class="no-external">‘I work as a Data Scientist at Public Health England. I am part of a small team that have a role in trying to modernise how we “do” data.’ </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Personal Story'); return false;">
-Personal Story
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/aiming-for-a-wrangle-free-or-reduced-world.html" class="no-external">
-<div class="listing-date">
-Mar 23, 2018
-</div>
-<div class="listing-author">
-Sebastian Fox
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-categories="NHS-R" data-listing-date-sort="1521417600000" data-listing-file-modified-sort="1708624892697" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="523">
-<div class="thumbnail">
-<p><a href="../blog/nhs-meets-r.html" class="no-external"></a></p><a href="../blog/nhs-meets-r.html" class="no-external">
-<p class="card-img-top"><img data-src="letter.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../blog/nhs-meets-r.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/nhs-meets-r.html" class="no-external">NHS meets R</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/nhs-meets-r.html" class="no-external">‘Hello and welcome to our nascent NHS-R Community; a community dedicated to promoting the learning, application and utilisation of R in the National Health Service (NHS) in the United Kingdom.’ </a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('NHS-R'); return false;">
-NHS-R
-</div>
-</div>
-</div>
-<div class="metadata">
-<a href="../blog/nhs-meets-r.html" class="no-external">
-<div class="listing-date">
-Mar 19, 2018
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
-  <ul class="pagination"></ul>
-</nav>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section></div></main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-hutson2018" class="csl-entry quarto-appendix-citeas" role="listitem">
+Hutson, Gary. 2018. <span>“Diverging Bar Charts – Plotting Variance with
+Ggplot2.”</span> May 24, 2018.
+</div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1080,8 +819,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>© 2024 NHS-R Community ∙ Made with <a href="https://quarto.org/"><img src="https://quarto.org/quarto.png" class="img-fluid" alt="Quarto logo blue round cirle with a cross within the circumference" width="65"></a></p>
 </div>   
@@ -1090,7 +828,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
-    <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../accessibility.html">
 <p>Accessibility</p>
 </a>
@@ -1112,11 +850,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </a>
   </li>  
 </ul>
-    </div>
+</div>
   </div>
 </footer>
-
-
 
 
 </body></html>
