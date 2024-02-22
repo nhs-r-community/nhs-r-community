@@ -57,7 +57,7 @@ The statistics behind the calculation have already been explained, but I have al
 The next step is to use conditional algebra (first advocated by one of my heroes George Boole) to check whether the Z score I have just created is greater or less than 0:
 
 ```{r}
-mtcars$mpg_type <- ifelse(mtcars$mpg_z_score <- 0, "below", "above")
+mtcars$mpg_type <- ifelse(mtcars$mpg_z_score <= 0, "below", "above")
 
 ```
 
