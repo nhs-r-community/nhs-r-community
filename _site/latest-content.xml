@@ -825,6 +825,495 @@ Turner, Zoë. 2019. <span>“Count of Working Days Function.”</span> July
   <media:content url="https://nhs-r-community.github.io/nhs-r-community/blog/img/travelcard.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
+  <title>Simpler SQL with dplyr</title>
+  <dc:creator>John MacKintosh</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/simpler-sql-with-dplyr.html</link>
+  <description><![CDATA[ <!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html --><!--
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+--><!-- <header id="title-block-header" class="quarto-title-block default page-columns"> --><!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> --><section id="comparing-dplyr-with-sql-nested-queries" class="level1"><h1>Comparing dplyr with SQL nested queries</h1>
+<p>Following on from my last <a href="https://johnmackintosh.net/blog/2018-05-13-apha-scotland-it-s-a-thing/">post</a>, where I demonstrated R to some first time R users, I want to do a wee comparison of dplyr V SQL, so that folks, particularly those in the NHS who might be R curious, can see just what the fuss is about.</p>
+<p>To do so I want to recap on the example I showed at the AphA Scotland event.</p>
+<p>This,in turn goes back to some work I’ve been doing with Neil Pettinger, where we are looking <a href="https://johnmackintosh.net/blog/2017-12-21-flow/">at ways to visualise patient flow</a>.</p>
+<p>This relies on a spreadsheet that Neil originally put together. Part of my demo was to explain how to recreate the visualisation in R, but I also showed some of the data transformation steps carried out using dplyr and some fellow tidyverse helpers.</p>
+<p>In this post I want to focus on that a but further, by showing the SQL code I would write to arrive at the same end result.</p>
+<p>In order to do this I imported Neil’s spreadsheet (which I’ve uploaded - with Neil’s permission to the repo <a href="https://github.com/johnmackintosh/RowOfDots">RowOfDots</a>) to into a SQL Server table (by using the built in import wizard, for a quick but not reproducible way of ingesting the data).</p>
+<p>Here’s how that looks:</p>
+<p><img src="https://nhs-r-community.github.io/nhs-r-community/blog/img/flow-patient-data.png" class="img-fluid" alt="A screenshot of a spreadsheet with fake A&amp;E data of times, names and ward transfers in and out."></p>
+<p>NB - ALL patient names are entirely made up.</p>
+<p>As a reminder, for this task we need to create a column that mimics Excel’s floor function and reduces the MovementDateTime field to the nearest 15 mins. We also want to get a count of how many patient were either moving IN or OUT during each 15 minute segment of the day.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">SELECT</span> [MovementDateTime],</span>
+<span id="cb1-2">[FirstName],</span>
+<span id="cb1-3">[LastName],</span>
+<span id="cb1-4">[Ward_Dept],</span>
+<span id="cb1-5">[Staging_Post],</span>
+<span id="cb1-6">[Movement_Type],</span>
+<span id="cb1-7">[IN_OUT],</span>
+<span id="cb1-8"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cast</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">floor</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cast</span>([MovementDateTime] <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">AS</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">float</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">53</span>))<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>),<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">AS</span> smalldatetime) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">AS</span> Movement15,</span>
+<span id="cb1-9">(<span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">CASE</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">WHEN</span> IN_OUT <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'IN'</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">THEN</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">ELSE</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">END</span>) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">AS</span> [counter]</span>
+<span id="cb1-10"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">FROM</span> [DB].[dbo].[TABLENAME]</span>
+<span id="cb1-11">GO</span></code></pre></div>
+</div>
+<p>You’d need to replace the database and table names to suit. I’m not going to explain the code for flooring the datetime field - just know that it works, but you may want to compare the syntax for the case when statement with the equivalent dplyr code ( see later).</p>
+<p>Here is the table output - with the 2 new columns at the end:</p>
+<p><img src="https://nhs-r-community.github.io/nhs-r-community/blog/img/flow-patient-data-colms.png" class="img-fluid" alt="The same screenshot as before of fake data with two additional columns for Movement15 and counter"></p>
+<p>Now things get more complicated.</p>
+<p>I have a counter field, but I want to get a cumulative count by each 15 minute segment, staging post and whether this was a movement in or out.</p>
+<p>One way to do this is to wrap the original query inside another query, so that our newly created counter column can be utilised. This is a similar idea to the the method of mutating a column in dplyr, and having it available within the next pipe.</p>
+<p>We have to make use of SQL’s windowing functionality to create virtual groupings and orders within the data ( SQL is a set based language, and there is no concept of row order within a set. Therefore to get a cumulative count, we need to make SQL think in terms of rows by partitioning the data by the desired grouping columns and providing columns to order by):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">SELECT</span>        x.[MovementDateTime],</span>
+<span id="cb2-2">x.[FirstName],</span>
+<span id="cb2-3">x.[LastName],</span>
+<span id="cb2-4">x.[Ward_Dept],</span>
+<span id="cb2-5">x.[Staging_Post],</span>
+<span id="cb2-6">x.[Movement_Type],</span>
+<span id="cb2-7">x.[IN_OUT],</span>
+<span id="cb2-8">x.[Movement15],</span>
+<span id="cb2-9">x.[counter],</span>
+<span id="cb2-10"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ROW_NUMBER</span>() <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">OVER</span> (<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">PARTITION</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">BY</span> IN_OUT, Movement_Type,Staging_Post,Movement15 <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">ORDER</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">BY</span> (MovementDateTime))<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">AS</span> R_Number</span>
+<span id="cb2-11"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">FROM</span></span>
+<span id="cb2-12">(<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">SELECT</span> [MovementDateTime],</span>
+<span id="cb2-13">[FirstName],</span>
+<span id="cb2-14">[LastName],</span>
+<span id="cb2-15">[Ward_Dept],</span>
+<span id="cb2-16">[Staging_Post],</span>
+<span id="cb2-17">[Movement_Type],</span>
+<span id="cb2-18">[IN_OUT],</span>
+<span id="cb2-19"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cast</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">floor</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cast</span>([MovementDateTime] <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">AS</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">float</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">53</span>))<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>),<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">AS</span> smalldatetime) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">AS</span> Movement15,</span>
+<span id="cb2-20">(<span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">CASE</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">WHEN</span> IN_OUT <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'IN'</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">THEN</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">ELSE</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">END</span>) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">AS</span> [counter]</span>
+<span id="cb2-21"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">FROM</span> [DB].[dbo].[TABLENAME])x</span>
+<span id="cb2-22">Understanding windowing techniques <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">is</span> a great SQL skill <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">to</span> have. Don’t forget <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">where</span> you <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">first</span> saw this ;)!</span></code></pre></div>
+</div>
+<p>Understanding windowing techniques is a great SQL skill to have. Don’t forget where you first saw this ;)!</p>
+<p>A couple of things to note here are that when we wrap or “nest” the original query, I gave it the alias ‘x’. You do need to provide an alias for this inner query, or the outer query won’t work. Although not strictly necessary, I also prefixed the column names in the outer query so it’s clear that I am selecting the columns from the “virtual” table defined by the inner query.</p>
+<p>Here’s the output with our new Row number (or RNumber) field.</p>
+<p><img src="https://nhs-r-community.github.io/nhs-r-community/blog/img/flow-patient-data-rn.png" class="img-fluid" alt="The same screenshot as before of fake data with the column R_Number added to the end"></p>
+<p>Almost done, but this is still not in the right format - I need to get an accurate cumulative count. Once more, I take the previous query, and nest that inside a new query - so you can see this is similar to lots of base R style manipulation where the code starts from the middle, or an end, and works back.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">SELECT</span> y.MovementDateTime,</span>
+<span id="cb3-2">y.FirstName,</span>
+<span id="cb3-3">y.LastName,</span>
+<span id="cb3-4">y.Ward_Dept,</span>
+<span id="cb3-5">y.Staging_Post,</span>
+<span id="cb3-6">y.Movement_Type,</span>
+<span id="cb3-7">y.IN_OUT,</span>
+<span id="cb3-8">y.Movement15,</span>
+<span id="cb3-9">y.[counter],</span>
+<span id="cb3-10">y.[counter] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> y.R_Number <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">AS</span> Movement_15_SEQNO</span>
+<span id="cb3-11"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">FROM</span> (</span>
+<span id="cb3-12"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">SELECT</span> x.MovementDateTime,</span>
+<span id="cb3-13">x.FirstName,</span>
+<span id="cb3-14">x.LastName,</span>
+<span id="cb3-15">x.Ward_Dept,</span>
+<span id="cb3-16">x.Staging_Post,</span>
+<span id="cb3-17">x.Movement_Type,</span>
+<span id="cb3-18">x.IN_OUT,</span>
+<span id="cb3-19">x.Movement15,</span>
+<span id="cb3-20">x.[counter],</span>
+<span id="cb3-21"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ROW_NUMBER</span>() <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">OVER</span> (<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">PARTITION</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">BY</span> IN_OUT, Movement_Type,Staging_Post,Movement15 <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">ORDER</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">BY</span> (MovementDateTime))<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">AS</span> R_Number</span>
+<span id="cb3-22"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">FROM</span></span>
+<span id="cb3-23">(<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">SELECT</span> [MovementDateTime],</span>
+<span id="cb3-24">[FirstName],</span>
+<span id="cb3-25">[LastName],</span>
+<span id="cb3-26">[Ward_Dept],</span>
+<span id="cb3-27">[Staging_Post],</span>
+<span id="cb3-28">[Movement_Type],</span>
+<span id="cb3-29">[IN_OUT],</span>
+<span id="cb3-30"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cast</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">floor</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cast</span>([MovementDateTime] <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">AS</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">float</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">53</span>))<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>),<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">AS</span> smalldatetime) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">AS</span> Movement15,</span>
+<span id="cb3-31">(<span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">CASE</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">WHEN</span> IN_OUT <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'IN'</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">THEN</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">ELSE</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">END</span>) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">AS</span> [counter]</span>
+<span id="cb3-32"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">FROM</span> [DB].[dbo].[TABLENAME])x) y</span>
+<span id="cb3-33"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">ORDER</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">BY</span> MovementDateTime</span>
+<span id="cb3-34">GO</span></code></pre></div>
+</div>
+<p>To recap - our first query floored the movement time to 15 minute intervals and gave us a counter field, we then used that counter field to generate a row number field. Now, even if I’d ordered the result of the second query by MovementDateTime, it still wouldn’t suffice because the rownumbers are all positive, and I want them to be negative when the movement was a movement OUT.</p>
+<p>We can’t manipulate the row number field within the same query that it is created, so we nest the whole lot once more, this time arranging in the correct time order and multiplying the counter field by our row number field.</p>
+<p>You’ll notice the second query has been aliased (with a ‘y’) and the columns prefixed so that is is clear exactly where the query is obtaining the data from.</p>
+<p>This gives us our final output:</p>
+<p><img src="https://nhs-r-community.github.io/nhs-r-community/blog/img/flow-patient-data-movement15.png" class="img-fluid" alt="The same screenshot as before of fake data with the column Movement_15_SEQNO added to the end"></p>
+<p>A reminder of the dplyr code I used:</p>
+<div class="cell">
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">plot_data</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">data</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>Movement15 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lubridate</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://lubridate.tidyverse.org/reference/round_date.html">floor_date</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">MovementDateTime</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"15 minutes"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">IN_OUT</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Movement_Type</span>,<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Staging_Post</span>,<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Movement15</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>counter <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">case_when</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">IN_OUT</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'IN'</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,</span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">IN_OUT</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'OUT'</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>Movement_15_SEQNO <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">counter</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ungroup</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+</div>
+<p>And here is the output - compare with above:</p>
+<p><img src="https://nhs-r-community.github.io/nhs-r-community/blog/img/flow-patient-data_rstudio.png" class="img-fluid" alt="Screenshot with the same data columns but taken from RStudio. The image has a darker background with white text."></p>
+<p>A lot more elegant? Definitely.</p>
+<p>Another approach to writing the code in SQL would be to use a Common Table Expression, which is a more straightforward of writing and reading it. It’s a similar idea in that you create virtual tables with queries that then run top to bottom until you get your final output. However that is a post for another day :)</p>
+<p><strong>What I hope you get from this post is that dplyr and other packages (lubridate for example) really do make life easier for data manipulation.</strong></p>
+<p>Look at the SQL for flooring the date, compared to the lubridate call. Look at the elegance of mutating new columns and having them available within the next chain, compared to horrendous multi-layered nested queries (this one was pretty tame - imagine a few more levels on top of that). You can see how traditional SQL can get unwieldy.</p>
+<p>Dplyr is a fantastic asset to the R community, and I hope it might prove to be a great hook to get R further established within the analytical departments of the NHS.</p>
+<p>This blog was written by John MacKintosh, <a href="http://www.scot.nhs.uk/">NHS</a> data analyst based in Inverness, Scotland, and was originally posted on his blog site [johnmackintosh.net]](https://johnmackintosh.net/blog/2018-05-31-dplyr-for-the-win/).</p>
+
+
+</section><a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mackintosh2018" class="csl-entry quarto-appendix-citeas">
+MacKintosh, John. 2018. <span>“Simpler SQL with Dplyr.”</span> June 7,
+2018. <a href="https://nhs-r-community.github.io/nhs-r-community//blog/simpler-sql-with-dplyr.html">https://nhs-r-community.github.io/nhs-r-community//blog/simpler-sql-with-dplyr.html</a>.
+</div></div></section></div> ]]></description>
+  <category>R tips</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/simpler-sql-with-dplyr.html</guid>
+  <pubDate>Wed, 06 Jun 2018 23:00:00 GMT</pubDate>
+</item>
+<item>
   <title>Diverging Bar Charts – Plotting Variance with ggplot2</title>
   <dc:creator>Gary Hutson</dc:creator>
   <link>https://nhs-r-community.github.io/nhs-r-community/blog/diverging-bar-charts-plotting-variance-with-ggplot2.html</link>
@@ -4532,7 +5021,7 @@ No matching items
 </div>
 </div><a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <guid>https://nhs-r-community.github.io/nhs-r-community/books/</guid>
-  <pubDate>Sat, 24 Feb 2024 19:09:33 GMT</pubDate>
+  <pubDate>Sat, 24 Feb 2024 20:00:37 GMT</pubDate>
 </item>
 <item>
   <title>Health Inequalities</title>
@@ -4557,7 +5046,7 @@ No matching items
   <category>data-science</category>
   <category>health-inequalities</category>
   <guid>https://nhs-r-community.github.io/nhs-r-community/books/posts/health-inequalities/</guid>
-  <pubDate>Sat, 24 Feb 2024 19:09:33 GMT</pubDate>
+  <pubDate>Sat, 24 Feb 2024 20:00:37 GMT</pubDate>
   <media:content url="https://nhs-r-community.github.io/nhs-r-community/books/posts/health-inequalities/book-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -4583,7 +5072,7 @@ No matching items
   <category>code-of-conduct</category>
   <category>training</category>
   <guid>https://nhs-r-community.github.io/nhs-r-community/books/posts/NHSR-way/</guid>
-  <pubDate>Sat, 24 Feb 2024 19:09:33 GMT</pubDate>
+  <pubDate>Sat, 24 Feb 2024 20:00:37 GMT</pubDate>
   <media:content url="https://nhs-r-community.github.io/nhs-r-community/books/posts/NHSR-way/book-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -4611,7 +5100,7 @@ No matching items
   <category>links</category>
   <category>training</category>
   <guid>https://nhs-r-community.github.io/nhs-r-community/books/posts/open-analytics-resources/</guid>
-  <pubDate>Sat, 24 Feb 2024 19:09:33 GMT</pubDate>
+  <pubDate>Sat, 24 Feb 2024 20:00:37 GMT</pubDate>
   <media:content url="https://nhs-r-community.github.io/nhs-r-community/books/posts/open-analytics-resources/book-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -4638,7 +5127,7 @@ No matching items
   <category>installation</category>
   <category>getting-started</category>
   <guid>https://nhs-r-community.github.io/nhs-r-community/books/posts/statement-on-tools/</guid>
-  <pubDate>Sat, 24 Feb 2024 19:09:33 GMT</pubDate>
+  <pubDate>Sat, 24 Feb 2024 20:00:37 GMT</pubDate>
   <media:content url="https://nhs-r-community.github.io/nhs-r-community/books/posts/statement-on-tools/book-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -4723,7 +5212,37 @@ Zoë Turner
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527116400000" data-listing-file-modified-sort="1708641835158" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="5" data-listing-word-count-sort="916">
+<div class="quarto-post image-right" data-index="2" data-categories="R tips" data-listing-date-sort="1528326000000" data-listing-file-modified-sort="1708804813241" data-listing-date-modified-sort="1708732800000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1129">
+<div class="thumbnail">
+<p><a href="../blog/simpler-sql-with-dplyr.html" class="no-external"></a></p><a href="../blog/simpler-sql-with-dplyr.html" class="no-external">
+<!-- img(9CEB782EFEE6)[progressive=false, height=]:blog/simpler-sql-with-dplyr.html -->
+</a><p><a href="../blog/simpler-sql-with-dplyr.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../blog/simpler-sql-with-dplyr.html" class="no-external">Simpler SQL with dplyr</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../blog/simpler-sql-with-dplyr.html" class="no-external">“” </a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R tips'); return false;">
+R tips
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="../blog/simpler-sql-with-dplyr.html" class="no-external">
+<div class="listing-date">
+Jun 7, 2018
+</div>
+<div class="listing-author">
+John MacKintosh
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527116400000" data-listing-file-modified-sort="1708641835158" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="5" data-listing-word-count-sort="916">
 <div class="thumbnail">
 <p><a href="../blog/diverging-bar-charts-plotting-variance-with-ggplot2.html" class="no-external"></a></p><a href="../blog/diverging-bar-charts-plotting-variance-with-ggplot2.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=false, height=]:blog/diverging-bar-charts-plotting-variance-with-ggplot2.html -->
@@ -4759,7 +5278,7 @@ Gary Hutson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527116400000" data-listing-file-modified-sort="1708643034818" data-listing-date-modified-sort="1708560000000" data-listing-reading-time-sort="4" data-listing-word-count-sort="669">
+<div class="quarto-post image-right" data-index="4" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527116400000" data-listing-file-modified-sort="1708643034818" data-listing-date-modified-sort="1708560000000" data-listing-reading-time-sort="4" data-listing-word-count-sort="669">
 <div class="thumbnail">
 <p><a href="../blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html" class="no-external"></a></p><a href="../blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=false, height=]:blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html -->
@@ -4795,10 +5314,10 @@ Gary Hutson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527116400000" data-listing-file-modified-sort="1708797097843" data-listing-date-modified-sort="1708732800000" data-listing-reading-time-sort="3" data-listing-word-count-sort="497">
+<div class="quarto-post image-right" data-index="5" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527116400000" data-listing-file-modified-sort="1708797097843" data-listing-date-modified-sort="1708732800000" data-listing-reading-time-sort="3" data-listing-word-count-sort="497">
 <div class="thumbnail">
 <p><a href="../blog/histogram-with-auto-binning-in-ggplot2.html" class="no-external"></a></p><a href="../blog/histogram-with-auto-binning-in-ggplot2.html" class="no-external">
-<!-- img(9CEB782EFEE6)[progressive=false, height=]:blog/histogram-with-auto-binning-in-ggplot2.html -->
+<!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/histogram-with-auto-binning-in-ggplot2.html -->
 </a><p><a href="../blog/histogram-with-auto-binning-in-ggplot2.html" class="no-external"></a></p>
 </div>
 <div class="body">
@@ -4831,7 +5350,7 @@ Gary Hutson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="Software" data-listing-date-sort="1527116400000" data-listing-file-modified-sort="1708624892713" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="10" data-listing-word-count-sort="1905">
+<div class="quarto-post image-right" data-index="6" data-categories="Software" data-listing-date-sort="1527116400000" data-listing-file-modified-sort="1708624892713" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="10" data-listing-word-count-sort="1905">
 <div class="thumbnail">
 <p><a href="../blog/why-government-needs-sustainable-software-too.html" class="no-external"></a></p><a href="../blog/why-government-needs-sustainable-software-too.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/why-government-needs-sustainable-software-too.html -->
@@ -4861,7 +5380,7 @@ Matthew Upson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="R tips" data-listing-date-sort="1526857200000" data-listing-file-modified-sort="1708624892713" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="129">
+<div class="quarto-post image-right" data-index="7" data-categories="R tips" data-listing-date-sort="1526857200000" data-listing-file-modified-sort="1708624892713" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="129">
 <div class="thumbnail">
 <p><a href="../blog/r-studio-shortcuts.html" class="no-external"></a></p><a href="../blog/r-studio-shortcuts.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/r-studio-shortcuts.html -->
@@ -4891,7 +5410,7 @@ Emma Vestesson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="R tips" data-listing-date-sort="1526857200000" data-listing-file-modified-sort="1708798429345" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="405">
+<div class="quarto-post image-right" data-index="8" data-categories="R tips" data-listing-date-sort="1526857200000" data-listing-file-modified-sort="1708798429345" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="405">
 <div class="thumbnail">
 <p><a href="../blog/the-operator.html" class="no-external"></a></p><a href="../blog/the-operator.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/the-operator.html -->
@@ -4921,7 +5440,7 @@ Emma Vestesson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="R tips" data-listing-date-sort="1526338800000" data-listing-file-modified-sort="1708624892684" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="196">
+<div class="quarto-post image-right" data-index="9" data-categories="R tips" data-listing-date-sort="1526338800000" data-listing-file-modified-sort="1708624892684" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="196">
 <div class="thumbnail">
 <p><a href="../blog/importing-and-exporting-data.html" class="no-external"></a></p><a href="../blog/importing-and-exporting-data.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/importing-and-exporting-data.html -->
@@ -4951,7 +5470,7 @@ S Zeki
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="Personal Story" data-listing-date-sort="1523228400000" data-listing-file-modified-sort="1708624892713" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="5" data-listing-word-count-sort="830">
+<div class="quarto-post image-right" data-index="10" data-categories="Personal Story" data-listing-date-sort="1523228400000" data-listing-file-modified-sort="1708624892713" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="5" data-listing-word-count-sort="830">
 <div class="thumbnail">
 <p><a href="../blog/the-joy-of-r.html" class="no-external"></a></p><a href="../blog/the-joy-of-r.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/the-joy-of-r.html -->
@@ -4981,7 +5500,7 @@ Julian Flowers
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="Personal Story" data-listing-date-sort="1521763200000" data-listing-file-modified-sort="1708624892668" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1193">
+<div class="quarto-post image-right" data-index="11" data-categories="Personal Story" data-listing-date-sort="1521763200000" data-listing-file-modified-sort="1708624892668" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1193">
 <div class="thumbnail">
 <p><a href="../blog/aiming-for-a-wrangle-free-or-reduced-world.html" class="no-external"></a></p><a href="../blog/aiming-for-a-wrangle-free-or-reduced-world.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/aiming-for-a-wrangle-free-or-reduced-world.html -->
@@ -5011,7 +5530,7 @@ Sebastian Fox
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="NHS-R" data-listing-date-sort="1521417600000" data-listing-file-modified-sort="1708624892697" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="523">
+<div class="quarto-post image-right" data-index="12" data-categories="NHS-R" data-listing-date-sort="1521417600000" data-listing-file-modified-sort="1708624892697" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="523">
 <div class="thumbnail">
 <p><a href="../blog/nhs-meets-r.html" class="no-external"></a></p><a href="../blog/nhs-meets-r.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/nhs-meets-r.html -->
@@ -5045,7 +5564,7 @@ No matching items
 
 </div><a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section></div> ]]></description>
   <guid>https://nhs-r-community.github.io/nhs-r-community/blog/</guid>
-  <pubDate>Sat, 24 Feb 2024 19:09:33 GMT</pubDate>
+  <pubDate>Sat, 24 Feb 2024 20:00:37 GMT</pubDate>
 </item>
 </channel>
 </rss>
