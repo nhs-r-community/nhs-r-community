@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="John MacKintosh">
+<meta name="dcterms.date" content="2018-06-07">
 
-<title>Books | Made in Quarto</title>
+<title>NHS-R Community Quarto website - Simpler SQL with dplyr</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -31,8 +67,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg" rel="icon" type="image/svg+xml">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,35 +107,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-J7L32C56WN"></script>
 
 <script type="text/javascript">
@@ -111,37 +116,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-J7L32C56WN', { 'anonymize_ip': true});
 </script>
-<link rel="stylesheet" href="../assets/listing-default.css">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -152,7 +127,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../books/index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../blog/index.html" class="navbar-brand navbar-brand-logo">
     <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo">
     </a>
   </div>
@@ -175,7 +150,7 @@ window.Quarto = {
 <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../books/index.html" aria-current="page"> 
+    <a class="nav-link" href="../books/index.html"> 
 <span class="menu-text">Books</span></a>
   </li>  
   <li class="nav-item">
@@ -202,15 +177,37 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns">
 <div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
-<h1 class="title">Books</h1>
-</div>
+<h1 class="title">Simpler SQL with dplyr</h1>
+<p class="subtitle lead"></p><p>“”</p><p></p>
+    <div class="quarto-categories">
+        <div class="quarto-category">R tips</div>
+      </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>John MacKintosh </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 7, 2018</p>
+    </div>
+  </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">February 24, 2024</p>
+    </div>
+  </div>
     
   </div>
   
@@ -221,7 +218,14 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="code-of-conduct">code-of-conduct <span class="quarto-category-count">(1)</span></div><div class="category" data-category="data-science">data-science <span class="quarto-category-count">(3)</span></div><div class="category" data-category="getting-started">getting-started <span class="quarto-category-count">(1)</span></div><div class="category" data-category="health-inequalities">health-inequalities <span class="quarto-category-count">(1)</span></div><div class="category" data-category="installation">installation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="links">links <span class="quarto-category-count">(1)</span></div><div class="category" data-category="training">training <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#comparing-dplyr-with-sql-nested-queries" id="toc-comparing-dplyr-with-sql-nested-queries" class="nav-link active" data-scroll-target="#comparing-dplyr-with-sql-nested-queries">Comparing dplyr with SQL nested queries</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/nhs-r-community/nhs-r-community/edit/main/blog/simpler-sql-with-dplyr.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nhs-r-community/nhs-r-community/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -235,211 +239,135 @@ window.Quarto = {
 
 
 
-<!-- Image by <a href="https://pixabay.com/users/sophkins-1403770/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2390136">Sofia Iivarinen</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2390136">Pixabay</a> -->
+<section id="comparing-dplyr-with-sql-nested-queries" class="level1">
+<h1>Comparing dplyr with SQL nested queries</h1>
+<p>Following on from my last <a href="https://johnmackintosh.net/blog/2018-05-13-apha-scotland-it-s-a-thing/">post</a>, where I demonstrated R to some first time R users, I want to do a wee comparison of dplyr V SQL, so that folks, particularly those in the NHS who might be R curious, can see just what the fuss is about.</p>
+<p>To do so I want to recap on the example I showed at the AphA Scotland event.</p>
+<p>This,in turn goes back to some work I’ve been doing with Neil Pettinger, where we are looking <a href="https://johnmackintosh.net/blog/2017-12-21-flow/">at ways to visualise patient flow</a>.</p>
+<p>This relies on a spreadsheet that Neil originally put together. Part of my demo was to explain how to recreate the visualisation in R, but I also showed some of the data transformation steps carried out using dplyr and some fellow tidyverse helpers.</p>
+<p>In this post I want to focus on that a but further, by showing the SQL code I would write to arrive at the same end result.</p>
+<p>In order to do this I imported Neil’s spreadsheet (which I’ve uploaded - with Neil’s permission to the repo <a href="https://github.com/johnmackintosh/RowOfDots">RowOfDots</a>) to into a SQL Server table (by using the built in import wizard, for a quick but not reproducible way of ingesting the data).</p>
+<p>Here’s how that looks:</p>
+<p><img src="img/flow-patient-data.png" class="img-fluid" alt="A screenshot of a spreadsheet with fake A&amp;E data of times, names and ward transfers in and out."></p>
+<p>NB - ALL patient names are entirely made up.</p>
+<p>As a reminder, for this task we need to create a column that mimics Excel’s floor function and reduces the MovementDateTime field to the nearest 15 mins. We also want to get a count of how many patient were either moving IN or OUT during each 15 minute segment of the day.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> [MovementDateTime],</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>[FirstName],</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>[LastName],</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>[Ward_Dept],</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>[Staging_Post],</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>[Movement_Type],</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>[IN_OUT],</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cast</span>(<span class="fu">round</span>(<span class="fu">floor</span>(<span class="fu">cast</span>([MovementDateTime] <span class="kw">AS</span> <span class="dt">float</span>(<span class="dv">53</span>))<span class="op">*</span><span class="dv">24</span><span class="op">*</span><span class="dv">4</span>)<span class="op">/</span>(<span class="dv">24</span><span class="op">*</span><span class="dv">4</span>),<span class="dv">5</span>) <span class="kw">AS</span> smalldatetime) <span class="kw">AS</span> Movement15,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>(<span class="cf">CASE</span> <span class="cf">WHEN</span> IN_OUT <span class="op">=</span> <span class="st">'IN'</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="op">-</span><span class="dv">1</span> <span class="cf">END</span>) <span class="kw">AS</span> [counter]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> [DB].[dbo].[TABLENAME]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>GO</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You’d need to replace the database and table names to suit. I’m not going to explain the code for flooring the datetime field - just know that it works, but you may want to compare the syntax for the case when statement with the equivalent dplyr code ( see later).</p>
+<p>Here is the table output - with the 2 new columns at the end:</p>
+<p><img src="img/flow-patient-data-colms.png" class="img-fluid" alt="The same screenshot as before of fake data with two additional columns for Movement15 and counter"></p>
+<p>Now things get more complicated.</p>
+<p>I have a counter field, but I want to get a cumulative count by each 15 minute segment, staging post and whether this was a movement in or out.</p>
+<p>One way to do this is to wrap the original query inside another query, so that our newly created counter column can be utilised. This is a similar idea to the the method of mutating a column in dplyr, and having it available within the next pipe.</p>
+<p>We have to make use of SQL’s windowing functionality to create virtual groupings and orders within the data ( SQL is a set based language, and there is no concept of row order within a set. Therefore to get a cumulative count, we need to make SQL think in terms of rows by partitioning the data by the desired grouping columns and providing columns to order by):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>        x.[MovementDateTime],</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x.[FirstName],</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>x.[LastName],</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>x.[Ward_Dept],</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>x.[Staging_Post],</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>x.[Movement_Type],</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>x.[IN_OUT],</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>x.[Movement15],</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>x.[counter],</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ROW_NUMBER</span>() <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> IN_OUT, Movement_Type,Staging_Post,Movement15 <span class="kw">ORDER</span> <span class="kw">BY</span> (MovementDateTime))<span class="kw">AS</span> R_Number</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>(<span class="kw">SELECT</span> [MovementDateTime],</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>[FirstName],</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>[LastName],</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>[Ward_Dept],</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>[Staging_Post],</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>[Movement_Type],</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>[IN_OUT],</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">cast</span>(<span class="fu">round</span>(<span class="fu">floor</span>(<span class="fu">cast</span>([MovementDateTime] <span class="kw">AS</span> <span class="dt">float</span>(<span class="dv">53</span>))<span class="op">*</span><span class="dv">24</span><span class="op">*</span><span class="dv">4</span>)<span class="op">/</span>(<span class="dv">24</span><span class="op">*</span><span class="dv">4</span>),<span class="dv">5</span>) <span class="kw">AS</span> smalldatetime) <span class="kw">AS</span> Movement15,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>(<span class="cf">CASE</span> <span class="cf">WHEN</span> IN_OUT <span class="op">=</span> <span class="st">'IN'</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="op">-</span><span class="dv">1</span> <span class="cf">END</span>) <span class="kw">AS</span> [counter]</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> [DB].[dbo].[TABLENAME])x</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>Understanding windowing techniques <span class="kw">is</span> a great SQL skill <span class="kw">to</span> have. Don’t forget <span class="kw">where</span> you <span class="fu">first</span> saw this ;)!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Understanding windowing techniques is a great SQL skill to have. Don’t forget where you first saw this ;)!</p>
+<p>A couple of things to note here are that when we wrap or “nest” the original query, I gave it the alias ‘x’. You do need to provide an alias for this inner query, or the outer query won’t work. Although not strictly necessary, I also prefixed the column names in the outer query so it’s clear that I am selecting the columns from the “virtual” table defined by the inner query.</p>
+<p>Here’s the output with our new Row number (or RNumber) field.</p>
+<p><img src="img/flow-patient-data-rn.png" class="img-fluid" alt="The same screenshot as before of fake data with the column R_Number added to the end"></p>
+<p>Almost done, but this is still not in the right format - I need to get an accurate cumulative count. Once more, I take the previous query, and nest that inside a new query - so you can see this is similar to lots of base R style manipulation where the code starts from the middle, or an end, and works back.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> y.MovementDateTime,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y.FirstName,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>y.LastName,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>y.Ward_Dept,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>y.Staging_Post,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>y.Movement_Type,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>y.IN_OUT,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>y.Movement15,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>y.[counter],</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>y.[counter] <span class="op">*</span> y.R_Number <span class="kw">AS</span> Movement_15_SEQNO</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> (</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> x.MovementDateTime,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>x.FirstName,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>x.LastName,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>x.Ward_Dept,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>x.Staging_Post,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>x.Movement_Type,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>x.IN_OUT,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>x.Movement15,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>x.[counter],</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="fu">ROW_NUMBER</span>() <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> IN_OUT, Movement_Type,Staging_Post,Movement15 <span class="kw">ORDER</span> <span class="kw">BY</span> (MovementDateTime))<span class="kw">AS</span> R_Number</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>(<span class="kw">SELECT</span> [MovementDateTime],</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>[FirstName],</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>[LastName],</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>[Ward_Dept],</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>[Staging_Post],</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>[Movement_Type],</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>[IN_OUT],</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="fu">cast</span>(<span class="fu">round</span>(<span class="fu">floor</span>(<span class="fu">cast</span>([MovementDateTime] <span class="kw">AS</span> <span class="dt">float</span>(<span class="dv">53</span>))<span class="op">*</span><span class="dv">24</span><span class="op">*</span><span class="dv">4</span>)<span class="op">/</span>(<span class="dv">24</span><span class="op">*</span><span class="dv">4</span>),<span class="dv">5</span>) <span class="kw">AS</span> smalldatetime) <span class="kw">AS</span> Movement15,</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>(<span class="cf">CASE</span> <span class="cf">WHEN</span> IN_OUT <span class="op">=</span> <span class="st">'IN'</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="op">-</span><span class="dv">1</span> <span class="cf">END</span>) <span class="kw">AS</span> [counter]</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> [DB].[dbo].[TABLENAME])x) y</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> MovementDateTime</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>GO</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To recap - our first query floored the movement time to 15 minute intervals and gave us a counter field, we then used that counter field to generate a row number field. Now, even if I’d ordered the result of the second query by MovementDateTime, it still wouldn’t suffice because the rownumbers are all positive, and I want them to be negative when the movement was a movement OUT.</p>
+<p>We can’t manipulate the row number field within the same query that it is created, so we nest the whole lot once more, this time arranging in the correct time order and multiplying the counter field by our row number field.</p>
+<p>You’ll notice the second query has been aliased (with a ‘y’) and the columns prefixed so that is is clear exactly where the query is obtaining the data from.</p>
+<p>This gives us our final output:</p>
+<p><img src="img/flow-patient-data-movement15.png" class="img-fluid" alt="The same screenshot as before of fake data with the column Movement_15_SEQNO added to the end"></p>
+<p>A reminder of the dplyr code I used:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plot_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">Movement15 =</span> lubridate<span class="sc">::</span><span class="fu">floor_date</span>(MovementDateTime,<span class="st">"15 minutes"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(IN_OUT, Movement_Type,Staging_Post,Movement15) <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">counter =</span> <span class="fu">case_when</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>IN_OUT <span class="sc">==</span> <span class="st">'IN'</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>IN_OUT <span class="sc">==</span> <span class="st">'OUT'</span> <span class="sc">~</span> <span class="sc">-</span><span class="dv">1</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">Movement_15_SEQNO =</span> <span class="fu">cumsum</span>(counter)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And here is the output - compare with above:</p>
+<p><img src="img/flow-patient-data_rstudio.png" class="img-fluid" alt="Screenshot with the same data columns but taken from RStudio. The image has a darker background with white text."></p>
+<p>A lot more elegant? Definitely.</p>
+<p>Another approach to writing the code in SQL would be to use a Common Table Expression, which is a more straightforward of writing and reading it. It’s a similar idea in that you create virtual tables with queries that then run top to bottom until you get your final output. However that is a post for another day :)</p>
+<p><strong>What I hope you get from this post is that dplyr and other packages (lubridate for example) really do make life easier for data manipulation.</strong></p>
+<p>Look at the SQL for flooring the date, compared to the lubridate call. Look at the elegance of mutating new columns and having them available within the next chain, compared to horrendous multi-layered nested queries (this one was pretty tame - imagine a few more levels on top of that). You can see how traditional SQL can get unwieldy.</p>
+<p>Dplyr is a fantastic asset to the R community, and I hope it might prove to be a great hook to get R further established within the analytical departments of the NHS.</p>
+<p>This blog was written by John MacKintosh, <a href="http://www.scot.nhs.uk/">NHS</a> data analyst based in Inverness, Scotland, and was originally posted on his blog site [johnmackintosh.net]](https://johnmackintosh.net/blog/2018-05-31-dplyr-for-the-win/).</p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="code-of-conduct,training" data-listing-file-modified-sort="1708805106816" data-listing-reading-time-sort="1" data-listing-word-count-sort="10">
-<a href="../books/posts/NHSR-way/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../books/posts/NHSR-way/book-image.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of an open book with glasses on it next to a tea cup with a flower design on a wooden tray. Next to the tray is a white pottery jug with purple small flowers and leaves.">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-NHS-R Way book
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('code-of-conduct'); return false;">
-code-of-conduct
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('training'); return false;">
-training
-</div>
-</div>
-<div class="card-text listing-description">
-<p>Everything you need or want to know about NHS-R Community including: how to contribute and get involved, code styles, training preparation materials.</p>
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="data-science,installation,getting-started" data-listing-file-modified-sort="1708805106820" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="../books/posts/statement-on-tools/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../books/posts/statement-on-tools/book-image.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of four open books laid out on top of each other.">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Statement on Tools
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('data-science'); return false;">
-data-science
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('installation'); return false;">
-installation
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('getting-started'); return false;">
-getting-started
-</div>
-</div>
-<div class="card-text listing-description">
-In this book we’ve compiled a set of technical resources, links and write down our experiences of using open data science programs like R and Python within the NHS and…
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="data-science,health-inequalities" data-listing-file-modified-sort="1708805106820" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="../books/posts/health-inequalities/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../books/posts/health-inequalities/book-image.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of an open book sat upon grass.">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Health Inequalities
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('data-science'); return false;">
-data-science
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('health-inequalities'); return false;">
-health-inequalities
-</div>
-</div>
-<div class="card-text listing-description">
-This project is a collection of information and knowledge related to analytical work on “Health Inequalities”, as performed in the NHS and the wider UK Health and Social…
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="data-science,analysis,links,training" data-listing-file-modified-sort="1708805106820" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="../books/posts/open-analytics-resources/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="../books/posts/open-analytics-resources/book-image.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of an antique book, closed with white flowers resting on top.">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Open Analytics Resources
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('data-science'); return false;">
-data-science
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('analysis'); return false;">
-analysis
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('links'); return false;">
-links
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('training'); return false;">
-training
-</div>
-</div>
-<div class="card-text listing-description">
-<p>Useful links for health and care analysts and data scientists.</p>
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1708805106816">
-<a href="../books/posts/NHSR-way/book-image.jpg" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<div class="card-text listing-description">
-
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1708805106820">
-<a href="../books/posts/health-inequalities/book-image.jpg" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<div class="card-text listing-description">
-
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1708805106820">
-<a href="../books/posts/open-analytics-resources/book-image.jpg" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<div class="card-text listing-description">
-
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1708805106820">
-<a href="../books/posts/statement-on-tools/book-image.jpg" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<div class="card-text listing-description">
-
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mackintosh2018" class="csl-entry quarto-appendix-citeas" role="listitem">
+MacKintosh, John. 2018. <span>“Simpler SQL with Dplyr.”</span> June 7,
+2018. <a href="https://nhs-r-community.github.io/nhs-r-community//blog/simpler-sql-with-dplyr.html">https://nhs-r-community.github.io/nhs-r-community//blog/simpler-sql-with-dplyr.html</a>.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -979,7 +907,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
 <p><a class="link-dark me-1" href="https://fosstodon.org/@NHSrCommunity" title="mastodon" target="_blank" rel="noopener"><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a> <a class="link-dark me-1" href="https://github.com/nhs-r-community" title="github" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-label="github"></i></a> <a class="link-dark me-1" href="https://soundcloud.com/nhs-r-community" title="soundcloud" target="_blank" rel="noopener"><i class="fa-brands fa-soundcloud" aria-label="soundcloud"></i></a> <a class="link-dark me-1" href="https://www.linkedin.com/in/nhs-r-community-2555a6282/" title="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a></p>
-</div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nhs-r-community/nhs-r-community/edit/main/blog/simpler-sql-with-dplyr.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nhs-r-community/nhs-r-community/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
