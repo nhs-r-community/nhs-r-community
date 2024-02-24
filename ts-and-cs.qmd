@@ -1,0 +1,75 @@
+---
+title: "Terms and conditions"
+page-layout: article
+sidebar: false
+toc: true
+title-block-banner: true
+---
+
+## Legal disclaimer
+
+Statements of fact and opinion published on this website are those of the respective authors and contributors and not necessarily those of NHS-R Community, its editors, The Strategy Unit, NHS Midlands and Lancashire Commissioning Support Unit, The Health Foundation or other partners and funders. 
+
+NHS-R Community has prepared the content of this website responsibly and carefully. However, NHS-R Community, its editors, The Strategy Unit, NHS Midlands and Lancashire Commissioning Support Unit, The Health Foundation or other partners and funders disclaim all warranties, express or implied, as to the accuracy of the information contained in any of the materials on this website or on other linked websites or on any subsequent links. 
+This includes, but is not by way of limitation: 
+
+- any implied warranties of merchantability and fitness for a particular purpose. 
+
+- any liability for damage to your computer hardware, data, information, materials and business resulting from the information or the lack of information available. 
+
+- any errors, omissions, or inaccuracies in the information. 
+
+- any decision made or action taken or not taken in reliance upon the information. 
+
+NHS-R Community, its editors, The Strategy Unit, NHS Midlands and Lancashire Commissioning Support Unit, The Health Foundation or other partners and funders make no warranty as to the content, accuracy, timeliness or completeness of the information or that the information may be relied upon for any reason and bear no responsibility for the accuracy, content or legality of any linked site or for that of any subsequent links. 
+NHS-R Community, its editors, The Strategy Unit, NHS Midlands and Lancashire Commissioning Support Unit, The Health Foundation or other partners and funders make no warranty that the website service will be uninterrupted or error-free or that any defects can be corrected. 
+
+NHS-R Community, its editors, The Strategy Unit, NHS Midlands and Lancashire Commissioning Support Unit, The Health Foundation or other partners and funders shall not be liable for any losses or damages (including without limitation consequential loss or damage) whatsoever from the use of, or reliance on, the information in this website, or from the use of the internet generally. 
+Links to other websites or the publication of advertisements do not constitute an endorsement or an approval by NHS-R Community, its editors, The Strategy Unit, NHS Midlands and Lancashire Commissioning Support Unit, The Health Foundation or other partners and funders. 
+
+These disclaimers and exclusions shall be governed by and construed in accordance with the laws of England and Wales under the exclusive jurisdiction of the courts of England and Wales. 
+Those who choose to access this site from outside the United Kingdom are responsible for compliance with local laws if and to the extent local laws are applicable. 
+
+By using this site, you agree to these terms and conditions of use.   
+
+## Site content
+
+All content published through this site is open under the CC0 licence unless otherwise stated.
+We make every reasonable effort to locate, contact and acknowledge copyright owners and wish to be informed by any copyright owners who are not properly identified and acknowledged on this website so that we may make any necessary corrections.
+
+Where licence terms for individual articles, videos, images and other published content permit republication, you may do so in accordance with the stated terms of the respective licence(s).
+
+## What websites do we link to? 
+
+NHS-R Community editors and contributors recommend external web links on the basis of their suitability and usefulness for our users. 
+
+It is not our policy to enter into agreements for reciprocal links. 
+
+The inclusion of a link to an organisation's or individual's website does not constitute an endorsement or an approval by NHS-R Community, its editors, The Strategy Unit, NHS Midlands and Lancashire Commissioning Support Unit, The Health Foundation or other partners and funders of any product, service, policy or opinion of the organisation or individual. 
+NHS-R Community, its editors, The Strategy Unit, NHS Midlands and Lancashire Commissioning Support Unit, The Health Foundation or other partners and funders are not responsible for the content of external websites. 
+
+## What websites will we not link to? 
+
+We will not link to websites that contain racist, sexual or misleading content; that promote violence; that are in breach of any UK law; which are otherwise offensive to individuals or to groups of people. 
+
+The decision of NHS-R Community is final on publishing of content and no correspondence will be entered into. 
+
+If you wish to report a concern, please email [nhs.rcommunity@nhs.net](nhs.rcommunity@nhs.net).
+
+## Software and services
+
+Source code and files for this site are available from [GitHub](https://github.com/nhs-r-community/nhs-r-community). 
+Use of our GitHub repository is governed by the [Contributor Covenant Code of Conduct](#contributor-covenant-code-of-conduct) and further details for contribution can be found in [NHS-R Statement on Tools](https://tools.nhsrcommunity.com/contribution.html). 
+
+This site is built using [Quarto](https://quarto.org/), an open-source scientific and technical publishing system developed by [Posit](https://posit.co/). 
+Quarto source code and software licences are available from [GitHub](https://github.com/quarto-dev).
+
+The NHS-R Community website is hosted by [GitHub Pages](https://pages.github.com/). 
+
+This site uses [Google Analytics 4](https://support.google.com/analytics/answer/10089681?hl=en) for web analytics reporting.
+
+## Code of conduct
+
+How to technically contribute to this website can be found in the [Statement on Tools](https://tools.nhsrcommunity.com/contribution.html and the Code of Conduct can be found in the repository [Code of Conduct](./CODE_OF_CONDUCT.md).
+
+Details of the [Notice and Takedown Policy](https://nhsrway.nhsrcommunity.com/code-of-conduct.html#notice-and-takedown-policy) can be found in the [NHS-R Way book](https://nhsrway.nhsrcommunity.com/) along with details on how submissions with sensitive information will be rectified.
