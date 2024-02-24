@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Gary Hutson">
-<meta name="dcterms.date" content="2018-05-24">
 
-<title>Diverging Dot Plot and Lollipop Charts – Plotting Variance with ggplot2</title>
+<title>Terms and conditions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,64 +20,30 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg" rel="icon" type="image/svg+xml">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg" rel="icon" type="image/svg+xml">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -127,7 +91,7 @@ gtag('config', 'G-J7L32C56WN', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../blog/index.html" class="navbar-brand navbar-brand-logo">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
     <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo">
     </a>
   </div>
@@ -138,11 +102,11 @@ gtag('config', 'G-J7L32C56WN', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about/index.html"> 
+    <a class="nav-link" href="./about/index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
@@ -150,15 +114,15 @@ gtag('config', 'G-J7L32C56WN', { 'anonymize_ip': true});
 <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../books/index.html"> 
+    <a class="nav-link" href="./books/index.html"> 
 <span class="menu-text">Books</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog/index.html"> 
+    <a class="nav-link" href="./blog/index.html"> 
 <span class="menu-text">Blogs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../contact.html"> 
+    <a class="nav-link" href="./contact.html"> 
 <span class="menu-text">Contact us</span></a>
   </li>  
 </ul>
@@ -171,164 +135,94 @@ gtag('config', 'G-J7L32C56WN', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns">
-<div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
-<h1 class="title">Diverging Dot Plot and Lollipop Charts – Plotting Variance with ggplot2</h1>
-<p class="subtitle lead"></p><p>“The aim here is to create a diverging bar chart that shows variance above and below an average line.”</p><p></p>
-    <div class="quarto-categories">
-        <div class="quarto-category">R tips</div>
-        <div class="quarto-category">ggplot2</div>
-        <div class="quarto-category">Base R</div>
-      </div>
-  </div>
-
-
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Gary Hutson </p>
-          </div>
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Terms and conditions</h1>
+                      </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">May 24, 2018</p>
-    </div>
-  </div>
   
-    <div>
-    <div class="quarto-title-meta-heading">Modified</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 22, 2024</p>
-    </div>
-  </div>
+  <div class="quarto-title-meta">
+
+      
     
-  </div>
+      
+    </div>
+    
   
-
-
-
-</header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#creating-the-dot-plot-variance-chart" id="toc-creating-the-dot-plot-variance-chart" class="nav-link active" data-scroll-target="#creating-the-dot-plot-variance-chart">Creating the Dot Plot Variance chart</a></li>
-  <li><a href="#setting-up-the-dot-plot-variance-chart" id="toc-setting-up-the-dot-plot-variance-chart" class="nav-link" data-scroll-target="#setting-up-the-dot-plot-variance-chart">Setting up the Dot Plot Variance chart</a></li>
-  <li><a href="#creating-the-diverging-lollipop-chart" id="toc-creating-the-diverging-lollipop-chart" class="nav-link" data-scroll-target="#creating-the-diverging-lollipop-chart">Creating the Diverging Lollipop Chart</a></li>
+  <li><a href="#legal-disclaimer" id="toc-legal-disclaimer" class="nav-link active" data-scroll-target="#legal-disclaimer">Legal disclaimer</a></li>
+  <li><a href="#site-content" id="toc-site-content" class="nav-link" data-scroll-target="#site-content">Site content</a></li>
+  <li><a href="#what-websites-do-we-link-to" id="toc-what-websites-do-we-link-to" class="nav-link" data-scroll-target="#what-websites-do-we-link-to">What websites do we link to?</a></li>
+  <li><a href="#what-websites-will-we-not-link-to" id="toc-what-websites-will-we-not-link-to" class="nav-link" data-scroll-target="#what-websites-will-we-not-link-to">What websites will we not link to?</a></li>
+  <li><a href="#software-and-services" id="toc-software-and-services" class="nav-link" data-scroll-target="#software-and-services">Software and services</a></li>
+  <li><a href="#code-of-conduct" id="toc-code-of-conduct" class="nav-link" data-scroll-target="#code-of-conduct">Code of conduct</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/nhs-r-community/nhs-r-community/edit/main/blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nhs-r-community/nhs-r-community/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/nhs-r-community/nhs-r-community/edit/main/ts-and-cs.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nhs-r-community/nhs-r-community/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
-<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
-<!--
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
--->
-<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
-<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
 
 
 
-<section id="creating-the-dot-plot-variance-chart" class="level1">
-<h1>Creating the Dot Plot Variance chart</h1>
-<p>The data preparation was used in the previous blog entitled: <a href="https://nhsrcommunity.com/diverging-bar-charts-plotting-variance-with-ggplot2">Diverging Bar Charts – Plotting Variance with ggplot2</a>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 20240222 Added for qmd to run</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_classic</span>())</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"mtcars"</span>) <span class="co"># load data</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>CarBrand <span class="ot">&lt;-</span> <span class="fu">rownames</span>(mtcars) <span class="co"># Create new column for car brands and names</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>mpg_z_score <span class="ot">&lt;-</span> <span class="fu">round</span>((mtcars<span class="sc">$</span>mpg <span class="sc">-</span> <span class="fu">mean</span>(mtcars<span class="sc">$</span>mpg))<span class="sc">/</span><span class="fu">sd</span>(mtcars<span class="sc">$</span>mpg), <span class="at">digits=</span><span class="dv">2</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>mpg_type <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(mtcars<span class="sc">$</span>mpg_z_score <span class="sc">&lt;=</span> <span class="dv">0</span>, <span class="st">"below"</span>, <span class="st">"above"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars[<span class="fu">order</span>(mtcars<span class="sc">$</span>mpg_z_score), ] <span class="co">#Ascending sort on Z Score</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>CarBrand <span class="ot">&lt;-</span> <span class="fu">factor</span>(mtcars<span class="sc">$</span>CarBrand, <span class="at">levels =</span> mtcars<span class="sc">$</span>CarBrand)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Refer to that if you need to know how to create the data prior to this tutorial.</p>
+
+<section id="legal-disclaimer" class="level2">
+<h2 class="anchored" data-anchor-id="legal-disclaimer">Legal disclaimer</h2>
+<p>Statements of fact and opinion published on this website are those of the respective authors and contributors and not necessarily those of NHS-R Community, its editors, The Strategy Unit, NHS Midlands and Lancashire Commissioning Support Unit, The Health Foundation or other partners and funders.</p>
+<p>NHS-R Community has prepared the content of this website responsibly and carefully. However, NHS-R Community, its editors, The Strategy Unit, NHS Midlands and Lancashire Commissioning Support Unit, The Health Foundation or other partners and funders disclaim all warranties, express or implied, as to the accuracy of the information contained in any of the materials on this website or on other linked websites or on any subsequent links. This includes, but is not by way of limitation:</p>
+<ul>
+<li><p>any implied warranties of merchantability and fitness for a particular purpose.</p></li>
+<li><p>any liability for damage to your computer hardware, data, information, materials and business resulting from the information or the lack of information available.</p></li>
+<li><p>any errors, omissions, or inaccuracies in the information.</p></li>
+<li><p>any decision made or action taken or not taken in reliance upon the information.</p></li>
+</ul>
+<p>NHS-R Community, its editors, The Strategy Unit, NHS Midlands and Lancashire Commissioning Support Unit, The Health Foundation or other partners and funders make no warranty as to the content, accuracy, timeliness or completeness of the information or that the information may be relied upon for any reason and bear no responsibility for the accuracy, content or legality of any linked site or for that of any subsequent links. NHS-R Community, its editors, The Strategy Unit, NHS Midlands and Lancashire Commissioning Support Unit, The Health Foundation or other partners and funders make no warranty that the website service will be uninterrupted or error-free or that any defects can be corrected.</p>
+<p>NHS-R Community, its editors, The Strategy Unit, NHS Midlands and Lancashire Commissioning Support Unit, The Health Foundation or other partners and funders shall not be liable for any losses or damages (including without limitation consequential loss or damage) whatsoever from the use of, or reliance on, the information in this website, or from the use of the internet generally. Links to other websites or the publication of advertisements do not constitute an endorsement or an approval by NHS-R Community, its editors, The Strategy Unit, NHS Midlands and Lancashire Commissioning Support Unit, The Health Foundation or other partners and funders.</p>
+<p>These disclaimers and exclusions shall be governed by and construed in accordance with the laws of England and Wales under the exclusive jurisdiction of the courts of England and Wales. Those who choose to access this site from outside the United Kingdom are responsible for compliance with local laws if and to the extent local laws are applicable.</p>
+<p>By using this site, you agree to these terms and conditions of use.</p>
 </section>
-<section id="setting-up-the-dot-plot-variance-chart" class="level1">
-<h1>Setting up the Dot Plot Variance chart</h1>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>CarBrand, <span class="at">y=</span>mpg_z_score, <span class="at">label=</span>mpg_z_score)) <span class="sc">+</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">stat=</span><span class="st">'identity'</span>, <span class="fu">aes</span>(<span class="at">col=</span>mpg_type), <span class="at">size=</span><span class="dv">6</span>) <span class="sc">+</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name=</span><span class="st">"Mileage (deviation)"</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Above Average"</span>, <span class="st">"Below Average"</span>),</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"above"</span><span class="ot">=</span><span class="st">"#00ba38"</span>, <span class="st">"below"</span><span class="ot">=</span><span class="st">"#0b8fd3"</span>)) <span class="sc">+</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">color=</span><span class="st">"white"</span>, <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Diverging Dot Plot (ggplot2)"</span>,</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle=</span><span class="st">"Z score showing Normalised mileage"</span>, <span class="at">caption=</span><span class="st">"Produced by Gary Hutson"</span>) <span class="sc">+</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">2.5</span>, <span class="fl">2.5</span>) <span class="sc">+</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>This is very similar to the previous plot we created in the previous post, however there are a few differences. The main difference is that we use a <code>geom_point()</code> geometry and set the colour of the points based on whether the said point deviates above and below the average. In addition, we use the <code>geom_text()</code> to set the colour of the text in the points to white and specify the size of the text. The final difference is that I have added a Y limit (<code>ylim</code>) range of -2.5 standard deviation to positive 2.5 standard deviations.</p>
-<p>Running this block of code, along with the data preparation code, will give you a chart that looks as below:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<section id="site-content" class="level2">
+<h2 class="anchored" data-anchor-id="site-content">Site content</h2>
+<p>All content published through this site is open under the CC0 licence unless otherwise stated. We make every reasonable effort to locate, contact and acknowledge copyright owners and wish to be informed by any copyright owners who are not properly identified and acknowledged on this website so that we may make any necessary corrections.</p>
+<p>Where licence terms for individual articles, videos, images and other published content permit republication, you may do so in accordance with the stated terms of the respective licence(s).</p>
 </section>
-<section id="creating-the-diverging-lollipop-chart" class="level1">
-<h1>Creating the Diverging Lollipop Chart</h1>
-<p>The code below shows how to build the diverging lollipop chart in R and ggplot2:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>CarBrand, <span class="at">y=</span>mpg_z_score, <span class="at">label=</span>mpg_z_score)) <span class="sc">+</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">stat=</span><span class="st">'identity'</span>, <span class="fu">aes</span>(<span class="at">col=</span>mpg_type), <span class="at">size=</span><span class="dv">6</span>) <span class="sc">+</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name=</span><span class="st">"Mileage (deviation)"</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Above Average"</span>, <span class="st">"Below Average"</span>),</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"above"</span><span class="ot">=</span><span class="st">"#00ba38"</span>, <span class="st">"below"</span><span class="ot">=</span><span class="st">"#0b8fd3"</span>)) <span class="sc">+</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="dv">0</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">x =</span> CarBrand,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                   <span class="at">yend =</span> mpg_z_score,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">xend =</span> CarBrand),</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">color=</span><span class="st">"white"</span>, <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Diverging Lollipop Chart"</span>,</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle=</span><span class="st">"Z score for normalised mileage"</span>,</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span><span class="st">"Produced by Gary Hutson"</span>) <span class="sc">+</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">2.5</span>, <span class="fl">2.5</span>) <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), <span class="at">panel.grid.minor =</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Similar geometries are used here. What has been added here is the <b>geom_segment()</b> this shows how the line segments need to be added. The starting y is equal to 0 on the Y scale and the starting x is the first car by the car brand. Similarly, the end of the x (<code>xend</code>) is also the CarBrand.</p>
-<p>The only other difference is to add a theme constraint to the end of the code to turn off the major and minor grid lines, this is achieved by setting the <code>panel.grid.major</code> and <code>panel.grid.minor</code> equal to <code>element_blank()</code>.</p>
-<p>The completed graph and plot is shown below:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>There – we now have some lovely looking charts that can be put into a report to report on variance between categorical variables.</p>
-<p>This blog was written by Gary Hutson, Principal Analyst, Activity &amp; Access Team, Information &amp; Insight at Nottingham University Hospitals NHS Trust, and was originally posted at <a href="https://hutsons-hacks.info/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2">Hutsons-Hacks</a>.</p>
+<section id="what-websites-do-we-link-to" class="level2">
+<h2 class="anchored" data-anchor-id="what-websites-do-we-link-to">What websites do we link to?</h2>
+<p>NHS-R Community editors and contributors recommend external web links on the basis of their suitability and usefulness for our users.</p>
+<p>It is not our policy to enter into agreements for reciprocal links.</p>
+<p>The inclusion of a link to an organisation’s or individual’s website does not constitute an endorsement or an approval by NHS-R Community, its editors, The Strategy Unit, NHS Midlands and Lancashire Commissioning Support Unit, The Health Foundation or other partners and funders of any product, service, policy or opinion of the organisation or individual. NHS-R Community, its editors, The Strategy Unit, NHS Midlands and Lancashire Commissioning Support Unit, The Health Foundation or other partners and funders are not responsible for the content of external websites.</p>
+</section>
+<section id="what-websites-will-we-not-link-to" class="level2">
+<h2 class="anchored" data-anchor-id="what-websites-will-we-not-link-to">What websites will we not link to?</h2>
+<p>We will not link to websites that contain racist, sexual or misleading content; that promote violence; that are in breach of any UK law; which are otherwise offensive to individuals or to groups of people.</p>
+<p>The decision of NHS-R Community is final on publishing of content and no correspondence will be entered into.</p>
+<p>If you wish to report a concern, please email <a href="nhs.rcommunity@nhs.net">nhs.rcommunity@nhs.net</a>.</p>
+</section>
+<section id="software-and-services" class="level2">
+<h2 class="anchored" data-anchor-id="software-and-services">Software and services</h2>
+<p>Source code and files for this site are available from <a href="https://github.com/nhs-r-community/nhs-r-community">GitHub</a>. Use of our GitHub repository is governed by the <a href="#contributor-covenant-code-of-conduct">Contributor Covenant Code of Conduct</a> and further details for contribution can be found in <a href="https://tools.nhsrcommunity.com/contribution.html">NHS-R Statement on Tools</a>.</p>
+<p>This site is built using <a href="https://quarto.org/">Quarto</a>, an open-source scientific and technical publishing system developed by <a href="https://posit.co/">Posit</a>. Quarto source code and software licences are available from <a href="https://github.com/quarto-dev">GitHub</a>.</p>
+<p>The NHS-R Community website is hosted by <a href="https://pages.github.com/">GitHub Pages</a>.</p>
+<p>This site uses <a href="https://support.google.com/analytics/answer/10089681?hl=en">Google Analytics 4</a> for web analytics reporting.</p>
+</section>
+<section id="code-of-conduct" class="level2">
+<h2 class="anchored" data-anchor-id="code-of-conduct">Code of conduct</h2>
+<p>How to technically contribute to this website can be found in the [Statement on Tools](https://tools.nhsrcommunity.com/contribution.html and the Code of Conduct can be found in the repository <a href="./CODE_OF_CONDUCT.html">Code of Conduct</a>.</p>
+<p>Details of the <a href="https://nhsrway.nhsrcommunity.com/code-of-conduct.html#notice-and-takedown-policy">Notice and Takedown Policy</a> can be found in the <a href="https://nhsrway.nhsrcommunity.com/">NHS-R Way book</a> along with details on how submissions with sensitive information will be rectified.</p>
 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-hutson2018" class="csl-entry quarto-appendix-citeas" role="listitem">
-Hutson, Gary. 2018. <span>“Diverging Dot Plot and Lollipop Charts –
-Plotting Variance with Ggplot2.”</span> May 24, 2018.
-</div></div></section></div></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -868,26 +762,26 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
 <p><a class="link-dark me-1" href="https://fosstodon.org/@NHSrCommunity" title="mastodon" target="_blank" rel="noopener"><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a> <a class="link-dark me-1" href="https://github.com/nhs-r-community" title="github" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-label="github"></i></a> <a class="link-dark me-1" href="https://soundcloud.com/nhs-r-community" title="soundcloud" target="_blank" rel="noopener"><i class="fa-brands fa-soundcloud" aria-label="soundcloud"></i></a> <a class="link-dark me-1" href="https://www.linkedin.com/in/nhs-r-community-2555a6282/" title="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a></p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nhs-r-community/nhs-r-community/edit/main/blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nhs-r-community/nhs-r-community/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nhs-r-community/nhs-r-community/edit/main/ts-and-cs.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nhs-r-community/nhs-r-community/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../accessibility.html">
+    <a class="nav-link" href="./accessibility.html">
 <p>Accessibility</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../contact.html">
+    <a class="nav-link" href="./contact.html">
 <p>Contact</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../licence.html">
+    <a class="nav-link" href="./licence.html">
 <p>Licence</p>
 </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="../blog/index.xml">
+    <a class="nav-link" href="./blog/index.xml">
       <i class="bi bi-rss" role="img">
 </i> 
     </a>
