@@ -83,7 +83,7 @@ The histogram uses the class of vehicle as the histogram fill, the binwidth is t
 The script can be simply changed in the histogram layer by adding the `bins` parameter:
 
 ```{r}
-g + geom_histogram(aes(fill=class),
+plot + geom_histogram(aes(fill=class),
                    bins=5,
                    col="black",
                    size=.1) +
