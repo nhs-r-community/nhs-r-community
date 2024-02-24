@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.549">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="dcterms.date" content="2024-02-16">
-
-<title>Licence</title>
+<meta name="author" content="Gary Hutson">
+<meta name="dcterms.date" content="2018-05-24">
+<title>Histogram with auto binning in ggplot2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,31 +19,63 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg" rel="icon" type="image/svg+xml">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -71,30 +101,21 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-J7L32C56WN"></script>
-
-<script type="text/javascript">
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-J7L32C56WN"></script><script type="text/javascript">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-J7L32C56WN', { 'anonymize_ip': true});
 </script>
-
-
 </head>
-
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo">
-    </a>
+    <a href="../blog/index.html" class="navbar-brand navbar-brand-logo">
+    <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo"></a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -102,12 +123,12 @@ gtag('config', 'G-J7L32C56WN', { 'anonymize_ip': true});
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+<li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about/index.html"> 
+    <a class="nav-link" href="../about/index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
@@ -115,70 +136,150 @@ gtag('config', 'G-J7L32C56WN', { 'anonymize_ip': true});
 <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./books/index.html"> 
+    <a class="nav-link" href="../books/index.html"> 
 <span class="menu-text">Books</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog/index.html"> 
+    <a class="nav-link" href="../blog/index.html"> 
 <span class="menu-text">Blogs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./contact.html"> 
+    <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact us</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
     <a href="https://github.com/nhs-r-community" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    
-<!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Licence</h1>
-</div>
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns"><div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
+<h1 class="title">Histogram with auto binning in ggplot2</h1>
+<p class="subtitle lead"></p>
+<p>“Building the Histogram with auto binning”</p>
+    <div class="quarto-categories">
+        <div class="quarto-category">R tips</div>
+        <div class="quarto-category">ggplot2</div>
+        <div class="quarto-category">Base R</div>
+      </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gary Hutson </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 16, 2024</p>
+      <p class="date">May 24, 2018</p>
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">February 24, 2024</p>
+    </div>
+  </div>
     
   </div>
   
 
 
-</header>
+
+</header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#histograms-with-auto-binning" id="toc-histograms-with-auto-binning" class="nav-link active" data-scroll-target="#histograms-with-auto-binning">Histograms (with auto binning)</a></li>
+  <li><a href="#specifying-binning-values" id="toc-specifying-binning-values" class="nav-link" data-scroll-target="#specifying-binning-values">Specifying binning values</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/nhs-r-community/nhs-r-community/edit/main/blog/histogram-with-auto-binning-in-ggplot2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nhs-r-community/nhs-r-community/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html --><!--
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+--><!-- <header id="title-block-header" class="quarto-title-block default page-columns"> --><!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> --><div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 20240224 Added for qmd to run</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"mtcars"</span><span class="op">)</span> <span class="co"># load data</span></span>
+<span></span>
+<span><span class="va">mtcars</span><span class="op">$</span><span class="va">CarBrand</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span> <span class="co"># Create new column for car brands and names</span></span>
+<span></span>
+<span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg_z_score</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg_type</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg_z_score</span> <span class="op">&lt;=</span> <span class="fl">0</span>, <span class="st">"below"</span>, <span class="st">"above"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">mtcars</span> <span class="op">&lt;-</span> <span class="va">mtcars</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg_z_score</span><span class="op">)</span>, <span class="op">]</span> <span class="co">#Ascending sort on Z Score</span></span>
+<span><span class="va">mtcars</span><span class="op">$</span><span class="va">CarBrand</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">CarBrand</span>, levels <span class="op">=</span> <span class="va">mtcars</span><span class="op">$</span><span class="va">CarBrand</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="histograms-with-auto-binning" class="level1"><h1>Histograms (with auto binning)</h1>
+<p>Again, we will use the <code>mtcars</code> dataset and use the fields in that to produce the chart, as we are doing this there is nothing to do on the data preparation side. That leaves us to have fun with the plot.</p>
+<p>Building the Histogram with auto binning</p>
+<p>I set up the plot, as per below:</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I import the <code>ggplot2</code> library and set my chart theme to a classic theme. The process next is to create the histogram plot and feed in the relevant data:</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">displ</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Blues"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I create a plot placeholder in memory so I can reuse this plot again and again in memory. This sets the aes layer equal to the displacement metric in the <code>mtcars</code> data frame. I then use the <code>scale_fill_brewer</code> command and select the palette to the Blues palette. A list of palettes can be found on the <a href="https://r-graph-gallery.com/38-rcolorbrewers-palettes.html">R Graph Gallery</a>.</p>
+<!-- The original link http://bxhorn.com/rcolorbrewer-palettes/ redirects to the generic site -->
+<p>The next section uses the <a href="https://www.rdocumentation.org/packages/ggplot2/versions/0.9.1/topics/geom_histogram"><code>geom_histogram()</code></a> geometry to force this to be a histogram:</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plot</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill<span class="op">=</span><span class="va">class</span><span class="op">)</span>,</span>
+<span>                      binwidth <span class="op">=</span> <span class="fl">.1</span>,</span>
+<span>                      col<span class="op">=</span><span class="st">"black"</span>,</span>
+<span>                      size<span class="op">=</span><span class="fl">.1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title<span class="op">=</span><span class="st">"Histogram with Auto Binning"</span>,</span>
+<span>       caption<span class="op">=</span><span class="st">"Produced by Gary Hutson"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Displacement"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The histogram uses the class of vehicle as the histogram fill, the binwidth is the width of the bins required, the colour is equal to black and the size is stipulated here. All that I then do is add the data labels to it and you have a lovely looking histogram built. This can be applied to any dataset. The output is as below:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="histogram-with-auto-binning-in-ggplot2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="specifying-binning-values" class="level1"><h1>Specifying binning values</h1>
+<p>The script can be simply changed in the histogram layer by adding the <code>bins</code> parameter:</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plot</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill<span class="op">=</span><span class="va">class</span><span class="op">)</span>,</span>
+<span>                   bins<span class="op">=</span><span class="fl">5</span>,</span>
+<span>                   col<span class="op">=</span><span class="st">"black"</span>,</span>
+<span>                   size<span class="op">=</span><span class="fl">.1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title<span class="op">=</span><span class="st">"Histogram with Auto Binning"</span>,</span>
+<span>       caption<span class="op">=</span><span class="st">"Produced by Gary Hutson"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Displacement"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="histogram-with-auto-binning-in-ggplot2_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This blog was written by Gary Hutson, Principal Analyst, Activity &amp; Access Team, Information &amp; Insight at Nottingham University Hospitals NHS Trust, and was originally posted on <a href="https://hutsons-hacks.info/histogram-with-auto-binning-in-ggplot2">Hutsons-Hacks</a>.</p>
 
 
-<p>This website, its content and code are released under a <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal</a>.</p>
-<p>Blogs that are published through this site will also be under this license and can be referenced to personal sites if the author wishes.</p>
-<center>
-<p><i class="fa-brands fa-creative-commons fa-2xl" aria-label="creative-commons"></i> <i class="fa-brands fa-creative-commons-by fa-2xl" aria-label="creative-commons-by"></i> <i class="fa-brands fa-creative-commons-zero fa-2xl" aria-label="creative-commons-zero"></i></p>
-</center>
-<p>For more information on the licences used by NHS-R Community go to the chapter <a href="https://nhsrway.nhsrcommunity.com/style-guides.html#style-guide-for-code">Style Guide for code</a> in the <a href="https://nhsrway.nhsrcommunity.com/">NHS-R Way book</a>.</p>
-
-
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-hutson2018" class="csl-entry quarto-appendix-citeas" role="listitem">
+Hutson, Gary. 2018. <span>“Histogram with Auto Binning in
+Ggplot2.”</span> May 24, 2018.
+</div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -710,43 +811,40 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>© 2024 NHS-R Community ∙ Made with <a href="https://quarto.org/"><img src="https://quarto.org/quarto.png" class="img-fluid" alt="Quarto logo blue round cirle with a cross within the circumference" width="65"></a></p>
 </div>   
     <div class="nav-footer-center">
 <p><a class="link-dark me-1" href="https://fosstodon.org/@NHSrCommunity" title="mastodon" target="_blank" rel="noopener"><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a> <a class="link-dark me-1" href="https://github.com/nhs-r-community" title="github" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-label="github"></i></a> <a class="link-dark me-1" href="https://soundcloud.com/nhs-r-community" title="soundcloud" target="_blank" rel="noopener"><i class="fa-brands fa-soundcloud" aria-label="soundcloud"></i></a> <a class="link-dark me-1" href="https://www.linkedin.com/in/nhs-r-community-2555a6282/" title="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a></p>
-<div class="toc-actions"><ul><li><a href="https://github.com/nhs-r-community/nhs-r-community/edit/main/licence.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nhs-r-community/nhs-r-community/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nhs-r-community/nhs-r-community/edit/main/blog/histogram-with-auto-binning-in-ggplot2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nhs-r-community/nhs-r-community/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
-    <li class="nav-item">
-    <a class="nav-link" href="./accessibility.html">
+<li class="nav-item">
+    <a class="nav-link" href="../accessibility.html">
 <p>Accessibility</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./contact.html">
+    <a class="nav-link" href="../contact.html">
 <p>Contact</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link active" href="./licence.html" aria-current="page">
+    <a class="nav-link" href="../licence.html">
 <p>Licence</p>
 </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="./blog/index.xml">
+    <a class="nav-link" href="../blog/index.xml">
       <i class="bi bi-rss" role="img">
 </i> 
     </a>
   </li>  
 </ul>
-    </div>
+</div>
   </div>
 </footer>
-
-
 
 
 </body></html>
