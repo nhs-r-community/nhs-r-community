@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/index.html</loc>
-    <lastmod>2024-02-24T19:01:01.197Z</lastmod>
+    <lastmod>2024-02-24T19:18:24.822Z</lastmod>
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/CODE_OF_CONDUCT.html</loc>
@@ -38,7 +38,7 @@
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/blog/index.html</loc>
-    <lastmod>2024-02-24T19:08:41.526Z</lastmod>
+    <lastmod>2024-02-24T19:29:50.313Z</lastmod>
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/blog/histogram-with-auto-binning-in-ggplot2.html</loc>
@@ -102,10 +102,14 @@
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/latest-content.html</loc>
-    <lastmod>2024-02-24T18:52:22.949Z</lastmod>
+    <lastmod>2024-02-24T19:18:24.822Z</lastmod>
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/LICENSE.html</loc>
     <lastmod>2024-02-17T21:20:04.850Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/simpler-sql-with-dplyr.html</loc>
+    <lastmod>2024-02-24T20:00:13.241Z</lastmod>
   </url>
 </urlset>
