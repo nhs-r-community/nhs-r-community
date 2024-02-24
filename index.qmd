@@ -47,7 +47,7 @@ listing:
     sort-ui: false
     filter-ui: false
     max-items: 3
-    feed: true
+    feed: false
     
 ---
 
