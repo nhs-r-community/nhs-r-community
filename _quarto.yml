@@ -6,10 +6,11 @@ website:
   page-navigation: true
   back-to-top-navigation: true
   favicon: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+  site-url: https://nhs-r-community.github.io/nhs-r-community/
   repo-url: https://github.com/nhs-r-community/nhs-r-community
   repo-actions: [edit, issue]
   # If you are forking our repo to develop content -- whether for NHS-R Community
-  # or your own purposes -- please disable our Google Analytics tag during development.
+  # or your own psurposes -- please disable our Google Analytics tag during development.
   # If building your own site, replace our GA tag with your own GA tag before deployment.
   # This will prevent your activity being tracked and counted in our analytics dashboard.
   # Thank you!
@@ -38,6 +39,8 @@ website:
         href: blog/index.qmd
       - text: "Contact us"
         href: contact.qmd
+      - text: "Blog RSS feed"
+        href: blog/index.xml
 
   page-footer:
     left: >-
