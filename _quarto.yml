@@ -2,11 +2,12 @@ project:
   type: website
 
 website:
+  title: "NHS-R Community Quarto website"
   description: "Promoting the Use of R in the UK Health & Care System"
+  site-url: https://nhs-r-community.github.io/nhs-r-community/
   page-navigation: true
   back-to-top-navigation: true
   favicon: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
-  site-url: https://nhs-r-community.github.io/nhs-r-community/
   repo-url: https://github.com/nhs-r-community/nhs-r-community
   repo-actions: [edit, issue]
   # If you are forking our repo to develop content -- whether for NHS-R Community
@@ -39,8 +40,8 @@ website:
         href: blog/index.qmd
       - text: "Contact us"
         href: contact.qmd
-      - text: "Blog RSS feed"
-        href: blog/index.xml
+      - text: "RSS feed"
+        href: latest-content.xml
 
   page-footer:
     left: >-
@@ -62,7 +63,7 @@ website:
         aria-label: "Licence Details"
         href: licence.qmd
       - icon: rss
-        href: blog/index.xml
+        href: latest-content.xml
 
 format:
   html:
