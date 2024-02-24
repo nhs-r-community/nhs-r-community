@@ -119,81 +119,32 @@
     "text": "Call to arms\nAlmost all the projects I have referred to in this blog post are open source, and available on GitHub, so follow the links above if you are interested. There’s also two presentations on the topic available as slides (Earl conference 2017 and Government Statistical Service conference 2017) which give more technical details on the projects.\nThis blog is written by Matthew Upson, Data Scientist at Juro and was originally posted on the Software Sustainability website."
   },
   {
-    "objectID": "licence.html",
-    "href": "licence.html",
-    "title": "Licence",
+    "objectID": "blog/histogram-with-auto-binning-in-ggplot2.html",
+    "href": "blog/histogram-with-auto-binning-in-ggplot2.html",
+    "title": "Histogram with auto binning in ggplot2",
     "section": "",
-    "text": "This website, its content and code are released under a CC0 1.0 Universal.\nBlogs that are published through this site will also be under this license and can be referenced to personal sites if the author wishes.\n\n  \n\nFor more information on the licences used by NHS-R Community go to the chapter Style Guide for code in the NHS-R Way book.\n\n\n\n Back to top"
+    "text": "# 20240224 Added for qmd to run\nlibrary(ggplot2)\ntheme_set(theme_classic())\ndata(\"mtcars\") # load data\n\nmtcars$CarBrand &lt;- rownames(mtcars) # Create new column for car brands and names\n\nmtcars$mpg_z_score &lt;- round((mtcars$mpg - mean(mtcars$mpg))/sd(mtcars$mpg), digits=2)\n\nmtcars$mpg_type &lt;- ifelse(mtcars$mpg_z_score &lt;= 0, \"below\", \"above\")\n\nmtcars &lt;- mtcars[order(mtcars$mpg_z_score), ] #Ascending sort on Z Score\nmtcars$CarBrand &lt;- factor(mtcars$CarBrand, levels = mtcars$CarBrand)\n\n\nHistograms (with auto binning)\nAgain, we will use the mtcars dataset and use the fields in that to produce the chart, as we are doing this there is nothing to do on the data preparation side. That leaves us to have fun with the plot.\nBuilding the Histogram with auto binning\nI set up the plot, as per below:\n\nlibrary(ggplot2)\ntheme_set(theme_classic())\n\nI import the ggplot2 library and set my chart theme to a classic theme. The process next is to create the histogram plot and feed in the relevant data:\n\nplot &lt;- ggplot(mpg, aes(displ)) + scale_fill_brewer(palette = \"Blues\")\n\nI create a plot placeholder in memory so I can reuse this plot again and again in memory. This sets the aes layer equal to the displacement metric in the mtcars data frame. I then use the scale_fill_brewer command and select the palette to the Blues palette. A list of palettes can be found on the R Graph Gallery.\n\nThe next section uses the geom_histogram() geometry to force this to be a histogram:\n\nplot + geom_histogram(aes(fill=class),\n                      binwidth = .1,\n                      col=\"black\",\n                      size=.1) +\n  labs(title=\"Histogram with Auto Binning\",\n       caption=\"Produced by Gary Hutson\") + xlab(\"Displacement\")\n\nThe histogram uses the class of vehicle as the histogram fill, the binwidth is the width of the bins required, the colour is equal to black and the size is stipulated here. All that I then do is add the data labels to it and you have a lovely looking histogram built. This can be applied to any dataset. The output is as below:\n\n\n\n\n\n\n\n\n\n\n\nSpecifying binning values\nThe script can be simply changed in the histogram layer by adding the bins parameter:\n\nplot + geom_histogram(aes(fill=class),\n                   bins=5,\n                   col=\"black\",\n                   size=.1) +\n  labs(title=\"Histogram with Auto Binning\",\n       caption=\"Produced by Gary Hutson\") + xlab(\"Displacement\")\n\n\n\n\n\n\n\n\nThis blog was written by Gary Hutson, Principal Analyst, Activity & Access Team, Information & Insight at Nottingham University Hospitals NHS Trust, and was originally posted on Hutsons-Hacks.\n\n\n\n\n Back to topReuseCC0CitationFor attribution, please cite this work as:\nHutson, Gary. 2018. “Histogram with Auto Binning in\nGgplot2.” May 24, 2018."
   },
   {
-    "objectID": "books/posts/health-inequalities/index.html",
-    "href": "books/posts/health-inequalities/index.html",
-    "title": "Health Inequalities",
-    "section": "",
-    "text": "Back to top"
-  },
-  {
-    "objectID": "books/posts/NHSR-way/index.html",
-    "href": "books/posts/NHSR-way/index.html",
-    "title": "NHS-R Way book",
+    "objectID": "books/posts/open-analytics-resources/index.html",
+    "href": "books/posts/open-analytics-resources/index.html",
+    "title": "Open Analytics Resources",
     "section": "",
     "text": "Back to top"
   },
   {
-    "objectID": "accessibility.html",
-    "href": "accessibility.html",
-    "title": "Accessibility commitment",
+    "objectID": "books/posts/statement-on-tools/index.html",
+    "href": "books/posts/statement-on-tools/index.html",
+    "title": "Statement on Tools",
     "section": "",
-    "text": "Return to home page or about page.\nInspired from Silvia Canelon’s committment to accessiblity NHS-R Community welcomes feedback on the accessibility of this site and any links to its materials including code and training materials.\nPlease let us know if you encounter any accessibility barriers by emailing nhs.rcommunity@nhs.net."
+    "text": "Back to top"
   },
   {
-    "objectID": "accessibility.html#website-practices",
-    "href": "accessibility.html#website-practices",
-    "title": "Accessibility commitment",
-    "section": "Website practices",
-    "text": "Website practices\nThis site has been designed with the following features in mind:\n\nThe colour palette is from NHS branding.\nFonts are set to Arial which is an NHS font.\nAlternative text for all informative images.\n\nWe are aware there is much more to inclusive and accessible design and we welcome feedback on how to better implement accessibility practices. Any learning will be used to improve the site but will also be shared with the community more widely through book resources like our Open Analytics page where we have started to collect links that support greater Accessibility."
-  },
-  {
-    "objectID": "contact.html",
-    "href": "contact.html",
-    "title": "Contact us",
+    "objectID": "books/index.html",
+    "href": "books/index.html",
+    "title": "Books",
     "section": "",
-    "text": "Email: nhs.rcommunity@nhs.net\nGitHub: @nhs-r-community\nLinkedIn: NHS-R Community\nFosstodon (Mastodon): @NHSrCommunity@fosstodon.org\n\nFor details on how NHS-R Community use social media can be found in the NHS-R Community book chapter Community Handbook.\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "about/index.html",
-    "href": "about/index.html",
-    "title": "",
-    "section": "",
-    "text": "The NHS-R Community started in 2018 to promote the use of R in the NHS and the community has grown rapidly ever since. It is a community that is broader than the NHS as members come from public sector organisations across the UK, including Local Authorities and Civil Service, as well as academics and voluntary sector people who have an interest in healthcare. Whilst R is a core language for support by the community, there is always support for data science tools more generally, particularly where they cross over with R."
-  },
-  {
-    "objectID": "about/index.html#more-information",
-    "href": "about/index.html#more-information",
-    "title": "",
-    "section": "More information",
-    "text": "More information\nMore can be found in individual books including:\n\n\nNHS-R Way\n\n\n\nLink →\n\n\nStatement on Tools\n\n\n\nLink →\n\n\nOpen Analytics Resources\n\n\n\nLink →\n\n\nTraining courses\n\n\n\nLink →"
-  },
-  {
-    "objectID": "about/index.html#special-thanks",
-    "href": "about/index.html#special-thanks",
-    "title": "",
-    "section": "Special thanks",
-    "text": "Special thanks\nTo the creators of Quarto and to those who publish their code to share their knowledge particularly the website Real World Data Science and Silvia Canelón’s personal site.\nBoth were instrumental in building this site as they share the code from their website but have also contributed to the NHS-R Community Conferences:\n\nBrian Tarran opened the NHS-R Community Conference in 2023 with his talk Forging community links: NHS-R, the Royal Statistical Society and Real World Data Science.\nSilvia Canelón ran a two-part Xaringan (including CSS) workshop at the 2020 NHS-R Conference - Part 1 and Part 2. And as part of this workshop Silvia kindly created {NHSRthemes} which contains the code for the NHS Branding colours used in this site."
-  },
-  {
-    "objectID": "index.html#books",
-    "href": "index.html#books",
-    "title": "",
-    "section": "Books",
-    "text": "Books\n\n\n\n\n\n\n\n\n\n\n\nHealth Inequalities\n\n\nThis project is a collection of information and knowledge related to analytical work on “Health Inequalities”, as performed in the NHS and the wider UK Health and Social…\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNHS-R Way book\n\n\nEverything you need or want to know about NHS-R Community including: how to contribute and get involved, code styles, training preparation materials.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOpen Analytics Resources\n\n\nUseful links for health and care analysts and data scientists.\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html#blog",
-    "href": "index.html#blog",
-    "title": "",
-    "section": "Blog",
-    "text": "Blog\n\n\n\n\n\n\n\n\n\n\n\nNavigating the Data-Driven Frontier: Insights from an NHS-R Committee Member\n\n\n\n\n\n\nPrajwal Khairnar\n\n\nFeb 6, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCount of working days function\n\n\n\n\n\n\nZoë Turner\n\n\nJul 16, 2019\n\n\n\n\n\n\n\n\n\n\n\n\nWhy Government needs sustainable software too\n\n\n\n\n\n\nMatthew Upson\n\n\nMay 24, 2018\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "NHS-R Way book\n\n\n\ncode-of-conduct\n\n\ntraining\n\n\n\nEverything you need or want to know about NHS-R Community including: how to contribute and get involved, code styles, training preparation materials.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatement on Tools\n\n\n\ndata-science\n\n\ninstallation\n\n\ngetting-started\n\n\n\nIn this book we’ve compiled a set of technical resources, links and write down our experiences of using open data science programs like R and Python within the NHS and…\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHealth Inequalities\n\n\n\ndata-science\n\n\nhealth-inequalities\n\n\n\nThis project is a collection of information and knowledge related to analytical work on “Health Inequalities”, as performed in the NHS and the wider UK Health and Social…\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOpen Analytics Resources\n\n\n\ndata-science\n\n\nanalysis\n\n\nlinks\n\n\ntraining\n\n\n\nUseful links for health and care analysts and data scientists.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "CODE_OF_CONDUCT.html",
@@ -252,25 +203,81 @@
     "text": "This Code of Conduct is adapted from the Contributor Covenant, version 2.1, available at https://www.contributor-covenant.org/version/2/1/code_of_conduct.html.\nCommunity Impact Guidelines were inspired by [Mozilla’s code of conduct enforcement ladder][https://github.com/mozilla/inclusion].\nFor answers to common questions about this code of conduct, see the FAQ at https://www.contributor-covenant.org/faq. Translations are available at https://www.contributor-covenant.org/translations."
   },
   {
-    "objectID": "books/index.html",
-    "href": "books/index.html",
-    "title": "Books",
-    "section": "",
-    "text": "NHS-R Way book\n\n\n\ncode-of-conduct\n\n\ntraining\n\n\n\nEverything you need or want to know about NHS-R Community including: how to contribute and get involved, code styles, training preparation materials.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatement on Tools\n\n\n\ndata-science\n\n\ninstallation\n\n\ngetting-started\n\n\n\nIn this book we’ve compiled a set of technical resources, links and write down our experiences of using open data science programs like R and Python within the NHS and…\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHealth Inequalities\n\n\n\ndata-science\n\n\nhealth-inequalities\n\n\n\nThis project is a collection of information and knowledge related to analytical work on “Health Inequalities”, as performed in the NHS and the wider UK Health and Social…\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOpen Analytics Resources\n\n\n\ndata-science\n\n\nanalysis\n\n\nlinks\n\n\ntraining\n\n\n\nUseful links for health and care analysts and data scientists.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "objectID": "index.html#books",
+    "href": "index.html#books",
+    "title": "",
+    "section": "Books",
+    "text": "Books\n\n\n\n\n\n\n\n\n\n\n\nHealth Inequalities\n\n\nThis project is a collection of information and knowledge related to analytical work on “Health Inequalities”, as performed in the NHS and the wider UK Health and Social…\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNHS-R Way book\n\n\nEverything you need or want to know about NHS-R Community including: how to contribute and get involved, code styles, training preparation materials.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOpen Analytics Resources\n\n\nUseful links for health and care analysts and data scientists.\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "books/posts/statement-on-tools/index.html",
-    "href": "books/posts/statement-on-tools/index.html",
-    "title": "Statement on Tools",
+    "objectID": "index.html#blog",
+    "href": "index.html#blog",
+    "title": "",
+    "section": "Blog",
+    "text": "Blog\n\n\n\n\n\n\n\n\n\n\n\nNavigating the Data-Driven Frontier: Insights from an NHS-R Committee Member\n\n\n\n\n\n\nPrajwal Khairnar\n\n\nFeb 6, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCount of working days function\n\n\n\n\n\n\nZoë Turner\n\n\nJul 16, 2019\n\n\n\n\n\n\n\n\n\n\n\n\nHistogram with auto binning in ggplot2\n\n\n\n\n\n\nGary Hutson\n\n\nMay 24, 2018\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about/index.html",
+    "href": "about/index.html",
+    "title": "",
+    "section": "",
+    "text": "The NHS-R Community started in 2018 to promote the use of R in the NHS and the community has grown rapidly ever since. It is a community that is broader than the NHS as members come from public sector organisations across the UK, including Local Authorities and Civil Service, as well as academics and voluntary sector people who have an interest in healthcare. Whilst R is a core language for support by the community, there is always support for data science tools more generally, particularly where they cross over with R."
+  },
+  {
+    "objectID": "about/index.html#more-information",
+    "href": "about/index.html#more-information",
+    "title": "",
+    "section": "More information",
+    "text": "More information\nMore can be found in individual books including:\n\n\nNHS-R Way\n\n\n\nLink →\n\n\nStatement on Tools\n\n\n\nLink →\n\n\nOpen Analytics Resources\n\n\n\nLink →\n\n\nTraining courses\n\n\n\nLink →"
+  },
+  {
+    "objectID": "about/index.html#special-thanks",
+    "href": "about/index.html#special-thanks",
+    "title": "",
+    "section": "Special thanks",
+    "text": "Special thanks\nTo the creators of Quarto and to those who publish their code to share their knowledge particularly the website Real World Data Science and Silvia Canelón’s personal site.\nBoth were instrumental in building this site as they share the code from their website but have also contributed to the NHS-R Community Conferences:\n\nBrian Tarran opened the NHS-R Community Conference in 2023 with his talk Forging community links: NHS-R, the Royal Statistical Society and Real World Data Science.\nSilvia Canelón ran a two-part Xaringan (including CSS) workshop at the 2020 NHS-R Conference - Part 1 and Part 2. And as part of this workshop Silvia kindly created {NHSRthemes} which contains the code for the NHS Branding colours used in this site."
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact us",
+    "section": "",
+    "text": "Email: nhs.rcommunity@nhs.net\nGitHub: @nhs-r-community\nLinkedIn: NHS-R Community\nFosstodon (Mastodon): @NHSrCommunity@fosstodon.org\n\nFor details on how NHS-R Community use social media can be found in the NHS-R Community book chapter Community Handbook.\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "accessibility.html",
+    "href": "accessibility.html",
+    "title": "Accessibility commitment",
+    "section": "",
+    "text": "Return to home page or about page.\nInspired from Silvia Canelon’s committment to accessiblity NHS-R Community welcomes feedback on the accessibility of this site and any links to its materials including code and training materials.\nPlease let us know if you encounter any accessibility barriers by emailing nhs.rcommunity@nhs.net."
+  },
+  {
+    "objectID": "accessibility.html#website-practices",
+    "href": "accessibility.html#website-practices",
+    "title": "Accessibility commitment",
+    "section": "Website practices",
+    "text": "Website practices\nThis site has been designed with the following features in mind:\n\nThe colour palette is from NHS branding.\nFonts are set to Arial which is an NHS font.\nAlternative text for all informative images.\n\nWe are aware there is much more to inclusive and accessible design and we welcome feedback on how to better implement accessibility practices. Any learning will be used to improve the site but will also be shared with the community more widely through book resources like our Open Analytics page where we have started to collect links that support greater Accessibility."
+  },
+  {
+    "objectID": "books/posts/NHSR-way/index.html",
+    "href": "books/posts/NHSR-way/index.html",
+    "title": "NHS-R Way book",
     "section": "",
     "text": "Back to top"
   },
   {
-    "objectID": "books/posts/open-analytics-resources/index.html",
-    "href": "books/posts/open-analytics-resources/index.html",
-    "title": "Open Analytics Resources",
+    "objectID": "books/posts/health-inequalities/index.html",
+    "href": "books/posts/health-inequalities/index.html",
+    "title": "Health Inequalities",
     "section": "",
     "text": "Back to top"
+  },
+  {
+    "objectID": "licence.html",
+    "href": "licence.html",
+    "title": "Licence",
+    "section": "",
+    "text": "This website, its content and code are released under a CC0 1.0 Universal.\nBlogs that are published through this site will also be under this license and can be referenced to personal sites if the author wishes.\n\n  \n\nFor more information on the licences used by NHS-R Community go to the chapter Style Guide for code in the NHS-R Way book.\n\n\n\n Back to top"
   },
   {
     "objectID": "blog/nhs-meets-r.html",
@@ -291,7 +298,7 @@
     "href": "blog/index.html",
     "title": "Blogs",
     "section": "",
-    "text": "Navigating the Data-Driven Frontier: Insights from an NHS-R Committee Member\n\n\n‘It is with great excitement that I share my recent journey as a committee member with the NHS-R Community, a vibrant hub dedicated to championing the use of R and data science tools in the UK health and care system.’ \n\n\n\nCommittee\n\n\n\n\n\n\nFeb 6, 2024\n\n\nPrajwal Khairnar\n\n\n\n\n\n\n\n\n\n\n\n\nCount of working days function\n\n\nCreating a function to work out the number of working days a seasonal bus ticket can be used. \n\n\n\nFunction\n\n\n\n\n\n\nJul 16, 2019\n\n\nZoë Turner\n\n\n\n\n\n\n\n\n\n\n\n\nWhy Government needs sustainable software too\n\n\n“In this blog post I want to talk about why Government needs sustainable software, the work being done to deliver it, and the lessons we learnt after the first year.” \n\n\n\nSoftware\n\n\n\n\n\n\nMay 24, 2018\n\n\nMatthew Upson\n\n\n\n\n\n\n\n\n\n\n\n\nDiverging Bar Charts – Plotting Variance with ggplot2\n\n\n“The aim here is to create a diverging bar chart that shows variance above and below an average line.” \n\n\n\nR tips\n\n\nggplot2\n\n\nBase R\n\n\n\n\n\n\nMay 24, 2018\n\n\nGary Hutson\n\n\n\n\n\n\n\n\n\n\n\n\nDiverging Dot Plot and Lollipop Charts – Plotting Variance with ggplot2\n\n\n“The aim here is to create a diverging bar chart that shows variance above and below an average line.” \n\n\n\nR tips\n\n\nggplot2\n\n\nBase R\n\n\n\n\n\n\nMay 24, 2018\n\n\nGary Hutson\n\n\n\n\n\n\n\n\n\n\n\n\nThe :: operator\n\n\n“Sometimes two packages will have a function with the same name but they will do different things.” \n\n\n\nR tips\n\n\n\n\n\n\nMay 21, 2018\n\n\nEmma Vestesson\n\n\n\n\n\n\n\n\n\n\n\n\nR studio shortcuts\n\n\n“There is a full list of short cuts here and I have pulled together my three most used shortcuts.” \n\n\n\nR tips\n\n\n\n\n\n\nMay 21, 2018\n\n\nEmma Vestesson\n\n\n\n\n\n\n\n\n\n\n\n\nImporting and exporting Data\n\n\n‘There are a large number of file types that are able to store data. R is usually able to import most of them but there are some caveats.’ \n\n\n\nR tips\n\n\n\n\n\n\nMay 15, 2018\n\n\nS Zeki\n\n\n\n\n\n\n\n\n\n\n\n\nThe joy of R\n\n\n‘Hello. My name is Julian and I am an R addict. I got hooked about 3 years ago when I took on a new role in Public Health England developing a public health data science team.’ \n\n\n\nPersonal Story\n\n\n\n\n\n\nApr 9, 2018\n\n\nJulian Flowers\n\n\n\n\n\n\n\n\n\n\n\n\nAiming for a wrangle-free (or reduced) world\n\n\n‘I work as a Data Scientist at Public Health England. I am part of a small team that have a role in trying to modernise how we “do” data.’ \n\n\n\nPersonal Story\n\n\n\n\n\n\nMar 23, 2018\n\n\nSebastian Fox\n\n\n\n\n\n\n\n\n\n\n\n\nNHS meets R\n\n\n‘Hello and welcome to our nascent NHS-R Community; a community dedicated to promoting the learning, application and utilisation of R in the National Health Service (NHS) in the United Kingdom.’ \n\n\n\nNHS-R\n\n\n\n\n\n\nMar 19, 2018\n\n\n\n\n\n\nNo matching items\n\n\n  \n\n Back to topReuseCC0"
+    "text": "Navigating the Data-Driven Frontier: Insights from an NHS-R Committee Member\n\n\n‘It is with great excitement that I share my recent journey as a committee member with the NHS-R Community, a vibrant hub dedicated to championing the use of R and data science tools in the UK health and care system.’ \n\n\n\nCommittee\n\n\n\n\n\n\nFeb 6, 2024\n\n\nPrajwal Khairnar\n\n\n\n\n\n\n\n\n\n\n\n\nCount of working days function\n\n\nCreating a function to work out the number of working days a seasonal bus ticket can be used. \n\n\n\nFunction\n\n\n\n\n\n\nJul 16, 2019\n\n\nZoë Turner\n\n\n\n\n\n\n\n\n\n\n\n\nHistogram with auto binning in ggplot2\n\n\n“Building the Histogram with auto binning” \n\n\n\nR tips\n\n\nggplot2\n\n\nBase R\n\n\n\n\n\n\nMay 24, 2018\n\n\nGary Hutson\n\n\n\n\n\n\n\n\n\n\n\n\nWhy Government needs sustainable software too\n\n\n“In this blog post I want to talk about why Government needs sustainable software, the work being done to deliver it, and the lessons we learnt after the first year.” \n\n\n\nSoftware\n\n\n\n\n\n\nMay 24, 2018\n\n\nMatthew Upson\n\n\n\n\n\n\n\n\n\n\n\n\nDiverging Bar Charts – Plotting Variance with ggplot2\n\n\n“The aim here is to create a diverging bar chart that shows variance above and below an average line.” \n\n\n\nR tips\n\n\nggplot2\n\n\nBase R\n\n\n\n\n\n\nMay 24, 2018\n\n\nGary Hutson\n\n\n\n\n\n\n\n\n\n\n\n\nDiverging Dot Plot and Lollipop Charts – Plotting Variance with ggplot2\n\n\n“The aim here is to create a diverging bar chart that shows variance above and below an average line.” \n\n\n\nR tips\n\n\nggplot2\n\n\nBase R\n\n\n\n\n\n\nMay 24, 2018\n\n\nGary Hutson\n\n\n\n\n\n\n\n\n\n\n\n\nThe :: operator\n\n\n“Sometimes two packages will have a function with the same name but they will do different things.” \n\n\n\nR tips\n\n\n\n\n\n\nMay 21, 2018\n\n\nEmma Vestesson\n\n\n\n\n\n\n\n\n\n\n\n\nR studio shortcuts\n\n\n“There is a full list of short cuts here and I have pulled together my three most used shortcuts.” \n\n\n\nR tips\n\n\n\n\n\n\nMay 21, 2018\n\n\nEmma Vestesson\n\n\n\n\n\n\n\n\n\n\n\n\nImporting and exporting Data\n\n\n‘There are a large number of file types that are able to store data. R is usually able to import most of them but there are some caveats.’ \n\n\n\nR tips\n\n\n\n\n\n\nMay 15, 2018\n\n\nS Zeki\n\n\n\n\n\n\n\n\n\n\n\n\nThe joy of R\n\n\n‘Hello. My name is Julian and I am an R addict. I got hooked about 3 years ago when I took on a new role in Public Health England developing a public health data science team.’ \n\n\n\nPersonal Story\n\n\n\n\n\n\nApr 9, 2018\n\n\nJulian Flowers\n\n\n\n\n\n\n\n\n\n\n\n\nAiming for a wrangle-free (or reduced) world\n\n\n‘I work as a Data Scientist at Public Health England. I am part of a small team that have a role in trying to modernise how we “do” data.’ \n\n\n\nPersonal Story\n\n\n\n\n\n\nMar 23, 2018\n\n\nSebastian Fox\n\n\n\n\n\n\n\n\n\n\n\n\nNHS meets R\n\n\n‘Hello and welcome to our nascent NHS-R Community; a community dedicated to promoting the learning, application and utilisation of R in the National Health Service (NHS) in the United Kingdom.’ \n\n\n\nNHS-R\n\n\n\n\n\n\nMar 19, 2018\n\n\n\n\n\n\nNo matching items\n\n\n  \n\n Back to topReuseCC0"
   },
   {
     "objectID": "blog/the-operator.html",

@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Gary Hutson">
+<meta name="dcterms.date" content="2018-05-24">
 
-<title>NHS-R Community</title>
+<title>Histogram with auto binning in ggplot2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,31 +22,64 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg" rel="icon" type="image/svg+xml">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,63 +107,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-books .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-books'] = new List('listing-books', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-blog .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-blog'] = new List('listing-blog', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-J7L32C56WN"></script>
 
 <script type="text/javascript">
@@ -139,46 +117,17 @@ gtag('js', new Date());
 gtag('config', 'G-J7L32C56WN', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../blog/index.html" class="navbar-brand navbar-brand-logo">
     <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo">
     </a>
   </div>
@@ -189,11 +138,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about/index.html"> 
+    <a class="nav-link" href="../about/index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
@@ -201,15 +150,15 @@ window.Quarto = {
 <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./books/index.html"> 
+    <a class="nav-link" href="../books/index.html"> 
 <span class="menu-text">Books</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog/index.html"> 
+    <a class="nav-link" href="../blog/index.html"> 
 <span class="menu-text">Blogs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./contact.html"> 
+    <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact us</span></a>
   </li>  
 </ul>
@@ -222,233 +171,150 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns">
+<div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
+<h1 class="title">Histogram with auto binning in ggplot2</h1>
+<p class="subtitle lead"></p><p>“Building the Histogram with auto binning”</p><p></p>
+    <div class="quarto-categories">
+        <div class="quarto-category">R tips</div>
+        <div class="quarto-category">ggplot2</div>
+        <div class="quarto-category">Base R</div>
+      </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gary Hutson </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 24, 2018</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">February 24, 2024</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+
+</header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
-<!-- main -->
-<main class="content page-columns page-full column-page" id="quarto-document-content">
-
-
-
-
-<p><br><br></p>
-<div class="quarto-about-solana content column-page">
-  <div class="about-entity">
-    <div class="entity-contents">
-      <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<p class="subtitle lead">Promoting the Use of R in the UK Health &amp; Care System</p>
-</div>
-<div class="quarto-title-meta column-page">
-  </div>
-</header> <div class="about-links">
-  <a href="mailto:nhsr.community@nhs.net" class="about-link" rel="" target="">
-    <i class="bi bi-mailbox"></i>
-     <span class="about-link-text"></span>
-  </a>
-  <a href="https://fosstodon.org/@NHSrCommunity" class="about-link" rel="" target="">
-    <i class="bi bi-mastodon"></i>
-     <span class="about-link-text"></span>
-  </a>
-  <a href="https://github.com/nhs-r-community" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text"></span>
-  </a>
-  <a href="https://www.linkedin.com/in/nhs-r-community-2555a6282/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text"></span>
-  </a>
-</div>
-      <div class="about-contents"><div id="hero-heading">
-<section id="together-we-aim-to-promote-the-use-of-r-in-the-nhs." class="level3">
-<h3 data-anchor-id="together-we-aim-to-promote-the-use-of-r-in-the-nhs.">Together we aim to promote the use of R in the NHS.</h3>
-<p>so that we can help improve our health and social care system using open-source data science solutions.</p>
-</section>
-</div></div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#histograms-with-auto-binning" id="toc-histograms-with-auto-binning" class="nav-link active" data-scroll-target="#histograms-with-auto-binning">Histograms (with auto binning)</a></li>
+  <li><a href="#specifying-binning-values" id="toc-specifying-binning-values" class="nav-link" data-scroll-target="#specifying-binning-values">Specifying binning values</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/nhs-r-community/nhs-r-community/edit/main/blog/histogram-with-auto-binning-in-ggplot2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nhs-r-community/nhs-r-community/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
-    <img src="img/spc_chart-1.png" alt="Statistical Process Control Chart of breaches showing the colours and logo from the " making="" data="" count"="" programme"="" class="about-image
-  rounded " style="width: 32em;">
-  </div>
-</div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
-<div class="content-container">
-<div class="listing-block">
-<p><a href="./books/index.html"></a></p><a href="./books/index.html">
-</a><section id="books" class="level2"><a href="./books/index.html">
-<h2 data-anchor-id="books">Books</h2>
-</a><p><a href="./books/index.html"></a></p>
-<div id="listing-books" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="data-science,health-inequalities" data-listing-file-modified-sort="1708797098903" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="./books/posts/health-inequalities/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./books/posts/health-inequalities/book-image.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of an open book sat upon grass.">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Health Inequalities
-</h5>
-<div class="card-text listing-description">
-This project is a collection of information and knowledge related to analytical work on “Health Inequalities”, as performed in the NHS and the wider UK Health and Social…
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
+<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
+<!--
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+-->
+<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
+<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
 
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="code-of-conduct,training" data-listing-file-modified-sort="1708797098903" data-listing-reading-time-sort="1" data-listing-word-count-sort="10">
-<a href="./books/posts/NHSR-way/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./books/posts/NHSR-way/book-image.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of an open book with glasses on it next to a tea cup with a flower design on a wooden tray. Next to the tray is a white pottery jug with purple small flowers and leaves.">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-NHS-R Way book
-</h5>
-<div class="card-text listing-description">
-<p>Everything you need or want to know about NHS-R Community including: how to contribute and get involved, code styles, training preparation materials.</p>
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
 
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="data-science,analysis,links,training" data-listing-file-modified-sort="1708797098903" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
-<a href="./books/posts/open-analytics-resources/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./books/posts/open-analytics-resources/book-image.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of an antique book, closed with white flowers resting on top.">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Open Analytics Resources
-</h5>
-<div class="card-text listing-description">
-<p>Useful links for health and care analysts and data scientists.</p>
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
 
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 20240224 Added for qmd to run</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_classic</span>())</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"mtcars"</span>) <span class="co"># load data</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>CarBrand <span class="ot">&lt;-</span> <span class="fu">rownames</span>(mtcars) <span class="co"># Create new column for car brands and names</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>mpg_z_score <span class="ot">&lt;-</span> <span class="fu">round</span>((mtcars<span class="sc">$</span>mpg <span class="sc">-</span> <span class="fu">mean</span>(mtcars<span class="sc">$</span>mpg))<span class="sc">/</span><span class="fu">sd</span>(mtcars<span class="sc">$</span>mpg), <span class="at">digits=</span><span class="dv">2</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>mpg_type <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(mtcars<span class="sc">$</span>mpg_z_score <span class="sc">&lt;=</span> <span class="dv">0</span>, <span class="st">"below"</span>, <span class="st">"above"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars[<span class="fu">order</span>(mtcars<span class="sc">$</span>mpg_z_score), ] <span class="co">#Ascending sort on Z Score</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>CarBrand <span class="ot">&lt;-</span> <span class="fu">factor</span>(mtcars<span class="sc">$</span>CarBrand, <span class="at">levels =</span> mtcars<span class="sc">$</span>CarBrand)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<section id="histograms-with-auto-binning" class="level1">
+<h1>Histograms (with auto binning)</h1>
+<p>Again, we will use the <code>mtcars</code> dataset and use the fields in that to produce the chart, as we are doing this there is nothing to do on the data preparation side. That leaves us to have fun with the plot.</p>
+<p>Building the Histogram with auto binning</p>
+<p>I set up the plot, as per below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_classic</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>I import the <code>ggplot2</code> library and set my chart theme to a classic theme. The process next is to create the histogram plot and feed in the relevant data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(displ)) <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Blues"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>I create a plot placeholder in memory so I can reuse this plot again and again in memory. This sets the aes layer equal to the displacement metric in the <code>mtcars</code> data frame. I then use the <code>scale_fill_brewer</code> command and select the palette to the Blues palette. A list of palettes can be found on the <a href="https://r-graph-gallery.com/38-rcolorbrewers-palettes.html">R Graph Gallery</a>.</p>
+<!-- The original link http://bxhorn.com/rcolorbrewer-palettes/ redirects to the generic site -->
+<p>The next section uses the <a href="https://www.rdocumentation.org/packages/ggplot2/versions/0.9.1/topics/geom_histogram"><code>geom_histogram()</code></a> geometry to force this to be a histogram:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plot <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">fill=</span>class),</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">binwidth =</span> .<span class="dv">1</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">col=</span><span class="st">"black"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">size=</span>.<span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Histogram with Auto Binning"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span><span class="st">"Produced by Gary Hutson"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Displacement"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</a>
+<p>The histogram uses the class of vehicle as the histogram fill, the binwidth is the width of the bins required, the colour is equal to black and the size is stipulated here. All that I then do is add the data labels to it and you have a lovely looking histogram built. This can be applied to any dataset. The output is as below:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="histogram-with-auto-binning-in-ggplot2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
 </div>
 </div>
 </section>
-</div>
-</div>
-<div class="content-container">
-<div class="listing-block">
-<p><a href="./blog/index.html"></a></p><a href="./blog/index.html">
-</a><section id="blog" class="level2"><a href="./blog/index.html">
-<h2 data-anchor-id="blog">Blog</h2>
-</a><p><a href="./blog/index.html"></a></p>
-<div id="listing-blog" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="Committee" data-listing-date-sort="1707177600000" data-listing-file-modified-sort="1708797098903" data-listing-date-modified-sort="1708128000000" data-listing-reading-time-sort="3" data-listing-word-count-sort="466">
-<a href="./blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./blog/img/startup.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Photo of a meeting with a laptop, pad and paper and a coffee mug.">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Navigating the Data-Driven Frontier: Insights from an NHS-R Committee Member
-</h5>
-<div class="card-text listing-description">
-Greetings, esteemed members of the NHS-R Community, data enthusiasts, and healthcare aficionados! It is with great excitement that I share my recent journey as a committee…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Prajwal Khairnar
-</div>
-<div class="listing-date">
-Feb 6, 2024
+<section id="specifying-binning-values" class="level1">
+<h1>Specifying binning values</h1>
+<p>The script can be simply changed in the histogram layer by adding the <code>bins</code> parameter:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plot <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">fill=</span>class),</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">bins=</span><span class="dv">5</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">col=</span><span class="st">"black"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size=</span>.<span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Histogram with Auto Binning"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span><span class="st">"Produced by Gary Hutson"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Displacement"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="histogram-with-auto-binning-in-ggplot2_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
 </div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="Function" data-listing-date-sort="1563235200000" data-listing-file-modified-sort="1708797098899" data-listing-date-modified-sort="1708128000000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1212">
-<a href="./blog/count-of-working-days-function.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./blog/img/travelcard.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="A London rail travel ticket">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Count of working days function
-</h5>
-<div class="card-text listing-description">
-It’s at this time of year I need to renew my season ticket and I usually get one for the year. Out of interest, I wanted to find out how much the ticket cost per day, taking…<code></code>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Zoë Turner
-</div>
-<div class="listing-date">
-Jul 16, 2019
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527120000000" data-listing-file-modified-sort="1708797098899" data-listing-date-modified-sort="1708732800000" data-listing-reading-time-sort="3" data-listing-word-count-sort="497">
-<a href="./blog/histogram-with-auto-binning-in-ggplot2.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="blog/histogram-with-auto-binning-in-ggplot2_files/figure-html/unnamed-chunk-5-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Histogram with auto binning in ggplot2
-</h5>
-<div class="card-text listing-description">
-Again, we will use the <code>mtcars</code> dataset and use the fields in that to produce the chart, as we are doing this there is nothing to do on the data preparation side. That leaves…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Gary Hutson
-</div>
-<div class="listing-date">
-May 24, 2018
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
+<p>This blog was written by Gary Hutson, Principal Analyst, Activity &amp; Access Team, Information &amp; Insight at Nottingham University Hospitals NHS Trust, and was originally posted on <a href="https://hutsons-hacks.info/histogram-with-auto-binning-in-ggplot2">Hutsons-Hacks</a>.</p>
+
+
 </section>
-</div>
-</div>
 
-
-
-
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-hutson2018" class="csl-entry quarto-appendix-citeas" role="listitem">
+Hutson, Gary. 2018. <span>“Histogram with Auto Binning in
+Ggplot2.”</span> May 24, 2018.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -613,6 +479,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   } else {
     toggleColorMode(false);
   }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
@@ -981,26 +854,26 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
 <p><a class="link-dark me-1" href="https://fosstodon.org/@NHSrCommunity" title="mastodon" target="_blank" rel="noopener"><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a> <a class="link-dark me-1" href="https://github.com/nhs-r-community" title="github" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-label="github"></i></a> <a class="link-dark me-1" href="https://soundcloud.com/nhs-r-community" title="soundcloud" target="_blank" rel="noopener"><i class="fa-brands fa-soundcloud" aria-label="soundcloud"></i></a> <a class="link-dark me-1" href="https://www.linkedin.com/in/nhs-r-community-2555a6282/" title="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a></p>
-<div class="toc-actions"><ul><li><a href="https://github.com/nhs-r-community/nhs-r-community/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nhs-r-community/nhs-r-community/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nhs-r-community/nhs-r-community/edit/main/blog/histogram-with-auto-binning-in-ggplot2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nhs-r-community/nhs-r-community/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./accessibility.html">
+    <a class="nav-link" href="../accessibility.html">
 <p>Accessibility</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./contact.html">
+    <a class="nav-link" href="../contact.html">
 <p>Contact</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./licence.html">
+    <a class="nav-link" href="../licence.html">
 <p>Licence</p>
 </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="./blog/index.xml">
+    <a class="nav-link" href="../blog/index.xml">
       <i class="bi bi-rss" role="img">
 </i> 
     </a>
