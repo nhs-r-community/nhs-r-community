@@ -58,14 +58,14 @@
   {
     "objectID": "index.html#books",
     "href": "index.html#books",
-    "title": "",
+    "title": "NHS-R Community Quarto website",
     "section": "Books",
     "text": "Books\n\n\n\n\n\n\n\n\n\n\n\nHealth Inequalities\n\n\nThis project is a collection of information and knowledge related to analytical work on “Health Inequalities”, as performed in the NHS and the wider UK Health and Social…\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNHS-R Way book\n\n\nEverything you need or want to know about NHS-R Community including: how to contribute and get involved, code styles, training preparation materials.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOpen Analytics Resources\n\n\nUseful links for health and care analysts and data scientists.\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#blog",
     "href": "index.html#blog",
-    "title": "",
+    "title": "NHS-R Community Quarto website",
     "section": "Blog",
     "text": "Blog\n\n\n\n\n\n\n\n\n\n\n\nNavigating the Data-Driven Frontier: Insights from an NHS-R Committee Member\n\n\n\n\n\n\nPrajwal Khairnar\n\n\nFeb 6, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCount of working days function\n\n\n\n\n\n\nZoë Turner\n\n\nJul 16, 2019\n\n\n\n\n\n\n\n\n\n\n\n\nDiverging Bar Charts – Plotting Variance with ggplot2\n\n\n\n\n\n\nGary Hutson\n\n\nMay 24, 2018\n\n\n\n\n\n\n\n\nNo matching items"
   },
@@ -254,21 +254,21 @@
   {
     "objectID": "about/index.html",
     "href": "about/index.html",
-    "title": "",
+    "title": "NHS-R Community Quarto website",
     "section": "",
     "text": "The NHS-R Community started in 2018 to promote the use of R in the NHS and the community has grown rapidly ever since. It is a community that is broader than the NHS as members come from public sector organisations across the UK, including Local Authorities and Civil Service, as well as academics and voluntary sector people who have an interest in healthcare. Whilst R is a core language for support by the community, there is always support for data science tools more generally, particularly where they cross over with R."
   },
   {
     "objectID": "about/index.html#more-information",
     "href": "about/index.html#more-information",
-    "title": "",
+    "title": "NHS-R Community Quarto website",
     "section": "More information",
     "text": "More information\nMore can be found in individual books including:\n\n\nNHS-R Way\n\n\n\nLink →\n\n\nStatement on Tools\n\n\n\nLink →\n\n\nOpen Analytics Resources\n\n\n\nLink →\n\n\nTraining courses\n\n\n\nLink →"
   },
   {
     "objectID": "about/index.html#special-thanks",
     "href": "about/index.html#special-thanks",
-    "title": "",
+    "title": "NHS-R Community Quarto website",
     "section": "Special thanks",
     "text": "Special thanks\nTo the creators of Quarto and to those who publish their code to share their knowledge particularly the website Real World Data Science and Silvia Canelón’s personal site.\nBoth were instrumental in building this site as they share the code from their website but have also contributed to the NHS-R Community Conferences:\n\nBrian Tarran opened the NHS-R Community Conference in 2023 with his talk Forging community links: NHS-R, the Royal Statistical Society and Real World Data Science.\nSilvia Canelón ran a two-part Xaringan (including CSS) workshop at the 2020 NHS-R Conference - Part 1 and Part 2. And as part of this workshop Silvia kindly created {NHSRthemes} which contains the code for the NHS Branding colours used in this site."
   },
