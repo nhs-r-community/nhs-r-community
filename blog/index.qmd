@@ -2,7 +2,6 @@
 title: "Blogs"
 description: |
   Blogs are submitted from NHS-R Community members.<br>
-  [Subscribe to all latest content via RSS](../_site/latest-content.xml)
 listing: 
   sort: "date desc"
   type: default
