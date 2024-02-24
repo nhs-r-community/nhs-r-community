@@ -3338,7 +3338,7 @@ World.”</span> March 23, 2018. <a href="https://nhs-r-community.github.io/nhs-
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="code-of-conduct,training" data-listing-file-modified-sort="1708802187459" data-listing-reading-time-sort="1" data-listing-word-count-sort="10">
+<div class="g-col-1" data-index="0" data-categories="code-of-conduct,training" data-listing-file-modified-sort="1708802601474" data-listing-reading-time-sort="1" data-listing-word-count-sort="10">
 <a href="../books/posts/NHSR-way/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -3368,7 +3368,7 @@ training
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="data-science,installation,getting-started" data-listing-file-modified-sort="1708802187463" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
+<div class="g-col-1" data-index="1" data-categories="data-science,installation,getting-started" data-listing-file-modified-sort="1708802601474" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
 <a href="../books/posts/statement-on-tools/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -3401,7 +3401,7 @@ In this book we’ve compiled a set of technical resources, links and write down
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="data-science,health-inequalities" data-listing-file-modified-sort="1708802187459" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
+<div class="g-col-1" data-index="2" data-categories="data-science,health-inequalities" data-listing-file-modified-sort="1708802601474" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
 <a href="../books/posts/health-inequalities/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -3431,7 +3431,7 @@ This project is a collection of information and knowledge related to analytical 
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="data-science,analysis,links,training" data-listing-file-modified-sort="1708802187459" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
+<div class="g-col-1" data-index="3" data-categories="data-science,analysis,links,training" data-listing-file-modified-sort="1708802601474" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
 <a href="../books/posts/open-analytics-resources/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -3467,7 +3467,7 @@ training
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1708802187459">
+<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1708802601474">
 <a href="../books/posts/NHSR-way/book-image.jpg" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
@@ -3483,7 +3483,7 @@ training
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1708802187459">
+<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1708802601474">
 <a href="../books/posts/health-inequalities/book-image.jpg" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
@@ -3499,7 +3499,7 @@ training
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1708802187459">
+<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1708802601474">
 <a href="../books/posts/open-analytics-resources/book-image.jpg" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
@@ -3515,7 +3515,7 @@ training
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1708802187459">
+<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1708802601474">
 <a href="../books/posts/statement-on-tools/book-image.jpg" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
@@ -3537,7 +3537,7 @@ No matching items
 </div>
 </div><a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <guid>https://nhs-r-community.github.io/nhs-r-community/books/</guid>
-  <pubDate>Sat, 24 Feb 2024 19:16:50 GMT</pubDate>
+  <pubDate>Sat, 24 Feb 2024 19:24:12 GMT</pubDate>
 </item>
 <item>
   <title>NHS-R Way book</title>
@@ -3562,7 +3562,7 @@ No matching items
   <category>code-of-conduct</category>
   <category>training</category>
   <guid>https://nhs-r-community.github.io/nhs-r-community/books/posts/NHSR-way/</guid>
-  <pubDate>Sat, 24 Feb 2024 19:16:50 GMT</pubDate>
+  <pubDate>Sat, 24 Feb 2024 19:24:12 GMT</pubDate>
   <media:content url="https://nhs-r-community.github.io/nhs-r-community/books/posts/NHSR-way/book-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3589,7 +3589,7 @@ No matching items
   <category>installation</category>
   <category>getting-started</category>
   <guid>https://nhs-r-community.github.io/nhs-r-community/books/posts/statement-on-tools/</guid>
-  <pubDate>Sat, 24 Feb 2024 19:16:50 GMT</pubDate>
+  <pubDate>Sat, 24 Feb 2024 19:24:12 GMT</pubDate>
   <media:content url="https://nhs-r-community.github.io/nhs-r-community/books/posts/statement-on-tools/book-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3615,7 +3615,7 @@ No matching items
   <category>data-science</category>
   <category>health-inequalities</category>
   <guid>https://nhs-r-community.github.io/nhs-r-community/books/posts/health-inequalities/</guid>
-  <pubDate>Sat, 24 Feb 2024 19:16:50 GMT</pubDate>
+  <pubDate>Sat, 24 Feb 2024 19:24:12 GMT</pubDate>
   <media:content url="https://nhs-r-community.github.io/nhs-r-community/books/posts/health-inequalities/book-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3643,7 +3643,7 @@ No matching items
   <category>links</category>
   <category>training</category>
   <guid>https://nhs-r-community.github.io/nhs-r-community/books/posts/open-analytics-resources/</guid>
-  <pubDate>Sat, 24 Feb 2024 19:16:50 GMT</pubDate>
+  <pubDate>Sat, 24 Feb 2024 19:24:12 GMT</pubDate>
   <media:content url="https://nhs-r-community.github.io/nhs-r-community/books/posts/open-analytics-resources/book-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3668,7 +3668,7 @@ No matching items
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Committee" data-listing-date-sort="1707177600000" data-listing-file-modified-sort="1708802187459" data-listing-date-modified-sort="1708128000000" data-listing-reading-time-sort="3" data-listing-word-count-sort="466">
+<div class="quarto-post image-right" data-index="0" data-categories="Committee" data-listing-date-sort="1707177600000" data-listing-file-modified-sort="1708802601474" data-listing-date-modified-sort="1708128000000" data-listing-reading-time-sort="3" data-listing-word-count-sort="466">
 <div class="thumbnail">
 <p><a href="../blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html" class="no-external"></a></p><a href="../blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html" class="no-external">
 <p><img src="https://nhs-r-community.github.io/nhs-r-community/blog/img/startup.jpg" class="thumbnail-image" alt="Photo of a meeting with a laptop, pad and paper and a coffee mug."></p>
@@ -3698,7 +3698,7 @@ Prajwal Khairnar
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="Function" data-listing-date-sort="1563235200000" data-listing-file-modified-sort="1708802187459" data-listing-date-modified-sort="1708128000000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1212">
+<div class="quarto-post image-right" data-index="1" data-categories="Function" data-listing-date-sort="1563235200000" data-listing-file-modified-sort="1708802601474" data-listing-date-modified-sort="1708128000000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1212">
 <div class="thumbnail">
 <p><a href="../blog/count-of-working-days-function.html" class="no-external"></a></p><a href="../blog/count-of-working-days-function.html" class="no-external">
 <p><img src="https://nhs-r-community.github.io/nhs-r-community/blog/img/travelcard.jpg" class="thumbnail-image" alt="A London rail travel ticket"></p>
@@ -3728,7 +3728,7 @@ Zoë Turner
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527120000000" data-listing-file-modified-sort="1708802187459" data-listing-date-modified-sort="1708732800000" data-listing-reading-time-sort="3" data-listing-word-count-sort="497">
+<div class="quarto-post image-right" data-index="2" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527120000000" data-listing-file-modified-sort="1708802601474" data-listing-date-modified-sort="1708732800000" data-listing-reading-time-sort="3" data-listing-word-count-sort="497">
 <div class="thumbnail">
 <p><a href="../blog/histogram-with-auto-binning-in-ggplot2.html" class="no-external"></a></p><a href="../blog/histogram-with-auto-binning-in-ggplot2.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=false, height=]:blog/histogram-with-auto-binning-in-ggplot2.html -->
@@ -3764,7 +3764,7 @@ Gary Hutson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="Software" data-listing-date-sort="1527120000000" data-listing-file-modified-sort="1708802187459" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="10" data-listing-word-count-sort="1905">
+<div class="quarto-post image-right" data-index="3" data-categories="Software" data-listing-date-sort="1527120000000" data-listing-file-modified-sort="1708802601474" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="10" data-listing-word-count-sort="1905">
 <div class="thumbnail">
 <p><a href="../blog/why-government-needs-sustainable-software-too.html" class="no-external"></a></p><a href="../blog/why-government-needs-sustainable-software-too.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=false, height=]:blog/why-government-needs-sustainable-software-too.html -->
@@ -3794,7 +3794,7 @@ Matthew Upson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527120000000" data-listing-file-modified-sort="1708802187459" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="5" data-listing-word-count-sort="916">
+<div class="quarto-post image-right" data-index="4" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527120000000" data-listing-file-modified-sort="1708802601474" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="5" data-listing-word-count-sort="916">
 <div class="thumbnail">
 <p><a href="../blog/diverging-bar-charts-plotting-variance-with-ggplot2.html" class="no-external"></a></p><a href="../blog/diverging-bar-charts-plotting-variance-with-ggplot2.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=false, height=]:blog/diverging-bar-charts-plotting-variance-with-ggplot2.html -->
@@ -3830,7 +3830,7 @@ Gary Hutson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527120000000" data-listing-file-modified-sort="1708802187459" data-listing-date-modified-sort="1708560000000" data-listing-reading-time-sort="4" data-listing-word-count-sort="669">
+<div class="quarto-post image-right" data-index="5" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527120000000" data-listing-file-modified-sort="1708802601474" data-listing-date-modified-sort="1708560000000" data-listing-reading-time-sort="4" data-listing-word-count-sort="669">
 <div class="thumbnail">
 <p><a href="../blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html" class="no-external"></a></p><a href="../blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html -->
@@ -3866,7 +3866,7 @@ Gary Hutson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="R tips" data-listing-date-sort="1526860800000" data-listing-file-modified-sort="1708802187459" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="405">
+<div class="quarto-post image-right" data-index="6" data-categories="R tips" data-listing-date-sort="1526860800000" data-listing-file-modified-sort="1708802601474" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="405">
 <div class="thumbnail">
 <p><a href="../blog/the-operator.html" class="no-external"></a></p><a href="../blog/the-operator.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/the-operator.html -->
@@ -3896,7 +3896,7 @@ Emma Vestesson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="R tips" data-listing-date-sort="1526860800000" data-listing-file-modified-sort="1708802187459" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="129">
+<div class="quarto-post image-right" data-index="7" data-categories="R tips" data-listing-date-sort="1526860800000" data-listing-file-modified-sort="1708802601474" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="129">
 <div class="thumbnail">
 <p><a href="../blog/r-studio-shortcuts.html" class="no-external"></a></p><a href="../blog/r-studio-shortcuts.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/r-studio-shortcuts.html -->
@@ -3926,7 +3926,7 @@ Emma Vestesson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="R tips" data-listing-date-sort="1526342400000" data-listing-file-modified-sort="1708802187459" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="196">
+<div class="quarto-post image-right" data-index="8" data-categories="R tips" data-listing-date-sort="1526342400000" data-listing-file-modified-sort="1708802601474" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="196">
 <div class="thumbnail">
 <p><a href="../blog/importing-and-exporting-data.html" class="no-external"></a></p><a href="../blog/importing-and-exporting-data.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/importing-and-exporting-data.html -->
@@ -3956,7 +3956,7 @@ S Zeki
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="Personal Story" data-listing-date-sort="1523232000000" data-listing-file-modified-sort="1708802187459" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="5" data-listing-word-count-sort="830">
+<div class="quarto-post image-right" data-index="9" data-categories="Personal Story" data-listing-date-sort="1523232000000" data-listing-file-modified-sort="1708802601474" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="5" data-listing-word-count-sort="830">
 <div class="thumbnail">
 <p><a href="../blog/the-joy-of-r.html" class="no-external"></a></p><a href="../blog/the-joy-of-r.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/the-joy-of-r.html -->
@@ -3986,7 +3986,7 @@ Julian Flowers
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="Personal Story" data-listing-date-sort="1521763200000" data-listing-file-modified-sort="1708802187459" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1193">
+<div class="quarto-post image-right" data-index="10" data-categories="Personal Story" data-listing-date-sort="1521763200000" data-listing-file-modified-sort="1708802601474" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1193">
 <div class="thumbnail">
 <p><a href="../blog/aiming-for-a-wrangle-free-or-reduced-world.html" class="no-external"></a></p><a href="../blog/aiming-for-a-wrangle-free-or-reduced-world.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/aiming-for-a-wrangle-free-or-reduced-world.html -->
@@ -4016,7 +4016,7 @@ Sebastian Fox
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="NHS-R" data-listing-date-sort="1521417600000" data-listing-file-modified-sort="1708802187459" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="523">
+<div class="quarto-post image-right" data-index="11" data-categories="NHS-R" data-listing-date-sort="1521417600000" data-listing-file-modified-sort="1708802601474" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="523">
 <div class="thumbnail">
 <p><a href="../blog/nhs-meets-r.html" class="no-external"></a></p><a href="../blog/nhs-meets-r.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/nhs-meets-r.html -->
@@ -4050,7 +4050,7 @@ No matching items
 
 </div><a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section></div> ]]></description>
   <guid>https://nhs-r-community.github.io/nhs-r-community/blog/</guid>
-  <pubDate>Sat, 24 Feb 2024 19:16:50 GMT</pubDate>
+  <pubDate>Sat, 24 Feb 2024 19:24:12 GMT</pubDate>
 </item>
 </channel>
 </rss>
