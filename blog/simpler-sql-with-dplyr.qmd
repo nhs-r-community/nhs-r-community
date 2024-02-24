@@ -4,9 +4,12 @@ date: "7 June 2018"
 date-modified: '24 February 2024'
 categories:
   - R tips
+  - SQL
+  - dplyr
+  - Patient Flow
 author: John MacKintosh
 subtitle: >
-  ""
+  "Comparing dplyr with SQL nested queries"
 code-annotations: below
 execute: 
   eval: false
