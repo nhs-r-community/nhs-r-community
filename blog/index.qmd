@@ -7,7 +7,7 @@ listing:
   sort: "date desc"
   type: default
   categories: false
-  image-placeholder: letter.jpg
+  image-placeholder: img/letter.jpg
   sort-ui: false
   filter-ui: false
   fields: [title, author, categories, date, image]
