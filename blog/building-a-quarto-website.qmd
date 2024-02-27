@@ -1,0 +1,59 @@
+---
+title: "Building a Quarto website for NHS-R Community"
+date: "24 February 2024"
+date-modified: '24 February 2024'
+categories:
+  - Personal Story
+author: Zoë Turner
+subtitle: >
+  "Delving into the blog history of NHS-R Community as the site moves into the future with Quarto"
+code-annotations: below
+execute: 
+  eval: false
+---
+
+# The story so far
+
+A few years ago Mohammed A Mohammed, who was integral to getting NHS-R Community set up, suggested I might like to get involved by creating a website for NHS-R Community. At that time I had no idea where to start so my involvement stalled and a website was built, with help from a 3rd party, in WordPress. WordPress is a great website tool that can support very complicated sites like NHS-R Community's, as we have both a static site and an Events Management system which means that we don't need to rely (or pay!) for Eventbrite. We've used the system for sign up to hundreds of webinars and workshops, not to mention several hundred people attending conferences over the years.
+
+## Moving to purely coded websites
+
+In the time it's taken from that initial suggestion about building the website to now, where I help to manage the site, I've had the opportunity to build websites for myself using [{distill}](https://rstudio.github.io/distill/website.html) and [Hugo Apéro](https://hugo-apero-docs.netlify.app/) as well as the release of [Quarto](https://quarto.org/) which I was incredibly keen to try out for website creation.
+
+I'd used Quarto for slides and reports and been hugely impressed with. Getting started with Quarto is relatively easy if you've used R for a while, but like with anything, you have to start off at the basics and quickly want more complex functionality as you get going. This is even more of an issue when you are moving from one thing to another and it's more of a translation than a build-from-scratch project. 
+
+Luckilyfor me, many people had already jumped into Quarto websites and, as is usual for R users, their code was available online to delve into. I particularly was keen to follow the work of the Brian Tarran for the Royal Statistical Society's [Real World Data Science](https://realworlddatascience.net/) website because, at first glance, this doesn't give itself away as being built on Quarto. And I also really like Silvia Canelón's [personal blog site](https://silviacanelon.com/) for its beauty and functionality. Silvia has particularly worked hard on accessibility of her website and has written a lot of CSS code which I'm learning through what she has shared.
+
+Accessibility is something that the WordPress site needed considerable work on, particularly when checked with a website called the [Web Accessbility Evaluation Tool](https://wave.webaim.org/) which Silvia recommends on her blog site. The new Quarto site will need this too of course but now that the code is out in the open, anyone can contribute. That can be either making changes to the code but also highlighting problems as issues that can then be open to everyone to see.
+
+## Benefits to Quarto
+
+### Accessibility
+
+I'll mention accessibility again as that's hugely important and I like the fact that the people working on Quarto also think a lot about accessibility. Adding alt text has never been easier and any code (in the YAML) that refers to an image nearly always has functionality to add image alt text too.
+
+### Search functionality
+
+The search function for Quarto books is really impressive and the same functionality can be found in Quarto websites. There might be a plug in within WordPress to make searching through blogs for particular words but with Quarto it's not something that needs adding - it's there from the start. I now no longer have to think about tags or categories for blogs to make them easier to find.
+
+### Formatting code
+
+This was a bit of a niggle with WordPress in that it's not really a website for coders. Having the show code in the format that it appears to the person coding is a nice to have but Quarto goes an extra step by letting you run the code. It's mean that the charts that are talked about in some blogs are produced as the code is run, not as pictures. 
+
+Usually a blogger will choose a nice image to complement their writing and Quarto gives that functionality but I had a lovely surprise when charts that are created by the blog code became that thumbnail image automatically. This saves a lot of time and, no doubt, a lot of server space for static pictures to be stored. Although there is no cost to storing these on GitHub there is the environmental impact of the servers that they have to maintain to store this data.
+
+### Open to contribution
+
+Having a website that can publish R or Python code is an absolute joy. I used to write blogs in RMarkdown, render them to html and then copy the output to WordPress and in the copying and pasting often lose links or formatting. 
+
+Being open to contribution of course also means that the repository will be available to people to do pull requests. I've set the repository so that it's not necessary to Render the website to contribute so any additions or changes just need to be made to the `qmd` files. 
+
+### A chance to delve into history
+
+Now this point could have come from any change in website but I've taken the opportunity to go through each blog and transfer it to Quarto. There are no doubt quicker ways to do this as I can export from WordPress and then work on code to to get it to a format that can be published, but I started with moving a couple of blogs to get started and I'm hooked. 
+
+Starting in 2018 when the blogs first started I didn't know R *at all*. I started learning with NHS-R Community so these early blogs meant very little to me. As I've gone through each blog, formatting them and checking the R code runs (I found a couple of small mistakes this way!) and the links still work I've been more like an archivist than a coder. My favourite discover, and shock, was that I found that RAP (Reproducible Analytical Pipelines) was shared with the NHS-R Community in 2018 although I only really heard about it from 2020. It was very much like the moment I experienced when I went through my old Geography school books and found I'd been taught in those lessons about Index of Multiple Deprivation but I had absolutely no recollection of it at all. It hadn't been the right time for me to really listen to it even though it's become something that I work with a lot and want to ensure more people know about and have helped with the work on an NHS-R Community Quarto book for [Health Inequalities](https://health-inequalities.nhsrcommunity.com/content/imd.html).
+
+## Contributions are welcome!
+
+As part of thinking about the website I've also had an opportunity to write out how to contribute to GitHub 

@@ -10,7 +10,75 @@
 <atom:link href="https://nhs-r-community.github.io/nhs-r-community/latest-content.xml" rel="self" type="application/rss+xml"/>
 <description>Promoting the Use of R in the UK Health &amp; Care System</description>
 <generator>quarto-1.4.549</generator>
-<lastBuildDate>Tue, 06 Feb 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 24 Feb 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Building a Quarto website for NHS-R Community</title>
+  <dc:creator>Zoë Turner</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/building-a-quarto-website.html</link>
+  <description><![CDATA[ 
+
+<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
+<!--
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+-->
+<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
+<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
+
+
+
+<section id="the-story-so-far" class="level1">
+<h1>The story so far</h1>
+<p>A few years ago Mohammed A Mohammed, who was integral to getting NHS-R Community set up, suggested I might like to get involved by creating a website for NHS-R Community. At that time I had no idea where to start so my involvement stalled and a website was built, with help from a 3rd party, in WordPress. WordPress is a great website tool that can support very complicated sites like NHS-R Community’s, as we have both a static site and an Events Management system which means that we don’t need to rely (or pay!) for Eventbrite. We’ve used the system for sign up to hundreds of webinars and workshops, not to mention several hundred people attending conferences over the years.</p>
+<section id="moving-to-purely-coded-websites" class="level2">
+<h2 class="anchored" data-anchor-id="moving-to-purely-coded-websites">Moving to purely coded websites</h2>
+<p>In the time it’s taken from that initial suggestion about building the website to now, where I help to manage the site, I’ve had the opportunity to build websites for myself using <a href="https://rstudio.github.io/distill/website.html">{distill}</a> and <a href="https://hugo-apero-docs.netlify.app/">Hugo Apéro</a> as well as the release of <a href="https://quarto.org/">Quarto</a> which I was incredibly keen to try out for website creation.</p>
+<p>I’d used Quarto for slides and reports and been hugely impressed with. Getting started with Quarto is relatively easy if you’ve used R for a while, but like with anything, you have to start off at the basics and quickly want more complex functionality as you get going. This is even more of an issue when you are moving from one thing to another and it’s more of a translation than a build-from-scratch project.</p>
+<p>Luckilyfor me, many people had already jumped into Quarto websites and, as is usual for R users, their code was available online to delve into. I particularly was keen to follow the work of the Brian Tarran for the Royal Statistical Society’s <a href="https://realworlddatascience.net/">Real World Data Science</a> website because, at first glance, this doesn’t give itself away as being built on Quarto. And I also really like Silvia Canelón’s <a href="https://silviacanelon.com/">personal blog site</a> for its beauty and functionality. Silvia has particularly worked hard on accessibility of her website and has written a lot of CSS code which I’m learning through what she has shared.</p>
+<p>Accessibility is something that the WordPress site needed considerable work on, particularly when checked with a website called the <a href="https://wave.webaim.org/">Web Accessbility Evaluation Tool</a> which Silvia recommends on her blog site. The new Quarto site will need this too of course but now that the code is out in the open, anyone can contribute. That can be either making changes to the code but also highlighting problems as issues that can then be open to everyone to see.</p>
+</section>
+<section id="benefits-to-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="benefits-to-quarto">Benefits to Quarto</h2>
+<section id="accessibility" class="level3">
+<h3 class="anchored" data-anchor-id="accessibility">Accessibility</h3>
+<p>I’ll mention accessibility again as that’s hugely important and I like the fact that the people working on Quarto also think a lot about accessibility. Adding alt text has never been easier and any code (in the YAML) that refers to an image nearly always has functionality to add image alt text too.</p>
+</section>
+<section id="search-functionality" class="level3">
+<h3 class="anchored" data-anchor-id="search-functionality">Search functionality</h3>
+<p>The search function for Quarto books is really impressive and the same functionality can be found in Quarto websites. There might be a plug in within WordPress to make searching through blogs for particular words but with Quarto it’s not something that needs adding - it’s there from the start. I now no longer have to think about tags or categories for blogs to make them easier to find.</p>
+</section>
+<section id="formatting-code" class="level3">
+<h3 class="anchored" data-anchor-id="formatting-code">Formatting code</h3>
+<p>This was a bit of a niggle with WordPress in that it’s not really a website for coders. Having the show code in the format that it appears to the person coding is a nice to have but Quarto goes an extra step by letting you run the code. It’s mean that the charts that are talked about in some blogs are produced as the code is run, not as pictures.</p>
+<p>Usually a blogger will choose a nice image to complement their writing and Quarto gives that functionality but I had a lovely surprise when charts that are created by the blog code became that thumbnail image automatically. This saves a lot of time and, no doubt, a lot of server space for static pictures to be stored. Although there is no cost to storing these on GitHub there is the environmental impact of the servers that they have to maintain to store this data.</p>
+</section>
+<section id="open-to-contribution" class="level3">
+<h3 class="anchored" data-anchor-id="open-to-contribution">Open to contribution</h3>
+<p>Having a website that can publish R or Python code is an absolute joy. I used to write blogs in RMarkdown, render them to html and then copy the output to WordPress and in the copying and pasting often lose links or formatting.</p>
+<p>Being open to contribution of course also means that the repository will be available to people to do pull requests. I’ve set the repository so that it’s not necessary to Render the website to contribute so any additions or changes just need to be made to the <code>qmd</code> files.</p>
+</section>
+<section id="a-chance-to-delve-into-history" class="level3">
+<h3 class="anchored" data-anchor-id="a-chance-to-delve-into-history">A chance to delve into history</h3>
+<p>Now this point could have come from any change in website but I’ve taken the opportunity to go through each blog and transfer it to Quarto. There are no doubt quicker ways to do this as I can export from WordPress and then work on code to to get it to a format that can be published, but I started with moving a couple of blogs to get started and I’m hooked.</p>
+<p>Starting in 2018 when the blogs first started I didn’t know R <em>at all</em>. I started learning with NHS-R Community so these early blogs meant very little to me. As I’ve gone through each blog, formatting them and checking the R code runs (I found a couple of small mistakes this way!) and the links still work I’ve been more like an archivist than a coder. My favourite discover, and shock, was that I found that RAP (Reproducible Analytical Pipelines) was shared with the NHS-R Community in 2018 although I only really heard about it from 2020. It was very much like the moment I experienced when I went through my old Geography school books and found I’d been taught in those lessons about Index of Multiple Deprivation but I had absolutely no recollection of it at all. It hadn’t been the right time for me to really listen to it even though it’s become something that I work with a lot and want to ensure more people know about and have helped with the work on an NHS-R Community Quarto book for <a href="https://health-inequalities.nhsrcommunity.com/content/imd.html">Health Inequalities</a>.</p>
+</section>
+</section>
+<section id="contributions-are-welcome" class="level2">
+<h2 class="anchored" data-anchor-id="contributions-are-welcome">Contributions are welcome!</h2>
+<p>As part of thinking about the website I’ve also had an opportunity to write out how to contribute to GitHub</p>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-turner2024" class="csl-entry quarto-appendix-citeas">
+Turner, Zoë. 2024. <span>“Building a Quarto Website for NHS-R
+Community.”</span> February 24, 2024. <a href="https://nhs-r-community.github.io/nhs-r-community//blog/building-a-quarto-website.html">https://nhs-r-community.github.io/nhs-r-community//blog/building-a-quarto-website.html</a>.
+</div></div></section></div> ]]></description>
+  <category>Personal Story</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/building-a-quarto-website.html</guid>
+  <pubDate>Sat, 24 Feb 2024 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Navigating the Data-Driven Frontier: Insights from an NHS-R Committee Member</title>
   <dc:creator>Prajwal Khairnar</dc:creator>
@@ -1310,6 +1378,9 @@ MacKintosh, John. 2018. <span>“Simpler SQL with Dplyr.”</span> June 7,
 2018. <a href="https://nhs-r-community.github.io/nhs-r-community//blog/simpler-sql-with-dplyr.html">https://nhs-r-community.github.io/nhs-r-community//blog/simpler-sql-with-dplyr.html</a>.
 </div></div></section></div> ]]></description>
   <category>R tips</category>
+  <category>SQL</category>
+  <category>dplyr</category>
+  <category>Patient Flow</category>
   <guid>https://nhs-r-community.github.io/nhs-r-community/blog/simpler-sql-with-dplyr.html</guid>
   <pubDate>Wed, 06 Jun 2018 23:00:00 GMT</pubDate>
 </item>
@@ -5021,7 +5092,7 @@ No matching items
 </div>
 </div><a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <guid>https://nhs-r-community.github.io/nhs-r-community/books/</guid>
-  <pubDate>Sat, 24 Feb 2024 20:00:37 GMT</pubDate>
+  <pubDate>Tue, 27 Feb 2024 19:01:44 GMT</pubDate>
 </item>
 <item>
   <title>Health Inequalities</title>
@@ -5046,7 +5117,7 @@ No matching items
   <category>data-science</category>
   <category>health-inequalities</category>
   <guid>https://nhs-r-community.github.io/nhs-r-community/books/posts/health-inequalities/</guid>
-  <pubDate>Sat, 24 Feb 2024 20:00:37 GMT</pubDate>
+  <pubDate>Tue, 27 Feb 2024 19:01:44 GMT</pubDate>
   <media:content url="https://nhs-r-community.github.io/nhs-r-community/books/posts/health-inequalities/book-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -5072,7 +5143,7 @@ No matching items
   <category>code-of-conduct</category>
   <category>training</category>
   <guid>https://nhs-r-community.github.io/nhs-r-community/books/posts/NHSR-way/</guid>
-  <pubDate>Sat, 24 Feb 2024 20:00:37 GMT</pubDate>
+  <pubDate>Tue, 27 Feb 2024 19:01:44 GMT</pubDate>
   <media:content url="https://nhs-r-community.github.io/nhs-r-community/books/posts/NHSR-way/book-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -5100,7 +5171,7 @@ No matching items
   <category>links</category>
   <category>training</category>
   <guid>https://nhs-r-community.github.io/nhs-r-community/books/posts/open-analytics-resources/</guid>
-  <pubDate>Sat, 24 Feb 2024 20:00:37 GMT</pubDate>
+  <pubDate>Tue, 27 Feb 2024 19:01:44 GMT</pubDate>
   <media:content url="https://nhs-r-community.github.io/nhs-r-community/books/posts/open-analytics-resources/book-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -5127,7 +5198,7 @@ No matching items
   <category>installation</category>
   <category>getting-started</category>
   <guid>https://nhs-r-community.github.io/nhs-r-community/books/posts/statement-on-tools/</guid>
-  <pubDate>Sat, 24 Feb 2024 20:00:37 GMT</pubDate>
+  <pubDate>Tue, 27 Feb 2024 19:01:44 GMT</pubDate>
   <media:content url="https://nhs-r-community.github.io/nhs-r-community/books/posts/statement-on-tools/book-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -5152,7 +5223,37 @@ No matching items
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Committee" data-listing-date-sort="1707177600000" data-listing-file-modified-sort="1708624892697" data-listing-date-modified-sort="1708128000000" data-listing-reading-time-sort="3" data-listing-word-count-sort="466">
+<div class="quarto-post image-right" data-index="0" data-categories="Personal Story" data-listing-date-sort="1708732800000" data-listing-file-modified-sort="1708809138106" data-listing-date-modified-sort="1708732800000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1091">
+<div class="thumbnail">
+<p><a href="../blog/building-a-quarto-website.html" class="no-external"></a></p><a href="../blog/building-a-quarto-website.html" class="no-external">
+<!-- img(9CEB782EFEE6)[progressive=false, height=]:blog/building-a-quarto-website.html -->
+</a><p><a href="../blog/building-a-quarto-website.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../blog/building-a-quarto-website.html" class="no-external">Building a Quarto website for NHS-R Community</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../blog/building-a-quarto-website.html" class="no-external">“Delving into the blog history of NHS-R Community as the site moves into the future with Quarto” </a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Personal Story'); return false;">
+Personal Story
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="../blog/building-a-quarto-website.html" class="no-external">
+<div class="listing-date">
+Feb 24, 2024
+</div>
+<div class="listing-author">
+Zoë Turner
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Committee" data-listing-date-sort="1707177600000" data-listing-file-modified-sort="1708624892697" data-listing-date-modified-sort="1708128000000" data-listing-reading-time-sort="3" data-listing-word-count-sort="466">
 <div class="thumbnail">
 <p><a href="../blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html" class="no-external"></a></p><a href="../blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html" class="no-external">
 <p><img src="https://nhs-r-community.github.io/nhs-r-community/blog/img/startup.jpg" class="thumbnail-image" alt="Photo of a meeting with a laptop, pad and paper and a coffee mug."></p>
@@ -5182,7 +5283,7 @@ Prajwal Khairnar
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="Function" data-listing-date-sort="1563231600000" data-listing-file-modified-sort="1708624892684" data-listing-date-modified-sort="1708128000000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1212">
+<div class="quarto-post image-right" data-index="2" data-categories="Function" data-listing-date-sort="1563231600000" data-listing-file-modified-sort="1708624892684" data-listing-date-modified-sort="1708128000000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1212">
 <div class="thumbnail">
 <p><a href="../blog/count-of-working-days-function.html" class="no-external"></a></p><a href="../blog/count-of-working-days-function.html" class="no-external">
 <p><img src="https://nhs-r-community.github.io/nhs-r-community/blog/img/travelcard.jpg" class="thumbnail-image" alt="A London rail travel ticket"></p>
@@ -5212,7 +5313,7 @@ Zoë Turner
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="R tips" data-listing-date-sort="1528326000000" data-listing-file-modified-sort="1708804813241" data-listing-date-modified-sort="1708732800000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1129">
+<div class="quarto-post image-right" data-index="3" data-categories="R tips,SQL,dplyr,Patient Flow" data-listing-date-sort="1528326000000" data-listing-file-modified-sort="1708805592075" data-listing-date-modified-sort="1708732800000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1129">
 <div class="thumbnail">
 <p><a href="../blog/simpler-sql-with-dplyr.html" class="no-external"></a></p><a href="../blog/simpler-sql-with-dplyr.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=false, height=]:blog/simpler-sql-with-dplyr.html -->
@@ -5223,11 +5324,20 @@ Zoë Turner
 <a href="../blog/simpler-sql-with-dplyr.html" class="no-external">Simpler SQL with dplyr</a>
 </h3>
 <div class="listing-subtitle">
-<a href="../blog/simpler-sql-with-dplyr.html" class="no-external">“” </a>
+<a href="../blog/simpler-sql-with-dplyr.html" class="no-external">“Comparing dplyr with SQL nested queries” </a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R tips'); return false;">
 R tips
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('SQL'); return false;">
+SQL
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('dplyr'); return false;">
+dplyr
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Patient Flow'); return false;">
+Patient Flow
 </div>
 </div>
 </div>
@@ -5242,7 +5352,7 @@ John MacKintosh
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527116400000" data-listing-file-modified-sort="1708641835158" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="5" data-listing-word-count-sort="916">
+<div class="quarto-post image-right" data-index="4" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527116400000" data-listing-file-modified-sort="1708641835158" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="5" data-listing-word-count-sort="916">
 <div class="thumbnail">
 <p><a href="../blog/diverging-bar-charts-plotting-variance-with-ggplot2.html" class="no-external"></a></p><a href="../blog/diverging-bar-charts-plotting-variance-with-ggplot2.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=false, height=]:blog/diverging-bar-charts-plotting-variance-with-ggplot2.html -->
@@ -5278,10 +5388,10 @@ Gary Hutson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527116400000" data-listing-file-modified-sort="1708643034818" data-listing-date-modified-sort="1708560000000" data-listing-reading-time-sort="4" data-listing-word-count-sort="669">
+<div class="quarto-post image-right" data-index="5" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527116400000" data-listing-file-modified-sort="1708643034818" data-listing-date-modified-sort="1708560000000" data-listing-reading-time-sort="4" data-listing-word-count-sort="669">
 <div class="thumbnail">
 <p><a href="../blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html" class="no-external"></a></p><a href="../blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html" class="no-external">
-<!-- img(9CEB782EFEE6)[progressive=false, height=]:blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html -->
+<!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html -->
 </a><p><a href="../blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html" class="no-external"></a></p>
 </div>
 <div class="body">
@@ -5314,7 +5424,7 @@ Gary Hutson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527116400000" data-listing-file-modified-sort="1708797097843" data-listing-date-modified-sort="1708732800000" data-listing-reading-time-sort="3" data-listing-word-count-sort="497">
+<div class="quarto-post image-right" data-index="6" data-categories="R tips,ggplot2,Base R" data-listing-date-sort="1527116400000" data-listing-file-modified-sort="1708797097843" data-listing-date-modified-sort="1708732800000" data-listing-reading-time-sort="3" data-listing-word-count-sort="497">
 <div class="thumbnail">
 <p><a href="../blog/histogram-with-auto-binning-in-ggplot2.html" class="no-external"></a></p><a href="../blog/histogram-with-auto-binning-in-ggplot2.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/histogram-with-auto-binning-in-ggplot2.html -->
@@ -5350,7 +5460,7 @@ Gary Hutson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="Software" data-listing-date-sort="1527116400000" data-listing-file-modified-sort="1708624892713" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="10" data-listing-word-count-sort="1905">
+<div class="quarto-post image-right" data-index="7" data-categories="Software" data-listing-date-sort="1527116400000" data-listing-file-modified-sort="1708624892713" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="10" data-listing-word-count-sort="1905">
 <div class="thumbnail">
 <p><a href="../blog/why-government-needs-sustainable-software-too.html" class="no-external"></a></p><a href="../blog/why-government-needs-sustainable-software-too.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/why-government-needs-sustainable-software-too.html -->
@@ -5380,7 +5490,7 @@ Matthew Upson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="R tips" data-listing-date-sort="1526857200000" data-listing-file-modified-sort="1708624892713" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="129">
+<div class="quarto-post image-right" data-index="8" data-categories="R tips" data-listing-date-sort="1526857200000" data-listing-file-modified-sort="1708624892713" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="129">
 <div class="thumbnail">
 <p><a href="../blog/r-studio-shortcuts.html" class="no-external"></a></p><a href="../blog/r-studio-shortcuts.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/r-studio-shortcuts.html -->
@@ -5410,7 +5520,7 @@ Emma Vestesson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="R tips" data-listing-date-sort="1526857200000" data-listing-file-modified-sort="1708798429345" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="405">
+<div class="quarto-post image-right" data-index="9" data-categories="R tips" data-listing-date-sort="1526857200000" data-listing-file-modified-sort="1708798429345" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="405">
 <div class="thumbnail">
 <p><a href="../blog/the-operator.html" class="no-external"></a></p><a href="../blog/the-operator.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/the-operator.html -->
@@ -5440,7 +5550,7 @@ Emma Vestesson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="R tips" data-listing-date-sort="1526338800000" data-listing-file-modified-sort="1708624892684" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="196">
+<div class="quarto-post image-right" data-index="10" data-categories="R tips" data-listing-date-sort="1526338800000" data-listing-file-modified-sort="1708624892684" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="196">
 <div class="thumbnail">
 <p><a href="../blog/importing-and-exporting-data.html" class="no-external"></a></p><a href="../blog/importing-and-exporting-data.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/importing-and-exporting-data.html -->
@@ -5470,7 +5580,7 @@ S Zeki
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="Personal Story" data-listing-date-sort="1523228400000" data-listing-file-modified-sort="1708624892713" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="5" data-listing-word-count-sort="830">
+<div class="quarto-post image-right" data-index="11" data-categories="Personal Story" data-listing-date-sort="1523228400000" data-listing-file-modified-sort="1708624892713" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="5" data-listing-word-count-sort="830">
 <div class="thumbnail">
 <p><a href="../blog/the-joy-of-r.html" class="no-external"></a></p><a href="../blog/the-joy-of-r.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/the-joy-of-r.html -->
@@ -5500,7 +5610,7 @@ Julian Flowers
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="Personal Story" data-listing-date-sort="1521763200000" data-listing-file-modified-sort="1708624892668" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1193">
+<div class="quarto-post image-right" data-index="12" data-categories="Personal Story" data-listing-date-sort="1521763200000" data-listing-file-modified-sort="1708624892668" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1193">
 <div class="thumbnail">
 <p><a href="../blog/aiming-for-a-wrangle-free-or-reduced-world.html" class="no-external"></a></p><a href="../blog/aiming-for-a-wrangle-free-or-reduced-world.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/aiming-for-a-wrangle-free-or-reduced-world.html -->
@@ -5530,7 +5640,7 @@ Sebastian Fox
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="NHS-R" data-listing-date-sort="1521417600000" data-listing-file-modified-sort="1708624892697" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="523">
+<div class="quarto-post image-right" data-index="13" data-categories="NHS-R" data-listing-date-sort="1521417600000" data-listing-file-modified-sort="1708624892697" data-listing-date-modified-sort="1708473600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="523">
 <div class="thumbnail">
 <p><a href="../blog/nhs-meets-r.html" class="no-external"></a></p><a href="../blog/nhs-meets-r.html" class="no-external">
 <!-- img(9CEB782EFEE6)[progressive=true, height=]:blog/nhs-meets-r.html -->
@@ -5564,7 +5674,7 @@ No matching items
 
 </div><a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section></div> ]]></description>
   <guid>https://nhs-r-community.github.io/nhs-r-community/blog/</guid>
-  <pubDate>Sat, 24 Feb 2024 20:00:37 GMT</pubDate>
+  <pubDate>Tue, 27 Feb 2024 19:01:44 GMT</pubDate>
 </item>
 </channel>
 </rss>
