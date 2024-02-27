@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-02-15">
-<meta name="description" content="In this book we’ve compiled a set of technical resources, links and write down our experiences of using open data science programs like R and Python within the NHS and beyond.">
+<meta name="author" content="Zoë Turner">
+<meta name="dcterms.date" content="2024-02-24">
 
-<title>NHS-R Community Quarto website - Statement on Tools</title>
+<title>NHS-R Community Quarto website - Building a Quarto website for NHS-R Community</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,27 +25,27 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<link href="../../../https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg" rel="icon" type="image/svg+xml">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,39 +82,18 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-J7L32C56WN', { 'anonymize_ip': true});
 </script>
-<!-- Thank you to Ben Ruijl for the progress bar code and RWDS for reusing!
-Ben is on GitHub here: https://github.com/benruijl
-And you can see the original code here: https://github.com/quarto-dev/quarto-cli/discussions/3842#discussioncomment-4591721 -->
-
-</head><body class="nav-fixed fullcontent"><div id="progress-bar" style="width: 0%; height:4px; background-color: #939bc9;; position: fixed; top: 0px; z-index: 2000;"></div>
-
-<script id="progressbar" type="text/javascript">
-
-document.addEventListener("DOMContentLoaded", function() {
-
-    const bar = document.querySelector('#progress-bar');
-    const post = document.querySelector('#quarto-content');
-    const html = document.documentElement;
-
-    const height = post.scrollHeight + post.offsetTop;
-
-    window.addEventListener('scroll', () => {
-        bar.style.width = (html.scrollTop / (height- html.clientHeight)) * 100 + '%';
-    });
-});
-</script>
 
 
+</head>
 
-
-
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../../books/posts/statement-on-tools/index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../blog/index.html" class="navbar-brand navbar-brand-logo">
     <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo">
     </a>
   </div>
@@ -125,11 +104,11 @@ document.addEventListener("DOMContentLoaded", function() {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../about/index.html"> 
+    <a class="nav-link" href="../about/index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
@@ -137,19 +116,19 @@ document.addEventListener("DOMContentLoaded", function() {
 <span class="menu-text">Events</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../books/index.html"> 
+    <a class="nav-link" href="../books/index.html"> 
 <span class="menu-text">Books</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../blog/index.html"> 
+    <a class="nav-link" href="../blog/index.html"> 
 <span class="menu-text">Blogs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../contact.html"> 
+    <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact us</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../latest-content.xml"> 
+    <a class="nav-link" href="../latest-content.xml"> 
 <span class="menu-text">RSS feed</span></a>
   </li>  
 </ul>
@@ -164,39 +143,67 @@ document.addEventListener("DOMContentLoaded", function() {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns">
 <div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
-<h1 class="title">Statement on Tools</h1>
+<h1 class="title">Building a Quarto website for NHS-R Community</h1>
+<p class="subtitle lead"></p><p>“Delving into the blog history of NHS-R Community as the site moves into the future with Quarto”</p><p></p>
     <div class="quarto-categories">
-        <div class="quarto-category">data-science</div>
-        <div class="quarto-category">installation</div>
-        <div class="quarto-category">getting-started</div>
+        <div class="quarto-category">Personal Story</div>
       </div>
   </div>
 
-<div>
-  <div id="title-block-title-desc" class="description pt-4">
-    <p>In this book we’ve compiled a set of technical resources, links and write down our experiences of using open data science programs like R and Python within the NHS and beyond.</p>
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Zoë Turner </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 24, 2024</p>
+    </div>
+  </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">February 24, 2024</p>
+    </div>
+  </div>
     
   </div>
   
 
 
-<div class="mt-4 d-flex flex-row flex-wrap gap-1 justify-content-left justify-content-sm-start" role="group" aria-label="Links">
-<a href="https://tools.nhsrcommunity.com/" class="btn btn-secondary text-capitalize"><i class="bi bi-journal-text me-1"></i> Statement on Tools</a>
-<a href="https://github.com/nhs-r-community/statements-on-tools" class="btn btn-secondary text-capitalize"><i class="bi bi-github me-1"></i> GitHub</a>
-</div>
 
 </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-story-so-far" id="toc-the-story-so-far" class="nav-link active" data-scroll-target="#the-story-so-far">The story so far</a>
+  <ul class="collapse">
+  <li><a href="#moving-to-purely-coded-websites" id="toc-moving-to-purely-coded-websites" class="nav-link" data-scroll-target="#moving-to-purely-coded-websites">Moving to purely coded websites</a></li>
+  <li><a href="#benefits-to-quarto" id="toc-benefits-to-quarto" class="nav-link" data-scroll-target="#benefits-to-quarto">Benefits to Quarto</a>
+  <ul class="collapse">
+  <li><a href="#accessibility" id="toc-accessibility" class="nav-link" data-scroll-target="#accessibility">Accessibility</a></li>
+  <li><a href="#search-functionality" id="toc-search-functionality" class="nav-link" data-scroll-target="#search-functionality">Search functionality</a></li>
+  <li><a href="#formatting-code" id="toc-formatting-code" class="nav-link" data-scroll-target="#formatting-code">Formatting code</a></li>
+  <li><a href="#open-to-contribution" id="toc-open-to-contribution" class="nav-link" data-scroll-target="#open-to-contribution">Open to contribution</a></li>
+  <li><a href="#a-chance-to-delve-into-history" id="toc-a-chance-to-delve-into-history" class="nav-link" data-scroll-target="#a-chance-to-delve-into-history">A chance to delve into history</a></li>
+  </ul></li>
+  <li><a href="#contributions-are-welcome" id="toc-contributions-are-welcome" class="nav-link" data-scroll-target="#contributions-are-welcome">Contributions are welcome!</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/nhs-r-community/nhs-r-community/edit/main/blog/building-a-quarto-website.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nhs-r-community/nhs-r-community/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -210,11 +217,54 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Image by <a href="https://pixabay.com/users/congerdesign-509903/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3964050">congerdesign</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3964050">Pixabay</a> -->
+<section id="the-story-so-far" class="level1">
+<h1>The story so far</h1>
+<p>A few years ago Mohammed A Mohammed, who was integral to getting NHS-R Community set up, suggested I might like to get involved by creating a website for NHS-R Community. At that time I had no idea where to start so my involvement stalled and a website was built, with help from a 3rd party, in WordPress. WordPress is a great website tool that can support very complicated sites like NHS-R Community’s, as we have both a static site and an Events Management system which means that we don’t need to rely (or pay!) for Eventbrite. We’ve used the system for sign up to hundreds of webinars and workshops, not to mention several hundred people attending conferences over the years.</p>
+<section id="moving-to-purely-coded-websites" class="level2">
+<h2 class="anchored" data-anchor-id="moving-to-purely-coded-websites">Moving to purely coded websites</h2>
+<p>In the time it’s taken from that initial suggestion about building the website to now, where I help to manage the site, I’ve had the opportunity to build websites for myself using <a href="https://rstudio.github.io/distill/website.html">{distill}</a> and <a href="https://hugo-apero-docs.netlify.app/">Hugo Apéro</a> as well as the release of <a href="https://quarto.org/">Quarto</a> which I was incredibly keen to try out for website creation.</p>
+<p>I’d used Quarto for slides and reports and been hugely impressed with. Getting started with Quarto is relatively easy if you’ve used R for a while, but like with anything, you have to start off at the basics and quickly want more complex functionality as you get going. This is even more of an issue when you are moving from one thing to another and it’s more of a translation than a build-from-scratch project.</p>
+<p>Luckilyfor me, many people had already jumped into Quarto websites and, as is usual for R users, their code was available online to delve into. I particularly was keen to follow the work of the Brian Tarran for the Royal Statistical Society’s <a href="https://realworlddatascience.net/">Real World Data Science</a> website because, at first glance, this doesn’t give itself away as being built on Quarto. And I also really like Silvia Canelón’s <a href="https://silviacanelon.com/">personal blog site</a> for its beauty and functionality. Silvia has particularly worked hard on accessibility of her website and has written a lot of CSS code which I’m learning through what she has shared.</p>
+<p>Accessibility is something that the WordPress site needed considerable work on, particularly when checked with a website called the <a href="https://wave.webaim.org/">Web Accessbility Evaluation Tool</a> which Silvia recommends on her blog site. The new Quarto site will need this too of course but now that the code is out in the open, anyone can contribute. That can be either making changes to the code but also highlighting problems as issues that can then be open to everyone to see.</p>
+</section>
+<section id="benefits-to-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="benefits-to-quarto">Benefits to Quarto</h2>
+<section id="accessibility" class="level3">
+<h3 class="anchored" data-anchor-id="accessibility">Accessibility</h3>
+<p>I’ll mention accessibility again as that’s hugely important and I like the fact that the people working on Quarto also think a lot about accessibility. Adding alt text has never been easier and any code (in the YAML) that refers to an image nearly always has functionality to add image alt text too.</p>
+</section>
+<section id="search-functionality" class="level3">
+<h3 class="anchored" data-anchor-id="search-functionality">Search functionality</h3>
+<p>The search function for Quarto books is really impressive and the same functionality can be found in Quarto websites. There might be a plug in within WordPress to make searching through blogs for particular words but with Quarto it’s not something that needs adding - it’s there from the start. I now no longer have to think about tags or categories for blogs to make them easier to find.</p>
+</section>
+<section id="formatting-code" class="level3">
+<h3 class="anchored" data-anchor-id="formatting-code">Formatting code</h3>
+<p>This was a bit of a niggle with WordPress in that it’s not really a website for coders. Having the show code in the format that it appears to the person coding is a nice to have but Quarto goes an extra step by letting you run the code. It’s mean that the charts that are talked about in some blogs are produced as the code is run, not as pictures.</p>
+<p>Usually a blogger will choose a nice image to complement their writing and Quarto gives that functionality but I had a lovely surprise when charts that are created by the blog code became that thumbnail image automatically. This saves a lot of time and, no doubt, a lot of server space for static pictures to be stored. Although there is no cost to storing these on GitHub there is the environmental impact of the servers that they have to maintain to store this data.</p>
+</section>
+<section id="open-to-contribution" class="level3">
+<h3 class="anchored" data-anchor-id="open-to-contribution">Open to contribution</h3>
+<p>Having a website that can publish R or Python code is an absolute joy. I used to write blogs in RMarkdown, render them to html and then copy the output to WordPress and in the copying and pasting often lose links or formatting.</p>
+<p>Being open to contribution of course also means that the repository will be available to people to do pull requests. I’ve set the repository so that it’s not necessary to Render the website to contribute so any additions or changes just need to be made to the <code>qmd</code> files.</p>
+</section>
+<section id="a-chance-to-delve-into-history" class="level3">
+<h3 class="anchored" data-anchor-id="a-chance-to-delve-into-history">A chance to delve into history</h3>
+<p>Now this point could have come from any change in website but I’ve taken the opportunity to go through each blog and transfer it to Quarto. There are no doubt quicker ways to do this as I can export from WordPress and then work on code to to get it to a format that can be published, but I started with moving a couple of blogs to get started and I’m hooked.</p>
+<p>Starting in 2018 when the blogs first started I didn’t know R <em>at all</em>. I started learning with NHS-R Community so these early blogs meant very little to me. As I’ve gone through each blog, formatting them and checking the R code runs (I found a couple of small mistakes this way!) and the links still work I’ve been more like an archivist than a coder. My favourite discover, and shock, was that I found that RAP (Reproducible Analytical Pipelines) was shared with the NHS-R Community in 2018 although I only really heard about it from 2020. It was very much like the moment I experienced when I went through my old Geography school books and found I’d been taught in those lessons about Index of Multiple Deprivation but I had absolutely no recollection of it at all. It hadn’t been the right time for me to really listen to it even though it’s become something that I work with a lot and want to ensure more people know about and have helped with the work on an NHS-R Community Quarto book for <a href="https://health-inequalities.nhsrcommunity.com/content/imd.html">Health Inequalities</a>.</p>
+</section>
+</section>
+<section id="contributions-are-welcome" class="level2">
+<h2 class="anchored" data-anchor-id="contributions-are-welcome">Contributions are welcome!</h2>
+<p>As part of thinking about the website I’ve also had an opportunity to write out how to contribute to GitHub</p>
 
 
+</section>
+</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-turner2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+Turner, Zoë. 2024. <span>“Building a Quarto Website for NHS-R
+Community.”</span> February 24, 2024. <a href="https://nhs-r-community.github.io/nhs-r-community//blog/building-a-quarto-website.html">https://nhs-r-community.github.io/nhs-r-community//blog/building-a-quarto-website.html</a>.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -754,31 +804,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
 <p><a class="link-dark me-1" href="https://fosstodon.org/@NHSrCommunity" title="mastodon" target="_blank" rel="noopener"><i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a> <a class="link-dark me-1" href="https://github.com/nhs-r-community" title="github" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-label="github"></i></a> <a class="link-dark me-1" href="https://soundcloud.com/nhs-r-community" title="soundcloud" target="_blank" rel="noopener"><i class="fa-brands fa-soundcloud" aria-label="soundcloud"></i></a> <a class="link-dark me-1" href="https://www.linkedin.com/in/nhs-r-community-2555a6282/" title="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a></p>
-<div class="toc-actions"><ul><li><a href="https://github.com/nhs-r-community/nhs-r-community/edit/main/books/posts/statement-on-tools/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nhs-r-community/nhs-r-community/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nhs-r-community/nhs-r-community/edit/main/blog/building-a-quarto-website.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nhs-r-community/nhs-r-community/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../../../accessibility.html">
+    <a class="nav-link" href="../accessibility.html">
 <p>Accessibility</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../../../ts-and-cs.html">
+    <a class="nav-link" href="../ts-and-cs.html">
 <p>Terms and Conditions</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../../../contact.html">
+    <a class="nav-link" href="../contact.html">
 <p>Contact</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../../../licence.html">
+    <a class="nav-link" href="../licence.html">
 <p>Licence</p>
 </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="../../../latest-content.xml">
+    <a class="nav-link" href="../latest-content.xml">
       <i class="bi bi-rss" role="img">
 </i> 
     </a>

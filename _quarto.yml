@@ -56,6 +56,9 @@ website:
       - text: "Accessibility"
         aria-label: "Accessibility Commitment"
         href: accessibility.qmd
+      - text: "Terms and Conditions"
+        aria-label: "Terms and Conditions"
+        href: ts-and-cs.qmd
       - text: "Contact"
         aria-label: "Contact Form"
         href: "contact.qmd"
