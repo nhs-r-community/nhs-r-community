@@ -16,7 +16,7 @@ listing:
   sort-ui: true
   filter-ui: true
   page-size: 30
-  feed: true
+  feed: false
 ---
 
 <!-- feed needs to be set to true for RSS once page is live https://quarto.org/docs/websites/website-blog.html#rss-feed -->
