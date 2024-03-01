@@ -41,7 +41,7 @@ website:
       - text: "Contact us"
         href: contact.qmd
       - text: "RSS feed"
-        href: latest-content.xml
+        href: blog/index.xml
 
   page-footer:
     left: >-
@@ -66,7 +66,7 @@ website:
         aria-label: "Licence Details"
         href: licence.qmd
       - icon: rss
-        href: latest-content.xml
+        href: blog/index.xml
 
 format:
   html:
