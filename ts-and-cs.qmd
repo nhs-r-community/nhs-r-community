@@ -1,9 +1,6 @@
 ---
+date: "2024-02-06T10:00:00+00:00"
 title: "Terms and conditions"
-page-layout: article
-sidebar: false
-toc: true
-title-block-banner: true
 ---
 
 ## Legal disclaimer
@@ -70,6 +67,9 @@ This site uses [Google Analytics 4](https://support.google.com/analytics/answer/
 
 ## Code of conduct
 
-How to technically contribute to this website can be found in the [Statement on Tools](https://tools.nhsrcommunity.com/contribution.html and the Code of Conduct can be found in the repository [Code of Conduct](./CODE_OF_CONDUCT.md).
+How to technically contribute to this website can be found in the [Statement on Tools](https://tools.nhsrcommunity.com/contribution.html) and the Code of Conduct can be found in the repository [Code of Conduct](./CODE_OF_CONDUCT.md).
+
+## Notice and Takedown Policy
+### includes sensitive data redaction
 
 Details of the [Notice and Takedown Policy](https://nhsrway.nhsrcommunity.com/code-of-conduct.html#notice-and-takedown-policy) can be found in the [NHS-R Way book](https://nhsrway.nhsrcommunity.com/) along with details on how submissions with sensitive information will be rectified.
