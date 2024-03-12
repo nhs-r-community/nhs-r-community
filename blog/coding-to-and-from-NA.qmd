@@ -1,0 +1,73 @@
+---
+title: "Recoding an NA and back again"
+date: "12 March 2024"
+date-modified: '12 March 2024'
+categories:
+  - R tip
+author: Zoë Turner
+subtitle: >
+  "Replace NAs with `replace_na()` and code to NA with `na_if()`"
+code-annotations: below
+---
+
+## Create data
+
+```{r}
+#| echo: false
+#| include: false
+library(tidyverse)
+```
+
+This was written originally in an Excel spreadsheet and used {datapasta} to copy into R as code to build the same data frame.
+{datapasta} can be access through RStudio as an Addin as well as code.
+Find out more about {datapasta} from the [Introduction to R and R Studio course](https://intro-r-rstudio.nhsrcommunity.com/session-datapasta.html#/title-slide).
+
+## Recoding to NA
+
+```{r}
+survey <- tibble::tribble(
+  ~Survey.Response, ~Code,
+       "Response1",   -9L,
+       "Response2",    2L,
+       "Response3",   10L,
+       "Response4",    0L,
+       "Response5",    5L,
+       "Response6",   -9L,
+        "Missing", NA
+  )
+
+```
+
+## Recode to NA
+
+```{r}
+library(tidyverse)
+
+survey |> 
+  mutate(new_column = na_if(Code, -9))
+```
+
+It's also possible to use the numbers and `case_when()`:
+
+```{r}
+survey |> 
+  mutate(new_column = case_when(Code < 0 ~ NA,
+                                Code == 0 ~ 1000,
+                                .default = Code))
+
+```
+
+Or `ifelse()` where there are only two options:
+
+```{r}
+survey |> 
+  mutate(new_column = ifelse(Code < 0, NA, Code))
+```
+
+
+## Recode from NA
+
+```{r}
+survey |> 
+  mutate(new_column2 = replace_na(Code, 1000))
+```

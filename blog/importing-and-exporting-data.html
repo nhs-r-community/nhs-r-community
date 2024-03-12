@@ -251,14 +251,14 @@ gtag('config', 'G-J7L32C56WN', { 'anonymize_ip': true});
 </section><section id="export-to-excel" class="level2"><h2 class="anchored" data-anchor-id="export-to-excel">Export to excel</h2>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mirai-solutions.ch">XLConnect</a></span><span class="op">)</span></span>
-<span><span class="va">exc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/xlsx/man/Workbook.html">loadWorkbook</a></span><span class="op">(</span><span class="st">"~Mydata.xls"</span>, create <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/xlsx/man/Sheet.html">createSheet</a></span><span class="op">(</span><span class="va">exc</span>,<span class="st">'Input'</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/xlsx/man/Workbook.html">saveWorkbook</a></span><span class="op">(</span><span class="va">exc</span><span class="op">)</span></span>
+<span><span class="va">exc</span> <span class="op">&lt;-</span> <span class="fu">loadWorkbook</span><span class="op">(</span><span class="st">"~Mydata.xls"</span>, create <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu">createSheet</span><span class="op">(</span><span class="va">exc</span>,<span class="st">'Input'</span><span class="op">)</span></span>
+<span><span class="fu">saveWorkbook</span><span class="op">(</span><span class="va">exc</span><span class="op">)</span></span>
 <span><span class="fu">XLConnect</span><span class="fu">::</span><span class="fu">writeWorksheet</span><span class="op">(</span><span class="va">exc</span>,<span class="va">mydata</span>,sheet <span class="op">=</span> <span class="st">"Input"</span>, startRow <span class="op">=</span> <span class="fl">1</span>, startCol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">#Another way is:</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/colearendt/xlsx">xlsx</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/xlsx/man/write.xlsx.html">write.xlsx</a></span><span class="op">(</span><span class="va">mydata</span>, <span class="st">"c:/mydata.xlsx"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu">write.xlsx</span><span class="op">(</span><span class="va">mydata</span>, <span class="st">"c:/mydata.xlsx"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="export-to-csv-or-a-tab-delimited-file" class="level2"><h2 class="anchored" data-anchor-id="export-to-csv-or-a-tab-delimited-file">Export to csv or a tab delimited file</h2>
 <div class="cell">

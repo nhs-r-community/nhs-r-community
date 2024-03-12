@@ -1,0 +1,61 @@
+---
+title: "Showcasing a function - `separate()`"
+date: "12 March 2024"
+date-modified: '12 March 2024'
+categories:
+  - R tip
+author: Zoë Turner
+subtitle: >
+  "Separating codes from one cell couldn't be any easier in R"
+code-annotations: below
+---
+
+## Create data
+
+```{r}
+#| echo: false
+#| include: false
+library(tidyverse)
+```
+
+This was written originally in an Excel spreadsheet and used {datapasta} to copy into R as code to build the same data frame.
+{datapasta} can be access through RStudio as an Addin as well as code.
+Find out more about {datapasta} from the [Introduction to R and R Studio course](https://intro-r-rstudio.nhsrcommunity.com/session-datapasta.html#/title-slide).
+
+```{r}
+data <- tibble::tribble(
+    ~Patient,          ~Codes,
+  "PatientA", "A01, A02, A03",
+  "PatientB", "B01; B02; B03",
+  "PatientC", "C01; C03",
+  "PatientD", "D01. D02. D03"
+  )
+
+```
+
+
+## Separate codes by position
+
+Separate into columns in the order data appears
+
+```{r}
+library(tidyverse)
+
+data |> 
+  tidyr::separate(Codes, c("col1", "col2", "col3"))
+```
+
+
+[https://tidyr.tidyverse.org/reference/separate.html](https://tidyr.tidyverse.org/reference/separate.html)
+
+## Add a pivot
+
+To move wide data to longer:
+
+```{r}
+data |> 
+  tidyr::separate(Codes, c("col1", "col2", "col3")) |> 
+  tidyr::pivot_longer(cols = c(starts_with("col")),
+               names_to = "type")
+```
+
