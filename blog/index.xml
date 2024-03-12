@@ -11,7 +11,396 @@
 <description>Blogs are submitted from NHS-R Community members.&lt;br&gt;
 </description>
 <generator>quarto-1.4.551</generator>
-<lastBuildDate>Sat, 24 Feb 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 12 Mar 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Showcasing a function - separate()</title>
+  <dc:creator>Zoë Turner</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/showcasing-functions-separate.html</link>
+  <description><![CDATA[ 
+
+<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
+<!--
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+-->
+<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
+<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
+
+
+
+<section id="create-data" class="level2">
+<h2 class="anchored" data-anchor-id="create-data">Create data</h2>
+<p>This was written originally in an Excel spreadsheet and used {datapasta} to copy into R as code to build the same data frame. {datapasta} can be access through RStudio as an Addin as well as code. Find out more about {datapasta} from the <a href="https://intro-r-rstudio.nhsrcommunity.com/session-datapasta.html#/title-slide">Introduction to R and R Studio course</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> tibble<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tribble</span>(</span>
+<span id="cb1-2">    <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span>Patient,          <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span>Codes,</span>
+<span id="cb1-3">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientA"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"A01, A02, A03"</span>,</span>
+<span id="cb1-4">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientB"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B01; B02; B03"</span>,</span>
+<span id="cb1-5">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientC"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"C01; C03"</span>,</span>
+<span id="cb1-6">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientD"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"D01. D02. D03"</span></span>
+<span id="cb1-7">  )</span></code></pre></div>
+</div>
+</section>
+<section id="separate-codes-by-position" class="level2">
+<h2 class="anchored" data-anchor-id="separate-codes-by-position">Separate codes by position</h2>
+<p>Separate into columns in the order data appears</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb2-2"></span>
+<span id="cb2-3">data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb2-4">  tidyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">separate</span>(Codes, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col1"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col2"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col3"</span>))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+  Patient  col1  col2  col3 
+  &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+1 PatientA A01   A02   A03  
+2 PatientB B01   B02   B03  
+3 PatientC C01   C03   &lt;NA&gt; 
+4 PatientD D01   D02   D03  </code></pre>
+</div>
+</div>
+<p><a href="https://tidyr.tidyverse.org/reference/separate.html">https://tidyr.tidyverse.org/reference/separate.html</a></p>
+</section>
+<section id="add-a-pivot" class="level2">
+<h2 class="anchored" data-anchor-id="add-a-pivot">Add a pivot</h2>
+<p>To move wide data to longer:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb4-2">  tidyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">separate</span>(Codes, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col1"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col2"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col3"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb4-3">  tidyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pivot_longer</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cols =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">starts_with</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col"</span>)),</span>
+<span id="cb4-4">               <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">names_to =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"type"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 3
+   Patient  type  value
+   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;
+ 1 PatientA col1  A01  
+ 2 PatientA col2  A02  
+ 3 PatientA col3  A03  
+ 4 PatientB col1  B01  
+ 5 PatientB col2  B02  
+ 6 PatientB col3  B03  
+ 7 PatientC col1  C01  
+ 8 PatientC col2  C03  
+ 9 PatientC col3  &lt;NA&gt; 
+10 PatientD col1  D01  
+11 PatientD col2  D02  
+12 PatientD col3  D03  </code></pre>
+</div>
+</div>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-turner2024" class="csl-entry quarto-appendix-citeas">
+Turner, Zoë. 2024. <span>“Showcasing a Function - `Separate()`.”</span>
+March 12, 2024. <a href="https://nhs-r-community.github.io/nhs-r-community//blog/showcasing-functions-separate.html">https://nhs-r-community.github.io/nhs-r-community//blog/showcasing-functions-separate.html</a>.
+</div></div></section></div> ]]></description>
+  <category>R tip</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/showcasing-functions-separate.html</guid>
+  <pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Recoding an NA and back again</title>
+  <dc:creator>Zoë Turner</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/coding-to-and-from-NA.html</link>
+  <description><![CDATA[ 
+
+<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
+<!--
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+-->
+<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
+<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
+
+
+
+<section id="create-data" class="level2">
+<h2 class="anchored" data-anchor-id="create-data">Create data</h2>
+<p>This was written originally in an Excel spreadsheet and used {datapasta} to copy into R as code to build the same data frame. {datapasta} can be access through RStudio as an Addin as well as code. Find out more about {datapasta} from the <a href="https://intro-r-rstudio.nhsrcommunity.com/session-datapasta.html#/title-slide">Introduction to R and R Studio course</a>.</p>
+</section>
+<section id="recoding-to-na" class="level2">
+<h2 class="anchored" data-anchor-id="recoding-to-na">Recoding to NA</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">survey <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> tibble<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tribble</span>(</span>
+<span id="cb1-2">  <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span>Survey.Response, <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span>Code,</span>
+<span id="cb1-3">       <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Response1"</span>,   <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>L,</span>
+<span id="cb1-4">       <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Response2"</span>,    <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>L,</span>
+<span id="cb1-5">       <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Response3"</span>,   <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>L,</span>
+<span id="cb1-6">       <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Response4"</span>,    <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>L,</span>
+<span id="cb1-7">       <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Response5"</span>,    <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>L,</span>
+<span id="cb1-8">       <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Response6"</span>,   <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>L,</span>
+<span id="cb1-9">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Missing"</span>, <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span></span>
+<span id="cb1-10">  )</span></code></pre></div>
+</div>
+</section>
+<section id="recode-to-na" class="level2">
+<h2 class="anchored" data-anchor-id="recode-to-na">Recode to NA</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb2-2"></span>
+<span id="cb2-3">survey <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb2-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">new_column =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">na_if</span>(Code, <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 3
+  Survey.Response  Code new_column
+  &lt;chr&gt;           &lt;int&gt;      &lt;int&gt;
+1 Response1          -9         NA
+2 Response2           2          2
+3 Response3          10         10
+4 Response4           0          0
+5 Response5           5          5
+6 Response6          -9         NA
+7 Missing            NA         NA</code></pre>
+</div>
+</div>
+<p>It’s also possible to use the numbers and <code>case_when()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">survey <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb4-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">new_column =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">case_when</span>(Code <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span>,</span>
+<span id="cb4-3">                                Code <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1000</span>,</span>
+<span id="cb4-4">                                <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.default =</span> Code))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 3
+  Survey.Response  Code new_column
+  &lt;chr&gt;           &lt;int&gt;      &lt;dbl&gt;
+1 Response1          -9         NA
+2 Response2           2          2
+3 Response3          10         10
+4 Response4           0       1000
+5 Response5           5          5
+6 Response6          -9         NA
+7 Missing            NA         NA</code></pre>
+</div>
+</div>
+<p>Or <code>ifelse()</code> where there are only two options:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">survey <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb6-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">new_column =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(Code <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span>, Code))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 3
+  Survey.Response  Code new_column
+  &lt;chr&gt;           &lt;int&gt;      &lt;int&gt;
+1 Response1          -9         NA
+2 Response2           2          2
+3 Response3          10         10
+4 Response4           0          0
+5 Response5           5          5
+6 Response6          -9         NA
+7 Missing            NA         NA</code></pre>
+</div>
+</div>
+</section>
+<section id="recode-from-na" class="level2">
+<h2 class="anchored" data-anchor-id="recode-from-na">Recode from NA</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">survey <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb8-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">new_column2 =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">replace_na</span>(Code, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1000</span>))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 3
+  Survey.Response  Code new_column2
+  &lt;chr&gt;           &lt;int&gt;       &lt;int&gt;
+1 Response1          -9          -9
+2 Response2           2           2
+3 Response3          10          10
+4 Response4           0           0
+5 Response5           5           5
+6 Response6          -9          -9
+7 Missing            NA        1000</code></pre>
+</div>
+</div>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-turner2024" class="csl-entry quarto-appendix-citeas">
+Turner, Zoë. 2024. <span>“Recoding an NA and Back Again.”</span> March
+12, 2024. <a href="https://nhs-r-community.github.io/nhs-r-community//blog/coding-to-and-from-NA.html">https://nhs-r-community.github.io/nhs-r-community//blog/coding-to-and-from-NA.html</a>.
+</div></div></section></div> ]]></description>
+  <category>R tip</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/coding-to-and-from-NA.html</guid>
+  <pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Building a Quarto website for NHS-R Community</title>
   <dc:creator>Zoë Turner</dc:creator>
