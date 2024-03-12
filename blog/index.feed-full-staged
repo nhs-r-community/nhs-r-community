@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>NHS-R Community Quarto website</title>
+<link>https://nhs-r-community.github.io/nhs-r-community/blog/</link>
+<atom:link href="https://nhs-r-community.github.io/nhs-r-community/blog/index.xml" rel="self" type="application/rss+xml"/>
+<description>Blogs are submitted from NHS-R Community members.&lt;br&gt;
+</description>
+<generator>quarto-1.4.549</generator>
+<lastBuildDate>Tue, 12 Mar 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>{B4F502887207:/blog/coding-to-and-from-NA.html}</title>
+  <dc:creator>Zoë Turner</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/coding-to-and-from-NA.html</link>
+  <description>{B4F502887207:/blog/coding-to-and-from-NA.html}</description>
+  <category>R tip</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/coding-to-and-from-NA.html</guid>
+  <pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/blog/showcasing-functions-separate.html}</title>
+  <dc:creator>Zoë Turner</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/showcasing-functions-separate.html</link>
+  <description>{B4F502887207:/blog/showcasing-functions-separate.html}</description>
+  <category>R tip</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/showcasing-functions-separate.html</guid>
+  <pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/blog/building-a-quarto-website.html}</title>
+  <dc:creator>Zoë Turner</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/building-a-quarto-website.html</link>
+  <description>{B4F502887207:/blog/building-a-quarto-website.html}</description>
+  <category>Personal Story</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/building-a-quarto-website.html</guid>
+  <pubDate>Sat, 24 Feb 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html}</title>
+  <dc:creator>Prajwal Khairnar</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html</link>
+  <description>{B4F502887207:/blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html}</description>
+  <category>Committee</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html</guid>
+  <pubDate>Tue, 06 Feb 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://nhs-r-community.github.io/nhs-r-community/blog/img/startup.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>{B4F502887207:/blog/count-of-working-days-function.html}</title>
+  <dc:creator>Zoë Turner</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/count-of-working-days-function.html</link>
+  <description>{B4F502887207:/blog/count-of-working-days-function.html}</description>
+  <category>Function</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/count-of-working-days-function.html</guid>
+  <pubDate>Mon, 15 Jul 2019 23:00:00 GMT</pubDate>
+  <media:content url="https://nhs-r-community.github.io/nhs-r-community/blog/img/travelcard.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>{B4F502887207:/blog/simpler-sql-with-dplyr.html}</title>
+  <dc:creator>John MacKintosh</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/simpler-sql-with-dplyr.html</link>
+  <description>{B4F502887207:/blog/simpler-sql-with-dplyr.html}</description>
+  <category>R tips</category>
+  <category>SQL</category>
+  <category>dplyr</category>
+  <category>Patient Flow</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/simpler-sql-with-dplyr.html</guid>
+  <pubDate>Wed, 06 Jun 2018 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/blog/diverging-bar-charts-plotting-variance-with-ggplot2.html}</title>
+  <dc:creator>Gary Hutson</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/diverging-bar-charts-plotting-variance-with-ggplot2.html</link>
+  <description>{B4F502887207:/blog/diverging-bar-charts-plotting-variance-with-ggplot2.html}</description>
+  <category>R tips</category>
+  <category>ggplot2</category>
+  <category>Base R</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/diverging-bar-charts-plotting-variance-with-ggplot2.html</guid>
+  <pubDate>Wed, 23 May 2018 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html}</title>
+  <dc:creator>Gary Hutson</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html</link>
+  <description>{B4F502887207:/blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html}</description>
+  <category>R tips</category>
+  <category>ggplot2</category>
+  <category>Base R</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html</guid>
+  <pubDate>Wed, 23 May 2018 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/blog/histogram-with-auto-binning-in-ggplot2.html}</title>
+  <dc:creator>Gary Hutson</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/histogram-with-auto-binning-in-ggplot2.html</link>
+  <description>{B4F502887207:/blog/histogram-with-auto-binning-in-ggplot2.html}</description>
+  <category>R tips</category>
+  <category>ggplot2</category>
+  <category>Base R</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/histogram-with-auto-binning-in-ggplot2.html</guid>
+  <pubDate>Wed, 23 May 2018 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/blog/why-government-needs-sustainable-software-too.html}</title>
+  <dc:creator>Matthew Upson</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/why-government-needs-sustainable-software-too.html</link>
+  <description>{B4F502887207:/blog/why-government-needs-sustainable-software-too.html}</description>
+  <category>Software</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/why-government-needs-sustainable-software-too.html</guid>
+  <pubDate>Wed, 23 May 2018 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/blog/r-studio-shortcuts.html}</title>
+  <dc:creator>Emma Vestesson</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/r-studio-shortcuts.html</link>
+  <description>{B4F502887207:/blog/r-studio-shortcuts.html}</description>
+  <category>R tips</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/r-studio-shortcuts.html</guid>
+  <pubDate>Sun, 20 May 2018 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/blog/the-operator.html}</title>
+  <dc:creator>Emma Vestesson</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/the-operator.html</link>
+  <description>{B4F502887207:/blog/the-operator.html}</description>
+  <category>R tips</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/the-operator.html</guid>
+  <pubDate>Sun, 20 May 2018 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/blog/importing-and-exporting-data.html}</title>
+  <dc:creator>S Zeki</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/importing-and-exporting-data.html</link>
+  <description>{B4F502887207:/blog/importing-and-exporting-data.html}</description>
+  <category>R tips</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/importing-and-exporting-data.html</guid>
+  <pubDate>Mon, 14 May 2018 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/blog/the-joy-of-r.html}</title>
+  <dc:creator>Julian Flowers</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/the-joy-of-r.html</link>
+  <description>{B4F502887207:/blog/the-joy-of-r.html}</description>
+  <category>Personal Story</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/the-joy-of-r.html</guid>
+  <pubDate>Sun, 08 Apr 2018 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/blog/aiming-for-a-wrangle-free-or-reduced-world.html}</title>
+  <dc:creator>Sebastian Fox</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/aiming-for-a-wrangle-free-or-reduced-world.html</link>
+  <description>{B4F502887207:/blog/aiming-for-a-wrangle-free-or-reduced-world.html}</description>
+  <category>Personal Story</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/aiming-for-a-wrangle-free-or-reduced-world.html</guid>
+  <pubDate>Fri, 23 Mar 2018 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/blog/nhs-meets-r.html}</title>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/nhs-meets-r.html</link>
+  <description>{B4F502887207:/blog/nhs-meets-r.html}</description>
+  <category>NHS-R</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/nhs-meets-r.html</guid>
+  <pubDate>Mon, 19 Mar 2018 00:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
