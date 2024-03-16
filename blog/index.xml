@@ -13,167 +13,6 @@
 <generator>quarto-1.4.551</generator>
 <lastBuildDate>Tue, 12 Mar 2024 00:00:00 GMT</lastBuildDate>
 <item>
-  <title>Showcasing a function - separate()</title>
-  <dc:creator>Zoë Turner</dc:creator>
-  <link>https://nhs-r-community.github.io/nhs-r-community/blog/showcasing-functions-separate.html</link>
-  <description><![CDATA[ 
-
-<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
-<!--
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
--->
-<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
-<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
-
-
-
-<section id="create-data" class="level2">
-<h2 class="anchored" data-anchor-id="create-data">Create data</h2>
-<p>This was written originally in an Excel spreadsheet and used {datapasta} to copy into R as code to build the same data frame. {datapasta} can be access through RStudio as an Addin as well as code. Find out more about {datapasta} from the <a href="https://intro-r-rstudio.nhsrcommunity.com/session-datapasta.html#/title-slide">Introduction to R and R Studio course</a>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">data <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> tibble<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tribble</span>(</span>
-<span id="cb1-2">    <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span>Patient,          <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span>Codes,</span>
-<span id="cb1-3">  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"PatientA"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"A01, A02, A03"</span>,</span>
-<span id="cb1-4">  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"PatientB"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B01; B02; B03"</span>,</span>
-<span id="cb1-5">  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"PatientC"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"C01; C03"</span>,</span>
-<span id="cb1-6">  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"PatientD"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"D01. D02. D03"</span></span>
-<span id="cb1-7">  )</span></code></pre></div>
-</div>
-</section>
-<section id="separate-codes-by-position" class="level2">
-<h2 class="anchored" data-anchor-id="separate-codes-by-position">Separate codes by position</h2>
-<p>Separate into columns in the order data appears</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(tidyverse)</span>
-<span id="cb2-2"></span>
-<span id="cb2-3">data <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|&gt;</span> </span>
-<span id="cb2-4">  tidyr<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">separate</span>(Codes, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col1"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col2"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col3"</span>))</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 4
-  Patient  col1  col2  col3 
-  &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
-1 PatientA A01   A02   A03  
-2 PatientB B01   B02   B03  
-3 PatientC C01   C03   &lt;NA&gt; 
-4 PatientD D01   D02   D03  </code></pre>
-</div>
-</div>
-<p><a href="https://tidyr.tidyverse.org/reference/separate.html">https://tidyr.tidyverse.org/reference/separate.html</a></p>
-</section>
-<section id="add-a-pivot" class="level2">
-<h2 class="anchored" data-anchor-id="add-a-pivot">Add a pivot</h2>
-<p>To move wide data to longer:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">data <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|&gt;</span> </span>
-<span id="cb4-2">  tidyr<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">separate</span>(Codes, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col1"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col2"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col3"</span>)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|&gt;</span> </span>
-<span id="cb4-3">  tidyr<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">pivot_longer</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">cols =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">starts_with</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col"</span>)),</span>
-<span id="cb4-4">               <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">names_to =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"type"</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 12 × 3
-   Patient  type  value
-   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;
- 1 PatientA col1  A01  
- 2 PatientA col2  A02  
- 3 PatientA col3  A03  
- 4 PatientB col1  B01  
- 5 PatientB col2  B02  
- 6 PatientB col3  B03  
- 7 PatientC col1  C01  
- 8 PatientC col2  C03  
- 9 PatientC col3  &lt;NA&gt; 
-10 PatientD col1  D01  
-11 PatientD col2  D02  
-12 PatientD col3  D03  </code></pre>
-</div>
-</div>
-
-
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-turner2024" class="csl-entry quarto-appendix-citeas">
-Turner, Zoë. 2024. <span>“Showcasing a Function - `Separate()`.”</span>
-March 12, 2024. <a href="https://nhs-r-community.github.io/nhs-r-community//blog/showcasing-functions-separate.html">https://nhs-r-community.github.io/nhs-r-community//blog/showcasing-functions-separate.html</a>.
-</div></div></section></div> ]]></description>
-  <category>R tip</category>
-  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/showcasing-functions-separate.html</guid>
-  <pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate>
-</item>
-<item>
   <title>Recoding an NA and back again</title>
   <dc:creator>Zoë Turner</dc:creator>
   <link>https://nhs-r-community.github.io/nhs-r-community/blog/coding-to-and-from-NA.html</link>
@@ -399,6 +238,167 @@ Turner, Zoë. 2024. <span>“Recoding an NA and Back Again.”</span> March
 </div></div></section></div> ]]></description>
   <category>R tip</category>
   <guid>https://nhs-r-community.github.io/nhs-r-community/blog/coding-to-and-from-NA.html</guid>
+  <pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Showcasing a function - separate()</title>
+  <dc:creator>Zoë Turner</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/showcasing-functions-separate.html</link>
+  <description><![CDATA[ 
+
+<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
+<!--
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+-->
+<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
+<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
+
+
+
+<section id="create-data" class="level2">
+<h2 class="anchored" data-anchor-id="create-data">Create data</h2>
+<p>This was written originally in an Excel spreadsheet and used {datapasta} to copy into R as code to build the same data frame. {datapasta} can be access through RStudio as an Addin as well as code. Find out more about {datapasta} from the <a href="https://intro-r-rstudio.nhsrcommunity.com/session-datapasta.html#/title-slide">Introduction to R and R Studio course</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> tibble<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tribble</span>(</span>
+<span id="cb1-2">    <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span>Patient,          <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span>Codes,</span>
+<span id="cb1-3">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientA"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"A01, A02, A03"</span>,</span>
+<span id="cb1-4">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientB"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B01; B02; B03"</span>,</span>
+<span id="cb1-5">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientC"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"C01; C03"</span>,</span>
+<span id="cb1-6">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientD"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"D01. D02. D03"</span></span>
+<span id="cb1-7">  )</span></code></pre></div>
+</div>
+</section>
+<section id="separate-codes-by-position" class="level2">
+<h2 class="anchored" data-anchor-id="separate-codes-by-position">Separate codes by position</h2>
+<p>Separate into columns in the order data appears</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb2-2"></span>
+<span id="cb2-3">data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb2-4">  tidyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">separate</span>(Codes, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col1"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col2"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col3"</span>))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+  Patient  col1  col2  col3 
+  &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+1 PatientA A01   A02   A03  
+2 PatientB B01   B02   B03  
+3 PatientC C01   C03   &lt;NA&gt; 
+4 PatientD D01   D02   D03  </code></pre>
+</div>
+</div>
+<p><a href="https://tidyr.tidyverse.org/reference/separate.html">https://tidyr.tidyverse.org/reference/separate.html</a></p>
+</section>
+<section id="add-a-pivot" class="level2">
+<h2 class="anchored" data-anchor-id="add-a-pivot">Add a pivot</h2>
+<p>To move wide data to longer:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb4-2">  tidyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">separate</span>(Codes, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col1"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col2"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col3"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb4-3">  tidyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pivot_longer</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cols =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">starts_with</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col"</span>)),</span>
+<span id="cb4-4">               <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">names_to =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"type"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 3
+   Patient  type  value
+   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;
+ 1 PatientA col1  A01  
+ 2 PatientA col2  A02  
+ 3 PatientA col3  A03  
+ 4 PatientB col1  B01  
+ 5 PatientB col2  B02  
+ 6 PatientB col3  B03  
+ 7 PatientC col1  C01  
+ 8 PatientC col2  C03  
+ 9 PatientC col3  &lt;NA&gt; 
+10 PatientD col1  D01  
+11 PatientD col2  D02  
+12 PatientD col3  D03  </code></pre>
+</div>
+</div>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-turner2024" class="csl-entry quarto-appendix-citeas">
+Turner, Zoë. 2024. <span>“Showcasing a Function - `Separate()`.”</span>
+March 12, 2024. <a href="https://nhs-r-community.github.io/nhs-r-community//blog/showcasing-functions-separate.html">https://nhs-r-community.github.io/nhs-r-community//blog/showcasing-functions-separate.html</a>.
+</div></div></section></div> ]]></description>
+  <category>R tip</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/showcasing-functions-separate.html</guid>
   <pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
@@ -1447,6 +1447,104 @@ MacKintosh, John. 2018. <span>“Simpler SQL with Dplyr.”</span> June 7,
   <pubDate>Thu, 07 Jun 2018 00:00:00 GMT</pubDate>
 </item>
 <item>
+  <title>Why Government needs sustainable software too</title>
+  <dc:creator>Matthew Upson</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/why-government-needs-sustainable-software-too.html</link>
+  <description><![CDATA[ 
+
+<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
+<!--
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+-->
+<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
+<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
+
+
+
+<p>Unlike most of the 2017/2018 cohort, when I applied to become a fellow of the Software Sustainability Institute, I was a civil servant rather than an academic. In this blog post I want to talk about why Government needs sustainable software, the work being done to deliver it, and the lessons we learnt after the first year. But Government already has sustainable software…</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://nhs-r-community.github.io/nhs-r-community/blog/img/esther-vargas.png" class="img-fluid figure-img"></p>
+<figcaption>Image by Esther Vargas</figcaption>
+</figure>
+</div>
+<p>There’s quite a bit of disambiguation that needs to be done to the statement ‘Government needs sustainable software’. In fact, Government already has sustainable software, and lots of it. One need only look at <a href="https://github.com/alphagov">alphagov</a>, the GitHub organisation for the <a href="https://gds.blog.gov.uk/">Government Digital Service</a>. Sustainable, often open source, software is alive and well here, written by professional software developers, and in many other places in central and local Government alike. But this isn’t the whole story.</p>
+<p>There are other parts of Government that write software, but like many in academia, you may have a hard time convincing them of this fact. In central Government (this is where my experience lies, so I will focus largely upon it) there are literally thousands of statisticians, operational researchers, social researchers, economists, scientists, and engineers. Any one of these may be writing code in a variety of languages in the course of their daily work, but don’t identify as software developers. It’s among these professions that there are tasks that will look most familiar to the academic researcher. Government statisticians in particular are tasked with producing periodic publications which incorporate data, visualisations, and analyses, much like academic outputs.</p>
+<p>So in this blog post, I’m really talking about bespoke software that is used to create Government statistical publications.</p>
+<section id="government-produces-a-lot-of-statistics" class="level1">
+<h1>Government produces a lot of statistics</h1>
+<p>A quick browse of <a href="https://www.gov.uk/government/statistics">GOV.UK</a> and we can see the wide range of statistics produced: there’s <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/690479/slaughter-statsnotice-15mar18.pdf">monthly statistics on cattle and pig meat production</a> from <a href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs">Department for Environment Food &amp; Rural Affairs (DEFRA)</a>; <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/685973/sarh-october-to-december-2017.pdf">search and rescue helicopter statistics</a> from the <a href="https://www.gov.uk/government/organisations/department-for-transport">Department for Transport</a> and <a href="https://www.gov.uk/government/organisations/maritime-and-coastguard-agency">Maritime Coastguard Agency</a>; and <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/471395/Op_Herrick_Aircraft_Annex_A_-_Bulletin.pdf">combat aircraft statistics in Afghanistan</a> from the <a href="https://www.gov.uk/government/organisations/ministry-of-defence">Ministry of Defence</a>.</p>
+<p>In fact, at time of writing, there are over 16,000 statistical publications published on GOV.UK, and very likely more published elsewhere. If you clicked on the links above, you will notice that there is a lot of variety among the publications that reflects the diversity of the organisations that produce them. Different departments have differing technology, different levels of technical expertise, and different aims. A publication can be produced by an automated pipeline incorporating version control and continuous integration/deployment; but much more likely it is produced with manual processes that are error prone, time consuming, and difficult to document. However it is done, these publications are increasingly being produced with code in one language or another, be it Stata, SPSS, SAS, R, or Python.</p>
+<section id="why-sustainability-is-so-important-for-government" class="level2">
+<h2 class="anchored" data-anchor-id="why-sustainability-is-so-important-for-government">Why sustainability is so important for Government</h2>
+<p>The reasons for sustainability in academic publications have been well documented by the Software Sustainability Institute, but I would argue that it is even more important that Government writes reproducible and sustainable software for its statistical publications. Here’s why:</p>
+<section id="the-outputs-really-matter" class="level3">
+<h3 class="anchored" data-anchor-id="the-outputs-really-matter">The outputs really matter</h3>
+<p>I don’t want to downplay the importance of research outputs, publishing accurate science is critical to advancing human knowledge. What is different about research is that there is rarely a single source of truth. If a research group publishes a groundbreaking finding, we all take notice; but we don’t trust the findings until they have been replicated preferably by several other groups.</p>
+<p>It’s not like that in Government. If a Government department publishes a statistic, in many cases that is the single source of truth, so it is critical that the statistics are both timely and accurate.</p>
+</section>
+<section id="publications-are-often-produced-by-multiple-people" class="level3">
+<h3 class="anchored" data-anchor-id="publications-are-often-produced-by-multiple-people">Publications are often produced by multiple people</h3>
+<p>The second way that Government statistical publications differ from academic scientific publications is that they are often produced by a team of people that is regularly changing. This means that even at the point that it is being produced it needs to be easy for another member of the team to pick up the work and run with it. If someone goes on holiday, or is sick at the critical moment, their colleagues need to be able to pick up from where they left off immediately, and understand all the idiosyncrasies perfectly. The knowledge simply cannot rest in one person’s head.</p>
+<p>More than that, since publications are often periodic (e.g.&nbsp;monthly, or annual) and analysts typically change role once a year, the work will very likely need to be handed off to someone new on a regular basis. It is essential therefore that these processes are well documented, and that the code that is being handed over works as expected.</p>
+</section>
+<section id="the-taxpayer-pays-for-it" class="level3">
+<h3 class="anchored" data-anchor-id="the-taxpayer-pays-for-it">The taxpayer pays for it</h3>
+<p>Obviously, the longer it takes a team of statisticians to produce a statistical report in Government, the more it costs to the taxpayer, and all Government departments have an interest in being efficient, and reducing unnecessary waste.</p>
+<p>Additionally, since Government statistical publications are paid for by the public, where possible Government should be open and publish its workings. Coding in the open is already an <a href="https://gds.blog.gov.uk/2017/09/04/the-benefits-of-coding-in-the-open/">important part of the culture</a> among digital professions, adopting sustainable software practices allows statistical publications to be produced with the same openness.</p>
+</section>
+<section id="working-towards-sustainability" class="level3">
+<h3 class="anchored" data-anchor-id="working-towards-sustainability">Working towards sustainability</h3>
+<p>I started working in Government as a Data Scientist after doing a PhD and post-doc in environmental science. I’d attended two <a href="https://software-carpentry.org/">Software Carpentry</a> workshops during this time, and wrote my PhD in <a href="http://www.machinegurning.com/rstats/latex-phd/">LaTeX and R</a>. On joining Government it was clear that we could apply some of these lessons to improve the reporting workflow in Government.</p>
+<p>Working with the Department for Digital, Culture, Media, and Sport (<a href="https://www.gov.uk/government/organisations/department-for-digital-culture-media-sport">DCMS</a>) we had a first attempt at implementing a reproducible workflow for a statistical publication that was being produced with manual processes using a number of spreadsheets, a statistical computing package, and a word processor. We used <a href="https://rmarkdown.rstudio.com/">RMarkdown</a> to rewrite the publication, and abstracted the logic into an <a href="https://github.com/DCMSstats/eesectors">R package</a> freely available on GitHub, complete with continuous integration from <a href="https://travis-ci.org/DCMSstats/eesectors">travis</a> and <a href="https://ci.appveyor.com/project/ivyleavedtoadflax/eesectors/branch/master">appveyor</a>.</p>
+<p>In March of 2017 we published this work in a <a href="https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/">blog post</a>, and worked hard to publicise this work with a large number of presentations and demonstrations to other Government departments. The prototype generated lots of interest; in particular an initial estimate that it could save 75% of the time taken to produce the same publication using the old methods.</p>
+<p>By November we <a href="https://dataingovernment.blog.gov.uk/2017/11/27/transforming-the-process-of-producing-official-statistics/">blogged again</a> about successful trials of this approach in two further departments: the Ministry of Justice (MoJ), the Department for Education (DfE). We also produced a <a href="https://ukgovdatascience.github.io/rap_companion/">GitBook</a> describing the various steps in more detail. Most of this is sensible software development practice; but it’s something that many Government analysts have not done before.</p>
+<p>By the end of the year, the ideas had gained enough traction in the Government statistical community, that the Director General for the Office of Statistics Regulation (the body responsible for ensuring quality among official statistics) reported that this work was his <a href="https://www.statisticsauthority.gov.uk/a-robot-by-any-name/">favourite innovation of the year</a>, although he wasn’t so keen on the name!</p>
+<p>Work continues to bring these techniques to a wider audience. There’s now a <a href="https://www.udemy.com/course/reproducible-analytical-pipelines/">free online course</a> built by one of my former <a href="https://twitter.com/mammykins_">colleagues</a> to help civil servants get started, and a number of departments, particularly the <a href="https://github.com/moj-analytical-services">MoJ</a> are making great strides to incorporate these techniques into their workflows.</p>
+</section>
+</section>
+<section id="lessons-learnt" class="level2">
+<h2 class="anchored" data-anchor-id="lessons-learnt">Lessons learnt</h2>
+<p>A year or so after we set out with the intention of bringing sustainable software to Government statisticians, here are some of the lessons that I would like to share.</p>
+</section>
+<section id="reproducibility-is-technical-sustainability-is-social" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility-is-technical-sustainability-is-social">Reproducibility is technical, sustainability is social</h2>
+<p>We called the first prototype a ‘Reproducible Analytical Pipeline’ and acronym ‘RAP’ has stuck. This is not a very good name on reflection because it belies the main difficulty in transitioning from manual workflows into something more automated: making it sustainable. It’s very well creating beautiful, abstracted, replicable data workflows, but they are completely useless if no one knows how to use them, or to update them. That situation is more dangerous than the manual workflows that exist in many places at present, because at least the barrier to entry for tortuous manual processes is lower: you don’t need to know how to program to interpret a complicated spreadsheet, you just need a lot of patience.</p>
+<p>What this move from manual to automated implies is a recognition of the need for specialists; organisations will need to recruit specialists, make use of the ones they already have, and upskill other staff. This is a challenge that all organisations will need to rise to if they are to make these new methods stick.</p>
+<p>This is likely to be less of a problem for academia, where within certain fields there is already an expectation that researchers will be able to use particular tools, and there may be more time to develop expertise away from operational pressures. However, there also exists a powerful disincentive: because journal articles are closer to ‘one off’ than a periodic report, it is less critical that researchers leave the code behind a paper in a good state, as they may never need to come back to it again.</p>
+</section>
+<section id="senior-buy-in-is-critical" class="level2">
+<h2 class="anchored" data-anchor-id="senior-buy-in-is-critical">Senior buy-in is critical</h2>
+<p>In just over a year, we went from seeing an opportunity to scaling the idea across a number of Government departments, traditionally very conservative organisations. Getting the buy-in of senior officials was absolutely critical in our ability to get the idea accepted.</p>
+<p>It’s important to realise early that senior managers are often interested in very different things to the users of the software, so messages need to be targeted to gain traction with the right audience. For instance, an incentive for managers in academia might be: mitigating the risk of errors that could lead to retraction, rather than by the expectation of cost savings.</p>
+</section>
+<section id="time-is-money" class="level2">
+<h2 class="anchored" data-anchor-id="time-is-money">Time is money</h2>
+<p>One of the reasons that we managed to make a big impact quickly is because Government departments are always keen to reduce costs. If a publication takes a team of four people a few weeks to produce, the cost quickly adds up. This is a feature of Government (and indeed industry) which is not shared by academia. Yes, it matters that work is delivered on time, but in my experience researcher time is a much more elastic resource. I was much more likely to work all evening or over the weekend as a PhD student or post doctoral researcher than I was as a civil servant; it was almost an expectation. For this reason, the financial imperative seems to be a much less powerful incentive in academia.</p>
+</section>
+<section id="its-not-all-about-the-code" class="level2">
+<h2 class="anchored" data-anchor-id="its-not-all-about-the-code">It’s not all about the code</h2>
+<p>Notwithstanding my comments about sustainability, it is important to note that reproducibility does not stop with reproducible code. We also need to worry about the data, and the environment. The former is particularly difficult in a Government setting, as one department often relies on another to provide the data, meaning that there is a less clear route to source than many academics enjoy. There are important initiatives underway in Government, such as <a href="https://registers.cloudapps.digital/">GOV.UK Registers</a>, which oversees the development of canonical lists of important information critical to the running of the country. Not all data can be treated in this way, and whilst taking snapshots of data may be a blunt instrument, it works when you don’t have control of where it comes from.</p>
+</section>
+<section id="call-to-arms" class="level2">
+<h2 class="anchored" data-anchor-id="call-to-arms">Call to arms</h2>
+<p>Almost all the projects I have referred to in this blog post are open source, and available on GitHub, so follow the links above if you are interested. There’s also two presentations on the topic available as slides (<a href="https://earlconf.com/2017/downloads/london/presentations/EARL2017_-_London_-_Matthew_Upson_-_Reproducible_analysis_for_government.pdf">Earl conference 2017</a> and <a href="https://gss.civilservice.gov.uk/wp-content/uploads/2018/01/2017-11-22-RAP_GSS_Conference_w_dfe_dcms_moj.pdf">Government Statistical Service conference 2017</a>) which give more technical details on the projects.</p>
+<p>This blog is written by Matthew Upson, Data Scientist at <a href="Juro">Juro</a> and was originally posted on the <a href="https://software.ac.uk/blog/2018-05-21-why-government-needs-sustainable-software-too">Software Sustainability website</a>.</p>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-upson2018" class="csl-entry quarto-appendix-citeas">
+Upson, Matthew. 2018. <span>“Why Government Needs Sustainable Software
+Too.”</span> May 24, 2018. <a href="https://nhs-r-community.github.io/nhs-r-community//blog/why-government-needs-sustainable-software-too.html">https://nhs-r-community.github.io/nhs-r-community//blog/why-government-needs-sustainable-software-too.html</a>.
+</div></div></section></div> ]]></description>
+  <category>Software</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/why-government-needs-sustainable-software-too.html</guid>
+  <pubDate>Thu, 24 May 2018 00:00:00 GMT</pubDate>
+</item>
+<item>
   <title>Histogram with auto binning in ggplot2</title>
   <dc:creator>Gary Hutson</dc:creator>
   <link>https://nhs-r-community.github.io/nhs-r-community/blog/histogram-with-auto-binning-in-ggplot2.html</link>
@@ -1721,475 +1819,6 @@ Ggplot2.”</span> May 24, 2018. <a href="https://nhs-r-community.github.io/nhs-
   <category>ggplot2</category>
   <category>Base R</category>
   <guid>https://nhs-r-community.github.io/nhs-r-community/blog/histogram-with-auto-binning-in-ggplot2.html</guid>
-  <pubDate>Thu, 24 May 2018 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Diverging Bar Charts – Plotting Variance with ggplot2</title>
-  <dc:creator>Gary Hutson</dc:creator>
-  <link>https://nhs-r-community.github.io/nhs-r-community/blog/diverging-bar-charts-plotting-variance-with-ggplot2.html</link>
-  <description><![CDATA[ 
-
-<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
-<!--
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
--->
-<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
-<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
-
-
-
-<section id="diverging-bar-charts" class="level1">
-<h1>Diverging Bar Charts</h1>
-<p>The aim here is to create a diverging bar chart that shows variance above and below an average line. In this example I will use Z Scores to calculate the variance, in terms of standard deviations, as a diverging bar. This example will use the <code>mtcars</code> stock dataset, as most of the data I deal with day-to-day is patient sensitive.</p>
-</section>
-<section id="data-preparation" class="level1">
-<h1>Data preparation</h1>
-<p>The code below sets up the plotting libraries, attaches the data and sets a theme:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(ggplot2)</span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">theme_set</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">theme_classic</span>())</span>
-<span id="cb1-3"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"mtcars"</span>) <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># load data</span></span></code></pre></div>
-</div>
-<p>Next, we will change some of the columns in the data frame and perform some calculations on the data frame:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">mtcars<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>CarBrand <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rownames</span>(mtcars) <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Create new column for car brands and names</span></span></code></pre></div>
-</div>
-<p>As commented, this line uses the existing <code>mtcars</code> data frame and uses the dollar sign notation i.e.&nbsp;add a new column, or refer to a column, to create a column name called CarBrand. Then we assign the car brand (&lt;-) with the rownames from the data frame. This is obviously predicated on there being some row names in the data frame, otherwise you would have to name the rows using <code>rownames()</code>.</p>
-</section>
-<section id="adding-a-z-score-calculation" class="level1">
-<h1>Adding a Z Score calculation</h1>
-<p>A <a href="https://stattrek.com/statistics/dictionary?definition=z-score">Z score</a> is a calculation which uses the x observation subtracts said observation from the mean and divides by the standard deviation. The link shows the mathematics behind this, for anyone who is interested.</p>
-<p>The following code shows how we would implement this score:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">mtcars<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>mpg_z_score <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">round</span>((mtcars<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>mpg <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mean</span>(mtcars<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>mpg))<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sd</span>(mtcars<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>mpg), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">digits=</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>)</span></code></pre></div>
-</div>
-<p>The statistics behind the calculation have already been explained, but I have also used the <code>round()</code> function to round the results down to 2 digits.</p>
-</section>
-<section id="creating-a-cut-off-abovebelow-mean" class="level1">
-<h1>Creating a cut off (above/below mean)</h1>
-<p>The next step is to use conditional algebra (first advocated by one of my heroes George Boole) to check whether the Z score I have just created is greater or less than 0:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">mtcars<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>mpg_type <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ifelse</span>(mtcars<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>mpg_z_score <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"below"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"above"</span>)</span></code></pre></div>
-</div>
-<p>The <code>ifelse()</code> block looks at whether the Z Score is below 0, if so tag as below average, otherwise show this as above.</p>
-<p>The next two steps are to convert the Car Brand into a unique factor and to sort by the Z Score calculations:</p>
-<p>Now, I have everything I need to start to compute the plot. Great stuff, so let’s get plotting.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">mtcars <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> mtcars[<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">order</span>(mtcars<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>mpg_z_score), ] <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#Ascending sort on Z Score</span></span>
-<span id="cb5-2">mtcars<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>CarBrand <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">factor</span>(mtcars<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>CarBrand, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">levels =</span> mtcars<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>CarBrand)</span></code></pre></div>
-</div>
-</section>
-<section id="creating-the-plot" class="level1">
-<h1>Creating the plot</h1>
-<p>First, I will start with creating the base plot:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(mtcars, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x=</span>CarBrand, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y=</span>mpg_z_score, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">label=</span>mpg_z_score))</span></code></pre></div>
-</div>
-<p>Here, I pass in the <code>mtcars</code> data frame and set the aesthetics layer (aes) of the x axis to the brand of car (CarBrand). The y axis is the Z score I created for miles per gallon (mpg) and the label is also set to the z score.</p>
-<p>Next, I will add on the geom_bar geometry:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(mtcars, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x=</span>CarBrand, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y=</span>mpg_z_score, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">label=</span>mpg_z_score)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb7-2">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_bar</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">stat=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'identity'</span>, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">fill=</span>mpg_type), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">width=</span>.<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span></code></pre></div>
-</div>
-<p>This indicates that I need to use the mpg_z_score field by forcing the <code>stat="identity"</code> option. If this was not added, then it would simply count the number of times the Car Brand appears as a frequency count (not what I want!). Then, I stipulate the fill type of the bar to be equal to whether the value deviates above and below 0 – remember we created a field in the data preparation stage to store whether this deviates below and above 0 and called it mpg_type. The last parameter is the width parameter to indicate the width of the bars.</p>
-<p>Next:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(mtcars, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x=</span>CarBrand, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y=</span>mpg_z_score, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">label=</span>mpg_z_score)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb8-2">   <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_bar</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">stat=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'identity'</span>, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">fill=</span>mpg_type), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">width=</span>.<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb8-3">   <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">scale_fill_manual</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">name=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Mileage (deviation)"</span>,</span>
-<span id="cb8-4">                    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">labels =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Above Average"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Below Average"</span>),</span>
-<span id="cb8-5">                    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">values =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"above"</span><span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"#00ba38"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"below"</span><span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"#0b8fd3"</span>)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span></code></pre></div>
-</div>
-<p>I use the <code>scale_fill_manual()</code> ggplot option to add the name to the legend, specify the label names using the combine function and stipulate that the values that are above average need to be hex coded by the value and the below values to a different code. I have weirdly chosen blue and green as an alternative to red, as I know we have accessibility there. We are nearly there, the final step is:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(mtcars, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x=</span>CarBrand, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y=</span>mpg_z_score, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">label=</span>mpg_z_score)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb9-2">   <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_bar</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">stat=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'identity'</span>, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">fill=</span>mpg_type), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">width=</span>.<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb9-3">   <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">scale_fill_manual</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">name=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Mileage (deviation)"</span>,</span>
-<span id="cb9-4">                    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">labels =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Above Average"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Below Average"</span>),</span>
-<span id="cb9-5">                    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">values =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"above"</span><span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"#00ba38"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"below"</span><span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"#0b8fd3"</span>)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb9-6">   <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">subtitle=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Z score (normalised) mileage for mtcars'"</span>,</span>
-<span id="cb9-7">         <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">title=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Diverging Bar Plot (ggplot2)"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">caption=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Produced by Gary Hutson"</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb9-8">   <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">coord_flip</span>()</span></code></pre></div>
-</div>
-<p>Here, I have added the labs layer on to the plot. This is a way to label your plots to show more meaningful values than would be included by default. So, within labs I use subtitle, title and caption to add labels to the chart. Finally, the important command is to add the <code>coord_flip()</code> command to the chart – without this you would have vertical bars instead of horizontal. I think this type of chart looks better horizontal, thus the reason for the inclusion of the command.</p>
-<p>The final chart, looks as illustrated hereunder:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://nhs-r-community.github.io/nhs-r-community/blog/diverging-bar-charts-plotting-variance-with-ggplot2_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>This blog was written by Gary Hutson, Principal Analyst, Activity &amp; Access Team, Information &amp; Insight at Nottingham University Hospitals NHS Trust, and was originally posted at <a href="http://hutsons-hacks.info/diverging-bar-charts-plotting-variance-with-ggplot2">Hutson-Hacks</a>.</p>
-
-
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-hutson2018" class="csl-entry quarto-appendix-citeas">
-Hutson, Gary. 2018. <span>“Diverging Bar Charts – Plotting Variance with
-Ggplot2.”</span> May 24, 2018. <a href="https://nhs-r-community.github.io/nhs-r-community//blog/diverging-bar-charts-plotting-variance-with-ggplot2.html">https://nhs-r-community.github.io/nhs-r-community//blog/diverging-bar-charts-plotting-variance-with-ggplot2.html</a>.
-</div></div></section></div> ]]></description>
-  <category>R tips</category>
-  <category>ggplot2</category>
-  <category>Base R</category>
-  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/diverging-bar-charts-plotting-variance-with-ggplot2.html</guid>
-  <pubDate>Thu, 24 May 2018 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Why Government needs sustainable software too</title>
-  <dc:creator>Matthew Upson</dc:creator>
-  <link>https://nhs-r-community.github.io/nhs-r-community/blog/why-government-needs-sustainable-software-too.html</link>
-  <description><![CDATA[ 
-
-<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
-<!--
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
--->
-<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
-<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
-
-
-
-<p>Unlike most of the 2017/2018 cohort, when I applied to become a fellow of the Software Sustainability Institute, I was a civil servant rather than an academic. In this blog post I want to talk about why Government needs sustainable software, the work being done to deliver it, and the lessons we learnt after the first year. But Government already has sustainable software…</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://nhs-r-community.github.io/nhs-r-community/blog/img/esther-vargas.png" class="img-fluid figure-img"></p>
-<figcaption>Image by Esther Vargas</figcaption>
-</figure>
-</div>
-<p>There’s quite a bit of disambiguation that needs to be done to the statement ‘Government needs sustainable software’. In fact, Government already has sustainable software, and lots of it. One need only look at <a href="https://github.com/alphagov">alphagov</a>, the GitHub organisation for the <a href="https://gds.blog.gov.uk/">Government Digital Service</a>. Sustainable, often open source, software is alive and well here, written by professional software developers, and in many other places in central and local Government alike. But this isn’t the whole story.</p>
-<p>There are other parts of Government that write software, but like many in academia, you may have a hard time convincing them of this fact. In central Government (this is where my experience lies, so I will focus largely upon it) there are literally thousands of statisticians, operational researchers, social researchers, economists, scientists, and engineers. Any one of these may be writing code in a variety of languages in the course of their daily work, but don’t identify as software developers. It’s among these professions that there are tasks that will look most familiar to the academic researcher. Government statisticians in particular are tasked with producing periodic publications which incorporate data, visualisations, and analyses, much like academic outputs.</p>
-<p>So in this blog post, I’m really talking about bespoke software that is used to create Government statistical publications.</p>
-<section id="government-produces-a-lot-of-statistics" class="level1">
-<h1>Government produces a lot of statistics</h1>
-<p>A quick browse of <a href="https://www.gov.uk/government/statistics">GOV.UK</a> and we can see the wide range of statistics produced: there’s <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/690479/slaughter-statsnotice-15mar18.pdf">monthly statistics on cattle and pig meat production</a> from <a href="https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs">Department for Environment Food &amp; Rural Affairs (DEFRA)</a>; <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/685973/sarh-october-to-december-2017.pdf">search and rescue helicopter statistics</a> from the <a href="https://www.gov.uk/government/organisations/department-for-transport">Department for Transport</a> and <a href="https://www.gov.uk/government/organisations/maritime-and-coastguard-agency">Maritime Coastguard Agency</a>; and <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/471395/Op_Herrick_Aircraft_Annex_A_-_Bulletin.pdf">combat aircraft statistics in Afghanistan</a> from the <a href="https://www.gov.uk/government/organisations/ministry-of-defence">Ministry of Defence</a>.</p>
-<p>In fact, at time of writing, there are over 16,000 statistical publications published on GOV.UK, and very likely more published elsewhere. If you clicked on the links above, you will notice that there is a lot of variety among the publications that reflects the diversity of the organisations that produce them. Different departments have differing technology, different levels of technical expertise, and different aims. A publication can be produced by an automated pipeline incorporating version control and continuous integration/deployment; but much more likely it is produced with manual processes that are error prone, time consuming, and difficult to document. However it is done, these publications are increasingly being produced with code in one language or another, be it Stata, SPSS, SAS, R, or Python.</p>
-<section id="why-sustainability-is-so-important-for-government" class="level2">
-<h2 class="anchored" data-anchor-id="why-sustainability-is-so-important-for-government">Why sustainability is so important for Government</h2>
-<p>The reasons for sustainability in academic publications have been well documented by the Software Sustainability Institute, but I would argue that it is even more important that Government writes reproducible and sustainable software for its statistical publications. Here’s why:</p>
-<section id="the-outputs-really-matter" class="level3">
-<h3 class="anchored" data-anchor-id="the-outputs-really-matter">The outputs really matter</h3>
-<p>I don’t want to downplay the importance of research outputs, publishing accurate science is critical to advancing human knowledge. What is different about research is that there is rarely a single source of truth. If a research group publishes a groundbreaking finding, we all take notice; but we don’t trust the findings until they have been replicated preferably by several other groups.</p>
-<p>It’s not like that in Government. If a Government department publishes a statistic, in many cases that is the single source of truth, so it is critical that the statistics are both timely and accurate.</p>
-</section>
-<section id="publications-are-often-produced-by-multiple-people" class="level3">
-<h3 class="anchored" data-anchor-id="publications-are-often-produced-by-multiple-people">Publications are often produced by multiple people</h3>
-<p>The second way that Government statistical publications differ from academic scientific publications is that they are often produced by a team of people that is regularly changing. This means that even at the point that it is being produced it needs to be easy for another member of the team to pick up the work and run with it. If someone goes on holiday, or is sick at the critical moment, their colleagues need to be able to pick up from where they left off immediately, and understand all the idiosyncrasies perfectly. The knowledge simply cannot rest in one person’s head.</p>
-<p>More than that, since publications are often periodic (e.g.&nbsp;monthly, or annual) and analysts typically change role once a year, the work will very likely need to be handed off to someone new on a regular basis. It is essential therefore that these processes are well documented, and that the code that is being handed over works as expected.</p>
-</section>
-<section id="the-taxpayer-pays-for-it" class="level3">
-<h3 class="anchored" data-anchor-id="the-taxpayer-pays-for-it">The taxpayer pays for it</h3>
-<p>Obviously, the longer it takes a team of statisticians to produce a statistical report in Government, the more it costs to the taxpayer, and all Government departments have an interest in being efficient, and reducing unnecessary waste.</p>
-<p>Additionally, since Government statistical publications are paid for by the public, where possible Government should be open and publish its workings. Coding in the open is already an <a href="https://gds.blog.gov.uk/2017/09/04/the-benefits-of-coding-in-the-open/">important part of the culture</a> among digital professions, adopting sustainable software practices allows statistical publications to be produced with the same openness.</p>
-</section>
-<section id="working-towards-sustainability" class="level3">
-<h3 class="anchored" data-anchor-id="working-towards-sustainability">Working towards sustainability</h3>
-<p>I started working in Government as a Data Scientist after doing a PhD and post-doc in environmental science. I’d attended two <a href="https://software-carpentry.org/">Software Carpentry</a> workshops during this time, and wrote my PhD in <a href="http://www.machinegurning.com/rstats/latex-phd/">LaTeX and R</a>. On joining Government it was clear that we could apply some of these lessons to improve the reporting workflow in Government.</p>
-<p>Working with the Department for Digital, Culture, Media, and Sport (<a href="https://www.gov.uk/government/organisations/department-for-digital-culture-media-sport">DCMS</a>) we had a first attempt at implementing a reproducible workflow for a statistical publication that was being produced with manual processes using a number of spreadsheets, a statistical computing package, and a word processor. We used <a href="https://rmarkdown.rstudio.com/">RMarkdown</a> to rewrite the publication, and abstracted the logic into an <a href="https://github.com/DCMSstats/eesectors">R package</a> freely available on GitHub, complete with continuous integration from <a href="https://travis-ci.org/DCMSstats/eesectors">travis</a> and <a href="https://ci.appveyor.com/project/ivyleavedtoadflax/eesectors/branch/master">appveyor</a>.</p>
-<p>In March of 2017 we published this work in a <a href="https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/">blog post</a>, and worked hard to publicise this work with a large number of presentations and demonstrations to other Government departments. The prototype generated lots of interest; in particular an initial estimate that it could save 75% of the time taken to produce the same publication using the old methods.</p>
-<p>By November we <a href="https://dataingovernment.blog.gov.uk/2017/11/27/transforming-the-process-of-producing-official-statistics/">blogged again</a> about successful trials of this approach in two further departments: the Ministry of Justice (MoJ), the Department for Education (DfE). We also produced a <a href="https://ukgovdatascience.github.io/rap_companion/">GitBook</a> describing the various steps in more detail. Most of this is sensible software development practice; but it’s something that many Government analysts have not done before.</p>
-<p>By the end of the year, the ideas had gained enough traction in the Government statistical community, that the Director General for the Office of Statistics Regulation (the body responsible for ensuring quality among official statistics) reported that this work was his <a href="https://www.statisticsauthority.gov.uk/a-robot-by-any-name/">favourite innovation of the year</a>, although he wasn’t so keen on the name!</p>
-<p>Work continues to bring these techniques to a wider audience. There’s now a <a href="https://www.udemy.com/course/reproducible-analytical-pipelines/">free online course</a> built by one of my former <a href="https://twitter.com/mammykins_">colleagues</a> to help civil servants get started, and a number of departments, particularly the <a href="https://github.com/moj-analytical-services">MoJ</a> are making great strides to incorporate these techniques into their workflows.</p>
-</section>
-</section>
-<section id="lessons-learnt" class="level2">
-<h2 class="anchored" data-anchor-id="lessons-learnt">Lessons learnt</h2>
-<p>A year or so after we set out with the intention of bringing sustainable software to Government statisticians, here are some of the lessons that I would like to share.</p>
-</section>
-<section id="reproducibility-is-technical-sustainability-is-social" class="level2">
-<h2 class="anchored" data-anchor-id="reproducibility-is-technical-sustainability-is-social">Reproducibility is technical, sustainability is social</h2>
-<p>We called the first prototype a ‘Reproducible Analytical Pipeline’ and acronym ‘RAP’ has stuck. This is not a very good name on reflection because it belies the main difficulty in transitioning from manual workflows into something more automated: making it sustainable. It’s very well creating beautiful, abstracted, replicable data workflows, but they are completely useless if no one knows how to use them, or to update them. That situation is more dangerous than the manual workflows that exist in many places at present, because at least the barrier to entry for tortuous manual processes is lower: you don’t need to know how to program to interpret a complicated spreadsheet, you just need a lot of patience.</p>
-<p>What this move from manual to automated implies is a recognition of the need for specialists; organisations will need to recruit specialists, make use of the ones they already have, and upskill other staff. This is a challenge that all organisations will need to rise to if they are to make these new methods stick.</p>
-<p>This is likely to be less of a problem for academia, where within certain fields there is already an expectation that researchers will be able to use particular tools, and there may be more time to develop expertise away from operational pressures. However, there also exists a powerful disincentive: because journal articles are closer to ‘one off’ than a periodic report, it is less critical that researchers leave the code behind a paper in a good state, as they may never need to come back to it again.</p>
-</section>
-<section id="senior-buy-in-is-critical" class="level2">
-<h2 class="anchored" data-anchor-id="senior-buy-in-is-critical">Senior buy-in is critical</h2>
-<p>In just over a year, we went from seeing an opportunity to scaling the idea across a number of Government departments, traditionally very conservative organisations. Getting the buy-in of senior officials was absolutely critical in our ability to get the idea accepted.</p>
-<p>It’s important to realise early that senior managers are often interested in very different things to the users of the software, so messages need to be targeted to gain traction with the right audience. For instance, an incentive for managers in academia might be: mitigating the risk of errors that could lead to retraction, rather than by the expectation of cost savings.</p>
-</section>
-<section id="time-is-money" class="level2">
-<h2 class="anchored" data-anchor-id="time-is-money">Time is money</h2>
-<p>One of the reasons that we managed to make a big impact quickly is because Government departments are always keen to reduce costs. If a publication takes a team of four people a few weeks to produce, the cost quickly adds up. This is a feature of Government (and indeed industry) which is not shared by academia. Yes, it matters that work is delivered on time, but in my experience researcher time is a much more elastic resource. I was much more likely to work all evening or over the weekend as a PhD student or post doctoral researcher than I was as a civil servant; it was almost an expectation. For this reason, the financial imperative seems to be a much less powerful incentive in academia.</p>
-</section>
-<section id="its-not-all-about-the-code" class="level2">
-<h2 class="anchored" data-anchor-id="its-not-all-about-the-code">It’s not all about the code</h2>
-<p>Notwithstanding my comments about sustainability, it is important to note that reproducibility does not stop with reproducible code. We also need to worry about the data, and the environment. The former is particularly difficult in a Government setting, as one department often relies on another to provide the data, meaning that there is a less clear route to source than many academics enjoy. There are important initiatives underway in Government, such as <a href="https://registers.cloudapps.digital/">GOV.UK Registers</a>, which oversees the development of canonical lists of important information critical to the running of the country. Not all data can be treated in this way, and whilst taking snapshots of data may be a blunt instrument, it works when you don’t have control of where it comes from.</p>
-</section>
-<section id="call-to-arms" class="level2">
-<h2 class="anchored" data-anchor-id="call-to-arms">Call to arms</h2>
-<p>Almost all the projects I have referred to in this blog post are open source, and available on GitHub, so follow the links above if you are interested. There’s also two presentations on the topic available as slides (<a href="https://earlconf.com/2017/downloads/london/presentations/EARL2017_-_London_-_Matthew_Upson_-_Reproducible_analysis_for_government.pdf">Earl conference 2017</a> and <a href="https://gss.civilservice.gov.uk/wp-content/uploads/2018/01/2017-11-22-RAP_GSS_Conference_w_dfe_dcms_moj.pdf">Government Statistical Service conference 2017</a>) which give more technical details on the projects.</p>
-<p>This blog is written by Matthew Upson, Data Scientist at <a href="Juro">Juro</a> and was originally posted on the <a href="https://software.ac.uk/blog/2018-05-21-why-government-needs-sustainable-software-too">Software Sustainability website</a>.</p>
-
-
-</section>
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-upson2018" class="csl-entry quarto-appendix-citeas">
-Upson, Matthew. 2018. <span>“Why Government Needs Sustainable Software
-Too.”</span> May 24, 2018. <a href="https://nhs-r-community.github.io/nhs-r-community//blog/why-government-needs-sustainable-software-too.html">https://nhs-r-community.github.io/nhs-r-community//blog/why-government-needs-sustainable-software-too.html</a>.
-</div></div></section></div> ]]></description>
-  <category>Software</category>
-  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/why-government-needs-sustainable-software-too.html</guid>
   <pubDate>Thu, 24 May 2018 00:00:00 GMT</pubDate>
 </item>
 <item>
@@ -2618,6 +2247,377 @@ Plotting Variance with Ggplot2.”</span> May 24, 2018. <a href="https://nhs-r-c
   <category>ggplot2</category>
   <category>Base R</category>
   <guid>https://nhs-r-community.github.io/nhs-r-community/blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html</guid>
+  <pubDate>Thu, 24 May 2018 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Diverging Bar Charts – Plotting Variance with ggplot2</title>
+  <dc:creator>Gary Hutson</dc:creator>
+  <link>https://nhs-r-community.github.io/nhs-r-community/blog/diverging-bar-charts-plotting-variance-with-ggplot2.html</link>
+  <description><![CDATA[ 
+
+<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
+<!--
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+-->
+<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
+<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
+
+
+
+<section id="diverging-bar-charts" class="level1">
+<h1>Diverging Bar Charts</h1>
+<p>The aim here is to create a diverging bar chart that shows variance above and below an average line. In this example I will use Z Scores to calculate the variance, in terms of standard deviations, as a diverging bar. This example will use the <code>mtcars</code> stock dataset, as most of the data I deal with day-to-day is patient sensitive.</p>
+</section>
+<section id="data-preparation" class="level1">
+<h1>Data preparation</h1>
+<p>The code below sets up the plotting libraries, attaches the data and sets a theme:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_set</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_classic</span>())</span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mtcars"</span>) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># load data</span></span></code></pre></div>
+</div>
+<p>Next, we will change some of the columns in the data frame and perform some calculations on the data frame:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">mtcars<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>CarBrand <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rownames</span>(mtcars) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Create new column for car brands and names</span></span></code></pre></div>
+</div>
+<p>As commented, this line uses the existing <code>mtcars</code> data frame and uses the dollar sign notation i.e.&nbsp;add a new column, or refer to a column, to create a column name called CarBrand. Then we assign the car brand (&lt;-) with the rownames from the data frame. This is obviously predicated on there being some row names in the data frame, otherwise you would have to name the rows using <code>rownames()</code>.</p>
+</section>
+<section id="adding-a-z-score-calculation" class="level1">
+<h1>Adding a Z Score calculation</h1>
+<p>A <a href="https://stattrek.com/statistics/dictionary?definition=z-score">Z score</a> is a calculation which uses the x observation subtracts said observation from the mean and divides by the standard deviation. The link shows the mathematics behind this, for anyone who is interested.</p>
+<p>The following code shows how we would implement this score:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">mtcars<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>mpg_z_score <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>((mtcars<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>mpg <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(mtcars<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>mpg))<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sd</span>(mtcars<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>mpg), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">digits=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span></code></pre></div>
+</div>
+<p>The statistics behind the calculation have already been explained, but I have also used the <code>round()</code> function to round the results down to 2 digits.</p>
+</section>
+<section id="creating-a-cut-off-abovebelow-mean" class="level1">
+<h1>Creating a cut off (above/below mean)</h1>
+<p>The next step is to use conditional algebra (first advocated by one of my heroes George Boole) to check whether the Z score I have just created is greater or less than 0:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">mtcars<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>mpg_type <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(mtcars<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>mpg_z_score <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"below"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"above"</span>)</span></code></pre></div>
+</div>
+<p>The <code>ifelse()</code> block looks at whether the Z Score is below 0, if so tag as below average, otherwise show this as above.</p>
+<p>The next two steps are to convert the Car Brand into a unique factor and to sort by the Z Score calculations:</p>
+<p>Now, I have everything I need to start to compute the plot. Great stuff, so let’s get plotting.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">mtcars <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> mtcars[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">order</span>(mtcars<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>mpg_z_score), ] <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Ascending sort on Z Score</span></span>
+<span id="cb5-2">mtcars<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>CarBrand <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factor</span>(mtcars<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>CarBrand, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">levels =</span> mtcars<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>CarBrand)</span></code></pre></div>
+</div>
+</section>
+<section id="creating-the-plot" class="level1">
+<h1>Creating the plot</h1>
+<p>First, I will start with creating the base plot:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(mtcars, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span>CarBrand, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y=</span>mpg_z_score, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">label=</span>mpg_z_score))</span></code></pre></div>
+</div>
+<p>Here, I pass in the <code>mtcars</code> data frame and set the aesthetics layer (aes) of the x axis to the brand of car (CarBrand). The y axis is the Z score I created for miles per gallon (mpg) and the label is also set to the z score.</p>
+<p>Next, I will add on the geom_bar geometry:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(mtcars, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span>CarBrand, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y=</span>mpg_z_score, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">label=</span>mpg_z_score)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb7-2">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_bar</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">stat=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'identity'</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill=</span>mpg_type), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">width=</span>.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span></code></pre></div>
+</div>
+<p>This indicates that I need to use the mpg_z_score field by forcing the <code>stat="identity"</code> option. If this was not added, then it would simply count the number of times the Car Brand appears as a frequency count (not what I want!). Then, I stipulate the fill type of the bar to be equal to whether the value deviates above and below 0 – remember we created a field in the data preparation stage to store whether this deviates below and above 0 and called it mpg_type. The last parameter is the width parameter to indicate the width of the bars.</p>
+<p>Next:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(mtcars, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span>CarBrand, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y=</span>mpg_z_score, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">label=</span>mpg_z_score)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-2">   <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_bar</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">stat=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'identity'</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill=</span>mpg_type), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">width=</span>.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-3">   <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">scale_fill_manual</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">name=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Mileage (deviation)"</span>,</span>
+<span id="cb8-4">                    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">labels =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Above Average"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Below Average"</span>),</span>
+<span id="cb8-5">                    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">values =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"above"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#00ba38"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"below"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#0b8fd3"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span></code></pre></div>
+</div>
+<p>I use the <code>scale_fill_manual()</code> ggplot option to add the name to the legend, specify the label names using the combine function and stipulate that the values that are above average need to be hex coded by the value and the below values to a different code. I have weirdly chosen blue and green as an alternative to red, as I know we have accessibility there. We are nearly there, the final step is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(mtcars, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span>CarBrand, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y=</span>mpg_z_score, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">label=</span>mpg_z_score)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb9-2">   <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_bar</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">stat=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'identity'</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill=</span>mpg_type), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">width=</span>.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb9-3">   <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">scale_fill_manual</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">name=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Mileage (deviation)"</span>,</span>
+<span id="cb9-4">                    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">labels =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Above Average"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Below Average"</span>),</span>
+<span id="cb9-5">                    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">values =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"above"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#00ba38"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"below"</span><span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#0b8fd3"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb9-6">   <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">subtitle=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Z score (normalised) mileage for mtcars'"</span>,</span>
+<span id="cb9-7">         <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Diverging Bar Plot (ggplot2)"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Produced by Gary Hutson"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb9-8">   <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coord_flip</span>()</span></code></pre></div>
+</div>
+<p>Here, I have added the labs layer on to the plot. This is a way to label your plots to show more meaningful values than would be included by default. So, within labs I use subtitle, title and caption to add labels to the chart. Finally, the important command is to add the <code>coord_flip()</code> command to the chart – without this you would have vertical bars instead of horizontal. I think this type of chart looks better horizontal, thus the reason for the inclusion of the command.</p>
+<p>The final chart, looks as illustrated hereunder:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://nhs-r-community.github.io/nhs-r-community/blog/diverging-bar-charts-plotting-variance-with-ggplot2_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This blog was written by Gary Hutson, Principal Analyst, Activity &amp; Access Team, Information &amp; Insight at Nottingham University Hospitals NHS Trust, and was originally posted at <a href="http://hutsons-hacks.info/diverging-bar-charts-plotting-variance-with-ggplot2">Hutson-Hacks</a>.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>CC0</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-hutson2018" class="csl-entry quarto-appendix-citeas">
+Hutson, Gary. 2018. <span>“Diverging Bar Charts – Plotting Variance with
+Ggplot2.”</span> May 24, 2018. <a href="https://nhs-r-community.github.io/nhs-r-community//blog/diverging-bar-charts-plotting-variance-with-ggplot2.html">https://nhs-r-community.github.io/nhs-r-community//blog/diverging-bar-charts-plotting-variance-with-ggplot2.html</a>.
+</div></div></section></div> ]]></description>
+  <category>R tips</category>
+  <category>ggplot2</category>
+  <category>Base R</category>
+  <guid>https://nhs-r-community.github.io/nhs-r-community/blog/diverging-bar-charts-plotting-variance-with-ggplot2.html</guid>
   <pubDate>Thu, 24 May 2018 00:00:00 GMT</pubDate>
 </item>
 <item>
