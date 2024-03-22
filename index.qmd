@@ -6,6 +6,9 @@ image: img/spc_chart-1.png
 image-alt: "Statistical Process Control Chart of breaches showing the colours and logo from the \"Making Data Count\" programme"
 subtitle: "Promoting the Use of R in the UK Health & Care System"
 repo-actions: [edit, issue]
+comments: 
+  giscus: 
+    repo: nhs-r-community/nhs-r-community
 
 about:
   template: solana
