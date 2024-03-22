@@ -23,3 +23,7 @@ format:
     code-overflow: wrap
     template-partials:
       - ../_partials/title-block-link-buttons/title-block.html
+
+embed-resources: true
+image: img/nhsr-logo.png
+image-alt: "NHS-R Community Logo which consists of the words and incorporating the R logo"
