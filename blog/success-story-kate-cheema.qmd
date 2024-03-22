@@ -1,0 +1,29 @@
+---
+title: "Success story - Kate Cheema, Director of Health Intelligence, British Heart Foundation"
+date: "21 March 2022"
+date-modified: '22 March 2024'
+categories:
+  - Success Story
+author: Kate Cheema
+subtitle: >
+  "Success story"
+code-annotations: below
+---
+
+# Tell us a bit about yourself, your team and how your story begins?
+
+The Health Intelligence team at the British Heart Foundation just about still qualifies as a ‘new’ team at the stately age of 2-and-a-bit years. Our remit is to collate and analyse a wide range of data related to cardiovascular disease and its treatment and outcomes across the UK and use this to provide critical insight and context to the BHF’s charitable mission work. Some of our work is population focussed, understanding the patterns and trends in CVD prevalence and incidence. Some is more system focussed, getting under the skin of variation in care for CVD patients and learning more about how patients are impacted by service change. And still more is supporting particular programmes of work, such as the National Defibrillator Network or our community mobilisation projects. You’ll see our numbers in BHF adverts and occasionally one of us gets wheeled out to talk stats on local radio. Lots to do! We’re a small team, just 5.5 people, serving a large organisation so we need to work smart.
+
+# What was the problem/challenge you were trying to address?
+
+CVD is a complex and varied group of illnesses and the data describing it can be very nuanced. Pair that with an organisation that needs to use it for comms and media work, as well as informing strategy and programmes of work and the result is the need for a hybrid model of delivery that does the basics brilliantly, allows for easy ‘self serve’ and frees up time to support colleagues with the complex stuff. So our challenge was to build a library of core resources for internal use, as automated as possible and presented in an accessible format for all colleagues to use.
+
+# How R helped you? Any particular libraries/products/packages you found the most useful?
+
+R has been invaluable in the whole project to date (still lots to do!) but two specific resources spring to mind. Firstly, the Tidyverse suite of packages has been invaluable in streamlining, and making repeatable, our data reshaping. Much of the publicly available data we use is downloaded from websites and is (ahem) not exactly in a useful format. Having standardised, and generally very simple, reshaping scripts to reuse across the team has saved hours of time, not to mention to ability to automate the download in the first place (kudos to ::curl::).
+
+Secondly, we have utilised R Markdown extensively in the automated production of simple off-the-(Sharepoint)-shelf PDF based reports. Accessible to all, impossible to break (famous last words) these generally take the form of a key set of data visualisations of a specific topic, usually rendered using ggplot2 but also using network visualisation packages (::network::, ::igraph::, ::tidygraph:: ) and n-gram analysis of text data (::tidytext::) where required.
+
+# What is the result?
+
+The beginnings of a library accessible to all in the BHF and a decent chunk of time saved. A couple of our reports are scheduled to run and publish automatically with zero intervention from the team outside of checking it’s there. We’ve used R in other standalone projects (e.g. forecasting work, network analysis as part of an evaluation project) too. We’re in the process of improving our R capability, in terms of skills and in terms of infrastructure, so this is really just the start of the story for us.
