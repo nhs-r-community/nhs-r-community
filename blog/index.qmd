@@ -5,7 +5,7 @@ description: |
 listing: 
   sort: "date desc"
   type: default
-  categories: false
+  categories: true
   sort-ui: false
   filter-ui: false
   fields: [title, author, categories, date, image, word-count, reading-time]

@@ -1,0 +1,33 @@
+---
+title: "NHS open source public datasets – creating realistic synthetic datasets"
+date: "16 August 2018"
+date-modified: '23 March 2024'
+categories:
+  - Synthetic dataset
+author: Sebastian Zeki
+subtitle: >
+  "Syntethic or dummy data sets in the NHS"
+code-annotations: below
+---
+
+This blog is an initial attempt to garner interest in a project to create NHS synthetic datasets in a range of fields and also to understand the underlying principles around creating synthetic healthcare data and its intricacies.
+
+Healthcare data is increasingly electronic. With the huge datasets that the NHS is in the process of collecting for patient care comes an impetus to standardise data collection between hospitals and trusts. This is good for patient care not least because it allows for standardised analysis of large datasets. This standardisation is in progress across many of the medical specialities but several have already reached a mature stage. A good example is the National Endoscopy Database which aims to automatically collect data from all endoscopic procedures in the UK according to a standardised template. This will allow for the analysis of variation in endoscopic performance, quality and outcomes amongst many other outputs.
+
+The analysis of these datasets will need to be validated, reproducible and of course progressive as the desired metrics change. The analyses will therefore require two things
+
+Ongoing input from analysts to maintain the methodology and code base to perform the analysis.
+
+Creative ideas for the representation of the datasets.
+
+HS datasets and the methods for their manipulation are likely to attract a lot of interest from diverse sources such as pharmaceutical companies to healthcare software developers and academic researchers. By restricting access to the datasets because of privacy issues we also, by necessity restrict the speed at which solutions can be found using these datasets as analysis will only be carried out by a small sample of authorised analysts
+
+The obvious solution here is to create NHS datasets which are constructed according to accepted and used data templates, but to populate them with synthetic data and then to allow open source access to these datasets.
+
+Synthetic data is not always easy to create. The vast majority of NHS electronic data is still semi-structured free text. Reports also have to make sense internally so that, for example, an endoscopy report describing a stomach ulcer has to contain text that is relevant to the ulcer finding. It gets even more complex when further reports are written that reference a report in another dataset. An example is the histopathology report from a biopsy taken from the stomach ulcer. This biopsy report will obviously have to be reporting on the stomach ulcer and the text will be about pathology findings relevant to the description of an ulcer.
+
+An example of an attempt at creating a synthetic medical dataset can be found here using the above example ([https://github.com/sebastiz/FakeEndoReports](https://github.com/sebastiz/FakeEndoReports)). This contains some description of how the reports are created and I have tried to derive some principles regarding how to make fake healthcare datasets in general based on this example.
+
+There are of course many other datasets that would be incredibly powerful if they were created an open sourced. One such datasets is the NHS patient administration system on which most statistics about waiting times and patient pathways are based. Another is the Hospital Episode Statistics (HES) which collect information regarding all NHS appointments (in-patient and outpatient) and which is being used to create data linkage between a wide range of data repositories (My attempt at creating synthetic HES data can be found here but is still incomplete at the moment: [https://github.com/sebastiz/HesMineR](https://github.com/sebastiz/HesMineR))
+
+R is the perfect language to create such synthetic datasets and it would be a valuable addition to the NHS-R armamentarium to have a package that contained synthetic NHS datasets so that open source solutions can be more quickly and creatively derived.

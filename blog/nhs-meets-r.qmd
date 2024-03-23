@@ -19,7 +19,7 @@ The NHS is one of the best healthcare systems in the world[1]. It was launched i
 
 The NHS in England deals with about 1 million people every 36 hours[2] and is continually generating vast amounts of data about the health and care of people[3]. This data is one of the most precious, yet under tapped, resources in the NHS. “Data is the new oil of the digital economy”[4] and drilling and mining NHS data could improve the NHS[5]. But mining these mountains of data is a colossal task.
 
-This is where R comes in. R was conceived in 1992[6] as a free open-source statistical programming environment, which is now widely used in industry[7] (Google, Microsoft, Airbnb, New York Times, Lloyds of London, etc) and academia, and is now ranked amongst the most popular (sixth as of 2017) programming languages[8]. But its use in the NHS is almost non-existent. Whilst there are several reasons for this, the absence of R at scale in the NHS, means that the NHS is unable to take advantage of the huge benefits of R, including cutting-edge visualisation and statistical tools, and a worldwide R community, which freely shares learning and resources.
+This is where R comes in. R was conceived in 1992[6] as a free open-source statistical programming environment, which is now widely used in industry[7] (Google, Microsoft, Airbnb, New York Times, Lloyds of London, and so on) and academia, and is now ranked amongst the most popular (sixth as of 2017) programming languages[8]. But its use in the NHS is almost non-existent. Whilst there are several reasons for this, the absence of R at scale in the NHS, means that the NHS is unable to take advantage of the huge benefits of R, including cutting-edge visualisation and statistical tools, and a worldwide R community, which freely shares learning and resources.
 
 So, our aim is to promote the use of R in the NHS, and help to make the NHS better.
 
@@ -47,3 +47,5 @@ The NHS-R Community project is funded by The Health Foundation.
 1. [http://makemeanalyst.com/companies-using-r/](http://makemeanalyst.com/companies-using-r/) Accessed 20240221
 
 1. [https://spectrum.ieee.org/computing/software/the-2017-top-programming-languages](https://spectrum.ieee.org/computing/software/the-2017-top-programming-languages) Accessed 20240221
+
+This blog has been formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation).

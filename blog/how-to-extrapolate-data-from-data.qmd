@@ -1,0 +1,108 @@
+---
+title: "How to extrapolate data from data"
+date: "23 July 2018"
+date-modified: '23 March 2024'
+categories:
+  - Strings
+author: Sebastian Zeki
+subtitle: >
+  "Extracting data using {grepl} and {stringr}"
+code-annotations: below
+execute: 
+  eval: true
+  echo: true
+---
+
+There are many occasions when a column of data needs to be created from an already existing column for ease of data manipulation. For example, perhaps you have a body of text as a pathology report and you want to extract all the reports where the diagnosis is ‘dysplasia’. 
+
+You could just subset the data using grepl so that you only get the reports that mention this word…but what if the data needs to be cleaned prior to subsetting like excluding reports where the diagnosis is normal but the phrase ‘No evidence of dysplasia’ is present. Or perhaps there are other manipulations needed prior to subsetting.
+
+This is where data accordionisation is useful. This simply means the creation of data from (usually) a column into another column in the same dataframe.
+
+The neatest way to do this is with the mutate function from the {dplyr} package which is devoted to data cleaning. There are also other ways which I will demonstrate at the end.
+
+The input data here will be an endoscopy data set:
+
+```{r}
+Age <- sample(1:100, 130, replace = TRUE)
+Dx <- sample(c("NDBE", "LGD", "HGD", "IMC"), 130, replace = TRUE)
+TimeOfEndoscopy <- sample(1:60, 130, replace = TRUE)
+
+library(dplyr)
+
+EMRdf <- data.frame(Age, Dx, TimeOfEndoscopy, stringsAsFactors = F)
+```
+
+Perhaps you need to calculate the number of hours spent doing each endoscopy rather than the number of minutes
+
+```{r}
+EMRdftbb <- EMRdf %>% mutate(TimeOfEndoscopy / 60)
+
+# install.packages("knitr")
+library(knitr)
+library(kableExtra)
+
+# Just show the top 20 results
+
+kable(head(EMRdftbb, 20))
+```
+
+That is useful but what if you want to classify the amount of time spent doing each endoscopy as follows: <0.4 hours is too little time and >0.4 hours is too long.
+
+Using `ifelse()` with mutate for conditional accordionisation.
+
+For this we would use `ifelse()`. However this can be combined with mutate() so that the result gets put in another column as follows
+
+```{r}
+EMRdf2 <- EMRdf %>%
+  mutate(TimeInHours = TimeOfEndoscopy / 60) %>%
+  mutate(TimeClassification = ifelse(TimeInHours > 0.4, "Too Long", "Too Short"))
+
+# Just show the top 20 results
+
+kable(head(EMRdf2, 20))
+```
+
+Note how we can chain the `mutate()` function together.
+
+Using multiple `ifelse()`
+
+What if we want to get more complex and put several classifiers in? We just use more `ifelse`’s:
+
+```{r}
+EMRdf2 <- EMRdf %>%
+  mutate(TimeInHours = TimeOfEndoscopy / 60) %>%
+  mutate(TimeClassification = ifelse(TimeInHours > 0.8, "Too Long", ifelse(TimeInHours < 0.5, "Too Short", ifelse(TimeInHours >= 0.5 & TimeInHours <= 0.8, "Just Right", "N"))))
+
+# Just show the top 20 results
+
+kable(head(EMRdf2, 20))
+```
+
+Using multiple `ifelse()` with `grepl()` or string_extract
+
+Of course we need to extract information from text as well as numeric data. We can do this using `grepl()` or `string_extract()` from the `library(stringr)`.
+
+Let’s say we want to extract all the samples that had IMC. We don’t want to subset the data, just extract IMC into a column that says IMC and the rest say ’Non-IMC’
+
+Using the dataset above:
+
+```{r}
+library(stringr)
+
+EMRdf$MyIMC_Column <- str_extract(EMRdf$Dx, "IMC")
+
+# to fill the NA's we would do:EMRdf$MyIMC_Column<-ifelse(grepl("IMC",EMRdf$Dx),"IMC","NoIMC")
+
+# Another way to do this (really should be for more complex examples when you want to extract the entire contents of the cell that has the match)
+
+EMRdf$MyIMC_Column <- ifelse(grepl("IMC", EMRdf$Dx), str_extract(EMRdf$Dx, "IMC"), "NoIMC")
+```
+
+So data can be usefully created from data for further analysis.
+
+Hopefully this way of extrapolating data and especially using conditional expressions to categorise data according to some rules is a helpful way to get more out of your data.
+
+Please follow [@gastroDS](https://twitter.com/GastroDS) on twitter
+
+This article originally appeared on [https://sebastiz.github.io/gastrodatascience/](https://sebastiz.github.io/gastrodatascience/) and has been edited to render in Quarto and had [NHS-R styles](https://nhsrway.nhsrcommunity.com/style-guides.html#style-guide-for-code) applied.

@@ -26,4 +26,6 @@ Secondly, we have utilised R Markdown extensively in the automated production of
 
 # What is the result?
 
-The beginnings of a library accessible to all in the BHF and a decent chunk of time saved. A couple of our reports are scheduled to run and publish automatically with zero intervention from the team outside of checking it’s there. We’ve used R in other standalone projects (e.g. forecasting work, network analysis as part of an evaluation project) too. We’re in the process of improving our R capability, in terms of skills and in terms of infrastructure, so this is really just the start of the story for us.
+The beginnings of a library accessible to all in the BHF and a decent chunk of time saved. A couple of our reports are scheduled to run and publish automatically with zero intervention from the team outside of checking it’s there. We’ve used R in other standalone projects (for example forecasting work, network analysis as part of an evaluation project) too. We’re in the process of improving our R capability, in terms of skills and in terms of infrastructure, so this is really just the start of the story for us.
+
+This blog has been formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation).
