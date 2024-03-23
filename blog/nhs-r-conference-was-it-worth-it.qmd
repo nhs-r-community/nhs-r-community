@@ -1,0 +1,27 @@
+---
+title: "NHS-R Conference: was it worth it?"
+date: "26 October 2018"
+date-modified: "23 March 2024"
+categories:
+  - Conference
+author: Zoë Turner
+subtitle: >
+  "Reflections on the 2018 Conference"
+code-annotations: below
+execute: 
+  eval: false
+---
+
+Soon after I started in this role I was offered several free places to a conference on Big Data. It was aimed at Healthcare and with Big Data in the title it sounded very exciting. Sadly, like many things around ‘Big Data’ it was baffling. There were a few good, high-level, presentations but it turned out the conference was funded by private companies and they had bought the opportunity to showcase their wares. I didn’t learn anything practical and I would be hard pressed to recall anything from the event now. All in all, it was a disappointment.
+
+Time passed and I tentatively started messing around with R. Not being someone who can learn well from books and videos, I learn better from someone telling me what they’ve written, I went to a couple of free R training events, one of which was run by NHS-R. At that training there was talk of an NHS-R conference and I couldn’t help but get that familiar tingle of excitement. Yet, in the back of my head now was the nagging feeling that it might be like that Big Data conference. After all, these things are not easy to set up, I was still overwhelmed by what R could do and still just learning and, well, how good could it really be?
+
+Optimism won out, along with the fact that the conference was free and a few colleagues were going so I could get a lift. I had nothing to lose. I didn’t even have to build a case to go for my managers let alone myself. At worst I could expect a day out and a free coffee, maybe a biscuit. It was settled. I would even take my own lunch.
+
+It’s been a fair number of weeks since the event, which is a pretty good time to evaluate something like this. I always find that there is a buzz after any conference or meeting. The buzz of course can be as much negative as positive energy so it’s best to wait a few days before rviewing, I think. Plus, I’m not that used to writing down my thoughts. After all of my doubts then, did it live up to my vague and overly excitable expectations? Oh yes, it did. In buckets.
+
+I’ve worked with some intelligent and creative people in the NHS and it turns out these weren’t isolated pockets of great people doing great work. The NHS, and other organisations close to it, are chock full of these people. We had speakers from Public Health, universities, foundations, private consultancies, Acute and Mental Health Trusts. In fact, I know it’s called NHS-R but it’s not an exclusive club and nor should it be.
+
+We were shown finished pieces of work in R as well as the code itself which I really enjoyed. I’m an analyst and I like to see the logic and the code as that’s where I work – in the detail. Best of all though was the networking. I met a number of people I knew either from courses or from their blogs/R packages. Unlike the ‘Big Data’ conference where I had to track someone down on LinkedIn to ask about one of the presentations, and sadly heard nothing, I have contacted some of the speakers through Twitter and email and had conversations. There is a sense that everyone is in this together and that competitive edge you sometimes get in IT is notably missing.
+
+The other great thing about this conference was that it was free and that should not be underestimated. Being free, it attracted those non-management, just starting out in R, not even statisticians and only did maths to GSCE level people like me. The NHS, like many other public-sector organisations, are feeling the pinch and more than ever we need support and training for the hidden side of the NHS – its data people. And it’s those people I hope you will see at the next NHS-R conference showing their achievements and sharing their enthusiasm, because, whilst this was a training/conference event, really it was the coming together of a community.

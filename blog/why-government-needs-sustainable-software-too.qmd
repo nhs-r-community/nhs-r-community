@@ -64,7 +64,7 @@ This means that even at the point that it is being produced it needs to be easy 
 If someone goes on holiday, or is sick at the critical moment, their colleagues need to be able to pick up from where they left off immediately, and understand all the idiosyncrasies perfectly.
 The knowledge simply cannot rest in one person's head.
 
-More than that, since publications are often periodic (e.g. monthly, or annual) and analysts typically change role once a year, the work will very likely need to be handed off to someone new on a regular basis.
+More than that, since publications are often periodic (for example monthly, or annual) and analysts typically change role once a year, the work will very likely need to be handed off to someone new on a regular basis.
 It is essential therefore that these processes are well documented, and that the code that is being handed over works as expected.
 
 ### The taxpayer pays for it 
@@ -143,3 +143,5 @@ Almost all the projects I have referred to in this blog post are open source, an
 There's also two presentations on the topic available as slides ([Earl conference 2017](https://earlconf.com/2017/downloads/london/presentations/EARL2017_-_London_-_Matthew_Upson_-_Reproducible_analysis_for_government.pdf) and [Government Statistical Service conference 2017](https://gss.civilservice.gov.uk/wp-content/uploads/2018/01/2017-11-22-RAP_GSS_Conference_w_dfe_dcms_moj.pdf)) which give more technical details on the projects.
 
 This blog is written by Matthew Upson, Data Scientist at [Juro](Juro) and was originally posted on the [Software Sustainability website](https://software.ac.uk/blog/2018-05-21-why-government-needs-sustainable-software-too).
+
+This blog has been formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation).

@@ -16,8 +16,10 @@ Hospital surgical teams regularly hold meetings to discuss cases and events that
 
 # How has R helped you? Any particular libraries/products/packages you found the most useful?
 
-R is a useful tool for this project as it allows for easy linkage of different datasets at the patient level and allows for informative visualisation. For example, a patient who is currently in the cardiology ward can easily be linked to their hospital admission history, previous procedures, laboratory results etc and the breadth of this information can be shown in an interactive time line plot using `ggplot2` and `plotly`. As the data is extracted on a weekly basis, a {targets} pipeline has been beneficial in saving processing time and in compartmentalising the features and functions.
+R is a useful tool for this project as it allows for easy linkage of different datasets at the patient level and allows for informative visualisation. For example, a patient who is currently in the cardiology ward can easily be linked to their hospital admission history, previous procedures, laboratory results and so on and the breadth of this information can be shown in an interactive time line plot using `ggplot2` and `plotly`. As the data is extracted on a weekly basis, a {targets} pipeline has been beneficial in saving processing time and in compartmentalising the features and functions.
 
 # What is the result?
 
 We developed a `targets` pipeline which outputs a markdown report and a shiny app which displays the features required by the hospital department. A shiny app allows the department to interact with the data through selecting features and plotly timeline visualisations. Due to the ease of joining datasets together using R, more information can be provided and presented in the department meetings in an easy to understand format.
+
+This blog has been formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation).

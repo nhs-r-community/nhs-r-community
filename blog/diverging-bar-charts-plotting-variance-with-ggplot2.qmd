@@ -37,7 +37,7 @@ mtcars$CarBrand <- rownames(mtcars) # Create new column for car brands and names
 
 ```
 
-As commented, this line uses the existing `mtcars` data frame and uses the dollar sign notation i.e. add a new column, or refer to a column, to create a column name called CarBrand. Then we assign the car brand (<-) with the rownames from the data frame. This is obviously predicated on there being some row names in the data frame, otherwise you would have to name the rows using `rownames()`.
+As commented, this line uses the existing `mtcars` data frame and uses the dollar sign notation that is add a new column, or refer to a column, to create a column name called CarBrand. Then we assign the car brand (<-) with the rownames from the data frame. This is obviously predicated on there being some row names in the data frame, otherwise you would have to name the rows using `rownames()`.
 
 # Adding a Z Score calculation
 
@@ -132,3 +132,5 @@ The final chart, looks as illustrated hereunder:
 ```
 
 This blog was written by Gary Hutson, Principal Analyst, Activity & Access Team, Information & Insight at Nottingham University Hospitals NHS Trust, and was originally posted at [Hutson-Hacks](http://hutsons-hacks.info/diverging-bar-charts-plotting-variance-with-ggplot2).
+
+This blog has been formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation).
