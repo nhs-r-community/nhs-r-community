@@ -3,7 +3,7 @@ title: "Evolution of the R user"
 date: "13 July 2018"
 date-modified: '22 March 2024'
 categories:
-  - Personal Story
+  - Reflections
 author: Seb Fox, Julian Flowers and Georgina Anderson, Public Health England.
 subtitle: >
   "The stages of learning R (with excitement factor ratings)"

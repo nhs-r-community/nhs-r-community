@@ -3,7 +3,7 @@ title: "Success story - Dr William Bryant, Senior Data Scientist, GOSH"
 date: "21 March 2022"
 date-modified: '22 March 2024'
 categories:
-  - Success Story
+  - Reflections
 author: William Bryant
 subtitle: >
   "Success story"

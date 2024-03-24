@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/blog/why-government-needs-sustainable-software-too.html</loc>
-    <lastmod>2024-03-23T16:24:36.391Z</lastmod>
+    <lastmod>2024-03-23T17:10:20.114Z</lastmod>
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/blog/the-operator.html</loc>
@@ -34,55 +34,67 @@
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/blog/text-mining-term-frequency-analysis-and-word-cloud-creation.html</loc>
-    <lastmod>2024-03-23T16:50:45.909Z</lastmod>
+    <lastmod>2024-03-24T15:39:19.069Z</lastmod>
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/blog/success-story-lydia-briggs.html</loc>
-    <lastmod>2024-03-23T16:22:51.944Z</lastmod>
+    <lastmod>2024-03-24T12:50:30.488Z</lastmod>
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/blog/simpler-sql-with-dplyr.html</loc>
     <lastmod>2024-02-24T20:13:12.075Z</lastmod>
   </url>
   <url>
-    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/r-studio-shortcuts.html</loc>
-    <lastmod>2024-02-22T18:01:32.713Z</lastmod>
+    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/roadmap-to-collaborative-working-using-r-in-the-nhs-part-i-workflows.html</loc>
+    <lastmod>2024-03-24T14:54:48.364Z</lastmod>
   </url>
   <url>
-    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/nhs-r-community-conference-my-experience-of-the-day.html</loc>
-    <lastmod>2024-03-23T16:58:55.564Z</lastmod>
+    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/nhs-r-conference-was-it-worth-it.html</loc>
+    <lastmod>2024-03-23T17:10:20.094Z</lastmod>
   </url>
   <url>
-    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/nhs-meets-r.html</loc>
-    <lastmod>2024-03-23T16:23:19.768Z</lastmod>
+    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/nhs-open-source-public-datasets.html</loc>
+    <lastmod>2024-03-23T17:10:20.092Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html</loc>
+    <lastmod>2024-02-22T18:01:32.697Z</lastmod>
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/blog/index.html</loc>
-    <lastmod>2024-03-22T21:52:25.315Z</lastmod>
+    <lastmod>2024-03-23T17:10:20.082Z</lastmod>
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/blog/how-to-extrapolate-data-from-data.html</loc>
-    <lastmod>2024-03-23T16:58:31.702Z</lastmod>
+    <lastmod>2024-03-23T17:10:20.044Z</lastmod>
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/blog/from-script-based-development-to-function-based-development-and-onwards-to-package-based-development.html</loc>
-    <lastmod>2024-03-23T16:57:54.810Z</lastmod>
+    <lastmod>2024-03-23T17:10:20.033Z</lastmod>
   </url>
   <url>
-    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html</loc>
-    <lastmod>2024-02-22T23:03:54.818Z</lastmod>
+    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/evolution-of-the-r-user.html</loc>
+    <lastmod>2024-03-24T12:51:26.595Z</lastmod>
   </url>
   <url>
-    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/count-of-working-days-function.html</loc>
-    <lastmod>2024-02-22T18:01:32.684Z</lastmod>
+    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/diverging-bar-charts-plotting-variance-with-ggplot2.html</loc>
+    <lastmod>2024-03-23T17:10:20.033Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/coding-to-and-from-NA.html</loc>
+    <lastmod>2024-03-24T12:32:03.791Z</lastmod>
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/blog/building-a-quarto-website.html</loc>
-    <lastmod>2024-03-22T17:50:21.800Z</lastmod>
+    <lastmod>2024-03-24T12:51:01.136Z</lastmod>
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/blog/a-simple-function-to-install-and-load-packages-in-r.html</loc>
-    <lastmod>2024-03-23T16:56:48.342Z</lastmod>
+    <lastmod>2024-03-23T17:10:20.023Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/a-run-chart-is-not-a-run-chart-is-not-a-run-chart.html</loc>
+    <lastmod>2024-03-24T16:19:43.364Z</lastmod>
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/about/index.html</loc>
@@ -93,20 +105,28 @@
     <lastmod>2024-02-17T21:20:05.051Z</lastmod>
   </url>
   <url>
+    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/a-simple-function-to-create-nice-correlation-plots.html</loc>
+    <lastmod>2024-03-24T15:36:05.798Z</lastmod>
+  </url>
+  <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/blog/aiming-for-a-wrangle-free-or-reduced-world.html</loc>
-    <lastmod>2024-02-22T18:01:32.668Z</lastmod>
+    <lastmod>2024-03-24T12:50:54.977Z</lastmod>
   </url>
   <url>
-    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/coding-to-and-from-NA.html</loc>
-    <lastmod>2024-03-16T14:34:09.346Z</lastmod>
+    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/but-this-worked-the-last-time-i-ran-it.html</loc>
+    <lastmod>2024-03-24T15:38:53.197Z</lastmod>
   </url>
   <url>
-    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/diverging-bar-charts-plotting-variance-with-ggplot2.html</loc>
-    <lastmod>2024-03-23T16:24:38.582Z</lastmod>
+    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/count-of-working-days-function.html</loc>
+    <lastmod>2024-03-24T12:31:44.467Z</lastmod>
   </url>
   <url>
-    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/evolution-of-the-r-user.html</loc>
-    <lastmod>2024-03-23T16:57:26.314Z</lastmod>
+    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html</loc>
+    <lastmod>2024-02-22T23:03:54.818Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/from-script-based-development-to-function-based-development-and-onwards-to-package-based-development-part-2.html</loc>
+    <lastmod>2024-03-24T15:38:59.479Z</lastmod>
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/blog/histogram-with-auto-binning-in-ggplot2.html</loc>
@@ -117,16 +137,20 @@
     <lastmod>2024-02-22T18:01:32.684Z</lastmod>
   </url>
   <url>
-    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/navigating-the-data-driven-frontier-insights-from-an-nhs-r-committee-member.html</loc>
-    <lastmod>2024-02-22T18:01:32.697Z</lastmod>
+    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/local-public-health-joins-the-party.html</loc>
+    <lastmod>2024-03-24T12:49:53.025Z</lastmod>
   </url>
   <url>
-    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/nhs-open-source-public-datasets.html</loc>
-    <lastmod>2024-03-23T16:58:46.982Z</lastmod>
+    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/nhs-meets-r.html</loc>
+    <lastmod>2024-03-23T17:10:20.084Z</lastmod>
   </url>
   <url>
-    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/nhs-r-conference-was-it-worth-it.html</loc>
-    <lastmod>2024-03-23T16:59:01.052Z</lastmod>
+    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/nhs-r-community-conference-my-experience-of-the-day.html</loc>
+    <lastmod>2024-03-23T17:10:20.094Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nhs-r-community.github.io/nhs-r-community/blog/r-studio-shortcuts.html</loc>
+    <lastmod>2024-02-22T18:01:32.713Z</lastmod>
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/blog/showcasing-functions-separate.html</loc>
@@ -134,19 +158,19 @@
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/blog/success-story-kate-cheema.html</loc>
-    <lastmod>2024-03-23T16:24:37.737Z</lastmod>
+    <lastmod>2024-03-24T12:50:22.320Z</lastmod>
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/blog/success-story-william-bryant.html</loc>
-    <lastmod>2024-03-22T19:03:30.470Z</lastmod>
+    <lastmod>2024-03-24T12:50:34.292Z</lastmod>
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/blog/the-joy-of-r.html</loc>
-    <lastmod>2024-02-22T18:01:32.713Z</lastmod>
+    <lastmod>2024-03-24T12:51:31.893Z</lastmod>
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/blog/thoughts-on-the-nhs-r-conference.html</loc>
-    <lastmod>2024-03-23T16:55:57.835Z</lastmod>
+    <lastmod>2024-03-23T17:10:20.112Z</lastmod>
   </url>
   <url>
     <loc>https://nhs-r-community.github.io/nhs-r-community/books/index.html</loc>

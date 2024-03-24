@@ -3,7 +3,7 @@ title: "Recoding an NA and back again"
 date: "12 March 2024"
 date-modified: '12 March 2024'
 categories:
-  - R tip
+  - R tips
 author: Zoë Turner
 subtitle: >
   "Replace NAs with `replace_na()` and code to NA with `na_if()`"
