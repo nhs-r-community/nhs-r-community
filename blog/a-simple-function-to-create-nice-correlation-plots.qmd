@@ -8,7 +8,6 @@ categories:
 author: Gary Hutson
 subtitle: >
   "Hacking a visualisation function and creating a new one."
-code-annotations: below
 execute: 
   eval: false
 ---

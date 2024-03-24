@@ -7,7 +7,7 @@ categories:
 author: Zoë Turner
 subtitle: >
   "Replace NAs with `replace_na()` and code to NA with `na_if()`"
-code-annotations: below
+code-annotations: select
 ---
 
 ## Create data
@@ -51,11 +51,15 @@ It's also possible to use the numbers and `case_when()`:
 
 ```{r}
 survey |> 
-  mutate(new_column = case_when(Code < 0 ~ NA,
-                                Code == 0 ~ 1000,
-                                .default = Code))
+  mutate(new_column = case_when(Code < 0 ~ NA,  # <1>
+                                Code == 0 ~ 1000, # <2>
+                                .default = Code)) # <3>
 
 ```
+
+1. Where `Code` is less than 0 then code to `NA`.
+2. Where `Code` is equal to 0 then recode to `1000` which is a number that will stand out.
+2. For everything else return the original data from column `Code`.
 
 Or `ifelse()` where there are only two options:
 

@@ -7,7 +7,6 @@ categories:
 author: Emma Vestesson
 subtitle: >
   "There is a full list of short cuts here and I have pulled together my three most used shortcuts."
-code-annotations: below
 execute: 
   eval: false
 ---

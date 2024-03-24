@@ -7,7 +7,7 @@ categories:
 author: Emma Vestesson
 subtitle: >
   "Sometimes two packages will have a function with the same name but they will do different things."
-code-annotations: below
+
 execute: 
   eval: false
 ---

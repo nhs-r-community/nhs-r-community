@@ -7,7 +7,6 @@ categories:
 author: Andrew Hill
 subtitle: >
   "How to build a function."
-code-annotations: below
 ---
 
 At the NHS R Conference, I suggested to people that they should embrace the idea of package-based development rather than script-based work.

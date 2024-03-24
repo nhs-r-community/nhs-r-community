@@ -7,7 +7,6 @@ categories:
   - Committee
 subtitle: >
   'It is with great excitement that I share my recent journey as a committee member with the NHS-R Community, a vibrant hub dedicated to championing the use of R and data science tools in the UK health and care system.'
-code-annotations: below
 image: img/startup.jpg
 image-alt: "Photo of a meeting with a laptop, pad and paper and a coffee mug."
 ---

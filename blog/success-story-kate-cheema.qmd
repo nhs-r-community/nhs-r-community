@@ -7,7 +7,6 @@ categories:
 author: Kate Cheema
 subtitle: >
   "Success story"
-code-annotations: below
 ---
 
 # Tell us a bit about yourself, your team and how your story begins?

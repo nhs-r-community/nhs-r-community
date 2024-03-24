@@ -7,7 +7,6 @@ categories:
 author: Zoë Turner
 subtitle: >
   "Separating codes from one cell couldn't be any easier in R"
-code-annotations: below
 ---
 
 ## Create data

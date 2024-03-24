@@ -7,10 +7,6 @@ categories:
 author: Sebastian Zeki
 subtitle: >
   "Extracting data using {grepl} and {stringr}"
-code-annotations: below
-execute: 
-  eval: true
-  echo: true
 ---
 
 There are many occasions when a column of data needs to be created from an already existing column for ease of data manipulation. For example, perhaps you have a body of text as a pathology report and you want to extract all the reports where the diagnosis is ‘dysplasia’. 

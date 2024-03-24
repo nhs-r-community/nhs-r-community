@@ -7,10 +7,6 @@ categories:
   - Software
 subtitle: >
   "In this blog post I want to talk about why Government needs sustainable software, the work being done to deliver it, and the lessons we learnt after the first year."
-code-annotations: below
-editor: 
-  markdown: 
-    wrap: sentence
 ---
 
 Unlike most of the 2017/2018 cohort, when I applied to become a fellow of the Software Sustainability Institute, I was a civil servant rather than an academic.

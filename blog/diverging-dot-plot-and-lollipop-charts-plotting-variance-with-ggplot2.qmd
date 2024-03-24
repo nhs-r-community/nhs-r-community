@@ -9,10 +9,6 @@ categories:
 author: Gary Hutson
 subtitle: >
   "The aim here is to create a diverging bar chart that shows variance above and below an average line."
-code-annotations: below
-execute: 
-  eval: true
-  echo: true
 ---
 
 # Creating the Dot Plot Variance chart

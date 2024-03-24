@@ -7,7 +7,6 @@ categories:
 author: Gary Hutson
 subtitle: >
   "A function to install packages if needed and load at the same time."
-code-annotations: below
 ---
 
 I was starting to despair at the amount of packages I end up using during the task of transforming, cleaning, modelling and validating some of my models. I thought there must be a simple approach to dealing with this?

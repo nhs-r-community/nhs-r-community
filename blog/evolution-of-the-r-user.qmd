@@ -7,12 +7,8 @@ categories:
 author: Seb Fox, Julian Flowers and Georgina Anderson, Public Health England.
 subtitle: >
   "The stages of learning R (with excitement factor ratings)"
-code-annotations: below
 image: img/Evolution-of-R-blog-image.png
 image-alt: "5 R logos with the capital R and circle behind going from small to large in size."
-execute: 
-  eval: true
-  echo: true
 ---
 
 Image adapted from source: <https://www.r-project.org/logo/>

@@ -7,7 +7,6 @@ categories:
 author: Andy Evans
 subtitle: >
   "Setting up an R group for Publich Health Intelligence"
-code-annotations: below
 ---
 
 Having recently attended an R meetup in Birmingham, hearing of various user groups and hackathons that take place around certain technologies, I was getting a feeling that there was an increasing desire in the public health community to learn more about R and modern data science tools and techniques. I wondered whether there would be interest in a data science and R user group for the West Midlands public health intelligence community. I thought I’d raise the idea at the West Midlands Public Health Intelligence Group (WMPHIG) when I attended the quarterly meeting, but another attendee beat me to it and doing so confirmed there was some interest. I volunteered to arrange the first user group and Public Health England (PHE) kindly offered assistance.
