@@ -7,7 +7,7 @@ categories:
 author: Zoë Turner
 subtitle: >
   "Replace NAs with `replace_na()` and code to NA with `na_if()`"
-code-annotations: select
+code-annotations: below
 ---
 
 ## Create data
