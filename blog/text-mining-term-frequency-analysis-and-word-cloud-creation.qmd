@@ -8,7 +8,6 @@ categories:
 author: Gary Hutson
 subtitle: >
   "Analysing the pre-conference workshop sentiments"
-code-annotations: below
 execute: 
   eval: false
 ---

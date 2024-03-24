@@ -7,7 +7,6 @@ categories:
 author: Sebastian Zeki
 subtitle: >
   "Syntethic or dummy data sets in the NHS"
-code-annotations: below
 ---
 
 This blog is an initial attempt to garner interest in a project to create NHS synthetic datasets in a range of fields and also to understand the underlying principles around creating synthetic healthcare data and its intricacies.

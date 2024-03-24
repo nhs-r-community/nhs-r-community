@@ -7,7 +7,6 @@ categories:
 author: S Zeki
 subtitle: >
   'There are a large number of file types that are able to store data. R is usually able to import most of them but there are some caveats.'
-code-annotations: below
 execute: 
   eval: false
 ---

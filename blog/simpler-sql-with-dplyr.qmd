@@ -10,12 +10,9 @@ categories:
 author: John MacKintosh
 subtitle: >
   "Comparing dplyr with SQL nested queries"
-code-annotations: below
 execute: 
   eval: false
-editor: 
-  markdown: 
-    wrap: 72
+image: img/flow-patient-data.png  
 ---
 
 # Comparing dplyr with SQL nested queries

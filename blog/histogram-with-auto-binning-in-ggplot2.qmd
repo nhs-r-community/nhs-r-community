@@ -9,10 +9,6 @@ categories:
 author: Gary Hutson
 subtitle: >
   "Building the Histogram with auto binning"
-code-annotations: below
-execute: 
-  eval: true
-  echo: true
 ---
 
 ```{r}

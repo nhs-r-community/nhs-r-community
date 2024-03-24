@@ -7,7 +7,6 @@ categories:
 author: Zoë Turner
 subtitle: >
   "Reflections on the 2018 Conference"
-code-annotations: below
 execute: 
   eval: false
 ---

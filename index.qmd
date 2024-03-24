@@ -39,7 +39,7 @@ listing:
     filter-ui: false
     max-items: 3
     feed: false
-
+    
   - id: blog
     contents: 
     - /blog

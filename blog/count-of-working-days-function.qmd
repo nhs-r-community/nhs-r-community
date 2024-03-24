@@ -7,7 +7,6 @@ categories:
   - Functions
 subtitle: >
   Creating a function to work out the number of working days a seasonal bus ticket can be used.
-code-annotations: below
 execute:
   freeze: true
   echo: true

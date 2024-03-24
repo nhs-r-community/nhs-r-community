@@ -7,7 +7,6 @@ categories:
 author: Lydia Briggs
 subtitle: >
   "Success story"
-code-annotations: below
 ---
 
 # What was the problem/challenge you were trying to address?

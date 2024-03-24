@@ -8,7 +8,6 @@ categories:
 author: Zoë Turner
 subtitle: >
   "Debugging when your code worked and now doesn't."
-code-annotations: below
 execute:
   eval: false
 ---

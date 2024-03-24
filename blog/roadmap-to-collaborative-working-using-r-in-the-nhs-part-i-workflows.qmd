@@ -7,7 +7,6 @@ categories:
 author: Sebastian Zeki
 subtitle: >
   "We finally have a tool that is data independent. This means that the door to working collaboratively on solutions is now wide open."
-code-annotations: below
 ---
 
 We finally have a tool that is data independent. R allows the scripting of a data science methodology that we can share and develop and which does not necessarily depend on carrying patient data with it. This means that the door to working collaboratively on solutions is now wide open. But before this happens in a truly robust way there are several hurdles that need to be overcome.  This is the first part of a series of articles in which I hope to outline the roadmap to networking our solutions in R so we can work collaboratively between Trusts to accelerate data science solutions for healthcare data.

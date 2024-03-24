@@ -7,7 +7,6 @@ categories:
 author: Zoë Turner
 subtitle: >
   "Delving into the blog history of NHS-R Community as the site moves into the future with Quarto"
-code-annotations: below
 execute: 
   eval: false
 ---

@@ -7,7 +7,6 @@ categories:
 author: John MacKintosh
 subtitle: >
   "Reflections on the 2018 Conference"
-code-annotations: below
 ---
 
 It’s been a few weeks since the first NHS-R conference was held in Birmingham.

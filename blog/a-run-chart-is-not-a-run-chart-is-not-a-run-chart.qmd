@@ -7,7 +7,6 @@ categories:
 author: Jacob Anhøj
 subtitle: >
   "Understanding a run chart and the {qicharts2} package."
-code-annotations: below
 ---
 
 # Understanding variation using runs analysis

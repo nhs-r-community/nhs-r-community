@@ -7,7 +7,6 @@ categories:
 author: William Bryant
 subtitle: >
   "Success story"
-code-annotations: below
 ---
 
 # The Challenge:

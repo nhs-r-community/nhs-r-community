@@ -7,7 +7,6 @@ categories:
 author: Neil Pettinger
 subtitle: >
     "Reflections on the 2018 Conference"
-code-annotations: below
 ---
 
 I went to the NHS-R Community Conference in Birmingham on Tuesday.
