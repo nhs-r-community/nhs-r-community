@@ -4,7 +4,7 @@ author: Zoë Turner
 date: "16 July 2019"
 date-modified: '17 February 2024'
 categories:
-  - Function
+  - Functions
 subtitle: >
   Creating a function to work out the number of working days a seasonal bus ticket can be used.
 code-annotations: below

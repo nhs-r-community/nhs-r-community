@@ -3,7 +3,7 @@ title: 'The joy of R'
 date: "9 April 2018"
 date-modified: '21 February 2024'
 categories:
-  - Personal Story
+  - Reflections
 author: Julian Flowers
 subtitle: >
   'Hello. My name is Julian and I am an R addict. I got hooked about 3 years ago when I took on a new role in Public Health England developing a public health data science team. '

@@ -3,7 +3,7 @@ title: "Building a Quarto website for NHS-R Community"
 date: "24 February 2024"
 date-modified: '24 February 2024'
 categories:
-  - Personal Story
+  - Reflections
 author: Zoë Turner
 subtitle: >
   "Delving into the blog history of NHS-R Community as the site moves into the future with Quarto"

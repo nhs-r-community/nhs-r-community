@@ -3,7 +3,7 @@ title: "Success story - Dr Lydia Briggs, Data Scientist, GOSH"
 date: "21 March 2022"
 date-modified: '22 March 2024'
 categories:
-  - Success Story
+  - Reflections
 author: Lydia Briggs
 subtitle: >
   "Success story"

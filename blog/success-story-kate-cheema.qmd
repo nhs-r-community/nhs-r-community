@@ -3,7 +3,7 @@ title: "Success story - Kate Cheema, Director of Health Intelligence, British He
 date: "21 March 2022"
 date-modified: '22 March 2024'
 categories:
-  - Success Story
+  - Reflections
 author: Kate Cheema
 subtitle: >
   "Success story"

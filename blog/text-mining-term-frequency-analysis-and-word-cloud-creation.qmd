@@ -61,7 +61,7 @@ workshop_sentiment <- read_csv(path, col_names = T)
 
 This will read the textual data from the workshops in to a data frame with 2 columns. The first relates to what the attendees enjoyed about the workshop and  the second relates to improvements that can be made:
 
-[!Screenshot of the highlights and improvements text from a pre-conference survey](img/screenshot-text-conf.png)
+![Screenshot of the highlights and improvements text from a pre-conference survey](img/screenshot-text-conf.png)
 
 # Separate the master data frame
 
@@ -105,7 +105,7 @@ corpus_improvements <- corpus_tm(ws_improvements$Improvements)
 
 The code block above shows that I create a corpus for the positive (highlights) data frame and an improvements corpus. This will display as hereunder in your environment:
 
-[!Screenshot of the corpus output from the Environment in RStudio](img/screenshot-corpus-output.png)
+![Screenshot of the corpus output from the Environment in RStudio](img/screenshot-corpus-output.png)
 
 ##Function to clean data in the corpus
 
@@ -196,7 +196,7 @@ improvement_freq_terms <- data.frame(find_freq_terms_fun(corpus_improvements))
 
 These will be built as data frames and can be viewed in R Studio’s Data environment window:
 
-[!Screenshot of the RStudio's data environment window with terms and frequency](img/screenshot-term-window.png)
+![Screenshot of the RStudio's data environment window with terms and frequency](img/screenshot-term-window.png)
 
 This has worked just as expected. You could now use ggplot2 to produce a bar chart / pareto chart of the terms.
 

@@ -1,0 +1,107 @@
+---
+title: "Roadmap to collaborative working using R in the NHS: Part I- Workflows"
+date: "7 January 2019"
+date-modified: "24 March 2024"
+categories:
+  - Workflow
+author: Sebastian Zeki
+subtitle: >
+  "We finally have a tool that is data independent. This means that the door to working collaboratively on solutions is now wide open."
+code-annotations: below
+---
+
+We finally have a tool that is data independent. R allows the scripting of a data science methodology that we can share and develop and which does not necessarily depend on carrying patient data with it. This means that the door to working collaboratively on solutions is now wide open. But before this happens in a truly robust way there are several hurdles that need to be overcome.  This is the first part of a series of articles in which I hope to outline the roadmap to networking our solutions in R so we can work collaboratively between Trusts to accelerate data science solutions for healthcare data.
+
+# Standardising R Workflows in the NHS
+
+In the throws of a new(ish) tool such as R, everybody has a way of working which is slightly different to one another. This is how best practice evolves, but in the end the best practice has to be standardised so that developers can work together. This is an article outlining my best practice for R script organisation and is an invitation for comment to see if there is any interest in developing a NHS standard for working and organising our solutions.
+
+# Principles of R script development
+
+As the R development environment is so methods based, it makes sense to have a standardised way to develop scripts so that different developers understand the basic workflow of data and can focus on the specific methodology for the specific problem rather than disentangle endless subsets of data and how each is cleaned and merged etc.  I use various principles when developing a script and useful approach to R script development.
+
+# a) An R script should focus on a specific problem.
+
+A solution is only as good as the question. Questions come in a variety of scopes and shapes and there is an art to asking a solvable question which is beyond the limits of this article.
+
+Having defined a question, a script should set out to be the solution to that question and not be a generic answer. Generic answers belong as functions or collections of functions called packages.  An R script should tackle specific problems such as ‘How many endoscopies did we perform last year’ and you find that this kind of question is asked a lot (‘How many x did we perform last y years) then the script might become a function and a collection of functions might become a package.
+
+# b) The R script should access the minimal dataset needed and avoid intermediate datasets.
+
+There is a real danger with data analysis that the data set used is huge but you only need a part of it. With R you can have the ability to specify the data used from within the script so that you should use the minimum dataset that is pertinent to the question. In fact the whole script should be specific to the question being asked. The data access should, as far as possible also be from the data repository rather than an intermediate dataset. For example you can specify a SQL query from within R to an electronic patient record (EPR) rather than get a data dump from the EPR into, for example, an Excel spreadsheet, and then import the Excel spreadsheet. It’s just more secure and avoids versioning issues with the data dump.
+
+# c) An R script should be organised according to a standardised template
+
+All analysis I perform adheres to a specific workflow for each script so that the script is separated into specific subsections that perform types of actions on the data. This also incorporates the important aspect of commenting on each part of the workflow. This is important so that developers can understand the code further down the line. The workflow I use is as follows:
+
+```
+## Title ##
+
+## Aim ##
+
+## Libraries ##
+
+## Data access ##
+
+## Data cleaning & Data merging ##
+
+## Data mutating (creating columns from pre-existing data) ##
+
+## Data forking (filtering and subsetting) ##
+
+## Documenting the sets (usually creation of consort type diagrams with diagrammeR##
+
+## Documenting the code with CodeDepends ##
+
+## Data analysis ##
+
+```
+# Data access
+
+The title of the script including the author and date is written at the top. The aim of the script is then stated along with any explanation (why am I doing this and so on). The workflow makes sure that all libraries are loaded at the beginning. Data access is also maintained at the top so anyone can immediately see the starting point for the analysis. Data access should specify the minimal dataset needed to answer the specific question of the script as explained above. For example there is no point using a dataset of all endoscopies between 2001 and 2011 when your script is only looking at colonoscopy specifically. I also try to avoid functions such as `file.choose()` as I like to keep the path to the source file documented, whether it is a local or remote repository.
+
+# Data cleaning & Data merging
+
+The difficult task of data cleaning and merging with other datasets is then performed. One of my data principles is that when working with datasets you should start with the smallest dataset that answers all of your questions and then filter down for each question rather than build up a dataset throughout a script, so I like to merge external datasets early when possible. This could be called early binding technically but given the data access part of the code specifies a data set that is question-driven, I am early binding to a late-bound set (if that makes sense).
+
+# Data mutating
+
+Once cleaning and merging is performed, subsets of data for specific subsections of the question can be done and then the statistical analysis performed on each subset as needed.
+
+I find it very useful to keep track of the subsets of data being used. This allows for sanity checking but also enables a visual overview of any data that may have been ‘lost’ along the way. I routinely use [{diagrammeR}](https://rich-iannone.github.io/DiagrammeR/) for this purpose which gives me consort type diagrams of my dataset flows.
+
+The other aspect is to examine the code documentation and for this I use {codeDepends} which allows me to create a flow diagram of my code (rather than the data sets). Using {diagrammeR} and {codeDepends} allows me to get an overview of my script rather than trying to debug line by line.
+
+::: aside
+{codeDepends} is no longer on CRAN but this may be the original repository [https://github.com/duncantl/CodeDepends](https://github.com/duncantl/CodeDepends)
+:::
+
+d) R scripts should exist with a standardised folder structure for each script
+
+R scripts often exist within a project. You may be outputting image files you want access to later, as well as needing other files. R studio maintains R scripts as a project and creates a file system around each script. There are several packages that will also create a file dependency system for a script so that at the very least the organisation around the R script is easy to navigate. There are several [ways to do this](https://www.r-bloggers.com/2017/01/implementation-of-a-basic-reproducible-data-analysis-workflow/) and some [packages](https://pirategrunt.com/represtools/) exist that will set this up for you. 
+
+# e) R files should have a standard naming convention.
+
+This is the most frustrating problem when developing R scripts. I have a few scripts that extract text from medical reports. I also have a few scripts that do time series analysis on patients coming to have endoscopies. And again a few that draw Circos plots of patient flows through the department. In the end that is a lot of scripts. There is a danger of creating a load of folders with names like ‘endoscopyScripts’ and ‘timeSeries’  that don’t categorise my scripts according to any particular system. The inevitable result is lost scripts and repeated development. Categorization and labelling systems are so important so you can prevent re-inventing the same script. As the entire thrust of what I do with R is in the end to develop open source packages, I choose to name scripts and their folders according to the questions I am asking. The naming convention I use is as follows
+
+**Top level folder:** Name according to question domains (defined by generic dataset)
+
+**Script name:** Defined by question in the script dataset_FinalAnalysis
+
+The R developer will soon come to realise the question domains that are most frequently asked and I would suggest that this is used as the naming convention for top-level folders. I would avoid categorising files according to the method of analysis. As an example, I develop a lot of scripts for the extraction of data from endoscopies. In general I either do time series analysis on them or I do quality analysis. The questions I ask of the data are things like: ‘How many colonoscopies did we do last year’ or ‘How are all the endoscopists performing when measured by their diagnostic detection rates for colonoscopy’. I could name the files ‘endoscopyTimeSeries’ or ‘endoscopyQualityAssess’ but this mechanistic labelling doesn’t tell me much. By using question based labelling I can start to see patterns when looking over my files. According to my naming convention I should create a folder called ‘Endoscopy’ and then the script names should be ‘Colonoscopies_DxRate and ‘Colonoscopies_ByYear’. The next time I want to analyse a diagnostic rate, maybe for a different data set like gastroscopies, I can look through my scripts and see I have done a similar thing already and re-use it.
+
+In the end, the role of categorizing scripts in this way allows me to see a common pattern of questions. The re-usability of already answered questions is really the whole point of scripting solutions. Furthermore it allows the deeply satisfying creation of generic solutions which can be compiled into functions and then into packages. This has already been expanded upon here.
+
+# f) Always use a versioning system for your R scripts
+
+R scripts need to be versioned as scripts may change over time. A versioning system is essential to any serious attempt at providing solutions. There are two aspects to versioning. Firstly the scripts may change and secondly the packages may change. Dependency versioning can be dealt with by using [checkpoints](https://cran.r-project.org/web/packages/checkpoint/vignettes/checkpoint.html) within the scripts. This essentially freezes the dependency version so that the package that worked with the current version of the script can be used. I have found this very useful for the avoidance of script errors that are out of my control.
+
+The other issue is that of versioning between developers. I routinely use [Github](https://github.com/sebastiz) as my versioning system. This is not always available from within Trusts but there are other versioning systems that can be used in house only. Whichever is used, versioning to keep track of the latest workable scripts is essentially to prevent chaos and insanity from descending into the development environment. A further plea for open source versioning is the greater aspiration of opening up R scripts in healthcare to the wider public so that everyone can have a go at developing solutions and perhaps we can start to network solutions between trusts.
+
+# Conclusion:
+
+There is a greater aim here, which I hope to expand on in a later article, which is the development of a solutions network. In all healthcare trusts, even outside of the UK, we have similar questions, albeit with different datasets. The building blocks I have outlined above are really a way of standardising in-house development using R so that we can start to share solutions between trusts and understand each other’s solutions. A major step forward in sharing solutions would be to develop a way of sharing (and by necessity categorising) the questions we have in each of our departments. Such a network of solution sharing in the NHS (and beyond) would require a CRAN (or rOpenSci) type pathway of open source building, and validation as well as standardised documentation but once this is done it would represent a step change in analytics in the NHS. The steps I have shared above certainly help me in developing solutions and certainly help in the re-use of what I have already built rather than re-creating solutions from scratch.
+
+This blog was written by Sebastian Zeki, Consultant Gastroenterologist at Guy’s and St Thomas’ NHS Foundation Trust.
+
+This blog has been formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation).

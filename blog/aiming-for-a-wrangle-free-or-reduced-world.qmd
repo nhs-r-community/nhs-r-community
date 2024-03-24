@@ -3,7 +3,7 @@ title: 'Aiming for a wrangle-free (or reduced) world'
 date: "23 March 2018"
 date-modified: '21 February 2024'
 categories:
-  - Personal Story
+  - Reflections
 author: Sebastian Fox
 subtitle: >
   'I work as a Data Scientist at Public Health England. I am part of a small team that have a role in trying to modernise how we "do" data.'
