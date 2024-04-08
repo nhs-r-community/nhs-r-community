@@ -24,4 +24,4 @@ format:
     template-partials:
       - ../_partials/title-block-link-buttons/title-block.html
 
-embed-resources: true
+embed-resources: false
