@@ -6,7 +6,7 @@ listing:
   sort: "date desc"
   type: default
   categories: true
-  image-placeholder: /img/nhsr-logo.svg
+  image-placeholder: /img/nhsr-logo.png
   sort-ui: false
   filter-ui: false
   fields: [image, title, author, categories, date, word-count, reading-time]

@@ -6,6 +6,8 @@ categories:
   - Text Mining
   - Conference
 author: Gary Hutson
+image: "img/screenshot-wordcloud.png"
+image-alt: "Wordcloud with cloud, plot and useful being the largest so most frequent"
 subtitle: >
   "Analysing the pre-conference workshop sentiments"
 execute: 

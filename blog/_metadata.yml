@@ -24,4 +24,6 @@ format:
     template-partials:
       - ../_partials/title-block-link-buttons/title-block.html
 
+# This is needed for blogs to render images correctly
+# self-contained causes issues with picking up the default or a chart image
 embed-resources: false

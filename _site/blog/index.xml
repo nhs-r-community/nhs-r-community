@@ -10,7 +10,7 @@
 <atom:link href="https://nhs-r-community.github.io/nhs-r-community/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>Blogs are submitted from NHS-R Community members.&lt;br&gt;
 </description>
-<generator>quarto-1.4.553</generator>
+<generator>quarto-1.4.549</generator>
 <lastBuildDate>Tue, 12 Mar 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Recoding an NA and back again</title>
@@ -461,6 +461,7 @@ March 12, 2024. <a href="https://nhs-r-community.github.io/nhs-r-community//blog
   <category>R tips</category>
   <guid>https://nhs-r-community.github.io/nhs-r-community/blog/showcasing-functions-separate.html</guid>
   <pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://nhs-r-community.github.io/nhs-r-community/blog/img/screenshot-separate-code.png" medium="image" type="image/png" height="91" width="144"/>
 </item>
 <item>
   <title>Building a Quarto website for NHS-R Community</title>
@@ -1223,7 +1224,7 @@ font-style: inherit;"># Look at list</span></span>
 background-color: null;
 font-style: inherit;">a</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE</code></pre>
+<pre><code> [1]  TRUE  TRUE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE  TRUE</code></pre>
 </div>
 <div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -1238,7 +1239,7 @@ font-style: inherit;">a</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 2 3 4 8</code></pre>
+<pre><code>[1]  1  2  3  7  8 10</code></pre>
 </div>
 <div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -1274,7 +1275,7 @@ font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
+<pre><code>[1] 6</code></pre>
 </div>
 </div>
 <p>Then Chris Beeley suggested just using <code>sum</code> instead of <code>length(which())</code> which counts a logical vector:</p>
@@ -1289,7 +1290,7 @@ font-style: inherit;">a</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
+<pre><code>[1] 6</code></pre>
 </div>
 </div>
 <p>It seems this has been discussed on Stack Overflow before: <a href="https://stackoverflow.com/questions/2190756/how-to-count-true-values-in-a-logical-vector">https://stackoverflow.com/questions/2190756/how-to-count-true-values-in-a-logical-vector</a></p>
@@ -1309,7 +1310,7 @@ font-style: inherit;">TRUE</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
+<pre><code>[1] 6</code></pre>
 </div>
 </div>
 <p>This won’t affect the objects created in this blog as there were no <code>NA</code>s in them but it’s just something that could cause a problem if used in a different context.</p>
@@ -3732,11 +3733,11 @@ font-style: inherit;">corpus_tm</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">Corpus</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"><a href="https://rdrr.io/pkg/tm/man/Corpus.html">Corpus</a></span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">VectorSource</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"><a href="https://rdrr.io/pkg/tm/man/VectorSource.html">VectorSource</a></span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -3749,7 +3750,7 @@ font-style: inherit;">)</span></span>
 background-color: null;
 font-style: inherit;">}</span></span></code></pre></div>
 </div>
-<p>This function allows you to pass any data frame to the function and creates a corpus for each data frame you pass to the function. The data frame would be passed to the x parameter. The <code>VectorSource()</code> function creates an element for each part of the corpus.</p>
+<p>This function allows you to pass any data frame to the function and creates a corpus for each data frame you pass to the function. The data frame would be passed to the x parameter. The <code><a href="https://rdrr.io/pkg/tm/man/VectorSource.html">VectorSource()</a></code> function creates an element for each part of the corpus.</p>
 </section><section id="create-corpus-for-highlights-and-improvements-data-frame" class="level2"><h2 class="anchored" data-anchor-id="create-corpus-for-highlights-and-improvements-data-frame">Create Corpus for Highlights and Improvements data frame</h2>
 <p>Now the function has been created, I can simply pass the two separate data frames I created before to create two corpuses:</p>
 <div class="cell">
@@ -3839,7 +3840,7 @@ background-color: null;
 font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">tm_map</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"><a href="https://rdrr.io/pkg/tm/man/tm_map.html">tm_map</a></span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -3850,7 +3851,7 @@ background-color: null;
 font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">tm_map</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"><a href="https://rdrr.io/pkg/tm/man/tm_map.html">tm_map</a></span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -3861,11 +3862,11 @@ background-color: null;
 font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">tm_map</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"><a href="https://rdrr.io/pkg/tm/man/tm_map.html">tm_map</a></span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">content_transformer</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"><a href="https://rdrr.io/pkg/tm/man/content_transformer.html">content_transformer</a></span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -3900,7 +3901,7 @@ background-color: null;
 font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">tm_map</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"><a href="https://rdrr.io/pkg/tm/man/tm_map.html">tm_map</a></span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -3911,13 +3912,13 @@ background-color: null;
 font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">tm_map</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"><a href="https://rdrr.io/pkg/tm/man/tm_map.html">tm_map</a></span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">removeWords</span>, <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">stopwords</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"><a href="https://rdrr.io/pkg/tm/man/stopwords.html">stopwords</a></span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -3930,11 +3931,11 @@ background-color: null;
 font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">tm_map</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"><a href="https://rdrr.io/pkg/tm/man/tm_map.html">tm_map</a></span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">content_transformer</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"><a href="https://rdrr.io/pkg/tm/man/content_transformer.html">content_transformer</a></span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -3947,7 +3948,7 @@ background-color: null;
 font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>    <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">tm_map</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"><a href="https://rdrr.io/pkg/tm/man/tm_map.html">tm_map</a></span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -3963,7 +3964,7 @@ font-style: inherit;">"ie"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"eg"</span>, <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">stopwords</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"><a href="https://rdrr.io/pkg/tm/man/stopwords.html">stopwords</a></span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -4050,7 +4051,7 @@ font-style: inherit;">doc_term_mat</span> <span class="op" style="color: #5E5E5E
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">TermDocumentMatrix</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"><a href="https://rdrr.io/pkg/tm/man/matrix.html">TermDocumentMatrix</a></span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -4064,7 +4065,7 @@ font-style: inherit;">freq_terms</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">findFreqTerms</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"><a href="https://rdrr.io/pkg/tm/man/findFreqTerms.html">findFreqTerms</a></span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -4314,6 +4315,7 @@ Word Cloud Creation in R.”</span> October 22, 2018. <a href="https://nhs-r-com
   <category>Conference</category>
   <guid>https://nhs-r-community.github.io/nhs-r-community/blog/text-mining-term-frequency-analysis-and-word-cloud-creation.html</guid>
   <pubDate>Sun, 21 Oct 2018 23:00:00 GMT</pubDate>
+  <media:content url="https://nhs-r-community.github.io/nhs-r-community/blog/img/screenshot-wordcloud.png" medium="image" type="image/png" height="77" width="144"/>
 </item>
 <item>
   <title>NHS-R Community Conference: My experience of the day</title>
