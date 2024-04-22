@@ -17,6 +17,11 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Install Missing Packages
+        run: |
+          missing = checklist::install_missing_pkgs(dir = "./", glob = "*.qmd")
+        shell: Rscript {0}
+
       - uses: actions/cache@v4
         with:
           key: freeze
