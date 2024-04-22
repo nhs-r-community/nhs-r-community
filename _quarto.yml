@@ -80,5 +80,5 @@ format:
     code-link: true
 
 execute:
-  freeze: auto
+  freeze: true
   warning: false
