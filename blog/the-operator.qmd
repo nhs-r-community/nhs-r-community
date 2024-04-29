@@ -7,7 +7,6 @@ categories:
 author: Emma Vestesson
 subtitle: >
   "Sometimes two packages will have a function with the same name but they will do different things."
-
 execute: 
   eval: false
 ---
@@ -16,62 +15,60 @@ execute:
 
 Most of the functionality in R comes from additional packages that you load. Sometimes two packages will have a function with the same name but they will do different things. In a situation where you have multiple packages with functions with the same name loaded, R will use the the function from the package you loaded the latest. As you can imagine, this can sometimes create problems. If you are lucky, you get an error message but if you are unlucky your code runs but with an unexpected result.
 
-Let me give you an example. I always load the dplyr package. Look what happens when I use summarize to calculate the mean sepal length by species.
+Let me give you an example. I always load the {dplyr} package. Look what happens when I use summarize to calculate the mean sepal length by species.
 
 ```{r}
-
 library(dplyr)
 #> Warning: package 'dplyr' was built under R version 4.3.2
-#> 
+#>
 #> Attaching package: 'dplyr'
 #> The following objects are masked from 'package:stats':
-#> 
+#>
 #>     filter, lag
 #> The following objects are masked from 'package:base':
-#> 
+#>
 #>     intersect, setdiff, setequal, union
 
-iris %>% 
-  group_by(Species) %>% 
-  summarize(sepal_length_mean=mean(Sepal.Length))
+iris %>%
+  group_by(Species) %>%
+  summarize(sepal_length_mean = mean(Sepal.Length))
 #> # A tibble: 3 × 2
 #>   Species    sepal_length_mean
 #>   <fct>                  <dbl>
 #> 1 setosa                  5.01
 #> 2 versicolor              5.94
 #> 3 virginica               6.59
-
 ```
 <sup>Created on 2024-02-21 with [reprex v2.1.0](https://reprex.tidyverse.org)</sup>
 
-
-Say that I then realise that I need the Hmisc package and load it. Look what happens when I rerun the same code as above.
+Say that I then realise that I need the {Hmisc} package and load it. Look what happens when I rerun the same code as above.
 
 ```{r}
-``` r
 library(Hmisc)
 #> Warning: package 'Hmisc' was built under R version 4.3.2
-#> 
+#>
 #> Attaching package: 'Hmisc'
 #> The following objects are masked from 'package:base':
-#> 
+#>
 #>     format.pval, units
 
-iris %>% 
- group_by(Species) %>% 
- summarize(sepal_length_mean=mean(Sepal.Length))
+iris %>%
+  group_by(Species) %>%
+  summarize(sepal_length_mean = mean(Sepal.Length))
 #> Error in iris %>% group_by(Species) %>% summarize(sepal_length_mean = mean(Sepal.Length)): could not find function "%>%"
 ```
 
 <sup>Created on 2024-02-21 with [reprex v2.1.0](https://reprex.tidyverse.org)</sup>
 
-R is now using the summarize function from the Hmisc package and I get an error because the syntax is wrong. The best way to solve this problem is to use the :: operator.Writing packagename::functionname tells R which package to get the function from.
+R is now using the summarize function from the {Hmisc} package and I get an error because the syntax is wrong. The best way to solve this problem is to use the `::` operator. Writing `packagename::functionName` tells R which package to get the function from.
 
 ```{r}
-iris3 <- iris %>% 
- group_by(Species) %>% 
- dplyr::summarize(sepal_length_mean=mean(Sepal.Length))
+iris3 <- iris %>%
+  group_by(Species) %>%
+  dplyr::summarize(sepal_length_mean = mean(Sepal.Length))
 #> Error in iris %>% group_by(Species) %>% dplyr::summarize(sepal_length_mean = mean(Sepal.Length)): could not find function "%>%"
 ```
 
 <sup>Created on 2024-02-21 with [reprex v2.1.0](https://reprex.tidyverse.org)</sup>
+
+This blog has been formatted to follow [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text)
