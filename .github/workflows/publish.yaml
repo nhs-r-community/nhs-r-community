@@ -9,6 +9,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+  schedule:
+    - cron: "0 4 * * *"
+
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -31,6 +35,11 @@ jobs:
       image: ghcr.io/nhs-r-community/r_gh_actions:latest
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/cache@v4
+        with:
+          key: packages
+          path: /usr/local/lib/R/site-library
 
       - name: Install Missing Packages
         run: |
