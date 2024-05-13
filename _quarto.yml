@@ -78,6 +78,7 @@ format:
         - assets/nhsr-font.scss
         - assets/theme-dark.scss
     code-link: true
+    link-external-newwindow: true
 
 execute:
   freeze: true
