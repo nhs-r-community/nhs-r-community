@@ -77,7 +77,7 @@ format:
       dark:
         - assets/nhsr-font.scss
         - assets/theme-dark.scss
-    css: assets/index.nhsr
+    css: assets/nhsr.css
     code-link: true
     link-external-newwindow: true
 
