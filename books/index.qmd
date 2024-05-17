@@ -10,9 +10,6 @@ listing:
     categories: true
     sort: date-meta
 
-header-includes: >
-  <link rel="stylesheet" href="../assets/listing-default.css">
-
 ---
 
 

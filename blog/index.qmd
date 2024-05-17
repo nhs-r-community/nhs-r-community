@@ -12,15 +12,10 @@ listing:
   fields: [image, title, author, categories, date, word-count, reading-time]
   page-size: 5
   feed: true
-  
 format: 
   html: 
     page-layout: full
 title-block-banner: false
-header-includes: >
-  <link rel="stylesheet" href="../assets/listing-default.css">
-resources:
-  - ../assets/listing-default.css
 citation: false
 ---
 
