@@ -18,7 +18,7 @@ website:
   google-analytics: "G-J7L32C56WN"
   navbar:
     toggle-position: right
-    logo-href: index.qmd
+    logo-href: https://nhsrcommunity.com/
     logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png
     logo-alt: "NHS-R Community Logo which consists of the words and incorporating the R logo"
     title: false
