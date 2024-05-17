@@ -27,8 +27,6 @@ website:
     - icon: github
       href: https://github.com/nhs-r-community
     right:
-      - text: Home
-        href: index.qmd
       - text: "About"
         href: about/index.qmd
       - text: Events
@@ -42,6 +40,8 @@ website:
         href: contact.qmd
       - text: "RSS feed"
         href: blog/index.xml
+      - text: Home
+        href: index.qmd
 
   page-footer:
     left: >-
