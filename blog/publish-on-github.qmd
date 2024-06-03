@@ -1,0 +1,33 @@
+---
+title: "Publish on GitHub"
+date: "3 June 2024"
+date-modified: "3 June 2024"
+categories:
+  - GitHub
+  - RMarkdown
+  - Quarto
+author: Zoë Turner
+subtitle: >
+  "Publish free through GitHub"
+execute:
+  eval: false
+---
+
+I had a question on this directly on how to publish and then another one popped up on the NHS-R Community Slack so, in the principle of DRY (Don't Repeat Yourself) this is a short blog on how to publish (free!) slides, websites and reports through GitHub.
+
+We publish all the NHS-R Community course slides through GitHub and the following refers to the [Introduction to Quarto slides](https://intro-quarto.nhsrcommunity.com/).
+
+# Setting up on GitHub
+
+Publishing is through the Settings tab which is hidden unless you have rights to the repository.
+
+There will be a Pages tab along the side which is where the settings can be changed <https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site>. 
+
+The NHS-R Community course repositories publish through the "deploy from a branch" setting with `main` and `root` on the branch but note that these have a redirect on the pages to the NHS-R web url so is called `nhsrcommunity.com`.
+Pages that are published through GitHub usually have `github.io` in the url name.
+
+# For Quarto files
+
+If you are publishing a series of slides, as the format is often for NHS-R Community courses, if you add a blank file to the folder and call it `_quarto.yml` it acts like an engine to all the slides so you don't have to repeat code. 
+An example is <https://github.com/nhs-r-community/intro-quarto/blob/main/_quarto.yml> where the author is coded once here but appears on all the slides in this project folder. 
+This isn't needed for publishing but can make your code a bit less cluttered if you have many files to publish and means you only have to make changes in one place.
