@@ -17,7 +17,7 @@ about:
   links:
     - icon: mailbox
       aria-label: Email
-      href: mailto:nhsr.community@nhs.net
+      href: mailto:nhs.rcommunity@nhs.net
     - icon: mastodon
       href: https://fosstodon.org/@NHSrCommunity
     - icon: github
