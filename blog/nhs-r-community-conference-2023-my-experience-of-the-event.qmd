@@ -1,7 +1,7 @@
 ---
 title: "NHS-R/NHS.Pycom conference 2023 my experience of the event"
-date: "01 June 2024"
-date-modified: "02 June 2024"
+date: "4 June 2024"
+date-modified: "4 June 2024"
 categories:
   - Conference
 author: Pablo Leon-Rodenas
