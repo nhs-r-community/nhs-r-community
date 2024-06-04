@@ -16,16 +16,17 @@ about:
   id: hero-heading
   links:
     - icon: mailbox
-      aria-label: Email
       href: mailto:nhs.rcommunity@nhs.net
+      aria-label: Email
     - icon: mastodon
       href: https://fosstodon.org/@NHSrCommunity
+      aria-label: Mastodon
     - icon: github
-      aria-label: GitHub
       href: https://github.com/nhs-r-community
+      aria-label: GitHub
     - icon: linkedin
-      aria-label: "LinkedIn"
       href: https://www.linkedin.com/in/nhs-r-community-2555a6282/
+      aria-label: LinkedIn
 
 listing:
   - id: books
