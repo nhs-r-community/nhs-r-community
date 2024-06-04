@@ -1,0 +1,101 @@
+---
+title: "NHS-R/NHS.Pycom conference 2023 my experience of the event"
+date: "01 June 2024"
+date-modified: "02 June 2024"
+categories:
+  - Conference
+author: Pablo Leon-Rodenas
+subtitle: >
+    "Reflections on the 2023 Conference"
+---
+
+## 1. General thoughts about the Conference
+
+The NHS-R/NHS.Pycom conference, is a great event to share on a yearly basis, our passion for advanced healthcare, promoting the use of our core R language for our healthcare analysis and also other exciting languages such as Python.  
+
+This is a small contribution as a blog post trying to summarize some reflections after attending for the first time last year NHS-R/NHS.pycom 2023 Online Conference. Right after the conference,  I drafted some impressions in a LinkedIn blog post: <https://www.linkedin.com/feed/update/urn:li:activity:7121902571715223552/> , but there were so much buzz and interesting ideas to develop months after the conference ended, that they could constitute an entire blog post. 
+
+I just want to stress that I have tried to convey some general ideas and thoughts about last year conference, but the share amount of code, projects diversity and different background of the speakers and organisations that took place in the 2023 Conference was enough to inspire me and try new coding projects for the rest of the year.
+
+There was a great range of talks from specific insights on using R packages like {purr}, to a more technical sessions like the one about Modelling non-linear data with Generalized Additive Models (GAMs), using the {mgcv} package with Chris Mainey. <https://nhsrcommunity.com/events/nhs-r-nhs-pycom-online-conference-workshop-2023-modelling-non-linear-data-with-generalized-additive-models-gams-using-the-mgcv-package/>
+
+What I most liked about the Conference was the mix of different speakers, ranging from Community developers, International Speakers and well known companies promoting the use of R and Rstudio such as Posit. 
+
+Some talks were Technical about specific models or packages, and others described problem solving situations in the NHS, where R has been used to create apps, like the talk where they used R to map EHR data to OMOP Common Data model on the 9th of October Online Conference or  the Automatic reporting pack generation talk  on the 11th of October.
+
+On top of that, I really enjoyed other talks, where Python and PowerBI examples and projects were presented. It is a very inclusive event and seeing examples of different programming languages, broads our interest as analysts. There was always a good takeaway to try after the conference in R, Python or PowerBI. 
+
+I find really inspiring how the event manages to empower all analysts working in the NHS to add more languages to our toolbox, helping us in our daily work. 
+
+In this section below, I have listed the links to conference contents for each of the three main days 9, 10 and 11th of October 2023.
+
+**NHS- R/NHS.pycom Conference: Online Conference Talks – Monday 9th October 2023**
+Conference recording on YouTube:<https://www.youtube.com/watch?v=X-fyKq1GXQI>
+
+Conference contents:<https://nhsrcommunity.com/events/nhs-r-nhs-pycom-online-conference-talks-2023-ticket-for-virtual-attendance-on-monday-09th-october-2023/>
+
+**NHS- R/NHS.pycom Conference: Online Conference Talks – Tuesday 10th October 2023**
+Conference recording on YouTube:<https://www.youtube.com/watch?v=laKYVuElROs&t=1s>
+
+Conference contents:<https://nhsrcommunity.com/events/nhs-r-nhs-pycom-online-conference-talks-2023-ticket-for-virtual-attendance-on-tuesday-10th-october-2023/>
+
+**NHS- R/NHS.pycom Conference: Online Conference Talks – Wednesday 11th October 2023**
+Conference recording on YouTube:<https://www.youtube.com/watch?v=3uSbLT7ISPc>
+
+Conference contents:<https://nhsrcommunity.com/events/nhs-r-nhs-pycom-online-conference-talks-2023-ticket-for-virtual-attendance-on-wednesday-11th-october-2023/>
+
+Also I really appreciated that during and after the Conference, on the slack channel and on the NHS-R Conference website, all the GitHub repositories were made available with the talk slides and materials presented:   <https://github.com/chrismainey/GAMworkshop>
+
+
+## 2. Last year NHS-R/NHS.pycom 2023  conference  was a great opportunity to listen live to analysts and Keynote speakers I have been reading recently. And to inspire existing ongoing projects
+
+Earlier that year, I bought and read the New Book from Bruno Rodrigues “Building reproducible analytical pipelines with R”. <https://www.amazon.com/dp/B0C87H6MGF/>
+
+That book has been extremely helpful for me to lean how to write more robust code, collaborate on GitHub with other projects, and also learn in more detail about functional programming. 
+In fact, I used this knowledge to create the materials I used on the Lightning Talk I had the opportunity to present  on the 10th of October. “Create a website using Quarto linking Rstudio with GitHub”:  <https://nhsrcommunity.com/events/nhs-r-nhs-pycom-online-conference-talks-2023-ticket-for-virtual-attendance-on-tuesday-10th-october-2023/>
+
+The presentation for that Lightning talk is available on GitHub: <https://pablo-source.github.io/NHS_R_Pycom_2023.html#/title-slide>.  Alongside with the materials used to build it :<https://github.com/Pablo-tester/presentations/tree/main/NHS_R_NHS_Pycom_Oct23>
+
+Overall, the topics covered during the NHS-R/NHS.pycom 2023 Conference allowed me to improve the quality of my R and Python code, and improved my collaboration with other analysts using Git and GitHub in a more efficient way. 
+
+This year I have tested these new skills on a new project using {target} library to build a small pipeline to build a univariate Time Series model using ARIMA and PROPHET models. I am sill expanding this initial pipeline project. <https://github.com/Pablo-source/targets-test>
+
+
+## 3. Conference workshops
+
+There were plenty of workshops available through the NHS-R/NHS.pycom Online Conference. These workshops were running in parallel to the main talk sessions, and running with a small groups of attendants. Its hands on nature was great to learn quickly joining efforts with other analysts. These workshop websites can  be found in the NHS-R website  past events section: <https://nhsrcommunity.com/past-events/>
+
+I would have loved to be able to attend all the workshops, but unfortunately it was not possible, but I enjoyed the following five ones, with a great combination of advanced statistical analysis and visualization techniques. 
+
+NHS-R/NHS.pycom Online Conference Workshop 2023 – Modelling non-linear data with Generalized Additive Models (GAMs), using the {mgcv} package
+
+<https://nhsrcommunity.com/events/nhs-r-nhs-pycom-online-conference-workshop-2023-modelling-non-linear-data-with-generalized-additive-models-gams-using-the-mgcv-package/>
+
+NHS-R/NHS.pycom Online Conference Workshop 2023 – Create your own API with Python and FastAPI
+Workshop recording on YouTube:<https://www.youtube.com/watch?v=_D4llf41KC8>
+
+
+NHS-R/NHS.pycom Online Conference Workshop 2023 – Introduction to Regression Modelling in R
+<https://nhsrcommunity.com/events/nhs-r-nhs-pycom-online-conference-workshop-2023-introduction-to-regression-modelling-in-r/>
+
+NHS-R/NHS.pycom Online Conference Workshop 2023 – Data Visualisation with Seaborn
+Workshop recording on YouTube: <https://www.youtube.com/watch?v=LZdbCOOdsPE>
+
+Also I do like that across all Conference workshops, RAP principles and Version control talks  were present on several of the available 
+workshops/
+
+NHS-R/NHS.pycom Online Conference Workshop 2023 – Introduction to Version Control (Git/GitHub)
+Workshop recording on YouTube: <https://www.youtube.com/watch?v=wOk7wDsHD8o>
+
+
+## 4. Final takeaway ideas from last year conference
+
+- The NHS-R NHS-R/NHS.pycom Online Conference Talks 2023 is a source of inspiration for Analysts working with R and Python, from both Keynote, Plenary and Lightning Talks.
+
+- Is also a great opportunity to meet analysts and developers from the NHS and also other Organisations and companies, allowing you to network and match specific projects with the people and teams developing it. Great to see the faces behind all these big projects.
+
+- It is great to listen live international speakers from R and Posit and many other companies, explaining how they have designed the packages and tools sometimes we use in our day to day job. It is fantastic to see at the conference the developers presenting the most popular packages and tools we use in our day to day job.
+
+- Thanks to the speakers and organisation making most of the talk materials available online, it is perfect to learn at our own pace in the months after the Conference has taken place.
+
+- Also most of the tools used are R and Python, making open software and scripts used in the demos available on GitHub. That gives us plenty of materials to explore and learn from our own GitHub repos right after each conference day.
