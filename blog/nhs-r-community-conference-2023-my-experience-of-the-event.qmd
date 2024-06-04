@@ -5,7 +5,6 @@ date-modified: "02 June 2024"
 categories:
   - Conference
 author: Pablo Leon-Rodenas
-editor: visual
 subtitle: >
     "Reflections on the 2023 Conference"
 ---
@@ -14,11 +13,11 @@ subtitle: >
 
 The NHS-R/NHS.Pycom conference, is a great event to share on a yearly basis, our passion for advanced healthcare, promoting the use of our core R language for our healthcare analysis and also other exciting languages such as Python.  
 
-This is a small contribution as a blog post trying to summarize some reflections after attending for the first time last year NHS-R/NHS.pycom 2023 Online Conference. Right after the conference,  I drafted some impressions in a LinkInd blog post: <https://www.linkedin.com/feed/update/urn:li:activity:7121902571715223552/> , but there were so much buzz and interesting ideas to develop months after the conference ended, that they could constitute an entire blog post. 
+This is a small contribution as a blog post trying to summarize some reflections after attending for the first time last year NHS-R/NHS.pycom 2023 Online Conference. Right after the conference,  I drafted some impressions in a LinkedIn blog post: <https://www.linkedin.com/feed/update/urn:li:activity:7121902571715223552/> , but there were so much buzz and interesting ideas to develop months after the conference ended, that they could constitute an entire blog post. 
 
 I just want to stress that I have tried to convey some general ideas and thoughts about last year conference, but the share amount of code, projects diversity and different background of the speakers and organisations that took place in the 2023 Conference was enough to inspire me and try new coding projects for the rest of the year.
 
-There was a great range of talks from specific insights on using R packages like {purr}, to a more technical sessions like the one about Modelling non-linear data with Generalized Additive Models (GAMs), using the mgcv package with Chris Mainey. <https://nhsrcommunity.com/events/nhs-r-nhs-pycom-online-conference-workshop-2023-modelling-non-linear-data-with-generalized-additive-models-gams-using-the-mgcv-package/>
+There was a great range of talks from specific insights on using R packages like {purr}, to a more technical sessions like the one about Modelling non-linear data with Generalized Additive Models (GAMs), using the {mgcv} package with Chris Mainey. <https://nhsrcommunity.com/events/nhs-r-nhs-pycom-online-conference-workshop-2023-modelling-non-linear-data-with-generalized-additive-models-gams-using-the-mgcv-package/>
 
 What I most liked about the Conference was the mix of different speakers, ranging from Community developers, International Speakers and well known companies promoting the use of R and Rstudio such as Posit. 
 
@@ -39,7 +38,6 @@ Conference contents:<https://nhsrcommunity.com/events/nhs-r-nhs-pycom-online-con
 Conference recording on YouTube:<https://www.youtube.com/watch?v=laKYVuElROs&t=1s>
 
 Conference contents:<https://nhsrcommunity.com/events/nhs-r-nhs-pycom-online-conference-talks-2023-ticket-for-virtual-attendance-on-tuesday-10th-october-2023/>
-
 
 **NHS- R/NHS.pycom Conference: Online Conference Talks – Wednesday 11th October 2023**
 Conference recording on YouTube:<https://www.youtube.com/watch?v=3uSbLT7ISPc>
@@ -69,7 +67,7 @@ There were plenty of workshops available through the NHS-R/NHS.pycom Online Conf
 
 I would have loved to be able to attend all the workshops, but unfortunately it was not possible, but I enjoyed the following five ones, with a great combination of advanced statistical analysis and visualization techniques. 
 
-NHS-R/NHS.pycom Online Conference Workshop 2023 – Modelling non-linear data with Generalized Additive Models (GAMs), using the mgcv package
+NHS-R/NHS.pycom Online Conference Workshop 2023 – Modelling non-linear data with Generalized Additive Models (GAMs), using the {mgcv} package
 
 <https://nhsrcommunity.com/events/nhs-r-nhs-pycom-online-conference-workshop-2023-modelling-non-linear-data-with-generalized-additive-models-gams-using-the-mgcv-package/>
 
@@ -92,7 +90,7 @@ Workshop recording on YouTube: <https://www.youtube.com/watch?v=wOk7wDsHD8o>
 
 ## 4. Final takeaway ideas from last year conference
 
-- The NHS-R NHS-R/NHS.pycom Online Conference Talks 2023 is a source of inspiration for Analysts working with R and Python, from both Keynote, Plenary and Lightning Talks.
+- The NHS-R NHS-R/NHS.pycom Online Conference Talks 2023 is a source of inspiration for Analysts working with R and Python, from both Keynote, Plenary and Lightning Talks.
 
 - Is also a great opportunity to meet analysts and developers from the NHS and also other Organisations and companies, allowing you to network and match specific projects with the people and teams developing it. Great to see the faces behind all these big projects.
 
