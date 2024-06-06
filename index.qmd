@@ -14,19 +14,6 @@ about:
   template: solana
   image-width: 32em
   id: hero-heading
-  links:
-    - icon: mailbox
-      href: mailto:nhs.rcommunity@nhs.net
-      aria-label: Email
-    - icon: mastodon
-      href: https://fosstodon.org/@NHSrCommunity
-      aria-label: Mastodon
-    - icon: github
-      href: https://github.com/nhs-r-community
-      aria-label: GitHub
-    - icon: linkedin
-      href: https://www.linkedin.com/in/nhs-r-community-2555a6282/
-      aria-label: LinkedIn
 
 listing:
   - id: books
@@ -58,17 +45,9 @@ listing:
 <br><br>
 
 ::: {#hero-heading}
-### Together we aim to promote the use of R in the NHS.
+### Together we aim to promote the use of R in the NHS
 
 so that we can help improve our health and social care system using open-source data science solutions.
-:::
-
-<a href="books/index.qmd">
-
-## Books
-</a> 
-
-::: {#books}
 :::
 
 <a href="blog/index.qmd">
@@ -77,4 +56,12 @@ so that we can help improve our health and social care system using open-source 
 </a> 
 
 ::: {#blog}
+:::
+
+<a href="books/index.qmd">
+
+## Books
+</a> 
+
+::: {#books}
 :::

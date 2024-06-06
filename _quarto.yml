@@ -29,19 +29,25 @@ website:
     right:
       - text: "About"
         href: about/index.qmd
+        aria-label: About page
       - text: Events
-        aria-label: "Events"
         href: https://nhsrcommunity.com/events
+        aria-label: Events website
       - text: "Books"
         href: books/index.qmd
+        aria-label: Books page
       - text: "Blogs"
         href: blog/index.qmd
+        aria-label: Blogs page
       - text: "Contact us"
         href: contact.qmd
+        aria-label: Contact page
       - text: "RSS feed"
         href: blog/index.xml
+        aria-label: RSS blog feed
       - text: Home
         href: index.qmd
+        aria-label: Home page
 
   page-footer:
     left: >-
@@ -58,19 +64,20 @@ website:
 
     right:
       - text: "Accessibility"
-        aria-label: "Accessibility Commitment"
         href: accessibility.qmd
+        aria-label: Accessibility Commitment
       - text: "Terms and Conditions"
-        aria-label: "Terms and Conditions"
         href: ts-and-cs.qmd
+        aria-label: Terms and Conditions
       - text: "Contact"
-        aria-label: "Contact Form"
         href: "contact.qmd"
+        aria-label: Contact Page
       - text: "Licence"
-        aria-label: "Licence Details"
         href: licence.qmd
+        aria-label: Licence Details
       - icon: rss
         href: blog/index.xml
+        aria-label: RSS blog feed
 
 format:
   html:

@@ -4,7 +4,7 @@ date-meta: 2024-02-14
 description: |
   Everything you need or want to know about NHS-R Community including: how to contribute and get involved, code styles, training preparation materials.
 image: book-image.jpg
-image-alt: Photo of an open book with glasses on it next to a tea cup with a flower design on a wooden tray. Next to the tray is a white pottery jug with purple small flowers and leaves.
+image-alt: Photo of an open book with glasses on it next to a tea cup and a white pottery jug with small flowers
 categories:
   - code-of-conduct
   - training
