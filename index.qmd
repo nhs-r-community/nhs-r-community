@@ -50,7 +50,7 @@ listing:
 so that we can help improve our health and social care system using open-source data science solutions.
 :::
 
-<a href="blog/index.qmd">
+<a href="blog/index.qmd" aria-label="Blog page">
 
 ## Blog
 </a> 
@@ -58,7 +58,7 @@ so that we can help improve our health and social care system using open-source 
 ::: {#blog}
 :::
 
-<a href="books/index.qmd">
+<a href="books/index.qmd" aria-label="Books page">
 
 ## Books
 </a> 
