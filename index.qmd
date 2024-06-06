@@ -56,8 +56,6 @@ so that we can help improve our health and social care system using open-source 
 </a> 
 
 ::: {#blog}
-
-Test
 :::
 
 <a href="books/index.qmd" aria-label="Books page">
