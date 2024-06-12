@@ -101,7 +101,7 @@ I use the `scale_fill_manual()` ggplot option to add the name to the legend, spe
 
 ```{r}
 #| eval: false
-#| label: final-plot
+#| label: plot
 ggplot(mtcars, aes(x = CarBrand, y = mpg_z_score, label = mpg_z_score)) +
   geom_bar(stat = "identity", aes(fill = mpg_type), width = .5) +
   scale_fill_manual(
@@ -121,7 +121,7 @@ Here, I have added the labs layer on to the plot. This is a way to label your pl
 The final chart, looks as illustrated hereunder:
 
 ```{r}
-#| label: final-plot
+#| label: plot
 #| echo: false
 ```
 
