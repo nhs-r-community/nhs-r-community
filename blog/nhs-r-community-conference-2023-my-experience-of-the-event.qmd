@@ -5,6 +5,8 @@ date-modified: "4 June 2024"
 categories:
   - Conference
 author: Pablo Leon-Rodenas
+image: img/2023-nhsr-conference.jpg
+image-alt: "Photo of the NHS-R/NHS.pycom image projected on the Cricket large screen at Edgbaston"
 subtitle: >
     "Reflections on the 2023 Conference"
 ---
