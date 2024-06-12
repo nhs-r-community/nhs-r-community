@@ -7,6 +7,8 @@ categories:
   - RMarkdown
   - Quarto
 author: Zoë Turner
+image: img/screenshot-github-settings.PNG
+image-alt: "Screenshot of the settings page on GitHub"
 subtitle: >
   "Publish free through GitHub"
 execute:
