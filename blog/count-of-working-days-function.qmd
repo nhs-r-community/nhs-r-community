@@ -7,9 +7,6 @@ categories:
   - Functions
 subtitle: >
   Creating a function to work out the number of working days a seasonal bus ticket can be used.
-execute:
-  freeze: true
-  echo: true
 image: img/travelcard.jpg
 image-alt: "A London rail travel ticket"
 ---
