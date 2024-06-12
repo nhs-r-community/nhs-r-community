@@ -9,7 +9,6 @@ categories:
 author: Gary Hutson
 subtitle: >
   "These charts are highly utilised in Six Sigma circles and conform to the Pareto Principle."
-code-annotations: below
 ---
 
 ```{r}
