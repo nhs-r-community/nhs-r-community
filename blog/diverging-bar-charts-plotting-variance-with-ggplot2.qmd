@@ -102,6 +102,7 @@ I use the `scale_fill_manual()` ggplot option to add the name to the legend, spe
 ```{r}
 #| eval: false
 #| label: plot
+library(ggplot2)
 ggplot(mtcars, aes(x = CarBrand, y = mpg_z_score, label = mpg_z_score)) +
   geom_bar(stat = "identity", aes(fill = mpg_type), width = .5) +
   scale_fill_manual(
