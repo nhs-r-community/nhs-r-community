@@ -122,7 +122,6 @@ The final chart, looks as illustrated hereunder:
 
 ```{r}
 #| label: final-plot
-#| eval: true
 #| echo: false
 ```
 
