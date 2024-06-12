@@ -121,6 +121,7 @@ Here, I have added the labs layer on to the plot. This is a way to label your pl
 The final chart, looks as illustrated hereunder:
 
 ```{r}
+#| label: final-plot
 #| eval: true
 #| echo: false
 ```
