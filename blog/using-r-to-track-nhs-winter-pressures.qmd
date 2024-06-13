@@ -611,6 +611,7 @@ plot(data_json)
 ```
 
 ```{r}
+#| fig-alt: "Boundaries of Sustainability and Transformation Partnerships in England (2017). Data source: ONS."
 tmp_geojson <- tempfile(fileext = ".geojson")
 download.file(
   "https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/STP_Feb_2017_SGCB_in_England_2022/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson",
@@ -622,6 +623,80 @@ ggplot(my_sf) +
   theme_void()
 ```
 
+Before spatial objects can be used with {ggplot}, they have to be converted to a data frame. This can be done using the `tidy()` function from the {broom} package. To add our data to the map, we then merged the resulting data frame with the winter data.
+
+:::{.callout-warning collapse=false appearance='default' icon=true}
+## Deprecated functions
+! `tidy.SpatialPolygonsDataFrame()` was deprecated in broom 1.0.4 and is now defunct.
+ℹ Please use functions from the sf package, namely `sf::st_as_sf()`, in favor of sp tidiers.
+:::
+
+The `cut()` function provided a convenient way to divide the variable bed.occupancy into meaningful intervals and to add labels that could be displayed on the map. Converting variables into factors and ordering the factor levels using `factor()` ensured that the intervals and months were in the right order. We were then ready to plot and save the map:
+
+```{r}
+# to use ggplot for maps, we first need to turn sp data into a data frame
+# make sure the region argument so as not to lose the STP identifiers
+data_json_df <- tidy(data_json, region = "stp17cd")
+
+# Join with the winter indicator data aggregated by month
+STP_shape_monthly <- data_json_df %>%
+  left_join(Sitrep_monthly_average_bySTP, by = c("id" = "STP_code"))
+
+STP_shape_monthly <- STP_shape_monthly %>%
+  # Divide variable into invervals and turn into factors
+  mutate(
+    occupancy.rate.cut = cut(occupancy.rate,
+      breaks = c(0, 0.85, 0.9, 0.95, 1),
+      labels = c("85% or less", "85-90%", "90-95%", "over 95%")
+    ),
+    occupancy.rate.cut = factor(as.character(occupancy.rate.cut),
+      levels = rev(levels(occupancy.rate.cut))
+    )
+  ) %>%
+  # Remove lines relating England as a whole
+  filter(!is.na(STP)) %>%
+  # Turn STPs and months into factors (ignoring March)
+  mutate(
+    id = factor(id, levels = unique(id)),
+    month = factor(month, levels = c("December", "January", "February"))
+  ) %>%
+  filter(!is.na(month))
+
+# Plot and save the map
+map_monthly_bedocc <- ggplot() +
+  geom_polygon(
+    data = STP_shape_monthly,
+    aes(x = long, y = lat, group = group, fill = occupancy.rate.cut),
+    colour = "white"
+  ) +
+  # Remove grud lines
+  theme_void() +
+  # Ensure correct aspect ratio
+  coord_map() +
+  # Facet by month
+  facet_grid(. ~ month, switch = "x") +
+  # Define colour palette
+  scale_fill_manual(values = c("#dd0031", "#ee7074", "#f2a0a2", "#aad3e5"), drop = FALSE) +
+  guides(fill = guide_legend(ncol = 2, byrow = FALSE, label.hjust = 0)) +
+  labs(title = "Mean bed occupancy during winter 2018/19") +
+  # Other design choices
+  theme(
+    plot.title = element_text(size = 25 * ggplot2:::.pt, colour = "#005078", margin = margin(b = 15, unit = "mm")),
+    plot.margin = margin(t = 30, l = 22, b = 30, r = 22, unit = "mm"),
+    legend.background = element_rect(fill = NA),
+    legend.justification = c(1, 0),
+    legend.key = element_blank(),
+    legend.margin = margin(b = 10, l = 20, unit = "mm"),
+    legend.text = element_text(size = 16 * ggplot2:::.pt, colour = "#524c48"),
+    legend.title = element_blank(),
+    legend.position = "top",
+    legend.spacing.x = unit(10, "mm"),
+    legend.spacing.y = unit(10, "mm"),
+    strip.text = element_text(size = 16 * ggplot2:::.pt, colour = "#524c48", margin = margin(b = 10))
+  )
+
+ggsave("Bedocc_monthly_map.png", map_monthly_bedocc, device = "png", width = 650, height = 400, units = c("mm"))
+```
 
 
 This blog has been formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation) and edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text) and to ensure running of code in Quarto.
