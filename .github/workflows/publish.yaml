@@ -46,10 +46,6 @@ jobs:
           missing = checklist::install_missing_pkgs(dir = "./", glob = "*.qmd")
         shell: Rscript {0}
 
-      - name: Install sf
-        run: |
-          R -e 'install.packages("sf")'
-
       - uses: actions/cache@v4
         with:
           key: freeze
