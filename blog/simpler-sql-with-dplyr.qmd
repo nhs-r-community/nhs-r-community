@@ -1,26 +1,26 @@
 ---
-title: "Simpler SQL with dplyr"
+title: "Simpler SQL with {dplyr}"
 date: "7 June 2018"
 date-modified: '24 February 2024'
 categories:
   - R tips
   - SQL
-  - dplyr
+  - {dplyr}
   - Patient Flow
 author: John MacKintosh
 subtitle: >
-  "Comparing dplyr with SQL nested queries"
+  "Comparing {dplyr} with SQL nested queries"
 execute: 
   eval: false
 image: img/flow-patient-data.png  
 ---
 
-# Comparing dplyr with SQL nested queries
+# Comparing {dplyr} with SQL nested queries
 
 Following on from my last
 [post](https://johnmackintosh.net/blog/2018-05-13-apha-scotland-it-s-a-thing/),
 where I demonstrated R to some first time R users, I want to do a wee
-comparison of dplyr V SQL, so that folks, particularly those in the NHS
+comparison of {dplyr} V SQL, so that folks, particularly those in the NHS
 who might be R curious, can see just what the fuss is about.
 
 To do so I want to recap on the example I showed at the AphA Scotland 
@@ -33,7 +33,7 @@ where we are looking
 This relies on a spreadsheet that Neil originally put together. Part of
 my demo was to explain how to recreate the visualisation in R, but I
 also showed some of the data transformation steps carried out using
-dplyr and some fellow tidyverse helpers.
+{dplyr} and some fellow {tidyverse} helpers.
 
 In this post I want to focus on that a but further, by showing the SQL
 code I would write to arrive at the same end result.
@@ -72,7 +72,7 @@ GO
 You’d need to replace the database and table names to suit. I’m not
 going to explain the code for flooring the datetime field - just know
 that it works, but you may want to compare the syntax for the case when
-statement with the equivalent dplyr code ( see later).
+statement with the equivalent {dplyr} code (see later).
 
 Here is the table output - with the 2 new columns at the end:
 
@@ -85,7 +85,7 @@ minute segment, staging post and whether this was a movement in or out.
 
 One way to do this is to wrap the original query inside another query,
 so that our newly created counter column can be utilised. This is a
-similar idea to the the method of mutating a column in dplyr, and having
+similar idea to the the method of mutating a column in {dplyr}, and having
 it available within the next pipe.
 
 We have to make use of SQL’s windowing functionality to create virtual
@@ -197,11 +197,11 @@ This gives us our final output:
 
 ![](img/flow-patient-data-movement15.png){fig-alt="The same screenshot as before of fake data with the column Movement_15_SEQNO added to the end"}
 
-A reminder of the dplyr code I used:
+A reminder of the {dplyr} code I used:
 
 ```{r}
 plot_data <- data %>%
-mutate(Movement15 = lubridate::floor_date(MovementDateTime,"15 minutes")) %>%
+mutate(Movement15 = {lubridate}::floor_date(MovementDateTime,"15 minutes")) %>%
 group_by(IN_OUT, Movement_Type,Staging_Post,Movement15) %>%
 mutate(counter = case_when(
 IN_OUT == 'IN' ~ 1,
@@ -222,19 +222,21 @@ it. It’s a similar idea in that you create virtual tables with queries
 that then run top to bottom until you get your final output. However
 that is a post for another day :)
 
-**What I hope you get from this post is that dplyr and other packages
-(lubridate for example) really do make life easier for data
+**What I hope you get from this post is that {dplyr} and other packages
+({lubridate} for example) really do make life easier for data
 manipulation.**
 
-Look at the SQL for flooring the date, compared to the lubridate call.
+Look at the SQL for flooring the date, compared to the {{lubridate}} call.
 Look at the elegance of mutating new columns and having them available
 within the next chain, compared to horrendous multi-layered nested
 queries (this one was pretty tame - imagine a few more levels on top of
 that). You can see how traditional SQL can get unwieldy.
 
-Dplyr is a fantastic asset to the R community, and I hope it might prove
+{dplyr} is a fantastic asset to the R community, and I hope it might prove
 to be a great hook to get R further established within the analytical
 departments of the NHS.
 
 This blog was written by John MacKintosh, [NHS](http://www.scot.nhs.uk/) data analyst based in
-Inverness, Scotland, and was originally posted on his blog site [johnmackintosh.net]](https://johnmackintosh.net/blog/2018-05-31-dplyr-for-the-win/).
+Inverness, Scotland, and was originally posted on his blog site [johnmackintosh.net](https://johnmackintosh.net/blog/2018-05-31-{dplyr}-for-the-win/).
+
+This blog has been edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text).
