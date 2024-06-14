@@ -35,11 +35,11 @@ We hope that this blog will inspire others to do the same, and to share their co
 
 # 1. R packages we used
 
-The {[tidyverse}](https://www.tidyverse.org/) collection of R packages is a useful set of tools for data analysis and visualisation that are designed to work together. It contains the [{ggplot}](https://ggplot2.tidyverse.org/) package, which we use for visualisations. (Need help getting started with R and the {tidyverse}? Try the [R for Data Science](https://r4ds.hadley.nz/) website).
+The [{tidyverse}](https://www.tidyverse.org/) collection of R packages is a useful set of tools for data analysis and visualisation that are designed to work together. It contains the [{ggplot}](https://ggplot2.tidyverse.org/) package, which we use for visualisations. 
 
-We use a function from the {readxl} package to import Excel files and the {lubridate} package, which makes working with dates a lot easier. Both are part of the {tidyverse}, but not loaded automatically along with the {tidyverse} package.
+(Need help getting started with R and the {tidyverse}? Try the [R for Data Science](https://r4ds.hadley.nz/) website).
 
-The {geojsonio} package is one option that helps us import geographic data structures, such as STP boundaries. The {broom} and {maptools} packages are then needed to prepare these for visualisation with {ggplot.}
+We use a function from the {readxl} package to import Excel files and the {lubridate} package, which makes working with dates a lot easier. Both are part of the {tidyverse}.
 
 ```{r}
 library(tidyverse)
