@@ -1,14 +1,12 @@
 ---
 title: "Using R to track NHS winter pressures"
 date: "14 March 2019"
-date-modified: '12 June 2024'
+date-modified: "12 June 2024"
 categories:
   - NHS
 author: Fiona Grimm
 subtitle: >
   "I created an app which shows the distribution of a waitlist’s volume over time."
-execute: 
-  eval: false
 ---
 
 **Every Thursday during winter, roughly from December to March, NHS Digital releases a week’s worth of hospital performance data,** known as the [Daily Situation Reports](https://www.england.nhs.uk/statistics/statistical-work-areas/winter-daily-sitreps/winter-daily-sitrep-2018-19-data/). This data often receives media attention because cold weather and seasonal illnesses can lead to higher demand for hospital care, meaning that services might be under increased pressure. At the [Health Foundation](https://www.health.org.uk/), one of our aims is to provide new insight into the quality of health care through in-depth analysis of policy and data. So, to understand more about the current demand for hospital care and the challenges the NHS is facing, [we keep a close eye on the latest seasonal trends](https://www.health.org.uk/news-and-comment/blogs/the-nhs-this-winter-looking-beneath-the-national-view).
@@ -46,10 +44,7 @@ The {geojsonio} package is one option that helps us import geographic data struc
 ```{r}
 library(tidyverse)
 library(readxl)
-# library(lubridate) Now in the {tidyverse} package
-library(broom)
-library(geojsonio)
-# library(maptools) # Removed from CRAN 2023-10-16
+library(sf)
 ```
 
 Note: if you would like to run this code in your own R session and you haven’t installed these packages already, you will need to do so (once) using the `install.packages()` function.
@@ -59,11 +54,24 @@ Note: if you would like to run this code in your own R session and you haven’t
 After setting up the tools, we downloaded Winter Daily SitRep 2018–19 Data from the NHS Digital website. Rather than opting for the spreadsheets that contain one week of data each, we went for the more convenient time series file, which contains all data from this winter up to the latest release. One drawback is that the name of this file changes weekly as new data is added (so, should you try to use this code at a later date, you will probably have to adapt the file name).
 
 ```{r}
+#| eval: false
+
 # Download file
 filename <- "Winter-data-timeseries-20190307.xlsx"
 url <- "https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2019/03/Winter-data-timeseries-20190307.xlsx"
 
 download.file(url, destfile = filename, mode = "wb")
+```
+
+```{r}
+#| echo: false
+# For the website file is not downloaded but available as an object
+
+library(httr)
+url <- "https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2019/03/Winter-data-timeseries-20190307.xlsx"
+
+GET(url, write_disk(filename <- tempfile(fileext = ".xlsx")))
+
 ```
 
 # 3. Data import from R-unfriendly spreadsheets
@@ -145,7 +153,7 @@ import_sitrep <- function(file, indicator) {
 
   # Extract first header line containing dates and fill the gaps:
   # Read 2 lines but guess the data types only from the first row
-  # Based on the first line, the function exptects dates and
+  # Based on the first line, the function expects dates and
   # convert the second row to NA
   # As a result, the right length is preserved.
   header_1 <- read_xlsx(path = file, sheet = indicator, skip = 13, col_names = FALSE, n_max = 2, guess_max = 1)
@@ -204,6 +212,7 @@ Sitrep_daily <- sheets_to_import %>%
   )
 ```
 
+
 ```{r}
 #| eval: false
 # What does our data look like now?
@@ -237,7 +246,6 @@ This applies to Birmingham Women’s and Children’s NHS Foundation Trust (code
 trusts_to_exclude_for_aggregation <- c("RQ3", "RBS", "RCU")
 ```
 
-
 ## How we approached defining ‘missingness’: when is a zero not a zero?
 
 Data collection and validation errors do happen, so finding suspicious data points is an important step during data cleaning.
@@ -268,7 +276,10 @@ cols_to_check <- c(
 # within any trust/variable combination
 Sitrep_missing_or_zero <- Sitrep_daily %>%
   filter(name != "ENGLAND") %>%
-  gather(cols_to_check, key = "variable", value = "value") %>%
+# Updated code from `gather(cols_to_check, key = "variable", value = "value") %>%`
+  pivot_longer(cols = cols_to_check, 
+               names_to = "variable",
+               values_to = "value") %>%
   filter(value == 0 | is.na(value)) %>%
   # Sort and assign a period ID to consecutive days
   arrange(code, variable, date) %>%
@@ -288,6 +299,7 @@ Days_missing <- Sitrep_missing_or_zero %>%
 ```
 
 ```{r}
+#| eval: false
 print(Days_missing[Days_missing$days >= 4, ])
 
 # # A tibble: 11 x 4
@@ -318,7 +330,6 @@ Based on this, all variables from the trusts RTD, RQW and RAX were excluded from
 It’s worth noting that with this data-driven approach different trusts might be excluded each year and the number of excluded trusts could change over the winter period as new ‘gaps’ appear. Keep this in mind when making comparisons, both throughout the winter period and between years.
 
 ```{r}
-#| eval: false
 trusts_to_exclude <- Days_missing %>%
   filter(days >= 4) %>%
   ungroup() %>%
@@ -404,12 +415,12 @@ Based on the data before and after the zeroes, these were unlikely to be true va
 ##### Original code (base R) gives error "Error in `na_if()`:! Can't convert `y` <double> to match type of `x` <tbl_df>."
 
 # Create a 'clean' version where 0s were replaced with NA
-Sitrep_daily[cols_to_check] <- na_if(Sitrep_daily[cols_to_check], 0)
+# Sitrep_daily[cols_to_check] <- na_if(Sitrep_daily[cols_to_check], 0)
 ```
 
 ```{r}
 #| fig-alt: "After cleaning: plots showing the same trusts after replacing zeros with NA."
-# Coded to na using {tidyverse} functions and then plotted - edit 20240612
+# Coded to na using {tidyverse} functions and then plotted
 Sitrep_daily_na <- Sitrep_daily |>
   mutate(across(where(is.numeric), ~ na_if(., 0)))
 
@@ -465,7 +476,9 @@ Sitrep_daily[
 # 3 -     2019-02-08          93931                 3718           97080                 97649
 # 4 R1H   2019-02-08           1270                   80             781                  1350
 # 5 RXK   2018-12-16            587                   22             599                   609
+```
 
+```{r}
 # Looks like we will have to re-derive both variables after all
 Sitrep_daily <- Sitrep_daily %>%
   mutate(
@@ -499,8 +512,6 @@ We think this is a reasonable approach when analysing winter indicators, which m
 Once we had this lookup table, we imported it into R and merged it with the winter indicators:
 
 ```{r}
-#| eval: false
-
 STP_lookup <- read_csv("https://raw.githubusercontent.com/HFAnalyticsLab/Winter_pressures/85313135c7dee393f52fa47596f04eb390bc43a3/Trust-STP-lookup.csv")
 
 # join by code only to avoid any problems due to inconsistencies in spelling
@@ -601,13 +612,13 @@ To map the code was edited to {ggplot2} following [R gallery](https://r-graph-ga
 # Download and read file containing STP shapes from the ONS website
 # We use the smaller, generalised version for mapping rather than the full boundaries
 
-STP_geojson_filename <- "Sustainability_and_Transformation_Partnerships_February_2017_Ultra_Generalised_Clipped_Boundaries_in_England.geojson.json"
-STP_geojson_url <- "http://geoportal1-ons.opendata.arcgis.com/datasets/571bd4512165461fad70a0ccc36450e4_4.geojson"
-
-download.file(STP_geojson_url, STP_geojson_filename)
-data_json <- geojson_read(STP_geojson_filename, what = "sp")
-
-plot(data_json)
+# STP_geojson_filename <- "Sustainability_and_Transformation_Partnerships_February_2017_Ultra_Generalised_Clipped_Boundaries_in_England.geojson.json"
+# STP_geojson_url <- "http://geoportal1-ons.opendata.arcgis.com/datasets/571bd4512165461fad70a0ccc36450e4_4.geojson"
+# 
+# download.file(STP_geojson_url, STP_geojson_filename)
+# data_json <- geojson_read(STP_geojson_filename, what = "sp")
+# 
+# plot(data_json)
 ```
 
 ```{r}
@@ -618,29 +629,18 @@ download.file(
   tmp_geojson
 )
 
+my_sf <- read_sf(tmp_geojson)
+
 ggplot(my_sf) +
   geom_sf() +
   theme_void()
 ```
 
-Before spatial objects can be used with {ggplot}, they have to be converted to a data frame. This can be done using the `tidy()` function from the {broom} package. To add our data to the map, we then merged the resulting data frame with the winter data.
-
-:::{.callout-warning collapse=false appearance='default' icon=true}
-## Deprecated functions
-! `tidy.SpatialPolygonsDataFrame()` was deprecated in broom 1.0.4 and is now defunct.
-ℹ Please use functions from the sf package, namely `sf::st_as_sf()`, in favor of sp tidiers.
-:::
-
 The `cut()` function provided a convenient way to divide the variable bed.occupancy into meaningful intervals and to add labels that could be displayed on the map. Converting variables into factors and ordering the factor levels using `factor()` ensured that the intervals and months were in the right order. We were then ready to plot and save the map:
 
 ```{r}
-# to use ggplot for maps, we first need to turn sp data into a data frame
-# make sure the region argument so as not to lose the STP identifiers
-data_json_df <- tidy(data_json, region = "stp17cd")
-
-# Join with the winter indicator data aggregated by month
-STP_shape_monthly <- data_json_df %>%
-  left_join(Sitrep_monthly_average_bySTP, by = c("id" = "STP_code"))
+STP_shape_monthly <- my_sf |> 
+  left_join(Sitrep_monthly_average_bySTP, by = c("stp17cd" = "STP_code"))
 
 STP_shape_monthly <- STP_shape_monthly %>%
   # Divide variable into invervals and turn into factors
@@ -657,46 +657,63 @@ STP_shape_monthly <- STP_shape_monthly %>%
   filter(!is.na(STP)) %>%
   # Turn STPs and months into factors (ignoring March)
   mutate(
-    id = factor(id, levels = unique(id)),
-    month = factor(month, levels = c("December", "January", "February"))
+    id = factor(stp17cd,
+      levels = unique(stp17cd)
+    ),
+    month = factor(month,
+      levels = c("December", "January", "February")
+    )
   ) %>%
   filter(!is.na(month))
 
 # Plot and save the map
-map_monthly_bedocc <- ggplot() +
-  geom_polygon(
-    data = STP_shape_monthly,
-    aes(x = long, y = lat, group = group, fill = occupancy.rate.cut),
-    colour = "white"
-  ) +
-  # Remove grud lines
+ggplot(STP_shape_monthly, aes(x = long,
+                              y = lat,
+                              fill = occupancy.rate.cut)) +
+  geom_sf(colour = "white") +
+  # Remove grid lines
   theme_void() +
   # Ensure correct aspect ratio
-  coord_map() +
+  coord_sf() +
   # Facet by month
   facet_grid(. ~ month, switch = "x") +
   # Define colour palette
   scale_fill_manual(values = c("#dd0031", "#ee7074", "#f2a0a2", "#aad3e5"), drop = FALSE) +
   guides(fill = guide_legend(ncol = 2, byrow = FALSE, label.hjust = 0)) +
-  labs(title = "Mean bed occupancy during winter 2018/19") +
+  labs(title = "Average bed occupancy within STPs during winter 2018/19") + 
   # Other design choices
   theme(
-    plot.title = element_text(size = 25 * ggplot2:::.pt, colour = "#005078", margin = margin(b = 15, unit = "mm")),
-    plot.margin = margin(t = 30, l = 22, b = 30, r = 22, unit = "mm"),
-    legend.background = element_rect(fill = NA),
+    plot.title = element_text(size = 16, colour = "#005078", margin = margin(b = 15, unit = "mm")),
     legend.justification = c(1, 0),
     legend.key = element_blank(),
-    legend.margin = margin(b = 10, l = 20, unit = "mm"),
-    legend.text = element_text(size = 16 * ggplot2:::.pt, colour = "#524c48"),
+    legend.margin = margin(t = 5, b = 5, l = 10, r = 10, unit = "mm"),
+    legend.text = element_text(colour = "#524c48"),
     legend.title = element_blank(),
     legend.position = "top",
     legend.spacing.x = unit(10, "mm"),
     legend.spacing.y = unit(10, "mm"),
-    strip.text = element_text(size = 16 * ggplot2:::.pt, colour = "#524c48", margin = margin(b = 10))
+    strip.text = element_text(colour = "#524c48", margin = margin(b = 10))
   )
 
-ggsave("Bedocc_monthly_map.png", map_monthly_bedocc, device = "png", width = 650, height = 400, units = c("mm"))
 ```
 
+How could we have improved this map further? One option might have been to interactively display STP averages when hovering over the map using the [{plotly}](https://r-graph-gallery.com/interactive-charts) package, for example.
 
-This blog has been formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation) and edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text) and to ensure running of code in Quarto.
+# 8.  What have we learned?
+
+Lots! No, seriously… Using this workflow, rather than copy and paste, has saved us a lot of time this winter. But beyond that, creating (then revisiting and improving) this workflow turned out to be a great way to work together and to make our analysis more transparent, more reproducible and easier to understand.
+
+Key points we are taking away:
+
+- With trusts, CCGs, STPs, ICSs, and more to choose from when we’re looking at local variation within health care systems, **it can be challenging to pick the right organisational level**. Local health care structures are also changing and evolving rapidly. We need to do more thinking about which level is most informative and compare different option, suggestions are welcome.
+- **Some cleaning is a must**. Winter data has a quick turnaround and NHS Digital only perform minimal validation. However, compared to previous years, the 2018/19 winter data quality has markedly improved (you can use our code to check the improvement for yourself).
+- But **cleaning decisions impact interpretability**. If the list of excluded trusts changes between years (based on how well they are reporting in any given year), this makes the data less comparable year-on-year.
+- **We’ll play it safe with derived variables**. The effort of rederiving them ourselves was worth it for the peace of mind we got from knowing that they were calculated consistently and meant exactly what we thought they meant.
+- Next winter, **our future selves will be very happy** to have our analysis nicely documented with code that is ready to go. It should even be easy to adapt the same workflow for other open NHS data sets (we’ll save this for another time).
+
+**Editor note:**
+- Updating this blog from 2019 in 2024 required a number of changes to functions and packages but the code was easier to change and debug than to build from scratch, particularly for someone who isn't familiar with any mapping or geospatial coding! 
+
+{tidyverse} was used in recoding where the original was sometimes in base R.
+
+This blog has been formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation) and edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text) and to ensure running of code in Quarto and to update deprecated functions.
