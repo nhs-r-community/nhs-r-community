@@ -200,14 +200,16 @@ This gives us our final output:
 A reminder of the {dplyr} code I used:
 
 ```{r}
+library(tidyverse)
+
 plot_data <- data %>%
-mutate(Movement15 = {lubridate}::floor_date(MovementDateTime,"15 minutes")) %>%
-group_by(IN_OUT, Movement_Type,Staging_Post,Movement15) %>%
-mutate(counter = case_when(
-IN_OUT == 'IN' ~ 1,
-IN_OUT == 'OUT' ~ -1)) %>%
-mutate(Movement_15_SEQNO = cumsum(counter)) %>%
-ungroup()
+  mutate(Movement15 = {lubridate}::floor_date(MovementDateTime,"15 minutes")) %>%
+  group_by(IN_OUT, Movement_Type,Staging_Post,Movement15) %>%
+  mutate(counter = case_when(
+    IN_OUT == 'IN' ~ 1,
+    IN_OUT == 'OUT' ~ -1)) %>%
+  mutate(Movement_15_SEQNO = cumsum(counter)) %>%
+  ungroup()
 ```
 
 And here is the output - compare with above:

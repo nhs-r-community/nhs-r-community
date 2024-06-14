@@ -103,6 +103,8 @@ One of the comments on my last post suggested that we should use `if_else()`, in
 In addition, having created the counter field, we can make use of it straight away to create the sequence number within the same pipe. So our final {dplyr} code, (which works), looks like this:
 
 ```{r}
+library(tidyverse)
+
 plot_data <- data %>% 
   mutate(Movement15 = lubridate::floor_date(MovementDateTime,"15 minutes")) %>% 
   group_by(IN_OUT, Movement_Type,Staging_Post,Movement15) %>% 
