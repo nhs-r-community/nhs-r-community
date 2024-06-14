@@ -42,6 +42,7 @@ The [{tidyverse}](https://www.tidyverse.org/) collection of R packages is a usef
 We use a function from the {readxl} package to import Excel files and the {lubridate} package, which makes working with dates a lot easier. Both are part of the {tidyverse}.
 
 ```{r}
+#| include: false
 library(tidyverse)
 library(readxl)
 library(sf)
