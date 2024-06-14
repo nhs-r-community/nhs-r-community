@@ -48,10 +48,7 @@ jobs:
 
       - name: Install sf
         run: |
-          install.packages("sf")
-        shell: Rscript {0}
-        env:
-          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+          R -e 'install.packages("sf")'
 
       - uses: actions/cache@v4
         with:
