@@ -203,7 +203,7 @@ A reminder of the {dplyr} code I used:
 library(tidyverse)
 
 plot_data <- data %>%
-  mutate(Movement15 = {lubridate}::floor_date(MovementDateTime,"15 minutes")) %>%
+  mutate(Movement15 = lubridate::floor_date(MovementDateTime,"15 minutes")) %>%
   group_by(IN_OUT, Movement_Type,Staging_Post,Movement15) %>%
   mutate(counter = case_when(
     IN_OUT == 'IN' ~ 1,
