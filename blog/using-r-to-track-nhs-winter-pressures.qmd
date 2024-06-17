@@ -7,6 +7,8 @@ categories:
 author: Fiona Grimm
 subtitle: >
   "I created an app which shows the distribution of a waitlist’s volume over time."
+execute: 
+  eval: false
 ---
 
 **Every Thursday during winter, roughly from December to March, NHS Digital releases a week’s worth of hospital performance data,** known as the [Daily Situation Reports](https://www.england.nhs.uk/statistics/statistical-work-areas/winter-daily-sitreps/winter-daily-sitrep-2018-19-data/). This data often receives media attention because cold weather and seasonal illnesses can lead to higher demand for hospital care, meaning that services might be under increased pressure. At the [Health Foundation](https://www.health.org.uk/), one of our aims is to provide new insight into the quality of health care through in-depth analysis of policy and data. So, to understand more about the current demand for hospital care and the challenges the NHS is facing, [we keep a close eye on the latest seasonal trends](https://www.health.org.uk/news-and-comment/blogs/the-nhs-this-winter-looking-beneath-the-national-view).
