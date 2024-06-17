@@ -4,6 +4,11 @@ date: "14 March 2019"
 date-modified: "12 June 2024"
 categories:
   - NHS
+  - ggplot2
+  - dplyr
+  - base R
+image: img/av-bed-occ-stps.PNG
+image-alt: "Screenshot of the England STPs maps with average bed occupancy during winter 2018/19 coloured"
 author: Fiona Grimm
 subtitle: >
   "I created an app which shows the distribution of a waitlist’s volume over time."
@@ -640,6 +645,7 @@ ggplot(my_sf) +
 The `cut()` function provided a convenient way to divide the variable bed.occupancy into meaningful intervals and to add labels that could be displayed on the map. Converting variables into factors and ordering the factor levels using `factor()` ensured that the intervals and months were in the right order. We were then ready to plot and save the map:
 
 ```{r}
+#| classes: preview-image
 STP_shape_monthly <- my_sf |> 
   left_join(Sitrep_monthly_average_bySTP, by = c("stp17cd" = "STP_code"))
 
