@@ -19,7 +19,6 @@ listing:
   - id: books
     contents: 
     - /books
-    - "!books/index.qmd"
     sort: "title"
     type: grid
     categories: false
@@ -31,7 +30,6 @@ listing:
   - id: blog
     contents: 
     - /blog
-    - "!blog/index.qmd"
     sort: "date desc"
     type: grid
     categories: false
