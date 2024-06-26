@@ -10,8 +10,8 @@ It is a community that is broader than the NHS as members come from public secto
 Whilst R is a core language for support by the community, there is always support for data science tools more generally, particularly where they cross over with R.
 
 :::{.callout-warning collapse=false appearance='default' icon=true}
-## WordPress site availability (warning)
-This site is currently being moved from WordPress to Quarto and parts of the original site are currently unavailable (17/02/2024).
+## WordPress site
+This site is currently being moved from WordPress to Quarto. Once this is working and as compliant with accessibility as possible we will switch the nhsrcommunity url over.
 :::
 
 
