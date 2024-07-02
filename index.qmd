@@ -4,7 +4,6 @@ page-layout: full
 search: true
 image: img/spc_chart-1.png
 image-alt: "Statistical Process Control Chart of breaches showing the colours and logo from the \"Making Data Count\" programme"
-subtitle: "Promoting the Use of R in the UK Health & Care System"
 repo-actions: [edit, issue]
 comments: 
   giscus: 
@@ -45,9 +44,9 @@ listing:
 <br><br>
 
 ::: {#hero-heading}
-### Together we aim to promote the use of R in the NHS
+### Promoting the use of R and open analytics in health and care
 
-so that we can help improve our health and social care system using open-source data science solutions.
+Building a community of practice for data analysis and data science using open source software in the NHS and wider UK health and care system
 :::
 
 <a href="blog/index.qmd" aria-label="Blog page">
