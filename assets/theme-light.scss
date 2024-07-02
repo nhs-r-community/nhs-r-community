@@ -229,3 +229,30 @@ $footer-fg:                   $nhs-Pink;
       transition: 0.7s;
       color: white;
   }
+
+/*-- footer style --*/
+
+.footer-container {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 1em;
+  margin-top: 2.5em;
+}
+
+.footer-text p, .p {
+  color: white;
+  font-size: .875rem;
+  font-weight: 400;
+}
+
+.footer-block {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  box-sizing: border-box;
+}
+
+.white-background {
+  background-color: white;
+}
