@@ -40,8 +40,11 @@ website:
         href: blog/index.qmd
         aria-label: Blogs page
       - text: "Getting Started"
-        href: getting_started.qmd
-        aria-label: Contact page
+        href: getting-started.qmd
+        aria-label: Getting Started page
+      - text: "Get Involved"
+        href: get-involved.qmd
+        aria-label: Get Involved page
       - text: Home
         href: index.qmd
         aria-label: Home page
