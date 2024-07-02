@@ -67,7 +67,9 @@ This site uses [Google Analytics 4](https://support.google.com/analytics/answer/
 
 ## Code of conduct
 
-How to technically contribute to this website can be found in the [Statement on Tools](https://tools.nhsrcommunity.com/contribution.html) and the Code of Conduct can be found in the repository [Code of Conduct](./CODE_OF_CONDUCT.md).
+The NHS-R Community Code of Conduct is published in the [NHS-R Way](https://nhsrway.nhsrcommunity.com/code-of-conduct.html) book and covers our expectations of behaviour in all situations, including events.
+
+Contribution to this website/project can be found in the repository [Code of Conduct](./CODE_OF_CONDUCT.md).
 
 ## Notice and Takedown Policy
 ### includes sensitive data redaction
