@@ -1,0 +1,75 @@
+---
+title: "Get Involved"
+sidebar: false
+page-layout: article
+toc: false
+title-block-banner: false
+---
+
+## Get involved with NHS-R Community
+
+We welcome contributions to our activities which range in experience of technical knowledge.
+
+## No coding necessary
+
+### Corrections, comments or suggestions
+
+Commenting on Quarto books is possible through either logging in using Giscus which requires a GitHub account and details and pointers on setting up an account are in our slides for the [Introduction to Git and GitHub using R](https://intro-git-github.nhsrcommunity.com/session-prework.html#/github) or from Hypothes.is which can be seen as a pop out in the top right of every page of a book.
+
+Comments and suggestions can be shared with NHS-R Community in [Slack](https://nhsrcommunity.slack.com/).
+Slack is also a great place to let others know about projects or events you want to promote or think are of interest.
+
+We will also welcome comments through email at [nhs.rcommunity@nhs.net](https://nhsrcommunity.slack.com/).
+
+### Blogs
+
+We'd love to receive blogs for the website and these can be emailed to [nhs.rcommunity@nhs.net](https://nhsrcommunity.slack.com/).
+
+### YouTube
+
+We have nearly 200 videos on YouTube and although subtitles are automatically added by YouTube these require tidying so if you want to watch and correct text as you go along we'd welcome your help to improve the videos and make them more accessible.
+
+We use Clipchamp which is a free video editing program provided by Microsoft.
+
+Videos may also benefit from video chapters being added and notes on where to find resources that are referred to in the video. 
+Sometimes people add these into the comments and that's very welcome!
+
+### Podcasts
+
+We have podcasts on Soundcloud and although these have been mostly hosted by Chris Beeley, can be hosted by anyone.
+
+These are also being copied to YouTube so that subtitles can be added and, like the videos, often need corrections.
+
+### NHS-R Community Committee
+
+The NHS-R Community Committee meets regularly and details of what the Committee do and how to get involved is in our [NHS-Way book](https://nhsrway.nhsrcommunity.com/nhsr-committee.html).
+
+### Coffee and Coding
+
+We have a regular [coffee and coding](https://nhsrway.nhsrcommunity.com/community-handbook.html#coffee-and-coding) meeting where you can bring a question, some code you need help with or just come along to hear how about others' work.
+
+## Practising coding
+
+No matter where you are in your journey learning open source coding tools NHS-R Community welcomes contributions to the [GitHub repostories](https://github.com/nhs-r-community) where we have Quarto books, a website, R packages and training materials.
+This is an area for practising techniques as we don't hold sensitive data.
+
+Projects across our account use R, git, GitHub actions, [Docker](https://github.com/nhs-r-community/r_gh_actions), [R universe](https://github.com/nhs-r-community/nhs-r-community.r-universe.dev). 
+No project is "finished" and improvements can always be suggested, Pull Requests made and direct access given (where appropriate and agreed).
+
+### Tidying repositories
+
+Standardisation of projects has started with READMEs with templates for text in the [NHS-R Way](https://nhsrway.nhsrcommunity.com/style-guides.html#readmes-in-repositories) and shared resources like logos kept in an [asset](https://github.com/nhs-r-community/assets) repository.
+
+Further tidying will be needed with licences, protection of main branches and [recognising all contributors](https://github.com/all-contributors/all-contributors).
+
+### New projects
+
+We have many repositories and ongoing projects but if you have a project you'd like to start or share with us we are happy to host these too.
+We just ask that anything that is passed to our repository is open under the MIT or CC0 [licences](https://nhsrway.nhsrcommunity.com/style-guides.html#licences-to-use) and if you've used something else to just get in touch about it.
+
+## Teaching and sharing
+
+NHS-R Community hosts very popular, free, [workshops and webinars](https://nhsrway.nhsrcommunity.com/community-handbook.html) throughout the year.
+
+All our materials are free to use, copy and change and we publish all our [joining instructions](https://nhsrway.nhsrcommunity.com/training.html).
+

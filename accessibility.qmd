@@ -5,7 +5,7 @@ title: "Accessibility commitment"
 
 Return to [home page](/) or [about page](/about).
 
-Inspired from Silvia Canelon's [committment to accessiblity](https://silviacanelon.com/accessibility) NHS-R Community welcomes feedback on the accessibility of this site and any links to its materials including code and training materials.
+Inspired from Silvia Canelón's [committment to accessiblity](https://silviacanelon.com/accessibility) NHS-R Community welcomes feedback on the accessibility of this site and any links to its materials including code and training materials.
 
 Please let us know if you encounter any accessibility barriers by emailing [nhs.rcommunity@nhs.net](mailto:nhs.rcommunity@nhs.net).
 
@@ -15,7 +15,7 @@ This site has been designed with the following features in mind:
 
 - The colour palette is from [NHS branding](https://www.england.nhs.uk/nhsidentity/identity-guidelines/colours/).
 - Fonts are set to Arial which is an [NHS font](https://www.england.nhs.uk/nhsidentity/identity-guidelines/fonts/).
-- Alternative text for all informative images.
+- Alternative text for all images.
 
 We are aware there is much more to inclusive and accessible design and we welcome feedback on how to better implement accessibility practices. 
 Any learning will be used to improve the site but will also be shared with the community more widely through book resources like our [Open Analytics page](https://resources.nhsrcommunity.com/accessibility.html) where we have started to collect links that support greater Accessibility.

@@ -1,0 +1,22 @@
+---
+title: "Getting Started"
+sidebar: false
+page-layout: article
+toc: false
+title-block-banner: false
+---
+
+## Getting started with using open source tools and analysis
+
+To read about why open source tools and analysis can help with our work and to get specific technical guidance on setting up those tools see our book [Statement on Tools](https://tools.nhsrcommunity.com/).
+The technical appendices are written as instructions to get started but can also be shared with IT teams when getting things installed on networked computers and help to explain what is needed when asking for "R" on your computer.
+
+We have very popular, volunteer led, workshops for [Introduction to R and RStudio](https://nhsrcommunity.com/events/) and whilst they are really popular it’s worth going on the waiting list as we sometimes offer spare places or notify people on the list of new courses. We also promote them through Slack and you are welcome to join <https://nhsrcommunity.slack.com/>
+
+All the materials for our courses are free to use and reuse/change:
+
+- [Introduction to R and RStudio](https://intro-r-rstudio.nhsrcommunity.com/)
+- [Introduction to Quarto](https://intro-quarto.nhsrcommunity.com/)
+- [Introduction to Git and GitHub](https://intro-git-github.nhsrcommunity.com/) using R 
+
+And we have recordings in a YouTube Playlist called [Getting Started](https://www.youtube.com/watch?v=dS91HzZLD_c&list=PLXCrMzQaI6c1GC4P9zNw3N3dcfIUfvdEV&pp=iAQB).
