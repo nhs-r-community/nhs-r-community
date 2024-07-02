@@ -39,8 +39,8 @@ website:
       - text: "Blogs"
         href: blog/index.qmd
         aria-label: Blogs page
-      - text: "Contact us"
-        href: contact.qmd
+      - text: "Getting Started"
+        href: getting_started.qmd
         aria-label: Contact page
       - text: "RSS feed"
         href: blog/index.xml
@@ -70,8 +70,8 @@ website:
         href: ts-and-cs.qmd
         aria-label: Terms and Conditions
       - text: "Contact"
-        href: "contact.qmd"
-        aria-label: Contact Page
+        href: about/index.qmd
+        aria-label: Contacts on About Page
       - text: "Licence"
         href: licence.qmd
         aria-label: Licence Details
