@@ -42,9 +42,6 @@ website:
       - text: "Getting Started"
         href: getting_started.qmd
         aria-label: Contact page
-      - text: "RSS feed"
-        href: blog/index.xml
-        aria-label: RSS blog feed
       - text: Home
         href: index.qmd
         aria-label: Home page
