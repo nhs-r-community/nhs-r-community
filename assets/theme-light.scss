@@ -218,3 +218,14 @@ $footer-fg:                   $nhs-Pink;
     }
   }
 }
+
+.btn {
+  background-color: $nhs-BrightBlue;
+  color: $nhs-PaleGrey;
+}
+
+.btn:hover {
+      background-color: $nhs-LightBlue;
+      transition: 0.7s;
+      color: $nhs-PaleGrey;
+  }
