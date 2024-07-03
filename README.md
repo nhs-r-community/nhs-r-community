@@ -11,3 +11,14 @@ Details on how to contribute to an NHS-R Community GitHub repository can be foun
 
 Whilst this site is being built the current url [www.nhsrcommunity.com](www.nhsrcommunity.com) is directed to the WordPress site.
 All the blog posts are being saved under the original titles so that when this site is redirected to the [www.nhsrcommunity.com](www.nhsrcommunity.com) url they will be same as the WordPress.
+
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->

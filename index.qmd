@@ -83,7 +83,7 @@ Building a community of practice for data analysis and data science using open s
 :::
 
 ::: {.g-col-12 .g-col-md-2}
-<a alt="Strategy Unit's Yellow logo that looks like a speech bubble" href='https://www.strategyunitwm.nhs.uk/'><img src="https://raw.githubusercontent.com/The-Strategy-Unit/assets/main/logo_yellow.svg" align="left" height="80"/></a>
+<a href='https://www.strategyunitwm.nhs.uk/'><img src='https://raw.githubusercontent.com/The-Strategy-Unit/assets/main/logo_yellow.svg' alt="Strategy Unit's Yellow logo that looks like a speech bubble" align="left" height="80" /></a>
 :::
 
 ::: {.g-col-12 .g-col-md-2}
