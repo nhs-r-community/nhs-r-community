@@ -117,6 +117,15 @@
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "kurtstat",
+      "name": "Neil Pettinger",
+      "avatar_url": "https://avatars.githubusercontent.com/u/52818633?v=4",
+      "profile": "https://www.kurtosis.co.uk",
+      "contributions": [
+        "blog"
+      ]
     }
   ],
   "contributorsPerLine": 7,
