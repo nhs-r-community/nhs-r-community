@@ -14,49 +14,6 @@ Whilst R is a core language for support by the community, there is always suppor
 This site is currently being moved from WordPress to Quarto. Once this is working and as compliant with accessibility as possible we will switch the nhsrcommunity url over.
 :::
 
-
-## More information
-
-More can be found in individual books including:
-
-::: grid
-::: g-col-3
-#### NHS-R Way
-
-::: {#NHSRWay}
-:::
-
-[Link →](https://nhsrway.nhsrcommunity.com/){.about-links .subtitle}
-:::
-
-::: g-col-3
-#### Statement on Tools
-
-::: {#statement-on-tools}
-:::
-
-[Link →](https://tools.nhsrcommunity.com/){.about-links .subtitle}
-:::
-
-::: g-col-3
-#### Open Analytics Resources
-
-::: {#open-analytics-resources}
-:::
-
-[Link →](https://resources.nhsrcommunity.com/){.about-links .subtitle}
-:::
-
-::: g-col-3
-#### Training courses
-
-::: {#training-courses}
-:::
-
-[Link →](http://training.nhsrcommunity.com/){.about-links .subtitle}
-:::
-:::
-
 ## Contact us
 
 - **Email:** [nhs.rcommunity@nhs.net](mailto:nhs.rcommunity@nhs.net)
