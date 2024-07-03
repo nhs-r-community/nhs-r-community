@@ -108,6 +108,15 @@
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "sebastiz",
+      "name": "Gastroenterology Data Science",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9557821?v=4",
+      "profile": "http://gastrodatascience.com/",
+      "contributions": [
+        "blog"
+      ]
     }
   ],
   "contributorsPerLine": 7,

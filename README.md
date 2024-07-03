@@ -1,6 +1,6 @@
 # Source code for NHS-R Community website
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Following the values and commitment of the NHS-R Community to open source this website has been built in Quarto to be open in its code and further contribution.
@@ -36,6 +36,7 @@ All the blog posts are being saved under the original titles so that when this s
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/sebastian-fox"><img src="https://avatars.githubusercontent.com/u/26870222?v=4?s=100" width="100px;" alt="sebastian-fox"/><br /><sub><b>sebastian-fox</b></sub></a><br /><a href="#blog-sebastian-fox" title="Blogposts">📝</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/julianflowers12"><img src="https://avatars.githubusercontent.com/u/73796630?v=4?s=100" width="100px;" alt="Julian Flowers"/><br /><sub><b>Julian Flowers</b></sub></a><br /><a href="#blog-julianflowers12" title="Blogposts">📝</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/PHEgeorginaanderson"><img src="https://avatars.githubusercontent.com/u/29062912?v=4?s=100" width="100px;" alt="Georgina Anderson"/><br /><sub><b>Georgina Anderson</b></sub></a><br /><a href="#blog-PHEgeorginaanderson" title="Blogposts">📝</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://gastrodatascience.com/"><img src="https://avatars.githubusercontent.com/u/9557821?v=4?s=100" width="100px;" alt="Gastroenterology Data Science"/><br /><sub><b>Gastroenterology Data Science</b></sub></a><br /><a href="#blog-sebastiz" title="Blogposts">📝</a></td>
     </tr>
   </tbody>
 </table>
