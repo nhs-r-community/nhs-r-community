@@ -144,6 +144,15 @@
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "emmavestesson",
+      "name": "Emma Vestesson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31949401?v=4",
+      "profile": "https://emmavestesson.netlify.com/",
+      "contributions": [
+        "blog"
+      ]
     }
   ],
   "contributorsPerLine": 7,
