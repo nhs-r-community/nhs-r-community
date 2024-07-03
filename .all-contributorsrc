@@ -126,6 +126,15 @@
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "ivyleavedtoadflax",
+      "name": "Matt Upson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4583655?v=4",
+      "profile": "http://mantisnlp.com",
+      "contributions": [
+        "blog"
+      ]
     }
   ],
   "contributorsPerLine": 7,
