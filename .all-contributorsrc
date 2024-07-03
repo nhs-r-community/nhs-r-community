@@ -54,6 +54,15 @@
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "fiona-grimm",
+      "name": "fiona-grimm",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31844347?v=4",
+      "profile": "https://github.com/fiona-grimm",
+      "contributions": [
+        "blog"
+      ]
     }
   ],
   "contributorsPerLine": 7,
