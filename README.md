@@ -1,6 +1,6 @@
 # Source code for NHS-R Community website
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Following the values and commitment of the NHS-R Community to open source this website has been built in Quarto to be open in its code and further contribution.
@@ -29,6 +29,7 @@ All the blog posts are being saved under the original titles so that when this s
       <td align="center" valign="top" width="14.28%"><a href="https://tjmt.uk/"><img src="https://avatars.githubusercontent.com/u/12023696?v=4?s=100" width="100px;" alt="Tom Jemmett"/><br /><sub><b>Tom Jemmett</b></sub></a><br /><a href="https://github.com/nhs-r-community/nhs-r-community/commits?author=tomjemmett" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://johnmackintosh.net/blog"><img src="https://avatars.githubusercontent.com/u/3278367?v=4?s=100" width="100px;" alt="John MacKintosh"/><br /><sub><b>John MacKintosh</b></sub></a><br /><a href="#blog-johnmackintosh" title="Blogposts">📝</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/fiona-grimm"><img src="https://avatars.githubusercontent.com/u/31844347?v=4?s=100" width="100px;" alt="fiona-grimm"/><br /><sub><b>fiona-grimm</b></sub></a><br /><a href="#blog-fiona-grimm" title="Blogposts">📝</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://hutsons-hacks.info/"><img src="https://avatars.githubusercontent.com/u/44023992?v=4?s=100" width="100px;" alt="Gary Hutson"/><br /><sub><b>Gary Hutson</b></sub></a><br /><a href="#blog-statsgary" title="Blogposts">📝</a></td>
     </tr>
   </tbody>
 </table>
