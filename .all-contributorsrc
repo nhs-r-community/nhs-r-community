@@ -27,6 +27,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "Pablo-source",
+      "name": "Pablo Leon",
+      "avatar_url": "https://avatars.githubusercontent.com/u/76554081?v=4",
+      "profile": "https://github.com/Pablo-source",
+      "contributions": [
+        "blog"
+      ]
     }
   ],
   "contributorsPerLine": 7,
