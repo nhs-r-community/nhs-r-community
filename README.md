@@ -1,6 +1,6 @@
 # Source code for NHS-R Community website
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Following the values and commitment of the NHS-R Community to open source this website has been built in Quarto to be open in its code and further contribution.
@@ -33,6 +33,7 @@ All the blog posts are being saved under the original titles so that when this s
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/andrew-hill-39437177/"><img src="https://avatars.githubusercontent.com/u/3925834?v=4?s=100" width="100px;" alt="Andrew Hill"/><br /><sub><b>Andrew Hill</b></sub></a><br /><a href="#blog-md0u80c9" title="Blogposts">📝</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/sebastian-fox"><img src="https://avatars.githubusercontent.com/u/26870222?v=4?s=100" width="100px;" alt="sebastian-fox"/><br /><sub><b>sebastian-fox</b></sub></a><br /><a href="#blog-sebastian-fox" title="Blogposts">📝</a></td>
     </tr>
   </tbody>
 </table>
