@@ -18,6 +18,15 @@
         "blog",
         "doc"
       ]
+    },
+    {
+      "login": "anyaferguson",
+      "name": "Anya Ferguson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/157487567?v=4",
+      "profile": "https://github.com/anyaferguson",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
