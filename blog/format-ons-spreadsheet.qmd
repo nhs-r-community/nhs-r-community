@@ -1,0 +1,225 @@
+---
+title: "Format ONS spreadsheet"
+date: "15 March 2019"
+date-modified: '3 July 2024'
+categories:
+  - R tips
+  - dplyr
+author: Zoë Turner
+subtitle: >
+  "Data cleaning the ONS provisional mortality spreadsheet"
+execute: 
+  eval: false
+---
+
+# Background
+
+A Public Health consultant colleague Ian Bowns created a report to monitor mortality within the Trust and he used the ONS weekly provisional data for the East Midlands to compare the pattern and trends of deaths over time. This involves downloading a file from:
+
+<https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales>
+
+which is updated weekly. Once a month I, manually, add numbers from this to another spreadsheet to be imported to R for the overall analysis.
+
+# Downloaded file formats
+
+You may be familiar with ONS and other NHS data spreadsheets format and if you are not, here are some of the issues:
+
+- data is presented in wide form, not long form (so columns are rows and vice versa)
+- the sheets are formatted for look rather than function with numerous blank rows and blank columns
+- there are multiple sheets with information about methodology usually coming first. This means a default upload to programmes like R are not possible as they pick up the first sheet/tab
+- the file name changes each week and includes the date which means any code to pick up a file needs to be changed accordingly for each load
+- being Excel, when this is imported into R, there can be problems with the date formats. These can get lost to the Excel Serial number and
+- they include a lot of information and often only need a fraction of it
+
+Given these difficulties there is great temptation, as happened with this, to just copy and paste what you need. This isn't ideal for the reasons:
+
+- it increases the likelihood of data entry input error
+- it takes time and
+- it is just so very very tedious
+
+The solution is, always, to automate and tools like Power Pivot in Excel or SSIS could work but as the final report is in R it makes sense to tackle this formatting in R and this is the result...
+
+# Import file
+
+For this you can either save the file manually or use the following code within R. Save it to the same place where the code is running and you should see the files in the bottom right window under the tab 'Files'. The best way to do this is using project and opening up the script within that project.
+
+```{r}
+download.file("https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2019/publishedweek082019.xls",
+  destfile = "DeathsDownload.xls",
+  method = "wininet", # use "curl" for OS X / Linux, "wininet" for Windows
+  mode = "wb"
+) # wb means "write binary"
+```
+
+Not that this file's name and URL changes each week so the code needs changing each time it is run.
+
+Once the file is saved use {readxl} to import which means the file doesn't need its format changing from the original `.xls`
+
+When I upload this file I get warnings which are related, I think, to the Excel serial numbers appearing where dates are expected.
+
+- `sheet =` :refers to the sheet I want. I think this has to be numeric and doesn't use the tab's title.
+- `skip =` :is the number of top rows to ignore.
+
+```{r}
+DeathsImport <- read_excel("DeathsDownload.xls ",
+  sheet = 4,
+  skip = 2
+)
+## Warning in read_fun(path = enc2native(normalizePath(path)), sheet_i =
+## sheet, : Expecting numeric in C5 / R5C3: got a date
+## Warning in read_fun(path = enc2native(normalizePath(path)), sheet_i =
+## sheet, : Expecting numeric in F5 / R5C6: got a date
+## Warning in read_fun(path = enc2native(normalizePath(path)), sheet_i =
+## sheet, : Expecting numeric in G5 / R5C7: got a date
+## Warning in read_fun(path = enc2native(normalizePath(path)), sheet_i =
+## sheet, : Expecting numeric in H5 / R5C8: got a date
+## Warning in read_fun(path = enc2native(normalizePath(path)), sheet_i =
+## sheet, : Expecting numeric in I5 / R5C9: got a date
+## New names:
+## * `` -> `..2`
+```
+
+# Formatting the data
+
+The next code creates a list that is used in the later code that is similar to the SQL IN but without typing out the list within the code for example:
+
+- SQL : `WHERE city IN ('Paris','London','Hull')`
+- R : `filter(week_number %in% filter)`
+
+```{r}
+LookupList <- c(
+  "Week ended",
+  "Total deaths, all ages",
+  "Total deaths: average of corresponding",
+  "E12000004"
+)
+```
+
+The next bit uses the {dplyr} package, which has loaded as part of tidyverse, as well as the {janitor} package. Not all packages are compatible with {tidyverse} but many do as this is often the go-to data manipulation package.
+
+As an aside the `%>%` is called a pipe and the short cut is `Shift + Ctrl + m`. Worth learning as you'll be typing a lot more if you type out those pipes each time.
+
+{janitor} commands
+
+- `clean_names()`: removes spaces in column headers and replaces with _
+- `remove_empty()`: gets rid of rows and columns – this dataset has a lot of those!
+
+{dplyr} command
+
+- `filter()`: is looking just for the rows with the words from the list `LookupList`. These will become the column names later.
+
+```{r}
+DeathsImport2 <- DeathsImport %>%
+  clean_names() %>%
+  remove_empty(c("rows", "cols")) %>%
+  filter(week_number %in% LookupList)
+```
+
+::: aside
+`gather()` and `spread()` from the {tidyr} package, which is part of {tidyverse} have been superceded by functions `pivot_longer()` and `pivot_wider()`.
+:::
+
+There are great commands called `gather()` and `spread()` which can be used to move wide form data to long and vice versa but with this I noticed that I just needed to turn it on its side so I used `t()` which is also useful as it turns the data frame to a matrix. You can see this by looking in the 'Environment' window in the top right of R Studio; there is no blue circle with an arrow next to `t_DeathsImport.`
+
+```{r}
+t_DeathsImport <- t(DeathsImport2)
+```
+
+Being a matrix is useful as the next line of code makes the first row into column headers and this only works on a matrix.
+
+```{r}
+colnames(t_DeathsImport) <- t_DeathsImport[1, ]
+```
+
+{dplyr} gives an error on matrices:
+
+Code:
+
+```{r}
+t_DeathsImport %>% mutate(serialdate = excel_numeric_to_date(as.numeric(as.character(Week_ended)), date_system = "modern"))
+```
+
+Result:
+
+```Error in UseMethod(“mutate_”) : no applicable method for 'mutate_' applied to an object of class “c('matrix', 'character')”```
+
+As later code will need {dplyr} turn the matrix into a data frame using some base R code:
+
+```{r}
+t_DeathsImport <- as.data.frame(t_DeathsImport)
+```
+
+Previous {dplyr} code filtered on an `%in%` bit of code and it's natural to want a `%not in%` but it doesn't exist! However, cleverer minds have worked out a function:
+
+::: aside
+Since this blog more responses on [StackOverflow](https://stackoverflow.com/questions/5831794/opposite-of-in-exclude-rows-with-values-specified-in-a-vector) have been submitted using other packages like {purrr}
+:::
+
+
+```{r}
+'%!ni%' <- function(x, y) !('%in%'(x, y))
+```
+
+The text between the '' can be anything but I like `%ni%` as it's reminiscent of Monty Python.
+
+Because of the moving around of rows to columns the data frame now has a row of column names which is not necessary as well as a row with just 'East Midlands' in one of the columns so the following 'remove' list is a workaround to get rid of these two lines.
+
+Because of the moving around of rows to columns the data frame now has a row of column names which is not necessary as well as a row with just 'East Midlands' in one of the columns so the following 'remove' list is a workaround to get rid of these two lines.
+
+```{r}
+remove <- c("E12000004", "East Midlands")
+```
+
+The next code uses the above list followed by a mutate which is followed by a {janitor} command `excel_numeric_to_date()`. This tells it like it is but, as often happens, the data needs to be changed to a character and then to numeric. The date `system = "modern"` isn't needed for this data but as I took this from the internet and it worked, so I left it.
+
+An error will appear about NAs (nulls).
+
+```{r}
+t_DeathsImport <- t_DeathsImport %>%
+  filter(E12000004 %!ni% remove) %>%
+  mutate(serialdate = excel_numeric_to_date(as.numeric(as.character(`Week ended`)), date_system = "modern"))
+## Warning in excel_numeric_to_date(as.numeric(as.character(`Week ended`)), :
+## NAs introduced by coercion
+```
+
+Now to deal with this mixing of real dates with Excel serial numbers.
+
+Firstly, the following code uses base R to confirm real dates are real dates which conveniently wipes the serial numbers and makes them NAs.
+
+```{r}
+t_DeathsImport$`Week ended` <- as.Date(t_DeathsImport$`Week ended`, format = "%Y-%m-%d")
+```
+
+This results in two columns:
+
+- `Week ended` which starts off with NAs then becomes real dates and
+- `serialdate` which starts off with real dates and then NAs.
+
+The human eye and brain can see that these two follow on from each other and just, somehow, need to be squished together and the code to do it is as follows:
+
+```{r}
+t_DeathsImport <- t_DeathsImport %>%
+  mutate(date = if_else(is.na(`Week ended`), serialdate, `Week ended`))
+```
+
+To translate the mutate, this creates a new column called date which, if the `Week ended` is null then takes the serial date, otherwise it takes the `Week ended`.
+
+Interestingly if `ifelse()` without the underscore is used it converts the dates to integers and these are not the same as the Excel serial numbers so use `if_else()`!
+
+And that's it.
+
+Or is it?
+
+You might want to spit out the data frame back into excel and that's where a different package called {openxlsx} can help. As with many things with R, “other packages are available”.
+
+```{r}
+write.xlsx(DeathsImport, "ImportProvisionalDeaths.xlsx")
+```
+
+If you haven't used a project (which is really the best way to work) this will probably save in some obscure C: drive that you'll see in the bottom left 'Console' just under the tab names for 'Console' and 'Terminal'. Using projects means you set the pathway and that will mean the file saves in the same place and will also appear in the bottom right panel under 'Files'.
+
+# Feedback
+
+I'm pretty early on in my journey in R and many of my colleagues still haven't started yet so I'm throwing this out there so everyone can see it, newbies and old hands alike. If you spot anything, can explain anything further, need more explanation or can offer any alternatives to what I've done please please feel free to comment.
+
+This blog has been edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text).
