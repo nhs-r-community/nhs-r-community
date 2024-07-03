@@ -63,6 +63,15 @@
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "statsgary",
+      "name": "Gary Hutson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/44023992?v=4",
+      "profile": "http://hutsons-hacks.info/",
+      "contributions": [
+        "blog"
+      ]
     }
   ],
   "contributorsPerLine": 7,
