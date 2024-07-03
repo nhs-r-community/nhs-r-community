@@ -23,7 +23,6 @@ All the blog posts are being saved under the original titles so that when this s
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/anyaferguson"><img src="https://avatars.githubusercontent.com/u/157487567?v=4?s=100" width="100px;" alt="Anya Ferguson"/><br /><sub><b>Anya Ferguson</b></sub></a><br /><a href="#ideas-anyaferguson" title="Ideas, Planning, & Feedback">🤔</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://philosopher-analyst.netlify.app/"><img src="https://avatars.githubusercontent.com/u/39963221?v=4?s=100" width="100px;" alt="Zoë Turner"/><br /><sub><b>Zoë Turner</b></sub></a><br /><a href="https://github.com/nhs-r-community/nhs-r-community/commits?author=Lextuga007" title="Code">💻</a> <a href="#a11y-Lextuga007" title="Accessibility">️️️️♿️</a> <a href="#blog-Lextuga007" title="Blogposts">📝</a> <a href="https://github.com/nhs-r-community/nhs-r-community/commits?author=Lextuga007" title="Documentation">📖</a></td>
     </tr>
   </tbody>
