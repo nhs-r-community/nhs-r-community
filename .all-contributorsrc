@@ -81,6 +81,15 @@
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "sebastian-fox",
+      "name": "sebastian-fox",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26870222?v=4",
+      "profile": "https://github.com/sebastian-fox",
+      "contributions": [
+        "blog"
+      ]
     }
   ],
   "contributorsPerLine": 7,
