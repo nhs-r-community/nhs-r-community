@@ -1,0 +1,32 @@
+---
+title: "Moving on with the plan… And using R to do it! My personal experience…"
+date: "11 April 2019"
+date-modified: '06 July 2024'
+categories:
+  - Personal experience
+author: Vicki Cruze
+subtitle: >
+  "Forecasting models using R in NHS Improvement"
+execute: 
+  eval: false
+---
+
+When Mohammed asked if I would be interested in doing a blog on how “we”, Information and Analytics in NHS Improvement, have been using R / R Studio I was a little apprehensive as I have never ‘blogged' before, but I thought I would give it a try!
+
+So here goes —- my first ever blog!
+
+Many of us will remember Garry Fothergill's engaging ‘lightning talk' at the NHS-R Conference back in October last year ‘So what's your plan'. Garry gave us a synopsis of how NHS Improvement had been using R Studio to support the annual process (torture to some) of activity planning for 2018/19. The original concept, ignited by Paul Stroner, arose from a central frustration of ‘flat line' unrealistic activity plans of the past. I am sure some of us have been guilty of that, I know I have on occasion in the past!
+
+Since the original piece of R work, the team have been looking at further developments to the approach that Garry and Paul had set the wheels in motion on, with particular reference to how it could be used to support the 2019/20 planning round more formally. Back in mid-October it was agreed that both NHS Improvement and NHS England would use the univariate modelling approach that Paul and Garry had been championing.
+
+As part of this process the R code was reviewed and rewritten with some changes to methodologies in terms of validation processes (out of sample testing), applying adjustments for working and calendar days as well as models applied. The final R code was tested / Q&A'd by some of our esteemed NHS-R Community colleges and the overall approach was signed off by NHS Improvement's Community of Practice for Statistics.
+
+As part of our offer to support CCGs and Acute Providers, a specific organisational level R code was developed (the code we used centrally – pulled in all 148 Acute providers for over 15 activity lines, based on day weighted and unweighted historical data, so you can imagine the number of models). The R code has been widely shared with organisations on request but also posted on [Future NHS site](https://future.nhs.uk/connect.ti/HOIPIN/grouphome) and is also available on our newly created [Github account](https://github.com/NHSEI-Analytics).
+
+I personally can't take credit for this R code, we are lucky in the Information and Analytics team that we have a colleague who has extensive R programming background …… if I could physically plug into his R brain I would! It is this expertise (and Chris Beeley's workshop at the NHS-R event) that have opened my eyes to the art of the possible in using R Shiny Apps. This has led us down the path of designing and creating an R Shiny App, which allows organisations to replicate their forecasted figures that have been centrally provided within the activity planning submission template over the internet.  This tool can be used for any monthly data, all you need to do is make sure you have the upload data structured correctly, there is user help functionality included with the App – just click on the link below.
+
+<https://nhsiadvancedanalytics.shinyapps.io/Forecasting_Support/> - Link no longer works
+
+I'm only at the start of my R journey, but I can already see the benefits of using it daily to support all aspects my reignited analytical life, so I'm excited about what the future holds! It's a positive sign and a step in the right direction when these software programmes are being talked about by our NHS leaders, but what I am most enthused about is the will and the want to work collaboratively and share learning on all things R without judgement across organisations both internal and external to the NHS. So, I'm fully signed up to spreading the R message by being an active participant in any local R Working groups, presenting on R possibilities at different networking events whilst working as hard as I can on improving my own R skills. Watch this space, I may even take the leap and do some more blogs about my ‘R' journey!
+
+This blog was written by Vicki Cruze, Principal Analyst in the Performance Analysis Team at NHS England and NHS Improvement.
