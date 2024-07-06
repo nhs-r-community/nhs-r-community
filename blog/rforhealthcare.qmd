@@ -4,9 +4,9 @@ date: "18 April 2019"
 date-modified: "06 July 2024"
 author: Sean Manzi
 categories:
-  - Personal experience
+  - Resources
 subtitle: >
-  ""
+  "statistical, R and Python resources."
 ---
 
 Down in the South West of England we at the PenCHORD team of the NIHR CLAHRC South West Peninsula have been busy developing some online treats for all of you interested in using the statistical programming language R. The <https://rforhealthcare.org/> website is a free resource full of R guides and tutorials designed to get you started with R and RStudio. But we do not stop at simply introducing you to the R language, oh no, we have begun to produce tutorials on more complex topics such as linear regression, performing t-tests, statistical process control and principle component analyses.
