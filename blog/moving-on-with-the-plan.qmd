@@ -7,8 +7,6 @@ categories:
 author: Vicki Cruze
 subtitle: >
   "Forecasting models using R in NHS Improvement"
-execute: 
-  eval: false
 ---
 
 When Mohammed asked if I would be interested in doing a blog on how “we”, Information and Analytics in NHS Improvement, have been using R / R Studio I was a little apprehensive as I have never ‘blogged' before, but I thought I would give it a try!
