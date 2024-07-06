@@ -1,0 +1,30 @@
+---
+title: "rforhealthcare.org – A free online resource for all your R related healthcare needs"
+date: "18 April 2019"
+date-modified: "06 July 2024"
+author: Sean Manzi
+categories:
+  - Personal experience
+subtitle: >
+  ""
+---
+
+Down in the South West of England we at the PenCHORD team of the NIHR CLAHRC South West Peninsula have been busy developing some online treats for all of you interested in using the statistical programming language R. The <https://rforhealthcare.org/> website is a free resource full of R guides and tutorials designed to get you started with R and RStudio. But we do not stop at simply introducing you to the R language, oh no, we have begun to produce tutorials on more complex topics such as linear regression, performing t-tests, statistical process control and principle component analyses.
+
+The rationale behind developing this site has been to create an easily accessible resource for those working in and around the healthcare sector to support you in using R on a day-to-day basis as an alternative to Excel and SQL. The training topics have been selected so they are relevant to the types of tasks carried out by healthcare analysts while explaining things in such a way that you do not need a PhD in computer science to understand what is going on!
+
+The website has been designed to be simple and user friendly. If you are completely new to R there is an introductory presentation that you can download on the homepage. This describes what R and RStudio are, how to install them and some basic information about how to go about using R.
+
+Once you have R and RStudio installed then it is time to start learning about R functionality. There are currently three main sections to the tutorials: Basic functionality, Plotting and Statistics. The ‘Basic functionality’ section covers everything from introducing data types and data structures to transforming and manipulating data through to writing your own functions. The plotting section introduces you to creating all of the basic types of graphs that you need from histograms to box plots. The statistics section then introduces some useful statistical techniques such as t-tests and linear regression.
+
+A good way to get started using R in the healthcare environment is to take a simple but repetitive task that you currently do in Excel or SQL and translate it into a script that can be used time and time again. This might be something such as data cleaning and transformation or producing a series of graphs and tables. The list of tutorials will keep growing as we find out which topics you would like to learn to implement in R. So please do get in touch through the website or twitter (@PenCLAHRC) and let us know if there is tutorial you would like us to write for you.
+
+::: aside
+HSMA website is now <https://arc-swp.nihr.ac.uk/training-type/health-service-modelling-associates-programme-hsma/>
+
+Python healthcare link removed as this now returns a page from DDoS-Guard, a Russian infrastructure company.
+:::
+
+Over the last 18 months we have also created a large amount of training materials on a variety of topics for use on our innovative Health Service Modelling Associates programme (www.health-modelling.org/). One example is the <link removed> website which is a free resource for using the programming language python for healthcare related applications. There are topics to help you go from a complete beginner to advanced level programmer in no time! Over the coming months we will be making all of our training materials available for free online in the areas of: introducing simulation modelling in healthcare, problem structuring for simulation modelling, system dynamics modelling, discrete event simulation, network analysis and machine learning, so watch this space!
+
+This blog was written by Dr Sean Manzi, Research Fellow at NIHR CLAHRC South West Peninsula.
