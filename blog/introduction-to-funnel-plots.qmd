@@ -155,8 +155,6 @@ my_plot2 <- funnel_plot(medpar,
   draw_adjusted = TRUE, sr_method = "SHMI", label = "outlier", limit = 99
 )
 
-my_plot2 +
-  labs(alt = "Length of Stay Funnel plot for `medpar` data with overdispersion limits")
 ```
 
 Given these adjustments, we now only have nine organisations showing special-cause variation. To interpret this plot properly, we would first investigate these outlying organisations before making any changes to the system/indicator. We should check for possible data quality issues, such as errors, missing model predictors, environmental factors (for example one organisation changing computer systems and data standards and so on. during the monitoring period), but once these are examined we might suspect issues with care at the hospitals in question. They can then be investigated by local audit and casenote review.
