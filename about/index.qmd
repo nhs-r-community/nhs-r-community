@@ -10,6 +10,14 @@ It is a community that is broader than the NHS as members come from public secto
 Whilst R is a core language for support by the community, there is always support for data science tools more generally, particularly where they cross over with R.
 
 :::{.callout-warning collapse=false appearance='default' icon=true}
+## NHS-R Community and NHS Resolution
+Occasionally NHS-R Community has been confused with an NHS organisation called [NHS Resolution](https://resolution.nhs.uk/) particularly as the email addresses share the first few letters.
+
+As with any email sent from `nhs.net` to `nhs.net` [sensitive information is protected](https://digital.nhs.uk/services/nhsmail/guidance-for-sending-secure-email) but it's always advisable to share data using a password protected file just in case it goes to the wrong person.
+:::
+
+
+:::{.callout-warning collapse=false appearance='default' icon=true}
 ## WordPress site
 This site is currently being moved from WordPress to Quarto. Once this is working and as compliant with accessibility as possible we will switch the nhsrcommunity url over.
 :::
