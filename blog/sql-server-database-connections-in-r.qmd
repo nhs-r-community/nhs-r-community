@@ -53,7 +53,7 @@ RODBC_connection <- odbcDriverConnect(paste('driver={SQL
 # e.g. with a server called "Cliff" and a database called "Richard" your string would be: 
 # driver = {SQL Server}; server = Cliff; database=Richard; trusted_connection = true')                            
 
-dt1 <- sqlFand so onh(channel = RODBC_connection, sqtable = "MyTable") 
+dt1 <- sqlFetch(channel=RODBC_connection, sqtable = "MyTable") 
 
 # Load data from SQL query 
 dt2 <- sqlQuery(channel = RODBC_connection, query = "select TOP 100 * from MyTable") 
