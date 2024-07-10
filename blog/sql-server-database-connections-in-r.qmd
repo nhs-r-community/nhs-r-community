@@ -50,7 +50,7 @@ RODBC_connection <- odbcDriverConnect(paste('driver={SQL
                                       Sys.getenv("DATABASE"),                                       
                                       ';trusted_connection=true', sep = "")) 
 
-# e.g. with a server called "Cliff" and a database called "Richard" your string would be: 
+# for example with a server called "Cliff" and a database called "Richard" your string would be: 
 # driver = {SQL Server}; server = Cliff; database=Richard; trusted_connection = true')                            
 
 dt1 <- sqlFetch(channel=RODBC_connection, sqtable = "MyTable") 
@@ -203,8 +203,11 @@ dbWriteTable(DBI_Connection, "NewDatabaseTable", MyTable_local, overwrite = TRUE
 
 # Summary
 
-Database connections are common in most analysis and data science settings. R can easily connect to relational databases, reading and writing with either {RODBC} or {dplyr}/{DBI} packages. I prefer the {DBI} route as it is faster, plugs into {dplyr} allowing ‘piping’ between functions, and allows us to work with data whilst it is still on the database server. This post just scratches the surface, but there are many more options for executing procedures, using different schema etc. This post has been targeted at working with Microsoft SQL Server, but these processes will work well with other databases by switching to the right drivers.
+Database connections are common in most analysis and data science settings. R can easily connect to relational databases, reading and writing with either {RODBC} or {dplyr}/{DBI} packages. I prefer the {DBI} route as it is faster, plugs into {dplyr} allowing ‘piping’ between functions, and allows us to work with data whilst it is still on the database server. This post just scratches the surface, but there are many more options for executing procedures, using different schema and so on This post has been targeted at working with Microsoft SQL Server, but these processes will work well with other databases by switching to the right drivers.
 
 This blog was written by Chris Mainey, Intelligence Analyst from the Health Informatics team at University Hospitals Birmingham NHS Foundation Trust.
 
 The blog was originally posted here: <https://mainard.co.uk/post/database-connections-in-r/>
+
+
+This blog has been formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation) and edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text).
