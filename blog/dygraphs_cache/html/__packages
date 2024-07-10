@@ -1,0 +1,16 @@
+janitor
+readxl
+tidyverse
+ggplot2
+tibble
+tidyr
+readr
+purrr
+dplyr
+stringr
+forcats
+lubridate
+openxlsx
+dygraphs
+zoo
+xts
