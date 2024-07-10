@@ -1,0 +1,258 @@
+---
+title: "Dygraphs"
+date: "3 September 2019"
+date-modified: "10 July 2024"
+categories:
+  - dygraphs
+  - dplyr
+  - base R
+author: Zoë Turner
+subtitle: >
+  "Interactive charts for mortality surveillance"
+---
+
+I recently presented some of the mortality surveillance charts we use to @RLadiesLondon (a very welcoming group!) and one that got some interest was a chart of Nottinghamshire Healthcare NHS Foundation Trust deaths compared to ONS Provisionally Registered deaths. The chart looks good because it’s interactive but this type of chart can be confusing because of the 2 y axes.
+
+When I show this report I make it clear that the two axes units are very different and that its purpose is to show that the pattern of the deaths in the wider population matches that of the deaths recorded by the Trust. It’s well known within Public Health that the pattern of deaths is seasonal, with a peak around January in the UK. However, this Public Health knowledge is not necessarily common knowledge in Secondary Care Trusts and it was one of the great benefits of having @IantheBee both create and present this report.
+
+# Getting ONS Provisional Data
+
+I wrote about getting and formatting the spreadsheets from ONS for the East Midlands Provisionally Registered deaths:
+
+<https://nhsrcommunity.com/blog/format-ons-spreadsheet/>
+
+but for the purposes of the mortality surveillance report I’ve used several years data and I normally keep the spreadsheets, save the merged data and then load that each time I need to run the R markdown report.
+
+For the purposes of this blog I’ve amended the formatting code by adding functions so each year can be transformed and is available to plot:
+
+```{r}
+library(janitor)
+library(readxl)
+library(tidyverse)
+
+# Download ONS spreadsheets Function-----------------------------------------------
+
+GetData_function <- function(www, file) {
+  download.file(www,
+    destfile = file,
+    method = "wininet", # use "curl" for OS X / Linux, "wininet" for Windows
+    mode = "wb"
+  ) # wb means "write binary" }
+}
+
+# 2019
+GetData_function(
+  "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2019/publishedweek282019.xls",
+  "DeathsDownload2019.xls"
+)
+
+# 2018
+GetData_function(
+  "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2018/publishedweek522018withupdatedrespiratoryrow.xls",
+  "DeathsDownload2018.xls"
+)
+
+# 2017
+GetData_function(
+  "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2017/publishedweek522017.xls",
+  "DeathsDownload2017.xls"
+)
+
+# 2016
+GetData_function(
+  "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2016/publishedweek522016.xls",
+  "DeathsDownload2016.xls"
+)
+
+# Import correct sheets ---------------------------------------------------
+Deaths_Now <- read_excel("DeathsDownload2019.xls ",
+  sheet = 4,
+  skip = 2
+)
+Deaths_2018 <- read_excel("DeathsDownload2018.xls ",
+  sheet = 4,
+  skip = 2
+)
+Deaths_2017 <- read_excel("DeathsDownload2017.xls ",
+  sheet = 4,
+  skip = 2
+)
+Deaths_2016 <- read_excel("DeathsDownload2016.xls ",
+  sheet = 4,
+  skip = 2
+)
+
+# Look up code to remove excess rows --------------------------------------
+LookupList <- c(
+  "Week ended",
+  "Total deaths, all ages",
+  "Total deaths: average of corresponding",
+  "E12000004"
+)
+
+# Function for formatting data --------------------------------------------
+Transform_function <- function(dataframe) {
+  # Format data frames
+  df <- dataframe %>%
+    clean_names() %>%
+    remove_empty(c("rows", "cols")) %>%
+    filter(week_number %in% LookupList)
+
+  # Transpose table
+  df <- t(df)
+
+  # Whilst this is a matrix make the top row the header
+  colnames(df) <- df[1, ]
+
+  # Make this object a data.frame
+  df <- as.data.frame(df)
+
+  # Function to find 'not in'
+  "%!ni%" <- function(x, y) !("%in%"(x, y))
+
+  # List of things to remove to tidy the data.frame
+  remove <- c("E12000004", "East Midlands")
+
+  # remove the rows and ensure dates are in the correct format
+  df <- df %>%
+    filter(E12000004 %!ni% remove) %>%
+    mutate(serialdate = excel_numeric_to_date(as.numeric(as.character(`Week ended`)),
+      date_system = "modern"
+    ))
+
+  df$`Week ended` <- as.Date(df$`Week ended`, format = "%Y-%m-%d")
+
+  df <- df %>%
+    mutate(date = if_else(is.na(`Week ended`), serialdate, `Week ended`))
+
+  # Final transformation of data
+  df %>%
+    select(`Total deaths, all ages`, date) %>%
+    filter(!is.na(`Total deaths, all ages`)) %>%
+    mutate(`Total deaths, all ages` = as.numeric(as.character(`Total deaths, all ages`))) # To match other data.frames
+}
+
+# Run functions -----------------------------------------------------------
+DeathsNow <- Transform_function(Deaths_Now)
+Deaths2018 <- Transform_function(Deaths_2018)
+Deaths2017 <- Transform_function(Deaths_2017)
+Deaths2016 <- Transform_function(Deaths_2016)
+
+# Merge data -----------------------------------------------------
+Deaths <- bind_rows(
+  DeathsNow,
+  Deaths2018,
+  Deaths2017,
+  Deaths2016
+) %>%
+  mutate(
+    date = as.Date(date),
+    `Total deaths, all ages` = as.numeric(`Total deaths, all ages`)
+  )
+```
+
+This code may give a few warnings saying that NAs have been introduced by coercion which is because there are many cells in the spreadsheets that have no data in them at all. It’s a good thing they have nothing (and effectively NAs) as having 0s could confuse analysis as it isn’t clear if the 0 is a real 0 or missing data.
+
+To suppress warnings in R Markdown add `warning = FALSE` to the header, however, I like to keep the warnings just in case.
+
+If you want to keep all the data after merging it together use:
+
+```{r}
+library(openxlsx) # To write to xls if required.
+
+# Export complete list to excel for future
+write.xlsx(Deaths, "ImportProvisionalDeaths.xlsx")
+```
+
+If you’ve saved the combined file, to call it again in a script use the following code:
+
+```{r}
+library(readxl)
+
+Deaths <- read_excel("ImportProvisionalDeaths.xlsx")
+```
+
+# Dygraph chart
+
+The following data is randomly generated as an example:
+
+::: aside
+Using `set.seed()` changes the computer's random number and this might have an affect in other programs or systems. Functions like `withr::with_preserve_seed()` can help with setting it for the code and resetting the seed when finished.
+:::
+
+
+```{r}
+library(tidyverse)
+library(dygraphs)
+library(xts)
+
+# Fix the randomly generated numbers set.seed(178)
+
+Alldeaths <- Deaths %>%
+  select(date) %>%
+  mutate(n = rnorm(n(), mean = 150))
+
+# Merge the two data frames together:
+
+ONSAlldeaths <- Deaths %>%
+  left_join(Alldeaths, by = "date") %>%
+  mutate(ds = as.POSIXct(date)) %>%
+  select(ds, y2 = n, y = `Total deaths, all ages`) %>%
+  arrange(ds)
+```
+
+{dygraphs} require dates to be in a time series format and the package {xts} can convert it:
+
+```{r}
+ONSAlldeaths_series <- xts(ONSAlldeaths, order.by = ONSAlldeaths$ds)
+```
+
+The date column is no longer needed so can be removed but this needs to be done using `base R` and not {dplyr}:
+
+```{r}
+# Remove duplicate date column ONSAlldeaths_series <-
+ONSAlldeaths_series[, -1]
+```
+
+Finally, the {xts} can be plotted:
+
+```{r}
+dygraph(ONSAlldeaths_series, main = "East Midlands Weekly Deaths/Randomly generated numbers") %>%
+  dySeries("y", axis = "y", label = "East Midlands") %>%
+  dySeries("y2", axis = "y2", label = "Random numbers") %>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y", drawGrid = FALSE, label = "East Midlands") %>%
+  dyAxis("y2", independentTicks = TRUE, drawGrid = FALSE, label = "Random numbers") %>%
+  dyOptions(stepPlot = TRUE) %>%
+  dyRangeSelector()
+```
+
+When you’ve plotted the chart if you wave the cursor over the points you will see information about those points, you are also able to zoom in by using the scrolling bar at the bottom of the chart (this was from the `dyRangeSelector()` code.
+
+Other options are detailed here: <https://rstudio.github.io/dygraphs/index.html>
+
+# ONS Provisional data
+
+One of the things that may stand out in the chart for the are the big dips around 29-31 December time each year and we presume that these relate to the week where Registrations may be delayed from GP practices to ONS because of the public holidays around Christmas.
+
+Unfortunately, only provisionally recorded deaths are available by week as confirmed are monthly: <https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/monthlyfiguresondeathsregisteredbyareaofusualresidence>
+
+```{r}
+dygraph(ONSAlldeaths_series, main = "East Midlands Weekly Deaths") %>%
+  dyAxis("y", independentTicks = TRUE, drawGrid = FALSE, label = "East Midlands") %>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyOptions(stepPlot = TRUE) %>%
+  dyRangeSelector()
+```
+
+# The case of the mysteriously disappearing interactive graph in R Markdown html output
+
+I’d rendered (knit or run) the html reports with the interactive graphs and it had all worked so I emailed the report to people as promised and then the emails came back: “Some of the graphs are missing, can you resend?”. Perplexed, I opened the saved file from the server and, yes, indeed some of the charts had disappeared! Where there should be lovely interactive charts were vast swathes of blank screen. What had happened? The code ran fine, looked fine and how do you even Google this mystery?
+
+Turns out my default browser, and I suspect it is throughout most of the NHS because lots of NHS systems depend on it, is Microsoft Explorer. Whilst I have the latest version these reports have never opened properly in Explorer.
+
+The solution: Chrome (or some other browser). I ask people to copy the link from the Explorer web address bar after opening it from the email and simply paste it to Chrome.
+
+This blog was written by Zoë Turner, Senior Information Analyst at Nottinghamshire Healthcare NHS Trust. 
+
+This blog has been edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text).
