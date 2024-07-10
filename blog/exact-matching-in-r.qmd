@@ -116,7 +116,7 @@ smatch <- function(data, treat, mvar, ratio = 1, seed = NULL) {
   case <- NULL
   control <- NULL
   
-  x <- set.seed(seed)
+  x <- withr::with_preserve_seed(runif(seed))
   
   for (i in targ$.mvar) {
     case[[i]] <- data[get(treat) == T & .mvar == i][sample(.N, targ$cst[targ$.mvar == i])]
