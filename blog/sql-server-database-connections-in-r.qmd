@@ -158,7 +158,7 @@ MyTable %>%
   labs(title = "Monthly Distribution of Events", x = "Month", y = "Events")
 ```
 
-![](boxplot-from-sql.png){fig-alt="Boxplot of monthly distribution of events from month 4 to 9"}
+![](img/boxplot-from-sql.png){fig-alt="Boxplot of monthly distribution of events from month 4 to 9"}
 
 You can, of course, write an SQL query directly using the `dbSendQuery()` function. This executes the query on the server-side only, so if you want the results to be returned back to R, you need to use `dbFetch()` as well. You might need this approach if you are doing fancy queries, or things that are specific to a database environment that don’t yet have translators in {dplyr}.
 
