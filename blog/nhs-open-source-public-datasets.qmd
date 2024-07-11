@@ -4,6 +4,7 @@ date: "16 August 2018"
 date-modified: '23 March 2024'
 categories:
   - Synthetic dataset
+  - Data
 author: Sebastian Zeki
 subtitle: >
   "Syntethic or dummy data sets in the NHS"

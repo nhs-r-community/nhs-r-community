@@ -4,6 +4,7 @@ date: "26 February 2019"
 date-modified: "24 March 2024"
 categories:
   - Run charts
+  - Statistics
 author: Jacob Anhøj
 subtitle: >
   "Understanding a run chart and the {qicharts2} package."
