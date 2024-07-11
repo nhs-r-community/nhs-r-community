@@ -162,6 +162,15 @@
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "danlewer",
+      "name": "Dan Lewer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6075688?v=4",
+      "profile": "https://iris.ucl.ac.uk/iris/browse/profile?upi=DLEWE01",
+      "contributions": [
+        "blog"
+      ]
     }
   ],
   "contributorsPerLine": 7,
