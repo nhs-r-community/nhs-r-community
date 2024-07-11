@@ -1,6 +1,6 @@
 # Source code for NHS-R Community website
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-17-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-18-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Following the values and commitment of the NHS-R Community to open source this website has been built in Quarto to be open in its code and further contribution.
@@ -44,6 +44,7 @@ All the blog posts are being saved under the original titles so that when this s
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/prajwalkhairnar"><img src="https://avatars.githubusercontent.com/u/67052212?v=4?s=100" width="100px;" alt="Prajwal Khairnar"/><br /><sub><b>Prajwal Khairnar</b></sub></a><br /><a href="#blog-prajwalkhairnar" title="Blogposts">📝</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://emmavestesson.netlify.com/"><img src="https://avatars.githubusercontent.com/u/31949401?v=4?s=100" width="100px;" alt="Emma Vestesson"/><br /><sub><b>Emma Vestesson</b></sub></a><br /><a href="#blog-emmavestesson" title="Blogposts">📝</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://www.bahmanrt.com"><img src="https://avatars.githubusercontent.com/u/25769816?v=4?s=100" width="100px;" alt="Bahman Rostami-Tabar"/><br /><sub><b>Bahman Rostami-Tabar</b></sub></a><br /><a href="#blog-bahmanrostamitabar" title="Blogposts">📝</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://iris.ucl.ac.uk/iris/browse/profile?upi=DLEWE01"><img src="https://avatars.githubusercontent.com/u/6075688?v=4?s=100" width="100px;" alt="Dan Lewer"/><br /><sub><b>Dan Lewer</b></sub></a><br /><a href="#blog-danlewer" title="Blogposts">📝</a></td>
     </tr>
   </tbody>
 </table>
