@@ -1,0 +1,29 @@
+---
+title: "The first ever train the trainer class 2019"
+date: "3 January 2020"
+date-modified: "11 July 2024"
+categories:
+  - Training
+author: Mohammed A Mohammed
+subtitle: >
+---
+
+The Strategy Unit, AphA (Association of Professional Healthcare Analysts) and NHS-R joined forces to deliver the first ever train the trainer (TTT) class on the 11-12th December 2019 in Birmingham. We allocated spaces for two AphA members per branch and in the end we had 18 people from across the UK NHS, including clinical and non-clinical staff who worked as commissioners, providers or national NHS bodies.
+
+As this was the first ever TTT course, we were quite unsure how things would turn out, especially because teaching R is not easy. One key issue is that trainers have to think about the background of novices to R – this can range from no programming experience at all to years of SQL experience. Two other challenges with R are that there are many ways of doing things (for example using base R versus tidyverse) and installation can be tricky for some.
+
+To address these challenges, we designed the course to incorporate considerable emphasis on evidence based teaching practice, plenty of learning by doing and sharing underpinned by the use of liberating structures techniques to capture the voice of delegates. The aim was to give delegates the skills, confidence and capability to deliver an introduction to R for those in healthcare, based on a field tested slide deck.
+
+The class was fabulous – they were engaged and enthusiastic, learned a great deal from each other and the facilitators and made great progress.
+
+![](img/train-the-trainer.jfif){fig-alt="People from the course sat around a long table chatting to each other"}
+
+Indeed it was inspiring to see how NHS staff can work effectively together, despite being from different organisations. Our first class have self-organised into an action learning set who will: train others, learn from each other, feedback their learning into the NHS-R Community, and have an annual TTT Class of 2019 reunion!
+
+Whilst there are areas where we would refine the TTT, we were pleased with the first iteration and feel confident that we have a committed and capable set of trainers who can deliver the Introduction to R for those in healthcare at locations near you.
+
+If you are interested in hosting an Introduction to R training session or being involved in future iterations of the TTT, please get in touch via [nhs.rcommunity@nhs.net](mailto:nhs.rcommunity@nhs.net) and we will see what can be done (no promises).
+
+This blog was written by Professor Mohammed A Mohammed, Principal Consultant at the Strategy Unit
+
+This blog has been formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation).
