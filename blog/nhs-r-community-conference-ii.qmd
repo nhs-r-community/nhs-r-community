@@ -1,0 +1,30 @@
+---
+title: "NHS-R Community Conference II"
+date: "20 December 2019"
+date-modified: "11 July 2024"
+categories:
+  - Personal experience
+author: Zoë Turner
+subtitle: >
+  ""
+---
+
+My journey to work takes me about an hour and a half, and I catch a couple of buses with Wi-Fi which means I can browse Twitter and invariably end up with hundreds of tabs open as I flit between articles and blogs. Most mornings I find it hard to concentrate on reading through entire articles, especially the really long ones, so I leave the tab open on my computer, often for days, before reading them. Given my experience of reading blogs, why would anyone want to read through mine about the NHS-R Community conference?
+
+If I’d gone to the conference I’d probably skim that paragraph thinking ‘yes, I went, I know how good it was’.
+
+If I’d not gone to the conference I’d probably skim that paragraph because I might prefer not to know just how great a conference was when I’d missed it!
+
+Even though the conference was moved to a bigger location to accommodate more people and around 250 people attended, I have still spoken to people who didn’t get a ticket or missed submitting an abstract to speak. People who never made the conference are talking about an event that is only in its 2nd year. What is going on? What is it that has made the event so successful?
+
+Organising an event of any size takes a lot of work and that is often overlooked. There were the core people who did the real work – the arrangements – and quite frankly, they made it look easy, which itself is an indication of how hard they worked. But there were others who were part of a committee that chipped in with bits they could help with: setting up a specific email; reading through abstracts; suggesting things the organisers might consider, like how to ensure diversity of questioners (<https://frompoverty.oxfam.org.uk/how-to-stop-men-asking-all-the-questions-in-seminars-its-really-easy/>).
+
+That organising committee was made up from a group who have shown a particular interest in R, and as such I found myself part of that group. Now although I have submitted a few blogs to NHS-R, I only really started using R a couple of years ago. Deep down I’m still a SQL analyst and my contributions to the conference were pretty minimal, but I feel encouraged to make those small contributions (even that last one about who gets to ask the first question in seminars) and each small involvement builds up to a bigger thing. This really is feeling like an equal and inclusive group and that’s where I think this success is coming from.
+
+It may have been by design or it may be a happy accident but there is a crucial clue in the name of this group that gives away its success – Community. This conference wasn’t managed top-down. There are some key people, of course, but they are as much of this Community as the people who contribute to the blogs, those that stood up on stage and showed their work, have those that will be learning to run the R Introduction training. This is our NHS-R Community.
+
+If you missed this year’s conference and want to go to the next one, get involved. The more people involved, the less work there is for everyone individually. Plus, given that tickets this year ran out in just 2 hours, you’ll be more likely to secure yourself a ticket.
+
+Speaking of which, provisional dates for the next conference are the 2nd and 3rd November 2020 (Birmingham). Now aren’t you glad you read this blog!
+
+Zoë Turner, Senior Information Analyst
