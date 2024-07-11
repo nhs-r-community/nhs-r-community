@@ -7,6 +7,7 @@ categories:
   - ggplot2
   - dplyr
   - base R
+  - Data
 image: img/av-bed-occ-stps.PNG
 image-alt: "Screenshot of the England STPs maps with average bed occupancy during winter 2018/19 coloured"
 author: Fiona Grimm
