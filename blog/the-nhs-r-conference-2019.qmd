@@ -6,6 +6,7 @@ author: Mohammed Amin Mohammed
 categories:
   - Conference
 subtitle: >
+  "Our second ever NHS-R Conference in Birmingham"
 ---
 
 We really enjoyed our second ever NHS-R conference in Birmingham, which was attended by about 300 delegates. We tried to ensure that there was something for colleagues who are new to R as well as for those who are more experienced. The conference was inspiring, exciting, friendly and tiring and we obtained some fantastic feedback from attendees about how much they enjoyed the conference.
