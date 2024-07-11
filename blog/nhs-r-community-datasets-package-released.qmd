@@ -1,0 +1,69 @@
+---
+title: "NHS-R Community datasets package released"
+date: "10 October 2019"
+date-modified: "11 July 2024"
+categories:
+  - Package
+  - Data
+author: Chris Mainey
+subtitle: >
+  "This post briefly introduces an R package created for the NHS-R Community to help us learn and teach R."
+---
+
+Firstly, it is now available on CRAN, the major package repository for R, and can be installed like any other package, or directly from GitHub as follows:
+
+```{r}
+install.packages("NHSRdatasets")
+
+#or
+
+remotes::install_github("https://github.com/nhs-r-community/NHSRdatasets")
+```
+
+# Why?
+
+Several community members have mentioned the difficulties learning and teaching R using standard teaching datasets. Stock datasets like `iris`, `mtcars`, `nycflights13` and so on. are all useful, but they are out-of-context for most NHS, Public Health and related staff. The purpose of this package to provide examples datasets related to health, or reusing real-world health data. They can be accessed easily and used to communicate examples, learn R in context, or to teach R skills in a familiar setting.
+
+For those of us wanting to contribute to Open Source software, or practise using Git and GitHub, it also provides an opportunity to learn/practise these skills by contributing data.
+
+What’s in it? At present we have two data sets:
+
+| Name           | Contributor  | Summary                                                               |
+|----------------|--------------|-----------------------------------------------------------------------|
+| LOS_model      | Chris Mainey | Simulated hospital data, originally for learning regression modelling |
+| ae_attendances | Tom Jemmett  | NHS England’s published A&E attendances, breaches and admission data  |
+
+
+Both datasets have help files that explain the source, data columns, and give examples of use. The package also contains vignettes that show the datasets being put to use. You can find them in the help files, or using:
+
+
+```{r}
+# list available vignettes in the package:
+vignette(package="NHSRdatasets")
+
+# Load the `ae_attendances` vignette:
+vignette("ae_attendances")
+
+```
+
+# How can you contribute?
+
+We are aiming to build a repository of different health-related datasets. We are particularly keen to include primary care, community, mental health, learning disabilities, or public health data.
+
+Please head to the GitHub page, and follow the submission guidelines on the README page. If you would like to add a vignette or alter an existing one, follow the same instructions: fork the repository, commit and push your changes, then make a pull request. We will then review your submission before merging it into the package.
+
+Please ensure that any data you submit is in the public domain, and that it meets all obligations under GDPR and NHS/Public Health information governance rules.
+
+# Summary
+
+The {NHSRdatasets} package is a free, collaborative datasets package to give context for NHS-R community when learning or teaching R. The package is available on CRAN. We actively invite you to submit more datasets and help us build this package.
+
+To read the reference material, and vignettes, you can find them in the package help files or go to the pkgdown website: <https://nhs-r-community.github.io/NHSRdatasets/>.
+
+Chris Mainey, Intelligence Analyst, Health Informatics – University Hospitals Birmingham NHS Foundation Trust
+
+To see the package code, or contribute, visit <https://github.com/nhs-r-community/NHSRdatasets>.
+
+
+
+This blog has been formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation) and edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text).
