@@ -6,6 +6,7 @@ categories:
   - R tips
   - Statistics
   - data.table
+  - Data
 author: Dan Lewer
 subtitle: >
   "A case study of the health and care costs associated with living alone, using linked data from the London Borough of Barking & Dagenham"
