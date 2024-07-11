@@ -1,0 +1,102 @@
+---
+title: "SPC Charting in R"
+date: "13 March 2020"
+date-modified: "11 July 2024"
+categories:
+  - SPC charts
+  - Statistics
+author: Christopher Reading-Skilton
+subtitle: >
+---
+
+For some time the Information Department at Worcestershire Acute NHS Trust has been making use of statistical process control (SPC) charts for internal reporting purposes. This has formed part of our drive toward better decision-making (as recommended in NHSI’s Making Data Count <https://improvement.nhs.uk/resources/making-data-count/>).
+
+In doing so we have made extensive use of NHSI’s Excel-based SPC tool and have also sought to implement this methodology outside of the confines of MS Excel (ie. within our SQL/SSRS based reporting suite).
+
+As the Department’s unofficial ‘R Champion’, I have driven efforts to increase my team’s knowledge and usage of R over the last six months. My experience with NHSI’s resources suggested that R offered a route to more efficient, consistent and quickly reproducible SPC charting. I set about developing a charting function within R which would replicate NHSI’s logic and methodology[\[1\]](https://nhsrcommunity.com/spc-charting-in-r/#_ftn1).
+
+I developed and tested a custom function in R which requires two primary arguments: a series of data points, and a set of accompanying date values. The function then creates a data frame containing the data series, its mean and moving average values, and upper and lower control limits. The series is then tested against NHSI’s methodology, and special cause variations are highlighted and colour coded. This formatting is done according to a secondary function argument which identifies whether an increase or decrease in the series indicates system improvement. This data frame is then visualised using ggplot, which displays the SPC and any additional information such as a performance trajectory or national target.
+
+I then tested the function and compared against our existing SPC reporting. A few logical ‘gremlins’ in the function were identified and subsequently removed, and once I was happy with the function it was integrated into a growing departmental R package (currently only internally available) for use in R Markdown reporting and our expanding R Shiny dashboard repertoire.
+
+My next step was to use Shiny to create an SPC Wizard app, to enable colleagues without R knowledge to test and utilise the SPC function. The app allows users to supply CSV files containing multiple data series, and generate SPC charts with little or no effort. These can then be exported as image files for Trust reporting. The app allows users to make formatting changes to the chart such as customising main and axis titles, customising the frequency of axis labels and size of point and line geoms (chart objects) for lengthy data series. It also allows users to specify multiple data series at a time to create ‘small multiple’ SPC charts for simultaneous analysis.
+
+The project provided an excellent challenge in developing my Shiny skills, and provided an opportunity to utilise the visually impressive and professional appearance of the ShinyDashboard package. Development of this Shiny app also led to a challenging project of setting up a Linux based Shiny server, to allow hosting of the app for colleagues to use.
+
+A key advantage of this function-based approach is that the SPC methodology is now available for use by all analysts within the Department, and can be implemented with a minimum of coding. One of the primary difficulties with SQL based SPC logic encountered by our team was the length of code required to produce the chart data, and therefore the increased risk of error when recycling this code for different reports. The simplicity and self-contained nature of the SPC function avoids this.
+
+Having successfully tested and embedded the SPC function within an ad-hoc SPC wizard, I have continued to develop a Shiny Performance Dashboard for Cancer KPIs. This rapidly produces SPC charting for 2-Week-Wait Referral and 62-Day Cancer Treatment metrics from live data pulled from our SQL warehouse. I hope this will be the first of many dashboards to take advantage of an easily available and consistent SPC methodology, allowing our Department to create reports and dashboards which are better able to communicate the nature of changing time series to Trust decision-makers, and to track and evaluate the impact of operational management decisions.
+
+Despite the (at times steep!) learning curve involved, from creating the initial function and replicating NHSI’s SPC logic, to setting up the Shiny server and deploying apps for use, this project has been an excellent way to develop my R skills and to demonstrate the value in embedding use of R within our organisation, and making it part of our toolkit for ‘business as usual’ analysis.
+
+I hope that next steps for this project will be sharing our methodology with other NHS organisations, to allow further input and development of the methodology and reporting applications. Recently there have been discussions around a collaboration with other NHS Trusts and the Strategy Unit, regarding the possibility of developing an SPC package and shiny app to be available to all NHS organisations. If you would like to learn more or take part in the discussions, please join us on the NHS-R community slack channel (nhsrcommunity.slack.com) and let us know your thoughts on an SPC package, and what you might want to see as part of it!
+
+[\[1\]](https://nhsrcommunity.com/spc-charting-in-r/#_ftnref1) For those not familiar with the Making Data Count resources, the SPC tool is based around a moving average measurement of sigma and significant variations in data based on the this value. These include the identification of any data points above or below three sigma; sequences of consecutive data points above/below the mean; runs of consecutively increasing/decreasing data points; and two out of three data points at greater (or less than) than 2 sigma.
+
+*The original comments form the WordPress site:*
+
+1.  **edwatto**
+
+    13 March 2020
+
+    Great stuff - well done. We have often found that consistency with SPC charts can be as important than statistical accuracy... Please share the code!! It doesn't have to look pretty, be well commented or have examples (to start with) - just drag and drop onto github at https://github.com/new. The community will thank you :)
+
+2.  **SImonWM**
+
+    13 March 2020
+
+    Please share. We have been doing something locally and trying to adapt QCC package but would be really interested to see what you have done.
+
+3.  **Christopher Reading**
+
+    13 March 2020
+
+    The code is currently available on my github page, apologies if it's a bit messy! https://github.com/chrisreading01/SPCwizard You can also see the shiny app live, kindly hosted by Chris Beeley from Nottinghamshire NHS Trust: http://suce.co.uk:8080/apps/spc_wizard/ As mentioned in the blog there are some great conversations going on in the slack thread on SPCs.
+
+4.  **Vicky Cross**
+
+    18 March 2020
+
+    Hi Chris, This looks great! I'm trying to have a play around with the SPC Wizard, but I don't think I'm getting the CSV structured properly, please could you upload a sample CSV file so I can see what I'm doing wrong? Thanks!
+
+5.  **Christopher Reading**
+
+    18 March 2020
+
+    Hi Vicky I've put a sample file on my github page which works with the tool. https://github.com/chrisreading01/SPCwizard/blob/master/sampledata2.csv Let me know if you have any questions! Best Chris
+
+6.  **Andrew Ward**
+
+    25 March 2020
+
+    Hi Chris. This looks great, I've used the shinyapp and the charts produced look exactly what we are trying to recreate in our Trusts (as I'm v=certain other Trusts are. (I'm currently producing these charts in excel each month) I've copied R script and sample data file (imported to r to create two fields 'data' (GP referrals) and 'dates' (date) but I seem to be hitting some errors at the create df section. Error in UseMethod("mutate\_") : no applicable method for 'mutate\_' applied to an object of class "function" \> xaxis xaxisdisplay \<- xaxis\[seq(1,length(xaxis),x.axis.breaks)\] Error in seq.default(1, length(xaxis), x.axis.breaks) : object 'x.axis.breaks' not found Any help would be gratefully received Many Thanks Andy
+
+7.  **Christopher Reading**
+
+    26 March 2020
+
+    Hi Andrew If you can email me your script, I'd be happy to take a look and try to find what's causing the error. My email is christopher.reading1\@nhs.net Bw Chris
+
+8.  **Andrew Ward**
+
+    26 March 2020
+
+    Many thanks Chris I've emailed the file to you. Kind Regards Andrew
+
+9.  **Aaron**
+
+    1 June 2021
+
+    Hi Chris, There is a package called "bslib" that is required to load the shinyWidget. I install the package, but then when I load the library shinyWidget, I get the following error message: Error: package or namespace load failed for ‘shinyWidgets’ in loadNamespace(j \<- i\[\[1L\]\], c(lib.loc, .libPaths()), versionCheck = vI\[\[j\]\]): there is no package called ‘bslib’ I tried installing "bslib" and I get the message: Error in library(bslib) : there is no package called ‘bslib’ Did you run into this problem? Thanks,
+
+10. **ASM**
+
+    11 June 2021
+
+    I'm having the same issue. Just getting started...
+
+11. **Christopher Reading**
+
+    14 June 2021
+
+    Hi both, have you tried installing the bslib package using the install.packages() function before trying to load it with the library function()? Let me know if you are still unable to load the package, I can upload a copy of the app to GitHub without the shinyWidgets library as this is only loaded for cosmetic purposes in the app.
