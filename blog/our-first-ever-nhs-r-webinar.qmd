@@ -1,0 +1,37 @@
+---
+title: "Our first ever NHS-R webinar!"
+date: "21 February 2020"
+date-modified: "11 July 2024"
+categories:
+  - NHS-R
+author: NHS-R
+subtitle: >
+---
+
+We ran our first ever NHS-R webinar on Wednesday 19th February and it went down a storm! Chris Mainey facilitated a session on Database Connections in R which was attended by a peak audience of 72 individuals.
+
+The webinar began with some mentimeter questions to get to know more about who was on the line. After an icebreaker question revealed that the majority of people’s favourite TV series is Breaking Bad, we found out that (of those who answered) approximately 25% were Analysts, 40% were Senior Analysts, 15% were Intelligence/Analytical Leads and 20% were some other role. There was also a broad selection of organisations represented on the line, including approximately 30% from provider trusts, 20% from CSUs, 15% from local authorities and 5% from CCGs. Just over 30% were from other organisations and it would be interesting to delve more deeply into where these individuals are from.
+
+![](img/webinar-survey.png){fig-alt="Barchart of survey results for the question what type of organisation do you work for? The highest number is Other followed by Provider Trust"}
+
+We also asked about people’s experience of the topic and what they were hoping to get out of the session. When asked what the current level of understanding around database connections in R on the line was, the average score of those who answered was 1.4/5, suggesting that this was a relatively new topic for most individuals. Moreover, regarding what individuals wanted to get out the session, people wanted to: gain a basic understanding of how to make database connections in R, how to make SQL connections, write temp tables and learn tips, tricks and best practice on how database connections can be made.
+
+![](img/webinar-rank-chart.png){fig-alt="Ranking the question What's your current level of understanding around database connections in R was closer to Help - it's all new to me"}
+
+Chris then began, explaining the fundamental elements of SQL (Structured Query Language) before highlighting the two common methods for creating database connections – the [RODBC package](https://cran.r-project.org/web/packages/RODBC/index.html) and [DBI system](https://db.rstudio.com/dbi/). Both can be used to create a connection object which can be used to manipulate or transfer data into R.
+
+Chris firstly went into more detail about the RODBC package, showing code for creating connections. He then explored DBI in more detail, including: making connections, how SQL can be used with DBI, writing to databases, using tables in the database, constructing dplyr queries and using SQL and returning data into R. He ended his webinar by taking us through an example script in R, which was a great way of putting the learning in context, before giving participants the opportunity to ask more specific questions about database connections in R.
+
+We obtained some fantastic feedback about the webinar. The top 3 words that participants used to describe the webinar were “useful”, “interesting” and “clear”. Moreover, the average rank that participants gave for: satisfaction with the webinar, whether they would recommend to others, relevance in helping them to achieve work goals and increasing their understanding of database connections in R was between 4-5 out of 5.
+
+![](img/webinar-word-cloud.png){fig-alt="Word cloud has the words useful, clear and interesting most often recorded"}
+
+We also wanted to understand what other webinar topics participants may be interested in, in future. {shiny}, RMarkdown, {ggplot2} and time series analysis were some of the most popular suggestions.
+
+Finally, we would like to thank Chris Mainey for doing a fantastic webinar and to our participants for tuning in, being engaged and asking some great questions! The material from the webinar is available on [GitHub](https://github.com/nhs-r-community/Webinars)and a recording of the webinar can be found on our NHS-R Community [YouTube page](https://youtu.be/XWFuwSTz8dY?si=Mf4PL_PF4fpUFVw2).
+
+Moreover, we are planning to run topical webinars on the third Wednesday of each month between 1-2pm. Our next webinar is taking place on Wednesday 18th March from 1-2pm on “[Functional programming with Purrr](https://youtu.be/GxvccD8K49M?si=oovu42jCux27dDBQ "This webinar is shared on the YouTube site")” led by Tom Jemmett.
+
+If you are interested in being part of the NHS-R community, please join our [slack channel](https://nhsrcommunity.slack.com) to keep up to date with the goings on tips and tricks that people have for using R in health and care. Use the #webinars channel to suggest topics for future webinar sessions, or to put your name forward to run your own!
+
+This blog has been edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text).
