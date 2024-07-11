@@ -1,0 +1,121 @@
+---
+title: "Forecasting R"
+date: "8 January 2020"
+date-modified: "11 July 2024"
+categories:
+  - Forecasting
+author: Bahman Rostrami-Tobar
+subtitle: >
+  "Democratising forecasting project"
+---
+
+:::{.callout-note collapse=false appearance='default' icon=true}
+## Note on recording
+This workshop was only available in person but recordings from on NHS-R Community's YouTube include: 
+[Forecasting with Multiple Seasonality](https://youtu.be/FKSk6WV-fLo?si=zvioS6LvBy_nhtVs) and a talk at the conference on [Probabilistic Forecast Reconciliation For Health Services](https://www.youtube.com/watch?v=q-JZxrDC0ck&t=12484s)
+:::
+
+The initiative sponsored by the [International Institute of Forecasters](https://forecasters.org/) provides cutting-edge training in the use of forecasting with R software in developing countries. There is no doubt that many people in developing countries cannot afford high fees to attend forecasting workshops. The project aims to make such a training accessible to those people and provide up-to-date training on the principles of forecasting and create a network of forecasters to conduct research on forecasting with social impact for less developed countries. The training has been delivered in Tunisia, Iraq, Senegal, Uganda, Nigeria, Turkey, Indonesia so far.
+
+We expand the “Democratising Forecasting” initiative to deliver four forecasting workshops per year for the National Health Service (NHS), UK, in collaboration with NHS-R community. We give our time for free despite the debate that such organisations may afford to pay such trainings.
+
+# Why forecasting for NHS
+
+Ensuring life-saving services are delivered to those who need them require far more than money, infrastructure and scientific progress. Accurate modelling and forecasting systems can assist critical decisions that drive policy making, funding, research, and development in the NHS. Decision makers are making decisions every day with or without forecasts. However, they are more robust and well-informed in the light of what could happen in the future, and that is where forecasting becomes crucial. However, implementing forecasting principles to support decision-making process requires significant technical expertise. To that end, we aim to organize a two-day workshop on forecasting to teach participants how to apply principles of accurate forecasting using real data in healthcare.
+
+We are offering four workshops in 2020 as per below:
+
+- Monday 24th & Tuesday 25th February 2020 – Nottinghamshire – Workshop fully booked
+- Monday 22nd June 2020 – Huddersfield – Online workshop is fully booked
+- Thursday 13th & Friday 14th August 2020 – Gloucestershire
+- Wednesday 13th & Thursday 14th October 2020 – West Midlands
+- Thursday 12th & Friday 13th November 2020 – Cardiff
+
+# Workshop instructor
+
+[Dr. Bahman Rostami-Tabar](https://www.bahmanrt.com/) is the main instructor for the workshops. Colleagues from other Universities in the UK might join him occasionally. Bahman is a Senior Lecturer (Associate Professor) in management science at Cardiff Business School, Cardiff University, UK. He is interested in the use and the Implication of forecasting in social good areas such as health and humanitarian. He has been involved in various forecasting related projects with NHS Wales, Welsh Ambulance Service Trust and the International Committee of the Red Cross. He is currently working on projects that focus on developing innovative forecasting methodologies and their links to decision making in health and humanitarian operations.
+
+# Who should attend
+
+This workshop is for you if you are:-
+
+- A decision maker who wants to use forecasting tools and techniques using R to empower decision making;
+- A data analyst who wants to gain in depth understanding of forecasting process.
+- A Forecaster who wants to learn how to use R software for forecasting purpose.
+
+# What participants will learn in the workshop
+
+Assuming basic knowledge of statistics, participants will be able to do the following tasks when using forecasting to support decision making process in real World:
+
+- Determine what to forecast according to a forecasting process framework;
+- Prepare and manipulate data using functions in basic R, {tidyverse} and {lubridate} packages in R;
+- Identify systematic patterns using time series toolbox in {ggplot2} and forecasting related packages in R such as {forecast} - package;
+- Produce point forecasts and prediction intervals using R functions in forecasting related packages such as {forecast} and {fable} and user defined functions;
+- Determine the accuracy of forecasting models using statistical accuracy performance measures for point and prediction intervals;
+- Visualize, export and report result for interpretation and insights using RMarkdown.
+
+# Requirement:
+
+- Basic knowledge in statistics is assumed, e.g. “I know what normal distribution is”;
+- Basic knowledge of R is assumed, e.g. “I know what data type and data structure is”, “I know how to use a function”;
+- No knowledge of forecasting is assumed;
+
+## Program
+
+Start: 09:30 a.m.  
+End: 04:30 p.m.
+
+Refreshment breaks:
+
+Morning: 11:00 – 11:20  
+Afternoon: 03:00 – 03:20 p.m.  
+Lunch: 12:30 p.m. – 01:30 p.m.
+
+## Webinar:
+
+Title: Essentials to do forecasting using R
+
+Date: Two weeks before the workshop (TBC)
+
+## Day 1
+
+1.1.Forecasting and decision making: What is forecasting? How forecasting task is different from other modelling tasks? What is the link between forecasting and decision making, how to identify what to forecast?
+
+1.2. Data preparation, and manipulation: how to prepare data for the forecasting task, how to clean data? How to manipulate data to extract time series?
+
+1.3. Time series patterns and decomposition: what could be used in data for forecasting task? how to detect systematic pattern in the data? how to separate non-systematic pattern?
+
+1.4. Forecaster’s toolbox: How to use time series graphics to identify patterns?  what is a forecasting benchmark? What are the simple forecasting methods that could be used as benchmark? How to generate point forecasts and prediction interval using simple forecasting methods?
+
+1.5. Forecast accuracy evaluation: How do we know if the forecasting method captures systematic patterns available in data? How to judge whether a forecast is accurate or not? How to evaluate the accuracy of point forecasts and prediction interval? Why do we need to distinguish between fitting and forecast?
+
+1.6. Exponential smoothing models: What is the exponential smoothing family? what are available models in this family? What is captured by this family? how to generate point forecast and prediction intervals using exponential smoothing models?
+
+## Day 2
+
+2.1. ARIMA models: This is another important family of forecasting models. What is the ARIMA framework? what are available models in this family? What is captured by this family? how to generate point forecast and prediction intervals using ARIMA models? 
+
+2.2. Regression: We also look at causal techniques that consider external variables. What is the difference between regression and exponential smoothing and ARIMA? How to build a simple regression model?
+
+2.3. Special events: In addition to using systematic patterns in time series, we discuss how to include deterministic future special events, such as holidays, festive days, etc in models.
+
+2.4. Forecasting by aggregation:  How to forecast in a situation where we have a high frequency time series, e.g. daily but we need a low frequency forecast, e.g. monthly?  How do we generate forecast for items with a hierarchical or grouped time series structure?
+
+2.5. Forecasting by combination:  how to use an ensemble of forecasting approaches? In which conditions ensemble forecasts are better than individual methods?
+
+2.6. Forecasting for many time series: what is the best approach to forecast many time series? How to classify items for forecasting? How to forecast them? How to report the accuracy?  
+
+Reference:
+
+Workshop Booklet:
+
+Materials will be provided for the workshop in RMarkdown.
+
+## Books:
+
+- Forecasting: Principles and Practice (2018), Rob J Hyndman and George Athanasopoulos.
+- R for Data Science (2018), Garrett Grolemund and Hadley Wickham.
+
+Bahman Rostami-Tabar, Associate Professor in Management Science, Cardiff University, UK
+
+The blog has been edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text).
