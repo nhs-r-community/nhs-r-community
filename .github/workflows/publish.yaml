@@ -41,6 +41,13 @@ jobs:
           key: packages
           path: /usr/local/lib/R/site-library
 
+      - name: Install runcharter
+        run: |
+          remotes::install_github("johnmackintosh/runcharter")
+        shell: Rscript {0}
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Install Missing Packages
         run: |
           missing = checklist::install_missing_pkgs(dir = "./", glob = "*.qmd")
