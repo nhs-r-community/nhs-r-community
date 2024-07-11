@@ -19,7 +19,6 @@ Let’s imagine that we are trying to create a plot for arrivals to A&E departme
 First we want to create a plot for all of England’s A&E departments over the last 3 financial years.
 
 ```{r}
-
 library(tidyverse)
 library(NHSRdatasets)
 
@@ -36,11 +35,12 @@ ae_attendances %>%
   geom_point() +
   geom_line() +
   scale_x_date(date_breaks = "6 months", date_labels = "%b-%y") +
-  labs(x = "Month of Attendance",
-       y = "Number of Attendances",
-       title = "Attendances to A&E Departments by Month",
-       subtitle = "All A&E departments in England")
-
+  labs(
+    x = "Month of Attendance",
+    y = "Number of Attendances",
+    title = "Attendances to A&E Departments by Month",
+    subtitle = "All A&E departments in England"
+  )
 ```
 
 # Creating a second plot
@@ -66,10 +66,12 @@ ae_attendances %>%
   geom_point() +
   geom_line() +
   scale_x_date(date_breaks = "6 months", date_labels = "%b-%y") +
-  labs(x = "Month of Attendance",
-       y = "Number of Attendances",
-       title = "Attendances to A&E Departments by Month",
-       subtitle = paste("org_code =", first_org_code))
+  labs(
+    x = "Month of Attendance",
+    y = "Number of Attendances",
+    title = "Attendances to A&E Departments by Month",
+    subtitle = paste("org_code =", first_org_code)
+  )
 ```
 
 So, what changed between our first plot and the second? Well, we’ve added a line to filter the data, and changed the subtitle, but that’s it. The rest of the code is repeated.
@@ -98,10 +100,12 @@ ae_attendances %>%
   geom_col(fill = "#005EB8") +
   scale_x_date(date_breaks = "6 months", date_labels = "%b-%y") +
   scale_y_continuous(labels = comma) +
-  labs(x = "Month of Attendance",
-       y = "Number of Attendances",
-       title = "Attendances to A&E Departments by Month",
-       subtitle = paste("org_code =", second_org_code))
+  labs(
+    x = "Month of Attendance",
+    y = "Number of Attendances",
+    title = "Attendances to A&E Departments by Month",
+    subtitle = paste("org_code =", second_org_code)
+  )
 ```
 
 Now, we want to go back and change the rest of the plots to have the same look and feel. Well, you will have to go back up and change those plots individually, which when there’s just 3 plots then so what? It’s easy enough to go back and change those!
@@ -116,7 +120,7 @@ In R it’s pretty simple to create a function. Here’s a really simple example
 
 ```{r}
 my_first_function <- function(x) {
-  y <- 3*x
+  y <- 3 * x
   y + 1
 }
 ```
@@ -152,12 +156,13 @@ ae_plot <- function(data, subtitle) {
     geom_col(fill = "#005EB8") +
     scale_x_date(date_breaks = "6 months", date_labels = "%b-%y") +
     scale_y_continuous(labels = comma) +
-    labs(x = "Month of Attendance",
-         y = "Number of Attendances",
-         title = "Attendances to A&E Departments by Month",
-         subtitle = subtitle)
+    labs(
+      x = "Month of Attendance",
+      y = "Number of Attendances",
+      title = "Attendances to A&E Departments by Month",
+      subtitle = subtitle
+    )
 }
-
 ```
 
 We can now create our first 3 plots as before:
@@ -169,14 +174,14 @@ ae_plot(ae_attendances, "All A&E departments in England")
 ```{r}
 # as ae_plot's first argument is the data, we can use the %>% operator to pass in the data like so:
 ae_attendances %>%
-   filter(org_code == first_org_code) %>%
-   ae_plot(paste("org_code =", first_org_code))
+  filter(org_code == first_org_code) %>%
+  ae_plot(paste("org_code =", first_org_code))
 ```
 
 ```{r}
 ae_attendances %>%
-   filter(org_code == second_org_code) %>%
-   ae_plot(paste("org_code =", second_org_code))
+  filter(org_code == second_org_code) %>%
+  ae_plot(paste("org_code =", second_org_code))
 ```
 
 Now, we’ve managed to remove most of the duplication in our code! If we decide we no longer like the blue points and line we can easily change the function, or if we want to switch to a bar chart instead of the line chart we only have to update the code once; when we re-run our code all of the plots will change.
