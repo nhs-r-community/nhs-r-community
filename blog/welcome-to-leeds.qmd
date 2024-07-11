@@ -1,0 +1,54 @@
+---
+title: "Welcome to Leeds"
+date: "11 December 2019"
+date-modified: "11 July 2024"
+categories:
+  - 
+author: Louise Hick
+subtitle: >
+---
+
+# Why create a group?
+
+Trying to learn R is tricky, there are so many ways to do things that I often ended up Googling everything and still not feeling like I was doing anything the right way.
+
+Then someone sent me a link to the NHS-R Community website where I found lots of interesting and helpful information. Plus there were R groups, but not one in Leeds. I was surprised by this given the density of health analysts and other R users in and around Leeds. There should definitely be a group in Leeds.
+
+# How to create a group?
+
+So I ran my idea past a colleague to check if I was crazy. They agreed to help anyway and offered to email some contacts at the University of Leeds. I approached the Sheffield-R group and the NHS-R community (who also thought it was a good idea). We also connected with NHS Digital and NHS England and Improvement.
+
+Through this process we were very lucky to find some clever individuals who had already thought about starting up a group in Leeds. This meant the group already had a website (R Users Leeds), Twitter, email and logo. This gave us a great starting point with a planning team covering Leeds Teaching hospitals NHS Trust, NHS Digital, University of Leeds, Leeds Beckett University and Sky Betting and Gaming. We are very lucky in Leeds to have access to both local and national NHS organisations, academic institutions and digital and technology companies.
+
+![](img/Leeds-User-Group-1024x724.jpg){fig-alt="Hex sticker for R users Leeds with 3 chart lines with a right skew"}
+
+# What do we want from a group?
+
+From the beginning it was important to think about the aims and ethos of the group which for Leeds are:
+
+- Create an open and inclusive community
+- Meetings should be free
+- Organise meetings within and outside office hours to ensure everyone has the opportunity to participate.
+- Include the NHS, academia and other industries using R
+
+# Where will the group meet?
+
+Another consideration was how to get venues especially at low or no cost. After making contacts I was assured that I could get things for free, I wasn’t too sure but thought that I should give it a go. This is going to be an ongoing task but I have been surprised by how many organisations want to help. Following a first planning meeting we managed to organise speakers and get a date and venue for the first meeting:
+
+5th December 2019, NHS Digital, Leeds
+
+- Reproducible wRiting with RMarkdown. Ed Berry, Senior Data Scientist, Sky Betting & Gaming
+- Efficient WoRkflows getting more done with R. [Robin Lovelace](https://www.robinlovelace.net/), University Academic Fellow, University of Leeds
+- Putting the R into Reproducible Research. [Anna Krystalli](https://annakrystalli.me/), Research Software Engineer, University of Sheffield
+
+# R we nearly there yet ?
+
+Our first event is almost upon us so I suppose we have nearly reached the first destination. With tickets booking up quickly it is clear to see that there is a need for a group in Leeds to bring the analytical community together.Thank you to everyone who has supported us so far, hopefully this is just the beginning of the journey.
+
+If you would like to speak at R Users Leeds please get in touch.
+
+You can keep in touch with us on [Twitter](https://twitter.com/r_users_leeds), [GitHub](https://github.com/r-leeds) and [email](mailto:r.users.leeds@gmail.com).
+
+<https://r-users-leeds.netlify.app/>
+
+This blog was written by Louise Hick, Real World Data Analyst, the Leeds Teaching Hospitals NHS Trust
