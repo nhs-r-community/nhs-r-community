@@ -3,7 +3,7 @@ title: "Welcome to Leeds"
 date: "11 December 2019"
 date-modified: "11 July 2024"
 categories:
-  - 
+  - Personal experience
 author: Louise Hick
 subtitle: >
 ---
