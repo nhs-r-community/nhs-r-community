@@ -1,0 +1,54 @@
+---
+title: "The NHS-R Conference 2019"
+date: "15 November 2019"
+date-modified: '11 July 2024'
+author: Mohammed Amin Mohammed
+categories:
+  - Conference
+subtitle: >
+---
+
+We really enjoyed our second ever NHS-R conference in Birmingham, which was attended by about 300 delegates. We tried to ensure that there was something for colleagues who are new to R as well as for those who are more experienced. The conference was inspiring, exciting, friendly and tiring and we obtained some fantastic feedback from attendees about how much they enjoyed the conference.
+
+![](img/nov-issue-image-1.png){fig-alt="5 boxes with facts from the conference, 9 plenary talks, 13 workshops, 25 lightning talks, 6 hours networking and 300 delegates"}
+
+> Let me take this opportunity to thank you for organising a brilliant conference. I learnt more in two days than I had in weeks on my own. Your enthusiasm is extremely catchy and inspirational. Although I am relatively new in R, I am hooked on to it and wonder why I didn’t learn it before. I have already converted one person to R, my husband a consultant Psychiatrist in Edinburgh 🙂 …Once again thank you for your wonderful interactions during two days.
+
+Dr Nighat Khan – University of Edinburgh and novice R user
+
+> think that the organisation was excellent, and the quality of the workshops and talks offered was extremely high…. I thoroughly enjoyed catching up with people that I already knew as well as meeting new friends. I have also come away with new skills to hone and new techniques to adopt and share in my work.
+
+Caroline Kovacs – PhD Researcher, University of Portsmouth
+
+> I just wanted to say I really enjoyed the event and (it was) probably the best conference I’ve attended.
+
+Matthew Francis – Principal Public Health Intelligence Analyst and advanced R user
+
+> I don’t think I’ve got the words to describe how fantastic the event was, fantastic just isn’t enough. I even presented at this conference after only learning R in the last couple of years. Truly, this was only possible because of the NHS-R community.
+
+Zoe Turner– Senior Information Analyst at Nottinghamshire Healthcare NHS Foundation Trust
+
+![](img/Mohammed-blog-image-2-1.png){fig-alt="Wordcloud image with tired, inspired, excited, motivated, and enthusiastic the largest"}
+
+We had some technical glitches on the day and some of the rooms were not ideal, so we want to thank our delegates for being so forgiving, patient and enthusiastic. Likewise, we want to thank our conference organisers, our helpers, our speakers, our funders – The Health Foundation – our sponsors (Mango Solution, Jumping Rivers, Healthcare Evaluation Data from University Hospitals Birmingham), our partners (AphA, The Strategy Unit, Improvement Academy, University of Bradford, HDRUK) and all the staff at the Edgbaston Cricket Ground for helping make our conference a huge success.
+
+We have already started thinking about next year’s conference, and if you have any suggestions on how to make the next one better please let us know via email [nhs.rcommunity@nhs.net](mailto:nhs.rcommunity@nhs.net).
+
+We also made some important announcements about NHS-R Community 2.0. This will be covered in a subsequent blog, but for now there is an announcement of free tickets to the EARL (Enterprise Applications of the R Language) conference 2020 which has been described as “The highlight of the R calendar in Europe” by  Andre Andrie de Vries of RStudio.
+
+Following a guest invitation for Mohammed A Mohmmed to talk about the NHS-R Community at the EARL conference in Sep 2019, Liz Mathews (Head of Community and Education at Mango Solutions) has generously offered members of the NHS-R Community 6 FREE tickets for **EARL 2020** to be held on the **8th – 10th September** at The **Tower Hotel, St Katharine’s Way, London E1W 1LD**. These tickets are worth £900 each and includes a day of hands-on-training workshops. So how might you win a free ticket?
+
+In 200 words maximum, tells us in an email to nhs.rcommunity@nhs.net “Why we should give you the free ticket and how will you ensure this will help the NHS-R Community?”
+The subject of the email should state “EARL 2020”.
+The last two lines of your email should state that:
+- you confirm that you will arrange your own travel and hotel expenses and that you will get approval from your employer where applicable.
+- In case you win a ticket but are unable to attend you will let us know ASAP so that we can allocate your ticket to someone else.
+
+For recorded talks, photos and highlights from the EARL conference 2019, which provides an excellent overview of what the event entails, please see <https://earlconf.com/>.
+You have until 31 Dec 2019 to submit your entries. Winners will be announced in Jan 2020.
+A small panel will judge the best entries and put then put them in a hat.
+We will randomly select 6 of the best entries and notify the selected person by email.
+If you do not claim your ticket within 3 working days of the notification email, we will exclude you from the process and randomly select someone else for the ticket.
+We will repeat the process until all tickets are allocated.
+In the event of tickets not being allocated, the NHS-R Team will allocate them as they see fit.
+**The NHS-R Community Team**
