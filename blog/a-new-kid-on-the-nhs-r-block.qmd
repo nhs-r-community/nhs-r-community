@@ -1,0 +1,48 @@
+---
+title: "A new kid on the NHS-R block"
+date: "22 November 2019"
+date-modified: "11 July 2024"
+categories:
+  - Personal experience
+author: Nighat Khan
+subtitle: >
+  ""
+---
+
+My journey into data science took a baby step a few years ago when I learned SQL during my global health work overseas. A dearth of good data and data sets is every global health worker’s nightmare.
+
+Realising R in data science is the next best thing since sliced bread, I decided to give it a go. My initial introduction was aided by my daughter who volunteered to teach me during her summer break from UCLA. That was a terrible idea. We didn’t speak to each other for days. (It was worse than learning to drive from your dad!) My self-esteem took a nosedive.
+
+I searched through various resources such as YouTube, MOOC, and edX, which only confused me further. Then I stumbled across the NHS-R Community website and voila!
+
+No more learning about irises, motorcars in the USA, or global flight statuses. The NHS-R Community provided relevant teaching materials presented in the simplest possible way. The gap minder data set is a Godsend for any global health worker. I enthusiastically attended all the R workshops I could. R was becoming an addiction.
+
+Last week, I attended NHS-R Community conference in Birmingham. I am pleased to say this conference was worthy of the investment of my time, money and energy. All the ‘biggies’ in R were there to facilitate you through your anxieties (although, sadly, no Hadley Wickham!).
+
+ Meeting absolute novices was a great boost for previously dented self-esteem. Helping these novices made me realise how it is actually possible to learn more by teaching and finding ways to explain concepts for others to understand.
+
+My biggest achievement is converting my husband (a senior consultant in the NHS) to R. He went from rolling his eyes at my NHS-R-venture in early summer to signing up to NHS-R community this week: a long stride in a short time. I have managed to corrupt his hard drive with R. Let’s see how far he is willing to go!
+
+I have come across quite a few reluctant R-ists like my husband in the NHS. So now the question is: how do we make a success of converting people at various stages of their careers into using a wonderfully useful open-source resource like R?
+
+Melanie Franklin, author of ‘Roadmap to Agile Change Management’, puts across the core principle of creating small, incremental changes to be implemented as soon as possible so that organisations can realise benefits sooner rather than later and achieve rapid return on investment. This is precisely what the NHS-R Community can do.
+
+An understanding of the behaviours and attitudes is key for change implementation. When a change is sought in an organisation, there is a period of ‘unknown’ amongst the staff. Questions are asked. Do we learn completely new things? Do we unlearn what we had learned before? Will this change make us redundant? This anxiety can be age-related. While younger members are ready to embrace change, senior staff may resist change and become an obstacle. Encouraging people to participate in taking that initial step at every level is imperative, as is encouraging them to express their anxieties. This approach should not just be top-down or bottom-up. Making a mistake is a part of a process and creating a no-blame culture within an organisation is essential. Building an environment that supports exploration and rewarding and celebrating participation in new experiences.
+
+Health data science is a melange de competences: not just a group of statisticians and data analysts. A data analyst will no doubt do a great job in analysing your data, but will they ask the right questions in the right context in an environment like the NHS? This space belongs to the health care workforce. As Mohammed rightly pointed out in Birmingham: ‘Facilitate an arranged marriage between two and hope for a happy union’. Lack of time to practice is one of the biggest challenges many of my fellow learners had cited. Unfortunately, there is no simple solution. Just keep trudging along and you will get through this steep learning process.
+
+***En finalement***, I would like to propose a few suggestions to the NHS-R Community (If they are not already being thought about).
+
+- Streamlining the training.
+Many groups up and down the country are providing training in R, but these fantastic training opportunities are few and far. The NHS-R Community is a great body to ensure that the training programs are more frequent and streamlined.
+
+- Standardising the training.
+Diverse levels of these training programs mean a varied level of R-competence. The NHS-R Community could set up levels of competence (Levels I to III, for instance) and people can advance their level of competence in subsequent workshops, which may motivate people to find time to practice. An online competency exam for each level may be another way to build the capacity of the NHS workforce.
+
+- Accreditation and validation of R skills. This is an eventuality just like any skill in health care.
+
+Happy *R*-ing!!
+
+I am hoping to up my game to assist overseas researchers who don’t have means and mentors to learn R. There are many synthetic datasets available for them to learn and practice. I will continue learning as there is never an ending to learn new things.
+
+Nighat Khan is a global ehealth worker based in Edinburgh
