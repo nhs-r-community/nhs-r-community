@@ -54,7 +54,7 @@ For information on the strength of correlations, refer to this simple guide - [w
 
 # Step 2 – Creating the conditional (IF statement) to select correlation plot type
 
-The below conditional statement uses the input of the function e.g. 1-5 to select the type of chart to display. This is included in the code block below:
+The below conditional statement uses the input of the function for example 1-5 to select the type of chart to display. This is included in the code block below:
 
 ```{r}
 library(corrplot)
@@ -226,4 +226,4 @@ I do hope you will use this function to maximise your correlation plots – its 
 This blog was written by Gary Hutson, Principal Analyst, Activity & Access Team, Information & Insight at Nottingham University Hospitals NHS Trust, and was originally posted on [Hutson's Hacks](https://hutsons-hacks.info/a-simple-function-to-create-nice-correlation-plots).
 
 
-This blog has been edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text) and to ensure running of code in Quarto.
+This blog has been edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text), formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation) and to ensure running of code in Quarto.

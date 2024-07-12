@@ -56,8 +56,8 @@ Assuming basic knowledge of statistics, participants will be able to do the foll
 
 # Requirement:
 
-- Basic knowledge in statistics is assumed, e.g. “I know what normal distribution is”;
-- Basic knowledge of R is assumed, e.g. “I know what data type and data structure is”, “I know how to use a function”;
+- Basic knowledge in statistics is assumed, for example “I know what normal distribution is”;
+- Basic knowledge of R is assumed, for example “I know what data type and data structure is”, “I know how to use a function”;
 - No knowledge of forecasting is assumed;
 
 ## Program
@@ -99,7 +99,7 @@ Date: Two weeks before the workshop (TBC)
 
 2.3. Special events: In addition to using systematic patterns in time series, we discuss how to include deterministic future special events, such as holidays, festive days, etc in models.
 
-2.4. Forecasting by aggregation:  How to forecast in a situation where we have a high frequency time series, e.g. daily but we need a low frequency forecast, e.g. monthly?  How do we generate forecast for items with a hierarchical or grouped time series structure?
+2.4. Forecasting by aggregation:  How to forecast in a situation where we have a high frequency time series, for example daily but we need a low frequency forecast, for example monthly?  How do we generate forecast for items with a hierarchical or grouped time series structure?
 
 2.5. Forecasting by combination:  how to use an ensemble of forecasting approaches? In which conditions ensemble forecasts are better than individual methods?
 
@@ -118,4 +118,4 @@ Materials will be provided for the workshop in RMarkdown.
 
 Bahman Rostami-Tabar, Associate Professor in Management Science, Cardiff University, UK
 
-The blog has been edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text).
+The blog has been edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text) and formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation)

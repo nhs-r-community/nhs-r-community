@@ -183,7 +183,7 @@ This function needs explanation. The function uses as a single parameter the cor
 
 Next, I use the `findFreqTerms` function to iterate from the first entry to the maximum number of rows in the matrix. These are the powerhouses of the function, as they highlight how many times a word has been used in a sentence across all the rows of text.
 
-The `terms_grouped` variable then slices the term matrix with the frequent terms, this is converted to a matrix, sum of each row are calculated i.e. the number of times the word appears. Then, a data frame is created of the terms in the function with the headings term and Frequency.
+The `terms_grouped` variable then slices the term matrix with the frequent terms, this is converted to a matrix, sum of each row are calculated for example the number of times the word appears. Then, a data frame is created of the terms in the function with the headings term and Frequency.
 
 Next, we use the power of {dplyr} to use arrange by the frequency descending and to add a mutated column to the data frame to calculate the proportion of that specific term over all terms. The `return(data.frame(terms_group))` then forces R to return the results of the function.
 
@@ -223,4 +223,4 @@ This word cloud relates to the pre workshop prior to the conference. I personall
 
 R is so versatile – every day is like a school day when you are learning it, but what a journey.
 
-This blog has been edited for [NHS-R styles](https://nhsrway.nhsrcommunity.com/style-guides.html#style-guide-for-code).
+This blog has been edited for [NHS-R styles](https://nhsrway.nhsrcommunity.com/style-guides.html#style-guide-for-code) and has been formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation)
