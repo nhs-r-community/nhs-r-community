@@ -3,7 +3,7 @@ title: "The NHS-R Community and Hexitime – Our 1st month of collaborating"
 date: "11 December 2020"
 date-modified: "12 July 2024"
 categories:
-  - Conference
+  - NHS-R
 author: NHS-R Community Team
 subtitle: >
 ---
