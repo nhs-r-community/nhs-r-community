@@ -6,6 +6,7 @@ categories:
   - Conference
 author: Gary Hutson
 subtitle: >
+  "Summary and video links to the 2020 Conference"
 ---
 
 Originally appeared on: <https://hutsons-hacks.info/nhs-r-2020-annual-conference> and <https://www.r-bloggers.com/2020/11/nhs-r-2020-week-long-conference/>.
@@ -116,7 +117,7 @@ Great session from Andi Orlowski and Bruno Petrungaro:
 
 </iframe>
 
-#### **Using  polygon and spatial data to plot brain atlases** {ggplot2=""}
+#### **Using polygon and spatial data to plot brain atlases** {ggplot2=""}
 
 Athanasia Mowinckel has created an amazing package for displaying brain atlases:
 
