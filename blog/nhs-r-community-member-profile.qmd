@@ -1,0 +1,34 @@
+---
+title: "Member profile - Robin Hinks"
+date: "8 October 2020"
+date-modified: '22 March 2024'
+categories:
+  - Personal experience
+author: Robin Hinks
+subtitle: >
+  "Profile from Robin Hinks, Research and Policy Officer, Chartered Society of Physiotherapy"
+---
+
+R is a powerful tool for manipulating health and care data and a lot can be learned from sharing our experiences of using R with others. We bring to you an NHS-R profile from one of our Community members, to share their insider knowledge of using R…
+
+**How did you first meet R?**\
+While working as a civil service analyst, where I was encouraged to undertake self-directed learning in R to conduct statistical and geographic analysis.\
+
+**What sort of things do you use R for** **and what do you love about R?**\
+
+Through previous roles – where I have done quality assurance and validation of other research teams’ work – I know the value of well-documented analytical process, and the dangers of poor record keeping! I love how R allows you to keep all your analysis, research notes and – through R Markdown – reporting in one place.\
+
+**What do you hate about R?**\
+
+I have a qualitative research background and using R has been my first real exposure to code development. While I found the move from, say, SPSS’ ‘point and click’ environment easy enough, I have found it difficult to get my head round the wider world of code development that surrounds r: learning about pulls, commits, splits and the like has been challenging!\
+
+**What are your top tips for using R?**\
+
+Start by coding up some tasks you already have a process for elsewhere – for example automating some data transformations you’ve previously done in a programme like SPSS or Excel. Working out how to translate a task into r’s environment is a lot easier that starting from a blank slate.\
+
+**Can you please name a project where you have used R? Briefly describe what this involves.**\
+
+Health data and statistics are reported against a range of geographies that do not easily match up with the political geographies our members might seek to influence – for example parliamentary constituencies or local authorities. I’ve used R to develop look up tables between different geographic areas; and using the leaflet package visually map different geographic area,\
+developing simple choropleth and point maps for internal insight work.
+
+This blog has been formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation)
