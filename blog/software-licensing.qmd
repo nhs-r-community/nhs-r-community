@@ -1,0 +1,30 @@
+---
+title: "Software licensing"
+date: "17 March 2021"
+date-modified: '12 July 2024'
+categories:
+  - NHS-R
+author: Chris Beeley
+subtitle: >
+---
+
+:::{.callout-tip collapse=false appearance='default' icon=true}
+## Other resources
+Chris did a video on open source for analysts and data scientists published on our [YouTube](https://youtu.be/CRCr_z84F14?si=8FxaynOIGuhF2Joz) which also covers licences and copyright.
+
+There is a also a chapter in the NHS-R Way book related to [licences and copyright](https://nhsrway.nhsrcommunity.com/style-guides.html#licenceslicenses) and what we use.
+:::
+
+At NHS-R we all support open source software. R itself is open source. So is RStudio. CRAN packages are open source. And many of us use things with R that are open source- Linux servers to host Shiny applications, MySQL databases to store data, and PyCharm to run Python code. Although most people have a rough idea about what open source means (sort of cuddly and nice and you don’t have to pay for it) open source licensing is not well understood even within the NHS-R community, let alone among the non-technical people in the rest of the health and social care community.
+
+The first thing to understand about open source is that it’s not necessarily free. In fact, being able to charge for software is a fundamental part of the definition of the freedom of open source. As the Free Software Foundation say: [***you should think of “free” as in “free speech,” not as in “free beer”***](https://www.gnu.org/philosophy/free-sw.en.html)
+
+Open source software gives users the freedom to [***“run, copy, distribute, study, change and improve”***](https://www.gnu.org/philosophy/free-sw.en.html)
+
+In practice, this means that the source code of the software must be available for inspection, and users must have the right to run and modify the source code. This is the second thing to understand about open source software – just putting the code on GitHub without a licence does not make it open source, and it does not give users to right to modify or even run your code. The copyright of code is automatically given to whomever produced it (or, more usually in the NHS and other organisations, to their employer). Explicit licence must be granted to allow others to use and modify code, even if the source is available (it’s worth saying, if you don’t want to or can’t properly open source your code, it’s still worth posting it, because at least then we can see how it works, even if we can’t run it).
+
+All NHS-R branded solutions are open source, and being open source is a precondition for being a solution that is funded or branded by NHS-R. Applications for NHS-R solution funding must, therefore, include a choice of licence that the code will be released under. We recommend the MIT licence but any [open source licence](https://choosealicense.com/) is acceptable. There are two main types of software licence, and the difference between them is important. The MIT licence is the most popular “permissive” licence. What permissive means in this context is essentially that the code can be freely reused anywhere with few other restrictions on it. In particular, the code can be incorporated into software which is not open source- for example in paid proprietary software, like Tableau, or Excel.
+
+The other main type of software licence is a “copyleft” licence. A copyleft licence is like a permissive licence in the sense that it allows code to be reused and modified, and even incorporated into other codebases. However, the fundamental difference with copyleft licences is that if copyleft licensed code is included in another codebase, all the code, not just the open sourced bit, must be released under the same software licence conditions. This makes this licence extremely unattractive to proprietary software vendors, since incorporating 100 lines of your copyleft licensed code into, say, Excel, would force Microsoft to release the whole program, all of the code, under an open source licence. The most common copyleft licence is the GPL3.
+
+The choice is yours. If you would like your code to be incorporated within a vendor’s products, for example if you have some analytic code that you would like to see embedded in the proprietary EPR system that your organisation uses, you will need to use a permissive licence like MIT. If you don’t want software vendors to take your code and include it in paid offerings to yours and other organisations, you will need to use a copyleft licence like GPL3. It’s worth thinking about carefully.
