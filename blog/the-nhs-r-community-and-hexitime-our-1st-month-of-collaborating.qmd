@@ -1,0 +1,31 @@
+---
+title: "The NHS-R Community and Hexitime – Our 1st month of collaborating"
+date: "11 December 2020"
+date-modified: "12 July 2024"
+categories:
+  - Conference
+author: NHS-R Community Team
+subtitle: >
+---
+
+Last month at our annual event we [announced an exciting partnership](https://nhsrcommunity.com/blog/announcing-a-new-nhs-r-hexitime-partnership/) between the NHS-R Community and the collaboration platform [Hexitime](https://hexitime.com/). At the conference many of you joined an interactive session where we shared some of the challenges we face at work and how we might be able to mobilise our network to help each other tackle them.  
+
+The workshop clearly sparked some useful reflection and great ideas, because within an hour 50 members of the community had already registered and begun to upload their offers, requests and challenges! 
+
+We wanted to explore everybody’s efforts a month later and understand how the partnership was progressing. We are delighted to be able to share with you the following map of NHS-R members supporting each other and benefitting from the platform. The map audits our first 3 weeks together. 
+
+![NHS-R community members collaborating in action](img/Hexitime-NHS-R-Map.png){fig-alt="Screenshot of cards with people's details with links between them where connections have been set up in Hexitime"}
+
+So, first reflections;
+
+1.  There is scope to use the opportunity as much or as little as you need. Some members have already notched up over 10 exchanges in the first few weeks, and this can include earning credits by helping others as much as spending them to bring in support you need. 
+
+2.   NHS-R members are starting to benefit from skill exchanges outside the community. Support with literature reviews, board level Statistical Process Control (SPC) reporting, career coaching and understanding system length of stay modelling are some of the examples where NHS-R members are receiving such support for free. 
+
+3.  Members are starting to create exchange ‘chains’, where credits of support are flowing between members who may not know each other. This is quite powerful and will really help us to mobilise the network in the future. So, what may feel like a small offer of help is probably contributing to a much larger value chain in the network.  
+
+4.  The map shows about 20 active NHS-R community members reaching out and sharing their skills through the platform. They’ve had a productive 3 weeks – but imagine what this would look like with a few hundred NHS-R members using it!
+
+We also want to introduce Beth Taylor to the community, who will be supporting our partnership moving forwards:
+
+> *I would be keen to hear about any interesting exchanges you have made on Hexitime to share with the rest of the community – get in touch with your stories! I am looking forward to utilising Hexitime to develop my own skills in R.*
