@@ -1,0 +1,53 @@
+---
+title: "NHSr – Rguably the Best Conference in the World"
+date: "17 November 2020"
+date-modified: '12 July 2024'
+categories:
+  - Conference
+author: Eugene Hickey
+subtitle: >
+---
+
+The 2020 vintage was my first time at an NHSr Community event, and boy was it impressive.
+
+Being the year that is in it, everything was online. That still feels a bit surreal. My experience of these kind of events this year has been a bit hit-and-miss, but NHSr got pretty everything right, making a rewarding and enjoyable week. Proof that when you have the saviour-faire, the joie-de-vivre will still come through. Sans souci.
+
+This must have been a whole team effort from lots of people, but I have to give special plaudits to Anastasiia and Mohammed.
+
+My personnel highlights of the week:
+
+-   The Tuesday talk by Athanasia Monika Mowinckel on brain imaging
+
+-   Ben Alcock’s maps of COVID outbreaks
+
+-   The Thursday afternoon (what a line-up)
+
+-   Hillary Juma on the sense of community
+
+-   and the post conference chat on the Friday afternoon.
+
+My take-aways from the conference:
+
+-   if you can measure the success of a conference by the number of new packages you end up installing, then NHSr rates pretty highly.
+
+-   R embodies positive thinking and community spirit, and NHSr has that in spades. There was a palpable sense of engagement by everyone throughout the week
+
+-   The diversity of work going on. Lots of teams making some very useful packages (monstR, phsmethods, phstemplates, opensafely, ggseg, thematic, COCATOO….), lots of teams working on the fostering of data science in the NHS (Health Foundation, APHA, NHSx, Heart Foundation, for example), lots of front line work, lots of speakers more on the *philosophy* of R (Mohammed, Alberto Cairo….).
+
+-   And penguins. The Palmer penguins seemed like a daily feature. Except, oddly, by Allison Horst, the person who actually put the dataset together.
+
+And I got to talk. I’m always nervous about presenting, but always glad I did it afterwards. I just wish I had some of the charisma of a Ben Goldacre. For one thing, we’re in the middle of a six week lockdown in Ireland, so it gave me the chance to talk to people who aren’t in my family, or the usual gang from work. Preparing the talk was an experience in itself; part of it was laying out the diversity of ways to visualise our data in R so I ended up making a series of plots in formats I hadn’t used before. And I got a really nice question from Zoe Turner (about catering for accessibility in plots), an issue that has set me thinking, definitely necessary of further investigation.
+
+And regrets:
+
+-   Mid November is a busy enough time in a university so it was tricky to juggle the conference with a batch of other demands. There were lots of talks I regret missing, and listening to the playback is never quite the same as catching them live
+
+-   I lost count of the number of times I caught myself thinking ‘darn, I wish I’d gone to that workshop’. The workshops were the week before, the one I went to, gt tables with Rich Iannone, was terrific, but there were so many more
+
+-   I’d never used crowdcast before. Next time I’ll make a mental note not to have any material in the bottom 20% of the screen, it can get obscured by the vignettes that appear around the screen
+
+Final thoughts. In my book, NHSr Community is on the right track. The people behind it have a clear vision. My impression is that there is an ethos; taking healthcare to a new level using measurement and statistics, and a spirit; fostering new skills with an attitude of open engagement. It’s pretty inspiring.
+
+Eugene Hickey, Technology University, Dublin - Lecturer in Physics
+
+This blog has been formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation)

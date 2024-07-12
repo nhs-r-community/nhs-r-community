@@ -8,43 +8,43 @@ author: Mohammed A Mohammed
 subtitle: >
 ---
 
-It all began with one member of the NHS-R Community, reaching out and asking how she could get someone more experienced with R to give her some mentoring support. 
+It all began with one member of the NHS-R Community, reaching out and asking how she could get someone more experienced with R to give her some mentoring support. 
 
-A fair ask but quite tricky to resolve when people asking for help and those willing to provide it are based in different organisations and without involving money and contracts. 
+A fair ask but quite tricky to resolve when people asking for help and those willing to provide it are based in different organisations and without involving money and contracts. 
 
-In our quest to address this issue, we came across Hexitime – a platform for skills exchange – developed by two NHS staff – John Lodge and Hesham Abdallah. 
+In our quest to address this issue, we came across Hexitime – a platform for skills exchange – developed by two NHS staff – John Lodge and Hesham Abdallah. 
 
-Hexitime is the first and currently only national timebank in health and social care, and has won multiple awards for innovating in this space. It started as a Health Foundation Q Exchange winning project in 2018 and has steadily begun to be adopted by like-minded people across healthcare. It works on the principles that everybody’s time is equal and potentially highly valuable to others who need it to progress their improvement work. As such, it utilises a virtual currency where an hour of your time = 1 credit, and you can share your skills across any borders. And because Hexitime is designed, run and owned by NHS staff, the platform is committed to operating as a not-for-profit, remaining free at the point of use. Your data and participation are governed by strict GDPR guidelines at all times. 
+Hexitime is the first and currently only national timebank in health and social care, and has won multiple awards for innovating in this space. It started as a Health Foundation Q Exchange winning project in 2018 and has steadily begun to be adopted by like-minded people across healthcare. It works on the principles that everybody’s time is equal and potentially highly valuable to others who need it to progress their improvement work. As such, it utilises a virtual currency where an hour of your time = 1 credit, and you can share your skills across any borders. And because Hexitime is designed, run and owned by NHS staff, the platform is committed to operating as a not-for-profit, remaining free at the point of use. Your data and participation are governed by strict GDPR guidelines at all times. 
 
-See this [YouTube video](https://youtu.be/dV-gmm-Ipq8) on Hexitime works in practice.
+See this [YouTube video](https://youtu.be/dV-gmm-Ipq8) on Hexitime works in practice.
 
-NHS-R is now an official strategic partner with Hexitime. We are super excited about the prospects. Hexitime will have a formal launch at the NHS-R virtual conference in November. Meanwhile here are some highlights about our current soft launch. 
+NHS-R is now an official strategic partner with Hexitime. We are super excited about the prospects. Hexitime will have a formal launch at the NHS-R virtual conference in November. Meanwhile here are some highlights about our current soft launch. 
 
-1.  You can start using Hexitime now – it is free and you will join 800+ members. Just register with your details, including NHS or other organisation, and tag that you are in the NHS-R Community. 
-
-```{=html}
-<!-- -->
-```
-2.  If you have an ‘academic’ title such as NHS-R Fellow, Associate -then please tag the NHS-R Academy as well. 
+1.  You can start using Hexitime now – it is free and you will join 800+ members. Just register with your details, including NHS or other organisation, and tag that you are in the NHS-R Community. 
 
 ```{=html}
 <!-- -->
 ```
-3.  All NHS-R Fellows, Associates and Champions will be encouraged to register and offer their time and expertise via Hexitime. 
+2.  If you have an ‘academic’ title such as NHS-R Fellow, Associate -then please tag the NHS-R Academy as well. 
 
 ```{=html}
 <!-- -->
 ```
-4.  You can offer your time to be a mentor, advisor, critical friend etc 
+3.  All NHS-R Fellows, Associates and Champions will be encouraged to register and offer their time and expertise via Hexitime. 
 
 ```{=html}
 <!-- -->
 ```
-5.  You can create projects and set up a project team. 
+4.  You can offer your time to be a mentor, advisor, critical friend and so on 
 
 ```{=html}
 <!-- -->
 ```
-6.  We have set up a NHS-R Wishing Well – where you can drop any ideas on what you would like from us – training, support, solutions to data analytics problems you see in practice, etc. 
+5.  You can create projects and set up a project team. 
 
-A future blog post, hopefully by people who are using Hexitime, will report on the progress… 
+```{=html}
+<!-- -->
+```
+6.  We have set up a NHS-R Wishing Well – where you can drop any ideas on what you would like from us – training, support, solutions to data analytics problems you see in practice, and so on. 
+
+A future blog post, hopefully by people who are using Hexitime, will report on the progress… 
