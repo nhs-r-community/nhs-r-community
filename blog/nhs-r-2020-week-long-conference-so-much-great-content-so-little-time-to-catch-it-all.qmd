@@ -1,0 +1,169 @@
+---
+title: "NHS-R 2020 Week Long Conference – so much great content, so little time to catch it all…"
+date: "19 November 2020"
+date-modified: '12 July 2024'
+categories:
+  - Conference
+author: Gary Hutson
+subtitle: >
+---
+
+Originally appeared on: <https://hutsons-hacks.info/nhs-r-2020-annual-conference> and <https://www.r-bloggers.com/2020/11/nhs-r-2020-week-long-conference/>.
+
+The NHS-R conference concluded, and I am emotional that it has ended. There were some fantastic speakers and the whole event, from start to finish was a blast.
+
+## **Openers**
+
+I would like to include everyone on here, but the openers that had an impact for me are included below:
+
+#### **Conference opening – the journey so far – Professor Mohammed Amin Mohammed**
+
+<iframe width="500" height="282" src="https://www.youtube.com/embed/9-XlwH5VPLk" title="Conference opening: NHS-R Journey so far and next steps by Mohammed Mohammed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
+
+What a great opener from Mohammed and it was really interesting to get a view of the direction of the NHS-R Community.
+
+#### **OpenSAFELY.org: proving the power of open methods for NHS data analysis**
+
+Ben Goldacre, you may have heard of his from his books on Bad Science and Bad Pharma, dropped in for a chat about the OpenSAFELY.org platform and the need for open methods for NHS data analysis.
+
+<iframe width="500" height="282" src="https://www.youtube.com/embed/rxgUbee7U38" title="OpenSAFELY.org: proving the power of open methods for NHS data analysis byDr Ben Goldacre" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
+
+#### **Opening up Analytics by NHS-x**
+
+Sarah Culkin did a good talk on opening up new data analytics and the need for an open source mindset. Advanced analytics, was mentioned as another revolution and interesting work is at foot in the AI lab. Watch the video to find out more:
+
+<iframe width="500" height="282" src="https://www.youtube.com/embed/8uAG3KKBxM0" title="Opening up Analytics by Sarah Culkin" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
+
+## **Excellent workshops**
+
+Prior to the conference, there were a week of excellent workshops. The ones I found most interesting were:
+
+#### **Regression Modelling**
+
+[Chris Mainey](https://www.mainard.co.uk/) did an excellent introduction to Regression Modelling. Check it out:
+
+<iframe width="500" height="282" src="https://www.youtube.com/embed/UWLfhQFRde4" title="Regression modelling" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
+
+#### **Pretty R Markdown and Presentations with Xaringan**
+
+This was a two part session by Silvia Canelón:
+
+<iframe width="500" height="282" src="https://www.youtube.com/embed/M3skTMQbCD0" title="Xaringan Slides (part 1)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
+
+<iframe width="500" height="282" src="https://www.youtube.com/embed/cAtpZxW4bTI" title="Xaringan slides (part 2)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
+
+#### **Introduction to and RMarkdown** {dplyr=""}
+
+Zoë Turner did a brilliant job of onboarding newer developers with {dplyr}:
+
+<iframe width="500" height="282" src="https://www.youtube.com/embed/y5ispDcKfHw" title="Introduction to dplyr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
+
+## **Awesome plenary talks**
+
+The plenary talks were awesome this year, as well as the Lightening talks. I have not watched all of the sessions, so I do apologise if I missed you out, but all the sessions can be found on [YouTube](https://www.youtube.com/channel/UCMwM-3tg_-Pbx8hKO78q5EA).
+
+#### **Computer Vision – how it can aid clinicians**
+
+Shameless self promotion – I did a talk on how Computer Vision can aid clinicians:
+
+<iframe width="500" height="282" src="https://www.youtube.com/embed/7ezy5xHMTno" title="How computer vision can assist clinicians by Gary Hutson" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
+
+#### **Building Predictive Models with HES data**
+
+Chris Mainey did another excellent slot looking at GAMS and Mixed Effects models, and how they apply to HES datasets:
+
+<iframe width="500" height="282" src="https://www.youtube.com/embed/0BiGiZfqqZA" title="Building predictive models with HES data using R by Chris Mainey" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
+
+#### **Integrating R and QlikSense**
+
+Jamie-Leigh Chapman did a stellar job at showing the integration capabilities of R and QlikSense:
+
+<iframe width="500" height="282" src="https://www.youtube.com/embed/fi6YntQA1Xo" title="Integrating R and Qlik Sense by Jamie-Leigh Chapman" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
+
+#### **Decision Modelling in R and Shiny**
+
+A very interesting session by Robert Smith:
+
+<iframe width="500" height="282" src="https://www.youtube.com/embed/Pl66-h5UXgI" title="Decision Modelling in R-Shiny by Robert Smith" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
+
+#### **Causal Inference in Predictive Modelling**
+
+Great session from Andi Orlowski and Bruno Petrungaro:
+
+<iframe width="500" height="282" src="https://www.youtube.com/embed/J7q2GJImEW8" title="Causal Inference in Population Health Management by Andi Orlowski and Bruno Petrungaro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
+
+#### **Using  polygon and spatial data to plot brain atlases** {ggplot2=""}
+
+Athanasia Mowinckel has created an amazing package for displaying brain atlases:
+
+<iframe width="500" height="282" src="https://www.youtube.com/embed/vQCXT_YwsfE" title="Using ggplot2 polygon and spatial data to plot brain atlases by Athanasia Mowinckel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
+
+#### **R Code Quality: Does it Really Matter?**
+
+A great session on code quality and packages that can be used to scare the life of people with bad coding practice, sounds like all of my mates, and me:
+
+<iframe width="500" height="282" src="https://www.youtube.com/embed/1Sw3qPqSb70" title="R Code Quality: Does it Really Matter? by Colin Gillespie" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
+
+#### **APIs in R with Plumber**
+
+This session focussed on passing model parameters through from PlumbeR. Definitely something that will be very useful in the future:
+
+<iframe width="500" height="282" src="https://www.youtube.com/embed/f_l1oa4ShJo" title="APIs in R with Plumber by James Blair" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
+
+## **Wowsome Lightening Talks**
+
+The Lightning talks this year, like everything else, were fascinating. The links to the three days worth of lightning talks are included in this post:
+
+<iframe width="500" height="282" src="https://www.youtube.com/embed/5eEaAxeDFRE" title="Lightning talks: Session 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
+
+<iframe width="500" height="282" src="https://www.youtube.com/embed/H_qzxl8qpTs" title="Lightning talks: Session 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
+
+## **The full playlist**
+
+The below YouTube link has all the sessions from the workshop. The ones contained in my blog were the ones I got chance to watch and I found these really useful and interesting. I am sure there are many more in the playlist that I have not had time to watch yet. So much great content, so little time.
+
+These can be accessed hereunder:
+
+<https://www.youtube.com/playlist?list=PLXCrMzQaI6c3EAh10hDZectzBALWPk19w>
+
+<https://www.youtube.com/playlist?list=PLXCrMzQaI6c0Kvs7lE-Rxdig5nc5-4Xx2>
+
+Subscribe to this YouTube channel and watch out for the excellent content coming out of this community. The belief is for 100% open source in the NHS and all our code is sharable.
+
+See you for the conference in 2021
+
+The blog has been edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text)
