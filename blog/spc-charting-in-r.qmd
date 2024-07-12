@@ -11,7 +11,7 @@ subtitle: >
 
 For some time the Information Department at Worcestershire Acute NHS Trust has been making use of statistical process control (SPC) charts for internal reporting purposes. This has formed part of our drive toward better decision-making (as recommended in NHSI’s Making Data Count <https://improvement.nhs.uk/resources/making-data-count/>).
 
-In doing so we have made extensive use of NHSI’s Excel-based SPC tool and have also sought to implement this methodology outside of the confines of MS Excel (ie. within our SQL/SSRS based reporting suite).
+In doing so we have made extensive use of NHSI’s Excel-based SPC tool and have also sought to implement this methodology outside of the confines of MS Excel (for example within our SQL/SSRS based reporting suite).
 
 As the Department’s unofficial ‘R Champion’, I have driven efforts to increase my team’s knowledge and usage of R over the last six months. My experience with NHSI’s resources suggested that R offered a route to more efficient, consistent and quickly reproducible SPC charting. I set about developing a charting function within R which would replicate NHSI’s logic and methodology[\[1\]](https://nhsrcommunity.com/spc-charting-in-r/#_ftn1).
 
@@ -32,6 +32,8 @@ Despite the (at times steep!) learning curve involved, from creating the initial
 I hope that next steps for this project will be sharing our methodology with other NHS organisations, to allow further input and development of the methodology and reporting applications. Recently there have been discussions around a collaboration with other NHS Trusts and the Strategy Unit, regarding the possibility of developing an SPC package and shiny app to be available to all NHS organisations. If you would like to learn more or take part in the discussions, please join us on the NHS-R community slack channel (nhsrcommunity.slack.com) and let us know your thoughts on an SPC package, and what you might want to see as part of it!
 
 [\[1\]](https://nhsrcommunity.com/spc-charting-in-r/#_ftnref1) For those not familiar with the Making Data Count resources, the SPC tool is based around a moving average measurement of sigma and significant variations in data based on the this value. These include the identification of any data points above or below three sigma; sequences of consecutive data points above/below the mean; runs of consecutively increasing/decreasing data points; and two out of three data points at greater (or less than) than 2 sigma.
+
+This blog has been formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation).
 
 *The original comments form the WordPress site:*
 

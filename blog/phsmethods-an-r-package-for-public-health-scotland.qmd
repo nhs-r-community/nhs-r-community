@@ -17,7 +17,7 @@ Over time, ISD gradually (and at times begrudgingly) came to embrace open source
 
 ## **Introducing {phsmethods}**
 
-Analysts working across a multitude of teams within PHS have to perform many of the same, repetitive tasks, not all of which are catered for by existing R packages: assigning dates to financial years in YYYY/YY format (e.g. 2016/17); formatting improperly recorded postcodes; returning quarters in plain English (e.g January to March 2020 or Jan-Mar 2020) rather than the slightly restrictive formats offered by [`lubridate::quarter()`](https://lubridate.tidyverse.org/reference/quarter.html) and [`zoo::yearqtr()`](https://cran.r-project.org/web/packages/zoo/zoo.pdf). The list is endless, and every analyst has their own workaround, which quickly becomes a problem. Time is wasted by multiple people devising an alternative way of doing the same thing – and how can anyone be sure that everyone’s method actually does the same thing?
+Analysts working across a multitude of teams within PHS have to perform many of the same, repetitive tasks, not all of which are catered for by existing R packages: assigning dates to financial years in YYYY/YY format (for example 2016/17); formatting improperly recorded postcodes; returning quarters in plain English (e.g January to March 2020 or Jan-Mar 2020) rather than the slightly restrictive formats offered by [`lubridate::quarter()`](https://lubridate.tidyverse.org/reference/quarter.html) and [`zoo::yearqtr()`](https://cran.r-project.org/web/packages/zoo/zoo.pdf). The list is endless, and every analyst has their own workaround, which quickly becomes a problem. Time is wasted by multiple people devising an alternative way of doing the same thing – and how can anyone be sure that everyone’s method actually does the same thing?
 
 The {phsmethods} package was conceived to address (some of) these concerns. At the time of writing, it contains eleven functions to facilitate some of the more laborious tasks analysts regularly face, with more in the works. None deal with any statistical methodology, nor are they likely to provoke any controversy or consternation over their methods of implementation; they are simple functions designed to make routine data manipulation easier.
 
@@ -114,7 +114,7 @@ It’s not expected that everyone who wishes to contribute to {phsmethods} will 
 
 Hopefully {phsmethods} will provide a safe incubator for analysts who wish to develop their skills in writing, documenting and testing R functions prior to making their own open source contributions elsewhere. And hopefully the knock-on effect of more analysts developing these skills will be improved coding standards permeating throughout PHS. If not, it’ll at least look good having a package pinned on my [GitHub profile](https://github.com/jackhannah95).
 
-Broken links have been removed from this blog and has been edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text) and to ensure running of code in Quarto.
+This blog has been formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation) and has been edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text) and to ensure running of code in Quarto.
 
 *The original comments form the WordPress site:*
 
