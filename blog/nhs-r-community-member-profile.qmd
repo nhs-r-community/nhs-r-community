@@ -1,7 +1,7 @@
 ---
 title: "Member profile - Robin Hinks"
 date: "8 October 2020"
-date-modified: '22 March 2024'
+date-modified: '12 July 2024'
 categories:
   - Personal experience
 author: Robin Hinks
