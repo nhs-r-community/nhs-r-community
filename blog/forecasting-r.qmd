@@ -97,7 +97,7 @@ Date: Two weeks before the workshop (TBC)
 
 2.2. Regression: We also look at causal techniques that consider external variables. What is the difference between regression and exponential smoothing and ARIMA? How to build a simple regression model?
 
-2.3. Special events: In addition to using systematic patterns in time series, we discuss how to include deterministic future special events, such as holidays, festive days, etc in models.
+2.3. Special events: In addition to using systematic patterns in time series, we discuss how to include deterministic future special events, such as holidays, festive days, and so on in models.
 
 2.4. Forecasting by aggregation:  How to forecast in a situation where we have a high frequency time series, for example daily but we need a low frequency forecast, for example monthly?  How do we generate forecast for items with a hierarchical or grouped time series structure?
 

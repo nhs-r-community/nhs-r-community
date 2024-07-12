@@ -17,7 +17,7 @@ In the throws of a new(ish) tool such as R, everybody has a way of working which
 
 # Principles of R script development
 
-As the R development environment is so methods based, it makes sense to have a standardised way to develop scripts so that different developers understand the basic workflow of data and can focus on the specific methodology for the specific problem rather than disentangle endless subsets of data and how each is cleaned and merged etc.  I use various principles when developing a script and useful approach to R script development.
+As the R development environment is so methods based, it makes sense to have a standardised way to develop scripts so that different developers understand the basic workflow of data and can focus on the specific methodology for the specific problem rather than disentangle endless subsets of data and how each is cleaned and merged and so on.  I use various principles when developing a script and useful approach to R script development.
 
 # a) An R script should focus on a specific problem.
 
