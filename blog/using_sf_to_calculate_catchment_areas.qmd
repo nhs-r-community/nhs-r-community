@@ -1,0 +1,252 @@
+---
+title: "Using {sf} to calculate catchment areas"
+author: "Tom Jemmett"
+date: "2020-02-19"
+---
+
+R is a highly capable [GIS][gis] tool, thanks to the `{sf}` package.
+In this post I am going to show you how you can use `{sf}` with openly available
+data to calculate catchment areas and population sizes, and then how to
+calculate travel time isochrone’s with `{osrm}`. 
+
+```{r setup}
+knitr::opts_chunk$set(echo = TRUE)
+
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(readxl)
+  library(glue, include.only = "glue_data")
+  library(scales, exclude = c("discard", "col_factor"))
+  library(sf)
+  library(leaflet)
+  library(leaflet.extras)
+})
+```
+
+Firstly, I have prepared a dataset containing the 23 A&E departments that are
+Adult Major Trauma Centre's (MTC's) in England and Wales. This dataset is an
+`{sf}` object which contains a special column called `geometry` - this column
+contains the locations of the hospitals. The data is sourced from
+[this][mts_map], the [Organisation Data Service][ods] (ODS) and the
+[NHS Postcode Database][nhspd].
+
+When we print this table out we get a bit of information telling us how many
+features (rows) and fields (columns) there are, along with what the type of
+the geometry is (in this case, we have points). We also get the "bounding box"
+(bbox) - this is like a rectangle that encloses all of our geometries. Finally,
+we get the [coordinate reference system][crs] (CRS) that is being used.
+
+Below this we see a table of data - like any other dataframe in R.
+
+```{r}
+major_trauma_centres <- read_sf(
+  paste0(
+    "https://gist.githubusercontent.com/tomjemmett/",
+    "ac111a045e1b0a60854d3d2c0fb0baa8/raw/",
+    "a1a0fb359d1bc764353e8d55c9d804f47a95bfe4/",
+    "major_trauma_centres.geojson"
+  ),
+  agr = "identity"
+)
+major_trauma_centres
+```
+
+This dataframe can be used like any other dataframe in R, for example, we can
+use `dplyr` to filter rows out we aren't interested in, or join to another
+dataframe to bring in extra information.
+
+For example, we can load the LSOA population estimates and join it to the LSOA
+boundaries file from the [ONS geoportal][lsoa_boundaries]. If you aren't
+familiar with Output Areas see the [ONS Census Geography][oa] documentation.
+
+First, let's load the population estimate file.
+
+```{r}
+#| message=FALSE
+#| warning=FALSE
+
+# download the LSOA population estimates from ons website: for some reason they
+# provide this download as an excel file in a zip file, so we need to download
+# the zip then extract the file, but we don't need to keep the zip after. withr
+# handles this temporary like file for us
+if (!file.exists("SAPE22DT2-mid-2019-lsoa-syoa-estimates-unformatted.xlsx")) {
+  withr::local_file("lsoa_pop_est.zip", {
+    download.file(
+      paste0(
+        "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/",
+        "populationandmigration/populationestimates/datasets/",
+        "lowersuperoutputareamidyearpopulationestimates/mid2019sape22dt2/",
+        "sape22dt2mid2019lsoasyoaestimatesunformatted.zip"
+      ),
+      "lsoa_pop_est.zip",
+      mode = "wb"
+    )
+    unzip("lsoa_pop_est.zip")
+  })
+}
+
+lsoa_pop_estimates <- read_excel(
+  "SAPE22DT2-mid-2019-lsoa-syoa-estimates-unformatted.xlsx",
+  "Mid-2019 Persons",
+  skip = 3
+) %>%
+  select(LSOA11CD = `LSOA Code`, pop = `All Ages`)
+
+head(lsoa_pop_estimates)
+```
+
+Now we can load the boundary data and join to our population estimates.
+
+```{r}
+lsoa_boundaries <- read_sf(
+  httr::modify_url(
+    "https://services1.arcgis.com",
+    path = c(
+      "ESMARspQHYMw9BZ9",
+      "arcgis",
+      "rest",
+      "services",
+      "LSOA_Dec_2011_Boundaries_Generalised_Clipped_BGC_EW_V3",
+      "FeatureServer",
+      "0",
+      "query"
+    ),
+    query = list(
+      outFields="*",
+      where="1=1",
+      f="geojson"
+    )
+  )
+) %>%
+  # there are other fields in the lsoa data, but we only need the LSOA11CD field
+  select(LSOA11CD) %>%
+  inner_join(lsoa_pop_estimates, by = "LSOA11CD") %>%
+  # this helps when combining different sf objects and get's rid of some messages
+  st_set_agr(c(LSOA11CD = "identity", pop = "aggregate"))
+```
+
+We can now use ggplot to create a simple plot showing the populations of the
+LSOA's and add points to show the MTC's.
+
+```{r}
+ggplot() +
+  # first plot the lsoa boundaries and colour by the population
+  geom_sf(data = lsoa_boundaries, aes(fill = pop), colour = NA) +
+  geom_sf(data = major_trauma_centres) +
+  scale_fill_distiller(type = "div", palette = "Spectral",
+                       # tidy up labels in the legend, display as thousands
+                       labels = number_format(accuracy = 1e-1, scale = 1e-3, suffix = "k")) +
+  theme_void() +
+  theme(legend.position = c(0, 0.98),
+        legend.justification = c(0, 1)) +
+  labs(fill = "Population (thousands)")
+```
+
+We can now try to calculate the population estimates for each of the MTC's. We
+can take advantage of {sf} to perform a spatial join between our two datasets.
+A spatial join is similar to a join in a regular Sql database, except instead of
+joining on columns we join on geospatial features.
+
+In this case we want to take each LSOA and find which MTC it is closest to, so
+we can use the `st_nearest_feature` predicate function with `st_join`. This will
+give us a dataset containing all of the rows from `lsoa_boundaries`, but
+augmented with the columns from `major_trauma_centres`.
+
+We can then use standard `{dplyr}` functions to group by the MTC `name` and
+`org_id` fields, and calculate the sum of the `pop` column.
+
+`{sf}` is clever - it knows that when we are summarising a geospatial table we
+need to combine the geometries somehow. What it will do is call `st_union` and
+return us a single geometry per MTC.
+
+One thing we need to do before joining our data though is to transform our data
+temporarily to a different CRS. Our data currently is using latitude and
+longitude in a spherical projection, but `st_nearest_points` assumes that the
+points are planar. That is, it assumes that the world is flat. This can lead to
+incorrect results.
+
+But, we can transform the data to use the [British National Grid][bng]. This
+instead specifies points as how far east and north from an origin. This has a
+CRS number of 27700. Once we are done summarising our data we can again
+project back to the previous CRS (4326). [This][understanding_crs] article
+explains these numbers in a bit more detail.
+
+```{r}
+mtcv_pop <- lsoa_boundaries %>%
+  st_transform(crs = 27700) %>%
+  # assign each LSOA to a single, closest, MTC
+  st_join(
+    st_transform(major_trauma_centres, crs = 27700),
+    join = st_nearest_feature
+  ) %>%
+  # now, summarise our data frame based on MTC's to find the total population
+  group_by(name, org_id) %>%
+  # note: summarise will automatically call st_union on the geometries
+  # this gives us the lsoa's as a combined multipolygon
+  summarise(across(pop, sum), .groups = "drop") %>%
+  st_transform(crs = 4326)
+```
+
+We can now visualise this map. This time we will use the `{leaflet}` package to
+create an interactive html map.
+
+First we need a function for colouring the areas.
+
+```{r}
+pal_fun <- colorNumeric("Spectral", NULL, n = 7, reverse = TRUE)
+```
+
+As this is an interactive map we can add popups to the area's to make it easier
+to identify which MTC we are looking at and to show us the estimated population.
+
+```{r}
+p_popup <- glue_data(mtcv_pop,
+                     "<strong>{name}</strong> ({org_id})",
+                     "Estimated Population: {comma(pop)}",
+                     .sep = "\n")
+```
+
+Now we can create our map
+
+```{r}
+mtcv_pop %>%
+  leaflet() %>%
+  # add the areas that have been assigned to each MTC
+  addPolygons(stroke = TRUE,
+              color = "black",
+              opacity = 1,
+              weight = 1,
+              fillColor = ~pal_fun(pop),
+              fillOpacity = 1,
+              popup = p_popup) %>%
+  # add markers for the MTC's
+  addCircleMarkers(data = major_trauma_centres,
+                   color = "black",
+                   stroke = TRUE,
+                   fillColor = "white",
+                   weight = 1,
+                   radius = 3,
+                   opacity = 1,
+                   fillOpacity = 1) %>%
+  setMapWidgetStyle(list(background= "white"))
+```
+
+This method certainly is not perfect. For example, we can see that the closest
+MTC for a large part of Somerset is Cardiff, but in order to reach Cardiff you
+need to cross the Bristol Channel! Not so easy by a Land Ambulance!
+
+A better approach would be to use some method to calculate travel time from each
+LSOA to the MTC's, an example of using the Google Maps Travel Time API is
+covered [here][gapi_travel]. However, as a quick and dirty approach this method
+doesn't produce too bad results.
+
+[gis]: https://en.wikipedia.org/wiki/Geographic_information_system
+[mts_map]: https://www.nhs.uk/NHSEngland/AboutNHSservices/Emergencyandurgentcareservices/Documents/2016/MTS-map.pdf
+[ods]: https://digital.nhs.uk/services/organisation-data-service
+[nhspd]: https://geoportal.statistics.gov.uk/datasets/nhs-postcode-directory-uk-full-november-2020
+[crs]: https://en.wikipedia.org/wiki/Spatial_reference_system
+[lsoa_boundaries]: https://geoportal.statistics.gov.uk/datasets/lower-layer-super-output-areas-december-2011-boundaries-super-generalised-clipped-bsc-ew-v3?geometry=-25.530%2C48.013%2C21.184%2C57.298
+[oa]: https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeography#output-area-oa
+[bng]: https://en.wikipedia.org/wiki/Ordnance_Survey_National_Grid
+[understanding_crs]: https://www.earthdatascience.org/courses/earth-analytics/spatial-data-r/understand-epsg-wkt-and-other-crs-definition-file-types/
+[gapi_travel]: https://hwangnyc.medium.com/calculating-travel-time-and-distance-using-google-maps-api-in-r-bbc5b74df066
