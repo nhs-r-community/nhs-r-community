@@ -1,6 +1,11 @@
 ---
 title: "Using {sf} to calculate catchment areas"
-author: "Tom Jemmett"
+author:
+  - name: Tom Jemmett
+    orcid: 0000-0002-6943-2990
+    email: thomas.jemmett@nhs.net
+    affiliations:
+      - name: The Strategy Unit
 date: "2020-02-19"
 ---
 
@@ -62,8 +67,8 @@ familiar with Output Areas see the [ONS Census Geography][oa] documentation.
 First, let's load the population estimate file.
 
 ```{r}
-#| message=FALSE
-#| warning=FALSE
+#| message: false
+#| warning: false
 
 # download the LSOA population estimates from ons website: for some reason they
 # provide this download as an excel file in a zip file, so we need to download
