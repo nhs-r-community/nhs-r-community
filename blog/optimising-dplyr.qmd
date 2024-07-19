@@ -1,0 +1,217 @@
+---
+title: "Optimising dplyr"
+author:
+  - name: Tom Jemmett
+    orcid: 0000-0002-6943-2990
+    email: thomas.jemmett@nhs.net
+    affiliations:
+      - name: The Strategy Unit
+categories:
+  - dplyr
+  - data.table
+  - tidyverse
+date: "15 July 2021"
+date-modified: "19 July 2024"
+---
+
+```{r}
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(data.table)
+})
+set.seed(2214)
+```
+
+Recently in a project I was working on I encountered an issue where one code chunk in my RMarkdown report started to take a significant amount of time to run, and it was using almost 100% of my RAM. The data I was working with was an extract of various tables from [HES](https://digital.nhs.uk/data-and-information/data-tools-and-services/data-services/hospital-episode-statistics): each row was relating to some activity that was undertaken.
+
+The particular bit of code that was causing me problems was trying to create a simple chart that showed what percentage of people had particular types of activity. As each person may have had more than one of any of the activity types I had to take distinct sets of rows first, then calculate the percentage of individuals having that activity type.
+
+However, there was a slight complication in our data: as this was part of a wider report we would group some of the activity (the Critical Care Bed Day’s) together at one part in the report, but also be able to break these records down into Elective/Emergency.
+
+The table below shows what some of this activity data looked like (we just show the type’s of activity and the subgroups below).
+
+```{r}
+activity_data <- tribble(
+  ~type,                  ~sub_group,                     ~alt_sub_group,        ~n,
+  "Urgent Service Event", "Emergency Admission",          NA,                    2.00,
+  "Urgent Service Event", "A&E Attendance",               NA,                    3.00,
+  "Urgent Service Event", "111 Call",                     NA,                    2.00,
+  "Planned Contact",      "Outpatient Attendance",        NA,                    4.00,
+  "Planned Contact",      "Mental Health Contact",        NA,                    0.12,
+  "Planned Contact",      "IAPT Contact",                 NA,                    0.10,
+  "Planned Admission",    "Day Case Admission",           NA,                    0.25,
+  "Planned Admission",    "Regular Attendance Admission", NA,                    0.07,
+  "Planned Admission",    "Elective Admission",           NA,                    0.10,
+  "Bed",                  "Critical Care Bed Day",        "Elective Admission",  0.08,
+  "Bed",                  "Critical Care Bed Day",        "Emergency Admission", 0.10
+)
+
+# don't show the n column here, this is just used to generate rows later
+activity_data %>% select(-n)
+```
+
+To demonstrate the issue with the initial summary code I produced we can generate some synthetic data. The real dataset included far more columns (e.g. the date of the activity, the organisation where the activity happened at), but for this demonstration we just generate a patient id.
+
+```{r}
+activity_synthetic <- function(people) {
+  activity_data %>%
+    mutate(pid = map(n, function(.x) {
+      rpois(people, .x) %>%
+        imap(~rep(.y, .x)) %>%
+        flatten_dbl()
+    })) %>%
+    unnest(pid) %>%
+    select(-n)
+}
+
+activity_100k <- activity_synthetic(100000)
+activity_10k <- filter(activity_100k, pid <= 10000)
+```
+
+Here is a sample of this data:
+
+```{r}
+sample_n(activity_10k, 10)
+```
+
+Now, for rendering in this particular part of the report we wanted to slightly modify the labels of activity used. We wanted to show the alternative subgroup labels along with the subgroup labels for the Critical Care Bed Day records.
+
+Ideally we would have done this at the data loading stage. However, because these fields were being used at other parts in the report we couldn’t easily change the data at loading.
+
+This is the code that I originally came up with, which I’m wrapping in a function for now so we can benchmark our different approaches later. First we update the `type` and `subgroup` columns, then we perform the summarisation steps (get the distinct rows for each individual, then count how many individuals there were for that activity).
+
+```{r}
+dplyr_naive <- function(activity) {
+  activity %>%
+    mutate(across(type, ~ifelse(sub_group == "Critical Care Bed Day",
+                                sub_group, .x)),
+           across(sub_group,
+                  ~ifelse(type == "Critical Care Bed Day",
+                          paste0("Critical Care (",
+                                 word(alt_sub_group, 1),
+                                 ")"),
+                          .x))) %>%
+    group_by(type, sub_group) %>%
+    distinct(pid) %>%
+    count() %>%
+    ungroup() %>%
+    arrange(type, sub_group)
+}
+```
+
+We can test how long this takes to run with our 100,000 patient dataset.
+
+```{r}
+system.time( dplyr_naive(activity_100k) )[["elapsed"]]
+
+```
+
+This may not seem like a huge amount of time, but I was re-rendering this report upwards of 10 times an hour to ensure the pipeline was still working. Furthermore, we were rendering 12 versions of this report at a time (we had a report for each of the 11 [STPs](https://www.england.nhs.uk/integratedcare/stps/) in the Midlands, and an overall Midlands report), and this particular bit of code was chewing up all of my available memory, meaning we couldn’t run in parallel.
+
+What is the problem with the approach above? When we update the `type` and `sub_group` columns in the mutate step R has to update all of the rows in the dataframe (in this case, 1,181,633 rows). But, R will not overwrite the original table in memory. Instead it will copy the entire data frame. This is what slows everything down.
+
+So the question is, can we reduce the amount of rows we have to update? Yes! We can simply perform the summary steps before updating the labels! This is the approach I settled on: it’s largely the same as above, I just have to include the `alt_sub_group` column in the group by step, and remove this column from the results at the end.
+
+```{r}
+dplyr_improved <- function(activity) {
+  activity %>%
+    group_by(type, sub_group, alt_sub_group) %>%
+    distinct(pid) %>%
+    count() %>%
+    ungroup() %>%
+    mutate(across(type, ~ifelse(sub_group == "Critical Care Bed Day",
+                                sub_group, .x)),
+           across(sub_group,
+                  ~ifelse(type == "Critical Care Bed Day",
+                          paste0("Critical Care (",
+                                 word(alt_sub_group, 1),
+                                 ")"),
+                          .x))) %>%
+    select(-alt_sub_group) %>%
+    arrange(type, sub_group)
+}
+```
+
+How does this perform?
+
+```{r}
+system.time( dplyr_improved(activity_100k) )[["elapsed"]]
+
+```
+
+Significantly better!
+
+## **data.table**
+
+Many will tell you when start working with larger datasets in R you have to resort to using the `{data.table}` package. I’m not the most proficient `{data.table}` user in the world, so if you can think of a better way of solving this problem please let me know!
+
+First, here is basically the first approach translated to `{data.table}`
+
+```{r}
+data.table_naive <- function(activity) {
+  adt <- as.data.table(activity)
+
+  adt[, type := ifelse(sub_group == "Critical Care Bed Day",
+                       "Critical Care Bed Day",
+                       type)]
+  adt[, sub_group := ifelse(type == "Critical Care Bed Day",
+                            paste0("Critical Care (",
+                            word(alt_sub_group, 1),
+                            ")"),
+                            sub_group)]
+  unique(adt)[order(type, sub_group), .(n = .N),
+              c("type", "sub_group")]
+}
+```
+
+and here is the second approach
+
+```{r}
+data.table_improved <- function(activity) {
+  adt <- as.data.table(activity) %>%
+    unique() %>%
+    .[, .(n = .N), c("type", "sub_group", "alt_sub_group")]
+
+  adt[sub_group == "Critical Care Bed Day",
+      type := "Critical Care Bed Day"]
+  adt[type == "Critical Care Bed Day",
+      subgroup := paste0("Critical Care (", word(alt_sub_group, 1), ")")]
+  adt[, alt_sub_group := NULL]
+
+  adt[order(type, sub_group), ]
+}
+```
+
+## **benchmarking**
+
+Now, we can benchmark the different functions to see how they perform.
+
+```{r}
+bench::mark(
+  dplyr_naive(activity_10k),
+  data.table_naive(activity_10k),
+  dplyr_improved(activity_10k),
+  data.table_improved(activity_10k),
+  iterations = 10,
+  check = FALSE
+) %>%
+   select(expression, min, median, mem_alloc, n_gc)
+```
+
+The table above shows how the improved approach is significantly better than the naive approach. We can see that the median time to run the function is significantly better (note that the naive functions are in seconds, but the improved functions are in milliseconds), but also the amount of memory that is being allocated is much, much lower. The `n_gc` value tells us how many times the [“garbage collector”](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) ran. We want this figure to be low.
+
+We can also see how the function works with the 100,000 row dataset.
+
+```{r}
+bench::mark(
+  dplyr_naive(activity_100k),
+  data.table_naive(activity_100k),
+  dplyr_improved(activity_100k),
+  data.table_improved(activity_100k),
+  iterations = 1,
+  check = FALSE
+) %>%
+  select(expression, min, median, mem_alloc, n_gc)
+```
+
+As we can see from both of these results both approaches in `{dplyr}` and `{data.table}` are broadly the same, with a slight performance edge to using `{data.table}` over `{dplyr}`. The big difference is to more sensibly arrange the order of operations so that you summarise first, then perform the costly data manipulation steps on a smaller data set.
