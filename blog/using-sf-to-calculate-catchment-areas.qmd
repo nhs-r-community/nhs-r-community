@@ -9,6 +9,9 @@ author:
 categories:
   - GIS
   - ggplot2
+execute: 
+  freeze: true
+  cache: true
 ---
 
 R is a highly capable [GIS][gis] tool, thanks to the `{sf}` package.
