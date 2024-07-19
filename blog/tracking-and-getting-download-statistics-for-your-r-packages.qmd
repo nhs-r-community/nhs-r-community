@@ -1,0 +1,96 @@
+---
+title: "Tracking and getting download statistics for your R packages"
+date: "8 September 2021"
+date-modified: "19 July 2024"
+categories:
+  - Packages
+  - Function
+  - Lists
+  - tidyverse
+author: Gary Hutson
+subtitle: >
+---
+
+I had the privilege of tapping into the R package funding stream to fund my first, and not last, CRAN package entitled [NHSDataDictionaRy](https://cran.r-project.org/web/packages/NHSDataDictionaRy/vignettes/introduction.html).
+
+The motivation for the package was to provide a consistent way to scrape the live NHS Data Dictionary website. The aim was to allow the lookups to always be up to date and to allow R users in the NHS to quickly get key NHS and medical lookup and reference files. This package also provides other generic web scraping functions that can be utilised with other websites.
+
+Slight digression – if you have a package idea that you think needs to be developed, then please fill in an NHS-R package [proforma](https://nhsrcommunity.com/nhs-r-solutions/) to put your proposal to the central team at NHS-R for consideration.
+
+### **Who is using my package?**
+
+The motivation for this quick package wrapper was to find a way to track how often my package had been downloaded from CRAN, as I am a statistician by trade and have also worked in performance analysis, so I like to monitor the downloads from a sanity and return on investment viewpoint. In addition, I am rather curious to know if the package is being successful.
+
+The first thing to do is to load the {**dlstats}** library in to my simple wrapper function to allow for the packages to be summarised in terms of downloads per month and to date. The package list creates three components in the R list, these are:
+
+1.  Plot of downloads over time
+
+2.  A [tibble](https://tibble.tidyverse.org/) (a fancy tidy data frame) of the downloads per package per month, if multiple packages are passed to the vector then you will get multiple results you can interrogate
+
+3.  Downloads_to_date this is a summary of all the downloads to date
+
+### **Creating the function wrapper**
+
+The function wrapper looks as below:
+
+```{r}
+# Load these libraries
+library(ggplot2)
+library(dlstats)
+library(tibble)
+
+# Create the wrapper function
+package_trackeR <- function(packages) {
+  # Create the downloads for the package
+  dl <- dlstats::cran_stats(c(packages))
+  # Create the plot
+  plot <- ggplot(
+    dl,
+    aes(end, downloads, group = package)
+  ) +
+    geom_line(aes(color = package), linetype = "dashed") +
+    geom_point(aes(shape = package, color = package)) +
+    theme_minimal()
+  plot <- plot + xlab("Download date") +
+    ylab("Number of downloads")
+  # Create a list for multiple returns
+  returns_list <- list(
+    "download_df" = as_tibble(dl),
+    "downloads_to_date" = sum(dl$downloads),
+    "downloads_plot" = plot
+  )
+
+  return(returns_list)
+}
+```
+
+To decompose what this is doing:
+
+-   The **dl** variable uses the {[**dlstats**](https://cran.r-project.org/web/packages/dlstats/index.html)**}** package to download a vector of packages. The vector is denoted by the \`c()\` wrapper, this just allows you to pass multiple packages (as string inputs) to the function
+
+-   The plot creates a plot of all the downloads for the chosen package(s) and displays them on a line chart.
+
+-   The output of this returns the artefacts as stated in the precursory section.
+
+### **Using the function**
+
+To use, or call, the new function we instantiate or utilise it, as below:
+
+```{r}
+# Call the new function
+tracking <- package_trackeR(c("NHSDataDictionaRy"))
+```
+
+I simply now pass my vector of packages to the function and this returns the following associated outputs.
+
+```{r}
+tracking$download_df
+
+tracking$downloads_plot
+
+tracking$downloads_to_date
+```
+
+### **To close…**
+
+I hope this simple wrapper can be useful for tracking your packages when they get to CRAN and provide some much needed reassurance that what you are developing is being used *in the wild*.
