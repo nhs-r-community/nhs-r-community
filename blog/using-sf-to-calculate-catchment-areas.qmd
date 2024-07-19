@@ -1,36 +1,50 @@
 ---
 title: "Using {sf} to calculate catchment areas"
-date: "3 June 2021"
-date-modified: '13 July 2024'
+author:
+  - name: Tom Jemmett
+    orcid: 0000-0002-6943-2990
+    email: thomas.jemmett@nhs.net
+    affiliations:
+      - name: The Strategy Unit
 categories:
   - GIS
   - ggplot2
-author: Tom Jemmett
-execute: 
-  eval: false
-subtitle: >
 ---
 
-R is a highly capable [GIS](https://en.wikipedia.org/wiki/Geographic_information_system) tool, thanks to the `{sf}` package. In this post I am going to show you how you can use `{sf}` with openly available data to calculate catchment areas and population sizes, and then how to calculate travel time isochrones with `{osrm}`.
+R is a highly capable [GIS][gis] tool, thanks to the `{sf}` package.
+In this post I am going to show you how you can use `{sf}` with openly available
+data to calculate catchment areas and population sizes, and then how to
+calculate travel time isochrone’s with `{osrm}`. 
 
-```{r}
+```{r setup}
+knitr::opts_chunk$set(echo = TRUE)
+
 suppressPackageStartupMessages({
   library(tidyverse)
   library(readxl)
   library(glue, include.only = "glue_data")
   library(scales, exclude = c("discard", "col_factor"))
   library(sf)
-  library(osrm)
   library(leaflet)
   library(leaflet.extras)
+  library(httr)
 })
 ```
 
-Firstly, I have prepared a dataset containing the 23 A&E departments that are Adult Major Trauma Centres (MTCs) in England and Wales. This dataset is an `{sf}` object which contains a special column called `geometry` – this column contains the locations of the hospitals. The data is sourced from [the NHS Urgent and emergency care services page](https://www.nhs.uk/NHSEngland/AboutNHSservices/Emergencyandurgentcareservices/Documents/2016/MTS-map.pdf), the [Organisation Data Service](https://digital.nhs.uk/services/organisation-data-service) (ODS) and the [NHS Postcode Database](https://geoportal.statistics.gov.uk/datasets/nhs-postcode-directory-uk-full-november-2020) - (broken link).
+Firstly, I have prepared a dataset containing the 23 A&E departments that are
+Adult Major Trauma Centres (MTCs) in England and Wales. This dataset is an
+`{sf}` object which contains a special column called `geometry` - this column
+contains the locations of the hospitals. The data is sourced from
+[this][mts_map], the [Organisation Data Service][ods] (ODS) and the
+[NHS Postcode Database][nhspd].
 
-When we print this table out we get a bit of information telling us how many features (rows) and fields (columns) there are, along with what the type of the geometry is (in this case, we have points). We also get the “bounding box” (bbox) – this is like a rectangle that encloses all of our geometries. Finally, we get the [coordinate reference system](https://en.wikipedia.org/wiki/Spatial_reference_system) (CRS) that is being used.
+When we print this table out we get a bit of information telling us how many
+features (rows) and fields (columns) there are, along with what the type of
+the geometry is (in this case, we have points). We also get the "bounding box"
+(bbox) - this is like a rectangle that encloses all of our geometries. Finally,
+we get the [coordinate reference system][crs] (CRS) that is being used.
 
-Below this we see a table of data – like any other dataframe in R.
+Below this we see a table of data - like any other dataframe in R.
 
 ```{r}
 major_trauma_centres <- read_sf(
@@ -42,17 +56,23 @@ major_trauma_centres <- read_sf(
   ),
   agr = "identity"
 )
-
 major_trauma_centres
 ```
 
-This dataframe can be used like any other dataframe in R, for example, we can use `dplyr` to filter rows out we aren’t interested in, or join to another dataframe to bring in extra information.
+This dataframe can be used like any other dataframe in R, for example, we can
+use `{dplyr}` to filter rows out we aren't interested in, or join to another
+dataframe to bring in extra information.
 
-For example, we can load the LSOA population estimates and join it to the LSOA boundaries file from the [ONS geoportal](https://geoportal.statistics.gov.uk/datasets/lower-layer-super-output-areas-december-2011-boundaries-super-generalised-clipped-bsc-ew-v3?geometry=-25.530%2C48.013%2C21.184%2C57.298) - broken link. If you aren’t familiar with Output Areas see the [ONS Census Geography](https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeography#output-area-oa) documentation.
+For example, we can load the LSOA population estimates and join it to the LSOA
+boundaries file from the [ONS geoportal][lsoa_boundaries]. If you aren't
+familiar with Output Areas see the [ONS Census Geography][oa] documentation.
 
-First, let’s load the population estimate file.
+First, let's load the population estimate file.
 
 ```{r}
+#| message: false
+#| warning: false
+
 # download the LSOA population estimates from ons website: for some reason they
 # provide this download as an excel file in a zip file, so we need to download
 # the zip then extract the file, but we don't need to keep the zip after. withr
@@ -78,10 +98,7 @@ lsoa_pop_estimates <- read_excel(
   "Mid-2019 Persons",
   skip = 3
 ) %>%
-  select(
-    LSOA11CD = `LSOA Code`,
-    pop = `All Ages`
-  )
+  select(LSOA11CD = `LSOA Code`, pop = `All Ages`)
 
 head(lsoa_pop_estimates)
 ```
@@ -90,7 +107,24 @@ Now we can load the boundary data and join to our population estimates.
 
 ```{r}
 lsoa_boundaries <- read_sf(
-  "https://opendata.arcgis.com/datasets/e9d10c36ebed4ff3865c4389c2c98827_0.geojson"
+  httr::modify_url(
+    "https://services1.arcgis.com",
+    path = c(
+      "ESMARspQHYMw9BZ9",
+      "arcgis",
+      "rest",
+      "services",
+      "LSOA_Dec_2011_Boundaries_Generalised_Clipped_BGC_EW_V3",
+      "FeatureServer",
+      "0",
+      "query"
+    ),
+    query = list(
+      outFields="*",
+      where="1=1",
+      f="geojson"
+    )
+  )
 ) %>%
   # there are other fields in the lsoa data, but we only need the LSOA11CD field
   select(LSOA11CD) %>%
@@ -99,37 +133,51 @@ lsoa_boundaries <- read_sf(
   st_set_agr(c(LSOA11CD = "identity", pop = "aggregate"))
 ```
 
-We can now use ggplot to create a simple plot showing the populations of the LSOAs and add points to show the MTCs.
+We can now use ggplot to create a simple plot showing the populations of the
+LSOAs and add points to show the MTCs.
 
 ```{r}
 ggplot() +
   # first plot the lsoa boundaries and colour by the population
   geom_sf(data = lsoa_boundaries, aes(fill = pop), colour = NA) +
   geom_sf(data = major_trauma_centres) +
-  scale_fill_distiller(
-    type = "div", palette = "Spectral",
-    # tidy up labels in the legend, display as thousands
-    labels = number_format(accuracy = 1e-1, scale = 1e-3, suffix = "k")
-  ) +
+  scale_fill_distiller(type = "div", palette = "Spectral",
+                       # tidy up labels in the legend, display as thousands
+                       labels = number_format(accuracy = 1e-1, scale = 1e-3, suffix = "k")) +
   theme_void() +
-  theme(
-    legend.position = c(0, 0.98),
-    legend.justification = c(0, 1)
-  ) +
+  theme(legend.position = c(0, 0.98),
+        legend.justification = c(0, 1)) +
   labs(fill = "Population (thousands)")
 ```
 
-We can now try to calculate the population estimates for each of the MTCs We can take advantage of {sf} to perform a spatial join between our two datasets. A spatial join is similar to a join in a regular SQL database, except instead of joining on columns we join on geospatial features.
+We can now try to calculate the population estimates for each of the MTCs. We
+can take advantage of {sf} to perform a spatial join between our two datasets.
+A spatial join is similar to a join in a regular SQL database, except instead of
+joining on columns we join on geospatial features.
 
-In this case we want to take each LSOA and find which MTC it is closest to, so we can use the `st_nearest_feature` predicate function with `st_join`. This will give us a dataset containing all of the rows from `lsoa_boundaries`, but augmented with the columns from `major_trauma_centres`.
+In this case we want to take each LSOA and find which MTC it is closest to, so
+we can use the `st_nearest_feature` predicate function with `st_join`. This will
+give us a dataset containing all of the rows from `lsoa_boundaries`, but
+augmented with the columns from `major_trauma_centres`.
 
-We can then use standard `{dplyr}` functions to group by the MTC `name` and `org_id` fields, and calculate the sum of the `pop` column.
+We can then use standard `{dplyr}` functions to group by the MTC `name` and
+`org_id` fields, and calculate the sum of the `pop` column.
 
-`{sf}` is clever – it knows that when we are summarising a geospatial table we need to combine the geometries somehow. What it will do is call `st_union` and return us a single geometry per MTC.
+`{sf}` is clever - it knows that when we are summarising a geospatial table we
+need to combine the geometries somehow. What it will do is call `st_union` and
+return us a single geometry per MTC.
 
-One thing we need to do before joining our data though is to transform our data temporarily to a different CRS. Our data currently is using latitude and longitude in a spherical projection, but `st_nearest_points` assumes that the points are planar. That is, it assumes that the world is flat. This can lead to incorrect results.
+One thing we need to do before joining our data though is to transform our data
+temporarily to a different CRS. Our data currently is using latitude and
+longitude in a spherical projection, but `st_nearest_points` assumes that the
+points are planar. That is, it assumes that the world is flat. This can lead to
+incorrect results.
 
-But, we can transform the data to use the [British National Grid](https://en.wikipedia.org/wiki/Ordnance_Survey_National_Grid). This instead specifies points as how far east and north from an origin. This has a CRS number of 27700. Once we are done summarising our data we can again project back to the previous CRS (4326). [This](https://www.earthdatascience.org/courses/earth-analytics/spatial-data-r/understand-epsg-wkt-and-other-crs-definition-file-types/) article explains these numbers in a bit more detail.
+But, we can transform the data to use the [British National Grid][bng]. This
+instead specifies points as how far east and north from an origin. This has a
+CRS number of 27700. Once we are done summarising our data we can again
+project back to the previous CRS (4326). [This][understanding_crs] article
+explains these numbers in a bit more detail.
 
 ```{r}
 mtcv_pop <- lsoa_boundaries %>%
@@ -147,7 +195,8 @@ mtcv_pop <- lsoa_boundaries %>%
   st_transform(crs = 4326)
 ```
 
-We can now visualise this map. This time we will use the `{leaflet}` package to create an interactive html map.
+We can now visualise this map. This time we will use the `{leaflet}` package to
+create an interactive html map.
 
 First we need a function for colouring the areas.
 
@@ -155,14 +204,14 @@ First we need a function for colouring the areas.
 pal_fun <- colorNumeric("Spectral", NULL, n = 7, reverse = TRUE)
 ```
 
-As this is an interactive map we can add popups to the areas to make it easier to identify which MTC we are looking at and to show us the estimated population.
+As this is an interactive map we can add popups to the areas to make it easier
+to identify which MTC we are looking at and to show us the estimated population.
 
 ```{r}
 p_popup <- glue_data(mtcv_pop,
-  "<strong>{name}</strong> ({org_id})",
-  "Estimated Population: {comma(pop)}",
-  .sep = "\n"
-)
+                     "<strong>{name}</strong> ({org_id})",
+                     "Estimated Population: {comma(pop)}",
+                     .sep = "\n")
 ```
 
 Now we can create our map
@@ -171,160 +220,41 @@ Now we can create our map
 mtcv_pop %>%
   leaflet() %>%
   # add the areas that have been assigned to each MTC
-  addPolygons(
-    stroke = TRUE,
-    color = "black",
-    opacity = 1,
-    weight = 1,
-    fillColor = ~ pal_fun(pop),
-    fillOpacity = 1,
-    popup = p_popup
-  ) %>%
+  addPolygons(stroke = TRUE,
+              color = "black",
+              opacity = 1,
+              weight = 1,
+              fillColor = ~pal_fun(pop),
+              fillOpacity = 1,
+              popup = p_popup) %>%
   # add markers for the MTCs
-  addCircleMarkers(
-    data = major_trauma_centres,
-    color = "black",
-    stroke = TRUE,
-    fillColor = "white",
-    weight = 1,
-    radius = 3,
-    opacity = 1,
-    fillOpacity = 1
-  ) %>%
-  setMapWidgetStyle(list(background = "white"))
+  addCircleMarkers(data = major_trauma_centres,
+                   color = "black",
+                   stroke = TRUE,
+                   fillColor = "white",
+                   weight = 1,
+                   radius = 3,
+                   opacity = 1,
+                   fillOpacity = 1) %>%
+  setMapWidgetStyle(list(background= "white"))
 ```
 
-Click [this RPubs page](https://rpubs.com/tjmt/mtc_pop) to view an interactive version of this map.
+This method certainly is not perfect. For example, we can see that the closest
+MTC for a large part of Somerset is Cardiff, but in order to reach Cardiff you
+need to cross the Bristol Channel! Not so easy by a Land Ambulance!
 
-This method certainly is not perfect. For example, we can see that the closest MTC for most of Somerset is Cardiff, but in order to reach Cardiff you need to cross the Bristol Channel! Not so easy by a Land Ambulance!
+A better approach would be to use some method to calculate travel time from each
+LSOA to the MTCs, an example of using the Google Maps Travel Time API is
+covered [here][gapi_travel]. However, as a quick and dirty approach this method
+doesn't produce too bad results.
 
-A better approach would be to use some method to calculate travel time from each LSOA to the MTCs. Using the {osrm} package, we can get isochrones from [Open Street Map](https://wiki.openstreetmap.org/wiki/Isochrone). An isochrone is an area of equal travel time from a point. So, if we calculate isochrones for each of the MTCs, then join to the LSOAs, we can more accurately assign our LSOAs to the MTCs
-
-This code will calculate the isochrones for our MTCs, in 30 minute travel time increments, from 0 to 150 minutes. This is calculated as per usual car travel times, and not for ambulance travel times. Note, this can take a few minutes to run. *I*
-
-
-```{r}
-#| eval: false
-
-mtc_iso <- major_trauma_centres %>%
-  # we need to calculate the isochrone's for each row individually, so we need
-  # to map over the geometries
-  mutate(iso = map(geometry,
-    osrmIsochrone,
-    breaks = seq(0, 150, by = 30),
-    returnclass = "sf"
-  )) %>%
-  # we are going to replace the existing geometry column (the MTC location) with
-  # the isochrones
-  st_drop_geometry() %>%
-  unnest(iso) %>%
-  st_set_geometry("geometry") %>%
-  # transform to a planar projection to make calculations more reliable
-  st_transform(crs = 27700)
-```
-
-Now we can do the join between our LSOAs and the MTC isochrones. Potentially an LSOA may have more than one isochrone for two or more MTCs In these cases we need to select the closest isochrone. The first part of the code above handles this by filtering the data by the minimum value for the max column (maximum time of the isochrone).
-
-However, this may not return unique results; if an LSOA is matched by two isochrones of the same time for two different MTCs then our filter will find both! In these cases we select the closest MTC based on straight line distance. This can be quite slow, so to reduce the computational burden I split my data into two groups: those that have more than 1 match (which we apply the closest distance filter to) and those that have just 1 match.
-
-Once we have done this filtering we can recombine the data.
-
-```{r}
-lsoa_tmp <- local({
-  x <- lsoa_boundaries %>%
-    st_transform(crs = 27700) %>%
-    st_join(mtc_iso) %>%
-    group_by(LSOA11CD) %>%
-    filter(max == min(max)) %>%
-    mutate(nx = n() > 1) %>%
-    ungroup() %>%
-    group_nest(nx)
-
-  # splitting this up reduces the amount of computation required: just work out
-  # the distance and filter where we have more than 1 match
-  x$data[[which(x$nx)]] <- x$data[[which(x$nx)]] %>%
-    inner_join(
-      major_trauma_centres %>%
-        st_transform(crs = 27700) %>%
-        as_tibble() %>%
-        rename(hospital = geometry),
-      by = c("name", "org_id")
-    ) %>%
-    mutate(dist = map2_dbl(st_centroid(geometry), hospital, st_distance)) %>%
-    group_by(LSOA11CD) %>%
-    filter(dist == min(dist)) %>%
-    select(-dist, -hospital)
-
-  # recombine our data
-  x <- bind_rows(x$data)
-
-  # some lsoas are missed out in the steps above, add these back in by copying
-  # the data from their closest neighbour in x
-  y <- lsoa_boundaries %>%
-    st_transform(crs = 27700) %>%
-    anti_join(st_drop_geometry(x), by = "LSOA11CD") %>%
-    st_join(select(x, -LSOA11CD), join = st_nearest_feature)
-
-  # join x and y together
-  bind_rows(x, y)
-})
-```
-
-Now that we have assigned the LSOAs to a MTC and isochrone we can summarise our data to give us the combined isochrones.
-
-```{r}
-mtc_iso_fixed <- lsoa_tmp %>%
-  group_by(name, org_id, max) %>%
-  summarise(.groups = "drop") %>%
-  st_transform(4326) %>%
-  mutate(time = glue::glue("{max - 30} to {max} mins") %>%
-    fct_reorder(max))
-```
-
-And we can summarise the MTCs to find the revised catchment populations.
-
-```{r}
-mtc_points <- major_trauma_centres %>%
-  inner_join(
-    lsoa_tmp %>%
-      st_drop_geometry() %>%
-      group_by(name, org_id) %>%
-      summarise(
-        mean_time = sum(center * pop) / sum(pop),
-        across(pop, sum),
-        .groups = "drop"
-      ),
-    by = c("name", "org_id")
-  )
-```
-
-Finally we can put this together into a map.
-
-```{r}
-mtc_times <- levels(mtc_iso_fixed$time)
-mtc_pal <- colorFactor(viridis::viridis(length(mtc_times)), mtc_times)
-
-leaflet(mtc_iso_fixed) %>%
-  addTiles() %>%
-  addPolygons(
-    fillColor = ~ mtc_pal(time),
-    color = "#000000",
-    weight = .5,
-    fillOpacity = 0.5,
-    popup = ~ glue::glue("<b>{name}</b><br>{time}")
-  ) %>%
-  addMarkers(
-    data = mtc_points,
-    popup = ~ glue::glue("<b>{name}</b> ({org_id})",
-      "Mean Time: {round(mean_time, 0)} minutes",
-      "Pop: {scales::comma(pop)}",
-      .sep = "<br>"
-    )
-  )
-```
-
-Click [this RPubs page](https://rpubs.com/tjmt/mtc_isochrone) to view an interactive version of this map.
-
-We could improve this by making the isochrones be smaller, for example 15 minute groups rather than 30 minutes. However, this would take longer to download from Open Streetmap, and it will take a lot longer to do the LSOA assignment. Though, having smaller groups would mean we need more colours which would make the map harder to read!
-
-I hope that you have found this useful! If you want to learn more about geocomputation in R then you should read the book “[Geocomputation with R](https://geocompr.robinlovelace.net/)” which is available to read free online.
+[gis]: https://en.wikipedia.org/wiki/Geographic_information_system
+[mts_map]: https://www.nhs.uk/NHSEngland/AboutNHSservices/Emergencyandurgentcareservices/Documents/2016/MTS-map.pdf
+[ods]: https://digital.nhs.uk/services/organisation-data-service
+[nhspd]: https://geoportal.statistics.gov.uk/datasets/nhs-postcode-directory-uk-full-november-2020
+[crs]: https://en.wikipedia.org/wiki/Spatial_reference_system
+[lsoa_boundaries]: https://geoportal.statistics.gov.uk/datasets/lower-layer-super-output-areas-december-2011-boundaries-super-generalised-clipped-bsc-ew-v3?geometry=-25.530%2C48.013%2C21.184%2C57.298
+[oa]: https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeography#output-area-oa
+[bng]: https://en.wikipedia.org/wiki/Ordnance_Survey_National_Grid
+[understanding_crs]: https://www.earthdatascience.org/courses/earth-analytics/spatial-data-r/understand-epsg-wkt-and-other-crs-definition-file-types/
+[gapi_travel]: https://hwangnyc.medium.com/calculating-travel-time-and-distance-using-google-maps-api-in-r-bbc5b74df066
