@@ -12,6 +12,7 @@ categories:
 execute: 
   freeze: true
   cache: true
+  eval: false
 ---
 
 R is a highly capable [GIS][gis] tool, thanks to the `{sf}` package.
