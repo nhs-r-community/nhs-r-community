@@ -264,3 +264,41 @@ doesn't produce too bad results.
 [bng]: https://en.wikipedia.org/wiki/Ordnance_Survey_National_Grid
 [understanding_crs]: https://www.earthdatascience.org/courses/earth-analytics/spatial-data-r/understand-epsg-wkt-and-other-crs-definition-file-types/
 [gapi_travel]: https://hwangnyc.medium.com/calculating-travel-time-and-distance-using-google-maps-api-in-r-bbc5b74df066
+
+
+*Comments from WordPress site publishing*
+Mike Dunbar
+
+7 June 2021
+
+Hi Tom, interestingly something has gone wrong with the isochrone data for Derriford Hospital: on the map, Derriford is within the 30-60 minute zone for itself, as is the whole of Plymouth and towns close to the A38 such as Ivybridge, South Brent and Buckfastleigh. Yet large parts of presumably remote Dartmoor are in the 0-30 minute zone!
+Tom Jemmett
+
+9 June 2021
+
+Hi Mike! Interesting... the issue is with the resolution of the isochrones. For whatever reason osrm returns something a bit odd for this hospital! Try the code chunk below, may take a few minutes to run as you tweak the res argument. 50 seems to be a good balance. Leaving res off was what was used in the blog post, though adding in res = 30 explicitly seems to give me different results! suppressPackageStartupMessages({ library(tidyverse) library(sf) library(osrm) library(leaflet) library(leaflet.extras) }) deriford <- c(-4.113684, 50.41672) deriford_iso <- osrmIsochrone(deriford, breaks = seq(0, 150, by = 30), returnclass = "sf", res = 50) %>% mutate(time = factor(paste0("[", min, ", ", max, ")"))) pal <- colorFactor(viridis::viridis(length(levels(deriford_iso$time))), levels(deriford_iso$time)) leaflet() %>% addTiles() %>% addPolygons(data = deriford_iso, fillColor = ~pal(time), color = "#000000", weight = .5, fillOpacity = 0.5, popup = ~time) %>% addMarkers(lng = deriford[[1]], lat = deriford[[2]])
+Spatially weighted averages in R with sf | WZB Data Science Blog
+
+1 July 2021
+
+[…] example as circular regions around the points or as Voronoi regions. Additionally, you may consider nearest-feature-joins or travel time isochrones. Which option is more appropriate depends on your […]
+Nathan Thomas
+
+12 October 2021
+
+Fascinating work Tom! How easy is it to apply this approach to services other than MTCs - is all that's needed just a geojson file containing the service locations, or does the file need to be formatted in a certain way?
+Tom Jemmett
+
+19 October 2021
+
+you should be able to just replace the mtc sf object with some other set of points and it should just work! You could run into runtime issues... I only tried it with the relative small set of mtc's, if you were to replace this with GP practices it could explode and run for a very long time. You could always try tweaking the size of the isochrones to limit the results! :-)
+Nathan Thomas
+
+2 November 2021
+
+Cool, thanks! Will give it a try when time allows.
+Deon Ware
+
+20 December 2022
+
+Very well presented. Every quote was awesome and thanks for sharing the content. Keep sharing and keep motivating others.
