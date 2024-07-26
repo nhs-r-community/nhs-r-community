@@ -9,9 +9,6 @@ author:
 categories:
   - GIS
   - ggplot2
-execute: 
-  freeze: true
-  cache: true
 date: "3 June 2021"
 date-modified: "19 July 2024"
 ---
