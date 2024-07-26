@@ -9,6 +9,9 @@ categories:
   - ggplot2
   - Population
 author: Anastasiia Zharinova
+execute: 
+  cache: true
+  freeze: true
 subtitle: >
 ---
 
