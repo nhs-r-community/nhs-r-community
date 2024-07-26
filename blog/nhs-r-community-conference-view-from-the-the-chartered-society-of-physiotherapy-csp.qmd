@@ -1,0 +1,28 @@
+---
+title: "NHS-R Community Conference: view from the The Chartered Society of Physiotherapy (CSP)"
+date: "10 September 2021"
+date-modified: "26 July 2024"
+categories:
+  - Personal experience
+author: Robin Hinks
+subtitle: >
+  "CSPs policy and research officer, asks how vibrant communities like NHS-R can help maximise shareable data solutions in physiotherapy"
+---
+
+I recently went to the second annual NHS-R conference, run by the NHS-R Community that’s promoting the use of R throughout the NHS. R being the free statistics and computer science package that has rapidly grown in popularity in academia and industry in recent years.
+
+This growth has been driven by R’s users, who collaboratively develop and share solutions to everyday challenges. This community now has an increasing number of NHS staff. 
+
+“Whether you’re trying to automate staff reports, analyse patient surveys, or produce interactive visualisations of clinical activity: the chances are someone has already produced a shareable solution using R, or is looking to collaborate with peers to do so”
+
+Getting involved with the NHS-R community is a great way to join this crowd.
+
+It is imperative that physiotherapy services are able to demonstrate their success and impact. Why not apply the same analytical and evaluative mindset we use with our patients to our data and get involved now?
+
+With NHS trusts, CCGs and others dipping into the computer-science toolbox when embarking on service redesigns – to forecast future demand for a service, for example – increasing trade unionists’ and clinicians’ use of R could improve the scrutiny of decision making processes. 
+
+Likewise, with R supporting some stunning data visualisation tools, it could be a key tool for members making the case for physiotherapy in their local area.
+
+Introductory courses in statistical packages like R can get you started, and then communities like NHS-R can help maximise use within physiotherapy.
+
+This blog was shared by Frontline magazine: https://www.csp.org.uk/frontline/article/using-r-nhs
