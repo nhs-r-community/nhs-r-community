@@ -1,6 +1,6 @@
 # Source code for NHS-R Community website
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-23-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-24-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Following the values and commitment of the NHS-R Community to open source this website has been built in Quarto to be open in its code and further contribution.
@@ -52,6 +52,7 @@ All the blog posts are being saved under the original titles so that when this s
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/eugene100hickey"><img src="https://avatars.githubusercontent.com/u/12901257?v=4?s=100" width="100px;" alt="Eugene Hickey"/><br /><sub><b>Eugene Hickey</b></sub></a><br /><a href="#blog-eugene100hickey" title="Blogposts">📝</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://chrisbeeley.net"><img src="https://avatars.githubusercontent.com/u/1259867?v=4?s=100" width="100px;" alt="Chris Beeley"/><br /><sub><b>Chris Beeley</b></sub></a><br /><a href="#blog-ChrisBeeley" title="Blogposts">📝</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/send2dan"><img src="https://avatars.githubusercontent.com/u/91281221?v=4?s=100" width="100px;" alt="Daniel Weiand"/><br /><sub><b>Daniel Weiand</b></sub></a><br /><a href="#blog-send2dan" title="Blogposts">📝</a></td>
     </tr>
   </tbody>
 </table>

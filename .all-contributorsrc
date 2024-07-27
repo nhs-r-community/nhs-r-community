@@ -217,6 +217,15 @@
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "send2dan",
+      "name": "Daniel Weiand",
+      "avatar_url": "https://avatars.githubusercontent.com/u/91281221?v=4",
+      "profile": "https://github.com/send2dan",
+      "contributions": [
+        "blog"
+      ]
     }
   ],
   "contributorsPerLine": 7,
