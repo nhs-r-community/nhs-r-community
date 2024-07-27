@@ -3,7 +3,9 @@ title: "Alignment cheatsheet"
 date: "11 May 2022"
 date-modified: "27 July 2024"
 categories:
-  - 
+  - ggplot2
+  - tidyverse
+  - visualisations
 authors: Cara Thompson
 execute: 
   eval: false
@@ -40,7 +42,7 @@ library(extrafont)
 
 Next, let’s put a tibble together to provide data for our textboxes.
 
-```
+```         
 alignments <- tibble("h_align" = sort(rep(c(0, 0.5, 1), 3)),
                      "h_just" = rep(c(0, 0.5, 1), 3), 
                      "v_align" = rep(c(0, 0.5, 1), 3),
@@ -55,7 +57,7 @@ alignments <- tibble("h_align" = sort(rep(c(0, 0.5, 1), 3)),
 
 And finally, let’s create a plot to see how everything aligns.
 
-```
+```         
 ggplot(alignments) +
   geom_textbox(aes(x = h_just, y = v_just, label = content,
                    halign = h_align, hjust = h_just,

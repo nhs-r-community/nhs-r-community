@@ -1,0 +1,100 @@
+---
+title: "New year, new laptop, new library location, new version of R!"
+date: "17 June 2022"
+date-modified: "27 July 2024"
+categories:
+  - R
+authors: Cara Thompson
+image: img/jason-leung-Xaanw0s0pMk-unsplash.jpg
+image-alt: "Photo of confetti"
+execute: 
+  eval: false
+subtitle: >
+---
+
+Eek? Starting again wasn’t nearly as painful as it used to be, thanks to {installr} and the generosity of people posting solutions online.
+
+New year – time to set up the new laptop! Eek? Well, it wasn’t actually that bad! But first, a bit of context.
+
+I had been working on an old laptop that struggled with resource-intensive tasks. My way around that had been to switch from the laptop to my less-readily-accessible desktop for stuff that needed more oomph. Because two devices means two different package libraries, I had thought I was being smart by having my R library in Dropbox: point R to the right location, and tada!, the packages are always stable across the two machines. Plus, in case of catastrophic failure, it’s easy to start again. Right? Wrong! So, so very wrong!
+
+### **Keeping packages in Dropbox is a very bad idea**
+
+It turns out, this had plenty of disadvantages! From needing to pause Dropbox sync when installing new packages to avoid a LOCK error, to file conflicts between the two machines leading to duplicates that are poorly labelled, Dropbox created way more problems than it solved. To add to the headache, my code was all under version control with Git, but not necessarily all up on GitHub (I didn’t need it because of Dropbox, right?). I soon discovered that what I thought was a clever hack really didn’t have the main advantage I was looking for.
+
+### **The rollercoaster of trusting in a poor system**
+
+I booted up the new laptop, pointed R to the Dropbox library and experienced that fun thing when you open up RStudio and crashes: it had no idea what to do because it couldn’t find the packages it needs in order to launch. Hmm, but they were all there… Or were they?
+
+It soon transpired that most of the files were of size 0KB, which isn’t a good sign. Something bad had happened during the Dropbox sync, possibly due to having initially popped the Dropbox folder straight under the C drive — where, fun fact, you don’t really have all the permissions you think you have on your own personal laptop — and then moving it. Not to worry, I could uninstall Dropbox and reinstall it again and all would be well… But it was going to take over 24 hours to sync all the files, and I was getting more and more anxious in the meantime about all the files that looked like they had been corrupted in the process – had they? What state would they be in on the Desktop if I fired that up? Major Eek! So much for that quick fix in case of catastrophic failure!
+
+### **The wiser path**
+
+Having established this was not the way to go, I took steps to remedy the situation and make my R setup more orthodox. Enter {installr}, a package designed [“to make updating R (on windows) as easy as running a function”](https://github.com/talgalili/installr).
+
+**Step 1: Move the library to a standard location**
+
+Turns out, if you do things in a more standard way, there are good solutions to help you keep up with best practice in a standard way!
+
+The first step was to relocate the library so that I could start using packages and functions which were designed precisely for this type of task. I knew I was about to upgrade my version of R, so I would need to reinstall the packages as part of that. So, long story short, I knew I was OK with updating packages rather than sticking to the versions I’d used to build projects. My #Dataviz work doesn’t need to be regenerated, and the stuff I’m doing for clients has been tested in different package environments, so I knew that was safe too.
+
+Following the instructions on [this Stackoverflow thread](https://stackoverflow.com/questions/7133394/migrating-r-libraries), I typed:
+
+```{r}
+to_install <- unname(installed.packages(lib.loc = .libPaths())[, "Package"])
+
+install.packages(pkgs = to_install, lib="C:/Program Files/R/R-4.0.3/library")
+```
+
+Those two simple lines installed all my existing packages in a more standard location, dependencies and all! It was much quicker than I thought it would be! We’re talking minutes. Definitely a **lot** faster than waiting for Dropbox to work its magic! No looking back there! Just count the exclamation marks to get a measure of my surprise.
+
+**Step 2: Update R!**
+
+To do this, I used {installr} and ran `updateR()` with the defaults:
+
+```{r}
+install.packages("installr")
+installr::updateR()
+```
+
+At this point, I got a warning that it was best to do this in the R Gui rather than in RStudio. Fair enough, close RStudio, open R Gui and run that command again.
+
+It then informed me that I had over 450 packages to copy / update. Yikes! But again that was remarkably quick! The process didn’t copy over my `.RProfile` code chunks which tweak a few things on launching RStudio, but that’s easy enough to copy across manually.
+
+I checked the `.libPaths` were back to normal, and they were. This will make future updates way more straightforward! Then I checked for any packages that needed to be updated; unsurprisingly, there were none. This had really worked as well as it says on the tin!
+
+Well, nearly.
+
+**Step 3: Sort out the graphics devices**
+
+I tested out my new setup on a few known projects, where I knew that I could test the output against what I expected, and encountered the following error message:
+
+```         
+# Error in f(...) : Graphics API version mismatch
+```
+
+That looks fun!
+
+I narrowed it down to the first `ggsave()` call of the project. I confirmed that it was simply the `ggsave()` command that was failing and nothing to do with the specific plot by creating a basic plot and trying to save it. A bit of Googling later, I found the solution [on the Posit Community Forum](https://community.rstudio.com/t/graphics-error-since-intalling-r-4-1-0/105275): `updateR` isn’t perfect when it comes to packages that provide graphics devices.
+
+Reinstalling {ragg} did the trick:
+
+```{r}
+install.packages("ragg")
+```
+
+My aim at the time of writing the original post was to not lose time reinstalling individual packages while deadlines were looming. But there’s a **lot** of wisdom in starting with a clean slate every now and thenThanks to for pointing out to me the wisdom of the clean slate!. It’s highly unlikely that I’m still using all 450+ of those packages. Some I will have installed to try something and decided not to use, others I will have used in past projects but won’t use again. If I were to do this forever, I’d end up with 1000s of packages, most of which would be taking up space that they shouldn’t be taking up.
+
+Some recommend starting afresh with every major R upgrade (for example moving from 3.x to 4.x); others prefer a package purge with every R update. There are no hard rules when it comes to this — just make sure you give yourself an opportunity to revisit which packages you actually need every now and then!
+
+**Footnotes**
+
+1.  Thanks to [Chris Beeley](https://twitter.com/ChrisBeeley) for pointing out to me the wisdom of the clean slate!
+
+**Citation**
+
+For attribution, please cite this work as
+
+Thompson (2022, Jan. 11). Building stories with data: New year, new laptop, new library location, new version of R!. Retrieved from https://www.cararthompson.com/posts/2022-01-11-new-year-new-laptop-new-library-location-new-version-of-r/
+
+This blog has been edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text), formatted to remove [Latin Abbreviations](https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation).
