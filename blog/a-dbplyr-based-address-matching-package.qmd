@@ -4,6 +4,7 @@ date: "17 October 2022"
 date-modified: "27 July 2024"
 categories:
   - dbplyr
+  - Addresses
 author: Adnan Shroufi
 image: img/pexels-cottonbro-10202989.jpg
 image-alt: "Photograph of open envelopes"

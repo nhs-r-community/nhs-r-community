@@ -1,0 +1,52 @@
+---
+title: "NHS-R newscast 28th October 2022"
+date: "30 October 2022"
+date-modified: "27 July 2024"
+categories:
+  - NHSR
+  - Podcast
+author: Chris Beeley
+subtitle: >
+---
+
+## There is a new newscast podcast available, for those of you who don’t listen to podcasts here is a summary of what we talked about. Listen to the [episode](http://soundcloud.com/nhs-r-community/nhs-r-newscast-28th-october-2022), find it wherever you get your podcasts.
+
+## **NHS-R conference**
+
+<https://nhsrcommunity.com/events/nhs-r-community-conference-2022/>
+
+## **Linting part deux**
+
+[Static code analysis](https://en.wikipedia.org/wiki/Static_program_analysis)
+
+[{lintr}](https://github.com/r-lib/lintr)
+
+[diagnostics in rstudio](https://support.rstudio.com/hc/en-us/articles/205753617-Code-Diagnostics?version=2022.07.2%2B576&mode=desktop)
+
+[Linting in vs code](https://code.visualstudio.com/docs/languages/r)
+
+[{styler}](https://github.com/r-lib/styler)
+
+[Github actions](https://github.com/r-lib/actions/blob/v2-branch/examples/lint.yaml) to lint code
+
+[Tidyverse style guide](https://style.tidyverse.org/)
+
+## **Structuring projects**
+
+scripts, setwd when reading and writing local files
+
+Projects, self-contained and simpler to use (relative filepaths, folder structures, .gitignores)
+
+projects as packages, simple function loading, and unit testing
+
+`devtools::load_all()`
+
+`usethis::use_package()`
+
+`testthat::use_test()`
+
+## **MIT vs GPL**
+
+<https://choosealicense.com/>
+
+<https://www.tidyverse.org/blog/2021/12/relicensing-packages/>
