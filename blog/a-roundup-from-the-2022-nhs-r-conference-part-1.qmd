@@ -1,0 +1,47 @@
+---
+title: "A roundup from the 2022 NHS-R Conference – Part 1"
+date: "9 February 2023"
+date-modified: "27 July 2024"
+categories:
+  - Conference
+author: Laura Moscoviz
+subtitle: >
+---
+
+What are the latest health research applications using R? A roundup from the 2022 NHS-R conference.
+
+With 47 projects presented during this year’s [NHS-R conference](https://nhsrcommunity.com/), the event aims to promote the use of R in healthcare. It is also an opportunity to learn about the work done by analysts in the NHS and share good practices across public and private healthcare organisations.
+
+Presentations were led by a diverse range of people, from the expected analytical teams, to developers, academics, and medical experts such as doctors and pharmacists.
+
+We attended this year’s annual conference in Birmingham on behalf of [RwHealth](https://realworld.health/healthcare/), a digital health and life science organisation. In this series of blogs we provide a quick takeaway for 20 presentations. Our micro-summaries are sorted by topic.
+
+If you are interested in the topic, we encourage you to watch the full presentation. Day [1](https://www.youtube.com/watch?v=RfiuBGD5IeU) and [2](https://www.youtube.com/watch?v=GS8CThaMZXM) recordings are publicly available.
+
+*Disclaimer – We have categorised selected papers into main topics, but this is not a complete overview of all presentations. The summaries are brief and do not include all details. To fully understand the content, we recommend watching the recorded videos. Additionally, the highlighted points in each paper may not align with the presenter’s main points.*
+
+**R for simulating efficiency models**
+
+Following the COVID-19 pandemic, waiting lists have dramatically increased and waiting times often exceeded the targets for acute trusts. To accurately predict behaviour of the waiting list, Christopher Reading-Skilton (Worcestershire Acute Hospitals NHS) used the [R Simmer](https://r-simmer.org/) package to model patient pathways. The model, called Pythia, is a stochastic discrete event simulation model that forecasts demand, derives treatment pathways from patient history, across specialty levels. The model is still under development and aims to provide guidance on resource usage and prioritisation.
+
+[Longest to date waits](https://www.bbc.co.uk/news/health-64254249) for ambulances have been recorded this winter making Martina Fonseca’s – DART NHSE – presentation timely. The project uses the [RSimmer](https://r-simmer.org/) package to develop a model tackling ambulance response time breaches and handover delays. The discrete event simulation (DES) model, still at the prototype stage, could be used for resource redeployment to hospital sites based on thresholds.
+
+Following admissions to acute care, some patients with complex care needs have to be transferred to adult community and social care. Transfer delays can happen because of inefficiencies in the system and lack of capacity. 500’000 bed days are estimated to be lost annually because of delayed transfer. Zehra Onon-Dumlu et al. developed a stochastic simulation tool to report on service usage, acute sector delays, acute delay and social care costs. You can read a related paper by the same authors [here](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0268837).
+
+**Waiting lists**
+
+Waiting lists in England have been increasing in the last few years. Dr. Richard Wood (NHS Bristol, North Somerset and South Gloucestershire CCG) presented his [model](https://www.tandfonline.com/doi/abs/10.1080/17477778.2020.1764876?journalCode=tjsm20) predicting elective waiting times following COVID-19. With the pandemic disruption, the risk of dropping out of the waiting list before being seen increased dramatically. He proposes a scalable model based on referrals, reneges and treatment that could be applied to all trusts and specialties. The model provides multiple scenarios of future waiting list size based on referrals and capacity parameters.
+
+The composition of waiting list attendees was explored in the South West by Simon Wellesley-Miller from NHS England. His project consists of creating an automated and reproducible tool to identify health inequalities. Using the [XGBoost](https://cran.r-project.org/web/packages/xgboost/index.html) package, he was able to identify important patient and environmental characteristics that may lead to an emergency admission.
+
+**R for good coding practices**
+
+Jessica Morley (Bennett Institute) guided us through some of the key recommendations from the ‘[Goldacre review](https://www.goldacrereview.org/)’ – to efficiently and safely use healthcare data for research. Some of the key points to remember included the importance of building a ‘trusted’ research environment and practices to maintain privacy as well as standardising processes.
+
+One of the Goldacre review recommendations is to make new source code open. However,  NHS data is not systematically open source. Jonny Pearson (NHSE/DART) talks about sharing in the open. It is great to publish code at the end of a project, it is better practice to take a stepwise approach and share as the project progresses. You can hear more about it in this NHS-R [podcast](https://podcasts.apple.com/gb/podcast/goldacre-review/id1583060756?i=1000585692493).
+
+Heather Turner (University of Warwick) shared good coding practices in R to make the work transparent, reproducible and maintainable. Great tips include file organisation for easier navigation, project workflow and package management.
+
+*Laura Moscoviz is a Health Care and Life Science Consultant at [RwHealth](https://realworld.health/) in London. As part of her role, she uses data science, technology, and predictive analytics to deliver insight-driven solutions to improve quality of care and operational delivery.*
+
+*Email :  [laura.moscoviz\@realworld.health](mailto:laura.moscoviz@realworld.health) Twitter: [\@lhmosco](https://twitter.com/lhmosco)*
