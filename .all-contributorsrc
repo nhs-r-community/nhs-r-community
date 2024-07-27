@@ -244,6 +244,15 @@
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "cararthompson",
+      "name": "Cara Thompson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/14091282?v=4",
+      "profile": "http://www.cararthompson.com",
+      "contributions": [
+        "blog"
+      ]
     }
   ],
   "contributorsPerLine": 7,
