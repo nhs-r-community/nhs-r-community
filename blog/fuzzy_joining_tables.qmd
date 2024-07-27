@@ -1,0 +1,203 @@
+---
+title: "Fuzzy joining tables using string distance methods"
+date: "3 February 2023"
+date-modified: "27 July 2024"
+categories:
+  - Strings
+  - tidyverse
+author: Tom Jemmett
+image: img/photo-taxi.png
+image-alt: "Photo of taxis moving very fast so appears in streaks of colour"
+execute: 
+  cache: true
+  freeze: true
+subtitle: >
+---
+
+I recently had a problem where I had two datasets containing data which I needed to join together. The two datasets had a nice 1:1 mapping between them, but unfortunately there was not a nice coded identifier to join the two datasets. There was just a name field, and annoyingly there were subtle differences between the two.
+
+For demonstration purposes, I’m going to show a similar problem. Imagine that we have one dataset that contains data about [ICSs](https://en.wikipedia.org/wiki/Integrated_care_system), and another about [STPs](https://en.wikipedia.org/wiki/Sustainability_and_transformation_plan). (For those not familiar with English NHS geographies, STPs were 42 geographic areas covering England, which in July 2022 became ICSs). This has a 1:1 mapping, but some of the names changed slightly when ICSs came into effect.
+
+```{r}
+#| include: true
+library(tidyverse)
+library(readxl)
+library(stringdist)
+library(here)
+library(sf)
+library(janitor)
+library(igraph)
+```
+
+If you want to follow along, download the list of [STPs](https://geoportal.statistics.gov.uk/documents/bec635f6c83e4582bcf76ce02c2be840/about) and [ICBs](https://geoportal.statistics.gov.uk/documents/25ba241a775e4a9db8e5c721ee73d85d/about) from the ONS Geoportal site.
+
+```{r}
+
+stps <- readxl::read_excel(paste0(here::here(), "/STP_APR_2021_EN_NC.xlsx")) |>
+  select(code = STP21CDH, description = STP21NM) |>
+  arrange(code)
+
+stps
+```
+
+```{r}
+icbs <- readxl::read_excel(paste0(here::here(), "/ICB_JUL_2022_EN_NC.xlsx")) |>
+  select(code = ICB22CDH, description = ICB22NM) |>
+  arrange(code)
+
+icbs
+```
+
+Obviously, here we have the [“E54\* ONS codes](https://en.wikipedia.org/wiki/ONS_coding_system) which we could join on, a luxury I did not have. I’ve left these in to test the matching does work later.
+
+First of all, how many rows are we able to match joining on the name?
+
+```{r}
+icbs |>
+  inner_join(stps, by = "description")
+```
+
+None! Looking at the `icbs` dataset, we can see rows start with “NHS” and end with “Integrated Care Board”, which doesn’t happen in `stps`. Perhaps, by just stripping these we get a perfect match?
+
+```{r}
+icbs |>
+  select(description) |>
+  mutate(across(description, str_remove_all, "^NHS | Integrated Care Board$")) |>
+  inner_join(stps |> select(description), by = "description")
+```
+
+Roughly half… not good enough!
+
+## **String distance methods to the rescue?**
+
+Many of us will have had to compare strings at some point, perhaps using `LIKE` in Sql, or Regular Expressions (regexs) in R. But there are a class of algorithms that can calculate the “distance” or “similarity” between two strings.
+
+Consider the two words “grey” and “gray”. How similar are these two words? The [Hamming Distance](https://en.wikipedia.org/wiki/Hamming_distance) algorithm compares two strings of equal length, and returns a number indicating how many positions are different in the string. So for our two words above, we get a distance of 1.
+
+A generally more useful method though is the [Damerau-Levenshtein distance](https://en.wikipedia.org/wiki/Damerau-Levenshtein_distance). This calculates the number of operations to make the first string equal the second string.
+
+Operations in this context are single-character insertions, deletions or substitutions, or transposition of two adjacent characters.
+
+Alternatively, we could consider the set of unique words used in two strings. We can count the intersection of words (words common to both strings) and divide by the count of all the words used to give us a value between 0 and 1. A value of 0 would indicate that the two strings are completely different, and a value of 1 would indicate that the two strings are very similar. This method is called the [Jaccard Similarity](https://towardsdatascience.com/overview-of-text-similarity-metrics-3396c4601f50).
+
+This is a very useful method for the problem I faced, as I expect the names in both datasets to be free of spelling mistakes.
+
+## **Using the Jaccard Similartiy method**
+
+First, we can use the `stringsimmatrix()` function from the `{stringdist}` package to calculate the Jaccard Similarity matrix, comparing the names from the first table to the names from the second table.
+
+```{r}
+dist_matrix <- stringdist::stringsimmatrix(
+  icbs$description,
+  stps$description,
+  "jaccard"
+)
+```
+
+However, simply calculating the string distance matrix doesn’t give us a solution to the problem. In the table below, you can see that in column y, some rows appear more than once, and eyeballing the match it’s clear it hasn’t found the correct pair.
+
+```{r}
+# we can find the index of the maximum 
+tibble(
+   x = icbs$description |> str_remove_all("^NHS | Integrated Care Board$"),
+  y = stps$description[apply(dist_matrix, 1, which.max)]
+) |>
+  group_by(y) |>
+  arrange(y) |>
+  filter(n() > 1)
+```
+
+## **Graph theory saves the day**
+
+There is a quick solution to this though using a [Bipartite Graph](https://en.wikipedia.org/wiki/Bipartite_graph). A Birpartite Graph is a type of network where we have vertices of two types, and edges only exist between nodes of the different types.
+
+We can use the `{igraph}` package to construct and manipulate graphs. First, let’s construct a table where we have names from the first table as nodes of one type, and the names from the second table as nodes of the other type.
+
+```{r}
+# the column `name` is special in a named graph. it will uniquely identify each vertex.
+vertices <- dplyr::bind_rows(
+  .id = "type",
+  icbs = icbs |> mutate(name = paste0("icb_", code)),
+  stps = stps |> mutate(name = paste0("stp_", code))
+) |>
+  dplyr::relocate(name, .before = dplyr::everything()) |>
+  # the "type" column needs to be a logical vector, so we use TRUE for the first type, and FALSE for the second
+  dplyr::mutate(dplyr::across("type", ~.x == "icbs"))
+
+vertices
+```
+
+Then create weighted edges between each pair of names, using the distance matrix we calculated above.
+
+```{r}
+edges <- dist_matrix |>
+  # this will convert our matrix into a list of lists
+  purrr::array_branch(1) |>
+  # the lists will be in the same order as our original data
+  # so we can use purrr to change into a dataframe
+  purrr::set_names(icbs$code) |>
+  purrr::map_dfr(
+    .id = "to",
+    \(.x) tibble::tibble(from = icbs$code, weight = .x)
+  ) |>
+  mutate(
+    across(to, ~paste0("icb_", .x)),
+    across(from, ~paste0("stp_", .x))
+  )
+
+edges
+```
+
+This tibble gives us the string similarities between each pair of names from our two tables.
+
+Now that we have our edges and vertices, we can construct a graph, and find the maximum bipartite matching. This works without much effort as we constructed our vertices with a `type` logical column, and we constructed our edges with a `weight` numeric column. `{igraph}` handles the rest for us.
+
+```{r}
+g <- igraph::graph_from_data_frame(edges, TRUE, vertices)
+
+m <- max_bipartite_match(g)$matching |>
+  enframe("icb_code", "stp_code") |>
+  # the results gives us results from icb22cdh->icb22cd and vice versa
+  # keep just the icb22cdh->icb22cd results
+  filter(icb_code |> str_starts("icb_")) |>
+  mutate(across(c(icb_code, stp_code), str_remove_all, "^.{3}_"))
+
+m |>
+  filter(icb_code == stp_code) |>
+  rename(code = icb_code) |>
+  select(-stp_code) |>
+  inner_join(
+    icbs |> rename(icb_name = description),
+    by = "code"
+  ) |>
+  inner_join(
+    stps |> rename(stp_name = description),
+    by = "code"
+  ) |>
+  mutate(across(everything(), str_trunc, 30)) |>
+  print(n = 42)
+```
+
+This gives us a perfect match!
+
+## **How does this work?**
+
+Roughly, the way this matching algorithm works is it starts off and finds the edge with the greatest possible matching score, and pairs those two nodes together. It then removes those nodes (and edges to/from those nodes) from the graph, and repeats until all nodes are paired, or no edges remain.
+
+This prevents the issue we initially saw, because a node can only be paired to one other node.
+
+This algorithm works when we have a good set of weights to the edges. In fact, if you try running the string similarity function with some of the different algorithms that are available, such as the Levenshtein Distance, most give us bipartite matchings that aren’t correct.
+
+For a more complete description, see the help page for the function ([igraph::max_bipartite_match](https://igraph.org/r/doc/matching.html)), and the [Push-relabel maximum flow algorithm](https://en.wikipedia.org/wiki/Push%E2%80%93relabel_maximum_flow_algorithm).
+
+## **Final thoughts**
+
+Hopefully this has been interesting to you and introduced some new and interesting techniques to play with. Both string-distance algorithms and graph theory are very powerful tools that crop up again and again in computer science, so are worth diving into if you are curious!
+
+There is an obvious question of, are there easier approaches to this problem? In this case, we only had 42 options, which is probably quick enough to solve by hand in Excel by starting with two sorted columns and manually lining up the correct rows.
+
+However, if you had a similar problem with more options then the manual approach would quickly becoming tiring. It is worth noting that you should not blindly trust the results; In my original problem I scanned the results and confirmed that I got the results I was after. In this example we had the codes which allowed us to confirm the correct results
+
+I also came into this problem expecting there to be a perfect 1:1 mapping between both sets. If it isn’t guaranteed that constraint holds in your problem then you may need to treat the results more cautiously.
+
+This post is also available as a [quarto document](https://gist.github.com/tomjemmett/fc5fa443a3c1d1bd964e9eba34bb2d10).
