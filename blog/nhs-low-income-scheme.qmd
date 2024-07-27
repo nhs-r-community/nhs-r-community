@@ -8,6 +8,8 @@ categories:
   - html
   - accessibility
   - Scrollytell
+image: img/pexels-suzy-hazelwood-1995842.jpg
+image-alt: "Close up photo of a typewriter with the words 'stories matter' printed on a page"
 authors: 
   - name: Kayoung Goffe
   - name: Adam Ivison
@@ -15,8 +17,6 @@ execute:
   eval: false
 subtitle: >
 ---
-
-![](img/pexels-suzy-hazelwood-1995842.jpg){fig-alt="Close up photo of a typewriter with the words \"stories matter\" printed on a page" fig-align="center"}
 
 The NHSBSA Data Science team recently published an [article](https://nhsbsa-data-analytics.shinyapps.io/take-up-of-the-nhs-low-income-scheme-in-england/) investigating the take-up of the NHS Low Income Scheme in England. The [NHS Low Income Scheme](https://www.nhsbsa.nhs.uk/nhs-low-income-scheme) is a service administered by the NHS Business Services Authority, which provides help to people who are not already entitled to help with health costs.
 
