@@ -1,0 +1,102 @@
+---
+title: "Using RMD for academic writing"
+date: "10 October 2022"
+date-modified: "27 July 2024"
+categories:
+  - RMarkdown
+author: Daniel Weiland
+image: img/pexels-pixabay-261763.jpg
+image-alt: "Photograph of writing"
+execute: 
+  eval: false
+subtitle: >
+---
+
+This is a blog post that describes my experience of using RMD for academic writing. By choosing the right YAML and {knitr} package settings, and creating appropriate .docx, .bib, and .csl files (which need to be located in the main project directory), one can use the {citr} package to easily add citations to an RMD file, which are correctly rendered in the main body of the text as well as the references section of the document.
+
+## **YAML setup in RMD**
+
+RMD files start with Yet Another Markup Language (YAML) code. This is how I’ve set up my YAML in order to render an academic report in RMD.
+
+```         
+title: "Title of manuscript"
+author: FALSE 
+date: "`r Sys.Date()`"
+output: 
+  word_document: 
+    reference_docx: word-styles-reference-01.docx #A Word document that has been appropriately edited. Importantly, you must use the "Styles" function of MS Word to control text formatting. The Word file needs to be located in the main project folder.
+bibliography: biblio.bib #This is the .bib file, created using Zotero. Key to successfully using Zotero is installing add-ons, such as the Better BibTex for Zotero add-on, which can be found at: https://retorque.re/zotero-better-bibtex/. The .bib file needs to be located in the main project folder.
+csl: elsevier-harvard.csl #this is the .csl file used to style references in line with journal guidelines. further styles can be found at: https://www.zotero.org/styles, the Zotero Style Repository. The .csl file needs to be located in the main project folder.
+link-citations: yes
+```
+
+## **Requirements**
+
+After completing YAML setup, the next part of my RMD file outlines which packages need to be loaded. Other packages may be needed to complete your analysis and writeup, but these are the bare minimum to render an academic report in RMD.
+
+```{r}
+library(here) #For correctly loading files in RMD
+library(knitr) #General-purpose tool for dynamic report generation in R
+library(citr) #RStudio Addin to Insert Markdown Citations
+```
+
+## **{knitr} package setup**
+
+After completing YAML setup, the next part of my RMD file outlines the {knitr} options.
+
+```         
+knitr::opts_chunk$set(echo = FALSE, #Whether to display the source code in the output document. 
+                      warning = FALSE, #If FALSE, all warnings will be printed in the console instead of the output document.
+                      error = FALSE, #By default, the code evaluation will not stop even in case of errors! If we want to stop on errors, we need to set this option to FALSE.
+                      message = FALSE, #Whether to preserve messages emitted by message() (similar to the option warning)
+                      strip.white = TRUE,  #Whether to remove blank lines in the beginning or end of a source code block in the output
+                      tidy = FALSE, #Whether to reformat the R code.
+                      dev='jpeg', #The graphical device to generate plot files. 
+                      dpi = 300, #The DPI (dots per inch) for bitmap devices (default = 72)
+                      fig.path = 'figures/',
+                      fig.width = 6, #default is 7
+                      fig.asp = 0.618, #the golden ratio
+                      # fig.height = 6, #default is 7
+                      fig.align = 'center', #Possible values are default, left, right, and center. 
+                      out.width = "70%", 
+                      cache.path = 'cache/',
+                      cache = TRUE) #Whether to cache a code chunk. When evaluating code chunks for the second time, the cached chunks are skipped (unless they have been modified).
+```
+
+## **The {here} package**
+
+To ensure that the RMD document renders correctly, I’ve found the {here} package to be an absolute life saver. As per the package’s R documentation, it uses a reasonable heuristics to find your project’s files, based on the current working directory at the time when the package is loaded.
+
+## **Using the {citr} package**
+
+Zotero can be used to put references in a plain text file with the extension .bib, in BibTex format. For example, we may wish to cite the following journal article: *Anhøj, J., Olesen, A.V., 2014. Run charts revisited: A simulation study of run chart rules for detection of non-random variation in health care processes. PLoS One 9, e113825*
+
+In your text, citations go inside square brackets, with each journal article referenced using a single string of characters defined using Zotero. If you wish to cite multiple sources, separate these by semicolons. For an easy way to insert citations, try the [citr RStudio add-in](https://github.com/crsh/citr).
+
+## **Example Reference**
+
+For example…
+
+```         
+Blah blah [@anhoj2014run].
+@anhoj2014run says blah.
+Blah blah [see @anhoj2014run].
+```
+
+…turns into:
+
+Blah blah ([Anhøj and Olesen, 2014](https://nhsrcommunity.com/using-rmd-for-academic-writing/#ref-anhoj2014run)).
+
+[Anhøj and Olesen](https://nhsrcommunity.com/using-rmd-for-academic-writing/#ref-anhoj2014run) ([2014](https://nhsrcommunity.com/using-rmd-for-academic-writing/#ref-anhoj2014run)) says blah.
+
+Blah blah (see [Anhøj and Olesen, 2014](https://nhsrcommunity.com/using-rmd-for-academic-writing/#ref-anhoj2014run)).
+
+## **References**
+
+References can be added to the end of a rendered document by adding the following code snippet:
+
+```         
+::: {#refs} :::
+```
+
+Anhøj, J., Olesen, A.V., 2014. Run charts revisited: A simulation study of run chart rules for detection of non-random variation in health care processes. PLoS One 9, e113825.
