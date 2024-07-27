@@ -1,0 +1,31 @@
+---
+title: "Posit + NHS-R: a Perfect Partnership!"
+date: "29 November 2022"
+date-modified: "27 July 2024"
+categories:
+  - NHSR
+  - Conference
+image: img/Posit-Cloud-logo-4.png
+image-alt: Posit
+authors:
+  - name: Ryan Johnson
+  - name: Lauren Chadwick
+subtitle: >
+---
+
+In mid-November of 2022, Posit had the great opportunity to attend the NHS-R Community Conference in Birmingham, UK. While the world is still reeling from the effects of COVID-19, it was comforting to know that this R community and organizers thereof can overcome immense challenges and host a wonderful and safe in-person/virtual hybrid conference.
+
+People may wonder why Posit would send two US-based employees to England to attend NHS-R? We will certainly touch upon that, but first, we’d like to highlight what stood out to us during our time at this event in the beautiful Edgbaston Stadium.
+
+-   **Range in topics** – The variety of topics presented at NHS-R was astonishing and a great reminder of how limitless the R language truly is! In listening to the variety of speakers during the two-day event, we witnessed everything from how to create impactful and intuitive visualizations to hospital capacity modeling to cancer therapy treatment customization. The number of thoughtful approaches to specific, common issues was impressive, but what really stood out to us was the powerful, yet unspoken central theme that persisted across all talks: ***how R can positively impact human health***. It is amazing to consider that a specific combination of mouse clicks and keyboard strokes is quite literally saving lives every day.
+
+-   **A unique and well-organized event** – NHS-R Conference is a relatively young event established in 2018, and only the 3rd time the conference has been held in person. That said, we were immensely impressed with how well-organized the conference was and how NHS-R has evolved to accommodate both in-person and virtual attendees – setting an excellent example for future NHS-R (and any similar organizational & community) conferences. We also applaud the uniqueness of NHS-R by hosting a 2-day event sandwiched between numerous virtual workshops for beginner and advanced R users, which spanned the entire month of November. Regardless of where you are in your data science journey, NHS-R had something catered to you. While COVID-19 has certainly imposed limitations on future in-person events, the conference organizers have fully capitalized on the benefits of virtual learning!
+
+-   **Expanding beyond R** – for the first time, NHS-R added a Python track to their conference, which was in the same conference space but dedicated to a unique set of topics and speakers. This enabled attendees to pick and choose which R and Python-based talks were most exciting & valuable for them and to attend sessions accordingly. This was especially thrilling for *us* to witness as the inclusion of Python in this historically-R-based conference is well-aligned with Posit’s continued mission to support open-source, language-agnostic data science. For NHS-R, this opens many doors for improving England’s health system, and we are excited to see the positive future impacts of enabling more individuals across the organization!
+
+The points above should be enough rationale to convince anyone to attend the NHS-R Conference in 2023, but we’d like to explain why Posit is so invested in NHS-R. Posit’s mission is to create open-source software for data science, scientific research, and technical communication. We are a Public Benefit Corporation, meaning we have a fiduciary responsibility to address social, economic, and environmental needs to benefit our customers, employees, and the community. Per the [NHS Constitution for England](https://www.gov.uk/government/publications/the-nhs-constitution-for-england/the-nhs-constitution-for-england#introduction-to-the-nhs-constitution), the NHS “belongs to the people,” and “is founded on a common set of principles and values that bind together the communities and people it serves – patients and public – and the staff who work for it.” As you can see, the mission of the NHS is aligned with what Posit hopes to support.
+
+**We are excited to continue this perfect partnership long into the future!**
+
+Authors:\
+***Ryan Johnson and Lauren Chadwick, Posit***
