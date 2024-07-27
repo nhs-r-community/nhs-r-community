@@ -280,6 +280,15 @@
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "benmurch",
+      "name": "benmurch",
+      "avatar_url": "https://avatars.githubusercontent.com/u/55085951?v=4",
+      "profile": "https://github.com/benmurch",
+      "contributions": [
+        "blog"
+      ]
     }
   ],
   "contributorsPerLine": 7,
