@@ -1,6 +1,6 @@
 # Source code for NHS-R Community website
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-28-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-29-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Following the values and commitment of the NHS-R Community to open source this website has been built in Quarto to be open in its code and further contribution.
@@ -57,6 +57,9 @@ All the blog posts are being saved under the original titles so that when this s
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/kygoffe"><img src="https://avatars.githubusercontent.com/u/57093302?v=4?s=100" width="100px;" alt="Kayoung Goffe"/><br /><sub><b>Kayoung Goffe</b></sub></a><br /><a href="#blog-kygoffe" title="Blogposts">📝</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://www.cararthompson.com"><img src="https://avatars.githubusercontent.com/u/14091282?v=4?s=100" width="100px;" alt="Cara Thompson"/><br /><sub><b>Cara Thompson</b></sub></a><br /><a href="#blog-cararthompson" title="Blogposts">📝</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://sellorm.com"><img src="https://avatars.githubusercontent.com/u/2036487?v=4?s=100" width="100px;" alt="Mark Sellors"/><br /><sub><b>Mark Sellors</b></sub></a><br /><a href="#blog-sellorm" title="Blogposts">📝</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/AdnanShroufi"><img src="https://avatars.githubusercontent.com/u/24990323?v=4?s=100" width="100px;" alt="AdnanS"/><br /><sub><b>AdnanS</b></sub></a><br /><a href="#blog-AdnanShroufi" title="Blogposts">📝</a></td>
     </tr>
   </tbody>
 </table>
