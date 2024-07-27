@@ -1,0 +1,45 @@
+---
+title: "NHS-R Workshop: Development and validation of clinical prediction models using R"
+date: "15 December 2022"
+date-modified: "27 July 2024"
+categories:
+  - 
+author: Eduard Incze
+image: img/heart-monitor.jpg
+image-alt: "Heart rate graph"
+execute: 
+  eval: false
+subtitle: >
+---
+
+Dr Faisal provided a very comprehensive introduction to Clinical Prediction Modelling (CPM for short), focusing on the five stages of developing and validating this type of model in R:
+
+1.  Model development.
+
+2.  Performance assessment using discrimination and calibration measures.
+
+3.  Internal validation using bootstrapping.
+
+4.  External validation.
+
+5.  Sensitivity analysis and decision curve analysis (measuring clinical impact).
+
+One of the first things we covered is how CPM is different to causal inference modelling: CPM focuses only on making accurate predictions, not understanding the cause behind the effects. This means that one should be careful in choosing the appropriate type of model for the task and that the two types of modelling should not be assessed by the same criteria.
+
+An important part of the model development phase is deciding whether a model is even needed at all! According to the research presented, many models are developed, but very few are useful. A systematic review from early 2020 concluded that only 4 out of the 731 models they analysed had a low risk of bias. We were helpfully provided a flow chart to help us decide whether a new model is needed.
+
+![](img/flowchart-risk-prediction-model.png){fig-alt="Flowchart for risk whether a risk prediction model should be developed." fig-align="center"}
+
+A lot of emphasis was put on model validation and the various internal and external approaches to validation that one can take.
+
+[![](img/cpm-validation-approaches.png){fig-alt="CPM Validation approaches model image for internal and external evaluation" fig-align="center"}](https://www.cambridge.org/core/books/habitat-suitability-and-distribution-models/assessing-model-performance-which-data-to-use/EFDB946905793305EA72670BB0ABCB1F)
+
+Participants worked on four tasks of increasing difficulty throughout the workshop, although both the objectives and methods were well explained. By the end of the workshop, we had visualised data, trained and validated a model, and even plotted a variety of performance indicators (including the ROC AUC, calibration, and Decision Curve Analysis).
+
+This was a great introduction to Clinical Predictive Modelling in R, and I hope to attend any future workshops provided by NHS-R!
+
+Thanks NHS-R for agreeing to have some of their slides shared here.
+
+**Eduard Incze**
+
+**NHS Wales Delivery Unit - Advanced Analyst/Modeller**
