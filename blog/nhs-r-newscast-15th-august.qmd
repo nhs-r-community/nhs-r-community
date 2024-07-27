@@ -1,0 +1,24 @@
+---
+title: "NHS-R newscast 15th August 2022"
+date: "24 August 2022"
+date-modified: "27 July 2024"
+categories:
+  - NHSR
+  - Podcast
+author: Chris Beeley
+subtitle: >
+---
+
+## Bullet summary of the most recent [NHS-R podcast](https://soundcloud.com/nhs-r-community/nhs-r-newscast-20220815)
+
+[NHS-R conference](https://nhsrcommunity.com/events/nhs-r-conference-2022/)– Keynotes: Heather Turner from R Ladies, Jess Morley, and others. Python track. Free to all UK public sector. Fully hybrid remote/ in person
+
+[Rstudioconf](https://www.rstudio.com/conference/). [Alice Walsh](https://twitter.com/sciencealice) talk on [creativity, quilting, and R](https://www.rstudio.com/conference/2022/talks/quilting-in-r-becoming-creative/). Really useful analogy: do you want to be a pizza delivery business, or a plumber?  Pizza delivery – choose from a picture, it arrives and looks like it should. We do a lot of dashboard pizza – asked for a chart here, there, summary table, no creativity. Plumber is domain expert. Turns up and asks questions about the problem. Brings tools and fittings to fix, but doesn’t focus on them. Focus on understanding the customer’s problem. Then gets on with work, and trusted to deliver result.
+
+[Software carpentry](https://software-carpentry.org/) and [linting](https://github.com/r-lib/lintr).
+
+[RStudio becomes Posit to broaden focus to Python and VS Code](https://posit.co/)
+
+[VS Code for R](https://code.visualstudio.com/docs/languages/r). [Live share](https://visualstudio.microsoft.com/services/live-share/). [Git lens](https://www.gitkraken.com/gitlens). GitHub co pilot <https://twitter.com/_ColinFay/status/1556656199885529090?s=20&t=V-MENMBfJLbBbpLGVh4cVA>
+
+We had some feedback from the drop in that it should be easier to find training materials. GitHub can be quite confusing for beginners and in particular it is actively blocked in some NHS Trusts. We need to have a top level “training” view on the main website which has clear signposting to what all the courses are and where to find them. We will take this feedback away and try to work on it.
