@@ -235,6 +235,15 @@
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "kygoffe",
+      "name": "Kayoung Goffe",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57093302?v=4",
+      "profile": "https://github.com/kygoffe",
+      "contributions": [
+        "blog"
+      ]
     }
   ],
   "contributorsPerLine": 7,
