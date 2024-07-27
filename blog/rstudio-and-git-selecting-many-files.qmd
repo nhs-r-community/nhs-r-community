@@ -1,0 +1,40 @@
+---
+title: "RStudio and Git – selecting many files"
+date: "23 May 2023"
+date-modified: "27 July 2024"
+categories:
+  - RStudio
+  - Git
+author: Zoë Turner
+image: img/r_code_screen.jpg
+image-alt: "Photograph of a computer screen with R code"
+subtitle: >
+---
+
+I’m currently preparing a workshop for an introduction to Git and GitHub, in the same way we have an Introduction to R and RStudio course for NHS-R Community. But the thing I’ve realised as I’ve been putting my thoughts in order about where to start with Git and GitHub (using RStudio) is that I flit about from using the RStudio Git panel to using the Terminal command line in RStudio. I tend to go for the quickest action to achieve what I want to do which can mean things like:
+
+1 Use the Terminal `git add .` to “stage” all the files that I want to commit as that’s quicker than clicking on all the files often that I want to commit.
+
+2 Go to RStudio `Commit Pending changes` icon (the white docs icon with a tick in a Git pane) to write the commit as I find `git commit -m "Write your message here"` a bit too long!
+
+3 Use the Push and Pull buttons in RStudio as that’s easier than typing `git push` or `git pull` in the terminal.
+
+I’ve started trying out the `pr_*()` functions from the {usethis} package and following the [Choose your own adventure](https://www.garrickadenbuie.com/blog/pull-request-flow-usethis/?interactive=1&steps=) by Garrick Aden-Buie so I’ll use those functions when working with branches and pull requests but more about that in the course/future blogs!
+
+Then, when looking for anything on working with Git on the Posit Cloud I found this [YouTube video](https://www.youtube.com/watch?v=5wKdo2XJMeU) from Mine Çetinkaya-Rundel where I saw that it is possible to stage a number of files in RStudio more easily than clicking on each file! Mine shows selecting a file in the Git pane by clicking on the first click box by the file you want and, I’m guessing, hold down `Shift` and click the bottom file to select it and all between. The ticks just appear next to all the files!
+
+It’s also possible to select non-concurrent files by clicking on the names and then, when the files you want have a grey highlight over them, click for a tick in “Staged”. To select files that are not concurrent use `Ctrl` and, if this isn’t familiar already, this is the same way to select files in things like Windows Explorer.
+
+Note too that this can be used to unstage files which is useful when you stage a folder which has lots of files in it but you change your mind about committing them all.
+
+So now my work will probably go:
+
+1 Select the files I want to stage in the Git pane in RStudio
+
+2 Commit using the Commit pending changes button in RStudio
+
+3 Select the Push and Pull buttons in RStudio
+
+because, whilst I much prefer typing on the command line, sometimes clicking on a button makes life just a touch easier.
+
+This blog is also [available on GitHub](https://github.com/nhs-r-community/NHSRblogs/blob/main/20230523_rstudio_git/rstudio-git.qmd) as a quarto document.
