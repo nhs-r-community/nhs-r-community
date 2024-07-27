@@ -8,8 +8,6 @@ categories:
 author: Zoë Turner
 subtitle: >
   "Debugging when your code worked and now doesn't."
-execute:
-  eval: false
 ---
 
 A common scenario: you are new to a programming language, chuffed that you’ve done a few bits and progressing well. A colleague hands you their code to run a regular report. That’s fine, you’ve got a smattering of understanding, and this is existing code, what could go wrong? But the code doesn’t run. You check through it but nothing looks obviously out of place and then your colleague adds to your utter confusion by saying it works on their machine.

@@ -18,8 +18,9 @@ subtitle: >
 
 ::: {.callout-warning collapse="false" appearance="default" icon="true"}
 ## Archived data
-
 The code in this blog will not work as the files have been renamed for archiving.
+
+Updated code can be found at [Pablo's Github Repository](https://github.com/Pablo-source/Shiny-app-using-COVID-data)
 :::
 
 ### **Project structure**
@@ -387,11 +388,11 @@ This is an example of the functions used to populate the `infoBoxes` on top of t
 
 The reactive components used in the plots and the maps to produce several animations were created using a `input\$Time_Slider` function.
 
-```{r}
+```
 ui <- dashboardPage(
   
   dashboardHeader(title = "COVID-19"),
-  # THis Sidebar menu allows us to include new items on the sidebar
+  # This Sidebar menu allows us to include new items on the sidebar
   dashboardSidebar(
                     sidebarMenu(
                     # Setting id makes input$tabs give the tabName of currently-selected tab
@@ -407,7 +408,7 @@ ui <- dashboardPage(
 
 This is an example of the functions used to populate the `infoBoxes` on top of the dashboard.
 
-```{r}
+```
 dashboardBody(  # Infobox: Total figures KPI world
     fluidRow(infoBoxOutput("Total_cases_WORLD", width = 3),
              infoBoxOutput("Total_recovered_WORLD", width = 3),
@@ -456,6 +457,5 @@ Sharing this script and connecting with other NHSR analysts will be good startin
 
 Any comments to this blog article, please feel free to email me at: [pablo.leonrodenas\@nhs.net](mailto:pablo.leonrodenas@nhs.net)
 
-[Pablo Github Repository](https://github.com/Pablo-source/Shinypredict)
 
 This blog has been edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text).

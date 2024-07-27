@@ -11,8 +11,6 @@ image: img/screenshot-github-settings.PNG
 image-alt: "Screenshot of the settings page on GitHub"
 subtitle: >
   "Publish free through GitHub"
-execute:
-  eval: false
 ---
 
 I had a question on this directly on how to publish and then another one popped up on the NHS-R Community Slack so, in the principle of DRY (Don't Repeat Yourself) this is a short blog on how to publish (free!) slides, websites and reports through GitHub.
