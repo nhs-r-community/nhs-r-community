@@ -29,6 +29,7 @@ The data set is presented in wide form with each column being a metric from 01 t
 For this particular analysis metrics 02 to 09 use a denominator of GP population count of over 16 years old whilst all the others use prevalence of Coronary Heart Disease (CHD). For quickness, it’s possible to list out each metric and its corresponding calculation but that does make code less readable, particularly as the metrics included have gaps in the numbering:
 
 ```{r}
+#| eval: false
 activity_by_type_decile_stg %>%
   mutate(metric02_total_ratio = metric02_total / list_size_total * 1000) %>%
   # skip 03 and skip 04
@@ -81,6 +82,8 @@ Translating the string output \^metric(02\|05\|06\|07\|08\|09)\_total\$ into Eng
 The magic of a string like this occurs in later code when it’s used in the `ifelse()` function:
 
 ```{r}
+#| eval: false
+#| 
 # The wide data is first converted to longer, 
 # "tidy" data before adding a new 
 # total_column based on the metric name
