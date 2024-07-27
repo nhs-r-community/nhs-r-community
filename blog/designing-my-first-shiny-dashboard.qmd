@@ -1,0 +1,461 @@
+---
+title: "Designing my first Shiny dashboard"
+date: "14 October 2021"
+date-modified: "27 July 2024"
+categories:
+  - Shiny
+  - Functions
+  - tidyverse
+  - base R
+  - GIS
+  - zoo
+  - plotly
+author: Pablo Leon-Rodenas
+execute: 
+  eval: false
+subtitle: >
+---
+
+::: {.callout-warning collapse="false" appearance="default" icon="true"}
+## Archived data
+
+The code in this blog will not work as the files have been renamed for archiving.
+:::
+
+### **Project structure**
+
+The aim of this blog article is to describe the initial experience of creating a Shiny dashboard this process involved a bit of reading on markdown documents and Shiny apps to learn how to code it.
+
+When designing this dashboard, I aimed to cover the following basic steps:
+
+-   Download open data from a Github Repository
+
+-   Create several indicators with their population rates by using World Band API
+
+-   Use {plotly} library for interactive plots to animate charts and maps in the Shiny app
+
+-   Build a Shiny dashboard containing different visualizations types
+
+Below there is a detailed description of the steps followed to design the app.
+
+#### **1. Download COVID19 data**
+
+When creating any dashboard, I would like to feed daily data to it and also update it as soon as that data becomes available. Since the start of the pandemic, many resources have become available to analyze and visualize information about cases and deaths on different countries worldwide, so I decided to use JHU Github \[<https://github.com/CSSEGISandData/COVID-19/archive/master.zip>\] to download daily data.
+
+The script below selects daily confirmed, death and recovered COVID-19 cases, downloads it and compresses them. Finally it extracts the relevant indicators (confirmed, death and recovered cases) as `.csv` files.
+
+```{r}
+DownloadCOVIDData <- function() {
+  # Create data directory if doesn't exist
+  if (!dir.exists("data")) {
+    dir.create("data")
+  }
+  # Download master.zip file
+  download.file(
+    url = "https://github.com/CSSEGISandData/COVID-19/archive/master.zip",
+    destfile = "data/covid19JH.zip"
+  )
+  data_path <- "COVID-19-master/csse_covid_19_data/csse_covid_19_time_series/"
+
+  # Unzip covid19JH.zip file to extract .csv metric files (confirmed, deaths, recovered)
+  # time_series_covid19_confirmed_global.csv, time_series_covid19_deaths_global.csv,
+  # time_series_covid19_recovered_global.csv
+  unzip(
+    zipfile = "data/covid19JH.zip",
+    files = paste0(data_path, c(
+      "time_series_covid19_confirmed_global.csv",
+      "time_series_covid19_deaths_global.csv",
+      "time_series_covid19_recovered_global.csv"
+    )),
+    exdir = "data",
+    junkpaths = T
+  )
+}
+
+DownloadCOVIDData()
+```
+
+Then I had to update that initial download every half an hour, in case the file was updated throughout the day. In order to get the most up to date info, I thought of running it I though about this script to be run on a server or VM seven days a week, so it will periodically check to get the most up to date information.
+
+```{r}
+Dataupdate <- function() {
+  T_refresh <- 0.5 # hours
+  if (!dir_exists("data")) {
+    dir.create("data")
+    DownloadCOVIDData()
+  } else if ((!file.exists("data/covid19JH.zip")) || as.double(Sys.time() - file_info("data/covid19JH.zip")$change_time, units = "hours") > T_refresh) {
+    # If the latest refresh exceeds 30 minutes, then you download it again
+    DownloadCOVIDData()
+  }
+}
+
+Dataupdate()
+```
+
+Once the data was downloaded, I did some cleansing and data transformations from wide to long format, and also included new calculations with popularization data extracted from the World Bank API to create each of the indicators as rates per 10,000 population, using seven days rolling average to obtain an average of those daily indicators.
+
+#### **2. Create new metrics from raw covid data**
+
+After downloading the original data files, I extracted and assigned names to the three metrics I will use in the dashboard (data_confirmed,data_deceased,data_recovered).
+
+```{r}
+input_covid <- list.files("data/", ".csv")
+
+NFILES <- length(input_covid)
+file_Name <- c("data_confirmed", "data_deceased", "data_recovered", "WDI_indicators")
+
+for (i in 1:NFILES) {
+  assign(
+    paste0(file_Name[i]), # Read and store data frames
+    read_csv(paste0(
+      "data/",
+      input_covid[i]
+    ))
+  )
+}
+```
+
+#### **3. Reshape data for plots**
+
+Originally, the data is created in wide format and I transformed it into long format, including some calculations. I also aggregated it to Country level and applied relevant date format to display time series data and animations using a timeline in maps.
+
+For the purpose of this blog post, I will only describe this process for one metric *COVID19 Confirmed cases*, the code for remaining two metrics (deceased cases, recovered cases) can be found in my Github repo.
+
+```{r}
+# Confirmed cases 
+library(tidyr)
+
+names(data_confirmed)
+# First rename the two first columns using rename() function
+confirmed_tidy <- data_confirmed %>%
+  rename(
+    Province = "Province/State",
+    Country = "Country/Region"
+  ) %>%
+  pivot_longer(
+    names_to = "date",
+    cols = 5:ncol(data_confirmed)
+  ) %>%
+  group_by(Province, Country, Lat, Long, date) %>%
+  summarise("Confirmed" = sum(value, na.rm = T)) %>%
+  mutate(date = as.Date(date, "%m/%d/%y"))
+```
+
+#### **4. Stack all COVID19 and Lat Long metrics into a master file**
+
+The final metrics set is made of recovered and death COVID19 cases, by country and by date. Countries and dates are displayed in rows and metrics in columns.The original data also includes two columns for latitude and longitude used later to produce a map using Leaflet package.
+
+```{r}
+# Now we merge them together
+MAPDATA <- confirmed_tidy %>%
+  full_join(deceased_tidy)
+
+MAPDATAF <- MAPDATA %>%
+  # Now we merge them together
+  MAPDATA() <- confirmed_tidy %>%
+  full_join(deceased_tidy)
+
+MAPDATAF <- MAPDATA %>%
+  full_join(recovered_tidy) %>%
+  arrange(Province, Country, date) %>%
+  # Recode NA values into 0
+  mutate(
+    Confirmed = ifelse(is.na(Confirmed), 0, Confirmed),
+    Deaths = ifelse(is.na(Deaths), 0, Deaths),
+    Recovered = ifelse(is.na(Recovered), 0, Recovered)
+  )
+```
+
+Along the process of building the final data set, I will produce several csv files to validate each data step.
+
+```{r}
+file_pathCHK <-('C://Pablo UK//43 R projects 2021//04 My Shiny app//04 Mycovid19 app//CHECKS/')
+File_name <-'/MAPDATAF.csv' 
+write.csv(MAPDATAF,paste0(file_pathCHK,File_name),row.names = T)
+```
+
+It is important to ensure any missing value is left in the file to ensure Leaflet maps works properly.
+
+```{r}
+MAPDATAG <- MAPDATAF %>% mutate(
+  Confirmed = ifelse(is.na(Confirmed), 0, Confirmed),
+  Deaths = ifelse(is.na(Deaths), 0, Deaths),
+  Recovered = ifelse(is.na(Recovered), 0, Recovered)
+)
+
+MAPDATAH <- MAPDATAG %>%
+  pivot_longer(
+    names_to = "Metric",
+    cols = c("Confirmed", "Deaths", "Recovered")
+  ) %>%
+  ungroup()
+
+PLOT_LEAFLET_MAPS <- MAPDATAH %>%
+  pivot_wider(names_from = Metric, values_from = c(value))
+```
+
+#### **5. Final data wrangling output files**
+
+The data wrangling step outputs two files required for the Shiny app: the first one contains COVID metrics plus Lat Long variable for Leaflet maps and the second includes COVID metrics to be merged with country population figures.
+
+##### **5.1 COVID metrics set including Lat Long variables for Leaflet maps**
+
+The next step is to create a new data set fo be used in the map on the first tab. It will contain metric variables and Latitude and Longitude variables. The map will display using pop-up circles as tool tips the number of cases per country, and it will be animated using a timeline below the map.
+
+```{r}
+MAPDATAH <- MAPDATAG %>%
+  pivot_longer(
+    names_to = "Metric",
+    cols = c("Confirmed", "Deaths", "Recovered")
+  ) %>%
+  ungroup()
+
+DATAMAP <- MAPDATAH
+PLOT_LEAFLET <- DATAMAP %>%
+  pivot_wider(names_from = Metric, values_from = c(value))
+
+PLOT_LEAFLET_MAPS <- PLOT_LEAFLET
+
+save.image("C:/Pablo UK/43 R projects 2021/04 My Shiny app/04 Mycovid19 app/PLOT LEAFLET MAPS.RData")
+```
+
+These are the set of metrics created for the map tab:
+
+```{r}
+# This file weill be use to comparae COVID19 rates across different countries
+PLOT_LEAFLET2_conf <- PLOT_LEAFLET_MAPS %>%
+  select(Country, date, Confirmed) %>%
+  group_by(Country, date) %>%
+  summarise("Confirmed" = sum(Confirmed, na.rm = T))
+
+PLOT_LEAFLET2_death <- PLOT_LEAFLET_MAPS %>%
+  select(Country, date, Deaths) %>%
+  group_by(Country, date) %>%
+  summarise("Death" = sum(Deaths, na.rm = T))
+
+PLOT_LEAFLET2_Recov <- PLOT_LEAFLET_MAPS %>%
+  select(Country, date, Recovered) %>%
+  group_by(Country, date) %>%
+  summarise("Recovered" = sum(Recovered, na.rm = T))
+
+# Join together
+PLOT_LEAFLET_RATES <- PLOT_LEAFLET2_conf %>%
+  full_join(PLOT_LEAFLET2_death) %>%
+  arrange(Country, date)
+
+PLOT_LEAFLET_RATES <- PLOT_LEAFLET_RATES %>%
+  full_join(PLOT_LEAFLET2_Recov) %>%
+  arrange(Country, date)
+
+PLOT_LEAFLET_CDR_NUM <- PLOT_LEAFLET_RATES
+
+save.image("C:/Pablo UK/43 R projects 2021/04 My Shiny app/04 Mycovid19 app/PLOT LEAFLET CDR NUM.RData")
+```
+
+Our final set to compute COVID19 population rates is displayed below:
+
+##### **5.2 COVID19 population rates**
+
+I want to include population figures to obtain 10,000 population rates for each metric (cases, recovered,deaths covid19 cases) I first created new variables for those rates and then I merged the population figures in using the world Bank API. The aim of this section is to download population figures required to compute the relevant metric rates \*10,000 population from World bank Development Indicators API. All the details from this script can be found in the Github repository.
+
+Just to highlight three main tasks included in this population-rates sub-section:
+
+**a). The use of `Source()` function to bring another script that pulls 2019 countries population data from WDI API** The aim of this first section is to download population figures from the set of World Development Indicators provided by the World Bank data API.
+
+```{r}
+# # Include population figures   
+source("UI/ui_get_population_figures.R", local = TRUE)
+```
+
+After downloading the requested data by using the World Bank’s API, the resulting XMS file is formatted in long country-year format.
+
+**b). Cleaning WDI population data to match COVID19 country names list** This is performed by the script called “ui_get_population_figures.R” located in the Shiny folder structure within a specific folder for UI scripts Using a which statement, it accounts for country name mismatches between COVID and WDI data sources, so population data matches COVID19 metrics.
+
+```{r}
+# LOAD population figures in the right way
+# Input missing values
+POP_POPULATED <- POP_DATA_2019
+
+CNpop <- c(
+  "Bahamas, The", "Brunei Darussalam", "Congo, Dem. Rep.", "Congo, Rep.", "Egypt, Arab Rep.", "Gambia, The", "Iran, Islamic Rep.", "Korea, Rep.",
+  "Kyrgyz Republic", "Micronesia, Fed. Sts.", "Russian Federation", "St. Kitts and Nevis", "St. Lucia", "St. Vincent and the Grenadines",
+  "Slovak Republic", "Syrian Arab Republic", "United States", "Venezuela, RB", "Yemen, Rep."
+)
+
+length(CNpop)
+
+CNindic <- c(
+  "Bahamas", "Brunei", "Congo (Brazzaville)", "Congo (Kinshasa)", "Egypt", "Gambia", "Iran", "Korea, South",
+  "Kyrgyzstan", "Micronesia", "Russia", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines",
+  "Slovakia", "Syria", "US", "Venezuela", "Yemen"
+)
+length(CNindic)
+
+# Then we replace those values
+POP_POPULATED[which(POP_POPULATED$country %in% CNpop), "country"] <- CNindic
+
+```
+
+#### **6. Compute X10,000 population rates for selected metrics**
+
+Two preliminary calculations are needed before rates for COVID19 confirmed, recovered and death cases are calculated:
+
+First the JHU cases data is based on cumulative data, so previous day is subtracted to obtain the daily count of events for each metrics
+
+Compute now rates based on daily figures. Get those rates as 7 previous days rolling average to smooth daily fluctuations. Finally a rounding calculation is done on calculated rates to avoid any decimal places
+
+There are a couple of calculations needed before rates for COVID19 confirmed, recovered and death cases are calculated:
+
+First the JHU cases is based on cumulative data, so previous day is subtracted to obtain the daily count of events for each metrics.
+
+```{r}
+POPG_RATES <- POPG %>%
+  arrange(Country, date) %>%
+  mutate(
+    ConD = Confirmed - lag(Confirmed, n = 1),
+    RecD = Recovered - lag(Recovered, n = 1),
+    DeathD = Death - lag(Death, n = 1)
+  )
+tail(POPG_RATES)
+```
+
+Compute now rates based on daily figures.
+
+```{r}
+POPG_RATESF <- POPG_RATES %>%
+  select(Country, date, year, population, ConD, RecD, DeathD) %>%
+  mutate(
+    CONFR = ceiling(((ConD / population) * 10000)),
+    RECR = ceiling(((RecD / population) * 10000)),
+    DEATHR = ceiling(((DeathD / population) * 10000))
+  )
+
+tail(POPG_RATESF)
+```
+
+Get those rates as 7 previous days rolling average to smooth daily fluctuations.
+
+```{r}
+library(zoo)
+
+RATES7DGAVG <- POPRATESG %>%
+  group_by(Country) %>%
+  select(date, Country, population, ConD, RecD, DeathD) %>%
+  mutate(
+    CONF_ma07 = rollmean(ConD, k = 7, fill = NA),
+    REC_ma07 = rollmean(RecD, k = 7, fill = NA),
+    DEATH_ma07 = rollmean(DeathD, k = 7, fill = NA)
+  )
+```
+
+Finally there is a round done on calculated taxes to avoid any decimal places.
+
+```{r}
+POP_POPULATEDT <- POP_POPULATED_RENAME %>%
+  mutate(
+    Confirmed_10000 = round(Confirmed_Rate, digits = 0),
+    Recovered_10000 = round(Recovered_Rate, digits = 0),
+    Deaths_10000 = round(Death_Rate, digits = 0)
+  )
+
+POP_POPULATED <- POP_POPULATEDT %>%
+  select(
+    date, Country, Population, Confirmed, Recovered, Death,
+    Conf_7D_10000 = Confirmed_10000,
+    Rec_7D_10000 = Recovered_10000,
+    Death_7D_10000 = Deaths_10000
+  )
+
+POP_POPULATED
+```
+
+#### **6.1 Data set with rates ready for Shiny app**
+
+This is the final data set that goes into the shiny app
+
+```{r}
+head(POP_POPULATED)
+```
+
+#### **7. Building the Shiny dashboard**
+
+Once that all the data is ready to build the Shiny dashboard, there where three main tabs that I wanted to display on the dashboard:
+
+The script for the dashboard can be quite long, and it is available in the Github repository at the end of this blog article. As a general design choice, I opted for a standard Sidebar layout, using `fluidrow` and column functions to arrange the plots layout on each tab.
+
+This is an example of the functions used to populate the `infoBoxes` on top of the dashboard.
+
+The reactive components used in the plots and the maps to produce several animations were created using a `input\$Time_Slider` function.
+
+```{r}
+ui <- dashboardPage(
+  
+  dashboardHeader(title = "COVID-19"),
+  # THis Sidebar menu allows us to include new items on the sidebar
+  dashboardSidebar(
+                    sidebarMenu(
+                    # Setting id makes input$tabs give the tabName of currently-selected tab
+                    id = "tabs",
+                    menuItem("About", tabName = "about", icon = icon("desktop")),
+                    menuItem("Map", tabName = "map", icon = icon("map")),
+                    menuItem("Plots", tabName = "plot", icon = icon("wifi")),
+                    menuItem("Forecast", tabName = "forecast", icon = icon("chart-line")))
+  )
+  ,
+  dashboardBody(  # Infobox: Total figures KPI world
+```
+
+This is an example of the functions used to populate the `infoBoxes` on top of the dashboard.
+
+```{r}
+dashboardBody(  # Infobox: Total figures KPI world
+    fluidRow(infoBoxOutput("Total_cases_WORLD", width = 3),
+             infoBoxOutput("Total_recovered_WORLD", width = 3),
+             infoBoxOutput("Total_deaths_WORLD", width = 3),
+             infoBoxOutput("Date", width = 3)
+             ),
+```
+
+The reactive components used in the plots and the maps to produce several animations were created using a `input\$Time_Slider` function.
+
+7.1. Interactive map with KPI and timeline
+
+-   Pop-up and tool tips display COVID19 Total, recovered and death cases
+
+-   Circles radius are proportional to number of cases per country
+
+-   Dynamic animation: Map changes as data varies in time
+
+Map tab
+
+**7.2. Interactive line charts using {plotly} library**
+
+-   KPI number of cases and day to day percent change
+
+-   Drop down menu to filter for specific countries
+
+-   Line chart cases by country, selected by drop down menu
+
+-   Top 10 country rates \*10,000 cases
+
+-   Interactive plots to Zoom in and Zoom out using {plotly} library to display Top 10 country rates \*10,000 cases
+
+**7.3. In development**
+
+-   My intention is to include a new tab in coming weeks to include a predictive modelling tool using some modelling tool such as tidy models or modeltime, just to test it. In the long run I would like to learn how to implement hierarchical Bayesian modelling into some dashboard.
+
+-   Also I would like to include a specific .CSS file in YAML section of the shiny dashboard to fine tuning the format applied on each tab.
+
+Modeltime
+
+#### **8. Source code available in Github**
+
+As this blog article was a brief description of the Shiny app I’ve designed, please follow the link below to get the source code from Github: `00 Maps data prep_SHINY_APP.R`, `01 Leaf and pop figures_SHINY_APP.R`, `02 ui_server_SHINY_APP.R`.
+
+Sharing this script and connecting with other NHSR analysts will be good starting point to lean how to code consistently and also to follow a specific NHSR coding style when using R.
+
+Any comments to this blog article, please feel free to email me at: [pablo.leonrodenas\@nhs.net](mailto:pablo.leonrodenas@nhs.net)
+
+[Pablo Github Repository](https://github.com/Pablo-source/Shinypredict)
+
+This blog has been edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text).
