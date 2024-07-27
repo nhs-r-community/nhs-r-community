@@ -7,8 +7,6 @@ categories:
 author: Emma Vestesson
 subtitle: >
   "There is a full list of short cuts here and I have pulled together my three most used shortcuts."
-execute: 
-  eval: false
 ---
 
 I love keyboard shortcuts. I work in [R studio](https://www.rstudio.com/) and using keyboard shortcuts has saved me a lot of time. There is a full list of [short cuts](https://www.rstudio.com/) and I have pulled together my three most used shortcuts.

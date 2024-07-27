@@ -7,8 +7,6 @@ categories:
 author: Zoë Turner
 subtitle: >
   "Reflections on the 2018 Conference"
-execute: 
-  eval: false
 ---
 
 Soon after I started in this role I was offered several free places to a conference on Big Data. It was aimed at Healthcare and with Big Data in the title it sounded very exciting. Sadly, like many things around ‘Big Data’ it was baffling. There were a few good, high-level, presentations but it turned out the conference was funded by private companies and they had bought the opportunity to showcase their wares. I didn’t learn anything practical and I would be hard pressed to recall anything from the event now. All in all, it was a disappointment.
