@@ -1,0 +1,57 @@
+---
+title: "Reflections on the NHS-R Community Conference"
+date: "11 January 2023"
+date-modified: "27 July 2024"
+categories:
+  - Conference
+author: Chandan Kaur
+image: img/pexels-ivo-rainha-1261180.jpg
+image-alt: "Photograph of a library with an elaborate staircase"
+subtitle: >
+---
+
+## **16th and 17th November 2022**
+
+Hello, I’m Chandan Kaur, an analyst currently working at UHB NHS Trust, looking to employ more advanced analytical techniques into my work, now that the core BI stuff is out the way (it’s been a long road…). 
+
+I first used R during my MSc Statistics course, but not had much opportunity to use it since. 
+
+I’ve finally found a community of like-minded individuals who can help me on my R discovery journey and continue to inspire me.
+
+I attended this year’s NHS-R conference (last attended conference in November 2019 as a 2-month-old newbie to the NHS, so was a bit lost admittedly).
+
+My reflections on my 1st day of NHS-R Community conference, 16th November 2022: 
+
+1\) Even more inspired to use R for different use case scenarios; my mind is working overtime.
+
+2\) Totally supportive of the collaborative and engaged spirit of the community.
+
+3\) Being surrounded by super intelligent people is very cool.
+
+4\) Next goal – join NHS-R academy if they will allow me. ??
+
+5\) Python set of sessions going on also.
+
+6\) Biggest take-away, #Be Agile, use whichever tool works best for the task
+
+I particularly enjoyed the sessions by the following speakers on the 16th November:
+
+-   Steven Wyatt’s “[Activity and capacity modelling for the New Hospital Programme](https://www.youtube.com/watch?v=RfiuBGD5IeU&t=7175s)” (I have lots of questions I still need to ask, I will be in touch Steven).
+
+```{=html}
+<!-- -->
+```
+-   Christopher Reading-Skilton’s [Pythia – RTT Acute Trust Waiting List Modelling using Simmer](https://www.youtube.com/watch?v=RfiuBGD5IeU&t=8752s) (I want to build something like that and I was particularly in awe of his self-knitted top, do you take knitting orders Chris?)
+
+```{=html}
+<!-- -->
+```
+-   Richard Wilson’s [Reproducible Report Production using R markdown](https://www.youtube.com/watch?v=RfiuBGD5IeU&t=16689s): an example using Shiny (I really want to scan that QR code again).
+
+On the 17th Nov 2022 (Quick flying visit during lunch to meet some of the HEU team; they’re so lovely).
+
+I watched David Sgorbati’s “R and Python: Integrated workflows” session afterwards on YouTube; his enthusiasm for his field is totally infectious.
+
+Also I’m still waiting for Chris Beeley’s promised song compilation as promised on the NHS-R Slack group! ???
+
+*See videos and presentations from the NHS-R Conference 2022* [on YouTube](https://www.youtube.com/c/nhsrcommunity)

@@ -7,8 +7,6 @@ categories:
 author: Eduard Incze
 image: img/heart-monitor.jpg
 image-alt: "Heart rate graph"
-execute: 
-  eval: false
 subtitle: >
 ---
 
