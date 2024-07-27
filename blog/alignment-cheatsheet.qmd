@@ -1,0 +1,110 @@
+---
+title: "Alignment cheatsheet"
+date: "11 May 2022"
+date-modified: "27 July 2024"
+categories:
+  - 
+authors: Cara Thompson
+execute: 
+  eval: false
+subtitle: >
+---
+
+I’ve used `{ggtext}`’s `geom_textbox()` a lot in my recent data visualisations, but, every time, I end up resorting to a bit of trial and error to get the alignment just right. Time to create a cheatsheet that will be useful to my future self, and hopefully to a few others also.
+
+## **First, why `geom_textbox()`?**
+
+I like it for its versatility. It allows for fun things with markdown and a limited number of html tags, which makes it easy to format the text on the fly. I’ll demo a few tricks in the code below but cover them in more detail elsewhere. It also allows for easy placement and manipulation of the box itself, tweaking the radius of the corners, the colour, how thick the border is, and many more things.
+
+What are the alignment parameters?
+
+-   `vjust`
+
+-   `valign`
+
+-   `hjust`
+
+-   `halign`
+
+These can be set per textbox using values within aes() to allow for different alignments for different textboxes, or across the board outside of aes() so that the same alignment settings are applied to all the textboxes. In this demo, I’ll set different values for each box.
+
+## **OK, let’s go!**
+
+First, we need to load the necessary libraries:
+
+```{r}
+library(tidyverse)
+library(ggtext)
+library(extrafont)
+```
+
+Next, let’s put a tibble together to provide data for our textboxes.
+
+```
+alignments <- tibble("h_align" = sort(rep(c(0, 0.5, 1), 3)),
+                     "h_just" = rep(c(0, 0.5, 1), 3), 
+                     "v_align" = rep(c(0, 0.5, 1), 3),
+                     "v_just" = sort(rep(c(0, 0.5, 1), 3))) %>%
+  mutate("content" = 
+           paste0("<span style="font-size:36px">↕️</span> **vjust = ", v_just,
+                  ", valign = ", v_align, "**<br>",
+                  "<span style="font-size:36px">↔️</span> **hjust = ", h_just,
+                  ", halign = ", h_align, "**<br><br>",
+                  "Here's some text in a box, and *this* is how everything aligns!"))
+```
+
+And finally, let’s create a plot to see how everything aligns.
+
+```
+ggplot(alignments) +
+  geom_textbox(aes(x = h_just, y = v_just, label = content,
+                   halign = h_align, hjust = h_just,
+                   valign = v_align, vjust = v_just),
+               size = 6.4,
+               colour = "#232a27",
+               box.colour = "#705c70", 
+               fill = "#f1f4f3",
+               family = "Lato",
+               width = unit(16, "lines"),
+               height = unit(15, "lines"),
+               lineheight = 1.3,
+               show.legend = F) +
+  geom_point(aes(x = h_just, y = v_just), 
+             size = 10, alpha = 0.5, colour = "#232a27") +
+  labs(title = "ngeom_textbox() alignment cheatsheet",
+       subtitle = "nThe dots indicate the x/y coordinates of each box",
+       caption = "Graphic: @cararthompson | cararthompson.comn") +
+  xlim(c(-0.1, 1.1)) +
+  ylim(c(-0.1, 1.1)) +
+  theme_void()%+replace%
+  theme(plot.title = element_text(colour = "#232a27", 
+                                  size = 60, family = "Abel"),
+        plot.subtitle = element_text(colour = "#232a27", 
+                                     size = 40, family = "Lato"),
+        plot.caption = element_text(colour = "#232a27", size = 20, 
+                                    family = "Abel", hjust = 0.95))
+```
+
+![Plot demonstrating how each alignment parameter affects the position of the box and the position of the text therein](img/align_cheatsheet.png)
+
+## **So, what does what?**
+
+-   `h`/`vjust` determines the alignment of the box against its coordinates
+
+-   `h`/`valign` determines the alignment of the text within the box
+
+-   for `h`/`valign` 0 to 1 moves the text from bottom to top and from left to right inside the boxes (huh, that’s the same direction as 0 to 1 on the axes – that should make it easier to remember!)
+
+-   for `h`/`vjust` 0 to 1 goes… well I’m not too sure!
+
+I think my confusion around how to verbalise the direction lies in what we use as our reference point. Are we aligning the top of the box to the coordinate, or are we aligning the box to the bottom of the coordinate? If we keep our focus on the bottom/middle top of the box, `vjust = 1` means “make the top of this box line up with the y-coordinate” and the 0 to 1 direction stays consistent with the direction of the y axis. Happy days!
+
+But I think I’ll probably still end up referring back to this plot.
+
+Originally posted: <https://www.cararthompson.com/posts/2021-09-02-alignment-cheat-sheet/alignment-cheat-sheet.html>
+
+## **Citation**
+
+For attribution, please cite this work as:
+
+Thompson, Cara. 2021. “Alignment Cheatsheet.” September 2, 2021. [https://www.cararthompson.com/posts/2021-09-02-alignment-cheat-sheet/alignment-cheat-sheet.html](https://www.cararthompson.com/posts/2021-09-02-alignment-cheat-sheet/alignment-cheat-sheet).
