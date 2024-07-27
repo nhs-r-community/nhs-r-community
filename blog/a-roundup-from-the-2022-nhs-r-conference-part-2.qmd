@@ -1,0 +1,49 @@
+---
+title: "A roundup from the 2022 NHS-R Conference – Part 2"
+date: "9 February 2023"
+date-modified: "27 July 2024"
+categories:
+  - Conference
+author: Laura Moscoviz
+subtitle: >
+---
+
+What are the latest health research applications using R? A roundup from the 2022 NHS-R conference.
+
+**R Markdown**
+
+Performance reports published on a regular basis are common across the NHS. Rather than copying and pasting outputs from Excel to Powerpoint, Richard Wilson made the case for creating an interactive HTML report, using [R Markdown](https://rmarkdown.rstudio.com/), that is reproducible and quick to deliver. A report example is available on [Github](https://github.com/richardi7/SHMI_dashboard) using the Summary Hospital-level Mortality Indicator (SHMI) dataset.
+
+Improving the reporting process for the radiotherapy data has been Louise Reynolds’s (NDRS/NHS Digital) priority. Her department’s reporting process that used to be time-consuming and prone to error is now automated and produces standardised output in a few minutes. Relevant packages used for this project are [R Markdown](https://rmarkdown.rstudio.com/), [DBI](https://cran.r-project.org/web/packages/DBI/index.html), [tidyverse](https://www.tidyverse.org/packages/), [data.table](https://cran.r-project.org/web/packages/data.table/index.html), and [openxlsx](https://cran.r-project.org/web/packages/openxlsx/index.html).
+
+Daniel Weiand (Newcastle upon Tyne Hospitals NHS Foundation Trust) wrote entire academic papers using [Quarto](https://quarto.org/) and [R Markdown](https://rmarkdown.rstudio.com/). Combined with [Zotero](https://www.zotero.org/), it is possible to embed citations into your document. Quarto also has cross-referencing functionalities where it is possible to integrate ggplot with captions into the text.
+
+**R visualisation**
+
+Two visualisation sessions were run by [Cara Thompson](https://www.cararthompson.com/), a freelance data consultant. In the first one, she showed us how to build a custom [ggplot](https://ggplot2.tidyverse.org/) theme in less than 10 minutes. She highlights three reasons why ggplot themes are useful “-1. They add text hierarchy, -2. They give space to breathe, -3. They create aesthetic consistency across the project ”.
+
+In the second one, she shared 5 tips to create bespoke colour schemes to plot. “-1. Use colour purposefully, -2. Let others help you, -3. Apply colour using a named vector, -4. Check  for accessibility, and finally -5. Make use of colour interpolation.”
+
+**R tools**
+
+Chris Beeley presented [Shiny endomineR](https://github.com/nhs-r-community/shinyEndomineR), a text mining tool for clinical text developed by the NHS-R Community. The package is not finalised yet so keep an eye out for it.
+
+Across databases, patient information can be spelled differently and thus making data integration more difficult and time consuming. The NHSBSA Data Science team has developed the [addressMatchR](https://github.com/nhsbsa-data-analytics/addressMatchR/issues) package to identify the best address match based on a similarity algorithm.
+
+Ruchir Shah, a radiology registrar in Oxford, was able to automatically extract paediatric lung function data from pdf format to a usable dataframe using the [R Tesseract](https://cran.r-project.org/web/packages/tesseract/index.html) package.
+
+**Useful data**
+
+Samuel Channon-Wells (Imperial College London) used electronic prescribing records to monitor the level of antibiotic use in children. Interactive dashboards were built for Oxford University Hospitals using R and R Shiny and aimed to help infectious paediatric doctors. Implementation challenges include lack of familiarity with R, assimilating existing infrastructure, and maintenance debugging. After a year of use, the initiative allowed to identify and prevent overuse of antibiotics among children patients.
+
+Calum Polwart (South Tees Hospital NHS Foundation Trust) developed the [SACT Analyser package](https://gitlab.com/polc1410/sactanalyser) to clean and process systematic anti-cancer treatment data (SACT). SACT is a database gathering information on anti-cancer therapy activity from all NHS providers. The data is published on a monthly basis and is key to understanding treatment patterns and outcomes at a national level. The package is still in early development.
+
+**Statistical Methods**
+
+[NHSRplotthedots](https://github.com/nhs-r-community/NHSRplotthedots) is a R package built by the NHS-R community to provide tools for drawing SPC charts. It supports NHSE/I programme ‘[Making Data Count](https://www.england.nhs.uk/publication/making-data-count/)’ and allows users to draw XmR charts, use change points, apply rules with summary indicators.
+
+Chris Mainey (NHS North Central London ICB) manages to pull a crash course on linear and non-linear regression modelling in less than 15 minutes. Use the [mgcv](https://cran.r-project.org/web/packages/mgcv/index.html) package in base R to build nonlinear regression models with smoothers.
+
+*Laura Moscoviz is a Health Care and Life Science Consultant at [RwHealth](https://realworld.health/) in London. As part of her role, she uses data science, technology, and predictive analytics to deliver insight-driven solutions to improve quality of care and operational delivery.*
+
+*Email :  [laura.moscoviz\@realworld.health](mailto:laura.moscoviz@realworld.health) Twitter: [\@lhmosco](https://twitter.com/lhmosco)*
