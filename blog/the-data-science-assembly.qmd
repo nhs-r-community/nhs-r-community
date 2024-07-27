@@ -1,0 +1,33 @@
+---
+title: "The data science assembly"
+date: "9 June 2023"
+date-modified: "27 July 2024"
+categories:
+  - NHS
+author: Sami Sultan
+image: img/NHSE-logo.png
+image-alt: "NHS England 75 years"
+subtitle: >
+---
+
+By Sami Sultan, Junior Data Scientist, NHS England
+
+**Who am I?**
+
+In June 2022, I joined Health Education England as a junior data scientist, armed with a background in R. One year later, I find myself embedded within the NHS with an aim to contribute to both the NHS R community and the data science assembly.
+
+I completed my PhD in regenerative medicine early 2022. Like many within the field of biology and medicine, I would generate and analyse vast amounts of quantitative datasets. The analysis would include tests for normality and scedasticity, before conducting the most appropriate mono- or multi-variable statistical test. It became quickly apparent that by utilising the power of R, I could create automated statistical pipelines to increase both productivity and reliability.
+
+During my PhD, I focused on hypothesis testing and power calculations. Building on these experiences, I now focus more on predictive modelling within the workforce modelling team, using both R and python.
+
+**My introduction to the NHS R community**
+
+If you are enthusiastic about R, it is inevitable that you will know about Zoë Turner and Chris Beeley, pioneers in the NHS R community space. Zoë and Chris introduced me to the NHS R website which includes blogs and event postings, podcasts, YouTube channel, GitHub, and Slack. The latter containing a wealth of information and updates regarding the NHS R community, and a space to connect with other R users for help and advice. More recently, I have also been introduced to the AphA blog which “*is a new look for the updates from NHS-R Community*”. If there is one thing to take away from this blog post, it is the substantial depth of resources regarding all things R!
+
+**What is the data science assembly?**
+
+The data science assembly is run by Sarah Culkin (Deputy Director, Analytics and Data Science), attended by data scientists who are working within NHSE. This meeting is in place to ensure there is coherent movement of information between the relevant data science communities. Facilitated by the sub-group leads, topic areas such as training, GitHub, publications, and data infrastructure are discussed, providing updates and insights to promote progression and growth.
+
+**My mission**
+
+The most significant sub-group within the data science assembly for this blog post are the external communities, including the NHS R community! At the time of joining there were no active leads for the NHS R community. Therefore, I put my name forward with the ambition of bringing the data science assembly and NHS R community closer together. With the help of the limitless resources including the Apha blog and Slack, I will keep the data since assembly up to date with everything R and ensure that the R community has a voice to be heard.
