@@ -1,57 +1,63 @@
 ---
-title: "NHS-R Community needs help"
-date: "20 October 2023"
+title: "what-was-the-unconference/"
+date: "30 October 2023"
 date-modified: "27 July 2024"
 categories:
-  - NHSR
-author: Zoë Turner
+  - Conference
+author: Ben Murch
+image: img/unconferencing-notes.jpg
+image-alt: "Notes used to coordinate the unconferencing events"
 subtitle: >
 ---
 
-I’ve been an analyst for over a decade in the NHS and for the most part I’d never been to a conference related to my work. Partly it was that they didn’t really exist but also that there is a cost involved for tickets, travel, sometimes hotel, and there was never any budget. Then in 2018 things changed for me. NHS-R Community was set up and I went to one of the first free training sessions in Leeds and because it was free I got a rare agreement for the Trust to cover the costs for travel and hotel. Also in 2018 we had the first (still free!) NHS-R Community conference and I got a lift there so the only cost was the of me being away from my work.
+I’m going to invite controversy and say it was the best part of this year’s NHS R Community annual conference.
 
-Since 2020 the conference has been either fully in person or streamed so more people can join ^[1](http://localhost:6380/#fn1)^ and one of the great side effects of going virtual is that things are recorded so we have a [YouTube channel](https://www.youtube.com/c/NHSRCommunity) full of wonderful content from the NHS-R Community. And we also have increasing opportunity to go to other conferences like [HACA](https://uobevents.eventsair.com/haca-2023/) and [AphA](https://www.aphanalysts.org/) but with greater choice it can become even harder to justify the time out of the job to attend or catch up on conferences.
+Not that the more traditional presentations in the main hall were not informative and interesting as ever.
 
-This year’s NHS-R/NHS.pycom conference was a success for those that could attend and partly that’s because we tried things out:
+Not that it wasn’t great to hear an array of brilliant and enthusiastic speakers – analysts, managers, academics – show how they are using R (and Python!) to solve real world problems with statistics, data science, evidence and coding.
 
--   we did QR codes to sign in and [the code](https://github.com/nhs-r-community/conf-23-checkin) is in the open
+Not that the new approach of inviting questions through Slack channels devoted to each of the talks didn’t lead to a lively interaction between audience and speakers.
 
--   we gave [Slack](https://resources.nhsrcommunity.com/forum-groups.html#slack) a go for questions and got really great conversations and connections
+But the Unconference embodied something else. Something that has been essential to the philosophy of the NHS R Community since its inception: the fact that NHS R *is* a *community*. Not a professional organisation. Not a cabal of experts who decant their wisdom to a group of acolytes. But a community built on participation – and on breaking down organisational boundaries and hierarchies.
 
--   we tried [unconferencing](https://soundcloud.com/nhs-r-community/nhs-r-nhs-pycom-conference-newscast-10th-october-2023) where people made suggestions for round table talks.
+So, what was it?
 
-But we got things wrong:
+The brainchild of the hugely enthusiastic [Dr Pawel Orzechowski](https://www.linkedin.com/in/dr-pawel-orzechowski/) from the University of Edinburgh, it was a simple idea to empower conference attendees.
 
--   we don’t have subtitles on our streamed recordings
+In the morning of the first day of the conference, an ad hoc collage of snipped up conference timetables, oversized index cards, and sticky tape appeared on the window of the refreshments lounge.
 
--   we didn’t collate presentation links or share them in advance of the talks
+During the course of the day people (most of them who had come along as ordinary conference attendees, who had arrived without pre-prepared PowerPoint presentations, who had not expected to be giving talks) quietly came forward\* to post their own ideas for rival conference sessions against the more formal timetable for the main session (\*some of them may have also received a bit of enthusiastic cajoling).
 
--   we didn’t promote the conference as well as we’ve done in previous years.
+Scrawled in felt tip. Stuck to the wall with sticky tape. In some cases offering to lead sessions, in others making pleas for “someone who knows what they’re talking about!” to step up.
 
-We can do better.
+An alternative, crowd-sourced alternative to the main conference – the Unconference – emerged.
 
-But what is it that we want to be better at?\
-Is it putting on a better conference?\
-Is it producing more output that convinces managers who are not sure of the uses of open source programming?\
-Is it changing our name as it suggests we are just “NHS” and “R” – which we aren’t?\
-Have we done enough?
+By the end of the first day the scrappy timetable glued to the pristine window of Edgbaston Cricket Ground conference lounge had been populated with a full day’s session. Pawel keenly handed anyone going into the room with green and gold stickers, encouraging them to stick and vote.
 
-We might have a lot of work to do but one thing I do know is that if we are going to do more we are going to do this together because all that we’ve built has been by us: the NHS-R Community.
+Around came day 2, and a new challenge.
 
-And how do we do better? I think we need to start with a new Committee to help shape the next 3 years. We have questions around rebranding and promotion of the work we do, how do we measure how successful we are (which helps with funding opportunities), what shall we do with our space at the [HACA conference](https://uobevents.eventsair.com/haca-2023/) 2024, and of course there is our own conference to plan.
+Instead of walking into a room next to the main conference session as planned, it emerged Unconference attendees would have to engage in an epic (and confusing) odyssey down the back stairs, through the bowels of the stadium, and up into a different part of the building.
 
-## **Can you help?**
+It was a bit confusing. But fired with enthusiasm to nerd out discussing statistics and modelling, debate the practicalities of professional registration, put heads together to understand how to better use Quarto to automate reporting, and a whole range of other topics, lively groups and thoughtful individuals made the trek back and forth throughout the day.
 
-Would you come to the Committee and share your views? The more diverse the better.
+Unlike the main conference sessions these were active discussions. Crowded around the big round tables – at times pushing them together – participants leaned in to discuss, debate, disagree, challenge, and help each other grapple with things that mattered to them in their jobs, their careers, their professional community.
 
-We need commitment of your time and, more importantly, we need your enthusiasm and desire to keep the NHS-R Community going so in the next few weeks I’ll be setting up Committee meeting where our first task will be to shape what we, as a Committee and a Community, will do.
+One high point for me was a nerd-out discussion on prediction intervals, bravely proposed and hosted by Simon Newey which involved lively discussions about the best error distributions to use when modelling hospital activity, the relative merits of classical vs Bayesian/simulation-based regression models, and the near-universal experience of stopping halfway through trying to build such a model to scratch your head and say “what does it all mean?”
 
-If you are interested in being involved with the Committee please contact me via our Slack group or email [zoe.turner3\@nhs.net](mailto:zoe.turner3@nhs.net)
+Another was a discussion with NHS R Community founder and stalwart Prof Mohammed A Mohammed, about how we can move from lots of people independently working on the same problems – such as projecting/forecasting A&E attendance or hospital occupancy – again and again, and instead taking the best from all of those previous pieces of work and scaling them up collaboratively into sustainable approaches that the whole health and care system can use.
 
-## **Join the Slack groups**
+These were lively, disruptive (to use Prof Mohammed’s preferred phrase, in the tech innovation sense) sessions which brought together people from across the health and social care sector – hospital modellers, NHS England data scientists, civil servants, academics – and from across the career spectrum, from junior analysts through to senior (technical) managers and specialists, where their job roles, organisations and seniority were not mentioned. Only their ideas and their enthusiasm to use data and analytics to make the NHS – and the wider system – better for everyone.
 
-Details are in the [Open Analytics Resources](https://resources.nhsrcommunity.com/forum-groups.html#slack) and feel free to contact NHS-R Community via email at [nhs.rcommunity\@nhs.net](mailto:nhs.rcommunity@nhs.net)
+This is the very spirit of the NHS R Community.
 
-## **Footnotes**
+But it doesn’t end there!
 
-1.  Hybrid is a tricky label to give a conference as you need to have both participants and speakers to be in person and virtual so I can’t say that we’ve done that in NHS-R Community..[↩︎](http://localhost:6380/#fnref1)
+If you’ve read this far, then we’ve got you. You have been co-opted.
+
+Prof Mohammed wants you to tell him *your* ideas for how to solve this tricky problem of scaling our analytics into whole system solutions. Find out more in [NHS-R Slack](https://nhsrway.nhsrcommunity.com/community-handbook.html#nhs-r-slack) where you can also find Prof Mohammed.
+
+Zoë Turner (Senior Data Scientist at The Strategy Unit and now coordinator for the NHS R Community) wants not just your ideas, but maybe even your membership of the NHS R Community Committee to shape its future. You can join those discussions at the [NHS-R Slack](https://nhsrway.nhsrcommunity.com/community-handbook.html#nhs-r-slack), or get in touch with her directly at [zoe.turner3\@nhs.net](mailto:zoe.turner3@nhs.net).
+
+In fact, the discussion did not stop at Edgbaston for any of the Unconference topics – they are all still live on the NHS-R Community #unconferencing-session-2023 Slack channel here, waiting for you to add your voice.
+
+Ben Murch, Senior Analytics Manager NECS Consultancy and NHS R Community Senior Fellow
