@@ -1,0 +1,106 @@
+---
+title: "Code snippets – first(), last() and nth() {dplyr} functions"
+date: "13 March 2023"
+date-modified: "27 July 2024"
+categories:
+  - dplyr
+  - R tips
+author: Zoë Turner
+image: img/pexels-black-ice-1314543.jpg
+image-alt: "White numbers scattered"
+subtitle: >
+---
+
+Inspired by conversations on the NHS-R Slack where code answers are lost over time (it’s not a paid account), and also for those times when a detailed comment in code isn’t appropriate but would be really useful, this blog is part of a series of code snippet explanations.
+
+# **Where this code snippet comes from**
+
+This blog comes from small part of code shared as part of a larger piece of analysis from the Strategy Unit and the British Heart Foundation to [visualise socio-economic inequalities](https://www.strategyunitwm.nhs.uk/publications/socio-economic-inequalities-coronary-heart-disease) in the Coronary Heart Disease (CHD) pathway. The report and analysis was presented at a [Midlands Analyst Huddle](https://www.youtube.com/watch?v=kB-FVmpY08A) in January. If you would like to know more about the report and the code I’ll be referring to, it is published on [GitHub](https://github.com/The-Strategy-Unit/visualising-inequalities).
+
+The code is in two parts with the first being [data formatting](https://github.com/The-Strategy-Unit/visualising-inequalities/blob/2d51ddb2a17bef2177e46c82f6e00c0d66d68020/rii_calculations.R#L1) and the second part being the [statistics](https://github.com/The-Strategy-Unit/visualising-inequalities/blob/2d51ddb2a17bef2177e46c82f6e00c0d66d68020/rii_calculations.R#L93) for relative index of inequality (RII).
+
+Thanks to Jacqueline Grout, Senior Healthcare Analyst and Tom Jemmett, Senior Data Scientist of the Strategy Unit.
+
+# **Creating a column with the `first()` or the `last()` data in a group**
+
+In the analysis example these functions are used to repeat the highest and lowest population count per Indices of Multiple Deprivation (IMD) decile for each GP practice area^1^.
+
+The best way to show what is happening with the two {dplyr} functions `first()` and `last()` is to show it with an even simpler dummy data set:
+
+```{r}
+library(dplyr, warn.conflicts = FALSE)
+
+# There are two patients A and B with A having a numbers 1:10 and patient B has numbers 11:20
+
+data <- tibble(id = rep(c("PatientA", "PatientB"), 10)) |>
+  group_by(id) |>
+  mutate(number = ifelse(id == "PatientA", 1:10, 11:20)) |>
+  arrange(number) |>
+  mutate(
+    max_number = last(number),
+    min_number = first(number)
+  ) |>
+  ungroup() # persistent grouping is needed in the code but removed at the end for good practice
+
+data
+```
+
+Taking the min and the max numbers for a patient is dependent upon a persisent `group_by()` and an `arrange()` and, if you are familiar with SQL, is similar to the Windows partitions `MIN` and `MAX` and would be written for this example as `MIN(number) OVER(PARTITION BY id ORDER BY number)`. What SQL can’t do so easily though is to select the `nth()` number for example:
+
+```{r}
+library(dplyr)
+
+# There are two patients A and B with A having a numbers 1:10 and patient B has numbers 11:20 and letters from
+
+data <- tibble(id = rep(c("PatientA", "PatientB"), 10)) |>
+  mutate(letters = letters[1:20]) |> # occurs before grouping so that the letters don't get restricted to the 10 rows in a group
+  group_by(id) |>
+  mutate(number = ifelse(id == "PatientA", 1:10, 11:20)) |>
+  arrange(number) |>
+  mutate(sixth_number = nth(letters, 6))
+
+data
+```
+
+and in this example the 6th character for PatientA is k and for PatientB (row 16) is l.
+
+# **Use case**
+
+Another potential use case for the `nth()` character selection is where analysis is looking for the last but one appointment date. For example, if a patient had appointments:
+
+```{r}
+appts <- tibble(id = rep(c("PatientA", "PatientB"), 3)) |>
+  arrange(id) |> 
+  mutate(
+    appointments = rep(c("2023-01-01", "2023-02-01", "2023-03-01"), 2),
+    team = rep(c("teamA", "teamB", "teamC"), 2)
+  )
+
+appts
+```
+
+and we needed to know the details from the second to last appointment to see who they had been seen before teamC:
+
+```{r}
+appts |> 
+  filter(appointments == nth(appointments, n() - 1), .by = id)
+```
+
+The `nth()` function needs to know which column to look at, appointments, and then which number to select. Instead of hard coding this as 2 as that will only be useful in this very small data set, the code uses `n()` to count all the rows and then minus 1. The reason why this is an operation applied to both patients is because of the `.by = id` which is new feature of {dplyr} v1.1.0. Code using the `group_by()` function will do the same thing but is just an extra two lines as it will also require `ungroup()` to remove:
+
+```{r}
+appts |> 
+  group_by(id) |> 
+  filter(appointments == nth(appointments, n() - 1)) |> 
+  ungroup()
+```
+
+# **Getting involved**
+
+If you need any help with {dplyr} or would like to share your own use cases feel free to share them in the NHS-R Slack or submit a blog for this series.
+
+NHS-R Community also have a repository for [demos and how tos](https://github.com/nhs-r-community/demos-and-how-tos) which people are welcome to contribute code to either through pull requests or [issues](https://github.com/nhs-r-community/demos-and-how-tos/issues).
+
+##### **Footnotes**
+
+I’ve written more about IMD in a [blog](https://cdu-data-science-team.github.io/team-blog/posts/2021-05-14-index-of-multiple-deprivation/) for the CDU Data Science Team.
