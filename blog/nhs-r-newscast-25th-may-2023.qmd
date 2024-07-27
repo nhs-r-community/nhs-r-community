@@ -1,0 +1,32 @@
+---
+title: "NHS-R newscast 25th May 2023"
+date: "15 June 2023"
+date-modified: "27 July 2024"
+categories:
+  - NHSR
+  - Podcast
+author: Zoë Turner
+subtitle: >
+---
+
+We have another newscast from the podcast, if you don’t do the whole podcast thing here are the notes and links from what we talked about.
+
+The NHS-R Conference call for abstracts has been extended to 23rd June 2023 <https://www.smartsurvey.co.uk/s/7FLFRY/>
+
+we’ve started an [NHSR-Way book](https://nhs-r-community.github.io/NHSR-way/) and also published through [Netlify](https://nhsr-way.netlify.app/) because some organisations block GitHub published pages. This book is inspired by [The Turing Way](https://www.the-turing-way.netlify.app/) and [The GDS Way](https://gds-way.cloudapps.digital/) with more technical elements coming from the [Statement on Tools](https://nhs-r-community.github.io/statements-on-tools/) book. For example, on licences we’ve detailed [a lot of the options](https://nhs-r-community.github.io/statements-on-tools/open-code-in-the-nhs.html#licenceslicenses) in the Statement on Tools but then said [what NHS-R Community use](https://nhs-r-community.github.io/NHSR-way/style-guides.html#licenceslicenses) in the NHS-R Way.
+
+The [NHSR book club](https://github.com/nhs-r-community/book_group) have started reading the [R4DS second edition](https://r4ds.hadley.nz/) and created an [unofficial solutions book](https://nhs-r-community.github.io/r4ds-ed2-exercise-solutions/).
+
+Zoë Turner will be talking next month at the Government Data Science Community Meet-Up: [The Data Science Toolshed](https://www.eventbrite.co.uk/e/government-data-science-community-meet-up-the-data-science-toolshed-tickets-578774920367) Tue 13 Jun 2023 1.30 to 3pm. Title tbc but about how people can contribute to NHS-R open repositories or even pass them to NHS-R as has happened with the [quarto NHS theme](https://github.com/nhs-r-community/quarto-nhs-theme) from Craig Shenton and [{NHSRepisodes}](https://github.com/nhs-r-community/NHSRepisodes) package from Tim Taylor. Sign up to the event is free for Public Sector and Civil Service
+
+Chris Beeley spoke at the DataConnect23 Government [launch event](https://www.eventbrite.co.uk/e/dataconnect23-launch-event-tickets-546319846367) and gave a taster session of text mining of patient experience data. Sign up to DataConnect events can be found at <https://www.gov.uk/government/news/dataconnect23-is-on-its-way>
+
+## **Finds from the Slack group**
+
+Python linter: <https://github.com/charliermarsh/ruff>
+
+Look at this great guidance on pie charts, unfairly maligned [Pie charts](https://analysisfunction.civilservice.gov.uk/support/communicating-analysis/introduction-to-data-visualisation-e-learning/module-9-pie-charts/) from the Government Analysis Function.
+
+A retro graphic to brighten up the Python exception messages – <https://github.com/James-Ansley/cowexcept> (can feature a dragon as well as a cow!).
+
+For an extension of retro visuals then check out Star Wars in the Linux Terminal – <https://www.linuxfordevices.com/tutorials/linux/ascii-star-wars-linux-terminal>
