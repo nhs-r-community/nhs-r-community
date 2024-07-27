@@ -4,6 +4,7 @@ date: "25 February 2023"
 date-modified: "27 July 2024"
 categories:
   - Strings
+  - R tips
 author: Zoë Turner
 image: img/pexels-pixabay-261763.jpg
 image-alt: "Photograph of writing"
