@@ -226,6 +226,15 @@
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "admivsn",
+      "name": "Adam Ivison",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31739288?v=4",
+      "profile": "https://github.com/admivsn",
+      "contributions": [
+        "blog"
+      ]
     }
   ],
   "contributorsPerLine": 7,
