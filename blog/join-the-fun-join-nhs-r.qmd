@@ -1,0 +1,43 @@
+---
+title: "Join the fun! Join NHS-R"
+date: "2 March 2022"
+date-modified: '27 July 2024'
+categories:
+  - NHS-R
+author: Mohammed Amin Mohammed
+subtitle: >
+---
+
+The NHS-R Community is a friendly, welcoming community – open to all – and always looking for newbies (new to us, or R) or veterans to join the fun.
+
+We have the same values as the NHS and the open source community. There are several ways to get involved and it’s bound to look cool on your CV and profile.
+
+**Experience the joy of helping others to learn –** the NHS-R Community offers free training courses – an introduction to R, automation using Rmarkdown, shiny dashboards, time series forecasting. You can offer to lead a course, be an assistant on a course or design and deliver a new course. We will support you with finding a mentor, organising courses and administration, on boarding with RStudio Cloud and certification.
+
+**Join us on slack** – we have a vibrant slack community, with \~1300+ members. There is lots of activity but do start with introducing yourself and then swim in the channels that take your fancy. A favourite is the “help-with-r” channel which shows just how amazing the community is at helping each other. You can also get involved with several on-going projects – for example conference2022, travel-times project, plotthedots and so on. ***So come and join us on slack:***
+
+**Write a blog post –** this can seem intimidating at first but some of our super stars in the community started with writing short blogs. We can offer editorial support and constructive peer review comments. Blog posts can be about anything related to R or open source or issues/problems that need to be addressed. Blogs can also be personal – about you and your journey/reflections. Bloggers help to disseminate knowledge, shape conversations and provoke discussion. Give it a try.
+
+**Podcasts –** are a friendly, fireside chat where you can suggest a topic for a podcast, agree to host a podcast or be a guest. The Podcast highlights the great work being done by analysts all over the country using open source tools and discuss the work of many of the super analysts and teams who comprise NHS-R as well as special guests who are notable for their work with open source tools. Listen to the latest episodes here: <https://soundcloud.com/nhs-r-community>
+
+**Webinars –** are a great way to share content with the community. They are monthly and usually 1 hour long . Once again you can suggest a topic for a webinar, agree to host a webinar or be a presenter. Our webinars are recorded and can be found [on YouTube](https://www.youtube.com/c/nhsrcommunity).
+
+**Hexitime –** is the first and currently only national timebank in health and social care, and has won multiple awards for innovating in this space. It started as a Health Foundation Q Exchange winning project in 2018 and has steadily begun to be adopted by like-minded people across healthcare.
+
+It works on the principles that everybody’s time is equal and potentially highly valuable to others who need it to progress their improvement work. As such, it utilises a virtual currency where an hour of your time = 1 credit, and you can share your skills across any borders. And because Hexitime is designed, run and owned by NHS staff, the platform is committed to operating as a not-for-profit, remaining free at the point of use. [Learn more at this blog](https://nhsrcommunity.com/blog/announcing-a-new-nhs-r-hexitime-partnership/).
+
+**Suggest Problems/Solutions** – we have common data science related problems and finding a common solution would be so helpful. For example, the NHS-R Community developed a package (plotthedots) which makes plotting basic SPC charts easy. If you can think of a common data science headache then let us know (ideally via slack) and we can see if a solution is forthcoming. Previous solutions can be found here. <https://nhsrcommunity.com/nhs-r-solutions/>
+
+**Apply to the Academy** – we continue to seek ways to promote and reward all the wonderful, kind, and talented people using R across health and social care. You can apply for an honorary title from the [NHS-R Academy](https://nhsrcommunity.com/nhs-r-academy/) – for example champion, fellow, friend and so on. We can also help you prepare your application forms.
+
+**NHS-R conference** – is the largest data science conference in the NHS and care system. You can submit abstracts, offer a workshop, host a session, join the conference organising committee and make suggestions on how to improve the conference.
+
+**The next conference is set for 16-17 November 2022** and will be a hybrid event based in Birmingham, UK. Workshops will be online during the first two weeks of November 2022. See previous conference details [at the NHS-R Events page.](https://nhsrcommunity.com/nhs-r-community-conference-2021/).
+
+**Suggestions –** we are always open to new ideas on how to add value to the NHS-R Community and its members. For example, book club, podcasts, hexitime were all ideas that came from the community.
+
+**So, do get in touch and join the fun!**
+
+-   email: [nhs.rcommunity\@nhs.net](mailto:nhs.rcommunity@nhs.net)
+
+-   Slack: [nhsrcommunity.slack.com](http://nhsrcommunity.slack.com/)
