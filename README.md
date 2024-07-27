@@ -1,6 +1,6 @@
 # Source code for NHS-R Community website
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-30-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-31-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Following the values and commitment of the NHS-R Community to open source this website has been built in Quarto to be open in its code and further contribution.
@@ -61,6 +61,7 @@ All the blog posts are being saved under the original titles so that when this s
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/AdnanShroufi"><img src="https://avatars.githubusercontent.com/u/24990323?v=4?s=100" width="100px;" alt="AdnanS"/><br /><sub><b>AdnanS</b></sub></a><br /><a href="#blog-AdnanShroufi" title="Blogposts">📝</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/ryjohnson09"><img src="https://avatars.githubusercontent.com/u/10009758?v=4?s=100" width="100px;" alt="Ryan Johnson"/><br /><sub><b>Ryan Johnson</b></sub></a><br /><a href="#blog-ryjohnson09" title="Blogposts">📝</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/benmurch"><img src="https://avatars.githubusercontent.com/u/55085951?v=4?s=100" width="100px;" alt="benmurch"/><br /><sub><b>benmurch</b></sub></a><br /><a href="#blog-benmurch" title="Blogposts">📝</a></td>
     </tr>
   </tbody>
 </table>
