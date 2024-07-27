@@ -1,0 +1,39 @@
+---
+title: "NHS-R newscast 16th January 2023"
+date: "17 January 2023"
+date-modified: "27 July 2024"
+categories:
+  - NHSR
+  - Podcast
+author: Chris Beeley
+subtitle: >
+---
+
+Time for another NHS-R newscast! You can [listen to the episode](https://soundcloud.com/nhs-r-community/nhs-r-newscast-16th-january-2023), but for those of you who don’t listen to podcasts here is a roundup of what we covered
+
+The first item of news is that The Strategy Unit is the new home of NHS-R. Chris Beeley and Zoë Turner both now work at The Strategy Unit and have NHS-R in their job descriptions. They plan to be doing much more work in the future on communicating better with members (maybe a newsletter, more blogs…), organising hacks (which would be a first for the community), and a mentoring scheme (more on which later).
+
+Another bit of news that was teased at the NHS-R conference was the new national conference for healthcare analytics, which does not yet have a proper name. Abstract submission will open soon and NHS-R will be announcing mentoring to go alongside the conference to help people to submit abstracts and prepare their talks. The conference will be focused on strategic analysis and decision making (as opposed to NHS-R conference which tends to be more about methods) and so do be thinking about what you might like to bring to the conference. If you feel you would like help, watch the skies because NHS-R will be offering assistance all the way through the process, from getting your talk accepted to actually presenting it on the day.
+
+We talked about the importance of having diverse voices in NHS-R and making sure we are welcoming to as many people as possible. Tech communities can often be quite white and male and NHS-R needs to make sure that it engages people from all walks of life.
+
+There was a roundup of interesting issues on the NHS-R GitHub, and a discussion about how helpful tackling these issues can be, for us as a community but also for you in terms of skills development and having work in the open for your CV. Please have a look at these results and others throughout the repos:
+
+<https://github.com/nhs-r-community/NHSRplotthedots/issues/141>\
+<https://github.com/nhs-r-community/ISR-iterative-sequential-regression-/issues>\
+<https://github.com/nhs-r-community/git_training/issues/4>\
+<https://github.com/nhs-r-community/statements-on-tools/issues>
+
+If you need any help getting started, say so on the Slack and a member of the community will be sure to come along to assist you. Note also that many of these issues are about documentation, not code, so you can make a really valuable contribution without writing code.
+
+We talked about [semantic versioning](https://semver.org/) and how useful it can be.
+
+Chris made a passing reference to the Python 2/ 3 mess, particularly in the Linux world, and as always there is an [XKCD](https://xkcd.com/1987/) for that.
+
+Lastly we talked about the amazing [John MacKintosh’s patientcounter package](https://github.com/johnmackintosh/patientcounter), as well as some more of his packages such as rock themes and pop themes:
+
+<https://github.com/johnmackintosh/rockthemes>
+
+<https://github.com/johnmackintosh/popthemes>
+
+Comments? Questions? Email [nhs.rcommunity\@nhs.net](mailto:nhs.rcommunity@nhs.net)
