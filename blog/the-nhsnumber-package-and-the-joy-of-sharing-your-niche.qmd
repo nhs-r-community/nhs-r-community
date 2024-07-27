@@ -1,11 +1,11 @@
 ---
-title: "The “nhsnumber” package and the joy of sharing your niche"
+title: "The 'nhsnumber' package and the joy of sharing your niche"
 date: "19 July 2022"
 date-modified: "27 July 2024"
 categories:
   - NHS
   - Package
-authors: Mark Sellors
+author: Mark Sellors
 image: img/Numbers-600x350.jpg
 image-alt: "A board with numbers that move mechanically to change"
 subtitle: >

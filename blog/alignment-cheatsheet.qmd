@@ -6,7 +6,7 @@ categories:
   - ggplot2
   - tidyverse
   - visualisations
-authors: Cara Thompson
+author: Cara Thompson
 execute: 
   eval: false
 subtitle: >

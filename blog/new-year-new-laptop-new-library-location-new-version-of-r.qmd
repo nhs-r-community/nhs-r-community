@@ -4,7 +4,7 @@ date: "17 June 2022"
 date-modified: "27 July 2024"
 categories:
   - R
-authors: Cara Thompson
+author: Cara Thompson
 image: img/jason-leung-Xaanw0s0pMk-unsplash.jpg
 image-alt: "Photo of confetti"
 execute: 
