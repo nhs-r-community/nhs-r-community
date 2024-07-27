@@ -1,0 +1,74 @@
+---
+title: "NHS-R newscast 6th July 2022"
+date: "29 July 2022"
+date-modified: "27 July 2024"
+categories:
+  - NHSR
+  - Podcast
+author: Chris Beeley
+subtitle: >
+---
+
+## **Goldacre review**
+
+Really good 1hr overview video from the Oxford Internet Institute to the Goldacre Morley report, gov initial response, and some good Q&A.\
+<https://twitter.com/jessRmorley/status/1542110796540428289>
+
+### **What does NHS-R and what can it do in the future?**
+
+-   Community building
+
+    -   Drop in sessions
+
+    -   Regular updates on GitHub issues and work triage
+
+    -   More involvement of and communication with fellows
+
+    -   Regular, structured communication programme featuring tweets, blogs, and podcasts
+
+-   Experiential learning
+
+    -   Mentoring scheme
+
+    <!-- -->
+
+    -   NHS data science accelerator
+
+    -   Run and co-run NHS-R training
+
+    -   NHS-R solutions can include a component where training/ supervising/ assisting the team delivering them is included
+
+-   Writing code, software, and training
+
+    -   Offer an “out of the box” NHS-R solution where software is provided to organisations that request it
+
+    -   Contributing to policy
+
+## **NHSRplotthedots**
+
+Going to have a bit of a push towards version 0.2 by conference time.\
+Any users who have quibbles / potential bugs, now’s the time to talk / raise issues / get them understood and addressed.\
+Auto-rebasing. Discussion about pros and cons <https://github.com/nhs-r-community/NHSRplotthedots/issues/151>\
+Any users who have some time to help with writing material for a training workshop?\
+<https://github.com/nhs-r-community/NHSRplotthedots/issues>
+
+## **Drop in session**
+
+was a great success, next one early August TCB for details see #announcements in Slack
+
+## **Screencasts**
+
+Great for learning, this is a curated list of screencasts following #tidytuesday solutions, indexed in various ways so you can find the things that might interest you, or that you want to learn about.
+
+<https://twitter.com/OscarBaruffa/status/1526154552201854977>\
+Big Book of R <https://www.bigbookofr.com/>
+
+## **RAP strategy**
+
+<https://analysisfunction.civilservice.gov.uk/policy-store/reproducible-analytical-pipelines-strategy/>
+
+## **Demand and capacity**
+
+Very early days, some code here <https://github.com/nhs-r-community/shinyDemand>. Join the #demand-and-capacity channel on Slack to get involved
+
+Send an email! [nhs.rcommunity\@nhs.net](mailto:nhs.rcommunity@nhs.net)
