@@ -3,7 +3,7 @@ title: "Posit + NHS-R: a Perfect Partnership!"
 date: "29 November 2022"
 date-modified: "27 July 2024"
 categories:
-  - NHSR
+  - NHS-R
   - Conference
 image: img/Posit-Cloud-logo-4.png
 image-alt: Posit

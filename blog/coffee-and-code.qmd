@@ -3,14 +3,14 @@ title: "Coffee and Code"
 date: "14 November 2023"
 date-modified: "27 July 2024"
 categories:
-  - NHSR
+  - NHS-R
 author: Simon Wellesley-Miller
 image: img/startup.jpg
 image-alt: "Photo of a meeting with a laptop, pad and paper and a coffee mug."
 subtitle: >
 ---
 
-Coffee and Code is an informal community gathering where people can come together to learn, share, and collaborate on all things R.  People can give presentations on their work, ask questions, and share resources. The goal of Coffee and Code is to create a supportive and inclusive environment where everyone can feel comfortable asking for help and sharing their knowledge.
+Coffee and Code is an informal community gathering where people can come together to learn, share, and collaborate on all things R.  People can give presentations on their work, ask questions, and share resources. The goal of Coffee and Code is to create a supportive and inclusive environment where everyone can feel comfortable asking for help and sharing their knowledge.
 
 Coffee and Code is open to people of all skill levels, from beginners to experienced R users. The sessions are a great way to learn new things, meet other people who are interested in R, and get help with your own projects.
 
@@ -20,11 +20,11 @@ It is an hour every other Friday at 11:00 – 12:00.
 
 **Who is it aimed at?**
 
-Everyone of course.  We did a rough and self-determined straw poll.  About 40% said they were beginners, 45% intermediate and 15% advanced.  So please don’t feel that it is any way elitist.
+Everyone of course.  We did a rough and self-determined straw poll.  About 40% said they were beginners, 45% intermediate and 15% advanced.  So please don’t feel that it is any way elitist.
 
 **What do the sessions look like**?
 
-They are all different, the whole thing is organic, and we don’t have a strict agenda. 
+They are all different, the whole thing is organic, and we don’t have a strict agenda. 
 
 **A rough agenda**
 
@@ -34,7 +34,7 @@ They are all different, the whole thing is organic, and we don’t have a strict
 
 -   5 mins for quick tip or library of the week.
 
--   Whatever time is left is then open to general discussion and going over the chat questions.  This is a great place for people to post queries or ask for assistance.  Hopefully this discussion will inform what will happen at the next session and get some volunteers to come forward.
+-   Whatever time is left is then open to general discussion and going over the chat questions.  This is a great place for people to post queries or ask for assistance.  Hopefully this discussion will inform what will happen at the next session and get some volunteers to come forward.
 
 **We have a set of rules**
 
@@ -50,15 +50,15 @@ They are all different, the whole thing is organic, and we don’t have a strict
 
 No subject is too simple, and we all know there are many ways to program and quite often someone will post a link to a shortcut or a library to make life easier.
 
-It is a very friendly atmosphere, and we try to be as inclusive as possible to whatever level you are at.  This is all about sharing those little hints, tips and discoveries to make life easier.
+It is a very friendly atmosphere, and we try to be as inclusive as possible to whatever level you are at.  This is all about sharing those little hints, tips and discoveries to make life easier.
 
 When we do run tutorials we publish our code, with reproducible examples if possible.
 
 **What are our goals?**
 
-We want to have set space where we can get together as a community.  This also means we link with other communities such as Analyst X, RAP and NHS-R.  This helps to maintain the strong networking and positive momentum that are hallmarks of the NHS R community.
+We want to have set space where we can get together as a community.  This also means we link with other communities such as Analyst X, RAP and NHS-R.  This helps to maintain the strong networking and positive momentum that are hallmarks of the NHS R community.
 
-A strong community also gives us a strong voice.  This is important to support those struggling with installation issues or getting the right training or all the weird and wonderful things that challenge us. It means we can identify training needs and help commission new courses. 
+A strong community also gives us a strong voice.  This is important to support those struggling with installation issues or getting the right training or all the weird and wonderful things that challenge us. It means we can identify training needs and help commission new courses. 
 
 Going to say it again three times because it is super important – community, community and community!
 

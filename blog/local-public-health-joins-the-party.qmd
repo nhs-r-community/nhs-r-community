@@ -4,6 +4,7 @@ date: "22 November 2018"
 date-modified: "24 March 2024"
 categories:
   - Reflections
+  - Public Health
 author: Andy Evans
 subtitle: >
   "Setting up an R group for Publich Health Intelligence"

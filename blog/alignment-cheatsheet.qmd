@@ -5,7 +5,7 @@ date-modified: "27 July 2024"
 categories:
   - ggplot2
   - tidyverse
-  - visualisations
+  - Visualisations
 author: Cara Thompson
 execute: 
   eval: false

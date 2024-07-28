@@ -4,7 +4,7 @@ date: "8 September 2021"
 date-modified: "19 July 2024"
 categories:
   - Packages
-  - Function
+  - Functions
   - Lists
   - tidyverse
 author: Gary Hutson

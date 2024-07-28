@@ -6,7 +6,7 @@ categories:
   - golem
   - shiny
   - html
-  - accessibility
+  - Accessibility
   - Scrollytell
 image: img/pexels-suzy-hazelwood-1995842.jpg
 image-alt: "Close up photo of a typewriter with the words 'stories matter' printed on a page"

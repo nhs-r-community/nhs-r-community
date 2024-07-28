@@ -3,7 +3,7 @@ title: "Can we rely on synthetic data to overcome data governance issue in healt
 date: "22 April 2021"
 date-modified: '12 July 2024'
 categories:
-  - Synthetic data
+  - Synthetic dataset
   - Data
   - base R
 authors: 

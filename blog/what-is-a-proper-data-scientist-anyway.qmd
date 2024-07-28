@@ -3,7 +3,7 @@ title: "What is a “proper” data scientist anyway?"
 date: "8 January 2024"
 date-modified: "27 July 2024"
 categories:
-  - NHSR
+  - NHS-R
 author: Chris Beeley
 subtitle: >
 ---

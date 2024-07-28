@@ -5,7 +5,6 @@ date-modified: '21 February 2024'
 categories:
   - NHS-R
 subtitle: >
-  'Hello and welcome to our nascent NHS-R Community; a community dedicated to promoting the learning, application and utilisation of R in the National Health Service (NHS) in the United Kingdom.'
 ---
 
 # Welcome to the NHS-R Community – born March 2018.
