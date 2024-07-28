@@ -4,9 +4,9 @@ date: "9 April 2018"
 date-modified: '21 February 2024'
 categories:
   - Reflections
+  - Public Health
 author: Julian Flowers
 subtitle: >
-  'Hello. My name is Julian and I am an R addict. I got hooked about 3 years ago when I took on a new role in Public Health England developing a public health data science team. '
 ---
 
 Hello. My name is Julian and I am an R addict. I got hooked about 3 years ago when I took on a new role in Public Health England developing a public health data science team. My professional background is as a doctor and Consultant in Public Health and have spent the last 15 years in the health intelligence field so I thought I knew something about data and analysis. I realised I didn’t know anything about data science so I decided to do a course and ended up doing the [Coursera data science](https://www.coursera.org/specializations/jhu-data-science) MOOC from Johns Hopkins because it was health related. For the course, you need to learn R - and so my habit started. (It turned out I knew nothing about data and analysis as well).

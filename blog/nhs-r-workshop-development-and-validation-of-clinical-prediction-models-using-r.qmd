@@ -3,7 +3,7 @@ title: "NHS-R Workshop: Development and validation of clinical prediction models
 date: "15 December 2022"
 date-modified: "27 July 2024"
 categories:
-  - 
+  - Modelling
 author: Eduard Incze
 image: img/heart-monitor.jpg
 image-alt: "Heart rate graph"

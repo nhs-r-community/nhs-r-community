@@ -3,16 +3,16 @@ title: "July Blog"
 date: "19 July 2023"
 date-modified: "27 July 2024"
 categories:
-  - NHSR
+  - NHS-R
 author: Zoë Turner
 subtitle: >
 ---
 
 # **Government Data Science Toolshed Meetup and DataConnect23**
 
-Back in June I attended a [Government Data Science (GDS) Toolshed](https://www.eventbrite.com/e/government-data-science-community-meet-up-the-data-science-toolshed-tickets-578774920367) meetup for Public Sector and cross Government, the name coming from the idea that we have tools that we’ve built in our teams that we’d like to share. Matt Dray skilfully found a [metaphor](https://matt-dray.github.io/government-toolshed/#/a-metaphor) (and corresponding pictures) to explain this idea and I got the chance to showcase NHS-R GitHub repository and invite people to join us in our Toolshed!
+Back in June I attended a [Government Data Science (GDS) Toolshed](https://www.eventbrite.com/e/government-data-science-community-meet-up-the-data-science-toolshed-tickets-578774920367) meetup for Public Sector and cross Government, the name coming from the idea that we have tools that we’ve built in our teams that we’d like to share. Matt Dray skilfully found a [metaphor](https://matt-dray.github.io/government-toolshed/#/a-metaphor) (and corresponding pictures) to explain this idea and I got the chance to showcase NHS-R GitHub repository and invite people to join us in our Toolshed!
 
-Inspired by this way of thinking about the NHS-R Community GitHub I’ll be doing a workshop repeating this message for the upcoming [DataConnect23](https://www.gov.uk/government/news/dataconnect23-is-on-its-way) which is open to Public Sector and Cross Government. My hope is that I can get the message out to as many people as I can about how this is a place where you can get involved as much, or as little, as you like. We have a toolshed where people can practice, play and use tools we’ve created.
+Inspired by this way of thinking about the NHS-R Community GitHub I’ll be doing a workshop repeating this message for the upcoming [DataConnect23](https://www.gov.uk/government/news/dataconnect23-is-on-its-way) which is open to Public Sector and Cross Government. My hope is that I can get the message out to as many people as I can about how this is a place where you can get involved as much, or as little, as you like. We have a toolshed where people can practice, play and use tools we’ve created.
 
 # **Catch up questions**
 
@@ -34,9 +34,9 @@ Great question and it has to be simply, the NHS-R Community lets us know.
 
 For the tools that I showed in the talk, where people had passed them to NHS-R Community, those individuals had prompted the move and it was very welcomed. We’ve had a few things over the years created on the GitHub repository directly but recently we’ve had projects passed to us. I guess the reason for this is around centralisation, having projects located in the NHS-R Community itself helps raise the profile, making them more discoverable and by giving the repositories to NHS-R people can continue to be involved, take full credit and maybe, hopefully, take away some of the barriers to inviting contributions.
 
-In finding tools, I’m a bit like a magpie and collect links all the time and I don’t think I’m alone in that as we had a few attempts on getting things coordinated with “finds” as we’ve come to refer to them. We now have a very informal process where we, as a community, share anything we think is fun or useful (or both!) in the #finds channel in [Slack](https://nhsrcommunity.slack.com/) and then promote that in blogs here and talk about them on the NHS-R [Newscast](https://soundcloud.com/nhs-r-community).
+In finding tools, I’m a bit like a magpie and collect links all the time and I don’t think I’m alone in that as we had a few attempts on getting things coordinated with “finds” as we’ve come to refer to them. We now have a very informal process where we, as a community, share anything we think is fun or useful (or both!) in the #finds channel in [Slack](https://nhsrcommunity.slack.com/) and then promote that in blogs here and talk about them on the NHS-R [Newscast](https://soundcloud.com/nhs-r-community).
 
-I’ve also built upon some open source work previously started by [AphA Analysts](https://www.aphanalysts.org/), for a book called [Open Analytics Resources](https://resources.nhsrcommunity.com/) where I keep a lot of the links I’ve found and people have shared on the Slack. This book is slightly more curated towards NHS analyst needs and features NHS-R, NHS and Government resources and if you are wanting almost a “definitive guide to resources” then a better place to go, as well as contribute to, is the [Big Book of R](https://www.bigbookofr.com/) which has thousands of resources!
+I’ve also built upon some open source work previously started by [AphA Analysts](https://www.aphanalysts.org/), for a book called [Open Analytics Resources](https://resources.nhsrcommunity.com/) where I keep a lot of the links I’ve found and people have shared on the Slack. This book is slightly more curated towards NHS analyst needs and features NHS-R, NHS and Government resources and if you are wanting almost a “definitive guide to resources” then a better place to go, as well as contribute to, is the [Big Book of R](https://www.bigbookofr.com/) which has thousands of resources!
 
 ## **What lessons did you learn in growing a community?**
 
@@ -58,4 +58,4 @@ This is just a trial but if you have any suggestions or advice for us as we cont
 
 ## **Join the Slack groups**
 
-Details are in the [Open Analytics Resources](https://resources.nhsrcommunity.com/forum-groups.html#slack) and feel free to contact NHS-R Community via email at [nhs.rcommunity\@nhs.net](mailto:nhs.rcommunity@nhs.net)
+Details are in the [Open Analytics Resources](https://resources.nhsrcommunity.com/forum-groups.html#slack) and feel free to contact NHS-R Community via email at [nhs.rcommunity\@nhs.net](mailto:nhs.rcommunity@nhs.net)

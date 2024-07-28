@@ -5,6 +5,7 @@ date-modified: "24 March 2024"
 categories:
   - Packages
   - Debugging
+  - Public Health
 author: Zoë Turner
 subtitle: >
   "Debugging when your code worked and now doesn't."

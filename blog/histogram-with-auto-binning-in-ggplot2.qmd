@@ -5,7 +5,7 @@ date-modified: "24 February 2024"
 categories:
   - R tips
   - ggplot2
-  - Base R
+  - base R
 author: Gary Hutson
 subtitle: >
   "Building the Histogram with auto binning"
