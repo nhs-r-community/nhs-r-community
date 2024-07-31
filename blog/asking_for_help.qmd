@@ -4,6 +4,7 @@ subtitle: "Information of how to ask for help when you are stuck"
 date: "31 July 2024"
 categories:
   - NHS-R
+  - R tips
 author: Lyn Howard
 image: img/help-button.png
 image-alt: "image of a big red button with the word help on"
