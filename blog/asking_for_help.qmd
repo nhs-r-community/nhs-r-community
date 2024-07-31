@@ -8,10 +8,8 @@ categories:
 author: Lyn Howard
 image: img/help-button.png
 image-alt: "image of a big red button with the word help on"
-format: html
 execute:
   eval: false
-  echo: true
 ---
 
 To enable others to help you, you'll need to include a reprex, or reproducible example - a minimal example of the data and code you're using, so they can recreate the problem.
@@ -48,17 +46,20 @@ You may need to edit the data before sharing it to anonymise it or remove confid
 ### An alternative way to modify your data for sharing
 
 ```{r}
-#create a dataframe of organisation names and aliases 
-Organisation <- unique(NHSRdatasets::LOS_model$Organisation) 
-length(Organisation) #checks the length of the vector Organisation 
-alias <- letters[1:10] #if you want to automate this you could use letters[1:length(Organisation)] 
-df <- data.frame(Organisation, alias) #combines the 2 vectors into a dataframe
+# create a dataframe of organisation names and aliases
+Organisation <- unique(NHSRdatasets::LOS_model$Organisation)
+length(Organisation) # checks the length of the vector Organisation
+alias <- letters[1:10] # if you want to automate this you could use letters[1:length(Organisation)]
+df <- data.frame(Organisation, alias) # combines the 2 vectors into a dataframe
 ```
 
 Join the dataframe we just created to the LOS_model dataframe, select the columns we want & take a sample 10 rows, before piping it into dput() to create the code we can share.
 
 ```{r}
-dplyr::left_join(NHSRdatasets::LOS_model, df) |> select(Age, alias, Death) |> slice_sample(n=10) |> dput()
+dplyr::left_join(NHSRdatasets::LOS_model, df) |>
+  select(Age, alias, Death) |>
+  slice_sample(n = 10) |>
+  dput()
 ```
 
 ## What should you include?
