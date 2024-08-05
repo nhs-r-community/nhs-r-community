@@ -6,8 +6,11 @@ title: "Accessibility commitment"
 Return to [home page](/) or [about page](/about).
 
 Inspired from Silvia Canelón's [committment to accessiblity](https://silviacanelon.com/accessibility) NHS-R Community welcomes feedback on the accessibility of this site and any links to its materials including code and training materials.
+We have used the [Web Accessibility Evaluation Tool](https://wave.webaim.org/) to manually check for accessibility errors and corrected where possible.
 
-Please let us know if you encounter any accessibility barriers by emailing [nhs.rcommunity@nhs.net](mailto:nhs.rcommunity@nhs.net).
+# Reporting accessibility problems with this website
+
+We are always looking to improve the accessibility of this website. Please let us know if you find any problems not listed on this page or if we are not meeting accessibility requirements, email [nhs.rcommunity@nhs.net](mailto:nhs.rcommunity@nhs.net).
 
 ## Website practices
 
@@ -15,7 +18,43 @@ This site has been designed with the following features in mind:
 
 - The colour palette is from [NHS branding](https://www.england.nhs.uk/nhsidentity/identity-guidelines/colours/).
 - Fonts are set to Arial which is an [NHS font](https://www.england.nhs.uk/nhsidentity/identity-guidelines/fonts/).
-- Alternative text for all images.
+- Alternative text is used for all images.
 
-We are aware there is much more to inclusive and accessible design and we welcome feedback on how to better implement accessibility practices. 
-Any learning will be used to improve the site but will also be shared with the community more widely through book resources like our [Open Analytics page](https://resources.nhsrcommunity.com/accessibility.html) where we have started to collect links that support greater Accessibility.
+Any learning will be used to improve the site and will also be shared with the community more widely through book resources like our [Open Analytics page](https://resources.nhsrcommunity.com/accessibility.html) where we have started to collect links that support greater Accessibility.
+
+# Non-accessible content
+
+## Search button
+
+This is generated automatically through rendering a Quarto website and appears as an empty button. 
+
+There is an open [issue](https://github.com/quarto-dev/quarto-cli/issues/678) on Quarto's GitHub.
+
+## Default thumbnail image for blogs - no alternative text
+
+The thumbnails for default images in blogs do not have alternative text, this particularly affects the blogs brought across from the original WordPress site as new blogs have specific images added.
+In code this relates to the [`image-placeholder:`](https://github.com/nhs-r-community/nhs-r-community/blob/9aebe9a85691c97da6f3782c89d421391243e218/blog/index.qmd#L9).
+
+There is an open [issue](https://github.com/quarto-dev/quarto-cli/issues/7028) on Quarto's GitHub and an issue on the [website GitHub](https://github.com/nhs-r-community/nhs-r-community/issues/66).
+
+## Empty and redundant links
+
+In the blog thumbnail [listing page](https://nhsrcommunity.nhsrcommunity.com/blog/) images have missing links and redundant links.
+
+## Poor contrast colours
+
+There are elements on the pages where there is insufficient colour contrast:
+
+- [Blog listing](https://nhsrcommunity.nhsrcommunity.com/blog/) where the following pages is listed as `...`. This is currently too light to view. This is an [issue](https://github.com/nhs-r-community/nhs-r-community/issues/202) on the website's GitHub.
+
+## Missing level headers
+
+There are elements on the pages where first and second level heading is missing.
+
+## YouTube video links
+
+There are links to YouTube videos in this website that currently only have the automated YouTube subtitles.
+
+## Event handlers may not be accessible
+
+This website has used JavaScript events in Quarto and may not be accessible to both mouse and keyboard users.

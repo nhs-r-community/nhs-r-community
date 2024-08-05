@@ -7,7 +7,7 @@ categories:
   - R tips
 author: Lyn Howard
 image: img/help-button.png
-image-alt: "image of a big red button with the word help on"
+image-alt: "Image of a big red button with the word 'help'"
 execute:
   eval: false
 ---
