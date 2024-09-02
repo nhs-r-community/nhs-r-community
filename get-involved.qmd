@@ -25,6 +25,88 @@ We will also welcome comments through email at [nhs.rcommunity@nhs.net](https://
 
 We'd love to receive blogs for the website and these can be emailed to [nhs.rcommunity@nhs.net](https://nhsrcommunity.slack.com/).
 
+If you want to submit the blog as a Quarto document and directly to the repository we'd love to receive a pull request from you.
+If you are new to using Quarto or GitHub and need any help at all with this please do let us know as this can be a great first step into open coding.
+
+### Contributing to the website
+
+:::{.callout-tip collapse=false appearance='default' icon=true}
+## Pre-work (tip)
+Before the instructions on what to do to contribute make sure you have git installed on your computer and a GitHub account.
+Details on how to get set up can be found in the [Introduction to Git and GitHub using R course](https://intro-git-github.nhsrcommunity.com/session-setup.html#/title-slide).
+:::
+
+The first step to contributing is to `clone` the site to your own GitHub account.
+As with many programs and coding there are numerous ways to do this but one nice way in R is to use the package {usethis}.
+Details on how to use the package to clone or fork (depending on your access rights) is detailed in the [Introduction to Git and GitHub](https://intro-git-github.nhsrcommunity.com/session-fork-clone.html#/existing-repositories) course materials.
+
+From your own repository you should create a new branch.
+Again, using {usethis} you can follow the steps from the course <https://intro-git-github.nhsrcommunity.com/session-usethis-gert.html#/start-new-work> and then create a [pull request](https://intro-git-github.nhsrcommunity.com/session-pull-requests.html#/pushing-to-the-remote-github).
+
+:::{.callout-tip collapse=false appearance='default' icon=true}
+## PR to which repository? (tip)
+By following these instructions you will have created a new branch in your repository so the PR (pull request) will go automatically to your own repository's `main` branch. 
+You can either complete this which updates your `main` or redirect the PR in GitHub to the original NHS-R Community repository which will be possible as the two are linked.
+:::
+
+### Blog submissions
+
+If you are writing a blog and are submitting this through a Pull Request in GitHub, please save a `.qmd` file into the folder called `blog` and any images you've used in the `img` subfolder.
+Also ensure that all images used have suitable [alternative text as good practice](https://design102.blog.gov.uk/2022/01/14/whats-the-alternative-how-to-write-good-alt-text/) and this will need to be a short description of the image.
+
+The format for the header part of the `.qmd` YAML template is often set out like this:
+
+```
+---
+title: "Your title here"
+date: "17 October 2022"
+date-modified: "27 July 2024"
+categories:
+  - Something
+  - Something Else
+author: Your name
+image: img/picture.jpg
+image-alt: "Please add a short description"
+subtitle: >
+  "Please add a short description of the blog if you'd like or remove this text"
+---
+```
+The default for all blogs' YAML is:
+
+```
+execute:
+  `eval: true
+   echo: true
+```
+
+so is not necessary in the blogs themselves.
+However, if you wish to change the default so the blog, for example, shows code but does not run it then the YAML needs the following added to the individual blog `.qmd` YAML:
+
+```
+execute: 
+  eval: false
+```
+
+More details on the [excution options](https://quarto.org/docs/computations/execution-options.html) are available from the Quarto documentation website.
+
+### Website creation
+
+You only need to submit the `.qmd` file and any images as the repository will recreate the book online using GitHub Actions once the Pull Request has been accepted.
+However, you can still view the website locally to see if everything works by running the R code with the {quarto} package loaded:
+
+```{r}
+#| eval: false
+
+quarto::quarto_render()
+```
+
+:::{.callout-warning collapse=false appearance='default' icon=true}
+## Building the website localled (warning)
+Viewing the blog locally can take time as it builds several pages for the website and will create other files like `.html` as well as update the `site_libs` folder files.
+
+When submitting an Pull Request none of these newly generated files are required.
+:::
+
 ### YouTube
 
 We have nearly 200 videos on YouTube and although subtitles are automatically added by YouTube these require tidying so if you want to watch and correct text as you go along we'd welcome your help to improve the videos and make them more accessible.
