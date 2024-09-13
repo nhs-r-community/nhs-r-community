@@ -12,7 +12,7 @@ We welcome contributions to our activities which range in experience of technica
 
 ## No coding necessary
 
-### Corrections, comments or suggestions
+### Corrections, comments or suggestions {#contact}
 
 Commenting on Quarto books is possible through either logging in using Giscus which requires a GitHub account and details and pointers on setting up an account are in our slides for the [Introduction to Git and GitHub using R](https://intro-git-github.nhsrcommunity.com/session-prework.html#/github) or from Hypothes.is which can be seen as a pop out in the top right of every page of a book.
 

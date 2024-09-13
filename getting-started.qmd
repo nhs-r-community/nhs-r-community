@@ -20,3 +20,14 @@ All the materials for our courses are free to use and reuse/change:
 - [Introduction to Git and GitHub](https://intro-git-github.nhsrcommunity.com/) using R 
 
 And we have recordings in a YouTube Playlist called [Getting Started](https://www.youtube.com/watch?v=dS91HzZLD_c&list=PLXCrMzQaI6c1GC4P9zNw3N3dcfIUfvdEV&pp=iAQB).
+
+## Asking for help
+
+Key to learning is getting help and that can be from searches online but at some point you might need to get help from someone or a group of people.
+Whether you post your question to someone directly, through a [Slack group](#contact) or on [Stackoverflow](https://stackoverflow.com/), you'll greatly increases the number and quality of replies if you can also share a **rep**roducible **ex**ample and there is a package that can help called [{reprex}](https://reprex.tidyverse.org/).
+
+For a quick demonstration of using {reprex} as an RStudio add-in NHS-R Community have a short video with checked subtitles:
+
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=iLfzNWh2dLI&t=472s" title="How to use the reprex R package to produce a reproducible example" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+If you prefer to use the command line or the R program (and not RStudio) go straight to [10:36 in the YouTube video](https://www.youtube.com/watch?v=iLfzNWh2dLI&t=636s).
