@@ -138,6 +138,17 @@ This is an area for practising techniques as we don't hold sensitive data.
 Projects across our account use R, git, GitHub actions, [Docker](https://github.com/nhs-r-community/r_gh_actions), [R universe](https://github.com/nhs-r-community/nhs-r-community.r-universe.dev). 
 No project is "finished" and improvements can always be suggested, Pull Requests made and direct access given (where appropriate and agreed).
 
+### Finding good first issues
+
+GitHub has the facility to label or "tag" issues and this can help with searching for suitable open issues to work on or contribute to in the conversation.
+We use various labels on NHS-R GitHub repositories and to get started:
+
+[help wanted](https://github.com/search?q=org%3Anhs-r-community+is%3Aissue+is%3Aopen+label%3A%22help+wanted%22&type=issues)
+
+[good first issue](https://github.com/search?q=org%3Anhs-r-community+is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22&type=issues)
+
+[documentation](https://github.com/search?q=org%3Anhs-r-community+is%3Aissue+is%3Aopen+label%3A%22documentation%22&type=issues)
+
 ### Tidying repositories
 
 Standardisation of projects has started with READMEs with templates for text in the [NHS-R Way](https://nhsrway.nhsrcommunity.com/style-guides.html#readmes-in-repositories) and shared resources like logos kept in an [asset](https://github.com/nhs-r-community/assets) repository.
