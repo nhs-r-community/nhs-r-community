@@ -4,8 +4,14 @@ subtitle: "Taking the data from a wide format spreadsheet to a tidy long table"
 date: "23 04 2020"
 categories:
   - Data
+  - Packages
+  - Training
+  - dplyr
+  - Functions
+  - Loops
+  - Web scraping
 author: Zoë Turner
-image: https://pixabay.com/photos/typewriter-write-old-vintage-8622984/
+image: img/typewriter.jpg
 image-alt: "Photo of an old typwriter with the paper ready to be typed on"
 execute:
   eval: false
