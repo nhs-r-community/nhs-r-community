@@ -31,7 +31,7 @@ website:
         href: about/index.qmd
         aria-label: About page
       - text: Events
-        href: https://nhsrcommunity.com/events
+        href: events.qmd
         aria-label: Events website
       - text: "Books"
         href: books/index.qmd
