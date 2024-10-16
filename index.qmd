@@ -50,22 +50,15 @@ Building a community of practice for data analysis and data science using open s
 ::: hero-buttons
 [Get Started](getting-started.qmd){.btn .btn-lg role="button"} [Get Involved](get-involved.qmd){.btn .btn-lg role="button"}
 :::
+
 :::
 
-<a href="blog/index.qmd" aria-label="Blog page">
-
-## Blog
-
-</a>
+## [Blog](blog/index.qmd)
 
 ::: {#blog}
 :::
 
-<a href="books/index.qmd" aria-label="Books page">
-
-## Books
-
-</a>
+## [Books](books/index.qmd)
 
 ::: {#books}
 :::
@@ -75,11 +68,7 @@ Building a community of practice for data analysis and data science using open s
 ::: footer-block
 ::: grid
 ::: {.g-col-12 .g-col-md-2}
-<a href="supporters.qmd" aria-label="Information about how to support NHS-R Community">
-
-## Supporters
-
-</a>
+## [Supporters](supporters.qmd){aria-label="Information about how to support NHS-R Community"}
 :::
 
 ::: {.g-col-12 .g-col-md-2}
