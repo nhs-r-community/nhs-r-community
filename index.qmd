@@ -83,23 +83,19 @@ Building a community of practice for data analysis and data science using open s
 :::
 
 ::: {.g-col-12 .g-col-md-2}
-<a href='https://www.strategyunitwm.nhs.uk/'><img src='https://raw.githubusercontent.com/The-Strategy-Unit/assets/main/logo_yellow.svg' alt="Strategy Unit's Yellow logo that looks like a speech bubble" align="left" height="80" /></a>
+<a href='https://www.strategyunitwm.nhs.uk/'><img src='https://raw.githubusercontent.com/The-Strategy-Unit/assets/main/logo_yellow.svg' alt="The Strategy Unit" align="left" height="80" /></a>
 :::
 
 ::: {.g-col-12 .g-col-md-2}
-[![](img/health-foundation-logo.png){fig-alt="Logo for Health Foundation of two circles, the innermost is white and the next colour is red" fig-align="left" width="80"}](https://www.health.org.uk/)
+[![](img/health-foundation-logo.png){fig-alt="The Health Foundation" fig-align="left" width="80"}](https://www.health.org.uk/)
 :::
 
 ::: {.g-col-12 .g-col-md-2}
-[![](img/nhs-england-logo.png){fig-alt="NHS England logo with the white letters of NHS on a blue background and England written underneath" fig-align="left" width="115"}](https://www.england.nhs.uk/)
+[![](img/JR_Logo_Primary.png){fig-alt="Jumping Rivers" fig-align="left" width="115"}](https://www.jumpingrivers.com/)
 :::
 
 ::: {.g-col-12 .g-col-md-2}
-[![](img/jumping-rivers-logo.png){fig-alt="Jumping Rivers logo of 4 rounded lines that go up and down in various ways like a line chart" fig-align="left" width="115"}](https://www.jumpingrivers.com/)
-:::
-
-::: {.g-col-12 .g-col-md-2}
-[![](img/the-or-society-logo.jpg){fig-alt="The Operational Research Society logo with white letters O and R on a red background" fig-align="left" width="136"}](https://www.theorsociety.com/)
+[![](img/Royal_Statistical_Society_logo.png){fig-alt="The Royal Statistical Society" fig-align="left" width="136"}](https://www.theorsociety.com/)
 :::
 :::
 :::
