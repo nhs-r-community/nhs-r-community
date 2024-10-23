@@ -9,20 +9,22 @@ code-fold: true
 
 ## This is a holding page for Events
 
-We currently have the following events that are available for sign up or have a waiting list by emailing [nhs.rcommunity@nhs.net](mailto:nhs.rcommunity@nhs.net):
+We currently have the following events that are available for sign up by emailing [nhs.rcommunity@nhs.net](mailto:nhs.rcommunity@nhs.net):
 
-RPySOC24 in person conference 21 November at [ICC Birmingham](https://www.theicc.co.uk/) **Full please join the Waiting list**
+RPySOC24 in person conference 21 November at [ICC Birmingham](https://www.theicc.co.uk/) **Full please join the Waiting list by email**
 
-RPySOC24 online conference 21 November
+RPySOC24 online conference 21 November - tickets are available by email
 
-*Timings are subject to change even on the day*
 
-RPySOC24 in person conference 22 November at [ICC Birmingham](https://www.theicc.co.uk/) **Full please join the Waiting list**
+RPySOC24 in person conference 22 November at [ICC Birmingham](https://www.theicc.co.uk/) **Full please join the Waiting listby email**
 
-RPySOC24 online conference 22 November
+RPySOC24 online conference 22 November- tickets are available by email
 
 
 ## Day one
+
+*Timings are subject to change even on the day*
+
 
 ```{r}
 fixed_points <- c(
@@ -71,6 +73,9 @@ tibble::tribble(
 ```
 
 ## Day two
+
+*Timings are subject to change even on the day*
+
 
 ```{r}
 tibble::tribble(
