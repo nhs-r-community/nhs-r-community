@@ -91,7 +91,7 @@ Building a community of practice for data analysis and data science using open s
 :::
 
 ::: {.g-col-12 .g-col-md-2}
-[![](img/JR_Logo_Primary.png){fig-alt="Jumping Rivers" fig-align="left" width="115"}](https://www.jumpingrivers.com/)
+[![](img/JumpingRivers_Primary.png){fig-alt="Jumping Rivers" fig-align="left" width="115"}](https://www.jumpingrivers.com/)
 :::
 
 ::: {.g-col-12 .g-col-md-2}
