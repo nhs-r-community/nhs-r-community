@@ -95,7 +95,7 @@ Building a community of practice for data analysis and data science using open s
 :::
 
 ::: {.g-col-12 .g-col-md-2}
-[![](img/Royal_Statistical_Society_logo.png){fig-alt="The Royal Statistical Society" fig-align="left" width="136"}](https://www.theorsociety.com/)
+[![](img/Royal_Statistical_Society_logo.png){fig-alt="The Royal Statistical Society" fig-align="left" width="136"}](https://rss.org.uk/)
 :::
 :::
 :::
