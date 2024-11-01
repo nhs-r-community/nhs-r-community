@@ -111,13 +111,12 @@ tibble::tribble(
 
 ## Unconference
 
-We are also going to try unconferencing again. 
+The unconference was a popular addition to the conference last year. People came forward with ideas and questions inspiring some great discussions on topics ranging from Quarto to statistical tests to NHS-R Community branding. We will be trying out unconferencing again and look forward to seeing you there.
 
-On the first day we will take suggestions for informal group discussions which people can vote for or say they can turn up to. Then, on the second day, we will be splitting the room so that people can move between the speaker sessions and the unconference. 
+Day one - we will take suggestions for informal group discussions which people can vote for or say they can turn up to.
 
-We had some great discussions that ranged from Quarto to statistical tests to NHS-R Community branding. 
+Day two - we will split the room so that people can move between the speaker sessions and the unconference. 
 
-Unconferencing was a popular addition to the conference last year and to learn more about what happens we have a [podcast talk](https://nhsrcommunity.substack.com/p/nhs-r-podcast-14th-december-unconferences-6da?utm_source=substack&utm_medium=email) with Pawel Orzechowski from the University of Edinburgh who introduced the idea of unconferencing to us and a [blog](blog/what-was-the-unconference.qmd) by Ben Murch on how it went at the conference.
+For more information on unconferencing we have a [podcast talk](https://nhsrcommunity.substack.com/p/nhs-r-podcast-14th-december-unconferences-6da?utm_source=substack&utm_medium=email) with Pawel Orzechowski from the University of Edinburgh who introduced the idea of unconferencing to us and a [blog](blog/what-was-the-unconference.qmd) by Ben Murch on how it went at the conference.
 
 :::
-
