@@ -12,7 +12,7 @@ code-fold: true
 
 ## Tickets
 
-In-person attendance - full, but please email us to join the waiting list. 
+In-person attendance - full, but please email us at [nhs.rcommunity@nhs.net](mailto:nhs.rcommunity@nhs.net) to join the waiting list. 
 
 Virtual attendance - tickets are available by completing this [form](https://forms.office.com/e/NBcjv7LVJ4).
 
@@ -117,7 +117,7 @@ On the first day we will take suggestions for informal group discussions which p
 
 We had some great discussions that ranged from Quarto to statistical tests to NHS-R Community branding. 
 
-Unconferencing was a popular addition to the conference last year and to learn more about what happens we have a [podcast talk](https://nhsrcommunity.substack.com/p/nhs-r-podcast-14th-december-unconferences-6da?utm_source=substack&utm_medium=email) with Pawel Orzechowski from the University of Edinburgh who introduced the idea of unconferencing to us and a [blog](what-was-the-unconference.qmd) by Ben Murch on how it went at the conference.
+Unconferencing was a popular addition to the conference last year and to learn more about what happens we have a [podcast talk](https://nhsrcommunity.substack.com/p/nhs-r-podcast-14th-december-unconferences-6da?utm_source=substack&utm_medium=email) with Pawel Orzechowski from the University of Edinburgh who introduced the idea of unconferencing to us and a [blog](blog/what-was-the-unconference.qmd) by Ben Murch on how it went at the conference.
 
 :::
 
