@@ -4,112 +4,18 @@ sidebar: false
 page-layout: article
 toc: false
 title-block-banner: false
-code-fold: true
 ---
 
 ## This is a holding page for Events
 
 We currently have the following events that are available for sign up by emailing [nhs.rcommunity@nhs.net](mailto:nhs.rcommunity@nhs.net):
 
-RPySOC24 in person conference 21 November at [ICC Birmingham](https://www.theicc.co.uk/) **Full please join the Waiting list by email**
+[RPySOC24](conference24.qmd) in person conference 21 November at [ICC Birmingham](https://www.theicc.co.uk/) **Full please join the Waiting list by email**
 
-RPySOC24 online conference 21 November - tickets are available by completing this [form](https://forms.office.com/e/NBcjv7LVJ4)
-
-
-RPySOC24 in person conference 22 November at [ICC Birmingham](https://www.theicc.co.uk/) **Full please join the Waiting list by email**
-
-RPySOC24 online conference 22 November - tickets are available by completing this [form](https://forms.office.com/e/NBcjv7LVJ4)
+[RPySOC24](conference24.qmd) online conference 21 November - tickets are available by completing this [form](https://forms.office.com/e/NBcjv7LVJ4)
 
 
-## Day one
+[RPySOC24](conference24.qmd) in person conference 22 November at [ICC Birmingham](https://www.theicc.co.uk/) **Full please join the Waiting list by email**
 
-*Timings are subject to change even on the day*
+[RPySOC24](conference24.qmd) online conference 22 November - tickets are available by completing this [form](https://forms.office.com/e/NBcjv7LVJ4)
 
-
-```{r}
-fixed_points <- c(
-  "Break",
-  "Lunch",
-  "Registration and coffee",
-  "Welcome and Housekeeping",
-  "Closing of day"
-)
-
-tibble::tribble(
-  ~Time, ~Title, ~Speaker,
-  "09:00 – 09:45", "Registration and coffee", "",
-  "09:45 – 09:55", "Welcome and Housekeeping", "Zoë Turner",
-  "09:55 – 10:20", "RAPping my head against a databricks wall", "Louise Schreuders",
-  "10:20 – 10:35", "To be confirmed", "",
-  "10:35 – 11:00", "Simplifying development of AI applications integrated in EHRs with Health Chain", "Jennifer Jiang-Kells",
-  "11:00 – 11:15", "Beyond the dashboard: R for value added insights", "Nicola Farthing",
-  "11:15 – 11:45", "Break", "",
-  "11:45 – 12:00", "Reimagining NHS dashboards: an open-source approach with plotly-dash", "Jennifer Struthers",
-  "12:00 – 12:25", "Using Machine Learning and secondary care activity data to identify risk of cancer earlier", "Dimitris Pipinis",
-  "12:25 – 12:40", "The patient does not exist – generating synthetic patient data with Wasserstein GAN", "Simon Newey",
-  "12:40 – 13:05", "Streamlining machine learning development at the NHS via open-source tools", "Elias Altrabsheh",
-  "13:05 – 13:07", "rainbowR", "Ella Kaye",
-  "13:07 – 13:55", "Lunch", "",
-  "13:55 – 14:10",
-  "What insights did Glasgow Scottish Ambulance Service (SAS) gain from combining multiple data sources about all chest pain patients from 2023? We'll present about the process and findings of a 1-year long MSc dissertation project.", "Katalin Koszegi",
-  "14:10 – 14:25",
-  "Predictive Modelling for health and social care capacity planning using open data", "Sebastian Fox",
-  "14:25 – 14:50", "To explain or predict: how different modelling objectives change how you use the same tools", "Chris Mainey",
-  "14:50 – 15:05", "Using openxlsx in R as part of a reproducible analytical pipeline to automate a publication", "Ruth Keane",
-  "15:05 – 15:35", "Break", "",
-  "15:35 – 15:50", "What I learnt about (programming) languages by building bilingual websites", "Rosemary Walmsley",
-  "15:50 – 16:15", "Leveraging R to implement novel theoretical development in online ‘digital twin’ simulation modelling", "Richard Wood",
-  "16:15 – 16:30", "Should I use your package", "Colin Gillespie",
-  "16:30 – 16:45", "Cracking open the TiN: how we build a one-stop statistics website using R, GitHub and BigQuery", "Mohan Dell",
-  "16:45 – 17:10", "Closing of day", ""
-) |>
-  gt::gt() |>
-  gt::cols_width(
-    Time ~ px(110),
-    Title ~ px(500),
-    Speaker ~ px(150)
-  ) |>
-  gtExtras::gt_highlight_rows(rows = Title %in% fixed_points)
-```
-
-## Day two
-
-*Timings are subject to change even on the day*
-
-
-```{r}
-tibble::tribble(
-  ~Time, ~Title, ~Speaker,
-  "09:00 – 09:45", "Registration and coffee", "",
-  "09:45 – 09:55", "Welcome and Housekeeping", "Zoë Turner",
-  "09:55 – 10:20", "The Reusability Crisis in Healthcare Analytics", "Rhian Davies",
-  "10:20 – 10:35", "Shift staffing via task load prediction", "Marcos Fabietti",
-  "10:35 – 10:50", "Unleashing the power of pathway simulation", "Sammi Rosser",
-  "10:50 – 11:15", "Break", "",
-  "11:15 – 11:40", "New generic tests for cancer – with R is a clinical scientists best friend", "Joe Shaw",
-  "11:40 – 11:55", "Beyond automation: a shiny app to maximise analytical impact routine reporting narrative", "Laura Birks",
-  "11:55 – 12:10", "Sharpening my Python skills through self-development of web scraping bank complaints data", "Kenneth Quan",
-  "12:10 – 12:25", "GitHub as a team sport", "Matt Dray",
-  "12:25 – 13:10", "Lunch", "",
-  "13:10 – 13:25", "Presenting fingertips in data in a more friendly format", "Rachel Brown",
-  "13:25 – 13:50", "A method to apply temporal graph analysis on electronic patient record data to explore healthcare professional patient interaction intensity", "John Booth",
-  "13:50 – 14:05", "Deploying a Shiny app with Docker in a Raspberry Pi", "Pablo León Ródenas",
-  "14:05 – 14:20", "Estimating flexible hazard rates for C diff recurrence from electronic health records using the SplinHazard Regression package and other methods in R", "Elisabeth Dietz",
-  "14:20 – 14:45", "Analysing patient experience natural language processing and textual data analysis in R", "Ana Singh",
-  "14:45 – 15:00", "Break", "",
-  "15:00 – 15:15", "Forged in the fire: agile project management lessons from the frontline", "Chris Beeley",
-  "15:15 – 15:40", "The Health Service Modelling Associates (HSMA) Programme", "Daniel Chalk",
-  "15:40 – 15:55", "Community Talk – Turing Way", "Sophia Batchelor",
-  "15:55 – 16:05", "Community Talk -NHS.Pycom", "Mary Amanuel",
-  "16:05 – 16:15", "Closing talk NHS-R Community and raffle", "Zoë Turner",
-  "16:15 – 16:20", "Raffle", "",
-  "16:20", "Closing of the day", ""
-) |>
-  gt::gt() |>
-  gt::cols_width(
-    Time ~ px(110),
-    Title ~ px(500),
-    Speaker ~ px(150)
-  ) |>
-  gtExtras::gt_highlight_rows(rows = Title %in% fixed_points)
-```
