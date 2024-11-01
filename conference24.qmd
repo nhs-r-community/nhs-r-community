@@ -1,11 +1,12 @@
 ---
-title: "RPySOC 24 Conference"
 sidebar: false
 page-layout: article
 toc: false
 title-block-banner: false
 code-fold: true
 ---
+
+![](img/rpysoc-24-banner.png)
 
 21 and 22 November 2024, Hall 11, [ICC Birmingham](https://www.theicc.co.uk/)
 
