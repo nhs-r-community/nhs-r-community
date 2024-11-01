@@ -33,6 +33,9 @@ website:
       - text: Events
         href: events.qmd
         aria-label: Events website
+      - text: conference
+        href: conference24.qmd
+        aria-label: conference page
       - text: "Books"
         href: books/index.qmd
         aria-label: Books page
