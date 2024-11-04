@@ -54,7 +54,7 @@ tibble::tribble(
   "What insights did Glasgow Scottish Ambulance Service (SAS) gain from combining multiple data sources about all chest pain patients from 2023? We'll present about the process and findings of a 1-year long MSc dissertation project.", "Katalin Koszegi",
   "14:10 – 14:25",
   "Predictive Modelling for health and social care capacity planning using open data", "Sebastian Fox",
-  "14:25 – 14:50", "To explain or predict how different modelling objectives change how you use the same tools", "Chris Mainey",
+  "14:25 – 14:50", "To explain or predict: how different modelling objectives change how you use the same tools", "Chris Mainey",
   "14:50 – 15:05", "Using openxlsx in R as part of a reproducible analytical pipeline to automate a publication", "Ruth Keane",
   "15:05 – 15:35", "Break", "",
   "15:35 – 15:50", "What I learnt about (programming) languages by building bilingual websites", "Rosemary Walmsley",
