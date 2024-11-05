@@ -15,7 +15,7 @@ website:
   # If building your own site, replace our GA tag with your own GA tag before deployment.
   # This will prevent your activity being tracked and counted in our analytics dashboard.
   # Thank you!
-  google-analytics: "G-J7L32C56WN"
+  google-analytics: "G-1T1K3D1BKL"
   navbar:
     toggle-position: right
     logo-href: https://nhsrcommunity.com/
