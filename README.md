@@ -68,7 +68,7 @@ All the blog posts are being saved under the original titles so that when this s
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/keithnewman"><img src="https://avatars.githubusercontent.com/u/932250?v=4?s=100" width="100px;" alt="Keith Newman"/><br /><sub><b>Keith Newman</b></sub></a><br /><a href="#a11y-keithnewman" title="Accessibility">️️️️♿️</a> <a href="https://github.com/nhs-r-community/nhs-r-community/commits?author=keithnewman" title="Code">💻</a> <a href="https://github.com/nhs-r-community/nhs-r-community/issues?q=author%3Akeithnewman" title="Bug reports">🐛</a></td>
     </tr>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://rhian.rbind.io"><img src="https://avatars.githubusercontent.com/u/7017740?v=4?s=100" width="100px;" alt="Rhian Davies"/><br /><sub><b>Rhian Davies</b></sub></a><br /><a href="https://github.com/nhs-r-community/nhs-r-community/pulls?q=is%3Apr+reviewed-by%3AStatsRhian" title="Reviewed Pull Requests">👀</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://rhian.rbind.io"><img src="https://avatars.githubusercontent.com/u/7017740?v=4?s=100" width="100px;" alt="Rhian Davies"/><br /><sub><b>Rhian Davies</b></sub></a><br /><a href="https://github.com/nhs-r-community/nhs-r-community/pulls?q=is%3Apr+reviewed-by%3AStatsRhian" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/nhs-r-community/nhs-r-community/issues?q=author%3AStatsRhian" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
