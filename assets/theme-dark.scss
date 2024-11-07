@@ -40,6 +40,15 @@ $code-block-bg:               #2c2825;
 $body-bg:                     #2c2825; // Background
 $body-fg:                     #f5f4f3;
 
+// Colour
+$blue:                       $nhs-Blue !default;
+$purple:                     $nhs-Purple !default;
+$pink:                       $nhs-Pink !default;
+$red:                        $nhs-Red !default;
+$orange:                     $nhs-Orange !default;
+$yellow:                     $nhs-Yellow !default;
+$green:                      $nhs-Green !default;
+
 // Links
 
 $link-decoration:             underline;
@@ -122,6 +131,12 @@ $footer-fg:                   $nhs-PaleGrey;
 // social links
 .link-dark.me-1 i {
   color: $nhs-PaleGrey !important;
+}
+
+// Button focus style
+.btn:focus-visible {
+  outline: 3px solid $body-color;
+  outline-offset: 2px;
 }
 
 // Footer

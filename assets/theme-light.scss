@@ -35,6 +35,15 @@ $link-color:                 $nhs-DarkGrey;
 // Banner
 $body-bg:                    $nhs-PaleGrey; // Background
 
+// Colour
+$blue:                       $nhs-Blue !default;
+$purple:                     $nhs-Purple !default;
+$pink:                       $nhs-Pink !default;
+$red:                        $nhs-Red !default;
+$orange:                     $nhs-Orange !default;
+$yellow:                     $nhs-Yellow !default;
+$green:                      $nhs-Green !default;
+
 // Links
 
 $link-decoration:             underline;
@@ -219,16 +228,10 @@ $footer-fg:                   $nhs-Pink;
   }
 }
 
-.btn {
-  background-color: $nhs-BrightBlue;
-  color: white;
+.btn:focus-visible {
+  outline: 3px solid $body-color;
+  outline-offset: 2px;
 }
-
-.btn:hover {
-      background-color: $nhs-LightBlue;
-      transition: 0.7s;
-      color: white;
-  }
 
 /*-- footer style --*/
 
