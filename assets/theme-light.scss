@@ -256,3 +256,8 @@ $footer-fg:                   $nhs-Pink;
 .white-background {
   background-color: white;
 }
+
+// Details Summary
+details > summary {
+  color: $nhs-DarkGrey;
+}
