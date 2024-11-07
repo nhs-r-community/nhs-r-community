@@ -1,6 +1,6 @@
 # Source code for NHS-R Community website
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-35-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-36-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Following the values and commitment of the NHS-R Community to open source this website has been built in Quarto to be open in its code and further contribution.
@@ -66,6 +66,9 @@ All the blog posts are being saved under the original titles so that when this s
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/LynHUK"><img src="https://avatars.githubusercontent.com/u/134498251?v=4?s=100" width="100px;" alt="Lyn Howard"/><br /><sub><b>Lyn Howard</b></sub></a><br /><a href="#blog-LynHUK" title="Blogposts">📝</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/MHWauben"><img src="https://avatars.githubusercontent.com/u/38880899?v=4?s=100" width="100px;" alt="Martine Wauben"/><br /><sub><b>Martine Wauben</b></sub></a><br /><a href="#blog-MHWauben" title="Blogposts">📝</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/keithnewman"><img src="https://avatars.githubusercontent.com/u/932250?v=4?s=100" width="100px;" alt="Keith Newman"/><br /><sub><b>Keith Newman</b></sub></a><br /><a href="#a11y-keithnewman" title="Accessibility">️️️️♿️</a> <a href="https://github.com/nhs-r-community/nhs-r-community/commits?author=keithnewman" title="Code">💻</a> <a href="https://github.com/nhs-r-community/nhs-r-community/issues?q=author%3Akeithnewman" title="Bug reports">🐛</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://rhian.rbind.io"><img src="https://avatars.githubusercontent.com/u/7017740?v=4?s=100" width="100px;" alt="Rhian Davies"/><br /><sub><b>Rhian Davies</b></sub></a><br /><a href="https://github.com/nhs-r-community/nhs-r-community/pulls?q=is%3Apr+reviewed-by%3AStatsRhian" title="Reviewed Pull Requests">👀</a></td>
     </tr>
   </tbody>
 </table>
