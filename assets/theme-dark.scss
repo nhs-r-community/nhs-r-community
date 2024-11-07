@@ -211,6 +211,11 @@ $footer-fg:                   $nhs-PaleGrey;
   }
 }
 
+.nav-tabs .nav-link.active {
+  color: $nhs-PaleGrey;
+  background-color: unset;
+}
+
 // subtitle
 .subtitle {
   font-size: 1.2em;
@@ -222,4 +227,9 @@ $footer-fg:                   $nhs-PaleGrey;
       text-decoration: none !important;
     }
   }
+}
+
+// Details Summary
+details > summary {
+  color: $nhs-PaleGrey;
 }

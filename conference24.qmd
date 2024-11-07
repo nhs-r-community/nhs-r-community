@@ -4,7 +4,6 @@ page-layout: article
 toc: false
 title-block-banner: false
 code-fold: true
-backgroundcolor: white
 ---
 
 ![](img/rpysoc-24-banner.png){fig-alt="RPYSOC conference 2024 banner."}
