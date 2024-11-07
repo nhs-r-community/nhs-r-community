@@ -318,6 +318,15 @@
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "keithnewman",
+      "name": "Keith Newman",
+      "avatar_url": "https://avatars.githubusercontent.com/u/932250?v=4",
+      "profile": "https://github.com/keithnewman",
+      "contributions": [
+        "a11y"
+      ]
     }
   ],
   "contributorsPerLine": 7,
