@@ -102,10 +102,10 @@ tibble::tribble(
   "14:05 – 14:20", "Estimating flexible hazard rates for C diff recurrence from electronic health records using the SplinHazard Regression package and other methods in R", "Elisabeth Dietz",
   "14:20 – 14:45", "Analysing patient experience natural language processing and textual data analysis in R", "Ana Singh",
   "14:45 – 15:00", "Break", "",
-  "15:00 – 15:15", "Forged in the fire: agile project management lessons from the frontline", "Chris Beeley",
-  "15:15 – 15:40", "The Health Service Modelling Associates (HSMA) Programme", "Daniel Chalk",
+  "15:00 – 15:15", "To be confirmed", "",
+  "15:15 – 15:40", "Forged in the fire: agile project management lessons from the frontline", "Chris Beeley",
   "15:40 – 15:55", "Community Talk – Turing Way", "Sophia Batchelor",
-  "15:55 – 16:05", "Community Talk -NHS.Pycom", "Mary Amanuel",
+  "15:55 – 16:05", "Community Talk -NHS.Pycom", "To be confirmed",
   "16:05 – 16:15", "Closing talk NHS-R Community and raffle", "Zoë Turner",
   "16:15 – 16:20", "Raffle", "",
   "16:20", "Closing of the day", ""
