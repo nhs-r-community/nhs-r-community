@@ -4,7 +4,7 @@ project:
 website:
   title: "NHS-R Community Quarto website"
   description: "Promoting the Use of R in the UK Health & Care System"
-  site-url: https://nhs-r-community.github.io/nhs-r-community/
+  site-url: https://nhsrcommunity.com/
   page-navigation: true
   back-to-top-navigation: true
   favicon: /img/nhsr-logo.png
