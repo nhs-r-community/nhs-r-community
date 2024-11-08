@@ -1,7 +1,6 @@
 ---
 pagetitle: Latest content | NHS-R Community
 title: Latest content
-site-url: https://nhs-r-community.github.io/nhs-r-community/
 title-block-banner: true
 sidebar: false
 search: false
