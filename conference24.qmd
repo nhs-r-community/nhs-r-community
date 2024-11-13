@@ -22,7 +22,9 @@ Virtual attendance - tickets are available by completing this [form](https://for
 
 ## Slack
 
-We will be using a dedicated conference channel on Slack to take questions for our speakers. Last year this allowed both in-person and virtual attendees to ask questions and prompted discussions that lasted beyond the conference. 
+We will be using a dedicated conference channel #in-person-conference-talks on Slack to take questions for our speakers. Last year this allowed both in-person and virtual attendees to ask questions and inspired discussions that lasted beyond the conference. 
+
+There will also be an unconference channel: #unconferencing-session.
 
 A link to join the NHS-R community Slack channel can be found in our [postcard](https://postcard.nhsrcommunity.com/).
 
