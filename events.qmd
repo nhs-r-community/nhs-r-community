@@ -19,3 +19,4 @@ We currently have the following events that are available for sign up by emailin
 
 [RPySOC24](conference24.qmd) online conference 22 November - tickets are available by completing this [form](https://forms.office.com/e/NBcjv7LVJ4)
 
+[Coffee and Coding](https://events.nhsrcommunity.com/coffee-and-code/) - occurs every other week on alternating days. Details on the sessions, where recording are shared and how to join are in <https://nhsrway.nhsrcommunity.com/community-handbook.html#coffee-and-coding>
