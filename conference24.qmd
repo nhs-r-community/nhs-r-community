@@ -12,7 +12,7 @@ code-fold: true
 
 The two open source communities, NHS-R Community and NHS.pycom, are hosting an in-person and virtually streamed annual conference we've called RPySOC (incorporating R, Py from Python and using the initials for Open Source Conference). We will have over 120 people in person with as many as double or triple that online. Both in person and virtual attendees are invited to post Q&As and have discussions with peers in our NHS-R Community Slack and which is available throughout the year for technical support, sharing useful information and connecting with others in our profession. 
  
-We have R and Python talks throughout two days in lightning (10 minutes) and plenary (20 minutes) slots and we will also have an in person event called an unconference, introduced to us through colleagues at The University of Edinburgh, which runs alongside the talks. This is where attendees put forward suggests for discussion which others sign up to.
+We have R and Python talks throughout two days in lightning (10 minutes) and plenary (20 minutes) slots and we will also have an in person event called an unconference, introduced to us through colleagues at The University of Edinburgh, which runs alongside the talks. This is where attendees put forward suggestions for discussion which others sign up to.
 
 ## Tickets
 
