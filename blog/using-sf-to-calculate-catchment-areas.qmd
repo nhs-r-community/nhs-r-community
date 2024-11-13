@@ -10,6 +10,9 @@ categories:
   - GIS
   - ggplot2
 date: "3 June 2021"
+execute: 
+  cache: true
+  freeze: true
 date-modified: "19 July 2024"
 ---
 
