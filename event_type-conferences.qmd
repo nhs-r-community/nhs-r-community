@@ -1,0 +1,8 @@
+---
+date: "2024-02-16T09:00:00+00:00"
+title: "Conferences"
+---
+
+[RPySOC 24](https://nhsrcommunity.com/conference24.html) details on the conference and how to sign up
+
+[All events](https://nhsrcommunity.com/events.html)
