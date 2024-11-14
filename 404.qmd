@@ -1,11 +1,15 @@
 ---
-title: "404"
+title: "Page is missing (404)"
 ---
 
-# Oh no! That page is nowhere to be found <i class="fas fa-search pr2"></i>
+The page you expected might have been removed or renamed. 
 
-It might have been removed or renamed. 
+If you were following a link like <https://nhsrcommunity.com/events/#event_type-conferences>
+this was an original search from the WordPress site. 
+By removing the text from `#` onwards it might go to the right page.
 
-Please let us know by raising a GitHub issue or by emailing. 
-Details can be found on the [homepage](/).
+Alternatively use the Quarto site search in the top right (the magnifier) to 
+try to locate the correct content. 
 
+Do let us know of any broken links or missing pages by raising a GitHub issue or 
+emailing. Details can be found on the [Contact](/) page.
