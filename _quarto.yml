@@ -28,7 +28,7 @@ website:
       href: https://github.com/nhs-r-community
     right:
       - text: "About"
-        href: about/index.qmd
+        href: contact.qmd
         aria-label: About page
       - text: Events
         href: events.qmd

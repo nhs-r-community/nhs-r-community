@@ -21,6 +21,3 @@ We currently have the following events that are available for sign up by emailin
 
 [Coffee and Coding](https://events.nhsrcommunity.com/coffee-and-code/) - occurs every other week on alternating days. Details on the sessions, where recording are shared and how to join are in <https://nhsrway.nhsrcommunity.com/community-handbook.html#coffee-and-coding>
 
-## [event_type-conferences]{style="color:#768692;"}
-
-Redirected link from WordPress site
