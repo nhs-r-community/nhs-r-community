@@ -57,9 +57,9 @@ Contributions are very welcome. We appreciate code, documentation, bug fixes and
 [<img src="https://raw.githubusercontent.com/nhs-r-community/NHSRdatasets/main/inst/images/nhsrdatasetslogo.png" height="150" alt = "NHSRdatasets"/>](https://nhs-r-community.github.io/NHSRdatasets/)
 [<img src="https://raw.githubusercontent.com/nhs-r-community/NHSRepisodes/main/inst/images/nhsrepisodeslogo.png" height="150" alt = "NHSRepisodes"/>](https://nhs-r-community.github.io/NHSRepisodes/)
 [<img src="https://raw.githubusercontent.com/nhs-r-community/NHSRtheme/main/inst/images/nhsrthemelogo.png" height="150" alt = "NHSRtheme"/>](https://nhs-r-community.github.io/NHSRtheme/)
-[<img src="img/nhsrwaitinglistlogo.png" height="150" alt = "NHSRwaitinglist"/>](https://nhs-r-community.github.io/NHSRwaitinglist/)
-[<img src="img/nhsrpopulationlogo.png" height="150" alt = "NHSRpopulation"/>](https://nhs-r-community.github.io/NHSRpopulation/)
-[<img src="img/nhsrpostcodetoolslogo.png" height="150" alt = "NHSRpostcodetools"/>](https://nhs-r-community.github.io/NHSRpostcodetools/)
+[<img src="img/NHSRwaitinglistlogo.png" height="150" alt = "NHSRwaitinglist"/>](https://nhs-r-community.github.io/NHSRwaitinglist/)
+[<img src="img/NHSRpopulationlogo.png" height="150" alt = "NHSRpopulation"/>](https://nhs-r-community.github.io/NHSRpopulation/)
+[<img src="img/NHSRpostcodetoolslogo.png" height="150" alt = "NHSRpostcodetools"/>](https://nhs-r-community.github.io/NHSRpostcodetools/)
 
 
 
