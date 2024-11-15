@@ -42,6 +42,9 @@ website:
       - text: "Blogs"
         href: blog/index.qmd
         aria-label: Blogs page
+      - text: "R Packages"
+        href: packages.qmd
+        aria-label: R Packages page
       - text: "Getting Started"
         href: getting-started.qmd
         aria-label: Getting Started page
