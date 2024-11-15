@@ -73,7 +73,7 @@ website:
         href: ts-and-cs.qmd
         aria-label: Terms and Conditions
       - text: "Contact"
-        href: about/index.qmd
+        href: contact.qmd
         aria-label: Contacts on About Page
       - text: "Licence"
         href: licence.qmd
