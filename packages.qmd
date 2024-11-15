@@ -7,6 +7,7 @@ title-block-banner: false
 ---
 
 ```{r}
+#| echo: false
 # This function was used to create the default hex logos for packages that don't yet have a custom hex
 
 # p_family <- "Aller_Rg"
@@ -50,7 +51,7 @@ title-block-banner: false
 
 The NHS-R community has created and are developing R packages to support analytics in health and care. 
 
-Contributions are very welcome. We appreciate code, documentation, bug fixes and designs for hexes. Please feel free to tackle any of the issues in the package repos or create a new issue. If you have other code or ideas for new packages, please let us know.
+Contributions are very welcome. We appreciate code, documentation, bug fixes and designs for hexes. Please feel free to tackle any of the issues in the package GitHub repositories or create a new issue. If you have other code or ideas for new packages, please let us know.
 
 [<img src="https://raw.githubusercontent.com/nhs-r-community/NHSRplotthedots/main/inst/images/logo.png" height="150" alt = "NHSRplotthedots"/>](https://nhs-r-community.github.io/NHSRplotthedots/)
 [<img src="https://raw.githubusercontent.com/nhs-r-community/NHSRdatasets/main/inst/images/nhsrdatasetslogo.png" height="150" alt = "NHSRdatasets"/>](https://nhs-r-community.github.io/NHSRdatasets/)
