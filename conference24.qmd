@@ -130,6 +130,38 @@ Day one - we will take suggestions for informal group discussions which people c
 
 Day two - we will split the room so that people can move between the speaker sessions and the unconference. 
 
-For more information on unconferencing we have a [podcast talk](https://nhsrcommunity.substack.com/p/nhs-r-podcast-14th-december-unconferences-6da?utm_source=substack&utm_medium=email) with Pawel Orzechowski from the University of Edinburgh who introduced the idea of unconferencing to us and a [blog](blog/what-was-the-unconference.qmd) by Ben Murch on how it went at the conference.
+For more information on unconferencing we have a [podcast talk](https://nhsrcommunity.substack.com/p/nhs-r-podcast-14th-december-unconferences-6da?utm_source=substack&utm_medium=email) with Pawel Orzechowski from the University of Edinburgh who introduced the idea of unconferencing to us and a [blog](blog/what-was-the-unconference.qmd) by Ben Murch on how it went at the 2023 conference.
+
+RPySOC24 Unconference sessions:
+
+```{r}
+tibble::tribble(
+  ~Time, ~Title,
+  "09:55", "NLP techniques and practical usage questions/discussions ",
+  "09:55", "CPD from entry-level to C10 – whats worth doing questions/discussions",
+  "10:20", "RAP chat",
+  "10:20", "Analytical bugbears - what makes you go grrr!",
+  "11:15", "I know R, should I learn Python? I know Python, should I learn R?",
+  "11:15", "Structuring a BI Team to allow different skillsets to flourish",
+  "11:15", "Data literacy in relation to linked data sets (Sudlow review): who needs it? And where do we start?",
+  "11:15", "Data scientists vs data analysts: are we different?",
+  "11:40", "Deploying streamlit/shiny/plotly dash apps securely",
+  "11:40", "How do we balance using cool AI tools with our environmental responsibilities",
+  "13:10", "Do everything in github",
+  "13:10", "Writing tests into my code – tips pls!",
+  "13:50", "Methods in github sustainability",
+  "13:50", "Practically introducing R training within our organisation",
+  "13:50", "How can we better use data to annual plan in an acute hospital",
+  "14:20", "Quarto reporting",
+  "14:20", "How to convince managers that we need data science",
+  "14:20", "System dynamics simulation",
+
+) |>
+  gt::gt() |>
+  gt::cols_width(
+    Time ~ px(110),
+    Title ~ px(500),
+  )
+```
 
 :::
