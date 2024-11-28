@@ -32,6 +32,8 @@ This site is currently being moved from WordPress to Quarto. Once this is workin
 
 - **Fosstodon (Mastodon):** [@NHSrCommunity@fosstodon.org](https://fosstodon.org/@NHSrCommunity)
 
+- **Bluesky:** [nhsrcommunity.bsky.social](https://bsky.app/profile/nhsrcommunity.bsky.social)
+
 For details on how NHS-R Community use social media can be found in the NHS-R Community book chapter [Community Handbook](https://nhsrway.nhsrcommunity.com/community-handbook.html#social-media).
 
 ## Special thanks
