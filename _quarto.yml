@@ -61,6 +61,8 @@ website:
     center: |
       <a href="https://fosstodon.org/@NHSrCommunity" aria-label="Go to NHSR's Fosstodon page" title="mastodon" target="_blank" rel="noopener">
         <i class="link-dark me-1" aria-hidden="true"></i> {{< fa brands mastodon >}}</a>
+      <a href="https://bsky.app/profile/nhsrcommunity.bsky.social" aria-label="Go to NHSR's Bluesky page" title="bluesky" target="_blank" rel="noopener">
+        <i class="link-dark me-1" aria-hidden="true"></i> {{< iconify fa6-brands bluesky >}}</a>
       <a href="https://github.com/nhs-r-community" aria-label="Go to NHSR's GitHub" title="github" target="_blank" rel="noopener">
         <i class="link-dark me-1" aria-hidden="true"></i> {{< fa brands github >}}</a>
       <a href="https://soundcloud.com/nhs-r-community" aria-label="Go to NHSR's SoundCloud" title="soundcloud" target="_blank" rel="noopener">
