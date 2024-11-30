@@ -166,3 +166,4 @@ NHS-R Community hosts very popular, free, [workshops and webinars](https://nhsrw
 
 All our materials are free to use, copy and change and we publish all our [joining instructions](https://nhsrway.nhsrcommunity.com/training.html).
 
+Answer queries posted in help-with-r channel of the [Slack](https://postcard.nhsrcommunity.com/)
