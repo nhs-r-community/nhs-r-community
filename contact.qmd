@@ -34,6 +34,8 @@ This site is currently being moved from WordPress to Quarto. Once this is workin
 
 - **Bluesky:** [nhsrcommunity.bsky.social](https://bsky.app/profile/nhsrcommunity.bsky.social)
 
+- **Slack:** [postcard.nhsrcommunity.com](https://postcard.nhsrcommunity.com/)
+
 For details on how NHS-R Community use social media can be found in the NHS-R Community book chapter [Community Handbook](https://nhsrway.nhsrcommunity.com/community-handbook.html#social-media).
 
 ## Special thanks
