@@ -339,6 +339,15 @@
         "review",
         "bug"
       ]
+    },
+    {
+      "login": "helenajr",
+      "name": "Helena Robinson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/63923671?v=4",
+      "profile": "https://github.com/helenajr",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,

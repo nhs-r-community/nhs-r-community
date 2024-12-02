@@ -1,6 +1,6 @@
 # Source code for NHS-R Community website
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-36-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-37-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Following the values and commitment of the NHS-R Community to open source this website has been built in Quarto to be open in its code and further contribution.
@@ -69,6 +69,7 @@ All the blog posts are being saved under the original titles so that when this s
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://rhian.rbind.io"><img src="https://avatars.githubusercontent.com/u/7017740?v=4?s=100" width="100px;" alt="Rhian Davies"/><br /><sub><b>Rhian Davies</b></sub></a><br /><a href="https://github.com/nhs-r-community/nhs-r-community/pulls?q=is%3Apr+reviewed-by%3AStatsRhian" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/nhs-r-community/nhs-r-community/issues?q=author%3AStatsRhian" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/helenajr"><img src="https://avatars.githubusercontent.com/u/63923671?v=4?s=100" width="100px;" alt="Helena Robinson"/><br /><sub><b>Helena Robinson</b></sub></a><br /><a href="https://github.com/nhs-r-community/nhs-r-community/commits?author=helenajr" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
