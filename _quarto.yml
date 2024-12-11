@@ -31,8 +31,8 @@ website:
         href: contact.qmd
         aria-label: About page
       - text: Events
-        href: events.qmd
-        aria-label: Events website
+        href: https://events.nhsrcommunity.com/
+        aria-label: Events on Pretix
       - text: conference
         href: conference24.qmd
         aria-label: conference page

@@ -18,7 +18,7 @@ I’ll be doing a [workshop](https://www.eventbrite.co.uk/e/nhs-r-community-invi
 
 A special shout out to our administrative support (who will be reluctant to be named directly but if you are in the Slack group then you’ll know who I’m referring to!) for working so hard putting together the several days worth of talks we have for the NHS-R Conference. We’ll have the in person days on 17-18 October which are also viewable online but then there will be specific online days on 9-11 October.
 
-Sign up through the [website](https://nhsrcommunity.com/events/#event_type-conferences) where you will need to register first. Details on how we manage the website and accounts are in the [NHS-R Way book](https://nhsrway.nhsrcommunity.com/community-handbook.html#website) and if you have any issues with setting up an account please check out the book for more details.
+Sign up through the website where you will need to register first. Details on how we manage the website and accounts are in the [NHS-R Way book](https://nhsrway.nhsrcommunity.com/community-handbook.html#website) and if you have any issues with setting up an account please check out the book for more details.
 
 # **R for Data Science project**
 

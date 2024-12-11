@@ -11,7 +11,7 @@ title-block-banner: false
 To read about why open source tools and analysis can help with our work and to get specific technical guidance on setting up those tools see our book [Statement on Tools](https://tools.nhsrcommunity.com/).
 The technical appendices are written as instructions to get started but can also be shared with IT teams when getting things installed on networked computers and help to explain what is needed when asking for "R" on your computer.
 
-We have very popular, volunteer led, workshops for [Introduction to R and RStudio](https://nhsrcommunity.com/events/) and whilst they are really popular it’s worth going on the waiting list as we sometimes offer spare places or notify people on the list of new courses. We also promote them through Slack and you are welcome to join <https://nhsrcommunity.slack.com/>
+We have very popular, volunteer led, workshops for [Introduction to R and RStudio](https://events.nhsrcommunity.com/) and whilst they are really popular it’s worth going on the waiting list as we sometimes offer spare places or notify people on the list of new courses. We also promote them through Slack and you are welcome to join <https://nhsrcommunity.slack.com/>
 
 All the materials for our courses are free to use and reuse/change:
 
