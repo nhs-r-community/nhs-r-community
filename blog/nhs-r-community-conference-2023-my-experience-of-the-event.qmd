@@ -34,17 +34,11 @@ In this section below, I have listed the links to conference contents for each o
 **NHS- R/NHS.pycom Conference: Online Conference Talks – Monday 9th October 2023**
 Conference recording on YouTube:<https://www.youtube.com/watch?v=X-fyKq1GXQI>
 
-Conference contents:<https://nhsrcommunity.com/events/nhs-r-nhs-pycom-online-conference-talks-2023-ticket-for-virtual-attendance-on-monday-09th-october-2023/>
-
 **NHS- R/NHS.pycom Conference: Online Conference Talks – Tuesday 10th October 2023**
 Conference recording on YouTube:<https://www.youtube.com/watch?v=laKYVuElROs&t=1s>
 
-Conference contents:<https://nhsrcommunity.com/events/nhs-r-nhs-pycom-online-conference-talks-2023-ticket-for-virtual-attendance-on-tuesday-10th-october-2023/>
-
 **NHS- R/NHS.pycom Conference: Online Conference Talks – Wednesday 11th October 2023**
 Conference recording on YouTube:<https://www.youtube.com/watch?v=3uSbLT7ISPc>
-
-Conference contents:<https://nhsrcommunity.com/events/nhs-r-nhs-pycom-online-conference-talks-2023-ticket-for-virtual-attendance-on-wednesday-11th-october-2023/>
 
 Also I really appreciated that during and after the Conference, on the slack channel and on the NHS-R Conference website, all the GitHub repositories were made available with the talk slides and materials presented:   <https://github.com/chrismainey/GAMworkshop>
 
@@ -78,7 +72,6 @@ Workshop recording on YouTube:<https://www.youtube.com/watch?v=_D4llf41KC8>
 
 
 NHS-R/NHS.pycom Online Conference Workshop 2023 – Introduction to Regression Modelling in R
-<https://nhsrcommunity.com/events/nhs-r-nhs-pycom-online-conference-workshop-2023-introduction-to-regression-modelling-in-r/>
 
 NHS-R/NHS.pycom Online Conference Workshop 2023 – Data Visualisation with Seaborn
 Workshop recording on YouTube: <https://www.youtube.com/watch?v=LZdbCOOdsPE>
