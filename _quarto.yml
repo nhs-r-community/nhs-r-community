@@ -58,6 +58,7 @@ website:
   page-footer:
     left: >-
      {{< now year >}} NHS-R Community &#8729; Made with [![Quarto](https://quarto.org/quarto.png){fig-alt="Quarto logo blue round circle with a cross within the circumference" width=65px}](https://quarto.org/)
+# The now year is from a Quarto extension https://www.garrickadenbuie.com/blog/quarto-now/
     center: |
       <a href="https://fosstodon.org/@NHSrCommunity" aria-label="Go to NHSR's Fosstodon page" title="mastodon" target="_blank" rel="noopener">
         <i class="link-dark me-1" aria-hidden="true"></i> {{< fa brands mastodon >}}</a>
