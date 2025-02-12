@@ -57,7 +57,7 @@ The `ifelse()` block looks at whether the Z Score is below 0, if so tag as below
 
 The next two steps are to convert the Car Brand into a unique factor and to sort by the Z Score calculations:
 
-Now, I have everything I need to start to compute the plot. Great stuff, so let’s get plotting.
+Now, I have everything I need to start to compute the plot. Great stuff, so let's get plotting.
 ```{r}
 mtcars <- mtcars[order(mtcars$mpg_z_score), ] # Ascending sort on Z Score
 mtcars$CarBrand <- factor(mtcars$CarBrand, levels = mtcars$CarBrand)

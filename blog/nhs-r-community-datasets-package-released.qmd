@@ -28,12 +28,12 @@ Several community members have mentioned the difficulties learning and teaching 
 
 For those of us wanting to contribute to Open Source software, or practise using Git and GitHub, it also provides an opportunity to learn/practise these skills by contributing data.
 
-What’s in it? At present we have two data sets:
+What's in it? At present we have two data sets:
 
 | Name           | Contributor  | Summary                                                               |
 |----------------|--------------|-----------------------------------------------------------------------|
 | LOS_model      | Chris Mainey | Simulated hospital data, originally for learning regression modelling |
-| ae_attendances | Tom Jemmett  | NHS England’s published A&E attendances, breaches and admission data  |
+| ae_attendances | Tom Jemmett  | NHS England's published A&E attendances, breaches and admission data  |
 
 
 Both datasets have help files that explain the source, data columns, and give examples of use. The package also contains vignettes that show the datasets being put to use. You can find them in the help files, or using:

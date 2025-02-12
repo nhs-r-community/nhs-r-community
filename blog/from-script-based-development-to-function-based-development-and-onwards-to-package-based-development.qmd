@@ -11,9 +11,9 @@ subtitle: >
 
 At the NHS R Conference, I suggested to people that they should embrace the idea of package-based development rather than script-based work.
 
-I’m going to talk you through that process, using the simplest of scripts – ‘Hello World’. I’m going to assume that you’re using the freely available RStudio Desktop Edition as the editor for this: other versions of RStudio are likely to be essentially identical. Non R-Studio users may need to revert to more basic principles.
+I'm going to talk you through that process, using the simplest of scripts – ‘Hello World'. I'm going to assume that you're using the freely available RStudio Desktop Edition as the editor for this: other versions of RStudio are likely to be essentially identical. Non R-Studio users may need to revert to more basic principles.
 
-First let’s write ‘Hello World’ – the simplest R script in the world. Open a new R script file and get your script underway:
+First let's write ‘Hello World' – the simplest R script in the world. Open a new R script file and get your script underway:
 
 ```{r}
 message("Hello World from the NHS-R Community!")
@@ -23,17 +23,17 @@ Save it (for posterity).
 
 In the conference, we discussed that generally writing functions is more helpful than writing scripts as it gives you greater re-usability. This example is a very trivial one (in fact so trivial as to be nearly redundant).
 
-So we consider our script carefully and determine – what does it DO? Clearly it’s a way of greeting a person. What if we wanted to greet the person in a different way? What if we wanted to greet a different person?
+So we consider our script carefully and determine – what does it DO? Clearly it's a way of greeting a person. What if we wanted to greet the person in a different way? What if we wanted to greet a different person?
 
-So we have defined it’s purpose, and the parameters that are likely to be useful to others.
+So we have defined it's purpose, and the parameters that are likely to be useful to others.
 
-Let’s re-write our script to be more useable.
+Let's re-write our script to be more usable.
 
 We define a function using the function function. You can see a much more detailed tutorial of how to do this here: [http://stat545.com/block011_write-your-own-function-01.html](http://stat545.com/block011_write-your-own-function-01.html).
 
 A function is defined by assigning the result of the function() function to a variable which is the function name. The parameters of `function()` are our new parameter names in our function.
 
-It is really important to name your function clearly so people know what it does. Generally use active verbs to describe intent, and a consistent naming scheme. Also choose appropriate and clear names for the parameters. So let’s call our new function greet_person, and we will call our parameters greeting and recipient.
+It is really important to name your function clearly so people know what it does. Generally use active verbs to describe intent, and a consistent naming scheme. Also choose appropriate and clear names for the parameters. So let's call our new function greet_person, and we will call our parameters greeting and recipient.
 
 Our new code will look like this. Stick this into a new R script for now and run it:
 
@@ -43,15 +43,15 @@ greet_person <- function(greeting, sender) {
 }
 ```
 
-Once you’ve run your script you can now call your function from the console:
+Once you've run your script you can now call your function from the console:
 
 greet_person(“Hello World”, “the NHS-R Community!”) And of course if you want to use a different greeting we can now change our parameter value:
 
 greet_person(“Welcome”, “the NHS-R Community!”) So far so good.
 
-But – we’ve had to repeat our sender parameter. What if we know we’re usually going to use that first Hello World greeting; but we just want the option of doing something different if the situation arises?
+But – we've had to repeat our sender parameter. What if we know we're usually going to use that first Hello World greeting; but we just want the option of doing something different if the situation arises?
 
-We can get around that by supplying default values. In the function() function we can set a value to both greeting and sender using =. Let’s set default values for greet_person:
+We can get around that by supplying default values. In the function() function we can set a value to both greeting and sender using =. Let's set default values for greet_person:
 
 ```{r}
 greet_person <- function(greeting = "Hello World", sender = "the NHS-R Community!") {
@@ -59,19 +59,19 @@ greet_person <- function(greeting = "Hello World", sender = "the NHS-R Community
 }
 ```
 
-Now if you want our ‘default’ message you can just call:
+Now if you want our ‘default' message you can just call:
 
 ```{r}
 greet_person()
 ```
 
-But you can customise either parameter without having to specify anything you don’t want to change:
+But you can customise either parameter without having to specify anything you don't want to change:
 
 ```{r}
 greet_person(sender = "Drew Hill")
 ```
 
-Instead of “Drew Hill” from our previous example, you’ll see the sender is “1”.
+Instead of “Drew Hill” from our previous example, you'll see the sender is “1”.
 
 What if you accidentally sent a vector of names? R will turn those into a concatenated string of names without spaces:
 
@@ -111,7 +111,7 @@ greet_person(sender = NULL)
 Error in greet_person(sender = NULL) : sender must be a string
 ```
 
-We also know that our function actually isn’t very good at handling vectors of strings (that is where there is more than one name): it will simply shove them all together without spaces. However it works and is perfectly functional. So we have a design decision: do we want to allow that, or not? A third way might be to allow it but to use a warning – perhaps a little over the top in our example, but for complex examples that may make more sense. Whereas stop will halt the code and force you to fix your bugs, the `warning()` function lets the code continue but tells you to go back and do it better later. Let’s add a warning if there was more than one sender:
+We also know that our function actually isn't very good at handling vectors of strings (that is where there is more than one name): it will simply shove them all together without spaces. However it works and is perfectly functional. So we have a design decision: do we want to allow that, or not? A third way might be to allow it but to use a warning – perhaps a little over the top in our example, but for complex examples that may make more sense. Whereas stop will halt the code and force you to fix your bugs, the `warning()` function lets the code continue but tells you to go back and do it better later. Let's add a warning if there was more than one sender:
 
 ```{r}
 greet_person <- function(greeting = "Hello World", sender = "the NHS-R Community!") {
@@ -132,13 +132,13 @@ greet_person <- function(greeting = "Hello World", sender = "the NHS-R Community
 }
 ```
 
-If we now called the function with two senders we’d be able to do so but would get politely told that it’s not a good idea:
+If we now called the function with two senders we'd be able to do so but would get politely told that it's not a good idea:
 
 ```{r}
 greet_person(sender = c("Jim", "Bob"))
 ```
 
-So – hopefully from this you’ve moved from having a script which would only do precisely what you wanted in a single set of circumstances, to now having a natty little function which will say greet whoever you want, with the type of greeting that you want.
+So – hopefully from this you've moved from having a script which would only do precisely what you wanted in a single set of circumstances, to now having a natty little function which will say greet whoever you want, with the type of greeting that you want.
 
 As an exercise to complete: imagine you work in the NHS-R community welcoming team. You are tasked with sending greetings from the team on a regular basis.
 

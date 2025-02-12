@@ -47,7 +47,7 @@ Really good 1hr overview video from the Oxford Internet Institute to the Goldacr
 ## **NHSRplotthedots**
 
 Going to have a bit of a push towards version 0.2 by conference time.\
-Any users who have quibbles / potential bugs, now’s the time to talk / raise issues / get them understood and addressed.\
+Any users who have quibbles / potential bugs, now's the time to talk / raise issues / get them understood and addressed.\
 Auto-rebasing. Discussion about pros and cons <https://github.com/nhs-r-community/NHSRplotthedots/issues/151>\
 Any users who have some time to help with writing material for a training workshop?\
 <https://github.com/nhs-r-community/NHSRplotthedots/issues>

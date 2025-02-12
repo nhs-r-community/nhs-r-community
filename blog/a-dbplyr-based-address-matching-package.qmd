@@ -31,13 +31,13 @@ install.packages("devtools")
 devtools::install_github("nhsbsa-data-analytics/addressMatchR")
 ```
 
-This package has been created and configured to work with database tables, as people or teams often need or want to match addresses in bulk. This could be tens or even hundreds of million records, which may not be feasible within a local R environment. For that reason, all of the functions have been configured to work with {dbplyr}, so the data being matched never ‘leaves’ the database.
+This package has been created and configured to work with database tables, as people or teams often need or want to match addresses in bulk. This could be tens or even hundreds of million records, which may not be feasible within a local R environment. For that reason, all of the functions have been configured to work with {dbplyr}, so the data being matched never 'leaves' the database.
 
 For those encountering {dbplyr} for the first time, it is a package which enables users to use remote database tables as if they are in-memory data frames by automatically converting `{dplyr}` code into `SQL`. The advantage of this is that `{dplyr}` functions can be used to query a database and process the output using succinct and easy-to-read code. A disadvantage is that `{dbplyr}` code sometimes needs to be structured in a way to optimise how it is converted into `SQL`. More information on {dbplyr} can be found here: [A dplyr backend for databases • dbplyr (tidyverse.org)](https://dbplyr.tidyverse.org/)
 
 ## **Connect to a database**
 
-The first thing to do when using {dbplyr} is to connect to a database, after which tables within a user’s schema can be queried. These objects are referred to as ‘lazyframes’ rather than dataframes, with the tables still being remote. We first need to establish a database connection, using our database connection details and authentication.
+The first thing to do when using {dbplyr} is to connect to a database, after which tables within a user's schema can be queried. These objects are referred to as 'lazyframes' rather than dataframes, with the tables still being remote. We first need to establish a database connection, using our database connection details and authentication.
 
 ```{r}
 con <- DBI::dbConnect(
@@ -115,7 +115,7 @@ The key features of the matching algorithm are listed below:
 
 -   If an address could not be Non-Exact matched it was excluded from the output
 
--   Non-Exact matching is conducted on a postcode level. For example, an address from postcode ‘NE1 5DL’ would only be matched against other addresses that shared the same postcode.
+-   Non-Exact matching is conducted on a postcode level. For example, an address from postcode 'NE1 5DL' would only be matched against other addresses that shared the same postcode.
 
 -   The matching algorithm generates a matching score for each lookup-address that an address is matched against. For example, if 30 lookup-addresses share the same postcode, each of these 30 addresses would be scored against the address.
 
@@ -123,7 +123,7 @@ The key features of the matching algorithm are listed below:
 
 -   Token-level scoring uses the Jaro-Winkler string similarity algorithm.
 
--   However, numerical tokens don’t use Jaro-Winkler and are scored slightly differently and given a higher weighting.
+-   However, numerical tokens don't use Jaro-Winkler and are scored slightly differently and given a higher weighting.
 
 -   All of the token-level scores are aggregated to give a final score, for every lookup-address an address was matched against.  
 
@@ -161,7 +161,7 @@ ADDRESS_ONE         POSTCODE_ONE ADDRESS_TWO         SCORE MATCH_TYPE
 
 The output shows the following has happened:
 
--   The 2 records with postcode ABCD333 from data_one weren’t matched, as no records from data_two shared the same postcode.
+-   The 2 records with postcode ABCD333 from data_one weren't matched, as no records from data_two shared the same postcode.
 
 -   Only 1 record from data_one had an Exact match and the remaining records were considered for a Non-Exact match.
 
@@ -184,7 +184,7 @@ results_db %>%
   )
 ```
 
-Using this second method, at no point during the workflow will any of the data have been ‘at rest’ within our R environment. As mentioned, this means such a workflow can work with far larger volumes of data, as is often the case with address matching. Finally, we then need to remember to disconnect from the database and delete our dummy address data.
+Using this second method, at no point during the workflow will any of the data have been 'at rest' within our R environment. As mentioned, this means such a workflow can work with far larger volumes of data, as is often the case with address matching. Finally, we then need to remember to disconnect from the database and delete our dummy address data.
 
 ```{r}
 DBI::dbRemoveTable(con, "TEST_ADDRESS_DATA_ONE")
@@ -210,7 +210,7 @@ There are many ways to match address information with none being perfect. Some c
 
 -   The code has been configured to work with an Oracle database, so some functions may require tweaking for different databases. Please get in touch if you require any assistance or advice about this
 
--   If a postcode is incorrect, an address will attempt to be matched against the ‘wrong street’.
+-   If a postcode is incorrect, an address will attempt to be matched against the 'wrong street'.
 
 -   Address records with no postcode or an invalid postcode will not be able to be matched.
 

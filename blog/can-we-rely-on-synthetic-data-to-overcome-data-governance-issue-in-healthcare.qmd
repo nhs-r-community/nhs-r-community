@@ -16,7 +16,7 @@ I recently came across a term **synthetic data**. I start wondering what does it
 
 I become curious to find out more about it, as nowadays it is difficult to get hold of healthcare data (that is., NHS). The most prominent issues seem to link to data governance and access, as this information is personal sensitive data.
 
-I investigated methods for creating ‘synthetic data’ as a tool that might help to develop better prediction models, as data could be available for a much larger pool of people, who can tackle these data governance and other challenging healthcare issues.
+I investigated methods for creating ‘synthetic data' as a tool that might help to develop better prediction models, as data could be available for a much larger pool of people, who can tackle these data governance and other challenging healthcare issues.
 
 ### **What is Synthetic data?**
 
@@ -131,7 +131,7 @@ For more discussion about {synthpop} R package <http://gradientdescending.com/ge
 
 ### **Summary**
 
-In many ways, synthetic data reflects George Box’s observation that “all models are wrong, but some are useful” while providing a “useful approximation \[of\] those found in the real world,”
+In many ways, synthetic data reflects George Box's observation that “all models are wrong, but some are useful” while providing a “useful approximation \[of\] those found in the real world,”
 
 The connection between the clinical outcomes of a patient visits and costs rarely exist in practice, so being able to assess these trade-offs in synthetic data allow for measurement and enhancement of the value of care – cost divided by outcomes.
 

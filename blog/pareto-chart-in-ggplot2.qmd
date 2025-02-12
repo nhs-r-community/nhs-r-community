@@ -125,7 +125,7 @@ Running this code produces the Pareto plot, as below:
 #| echo: false
 ```
 
-That’s it, we now have an excellent looking chart that can be reproduced every time R is refreshed.
+That's it, we now have an excellent looking chart that can be reproduced every time R is refreshed.
 
 This blog was written by Gary Hutson, Principal Analyst, Activity & Access Team, Information & Insight at Nottingham University Hospitals NHS Trust, and was originally posted at [Hutson-Hacks](http://hutsons-hacks.info/pareto-chart-in-ggplot2).
 

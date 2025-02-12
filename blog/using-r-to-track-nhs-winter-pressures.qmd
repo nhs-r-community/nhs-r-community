@@ -15,10 +15,9 @@ execute:
   cache: true
   freeze: true
 subtitle: >
-  "I created an app which shows the distribution of a waitlist’s volume over time."
 ---
 
-**Every Thursday during winter, roughly from December to March, NHS Digital releases a week’s worth of hospital performance data,** known as the [Daily Situation Reports](https://www.england.nhs.uk/statistics/statistical-work-areas/winter-daily-sitreps/winter-daily-sitrep-2018-19-data/). This data often receives media attention because cold weather and seasonal illnesses can lead to higher demand for hospital care, meaning that services might be under increased pressure. At the [Health Foundation](https://www.health.org.uk/), one of our aims is to provide new insight into the quality of health care through in-depth analysis of policy and data. So, to understand more about the current demand for hospital care and the challenges the NHS is facing, [we keep a close eye on the latest seasonal trends](https://www.health.org.uk/news-and-comment/blogs/the-nhs-this-winter-looking-beneath-the-national-view).
+**Every Thursday during winter, roughly from December to March, NHS Digital releases a week's worth of hospital performance data,** known as the [Daily Situation Reports](https://www.england.nhs.uk/statistics/statistical-work-areas/winter-daily-sitreps/winter-daily-sitrep-2018-19-data/). This data often receives media attention because cold weather and seasonal illnesses can lead to higher demand for hospital care, meaning that services might be under increased pressure. At the [Health Foundation](https://www.health.org.uk/), one of our aims is to provide new insight into the quality of health care through in-depth analysis of policy and data. So, to understand more about the current demand for hospital care and the challenges the NHS is facing, [we keep a close eye on the latest seasonal trends](https://www.health.org.uk/news-and-comment/blogs/the-nhs-this-winter-looking-beneath-the-national-view).
 
 **Keeping on top of NHS winter indicators has the potential to keep us analysts busy.** The raw data is published in a fairly complex spreadsheet, requires a decent amount of cleaning and needs to be reanalysed after every release. In addition to monitoring national figures, this winter our team at the Health Foundation also wanted to see if there might be any variation between different areas of England. Sustainability and transformation partnerships (STPs) are areas where health and care leaders develop shared proposals for local services. Therefore, we enriched the raw data with information about where hospitals are located, and which STP they belong to. But with a similar analytical approach, more fine-grained local structures (such as [Clinical Commissioning Groups]()) could be used.
 
@@ -26,7 +25,7 @@ subtitle: >
 Original link to STPs page has moved. Original link shared <https://www.england.nhs.uk/integratedcare/stps/view-stps/>
 :::
 
-For a **more efficient and reproducible way of tracking NHS winter indicators** this year, we moved to our whole analysis pipeline to R. We then used the clean data for visualisations in R and other applications, like Tableau. This blog takes you through our analysis workflow and describes how we got through some tricky steps. The complete R script is also available on GitHub, if you want to give it a go yourself. You can also read a [blog](https://www.health.org.uk/news-and-comment/blogs/the-nhs-this-winter-looking-beneath-the-national-view) on the Health Foundation’s website to find out why we looked at local areas this year and what we found.
+For a **more efficient and reproducible way of tracking NHS winter indicators** this year, we moved to our whole analysis pipeline to R. We then used the clean data for visualisations in R and other applications, like Tableau. This blog takes you through our analysis workflow and describes how we got through some tricky steps. The complete R script is also available on GitHub, if you want to give it a go yourself. You can also read a [blog](https://www.health.org.uk/news-and-comment/blogs/the-nhs-this-winter-looking-beneath-the-national-view) on the Health Foundation's website to find out why we looked at local areas this year and what we found.
 
 ::: aside
 Original link to GitHub has been moved. Originally shared <https://github.com/fiona-grimm/NHS_winter_pressures>. Could be <https://github.com/HFAnalyticsLab/Winter_pressures>
@@ -40,7 +39,7 @@ Analysts at many other local and national organisations are interested in NHS wi
 -   illustrate how and why we made certain analytical decisions and
 -   discuss what we learned along the way, both about the data and R.
 
-We hope that this blog will inspire others to do the same, and to share their code too. Here, we won’t try to interpret any regional differences in winter performance. We know that there are several factors involved, so we will leave this up to others with more local knowledge.
+We hope that this blog will inspire others to do the same, and to share their code too. Here, we won't try to interpret any regional differences in winter performance. We know that there are several factors involved, so we will leave this up to others with more local knowledge.
 
 # 1. R packages we used
 
@@ -57,7 +56,7 @@ library(readxl)
 library(sf)
 ```
 
-Note: if you would like to run this code in your own R session and you haven’t installed these packages already, you will need to do so (once) using the `install.packages()` function.
+Note: if you would like to run this code in your own R session and you haven't installed these packages already, you will need to do so (once) using the `install.packages()` function.
 
 # 2. Data download from NHS Digital
 
@@ -88,7 +87,7 @@ GET(url, write_disk(filename <- tempfile(fileext = ".xlsx")))
 
 How we tackled multi-line headers with merged cells
 
-Once we opened the file in Excel, we saw a number of sheets containing different indicators. With a few exceptions, most have a similar table structure. As we were interested in patient flow through hospitals, we focused on ‘**General and acute beds**’ and **‘Beds occupied by long-stay patients**’ for now.
+Once we opened the file in Excel, we saw a number of sheets containing different indicators. With a few exceptions, most have a similar table structure. As we were interested in patient flow through hospitals, we focused on ‘**General and acute beds**' and **‘Beds occupied by long-stay patients**' for now.
 
 What the sheets with these indicators had in common was that there was **metadata** in the first 13 lines followed by a two-line **header**. Several columns containing variables (second header line) were grouped within dates (first header line) and the cells around the dates were merged. There were also some empty columns and rows, which we addressed later on.
 
@@ -208,7 +207,7 @@ import_sitrep <- function(file, indicator) {
 }
 ```
 
-Now that we had our import function, we were ready to read and combine the sheets containing the winter indicators ‘**General and acute beds**’ and ‘**Beds occupied by long-stay patients**’.
+Now that we had our import function, we were ready to read and combine the sheets containing the winter indicators ‘**General and acute beds**' and ‘**Beds occupied by long-stay patients**'.
 
 ```{r}
 sheets_to_import <- c("G&A beds", "Beds Occ by long stay patients")
@@ -248,21 +247,21 @@ The data was now tidy, as each variable formed a column and each observation for
 
 ## Trust exclusions
 
-We excluded the three **children’s hospitals** when calculating aggregate measures, such as the average bed occupancy within STPs. Our reasoning was that their patient profiles would be different from other acute trusts and this might skew the averages. Nevertheless, we kept track of them at a trust level.
+We excluded the three **children's hospitals** when calculating aggregate measures, such as the average bed occupancy within STPs. Our reasoning was that their patient profiles would be different from other acute trusts and this might skew the averages. Nevertheless, we kept track of them at a trust level.
 
-This applies to Birmingham Women’s and Children’s NHS Foundation Trust (code **RQ3**), Alder Hey Children’s NHS Foundation Trust (**RBS**) and Sheffield Children’s NHS Foundation Trust (**RCU**).
+This applies to Birmingham Women's and Children's NHS Foundation Trust (code **RQ3**), Alder Hey Children's NHS Foundation Trust (**RBS**) and Sheffield Children's NHS Foundation Trust (**RCU**).
 
 ```{r}
 trusts_to_exclude_for_aggregation <- c("RQ3", "RBS", "RCU")
 ```
 
-## How we approached defining ‘missingness’: when is a zero not a zero?
+## How we approached defining ‘missingness': when is a zero not a zero?
 
 Data collection and validation errors do happen, so finding suspicious data points is an important step during data cleaning.
 
-While this is easy if a value is missing (or NA), it’s much harder to decide whether a zero truly represents ‘zero events’ or a missing value (in fact, it could even be both within the same data set). To distinguish between the two, at the Health Foundation we came up with the following criteria:
+While this is easy if a value is missing (or NA), it's much harder to decide whether a zero truly represents ‘zero events' or a missing value (in fact, it could even be both within the same data set). To distinguish between the two, at the Health Foundation we came up with the following criteria:
 
-- How likely is a ‘zero event’ for an indicator? For example, when counting beds in a large hospital the likelihood of having zero open seems small, but when counting long-stay patients having none seems possible.
+- How likely is a ‘zero event' for an indicator? For example, when counting beds in a large hospital the likelihood of having zero open seems small, but when counting long-stay patients having none seems possible.
 - How consistent is the zero value, in that trust, over time? Or in plain English: does the value jump from a higher number to zero (and back) or is it hovering somewhere close to zero.
 
 The next two sections describe how we found and dealt with these missing values.
@@ -273,7 +272,7 @@ If any hospital trust had missing values, in any indicator, on **4 or more conse
 
 Why this particular cut-off? We wanted to aggregate the data and calculating weekly averages did not seem justified if we were missing more than half of a week for any trust.
 
-Here’s how we summed up how many consecutive days were zero or NA within each trust/variable combination:
+Here's how we summed up how many consecutive days were zero or NA within each trust/variable combination:
 
 ```{r}
 # Only check variables that are not derived from other variables
@@ -335,9 +334,9 @@ When we filtered for 4 or more consecutive days, we found that:
 - Trust **RQW** had a gap of 7–8 days, that coincided for the indicators shown (we checked this separately in the raw data).
 - Trust **RAX** reported zero long-stay patients (of any length of stay) for 6 days during January, but reported a high number before and after.
 
-Based on this, all variables from the trusts RTD, RQW and RAX were excluded from the analysis of this year’s (2018/19) winter data. This left us with 128 out of 134 trusts.
+Based on this, all variables from the trusts RTD, RQW and RAX were excluded from the analysis of this year's (2018/19) winter data. This left us with 128 out of 134 trusts.
 
-It’s worth noting that with this data-driven approach different trusts might be excluded each year and the number of excluded trusts could change over the winter period as new ‘gaps’ appear. Keep this in mind when making comparisons, both throughout the winter period and between years.
+It's worth noting that with this data-driven approach different trusts might be excluded each year and the number of excluded trusts could change over the winter period as new ‘gaps' appear. Keep this in mind when making comparisons, both throughout the winter period and between years.
 
 ```{r}
 trusts_to_exclude <- Days_missing %>%
@@ -401,10 +400,10 @@ Days_missing %>%
 # 11 RQX               NA                 3                 3                3              NA
 ```
 
-Most of the remaining gaps (42 out of 54) consisted of only a single day and they were mostly found in variables relating to long-stay patients. To judge whether these looked like real ‘zero events’ or were more likely to be reporting errors, we had a closer look at the data:
+Most of the remaining gaps (42 out of 54) consisted of only a single day and they were mostly found in variables relating to long-stay patients. To judge whether these looked like real ‘zero events' or were more likely to be reporting errors, we had a closer look at the data:
 
 ```{r}
-#| fig-cap: "Before cleaning: plots showing the subset of trusts reporting ‘0’ in any (non-derived) variable."
+#| fig-cap: "Before cleaning: plots showing the subset of trusts reporting ‘0' in any (non-derived) variable."
 # Extract and plot trusts with zeros in their data.
 Sitrep_daily_small_gaps <- Sitrep_daily %>%
   select(code, date, cols_to_check) %>%
@@ -529,7 +528,7 @@ Sitrep_daily <- Sitrep_daily %>%
   left_join(STP_lookup[c("code", "STP", "STP_code")], by = c("code"))
 ```
 
-The lookup table is also available on Github. Please note that STPs change and develop over time, so if you would like to use it, it’s worth checking that the information is up to date.
+The lookup table is also available on Github. Please note that STPs change and develop over time, so if you would like to use it, it's worth checking that the information is up to date.
 
 ## Making read-outs comparable between trusts: from raw counts to rates
 
@@ -555,7 +554,7 @@ First, we created a new column that contained the corresponding month. The month
 
 For weekly averages, an alternative would have been to create a new column containing the date of the respective beginning of the week using the `cut()` function (also shown below).
 
-We know it’s also good practice to keep track of the number of valid observations (as in, not NA) that we average over within each group used. In this instance, for trust-level aggregates, this represented the number of days within a week. For STP-level aggregates, it corresponded to the number of trusts within the STP.
+We know it's also good practice to keep track of the number of valid observations (as in, not NA) that we average over within each group used. In this instance, for trust-level aggregates, this represented the number of days within a week. For STP-level aggregates, it corresponded to the number of trusts within the STP.
 
 ```{r}
 Sitrep_daily <- Sitrep_daily %>%
@@ -654,7 +653,7 @@ STP_shape_monthly <- my_sf |>
   left_join(Sitrep_monthly_average_bySTP, by = c("stp17cd" = "STP_code"))
 
 STP_shape_monthly <- STP_shape_monthly %>%
-  # Divide variable into invervals and turn into factors
+  # Divide variable into intervals and turn into factors
   mutate(
     occupancy.rate.cut = cut(occupancy.rate,
       breaks = c(0, 0.85, 0.9, 0.95, 1),
@@ -716,11 +715,11 @@ Lots! No, seriously… Using this workflow, rather than copy and paste, has save
 
 Key points we are taking away:
 
-- With trusts, CCGs, STPs, ICSs, and more to choose from when we’re looking at local variation within health care systems, **it can be challenging to pick the right organisational level**. Local health care structures are also changing and evolving rapidly. We need to do more thinking about which level is most informative and compare different option, suggestions are welcome.
+- With trusts, CCGs, STPs, ICSs, and more to choose from when we're looking at local variation within health care systems, **it can be challenging to pick the right organisational level**. Local health care structures are also changing and evolving rapidly. We need to do more thinking about which level is most informative and compare different option, suggestions are welcome.
 - **Some cleaning is a must**. Winter data has a quick turnaround and NHS Digital only perform minimal validation. However, compared to previous years, the 2018/19 winter data quality has markedly improved (you can use our code to check the improvement for yourself).
 - But **cleaning decisions impact interpretability**. If the list of excluded trusts changes between years (based on how well they are reporting in any given year), this makes the data less comparable year-on-year.
-- **We’ll play it safe with derived variables**. The effort of rederiving them ourselves was worth it for the peace of mind we got from knowing that they were calculated consistently and meant exactly what we thought they meant.
-- Next winter, **our future selves will be very happy** to have our analysis nicely documented with code that is ready to go. It should even be easy to adapt the same workflow for other open NHS data sets (we’ll save this for another time).
+- **We'll play it safe with derived variables**. The effort of rederiving them ourselves was worth it for the peace of mind we got from knowing that they were calculated consistently and meant exactly what we thought they meant.
+- Next winter, **our future selves will be very happy** to have our analysis nicely documented with code that is ready to go. It should even be easy to adapt the same workflow for other open NHS data sets (we'll save this for another time).
 
 **Editor note:**
 - Updating this blog from 2019 in 2024 required a number of changes to functions and packages but the code was easier to change and debug than to build from scratch, particularly for someone who isn't familiar with any mapping or geospatial coding! 

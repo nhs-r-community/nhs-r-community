@@ -20,9 +20,9 @@ library(lubridate)
 library(timeDate)
 ```
 
-It’s at this time of year I need to renew my season ticket and I usually get one for the year. Out of interest, I wanted to find out how much the ticket cost per day, taking into account I don’t use it on weekends or my paid holidays. I started my workings out initially in Excel but got as far as typing the formula `=WORKDAYS()` before I realised it was going to take some working out and perhaps I should give it a go in R as a function…
+It's at this time of year I need to renew my season ticket and I usually get one for the year. Out of interest, I wanted to find out how much the ticket cost per day, taking into account I don't use it on weekends or my paid holidays. I started my workings out initially in Excel but got as far as typing the formula `=WORKDAYS()` before I realised it was going to take some working out and perhaps I should give it a go in R as a function…
 
-Chris Beeley had recently shown me functions in R and I was surprised how familiar they were as I’ve seen them on Stack Overflow (usually skimmed over those) and they are similar to functions in SQL which I've used (not written) where you feed in parameters.
+Chris Beeley had recently shown me functions in R and I was surprised how familiar they were as I've seen them on Stack Overflow (usually skimmed over those) and they are similar to functions in SQL which I've used (not written) where you feed in parameters.
 
 When I write code I try to work out how each part works and build it up but writing a function requires running the whole thing and then checking the result, the objects that are created in the function do not materialise so are never available to check. Not having objects building up in the environment console is one of the benefits of using a function, that and not repeating scripts which then ALL need updating if something changes.
 
@@ -60,7 +60,7 @@ DailyBusFare_function("11/07/2019",27,612,1)
 
 ## Going through each line:
 
-To make sure each part within the function works it's best to write it in another script or move the bit betweeen the curly brackets `{}`.
+To make sure each part within the function works it's best to write it in another script or move the bit between the curly brackets `{}`.
 
 Firstly, the `startDate` is self explanatory but within the function I've set the `endDate` to be dependent upon the `startDate` and be automatically 1 year later.
 

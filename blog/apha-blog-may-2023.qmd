@@ -25,7 +25,7 @@ The hybrid NHS-R Conference is in its 6th year and the [call for abstracts](http
 
 # **Documentation about the NHS-R Community**
 
-If you’ve ever wondered who is behind the email address [nhs.rcommunity\@nhs.net](mailto:nhs.rcommunity@nhs.net), how to get involved with NHS-R Community, where and what is Slack, what to do expect when you sign up to a course then the newly started NHS-R Way book might help. This is based on [The Turing Way](https://the-turing-way.netlify.app/index.html) and currently is a work in progress so comments and suggestions are very welcome.
+If you've ever wondered who is behind the email address [nhs.rcommunity\@nhs.net](mailto:nhs.rcommunity@nhs.net), how to get involved with NHS-R Community, where and what is Slack, what to do expect when you sign up to a course then the newly started NHS-R Way book might help. This is based on [The Turing Way](https://the-turing-way.netlify.app/index.html) and currently is a work in progress so comments and suggestions are very welcome.
 
 The NHS-R Way is published through [GitHub](https://nhs-r-community.github.io/NHSR-way/) and [Netlify](https://nhsr-way.netlify.app/) as not every organisation allows access to one or the other site. If you find your security blocks both sites, please just let us know at [nhs.rcommunity\@nhs.net](mailto:nhs.rcommunity@nhs.net).
 
@@ -49,7 +49,7 @@ Please come and let us know if you have any other training suggestions for SQL!
 
 We also had a question in the #help-with-r channel from a newbie SQL coder asking:
 
-How do I summarise a table by concatenating values (or pivot then concatenate across cols)? I don’t know in advance what the output columns of a pivot will be (or at least I can’t be bothered to list them out).
+How do I summarise a table by concatenating values (or pivot then concatenate across cols)? I don't know in advance what the output columns of a pivot will be (or at least I can't be bothered to list them out).
 
 Example input:
 
@@ -80,15 +80,15 @@ tibble::tibble(Entity = "User1",
                    .by = Entity)
 ```
 
-In SQL if I try to use CONCAT it says it needs at least 2 arguments. I also can’t get my head round how PIVOT works, yet.
+In SQL if I try to use CONCAT it says it needs at least 2 arguments. I also can't get my head round how PIVOT works, yet.
 
-This type of question is brilliant because quite a lot of people already have an idea of how to solve the problem in one language and want to know how to do that in another. It can often be a simple translation like R’s {dplyr} function `arrange()` is `ORDER BY` in SQL. However, sometimes we need to approach the problem slightly differently because of the way the languages work.
+This type of question is brilliant because quite a lot of people already have an idea of how to solve the problem in one language and want to know how to do that in another. It can often be a simple translation like R's {dplyr} function `arrange()` is `ORDER BY` in SQL. However, sometimes we need to approach the problem slightly differently because of the way the languages work.
 
-In SQL `CONCAT` needs to have inputs of distinct columns into the function so `CONCAT(colm1, colm2)` but as this example doesn’t yet have those separate columns, the question is how to `pivot` that data from the long form it’s currently in, to something wider with each column referring to a single issue.
+In SQL `CONCAT` needs to have inputs of distinct columns into the function so `CONCAT(colm1, colm2)` but as this example doesn't yet have those separate columns, the question is how to `pivot` that data from the long form it's currently in, to something wider with each column referring to a single issue.
 
-In R’s {tidyr} package, part of the {tidyverse} along with {dplyr}, we’d use the functions `pivot_wider()` or `pivot_longer()`. The concept of pivotting exists in SQL but is different in that the code needs to stipulate each and every column and for this analysis those columns are not necessarily known in advance to hard code.
+In R's {tidyr} package, part of the {tidyverse} along with {dplyr}, we'd use the functions `pivot_wider()` or `pivot_longer()`. The concept of pivotting exists in SQL but is different in that the code needs to stipulate each and every column and for this analysis those columns are not necessarily known in advance to hard code.
 
-One way we thought to get around this, as R users, was to use a package called {dbplyr} which, like {tidyverse}, is maintained by Posit and has functions that convert R {dplyr} commands to SQL, running them directly on SQL databases. That’s a great way of utilising the power of SQL and also helpful in that it can give you the code it’s translated.
+One way we thought to get around this, as R users, was to use a package called {dbplyr} which, like {tidyverse}, is maintained by Posit and has functions that convert R {dplyr} commands to SQL, running them directly on SQL databases. That's a great way of utilising the power of SQL and also helpful in that it can give you the code it's translated.
 
 ## **Specific SQL solutions**
 
@@ -106,4 +106,4 @@ There may be other solutions to this and it would be great to hear from you!
 
 ## **Demos and How tos**
 
-One place the NHS-R Community shares snippets of useful code is in the GitHub repository [demos-and-how-tos](https://github.com/nhs-r-community/demos-and-how-tos). This is currently a series of folders but could possibly be better in a book format. We’ve got an [issue](https://github.com/nhs-r-community/demos-and-how-tos/issues) about this along with other suggestions which anyone can contribute to by adding more suggestions or even picking up and issue or two!
+One place the NHS-R Community shares snippets of useful code is in the GitHub repository [demos-and-how-tos](https://github.com/nhs-r-community/demos-and-how-tos). This is currently a series of folders but could possibly be better in a book format. We've got an [issue](https://github.com/nhs-r-community/demos-and-how-tos/issues) about this along with other suggestions which anyone can contribute to by adding more suggestions or even picking up and issue or two!

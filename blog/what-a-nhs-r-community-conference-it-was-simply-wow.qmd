@@ -9,11 +9,11 @@ subtitle: >
   "Summary and video links to the 2021 Conference"
 ---
 
-*Article originally appeared on [What a NHS-R Community Conference it was – simply wow! – Hutsons-hacks](https://hutsons-hacks.info/what-a-nhs-r-community-conference-it-was-simply-wow) and was submitted by [Gary Hutson – Senior Data Scientist](https://github.com/StatsGary/).*
+*Article originally appeared on [What a NHS-R Community Conference it was – simply wow! – Hutsons-hacks](https://hutsons-hacks.info/what-a-nhs-r-community-conference-it-was-simply-wow) and was submitted by [Gary Hutson – Senior Data Scientist](https://github.com/StatsGary/).*
 
-The [NHS-R Virtual Conference](https://nhsrcommunity.com/nhs-r-community-conference-2021/) concluded this week and we have had a number of excellent speakers from the Health & Social Care sector, alongside working with key partners of interest. It kicked off with a full day jammed packed of speakers from all over the NHS. The second day we had international speakers from the US, Australia and other European countries.
+The [NHS-R Virtual Conference](https://nhsrcommunity.com/nhs-r-community-conference-2021/) concluded this week and we have had a number of excellent speakers from the Health & Social Care sector, alongside working with key partners of interest. It kicked off with a full day jammed packed of speakers from all over the NHS. The second day we had international speakers from the US, Australia and other European countries.
 
-The keynotes this year were provided by Professor [Frank Harrell](https://www.fharrell.com/) who did an excellent talk on “statistical mistakes to avoid” and [Julia Silge](https://juliasilge.com/) \@RStudio discussing “Preparing and processing text for Machine Learning”. I was lucky enough to chair the afternoon sessions, and it was great welcoming Julia to the stage and running the Q&A.
+The keynotes this year were provided by Professor [Frank Harrell](https://www.fharrell.com/) who did an excellent talk on “statistical mistakes to avoid” and [Julia Silge](https://juliasilge.com/) \@RStudio discussing “Preparing and processing text for Machine Learning”. I was lucky enough to chair the afternoon sessions, and it was great welcoming Julia to the stage and running the Q&A.
 
 ## **What if I missed it?**
 
@@ -27,13 +27,13 @@ No worries if you missed the days, as we livestreamed it on YouTube for posterit
 
 There were so many talks to attend on this day and the quality was excellent, here are a few of the talks that stood out for me:
 
--   09:30 – [Professor Mohammed A Mohammed](https://www.strategyunitwm.nhs.uk/author/mohammed-amin-mohammed#:~:text=Professor%20Mohammed%20A%20Mohammed%20is%20an%20academic%20with,quality%20of%20care%2C%20patient%20safety%20and%20improvement%20science.) – NHS-R Conference Opening and Welcome
+-   09:30 – [Professor Mohammed A Mohammed](https://www.strategyunitwm.nhs.uk/author/mohammed-amin-mohammed#:~:text=Professor%20Mohammed%20A%20Mohammed%20is%20an%20academic%20with,quality%20of%20care%2C%20patient%20safety%20and%20improvement%20science.) – NHS-R Conference Opening and Welcome
 
--   11:45 – [Colin Fay](https://engineering-shiny.org/) – ThinkR – discussing the role of accessibility in R
+-   11:45 – [Colin Fay](https://engineering-shiny.org/) – ThinkR – discussing the role of accessibility in R
 
 -   14:25 – Sebastien Peytrignet – What can an online shopping algorithm teach us about coordinating outpatient care?
 
--   I didn’t see all of day one, so this is just a provisional list
+-   I didn't see all of day one, so this is just a provisional list
 
 ## **Day Two – Watch again**
 
@@ -43,11 +43,11 @@ There were so many talks to attend on this day and the quality was excellent, he
 
 Another stellar day of talks, but here if my selection:
 
--   11:10 – Jacob Anhoj – discussing “Run Forest, run! Understanding variation and runs analysis
+-   11:10 – Jacob Anhoej – discussing “Run Forest, run! Understanding variation and runs analysis
 
--   12:00 – Simon and Chris discussing the new [NHSrplotthedots package](https://github.com/nhs-r-community/NHSRplotthedots) for statistical process control
+-   12:00 – Simon and Chris discussing the new [NHSRplotthedots package](https://github.com/nhs-r-community/NHSRplotthedots) for statistical process control
 
--   12:30 – Simon Moss and Richard Wood – the CCG use of [PathSimR](https://github.com/nhs-bnssg-analytics/PathSimR) to support Covid-19 mass vaccination
+-   12:30 – Simon Moss and Richard Wood – the CCG use of [PathSimR](https://github.com/nhs-bnssg-analytics/PathSimR) to support Covid-19 mass vaccination
 
 -   15:05 – Frank Harrell – Professor of Biostatistics talking about statistical mistakes to avoid
 
@@ -61,30 +61,30 @@ Another stellar day of talks, but here if my selection:
 
 I missed the morning, but I have watched back since and these are my picks, again there is too much content to wade through:
 
--   09:30 – [Gary Hutson](https://hutsons-hacks.info/) – NHS-R Solutions and package funding process, with code! I also ran a workshop at the event. Watch this space for live recordings being uploaded to the [NHS-R YouTube page](https://www.youtube.com/channel/UCMwM-3tg_-Pbx8hKO78q5EA).
+-   09:30 – [Gary Hutson](https://hutsons-hacks.info/) – NHS-R Solutions and package funding process, with code! I also ran a workshop at the event. Watch this space for live recordings being uploaded to the [NHS-R YouTube page](https://www.youtube.com/channel/UCMwM-3tg_-Pbx8hKO78q5EA).
 
--   10:05 – Sukhmeet Panesar – connecting the data and analytic workforce and creating a social movement for good: the story of [AnalystX](https://www.nhsx.nhs.uk/key-tools-and-info/nhsx-analytics-unit/)
+-   10:05 – Sukhmeet Panesar – connecting the data and analytic workforce and creating a social movement for good: the story of [AnalystX](https://www.nhsx.nhs.uk/key-tools-and-info/nhsx-analytics-unit/)
 
--   11:05 Hugo Cosh and Zoe Strawbridge – Shiny doesn’t have to be scary. Dicussing [flexdashboard](https://pkgs.rstudio.com/flexdashboard/) and how it is used in Public Health Wales
+-   11:05 Hugo Cosh and Zoe Strawbridge – Shiny doesn't have to be scary. Discussing [flexdashboard](https://pkgs.rstudio.com/flexdashboard/) and how it is used in Public Health Wales
 
--   11:25 – Dr Kate Bamford, Senior Data Surveillance Scientist, East Midlands Health Protection Team UK Health Security Agency Using R Markdown, [Reactable](https://glin.github.io/reactable/index.html) and [Crosstalk](https://cran.r-project.org/web/packages/crosstalk/index.html) to create an interactive COVID-19 review tool
+-   11:25 – Dr Kate Bamford, Senior Data Surveillance Scientist, East Midlands Health Protection Team UK Health Security Agency Using R Markdown, [Reactable](https://glin.github.io/reactable/index.html) and [Crosstalk](https://cran.r-project.org/web/packages/crosstalk/index.html) to create an interactive COVID-19 review tool
 
 -   12:45 – Adam Watkins – mapping public transport travel times – building on and enabling work of others
 
 -   15:05 – All the lightning talks were fantastic!
 
--   16:00 – [Julia Silge](https://juliasilge.com/) from RStudio talking about creating features for [machine learning from text](https://juliasilge.com/blog/smltar-complete/)
+-   16:00 – [Julia Silge](https://juliasilge.com/) from RStudio talking about creating features for [machine learning from text](https://juliasilge.com/blog/smltar-complete/)
 
--   17:00 – Close by [Chris Beeley](https://chrisbeeley.net/) – our co-chair of the NHS-R community
+-   17:00 – Close by [Chris Beeley](https://chrisbeeley.net/) – our co-chair of the NHS-R community
 
 ## **Workshops**
 
-The NHS-R community also held workshops to support understanding of our packages. These will all be streamed on YouTube and included sessions on Shiny, Tensorflow, TidyModels, [NHSDataDictionaRy package](https://github.com/StatsGary/NHSDataDictionaRy_workshop), functional programming in R, alongside many others. Please keep an eye out for the [NHS-R communities YouTube channe](https://www.youtube.com/c/NHSRCommunity)l and website.
+The NHS-R community also held workshops to support understanding of our packages. These will all be streamed on YouTube and included sessions on Shiny, Tensorflow, TidyModels, [NHSDataDictionaRy package](https://github.com/StatsGary/NHSDataDictionaRy_workshop), functional programming in R, alongside many others. Please keep an eye out for the [NHS-R communities YouTube channel](https://www.youtube.com/c/NHSRCommunity)l and website.
 
 ## **Thanks and conclusion**
 
 Thanks to everyone involved in making the conference a success, and to those out there in the NHS-R community, please make a pledge:
 
-Please pledge [\@NHSRCommunity](https://twitter.com/NHSrCommunity) on Twitter when you are making your pledge. It is time to say goodbye to the conference. It has been a rollercoaster this year and we will see you all again in 2022, as well as having webinars throughout the year.
+Please pledge [\@NHSRCommunity](https://twitter.com/NHSrCommunity) on Twitter when you are making your pledge. It is time to say goodbye to the conference. It has been a rollercoaster this year and we will see you all again in 2022, as well as having webinars throughout the year.
 
 The blog has been edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text)

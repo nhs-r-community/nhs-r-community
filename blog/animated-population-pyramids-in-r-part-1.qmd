@@ -32,7 +32,7 @@ In this part I will consider only first 2 steps.
 
 ### **Change the data**
 
-*I probably should have said earlier, but I am not an expert in R (actually, I feel like I’m still a perpetual novice). On data wrangling stage, I created datasets for almost each step of the data transformation. It made easier for me to check for errors but made my code a bit ugly.*
+*I probably should have said earlier, but I am not an expert in R (actually, I feel like I'm still a perpetual novice). On data wrangling stage, I created datasets for almost each step of the data transformation. It made easier for me to check for errors but made my code a bit ugly.*
 
 ```{r}
 library(readxl)
@@ -45,7 +45,7 @@ females <- read_excel(destfile, sheet = "Females", skip = 6) |> dplyr::mutate(ge
 df <- rbind(males, females)
 ```
 
-I used the open-source data from the [Office for National Statistics](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/datasets/clinicalcommissioninggroupsinenglandtable3). It has population estimates for mid-2016 and population projections by age and gender for England and CCGs. I separately saved worksheets ‘Females’ and ‘Males’ and loaded them in RStudio. I then just added gender column in both datasets and combined this two data sets by `rbind()`. Overall, data wrangling process should make this:
+I used the open-source data from the [Office for National Statistics](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/datasets/clinicalcommissioninggroupsinenglandtable3). It has population estimates for mid-2016 and population projections by age and gender for England and CCGs. I separately saved worksheets ‘Females' and ‘Males' and loaded them in RStudio. I then just added gender column in both datasets and combined this two data sets by `rbind()`. Overall, data wrangling process should make this:
 
 ```         
 ##    year `AGE GROUP` gender population totalyears percentage
@@ -68,7 +68,7 @@ read_excel(destfile, sheet = "Females") |> head(10)
 ```
 
 
-Let’s see it step by step:
+Let's see it step by step:
 
 For the simplicity, I left only area I need for now. In 2016, Birmingham and Solihull CCG were three different CCGs.
 
@@ -79,7 +79,7 @@ For the simplicity, I left only area I need for now. In 2016, Birmingham and Sol
 df1 <- subset(df, df$AREA == "NHS Birmingham and Solihull CCG" | df$AREA == "NHS Sandwell and West Birmingham CCG")
 ```
 
-My data still has columns for each year separately, so I created column ‘year’ and changed data structure
+My data still has columns for each year separately, so I created column ‘year' and changed data structure
 
 :::{.callout-caution collapse=false appearance='default' icon=true}
 ## Superseded function `gather()`
@@ -97,7 +97,7 @@ df2 <- pivot_longer(df1, cols = 4:29,
 print(df2, n = 10)
 ```
 
-Boring but important bits: aggregate data by year, age band and gender, change population column to numeric format and drop the row ‘All Ages’ to not accidentally include it in our plot
+Boring but important bits: aggregate data by year, age band and gender, change population column to numeric format and drop the row ‘All Ages' to not accidentally include it in our plot
 
 ```{r}
 df2$population <- as.numeric(df2$population)
@@ -105,7 +105,7 @@ df3 <- aggregate(population ~ `AGE GROUP` + gender + year, data = df2, FUN = sum
 df3 <- df3[df3$`AGE GROUP` != "All ages", ]
 ```
 
-Now, let’s calculate percentages. For standard population pyramids percentages are calculated from total population for the year, so we should calculate this value, add to the table and calculate percentage for each gender-age band pair.
+Now, let's calculate percentages. For standard population pyramids percentages are calculated from total population for the year, so we should calculate this value, add to the table and calculate percentage for each gender-age band pair.
 
 ```{r}
 totalyear <- aggregate(population ~ year, data = df3, FUN = sum)
@@ -144,7 +144,7 @@ To draw population pyramids in Excel, I always used negative values for one of t
 df4 <- transform(df4, percentage = ifelse(gender == "Male", - df4$population / df4$totalyears * 100, percentage))
 ```
 
-Last but not least, I notices ‘X’ in front of the year. Let’s remove it!
+Last but not least, I notices ‘X' in front of the year. Let's remove it!
 
 *Commented out this last section as it removes the first two characters and this data import does not have the X added*
 
@@ -167,7 +167,7 @@ ggplot(subset(df4, df4$year == "2018"),
                      labels = c('5%','4%', '3%', '2%', '1%', '0', '1%','2%','3%','4%','5%')) +
   coord_flip() +  # Flip axes
   labs(title = "Birmingham and Solihull population", 
-       y = "percentage of populaiton", 
+       y = "percentage of population", 
        x = "Age group") +
   theme(plot.title = element_text(hjust = .5),
         axis.ticks = element_blank(),
@@ -182,6 +182,6 @@ ggplot(subset(df4, df4$year == "2018"),
 
 ### **To be continued…**
 
-As I previously said, my main aim of this exersice was to learn R animation and compare different packages. So far I have used packages {magick} and {gganimate} and am happy to share results in the next part. Please do not hesitate to leave your comment and suggest any other packages for creating animation, I want to test them all!
+As I previously said, my main aim of this exercise was to learn R animation and compare different packages. So far I have used packages {magick} and {gganimate} and am happy to share results in the next part. Please do not hesitate to leave your comment and suggest any other packages for creating animation, I want to test them all!
 
 This blog has been edited for [NHS-R Style](https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text).

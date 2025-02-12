@@ -1,5 +1,5 @@
 ---
-title: "Apha blog – August 2023"
+title: "AphA blog – August 2023"
 date: "5 September 2023"
 date-modified: "27 July 2024"
 categories:
@@ -10,13 +10,13 @@ subtitle: >
 
 # **DataConnect23 reminder**
 
-Links are out now for the [DataConnect23](https://www.eventbrite.co.uk/o/dataconnect23-34583087823) and there is a lot to sign up to in the free week long event! It’s organised by the UK Government’s Central Digital and Data Office along with the Government Data Quality Hub and is open to public sector (NHS and Local Authorities) as well as Government.
+Links are out now for the [DataConnect23](https://www.eventbrite.co.uk/o/dataconnect23-34583087823) and there is a lot to sign up to in the free week long event! It's organised by the UK Government's Central Digital and Data Office along with the Government Data Quality Hub and is open to public sector (NHS and Local Authorities) as well as Government.
 
-I’ll be doing a [workshop](https://www.eventbrite.co.uk/e/nhs-r-community-invites-you-to-its-toolshed-tickets-691670002597?aff=ebdsoporgprofile) promoting NHS-R Community and the work we do and people can get involved with so do sign up!
+I'll be doing a [workshop](https://www.eventbrite.co.uk/e/nhs-r-community-invites-you-to-its-toolshed-tickets-691670002597?aff=ebdsoporgprofile) promoting NHS-R Community and the work we do and people can get involved with so do sign up!
 
 # **NHS-R Community conference update**
 
-A special shout out to our administrative support (who will be reluctant to be named directly but if you are in the Slack group then you’ll know who I’m referring to!) for working so hard putting together the several days worth of talks we have for the NHS-R Conference. We’ll have the in person days on 17-18 October which are also viewable online but then there will be specific online days on 9-11 October.
+A special shout out to our administrative support (who will be reluctant to be named directly but if you are in the Slack group then you'll know who I'm referring to!) for working so hard putting together the several days worth of talks we have for the NHS-R Conference. We'll have the in person days on 17-18 October which are also viewable online but then there will be specific online days on 9-11 October.
 
 Sign up through the website where you will need to register first. Details on how we manage the website and accounts are in the [NHS-R Way book](https://nhsrway.nhsrcommunity.com/community-handbook.html#website) and if you have any issues with setting up an account please check out the book for more details.
 
@@ -24,11 +24,11 @@ Sign up through the website where you will need to register first. Details on ho
 
 What started out as a book club reading the first edition (online) of the R4DS has now expanded into replicating the [R4DS Unofficial Solutions](https://r4ds-solutions.nhsrcommunity.com/) and is now meeting as a project group rather than book club.
 
-I’ve particularly enjoyed going through the exercises for a Quarto book as I somehow find it more engaging than just writing the solutions in an R script. Difficult to explain why but I went to a recent [Posit Hangout](https://www.youtube.com/playlist?list=PL9HYL-VRX0oTu3bUoyYknD-vpR7Uq6bsR) where Hadley Wickham talked about writing Quarto books for everything, including his current hobby of cocktails and this resonated!
+I've particularly enjoyed going through the exercises for a Quarto book as I somehow find it more engaging than just writing the solutions in an R script. Difficult to explain why but I went to a recent [Posit Hangout](https://www.youtube.com/playlist?list=PL9HYL-VRX0oTu3bUoyYknD-vpR7Uq6bsR) where Hadley Wickham talked about writing Quarto books for everything, including his current hobby of cocktails and this resonated!
 
 One particular exercise I came across in the R4DS is to correct some code: `libary(todyverse) ggplot(dTA = mpg) + geom_point(maping = aes(x = displ y = hwy)) + geom_smooth(method = "lm)`
 
-which is surprisingly hard as there is a lot to correct. It’s quite enjoyable to test your knowledge out though so I’d recommend having a go (before looking at the [solutions](https://r4ds-solutions.nhsrcommunity.com/)!)
+which is surprisingly hard as there is a lot to correct. It's quite enjoyable to test your knowledge out though so I'd recommend having a go (before looking at the [solutions](https://r4ds-solutions.nhsrcommunity.com/)!)
 
 ## **Join the Slack groups**
 

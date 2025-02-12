@@ -17,7 +17,7 @@ Funnel plots are a common tool for comparing organisations or units using propor
 {CMFunnels} redirects to the {FunnelPlotR} package in NHS-R Community's GitHub <https://github.com/nhs-r-community/FunnelPlotR>
 :::
 
-This post also uses a funnel plot function, for indirectly standardised ratios, that I built as part of my PhD work. The function is based on {ggplot2} (Wickham 2009), and is available at <https://github.com/chrismainey/CMFunnels>, although it’s a work in progress.
+This post also uses a funnel plot function, for indirectly standardised ratios, that I built as part of my PhD work. The function is based on {ggplot2} (Wickham 2009), and is available at <https://github.com/chrismainey/CMFunnels>, although it's a work in progress.
 
 This post was original written for my own blog (<https://mainard.co.uk/post/introduction-to-funnel-plots/>), built using RMarkdown, with {blogdown}, using a Hugo site. Code is available at <https://github.com/chrismainey/Mainard/tree/master/content/post>
 
@@ -27,15 +27,15 @@ There are different kinds of funnel plot, but this post focusses on the type use
 
 ## Rationale
 
-How do you go about comparing organisations? We could simply look at indicator data and rank them, but that could be unfair if the conditions are different at each organisation. For example every hospital differs in size, the services it offers, and the patients it sees. We might expect a hospital seeing a higher proportion of elderly patients to have a higher mortality rate. Is it fair to compare it to an organisation serving a younger population who may be ‘healthier’ in general? Naively comparing organisations by ranking in league tables has been shown to be a bad idea (Goldstein and Spiegelhalter 1996; Lilford et al. 2004).
+How do you go about comparing organisations? We could simply look at indicator data and rank them, but that could be unfair if the conditions are different at each organisation. For example every hospital differs in size, the services it offers, and the patients it sees. We might expect a hospital seeing a higher proportion of elderly patients to have a higher mortality rate. Is it fair to compare it to an organisation serving a younger population who may be ‘healthier' in general? Naively comparing organisations by ranking in league tables has been shown to be a bad idea (Goldstein and Spiegelhalter 1996; Lilford et al. 2004).
 
 This scenario is not a million miles away from the techniques used in meta-analysis of clinical trial, where we may have trials of different sizes, with different estimates of effect, and differing variances. Some of the techniques applied to meta-analysis have been adapted for healthcare monitoring, including funnel plots and methods to adjust for overdispersion (Spiegelhalter 2005a, 2005b; Spiegelhalter et al. 2012).
 
 # Construction
 
-If we want to compare a standardised ratio or similar indicator, we can make a plot with the indicator on the Y-axis, and a measure of the unit size on the X-axis. This is commonly the sum of the predicted values for standardised ratios (for example the predicted number of cases), or the number of patients/discharges and so on Our centre line, the average value, can be surrounded by ‘control limits,’ a concept from Statistical Process Control. These limits are statistical boundaries to separate natural (‘common-cause’) variation and systematic differences (‘special-cause variation’) (Mohammed et al. 2001). This is commonly at organisational level, but could be at any aggregation.
+If we want to compare a standardised ratio or similar indicator, we can make a plot with the indicator on the Y-axis, and a measure of the unit size on the X-axis. This is commonly the sum of the predicted values for standardised ratios (for example the predicted number of cases), or the number of patients/discharges and so on Our centre line, the average value, can be surrounded by ‘control limits,' a concept from Statistical Process Control. These limits are statistical boundaries to separate natural (‘common-cause') variation and systematic differences (‘special-cause variation') (Mohammed et al. 2001). This is commonly at organisational level, but could be at any aggregation.
 
-The reason these limits resemble a funnel is due to the effects of size. The expected variation is larger when we are looking at fewer cases. For example, imagine an experiment where we toss an unbiased coin to see the expected value. If we toss that coin twice and both are ‘heads,’ our data is telling us that all coin tosses end up as ‘heads.’ This is not true, and we are making an assumption that we know would be different if we repeated it more times. The margin of error around this is high. So if we performed the same experiment 10, 100 or 1000 times, we would expect it to become 50:50, heads/tails, and the margin of error is proportionally smaller. This is also true of indicators based on counts, like funnel plots. We expect less variation between points as organisations get larger.
+The reason these limits resemble a funnel is due to the effects of size. The expected variation is larger when we are looking at fewer cases. For example, imagine an experiment where we toss an unbiased coin to see the expected value. If we toss that coin twice and both are ‘heads,' our data is telling us that all coin tosses end up as ‘heads.' This is not true, and we are making an assumption that we know would be different if we repeated it more times. The margin of error around this is high. So if we performed the same experiment 10, 100 or 1000 times, we would expect it to become 50:50, heads/tails, and the margin of error is proportionally smaller. This is also true of indicators based on counts, like funnel plots. We expect less variation between points as organisations get larger.
 
 ## Example:
 
@@ -76,19 +76,19 @@ lkup <- gather(lkup, key, value, -id)
 a + geom_line(aes(x = id, y = value, col = key), data = lkup)
 ```
 
-You’ll probably notice the ‘jagged’ lines in the plot above. This is because the Poisson distribution is only defined on integers, and most common implementations of Poisson functions make some sort of rounding/guess between points. They are generally poorly defined on low values, but there are other options that I’ll discuss in another future post.
+You'll probably notice the 'jagged' lines in the plot above. This is because the Poisson distribution is only defined on integers, and most common implementations of Poisson functions make some sort of rounding/guess between points. They are generally poorly defined on low values, but there are other options that I'll discuss in another future post.
 
 # Expanding limits
 
-The methods described above have been developed into a basic R package to draw these plots using {ggplot2}. It also allows users to specify whether they want ‘overdispersed’ limits. I will write another post about overdispersion in the coming weeks, but essentially, we have more variation than we would expect from theory alone. To account for this, we can estimate how much greater the variance in our data is, and expand the funnel limits by this amount.
+The methods described above have been developed into a basic R package to draw these plots using {ggplot2}. It also allows users to specify whether they want 'overdispersed' limits. I will write another post about overdispersion in the coming weeks, but essentially, we have more variation than we would expect from theory alone. To account for this, we can estimate how much greater the variance in our data is, and expand the funnel limits by this amount.
 
-Part of this process involves ‘Winsorisation’ of the distribution (Spiegelhalter 2005b; Spiegelhalter et al. 2012), where we set the outer most values to a defined percentile to reduce the effects of outliers. This is commonly set to 10% at each end of the distribution, but there is a variant method for this, used in the NHS’ Summary Hospital Mortality Indicator’, where the distribution is truncated instead of Winsorised (Clinical Indicators Team 2018).
+Part of this process involves ‘Winsorisation' of the distribution (Spiegelhalter 2005b; Spiegelhalter et al. 2012), where we set the outer most values to a defined percentile to reduce the effects of outliers. This is commonly set to 10% at each end of the distribution, but there is a variant method for this, used in the NHS' Summary Hospital Mortality Indicator', where the distribution is truncated instead of Winsorised (Clinical Indicators Team 2018).
 
 I originally wrote this package to present plots for my PhD thesis, focussed on predicting NRLS incident reporting ratios after risk-adjustment. The overdispersion was particularly high in this case, and differences between the two methods were noticeable, with the SHMI/truncation method appearing better suited.
 
 # Application
 
-Here we will apply this to some data by picking up the `medpar` dataset discussed by Hilbe and available in the `COUNT` package (Hilbe 2014). It is a set of data points from hospitals in Arizona, in 1991, based on US Medicare data. We’ll use the ‘length of stay’ field ’, `los`, and model it from the other predictors in the data.
+Here we will apply this to some data by picking up the `medpar` dataset discussed by Hilbe and available in the `COUNT` package (Hilbe 2014). It is a set of data points from hospitals in Arizona, in 1991, based on US Medicare data. We'll use the ‘length of stay' field ', `los`, and model it from the other predictors in the data.
 
 # Installation
 
@@ -145,7 +145,7 @@ The following ratio should be 1 if our data are conforming to Poisson distributi
 sum(mod$weights * mod$residuals^2) / mod$df.residual
 ```
 
-This suggests the variance is 6.24 times the condition mean, and definitely overdispersed. This is a huge topic, but applying overdispersed limits using either SHMI or Spieglehalter methods adjust for this by inflating the limits:
+This suggests the variance is 6.24 times the condition mean, and definitely overdispersed. This is a huge topic, but applying overdispersed limits using either SHMI or Spiegelhalter methods adjust for this by inflating the limits:
 
 ```{r}
 #| classes: preview-image
@@ -165,7 +165,7 @@ These methods can be used for any similar indicators, for example standardised m
 
 Funnel plots are useful ways to visualise indicators such as mortality, readmission and length of stay data at hospitals, that presents both the indicator value but also a measure of the size/variance at organisations. They allow limits to be drawn between what we might expect by chance, and what we might consider to be a signal for investigation. Organisations outside the funnel limits should be examined, first for data quality issues and then for issues with process and clinical care. Overdispersion means that these limits are often too strict, but they can be inflated to adjusted for this.
 
-If you’d like to use my outline ggplot function, or contribute, please pull or fork it on github: <https://github.com/nhs-r-community/FunnelPlotR>
+If you'd like to use my outline ggplot function, or contribute, please pull or fork it on github: <https://github.com/nhs-r-community/FunnelPlotR>
 
 # References
 
@@ -177,7 +177,7 @@ Hilbe, Joseph M. 2014. Modeling Count Data. Cambridge: Cambridge University Pres
 
 Lilford, R., M. A. Mohammed, D. Spiegelhalter, and R. Thomson. 2004. "Use and Misuse of Process and Outcome Data in Managing Performance of Acute Medical Care: Avoiding Institutional Stigma." Lancet 363 (9415): 1147–54. [https://doi.org/10.1016/s0140-6736(04)15901-1](https://doi.org/10.1016/s0140-6736(04)15901-1).
 
-Mohammed, Mohammed A, KK Cheng, Andrew Rouse, and Tom Marshall. 2001. "Bristol, Shipman, and Clinical Governance: Shewhart’s Forgotten Lessons." The Lancet 357 (9254): 463–67. [https://doi.org/10/cqjskf](https://doi.org/10/cqjskf).
+Mohammed, Mohammed A, KK Cheng, Andrew Rouse, and Tom Marshall. 2001. "Bristol, Shipman, and Clinical Governance: Shewhart's Forgotten Lessons." The Lancet 357 (9254): 463–67. [https://doi.org/10/cqjskf](https://doi.org/10/cqjskf).
 
 Spiegelhalter, David J.  (2005a) . "Funnel Plots for Comparing Institutional Performance." Stat Med 24 (8): 1185–1202. https://doi.org/10.1002/sim.1970.
 

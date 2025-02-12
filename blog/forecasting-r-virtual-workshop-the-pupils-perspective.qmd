@@ -1,5 +1,5 @@
 ---
-title: "Forecasting R (Virtual) Workshop – the pupil’s perspective"
+title: "Forecasting R (Virtual) Workshop – the pupil's perspective"
 date: "21 May 2020"
 date-modified: "12 July 2024"
 categories:
@@ -8,7 +8,7 @@ author: Paul Bullard
 subtitle: >
 ---
 
-I saw on the NHS-R Community slack channel that the much sought after Forecasting R Workshop led by Bahman Rostami-Tabar was moving to a virtual environment whilst most of the country was shut due to the COVID pandemic. I had previously read the “Forecasting: Principles and Practice” online textbook from cover to cover and learnt the ‘motions’ of time series forecasting but hadn’t really understood the ‘why’. I had used previously black-box style models (Prophet), and understood *how* to make it work rather than *why* it works. I was looking forward to the course cementing some of the fundamentals in theory, and then refine the practice in the software.
+I saw on the NHS-R Community slack channel that the much sought after Forecasting R Workshop led by Bahman Rostami-Tabar was moving to a virtual environment whilst most of the country was shut due to the COVID pandemic. I had previously read the “Forecasting: Principles and Practice” online textbook from cover to cover and learnt the ‘motions' of time series forecasting but hadn't really understood the ‘why'. I had used previously black-box style models (Prophet), and understood *how* to make it work rather than *why* it works. I was looking forward to the course cementing some of the fundamentals in theory, and then refine the practice in the software.
 
 It delivered.
 
@@ -16,9 +16,9 @@ Looking back through the 12 pages of notes I took to go alongside the excellent 
 
 Before even picking up a dataset however, we talked through some of the key factors behind forecasting – the high level process, when we might want to or when we might not want to do it, and in which context it works best.
 
-![The time series forecasting process – prep data, visualise, specify a model, model estimation, fit model, evaluate, forecast output](img/photo-notepad-notes.jpg){fig-alt="Photo of a notepad with notes written: \"Process, 1. Prep data, 2. Visualise, 3. Specficy a model, 4. Model estimation, 5. Fit model, 6. Evaluate, 4 Forecast output"}
+![The time series forecasting process – prep data, visualise, specify a model, model estimation, fit model, evaluate, forecast output](img/photo-notepad-notes.jpg){fig-alt="Photo of a notepad with notes written: \"Process, 1. Prep data, 2. Visualise, 3. Specify a model, 4. Model estimation, 5. Fit model, 6. Evaluate, 4 Forecast output"}
 
-Another key item before diving in that we covered were some of the key ‘glossary’ terms that are used, such as the difference between frequency (the time intervals between points in your prediction) and horizon (how far into the future you are going to make your prediction). For some, this might be bread and butter, but adding structure to the language of forecasting really helped me get it clear in my head.
+Another key item before diving in that we covered were some of the key ‘glossary' terms that are used, such as the difference between frequency (the time intervals between points in your prediction) and horizon (how far into the future you are going to make your prediction). For some, this might be bread and butter, but adding structure to the language of forecasting really helped me get it clear in my head.
 
 We spent a good share of the sessions looking at the theory of forecasting, and intermingled this with sessions in R. We moved through baseline predictions using simple average, naïve, seasonal naïve and drift methods (and their corresponding functions) through to exponential smoothing, auto-regressive integrated moving average (ARIMA) and regression.
 
@@ -30,7 +30,7 @@ My key takeaway from the learning was that R makes it really easy to have a hand
 
 ![My mind map summary of my key takeaways](img/mind-map.png){fig-alt="Programmatically drawn mind map"}
 
-The virtual environment worked well from a pupil’s perspective, with some caveats. First, I found that reading the pre-session work was vital. Although Bahman was very open to going back over content, the pace at which we had to move was quick due to time constraints, so having a sense of the content beforehand really helped slot things in to place.
+The virtual environment worked well from a pupil's perspective, with some caveats. First, I found that reading the pre-session work was vital. Although Bahman was very open to going back over content, the pace at which we had to move was quick due to time constraints, so having a sense of the content beforehand really helped slot things in to place.
 
 Alongside the reading, it was so important to have the lab scripts prepped and ready to go from day one. The NHSR Community team did a great job of getting the projects set up on RStudio Cloud, which meant that everything was ready to go, but if (like me) you wanted to get it running locally on your machine spending the time making sure your setup was working as expected prior to the first session was vital.
 

@@ -6,7 +6,7 @@ title-block-banner: false
 code-fold: true
 ---
 
-![](img/rpysoc-24-banner.png){fig-alt="RPYSOC conference 2024 banner."}
+![](img/rpysoc-24-banner.png){fig-alt="RPySoc conference 2024 banner."}
 
 21 and 22 November 2024, Hall 11, [ICC Birmingham](https://www.theicc.co.uk/)
 
@@ -70,7 +70,7 @@ tibble::tribble(
   "14:50 – 15:05", "Using Openxlsx2 to automate excel publications", "Ruth Keane",
   "15:05 – 15:35", "Break", "",
   "15:35 – 15:50", "What I learnt about (programming) languages by building bilingual websites", "Rosemary Walmsley",
-  "15:50 – 16:15", "Leveraging R to implement novel theoretical development in online ‘digital twin’ simulation modelling", "Richard Wood",
+  "15:50 – 16:15", "Leveraging R to implement novel theoretical development in online ‘digital twin' simulation modelling", "Richard Wood",
   "16:15 – 16:30", "Should I use your package", "Colin Gillespie",
   "16:30 – 16:45", "Cracking open the TiN: how we build a one-stop statistics website using R, GitHub and BigQuery", "Mohan Del",
   "16:45 – 17:10", "Closing of day", ""
@@ -148,7 +148,7 @@ tibble::tribble(
   "11:40", "Deploying streamlit/shiny/plotly dash apps securely",
   "11:40", "How do we balance using cool AI tools with our environmental responsibilities",
   "13:10", "Do everything in github",
-  "13:10", "Writing tests into my code – tips pls!",
+  "13:10", "Writing tests into my code – tips please!",
   "13:50", "Methods in github sustainability",
   "13:50", "Practically introducing R training within our organisation",
   "13:50", "How can we better use data to annual plan in an acute hospital",

@@ -17,9 +17,9 @@ Hello!
 
 This is my first blog post for the NHS R Community, which I stumbled across in the course of my work as a consultant medical microbiologist at Newcastle upon Tyne Hospitals NHS Foundation Trust.
 
-At work, I’ve been trying to use R to create column charts featuring 95% confidence intervals. I approached the friendly people on the NHS R Community’s Slack channel for further information and guidance.
+At work, I've been trying to use R to create column charts featuring 95% confidence intervals. I approached the friendly people on the NHS R Community's Slack channel for further information and guidance.
 
-I must add here that the Community’s Slack channel has been extremely helpful to me, as a novice R user, in solving some of the issues I’ve experienced, and highlighting R packages of potential interest. This is the first time I’ve tried to create a ReprEx and now I understand why people love (?) the mtcars database as much as they do!
+I must add here that the Community's Slack channel has been extremely helpful to me, as a novice R user, in solving some of the issues I've experienced, and highlighting R packages of potential interest. This is the first time I've tried to create a ReprEx and now I understand why people love (?) the mtcars database as much as they do!
 
 ### **Step 1: Calculate some summary statistics**
 
@@ -36,7 +36,7 @@ mtcars %>%
   select(where(is.numeric)) %>%
   summary()
 
-# calculate summary statistics for mpg using summary() and where(is.numberic())
+# calculate summary statistics for mpg using summary() and where(is.numeric())
 mtcars %>%
   select(mpg) %>%
   summary()
@@ -153,7 +153,7 @@ mtcars %>%
                 n = sum, # denominator
                 type = "full", # defines the data and metadata columns to be included in output; can be "value", "lower", "upper", "standard" (for all data) or "full" (for all data and metadata); quoted string; default = "full"
                 confidence = 0.95, # required level of confidence expressed as a number between 0.9 and 1 
-                multiplier = 100) %>%   # the multiplier used to express the final values (eg 100 = percentage); numeric; default 1
+                multiplier = 100) %>%   # the multiplier used to express the final values (for example 100 = percentage); numeric; default 1
 # create column chart with error bars (using 95% CI calculated using phe_proportion())
  ggplot(aes(cyl, value))+
  geom_col(na.rm = TRUE)+
@@ -164,7 +164,7 @@ mtcars %>%
 
 I hope that the code, above, helps a few colleagues of mine across the NHS, in some small way.
 
-Thank you, again, to all members of the NHS R Community, for all your help. Particular thanks go to everyone who has helped me, to date, on the NHS R Community’s Slack channel.
+Thank you, again, to all members of the NHS R Community, for all your help. Particular thanks go to everyone who has helped me, to date, on the NHS R Community's Slack channel.
 
 ### **Comments (3)**
 

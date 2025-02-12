@@ -47,4 +47,4 @@ Both were instrumental in building this site as they share the code from their w
 * Brian Tarran opened the NHS-R Community Conference in 2023 with his talk [Forging community links: NHS-R, the Royal Statistical Society and Real World Data Science](https://www.youtube.com/watch?v=8jcPwD8x8WE&t=18953s).
 
 * Silvia Canelón ran a two-part Xaringan (including CSS) workshop at the 2020 NHS-R Conference - [Part 1](https://www.youtube.com/watch?v=M3skTMQbCD0) and [Part 2](https://youtu.be/cAtpZxW4bTI?si=NXNA_TeWLlUtovBj). 
-And as part of this workshop Silvia kindly created [{NHSRthemes}](https://github.com/nhs-r-community/NHSRtheme) which contains the code for the NHS Branding colours used in this site.
+And as part of this workshop Silvia kindly created [{NHSRtheme}](https://github.com/nhs-r-community/NHSRtheme) which contains the code for the NHS Branding colours used in this site.

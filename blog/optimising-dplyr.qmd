@@ -26,9 +26,9 @@ Recently in a project I was working on I encountered an issue where one code chu
 
 The particular bit of code that was causing me problems was trying to create a simple chart that showed what percentage of people had particular types of activity. As each person may have had more than one of any of the activity types I had to take distinct sets of rows first, then calculate the percentage of individuals having that activity type.
 
-However, there was a slight complication in our data: as this was part of a wider report we would group some of the activity (the Critical Care Bed Day’s) together at one part in the report, but also be able to break these records down into Elective/Emergency.
+However, there was a slight complication in our data: as this was part of a wider report we would group some of the activity (the Critical Care Bed Day's) together at one part in the report, but also be able to break these records down into Elective/Emergency.
 
-The table below shows what some of this activity data looked like (we just show the type’s of activity and the subgroups below).
+The table below shows what some of this activity data looked like (we just show the type's of activity and the subgroups below).
 
 ```{r}
 activity_data <- tribble(
@@ -76,9 +76,9 @@ sample_n(activity_10k, 10)
 
 Now, for rendering in this particular part of the report we wanted to slightly modify the labels of activity used. We wanted to show the alternative subgroup labels along with the subgroup labels for the Critical Care Bed Day records.
 
-Ideally we would have done this at the data loading stage. However, because these fields were being used at other parts in the report we couldn’t easily change the data at loading.
+Ideally we would have done this at the data loading stage. However, because these fields were being used at other parts in the report we couldn't easily change the data at loading.
 
-This is the code that I originally came up with, which I’m wrapping in a function for now so we can benchmark our different approaches later. First we update the `type` and `subgroup` columns, then we perform the summarisation steps (get the distinct rows for each individual, then count how many individuals there were for that activity).
+This is the code that I originally came up with, which I'm wrapping in a function for now so we can benchmark our different approaches later. First we update the `type` and `subgroup` columns, then we perform the summarisation steps (get the distinct rows for each individual, then count how many individuals there were for that activity).
 
 ```{r}
 dplyr_naive <- function(activity) {
@@ -106,11 +106,11 @@ system.time( dplyr_naive(activity_100k) )[["elapsed"]]
 
 ```
 
-This may not seem like a huge amount of time, but I was re-rendering this report upwards of 10 times an hour to ensure the pipeline was still working. Furthermore, we were rendering 12 versions of this report at a time (we had a report for each of the 11 [STPs](https://www.england.nhs.uk/integratedcare/stps/) in the Midlands, and an overall Midlands report), and this particular bit of code was chewing up all of my available memory, meaning we couldn’t run in parallel.
+This may not seem like a huge amount of time, but I was re-rendering this report upwards of 10 times an hour to ensure the pipeline was still working. Furthermore, we were rendering 12 versions of this report at a time (we had a report for each of the 11 [STPs](https://www.england.nhs.uk/integratedcare/stps/) in the Midlands, and an overall Midlands report), and this particular bit of code was chewing up all of my available memory, meaning we couldn't run in parallel.
 
 What is the problem with the approach above? When we update the `type` and `sub_group` columns in the mutate step R has to update all of the rows in the dataframe (in this case, 1,181,633 rows). But, R will not overwrite the original table in memory. Instead it will copy the entire data frame. This is what slows everything down.
 
-So the question is, can we reduce the amount of rows we have to update? Yes! We can simply perform the summary steps before updating the labels! This is the approach I settled on: it’s largely the same as above, I just have to include the `alt_sub_group` column in the group by step, and remove this column from the results at the end.
+So the question is, can we reduce the amount of rows we have to update? Yes! We can simply perform the summary steps before updating the labels! This is the approach I settled on: it's largely the same as above, I just have to include the `alt_sub_group` column in the group by step, and remove this column from the results at the end.
 
 ```{r}
 dplyr_improved <- function(activity) {
@@ -143,7 +143,7 @@ Significantly better!
 
 ## **data.table**
 
-Many will tell you when start working with larger datasets in R you have to resort to using the `{data.table}` package. I’m not the most proficient `{data.table}` user in the world, so if you can think of a better way of solving this problem please let me know!
+Many will tell you when start working with larger datasets in R you have to resort to using the `{data.table}` package. I'm not the most proficient `{data.table}` user in the world, so if you can think of a better way of solving this problem please let me know!
 
 First, here is basically the first approach translated to `{data.table}`
 

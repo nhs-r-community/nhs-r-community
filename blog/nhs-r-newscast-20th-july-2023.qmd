@@ -9,23 +9,23 @@ author: Zoë Turner
 subtitle: >
 ---
 
-We have another newscast from the podcast, if you don’t do the whole podcast thing here are the notes and links from what we talked about.
+We have another newscast from the podcast, if you don't do the whole podcast thing here are the notes and links from what we talked about.
 
-The NHS-R 2023 Conference tickets are now available for the in-person and virtual event on 17 and 18 October. We’ll be having a side room unconference and the social event was mentioned – details are all to come!
+The NHS-R 2023 Conference tickets are now available for the in-person and virtual event on 17 and 18 October. We'll be having a side room unconference and the social event was mentioned – details are all to come!
 
-Tom Smith gave an update on the HACA 2023 conference as, although he hadn’t made it to the event himself due to work commitments, he had seen some of the posters. One poster stood out to him from someone in his own Trust who he hadn’t realised was working on a similar project and it showed the power of connections that conferences like this can have in connecting people and projects.
+Tom Smith gave an update on the HACA 2023 conference as, although he hadn't made it to the event himself due to work commitments, he had seen some of the posters. One poster stood out to him from someone in his own Trust who he hadn't realised was working on a similar project and it showed the power of connections that conferences like this can have in connecting people and projects.
 
-Zoë mentioned (a few times!) about the pull request she’d had accepted from Hadley Wickham for the inclusion of back ticks in the second edition R for Data Science <https://github.com/hadley/r4ds/pull/1522>. And on the theme of “small changes” to famous repositories she had also had a pull requested accepted to the {NHSRplotthedots} for text change to remove a reference to here and a link <https://github.com/nhs-r-community/NHSRplotthedots/pull/183/files>, making the text more readable for screen readers.
+Zoë mentioned (a few times!) about the pull request she'd had accepted from Hadley Wickham for the inclusion of back ticks in the second edition R for Data Science <https://github.com/hadley/r4ds/pull/1522>. And on the theme of “small changes” to famous repositories she had also had a pull requested accepted to the {NHSRplotthedots} for text change to remove a reference to here and a link <https://github.com/nhs-r-community/NHSRplotthedots/pull/183/files>, making the text more readable for screen readers.
 
-Tom updated on a few recent, bigger, changes to {NHSRplotthedots} in preparation for a new release ahead of this year’s NHS-R Community Conference. This has included some {plotly} code from a colleague who could contribute with their knowledge of {plotly} to help make {NHSRplotthedots} more interactive in its charts.
+Tom updated on a few recent, bigger, changes to {NHSRplotthedots} in preparation for a new release ahead of this year's NHS-R Community Conference. This has included some {plotly} code from a colleague who could contribute with their knowledge of {plotly} to help make {NHSRplotthedots} more interactive in its charts.
 
 Tom put out a plea to everyone to get in touch via [NHS-R Slack](https://nhsrcommunity.slack.com/) or [email](https://nhsrcommunity.com/nhs-r-newscast-20th-july-2023/nhs.rcommunity@nhs.net) if you use {NHSRplotthedots} and what you have used it for.
 
 ## **Finds from the Slack group**
 
-Chris shared his life hack of ordering GitHub notifications [by repository](https://docs.github.com/en/github-ae@latest/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications) instead of the default of by date. It’s possible to subscribe and watch any repository on GitHub and notifications can build up rapidly if you are part of teams repositories like NHS-R Community. Having them grouped by repository can help manage those messages.
+Chris shared his life hack of ordering GitHub notifications [by repository](https://docs.github.com/en/github-ae@latest/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications) instead of the default of by date. It's possible to subscribe and watch any repository on GitHub and notifications can build up rapidly if you are part of teams repositories like NHS-R Community. Having them grouped by repository can help manage those messages.
 
-Tom gave his regular shout out to John Mackintosh’s [{patientcounter}](https://github.com/johnmackintosh/patientcounter) package. If you work with patient level data this package is likely to help you at some point with your analysis:
+Tom gave his regular shout out to John Mackintosh's [{patientcounter}](https://github.com/johnmackintosh/patientcounter) package. If you work with patient level data this package is likely to help you at some point with your analysis:
 
 *How many patients were in the hospital at 10 AM yesterday?\
 How many were in during each 15 minute spell between 2pm and 6pm?\
@@ -35,13 +35,13 @@ How many were in during the last week, by hour?*
 
 *No SQL? No problem!*
 
-*If you have time in, time out, a unique patient identifier, and optionally, a grouping variable to track moves between departments, this package will tell you how many patients were ‘IN’ at any time, at whatever granularity you need.*
+*If you have time in, time out, a unique patient identifier, and optionally, a grouping variable to track moves between departments, this package will tell you how many patients were ‘IN' at any time, at whatever granularity you need.*
 
 Zoë started by mentioning the [{pivotr}](https://github.com/wurli/pivotr) package:
 
-*A shiny implementation of Excel’s PivotTables. Perform your aggregation/pivoting in the GUI, then copy the dplyr/tidyr code into your R script*
+*A shiny implementation of Excel's PivotTables. Perform your aggregation/pivoting in the GUI, then copy the dplyr/tidyr code into your R script*
 
-but quickly changed to talking about Matt Dray’s [{quartostamp}](https://github.com/matt-dray/quartostamp) because she uses it as regularly now as {tidyverse} as she’s creating Quarto slides and books. The package changes the RStudio IDE so that add ins can be selected to put the required text into your code for Quarto so you don’t have to remember the formats.
+but quickly changed to talking about Matt Dray's [{quartostamp}](https://github.com/matt-dray/quartostamp) because she uses it as regularly now as {tidyverse} as she's creating Quarto slides and books. The package changes the RStudio IDE so that add ins can be selected to put the required text into your code for Quarto so you don't have to remember the formats.
 
 Chris talked about a function in {purrr} called [`pluck()`](https://purrr.tidyverse.org/reference/pluck.html) which gets and sets elements within nested structures. Allison Horst has also drawn a lovely image to explain `pluck()` <https://allisonhorst.com/r-packages-functions>. Chris also mentioned that page breaks in Quarto can be made really simply:\
 `{{< pagebreak >}}`

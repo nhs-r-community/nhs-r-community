@@ -27,7 +27,7 @@ At this point I would encourage you to check out help for the `corrplot` functio
 
 # Deconstructing the function
 
-As mentioned previously, this plotting function has a multitude of uses, but all the parameters can be off putting to a newbie! This was me 6 years ago vigorously typing _‘how to do this with R relating to x’_ and bombarding [stackoverflow](https://stackoverflow.com/) and other useful websites with questions. Shout out to [RBloggers](https://www.r-bloggers.com/) as well!
+As mentioned previously, this plotting function has a multitude of uses, but all the parameters can be off putting to a newbie! This was me 6 years ago vigorously typing _‘how to do this with R relating to x'_ and bombarding [stackoverflow](https://stackoverflow.com/) and other useful websites with questions. Shout out to [RBloggers](https://www.r-bloggers.com/) as well!
 
 The function I have created uses the functionality of the {corrplot} packages, but it simplifies the inputs. I will include the function in stages to explain each step, however, if you just want to use the function and are not bothered with the underpinnings then skip the following section:
 
@@ -135,7 +135,7 @@ create_gh_style_corrplot <- function(df_numeric_vals,
 }
 ```
 
-Let’s explain this function.
+Let's explain this function.
 
 So, the `corrplot` function is the main driver for this and the second nested `cor` is just as important, as this is the command to create a correlation matrix. The settings are to use the `df_numeric_vals` data frame as the data to use with the function, the `use = 'all.obs'` just tells the function to use all observations in the data frame and the `method = method_corrplot` uses the if statement I created in step 2 to select the relevant chart from the input. The order uses the **angular ordering** method and the `addCoef.col = 'black'` sets the coefficient values to always show black, as well as the colour of the labels. The background colour of the correlation plot uses the `colorRampPalette` function to create a gradient scale for the function and the parameters of each of the colour settings like to those inputs I explained in step 1.
 

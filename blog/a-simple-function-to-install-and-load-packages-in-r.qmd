@@ -29,7 +29,7 @@ install_or_load_pack <- function(pack) {
 }
 ```
 
-This creates a function, in which, you can pass a vector of packages you want to load. The sweet point with this function is that if the packages are not installed, this function will do that and then load them, so the next time you come to using the function it will just load them into your project – instead of installing them. I said it was cool, or I thought you might find it cooler than I expected, either way I still think it’s cool.
+This creates a function, in which, you can pass a vector of packages you want to load. The sweet point with this function is that if the packages are not installed, this function will do that and then load them, so the next time you come to using the function it will just load them into your project – instead of installing them. I said it was cool, or I thought you might find it cooler than I expected, either way I still think it's cool.
 
 The last step is to make a call to the function and specify the list of packages you need:
 

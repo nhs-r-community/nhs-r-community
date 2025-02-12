@@ -11,9 +11,9 @@ subtitle: >
 
 Statistical Process Control (SPC) charts are widely used in healthcare analytics to examine how the metric varies over time and whether this variation is abnormal. Christopher Reading has already published a [blog](https://nhsrcommunity.com/blog/spc-charting-in-r/) on SPC Charts.
 
-Here is a simple example of annotating points and text on SPC plots using {ggplot2} package. We won’t explain all the parameters in the annotate function. Instead we see this as a short show and tell piece with signposts at end of the blog.
+Here is a simple example of annotating points and text on SPC plots using {ggplot2} package. We won't explain all the parameters in the annotate function. Instead we see this as a short show and tell piece with signposts at end of the blog.
 
-So let’s get started and generate some dummy data from a normal distribution with a mean of 0 and and a standard deviation of 1.
+So let's get started and generate some dummy data from a normal distribution with a mean of 0 and and a standard deviation of 1.
 
 ```{r}
 library(tidyverse)

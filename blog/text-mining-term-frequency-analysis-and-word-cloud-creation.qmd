@@ -125,7 +125,7 @@ clean_corpus <- function(corpus_to_use) {
     tm_map(removeNumbers) %>%
     tm_map(removeWords, stopwords("en")) %>%
     tm_map(content_transformer(tolower)) %>%
-    tm_map(removeWords, c("etc", "ie", "eg", stopwords("english")))
+    tm_map(removeWords, c("etc", "i.e.", "e.g.", stopwords("english")))
 }
 ```
 
@@ -195,7 +195,7 @@ positive_freq_terms <- data.frame(find_freq_terms_fun(corpus_positive))
 improvement_freq_terms <- data.frame(find_freq_terms_fun(corpus_improvements))
 ```
 
-These will be built as data frames and can be viewed in R Studio’s Data environment window:
+These will be built as data frames and can be viewed in R Studio's Data environment window:
 
 ![Screenshot of the RStudio's data environment window with terms and frequency](img/screenshot-term-window.png)
 

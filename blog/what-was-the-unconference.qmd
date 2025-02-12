@@ -10,13 +10,13 @@ image-alt: "Notes used to coordinate the unconferencing events"
 subtitle: >
 ---
 
-I’m going to invite controversy and say it was the best part of this year’s NHS R Community annual conference.
+I'm going to invite controversy and say it was the best part of this year's NHS R Community annual conference.
 
 Not that the more traditional presentations in the main hall were not informative and interesting as ever.
 
-Not that it wasn’t great to hear an array of brilliant and enthusiastic speakers – analysts, managers, academics – show how they are using R (and Python!) to solve real world problems with statistics, data science, evidence and coding.
+Not that it wasn't great to hear an array of brilliant and enthusiastic speakers – analysts, managers, academics – show how they are using R (and Python!) to solve real world problems with statistics, data science, evidence and coding.
 
-Not that the new approach of inviting questions through Slack channels devoted to each of the talks didn’t lead to a lively interaction between audience and speakers.
+Not that the new approach of inviting questions through Slack channels devoted to each of the talks didn't lead to a lively interaction between audience and speakers.
 
 But the Unconference embodied something else. Something that has been essential to the philosophy of the NHS R Community since its inception: the fact that NHS R *is* a *community*. Not a professional organisation. Not a cabal of experts who decant their wisdom to a group of acolytes. But a community built on participation – and on breaking down organisational boundaries and hierarchies.
 
@@ -28,11 +28,11 @@ In the morning of the first day of the conference, an ad hoc collage of snipped 
 
 During the course of the day people (most of them who had come along as ordinary conference attendees, who had arrived without pre-prepared PowerPoint presentations, who had not expected to be giving talks) quietly came forward\* to post their own ideas for rival conference sessions against the more formal timetable for the main session (\*some of them may have also received a bit of enthusiastic cajoling).
 
-Scrawled in felt tip. Stuck to the wall with sticky tape. In some cases offering to lead sessions, in others making pleas for “someone who knows what they’re talking about!” to step up.
+Scrawled in felt tip. Stuck to the wall with sticky tape. In some cases offering to lead sessions, in others making pleas for “someone who knows what they're talking about!” to step up.
 
 An alternative, crowd-sourced alternative to the main conference – the Unconference – emerged.
 
-By the end of the first day the scrappy timetable glued to the pristine window of Edgbaston Cricket Ground conference lounge had been populated with a full day’s session. Pawel keenly handed anyone going into the room with green and gold stickers, encouraging them to stick and vote.
+By the end of the first day the scrappy timetable glued to the pristine window of Edgbaston Cricket Ground conference lounge had been populated with a full day's session. Pawel keenly handed anyone going into the room with green and gold stickers, encouraging them to stick and vote.
 
 Around came day 2, and a new challenge.
 
@@ -46,13 +46,13 @@ One high point for me was a nerd-out discussion on prediction intervals, bravely
 
 Another was a discussion with NHS R Community founder and stalwart Prof Mohammed A Mohammed, about how we can move from lots of people independently working on the same problems – such as projecting/forecasting A&E attendance or hospital occupancy – again and again, and instead taking the best from all of those previous pieces of work and scaling them up collaboratively into sustainable approaches that the whole health and care system can use.
 
-These were lively, disruptive (to use Prof Mohammed’s preferred phrase, in the tech innovation sense) sessions which brought together people from across the health and social care sector – hospital modellers, NHS England data scientists, civil servants, academics – and from across the career spectrum, from junior analysts through to senior (technical) managers and specialists, where their job roles, organisations and seniority were not mentioned. Only their ideas and their enthusiasm to use data and analytics to make the NHS – and the wider system – better for everyone.
+These were lively, disruptive (to use Prof Mohammed's preferred phrase, in the tech innovation sense) sessions which brought together people from across the health and social care sector – hospital modellers, NHS England data scientists, civil servants, academics – and from across the career spectrum, from junior analysts through to senior (technical) managers and specialists, where their job roles, organisations and seniority were not mentioned. Only their ideas and their enthusiasm to use data and analytics to make the NHS – and the wider system – better for everyone.
 
 This is the very spirit of the NHS R Community.
 
-But it doesn’t end there!
+But it doesn't end there!
 
-If you’ve read this far, then we’ve got you. You have been co-opted.
+If you've read this far, then we've got you. You have been co-opted.
 
 Prof Mohammed wants you to tell him *your* ideas for how to solve this tricky problem of scaling our analytics into whole system solutions. Find out more in [NHS-R Slack](https://nhsrway.nhsrcommunity.com/community-handbook.html#nhs-r-slack) where you can also find Prof Mohammed.
 

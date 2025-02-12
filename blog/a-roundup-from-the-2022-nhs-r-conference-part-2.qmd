@@ -14,7 +14,7 @@ What are the latest health research applications using R? A roundup from the 202
 
 Performance reports published on a regular basis are common across the NHS. Rather than copying and pasting outputs from Excel to Powerpoint, Richard Wilson made the case for creating an interactive HTML report, using [R Markdown](https://rmarkdown.rstudio.com/), that is reproducible and quick to deliver. A report example is available on [Github](https://github.com/richardi7/SHMI_dashboard) using the Summary Hospital-level Mortality Indicator (SHMI) dataset.
 
-Improving the reporting process for the radiotherapy data has been Louise Reynolds’s (NDRS/NHS Digital) priority. Her department’s reporting process that used to be time-consuming and prone to error is now automated and produces standardised output in a few minutes. Relevant packages used for this project are [R Markdown](https://rmarkdown.rstudio.com/), [DBI](https://cran.r-project.org/web/packages/DBI/index.html), [tidyverse](https://www.tidyverse.org/packages/), [data.table](https://cran.r-project.org/web/packages/data.table/index.html), and [openxlsx](https://cran.r-project.org/web/packages/openxlsx/index.html).
+Improving the reporting process for the radiotherapy data has been Louise Reynolds's (NDRS/NHS Digital) priority. Her department's reporting process that used to be time-consuming and prone to error is now automated and produces standardised output in a few minutes. Relevant packages used for this project are [R Markdown](https://rmarkdown.rstudio.com/), [DBI](https://cran.r-project.org/web/packages/DBI/index.html), [tidyverse](https://www.tidyverse.org/packages/), [data.table](https://cran.r-project.org/web/packages/data.table/index.html), and [openxlsx](https://cran.r-project.org/web/packages/openxlsx/index.html).
 
 Daniel Weiand (Newcastle upon Tyne Hospitals NHS Foundation Trust) wrote entire academic papers using [Quarto](https://quarto.org/) and [R Markdown](https://rmarkdown.rstudio.com/). Combined with [Zotero](https://www.zotero.org/), it is possible to embed citations into your document. Quarto also has cross-referencing functionalities where it is possible to integrate ggplot with captions into the text.
 
@@ -40,7 +40,7 @@ Calum Polwart (South Tees Hospital NHS Foundation Trust) developed the [SACT Ana
 
 **Statistical Methods**
 
-[NHSRplotthedots](https://github.com/nhs-r-community/NHSRplotthedots) is a R package built by the NHS-R community to provide tools for drawing SPC charts. It supports NHSE/I programme ‘[Making Data Count](https://www.england.nhs.uk/publication/making-data-count/)’ and allows users to draw XmR charts, use change points, apply rules with summary indicators.
+[NHSRplotthedots](https://github.com/nhs-r-community/NHSRplotthedots) is a R package built by the NHS-R community to provide tools for drawing SPC charts. It supports NHSE/I programme ‘[Making Data Count](https://www.england.nhs.uk/publication/making-data-count/)' and allows users to draw XmR charts, use change points, apply rules with summary indicators.
 
 Chris Mainey (NHS North Central London ICB) manages to pull a crash course on linear and non-linear regression modelling in less than 15 minutes. Use the [mgcv](https://cran.r-project.org/web/packages/mgcv/index.html) package in base R to build nonlinear regression models with smoothers.
 

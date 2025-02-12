@@ -9,15 +9,15 @@ subtitle: >
   "Previously share on medium.com and kindly re-posted to NHS-R Community blog"
 ---
 
-In September 2019, our team at the Health Foundation took a big step towards making our analytics more transparent and reproducible: we l**aunched our [GitHub Page](https://hfanalyticslab.github.io/) and by default, made all our code repositories public**. Since then, we’ve uploaded more code, welcomed contributions from external collaborators, and added [new projects in progress](https://github.com/HFAnalyticsLab/MM_in_households). And another team at the Health Foundation, the [Improvement Analytics Unit](https://thf-evaluative-analytics.github.io/), has joined us by opening up their GitHub profile too. Along the journey we’ve learned a great deal and so, we’d like to share our experiences to inspire others.
+In September 2019, our team at the Health Foundation took a big step towards making our analytics more transparent and reproducible: we **launched our [GitHub Page](https://hfanalyticslab.github.io/) and by default, made all our code repositories public**. Since then, we've uploaded more code, welcomed contributions from external collaborators, and added [new projects in progress](https://github.com/HFAnalyticsLab/MM_in_households). And another team at the Health Foundation, the [Improvement Analytics Unit](https://thf-evaluative-analytics.github.io/), has joined us by opening up their GitHub profile too. Along the journey we've learned a great deal and so, we'd like to share our experiences to inspire others.
 
 Launching our GitHub page is **part of a wider strategy** to make our work more open and collaborative, with the twin aims of tackling bigger issues in analytics and sharing learning. We hope this will help accelerate innovation in analytics and data-driven technologies across the health and care ecosystem.
 
-# **Building on others’ work**
+# **Building on others' work**
 
-As a team, we are lucky to stand on the shoulders of open data science giants. What we’ve achieved so far has only been possible because we can access an incredible range of open-source tools and the [support of individuals and communities](https://www.bmj.com/content/367/bmj.l6365), who have done lots of hard work already. We owe much of our progress to resources and advice from the [NHS-R community](https://nhsrcommunity.com/), the [Turing Way](https://the-turing-way.netlify.com/introduction/introduction) and the wider open data science community on Twitter and Stack Overflow.
+As a team, we are lucky to stand on the shoulders of open data science giants. What we've achieved so far has only been possible because we can access an incredible range of open-source tools and the [support of individuals and communities](https://www.bmj.com/content/367/bmj.l6365), who have done lots of hard work already. We owe much of our progress to resources and advice from the [NHS-R community](https://nhsrcommunity.com/), the [Turing Way](https://the-turing-way.netlify.com/introduction/introduction) and the wider open data science community on Twitter and Stack Overflow.
 
-We know this is **only the start** of our journey towards open analytics, but we’ve been encouraged by the positivity of the data community. We’ve had many inspiring conversations with health care analysts around the UK and have lots of ideas about where we might head next.
+We know this is **only the start** of our journey towards open analytics, but we've been encouraged by the positivity of the data community. We've had many inspiring conversations with health care analysts around the UK and have lots of ideas about where we might head next.
 
 # **Sharing our insights**
 
@@ -41,29 +41,29 @@ To encourage others, we want to share **how we got started** on GitHub and now 
 
 # **The advantages of sharing code**
 
-Working transparently increasingly enables others to scrutinise, validate and use our work, which might also **reduce duplicated efforts** (‘analytical waste’). Though some of our projects still contain code for closed source software and might not be reusable as is, sharing it creates a permanent record of the analysis and can be a useful starting point for others. And while it has been hard work to get to this point, we have also noticed some unexpected benefits to us as analysts and to how we work as a team.
+Working transparently increasingly enables others to scrutinise, validate and use our work, which might also **reduce duplicated efforts** (‘analytical waste'). Though some of our projects still contain code for closed source software and might not be reusable as is, sharing it creates a permanent record of the analysis and can be a useful starting point for others. And while it has been hard work to get to this point, we have also noticed some unexpected benefits to us as analysts and to how we work as a team.
 
-It is now much easier to share our work internally, keep up with each other’s progress, and celebrate milestones and coding successes. In addition, knowing that our code is likely to be seen by others has given us fresh motivation to **improve suboptimal coding and project management habits** (we all have them!) and fired our enthusiasm to present our work and share our skills and knowledge.
+It is now much easier to share our work internally, keep up with each other's progress, and celebrate milestones and coding successes. In addition, knowing that our code is likely to be seen by others has given us fresh motivation to **improve suboptimal coding and project management habits** (we all have them!) and fired our enthusiasm to present our work and share our skills and knowledge.
 
-Another great feature of our public ‘**code shop window**’ is that both internal and external contributors are now automatically and visibly credited for their work.
+Another great feature of our public ‘**code shop window**' is that both internal and external contributors are now automatically and visibly credited for their work.
 
 # **Setting up a GitHub profile: a checklist**
 
-When you work with sensitive health care data, sharing code has particular challenges, which we will explore later. However, it’s too easy to get stuck figuring out the basics before you even get to that point.
+When you work with sensitive health care data, sharing code has particular challenges, which we will explore later. However, it's too easy to get stuck figuring out the basics before you even get to that point.
 
-To help you get up and running, here’s a checklist similar to ours:
+To help you get up and running, here's a checklist similar to ours:
 
 -   **![✔️](https://s.w.org/images/core/emoji/15.0.3/svg/2714.svg){alt="✔️"} Figure out what [type of GitHub account](https://help.github.com/en/github/getting-started-with-github/types-of-github-accounts) you need.** As a team, we needed a paid organisation account. By default, these come with five members included and on top of this, you can add external collaborators to public repositories. Remember, there are discounts for non-profit organisations and academic institutions.
 
--   **![✔️](https://s.w.org/images/core/emoji/15.0.3/svg/2714.svg){alt="✔️"} Get buy-in from stakeholders and decision-makers.** If you need advice,check out the arguments for collaboration and pooling of analytical resources from [The Strategy Unit’s draft Analysts’ Manifesto](https://midlandsphmacademy.nhs.uk/the-analyst-manifesto/) and our [recent report on investing in health and care analytics](https://www.health.org.uk/publications/reports/untapped-potential-investing-in-health-and-care-data-analytics). What also helped us build a case was gathering advice and agreement on the open-source licensing options, the account budget and set-up, any website copy and our plans to share the news about the launch.
+-   **![✔️](https://s.w.org/images/core/emoji/15.0.3/svg/2714.svg){alt="✔️"} Get buy-in from stakeholders and decision-makers.** If you need advice,check out the arguments for collaboration and pooling of analytical resources from [The Strategy Unit's draft Analysts' Manifesto](https://midlandsphmacademy.nhs.uk/the-analyst-manifesto/) and our [recent report on investing in health and care analytics](https://www.health.org.uk/publications/reports/untapped-potential-investing-in-health-and-care-data-analytics). What also helped us build a case was gathering advice and agreement on the open-source licensing options, the account budget and set-up, any website copy and our plans to share the news about the launch.
 
--   **![✔️](https://s.w.org/images/core/emoji/15.0.3/svg/2714.svg){alt="✔️"} Decide on an open-source code license.** All code shared on GitHub is protected by copyright law by default, meaning that the creator retains exclusive rights. In order for others to use or modify the code, you must add a licence specifying what they can or cannot do with it. Ideally, this will also protect developers and contributors from litigation by limiting liability and warranty. We found [Karl Broman’s *R package primer*](https://kbroman.org/pkg_primer/pages/licenses.html), [Hadley Wickham’s *R packages*](http://r-pkgs.had.co.nz/description.html#license) and [tldrlegal.com](https://tldrlegal.com/) useful to learn about the different licensing options. We also chose the MIT Licence for our current projects because we want our code to be widely and easily used by others. However, a different licence might be a better fit for you and your team and might depend on the needs of your organisation.
+-   **![✔️](https://s.w.org/images/core/emoji/15.0.3/svg/2714.svg){alt="✔️"} Decide on an open-source code license.** All code shared on GitHub is protected by copyright law by default, meaning that the creator retains exclusive rights. In order for others to use or modify the code, you must add a licence specifying what they can or cannot do with it. Ideally, this will also protect developers and contributors from litigation by limiting liability and warranty. We found [Karl Broman's *R package primer*](https://kbroman.org/pkg_primer/pages/licenses.html), [Hadley Wickham's *R packages*](http://r-pkgs.had.co.nz/description.html#license) and [tldrlegal.com](https://tldrlegal.com/) useful to learn about the different licensing options. We also chose the MIT Licence for our current projects because we want our code to be widely and easily used by others. However, a different licence might be a better fit for you and your team and might depend on the needs of your organisation.
 
 -   **![✔️](https://s.w.org/images/core/emoji/15.0.3/svg/2714.svg){alt="✔️"} Create a GitHub account.**
 
--   **![✔️](https://s.w.org/images/core/emoji/15.0.3/svg/2714.svg){alt="✔️"} Build navigable and user-friendly project templates.** The README is the first file in the project someone will read and should cover what the code does, why it is worth looking at, and serve as a manual for the code. README files are written in [markdown syntax](https://guides.github.com/features/mastering-markdown/), which is very easy to pick up if you don’t already use it. Stick to a consistent README structure across projects to make things easier for yourself and others. This [README template](https://github.com/HFAnalyticsLab/README_template) has worked well for us so far.
+-   **![✔️](https://s.w.org/images/core/emoji/15.0.3/svg/2714.svg){alt="✔️"} Build navigable and user-friendly project templates.** The README is the first file in the project someone will read and should cover what the code does, why it is worth looking at, and serve as a manual for the code. README files are written in [markdown syntax](https://guides.github.com/features/mastering-markdown/), which is very easy to pick up if you don't already use it. Stick to a consistent README structure across projects to make things easier for yourself and others. This [README template](https://github.com/HFAnalyticsLab/README_template) has worked well for us so far.
 
--   **![✔️](https://s.w.org/images/core/emoji/15.0.3/svg/2714.svg){alt="✔️"} Create repositories and start committing code.** Before we went public, we found it easiest to start by adding existing code to private repositories. Once we were comfortable, we shared work-in-progress code. For R users, [Jenny Bryan’s *Happy Git and GitHub for the useR*](https://happygitwithr.com/) is a good place to get started.
+-   **![✔️](https://s.w.org/images/core/emoji/15.0.3/svg/2714.svg){alt="✔️"} Create repositories and start committing code.** Before we went public, we found it easiest to start by adding existing code to private repositories. Once we were comfortable, we shared work-in-progress code. For R users, [Jenny Bryan's *Happy Git and GitHub for the useR*](https://happygitwithr.com/) is a good place to get started.
 
 # **Optional: Give your account a public face with a GitHub page**
 
@@ -71,13 +71,13 @@ GitHub also provides organisations with the option to host a free [public websi
 
 -   **![✔️](https://s.w.org/images/core/emoji/15.0.3/svg/2714.svg){alt="✔️"} Design the content and write the copy.**
 
--   **![✔️](https://s.w.org/images/core/emoji/15.0.3/svg/2714.svg){alt="✔️"} Decide on a theme.** There are a number of [supported themes](https://pages.github.com/themes/) to choose from. We used [Steve Smith’s Minimal theme](https://pages-themes.github.io/minimal/) and customised it according to our needs.
+-   **![✔️](https://s.w.org/images/core/emoji/15.0.3/svg/2714.svg){alt="✔️"} Decide on a theme.** There are a number of [supported themes](https://pages.github.com/themes/) to choose from. We used [Steve Smith's Minimal theme](https://pages-themes.github.io/minimal/) and customised it according to our needs.
 
--   **![✔️](https://s.w.org/images/core/emoji/15.0.3/svg/2714.svg){alt="✔️"} Create a repository.** Call it ‘username.github.io’ and [follow GitHub’s guidance](https://guides.github.com/features/pages/) to add a theme and publish the website.
+-   **![✔️](https://s.w.org/images/core/emoji/15.0.3/svg/2714.svg){alt="✔️"} Create a repository.** Call it ‘username.github.io' and [follow GitHub's guidance](https://guides.github.com/features/pages/) to add a theme and publish the website.
 
 -   **![✔️](https://s.w.org/images/core/emoji/15.0.3/svg/2714.svg){alt="✔️"} Add contents to the README.md file in markdown syntax.**
 
-For inspiration, visit our team’s [GitHub page](https://hfanalyticslab.github.io/) and the [repository containing the source code](https://github.com/HFAnalyticsLab/HFAnalyticsLab.github.io).
+For inspiration, visit our team's [GitHub page](https://hfanalyticslab.github.io/) and the [repository containing the source code](https://github.com/HFAnalyticsLab/HFAnalyticsLab.github.io).
 
 Once we had the basic infrastructure in place, we also needed content for our repositories — the code! As we often work with confidential health care information, a priority was to develop processes that enabled us to share code while maintaining data security.
 
@@ -91,23 +91,23 @@ This process, also known as **Statistical Disclosure Control** (SDC), is perfor
 
 In addition to our robust guidelines on preparing statistical results for disclosure checks, we have also developed the following best practice methods to safely open up our code:
 
-## **1. Keep server architecture confidential: don’t release absolute file paths**
+## **1. Keep server architecture confidential: don't release absolute file paths**
 
-To minimise any security risks to our secure data server, we make sure our code does not contain any absolute file paths, for example to access raw data. First, we figured these wouldn’t be useful to anyone else and second, it meant we could avoid disclosing the layout of our secure server.
+To minimise any security risks to our secure data server, we make sure our code does not contain any absolute file paths, for example to access raw data. First, we figured these wouldn't be useful to anyone else and second, it meant we could avoid disclosing the layout of our secure server.
 
-In practice, we had to find a convenient way to refer to file locations in our scripts without using explicit paths. Unfortunately, this wasn’t as easy as setting a default working directory through an R Studio projects (although we would recommend using them anyway), as raw data is often stored in a separate location. We are now using a combination of two approaches:
+In practice, we had to find a convenient way to refer to file locations in our scripts without using explicit paths. Unfortunately, this wasn't as easy as setting a default working directory through an R Studio projects (although we would recommend using them anyway), as raw data is often stored in a separate location. We are now using a combination of two approaches:
 
 -   The [**here package**](https://cran.r-project.org/web/packages/here/index.html) ? to refer to files within the project directory. This is preferable to using relative file paths, as it works from within subdirectories and because the file paths will be generated correctly on other operating systems.
 
 -   A separate script containing absolute paths to locations outside the project directory, which can be sourced but is never released from our secure server.
 
-## **2. Keep code clean: don’t refer to raw data or statistical results**
+## **2. Keep code clean: don't refer to raw data or statistical results**
 
-Potentially the biggest confidentiality risk when releasing code is referring to either the raw data or aggregate results in the comments. Although generally considered bad practice, it is easy to fall into this bad habit and to copy-paste any outputs into a comment while working on a particularly tricky bit of analysis. **Once disclosive comments are in the code, it’s easy to overlook them later.**
+Potentially the biggest confidentiality risk when releasing code is referring to either the raw data or aggregate results in the comments. Although generally considered bad practice, it is easy to fall into this bad habit and to copy-paste any outputs into a comment while working on a particularly tricky bit of analysis. **Once disclosive comments are in the code, it's easy to overlook them later.**
 
-We believe that **sticking to good habits right from the start** is the best way to manage this risk. Knowing that the code will definitely go through Statistical Disclosure Control has helped us to think twice about what we put in the comments. This, in turn, helps our output checkers as they don’t have to spend as much time going through the code.
+We believe that **sticking to good habits right from the start** is the best way to manage this risk. Knowing that the code will definitely go through Statistical Disclosure Control has helped us to think twice about what we put in the comments. This, in turn, helps our output checkers as they don't have to spend as much time going through the code.
 
-As a result, it’s also motivated us to write more concise, readable and self-explanatory code. A tool that we can highly recommend here is the [**tidylog package**](https://cran.r-project.org/web/packages/tidylog/index.html) ?. Simply loading the package will print feedback on dplyr and tidyr operations in the R console. In this way, it often eliminates the need for hard-coded checks of these operations.
+As a result, it's also motivated us to write more concise, readable and self-explanatory code. A tool that we can highly recommend here is the [**tidylog package**](https://cran.r-project.org/web/packages/tidylog/index.html) ?. Simply loading the package will print feedback on dplyr and tidyr operations in the R console. In this way, it often eliminates the need for hard-coded checks of these operations.
 
 ## **3. Be kind to colleagues: minimise friction during disclosure control**
 
@@ -115,15 +115,15 @@ Releasing code on a regular basis could increase the time our colleagues spend o
 
 -   A **consistent and logical structure** for individual scripts and for projects; including splitting analysis workflows into smaller portions, rather than working in one enormous script.
 
--   Increasing readability through consistent **formatting and indentation**. We found the [tidyverse style guide](https://style.tidyverse.org/) very useful, as well as the [Collin Gillespie’s guide to RStudio features](https://csgillespie.github.io/efficientR/coding-style.html) that can automatically reformat and indent code. We are also experimenting with tools such as the [styler package](https://styler.r-lib.org/) ? that can flexibly re-format whole scripts or projects.
+-   Increasing readability through consistent **formatting and indentation**. We found the [tidyverse style guide](https://style.tidyverse.org/) very useful, as well as the [Collin Gillespie's guide to RStudio features](https://csgillespie.github.io/efficientR/coding-style.html) that can automatically reformat and indent code. We are also experimenting with tools such as the [styler package](https://styler.r-lib.org/) ? that can flexibly re-format whole scripts or projects.
 
-We are still working on finding the right balance between the added value of openness, by frequently releasing and sharing code in active development, and the workload this creates for our output checkers. At the very least, **we’d like to partially automate this process** in the future, and we’d welcome any suggestions for existing tools that could help us.
+We are still working on finding the right balance between the added value of openness, by frequently releasing and sharing code in active development, and the workload this creates for our output checkers. At the very least, **we'd like to partially automate this process** in the future, and we'd welcome any suggestions for existing tools that could help us.
 
 # **Next steps**
 
 While it has been a great experience so far, we have a long list of things left to figure out. These include:
 
--   How to best version-control **clinical code lists**, such as Read or ICD-10 codes to identify a diagnosis of interest, and **reference files**, such as lookup tables for geographies. Once published, databases such as the [University of Manchester’s ClinicalCodes repository](https://clinicalcodes.rss.mhs.man.ac.uk/) are a good option, but we also want to keep track of them internally. In the future, we might wrap these up into data R packages, rather than using CSV files.
+-   How to best version-control **clinical code lists**, such as Read or ICD-10 codes to identify a diagnosis of interest, and **reference files**, such as lookup tables for geographies. Once published, databases such as the [University of Manchester's ClinicalCodes repository](https://clinicalcodes.rss.mhs.man.ac.uk/) are a good option, but we also want to keep track of them internally. In the future, we might wrap these up into data R packages, rather than using CSV files.
 
 -   How to encourage and manage **contributions from the wider community**. A first step is to add [**guidelines for external contributors**](https://help.github.com/en/github/building-a-strong-community/setting-guidelines-for-repository-contributors) **and a [code of conduct](https://help.github.com/en/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)**to each of our repositories.
 

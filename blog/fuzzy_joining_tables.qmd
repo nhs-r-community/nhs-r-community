@@ -16,7 +16,7 @@ subtitle: >
 
 I recently had a problem where I had two datasets containing data which I needed to join together. The two datasets had a nice 1:1 mapping between them, but unfortunately there was not a nice coded identifier to join the two datasets. There was just a name field, and annoyingly there were subtle differences between the two.
 
-For demonstration purposes, I’m going to show a similar problem. Imagine that we have one dataset that contains data about [ICSs](https://en.wikipedia.org/wiki/Integrated_care_system), and another about [STPs](https://en.wikipedia.org/wiki/Sustainability_and_transformation_plan). (For those not familiar with English NHS geographies, STPs were 42 geographic areas covering England, which in July 2022 became ICSs). This has a 1:1 mapping, but some of the names changed slightly when ICSs came into effect.
+For demonstration purposes, I'm going to show a similar problem. Imagine that we have one dataset that contains data about [ICSs](https://en.wikipedia.org/wiki/Integrated_care_system), and another about [STPs](https://en.wikipedia.org/wiki/Sustainability_and_transformation_plan). (For those not familiar with English NHS geographies, STPs were 42 geographic areas covering England, which in July 2022 became ICSs). This has a 1:1 mapping, but some of the names changed slightly when ICSs came into effect.
 
 ```{r}
 #| include: true
@@ -48,7 +48,7 @@ icbs <- readxl::read_excel(paste0(here::here(), "/ICB_JUL_2022_EN_NC.xlsx")) |>
 icbs
 ```
 
-Obviously, here we have the [“E54\* ONS codes](https://en.wikipedia.org/wiki/ONS_coding_system) which we could join on, a luxury I did not have. I’ve left these in to test the matching does work later.
+Obviously, here we have the [“E54\* ONS codes](https://en.wikipedia.org/wiki/ONS_coding_system) which we could join on, a luxury I did not have. I've left these in to test the matching does work later.
 
 First of all, how many rows are we able to match joining on the name?
 
@@ -57,7 +57,7 @@ icbs |>
   inner_join(stps, by = "description")
 ```
 
-None! Looking at the `icbs` dataset, we can see rows start with “NHS” and end with “Integrated Care Board”, which doesn’t happen in `stps`. Perhaps, by just stripping these we get a perfect match?
+None! Looking at the `icbs` dataset, we can see rows start with “NHS” and end with “Integrated Care Board”, which doesn't happen in `stps`. Perhaps, by just stripping these we get a perfect match?
 
 ```{r}
 icbs |>
@@ -82,7 +82,7 @@ Alternatively, we could consider the set of unique words used in two strings. We
 
 This is a very useful method for the problem I faced, as I expect the names in both datasets to be free of spelling mistakes.
 
-## **Using the Jaccard Similartiy method**
+## **Using the Jaccard Similarity method**
 
 First, we can use the `stringsimmatrix()` function from the `{stringdist}` package to calculate the Jaccard Similarity matrix, comparing the names from the first table to the names from the second table.
 
@@ -94,7 +94,7 @@ dist_matrix <- stringdist::stringsimmatrix(
 )
 ```
 
-However, simply calculating the string distance matrix doesn’t give us a solution to the problem. In the table below, you can see that in column y, some rows appear more than once, and eyeballing the match it’s clear it hasn’t found the correct pair.
+However, simply calculating the string distance matrix doesn't give us a solution to the problem. In the table below, you can see that in column y, some rows appear more than once, and eyeballing the match it's clear it hasn't found the correct pair.
 
 ```{r}
 # we can find the index of the maximum 
@@ -111,7 +111,7 @@ tibble(
 
 There is a quick solution to this though using a [Bipartite Graph](https://en.wikipedia.org/wiki/Bipartite_graph). A Birpartite Graph is a type of network where we have vertices of two types, and edges only exist between nodes of the different types.
 
-We can use the `{igraph}` package to construct and manipulate graphs. First, let’s construct a table where we have names from the first table as nodes of one type, and the names from the second table as nodes of the other type.
+We can use the `{igraph}` package to construct and manipulate graphs. First, let's construct a table where we have names from the first table as nodes of one type, and the names from the second table as nodes of the other type.
 
 ```{r}
 # the column `name` is special in a named graph. it will uniquely identify each vertex.
@@ -186,7 +186,7 @@ Roughly, the way this matching algorithm works is it starts off and finds the ed
 
 This prevents the issue we initially saw, because a node can only be paired to one other node.
 
-This algorithm works when we have a good set of weights to the edges. In fact, if you try running the string similarity function with some of the different algorithms that are available, such as the Levenshtein Distance, most give us bipartite matchings that aren’t correct.
+This algorithm works when we have a good set of weights to the edges. In fact, if you try running the string similarity function with some of the different algorithms that are available, such as the Levenshtein Distance, most give us bipartite matchings that aren't correct.
 
 For a more complete description, see the help page for the function ([igraph::max_bipartite_match](https://igraph.org/r/doc/matching.html)), and the [Push-relabel maximum flow algorithm](https://en.wikipedia.org/wiki/Push%E2%80%93relabel_maximum_flow_algorithm).
 
@@ -198,6 +198,6 @@ There is an obvious question of, are there easier approaches to this problem? In
 
 However, if you had a similar problem with more options then the manual approach would quickly becoming tiring. It is worth noting that you should not blindly trust the results; In my original problem I scanned the results and confirmed that I got the results I was after. In this example we had the codes which allowed us to confirm the correct results
 
-I also came into this problem expecting there to be a perfect 1:1 mapping between both sets. If it isn’t guaranteed that constraint holds in your problem then you may need to treat the results more cautiously.
+I also came into this problem expecting there to be a perfect 1:1 mapping between both sets. If it isn't guaranteed that constraint holds in your problem then you may need to treat the results more cautiously.
 
 This post is also available as a [quarto document](https://gist.github.com/tomjemmett/fc5fa443a3c1d1bd964e9eba34bb2d10).

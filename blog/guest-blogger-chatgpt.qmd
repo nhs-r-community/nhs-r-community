@@ -11,7 +11,7 @@ authors:
 subtitle: >
 ---
 
-Today we have a guest blogger for the NHS-R community blog- [ChatGPT](https://openai.com/blog/chatgpt/). Let’s see what ChatGPT thinks about the NHS-R Community.
+Today we have a guest blogger for the NHS-R community blog- [ChatGPT](https://openai.com/blog/chatgpt/). Let's see what ChatGPT thinks about the NHS-R Community.
 
 Prompt: Please write a short essay about NHS-R
 
