@@ -54,6 +54,7 @@ Barchart
 Bardsley
 Beeley
 Beeley's
+BibTex
 Biostatistics
 Birpartite
 Bluesky
@@ -177,9 +178,9 @@ Eisenhart
 Eisenhart's
 EmployHoliday
 Eventbrite
+Excel's
 ExcelSerialData
 ExcelSerialDate
-Excel's
 FLFRY
 FN
 FP
@@ -191,7 +192,6 @@ FeatureServer
 Fi
 FinalAnalysis
 FinalFunction
-Fonseca's
 Fonseca's
 Fosstodon
 Fothergill
@@ -496,6 +496,7 @@ Programme
 Programmes
 Py
 PyCharm
+PySpelling
 Pythia
 QCC
 Qin
@@ -642,6 +643,7 @@ Sukhmeet
 Swed's
 SyntheticNEWSData
 Sys
+TCB
 TP
 TPP
 TPP's
@@ -949,6 +951,7 @@ fingertipsR
 fingertipscharts
 fiona
 flexdashboard
+flexdashboards
 fo
 focussed
 focusses
@@ -1226,6 +1229,7 @@ plotly
 plotthedots
 pmin
 png
+poisson
 popthemes
 populationandmigration
 populationestimates
@@ -1328,6 +1332,7 @@ setdiff
 setequal
 setnames
 setosa
+setwd
 sg
 sharable
 shinyDemand
@@ -1489,6 +1494,9 @@ waitlist's
 waybiexample
 wb
 wday
+weblist
+weblinks
+webpage
 webscraping
 weeklyprovisionalfiguresondeathsregisteredinenglandandwales
 weill
@@ -1501,8 +1509,10 @@ wininet
 withr
 withupdatedrespiratoryrow
 wordcloud
+wordlist
 wordpress
 workspaces
+worldlist
 wp
 writeLines
 writeWorksheet
@@ -1518,6 +1528,7 @@ xlim
 xls
 xlsx
 xts
+yaml
 yend
 yintercept
 ylab
@@ -1534,6 +1545,3 @@ zoe
 zx
 Çetinkaya
 NA
-poisson
-BibTex
-TCB
