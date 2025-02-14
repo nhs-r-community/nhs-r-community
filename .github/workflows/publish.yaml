@@ -48,6 +48,13 @@ jobs:
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Install pillar
+        run: |
+          utils::install.packages("pillar")
+        shell: Rscript {0}
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Install Missing Packages
         run: |
           missing = checklist::install_missing_pkgs(dir = "./", glob = "*.qmd")
