@@ -86,7 +86,7 @@ library(dplyr)
 
 file_path <- paste0(here::here(),"/.wordlist.txt")
 
-# Check to see if the file exists (I mispelled this originally as .worldlist so 
+# Check to see if the file exists (I misspelt this originally as .worldlist so 
 # ironically couldn't find the file!)
 file.exists(file_path)
 
