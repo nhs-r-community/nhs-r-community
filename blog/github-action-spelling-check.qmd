@@ -1,0 +1,125 @@
+---
+title: "NHS-R Community GitHub Actions - spelling"
+date: "14 February 2025"
+date-modified: "14 February 2025"
+categories:
+  - GitHub Action
+author: Zoë Turner
+subtitle: "Setting up a GitHub action to check spelling on repositories"
+---
+
+Spell checking can be a really important feature of coding, particularly when creating reports, dashboards or websites. Some R solutions have spelling checks built into them, for example RStudio has a spell check function in the IDE (with underlining words that aren't recognised in the Visual view) and [`Golem`](https://github.com/ThinkR-open/golem) ("a framework for building robust Shiny apps") has the `spelling` R package built into it. But when you are creating reports at a fast pace or building dashboards in flexdashboards, Shiny or Quarto, then mistakes may get missed. Spelling, being what it is, can also be incredibly hard to spot: a dropped letter or a switch can be easily overlooked and if you have several files to check you will need a quick and reliable way to do this.
+
+## GitHub actions
+
+GitHub actions work, as the name suggests, on GitHub and are stored in the folder `.github` at the root (the main folder) of the Project. When a Pull Request is made to the main branch, which is good practice, you can trigger actions to flag up issues to resolve before merging.
+
+Whilst it is possible to create GitHub actions using R, Python is a more usual language, particularly in places like the GitHub Marketplace which is where the [PySpelling](https://github.com/marketplace/actions/run-pyspelling-as-a-github-action) can be found.
+
+The [NHS-R Way](https://github.com/nhs-r-community/NHSR-way/tree/main/.github/workflows) was one of the first repositories I tried out this GitHub Action and I needed 3 files:
+
+-   .wordlist.txt (in the main folder)
+-   .spellcheck.yaml (in the main folder)
+-   and in the folder `.github/workflows/` the file `spellcheck.yml`
+
+::: {.callout-note collapse="false" appearance="default" icon="true"}
+## Hidden files
+
+Files starting with a `.` may be hidden from view and can be seen in File Explorer by going to View \> select Hidden items. However, even doing this may not mean the file shows in the RStudio Files pane.
+:::
+
+All the files can be copied without changes but the `.wordlist.txt` requires specific spellings so you may wish to remove some or all of those used in NHS-R Community in case some of the words added are not suitable for your Project.
+
+## Running the GitHub Action to find spellings to save
+
+Adding the three files will undoubtedly fail the GitHub Action when first pushed because it's likely you will have a spelling that is not recognised by a universal dictionary. Also the checks are case sensitive so if you have any references which change from upper to lower case, these will both need to be listed, like NHS and nhs.
+
+It is possible to expand the [GitHub Action page](https://github.com/nhs-r-community/nhs-r-community/actions "NHS-R Community website GitHub Actions page") on GitHub to view the log of previously run actions and you will need to do this when it fails. For the spelling GitHub action, each spelling "mistake" is shown between lines of dashes:
+
+```         
+--------------------------------------------------------------------------------
+NHSRpopulation
+--------------------------------------------------------------------------------
+```
+
+I initially searched for the `-----` lines using Ctrl+F through the browser but it turns out the search doesn't extend to the log. I had missed that the log has its own search which appears at the top of the log webpage.
+
+![](img/search-action-log.PNG){fig-alt="GitHub Action with search towards the right where I had searched multiple dashes" fig-align="center"}
+
+It's then a manual task going to the `wordlist.txt` and adding the words and if there are true spelling mistakes it's possible to search all files in RStudio by using the `Ctrl + Shift + F` rather than the `Ctrl + F` to locate the spelling mistake and correct it.
+
+::: {.callout-note collapse="false" appearance="default" icon="true"}
+## Failed GitHub Actions
+
+Even when a GitHub Action fails the Pull Request can still be accepted.
+
+Sometimes GitHub Actions fail and just need rerunning some time later!
+
+To rerun go to the Actions tab, select the last failed action and in the top right will be a button to select `Re-run all jobs` or `Re-fun failed jobs`.
+:::
+
+## Forcing commits on GitHub
+
+It's possible to see on the [Pull Request](https://github.com/nhs-r-community/nhs-r-community/pull/278) that there are multiple `force-pushed` commits (10 times!). Because there were so many spellings I did this in a few tries, adding a load, pushing the changes and re-running the action. I also was adding them in alphabetical order at first, until I realised I was never going to get through all of these before Christmas (and it's February!).
+
+On the one hand it's ok to push all the changes to one commit as they are all related but on the other hand you will see this commit has 121 file changes to it as I had to tidy up a few files (see the later section about a rogue apostrophe). Whilst this was a decision that is ok to make: which is worse, more commits or more file changes, it is **never** recommended to force push to `main` or a branch that people are collaborating on because it changes history by changing the commit label. As I was working on a branch and within in Pull Request to `main`, I've reasonably assumed that it's only me that will be affected by these changes.
+
+The code to force a push is as follows:
+
+-   stage (add) all files (note the dot)
+-   amend the previous commit
+-   force the push
+
+```         
+git add . 
+git commit --amend --no-edit
+git push -f
+```
+
+## Updating a wordlist dictionary with multiple words
+
+The NHS-R Community website had over 900 specific words to add (some were generated from weblinks) and when I (finally) looked for code to speed things up I realised I could just add all the spellings into the list as I found them, import into R to order and remove duplicates. Before importing and sorting just add `Header` or something similar to the top of the word list as this will become the column name and removed as part of the process.
+
+```{r}
+library(here) # a package which is useful for referring to the project's path
+library(dplyr)
+
+file_path <- paste0(here::here(),"/.wordlist.txt")
+
+# Check to see if the file exists (I mispelled this originally as .worldlist so 
+# ironically couldn't find the file!)
+file.exists(file_path)
+
+# Import the .txt file into R as a dataframe
+df <- readr::read_delim(file_path, delim = "\t")
+
+# Order and remove duplicates
+df2 <- df |> 
+  dplyr::arrange(Header) |> 
+  unique() 
+  
+# Write the text file to test.txt, copy over to .wordlist.txt if everything is ok
+# or change the file name to .wordlist.txt and overwrite the original 
+write.table(df2, "test.txt", 
+            sep ="/",
+            col.names = FALSE, 
+            row.names = FALSE,
+            quote = FALSE)
+
+```
+
+## Replacing multiple and non-ascii characters
+
+Copying over the files from WordPress brought across the `’` apostrophe which doesn't appear to get recognised correctly even when the same is used in the `.wordlist` so I used the following code from a [Gist](https://gist.github.com/mattjbayly/9c56ec80ae291ff00589ffa3440806a1) to find and replace it to `'` in multiple files. The only change I made to the Gist was to expand on the `list.files` base R function to change the pattern to find`.qmd` files and also show the full path because I was changing files in a subfolder (doing this means that the code to `setwd()` isn't necessary):
+
+```{r}
+library(here) # use instead of setwd() to show the file path rather than change it
+
+path_to_subfolder <- paste0(here::here(), "/blog")
+
+list.files(path_to_subfolder, pattern = ".qmd", full.names = TRUE)
+```
+
+## Conclusion
+
+You can go a very long time without needing to use GitHub Actions or even spell checks on your scripts but they can be really convenient and powerful bits of code that can speed up a possibly manual process.
