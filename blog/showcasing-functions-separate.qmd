@@ -5,7 +5,7 @@ date-modified: '12 March 2024'
 categories:
   - R tips
 image: img/screenshot-separate-code.png
-image-alt: "Screeenshot of the R code to create a tibble used in the blog"
+image-alt: "Screenshot of the R code to create a tibble used in the blog"
 author: Zoë Turner
 subtitle: >
   "Separating codes from one cell couldn't be any easier in R"

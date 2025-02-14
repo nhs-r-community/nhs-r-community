@@ -7,12 +7,12 @@ categories:
   - shiny
 author: Dan Mohamed
 subtitle: >
-  "I created an app which shows the distribution of a waitlist’s volume over time."
+  "I created an app which shows the distribution of a waitlist's volume over time."
 ---
 
-![](img/WaitList.gif){fig-alt="Gif of a screenshot of a shiny dashboard showing a moving charts."}
+![](img/WaitList.gif){fig-alt="Moving screenshot of a shiny dashboard showing a moving charts."}
 
-I was interested in creating an animated graph in Shiny, which allows for an interactive input. As a mock example, I created an app which shows the distribution of a waitlist’s volume over time.
+I was interested in creating an animated graph in Shiny, which allows for an interactive input. As a mock example, I created an app which shows the distribution of a waitlist's volume over time.
 
 Excel offers the ability to easily create graphs, though when it comes to animating graphs, the process can be tricky, using complicated VBA. In my opinion, R is far better suited to dealing with this, due to the object oriented nature.
 
@@ -24,13 +24,13 @@ When I first had a go with making a simple animated plot, I thought it would be 
 -   Plot this vector as a bar chart
 -   Update the new vector every time there is a trigger
 
-Unfortunately, that’s when I ran into reactivity.
+Unfortunately, that's when I ran into reactivity.
 
 # Reactivity
 
 ![](img/danmasonblog-image-2.png){fig-alt="A simple diagram showing the reactivity of an object, x, changing the colour of a corresponding chart (to green)."}
 
-In short (and to my understanding), if you have anything in R Shiny that will be updated, it should be within a reactive environment. Flows of information in R work by pull, rather than push mechanisms. This means the data is “looked at” only when needed by the output (that is when it is created), but the data doesn’t push forward any change to the output if it updates.
+In short (and to my understanding), if you have anything in R Shiny that will be updated, it should be within a reactive environment. Flows of information in R work by pull, rather than push mechanisms. This means the data is “looked at” only when needed by the output (that is when it is created), but the data doesn't push forward any change to the output if it updates.
 
 Above, case 1 represents the normal situation in R once data has been updated. In case 2, a reactive environment is used, which effectively reverses the direction of the flow of information in R.
 

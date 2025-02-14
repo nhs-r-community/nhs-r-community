@@ -13,7 +13,7 @@ subtitle: >
 
 NHS-R conference 2022 – Keynotes: Heather Turner from R Ladies, Jess Morley, and others. Python track. Free to all UK public sector. Fully hybrid remote/ in person
 
-[Rstudioconf](https://www.rstudio.com/conference/). [Alice Walsh](https://twitter.com/sciencealice) talk on [creativity, quilting, and R](https://www.rstudio.com/conference/2022/talks/quilting-in-r-becoming-creative/). Really useful analogy: do you want to be a pizza delivery business, or a plumber?  Pizza delivery – choose from a picture, it arrives and looks like it should. We do a lot of dashboard pizza – asked for a chart here, there, summary table, no creativity. Plumber is domain expert. Turns up and asks questions about the problem. Brings tools and fittings to fix, but doesn’t focus on them. Focus on understanding the customer’s problem. Then gets on with work, and trusted to deliver result.
+[Rstudioconf](https://www.rstudio.com/conference/). [Alice Walsh](https://twitter.com/sciencealice) talk on [creativity, quilting, and R](https://www.rstudio.com/conference/2022/talks/quilting-in-r-becoming-creative/). Really useful analogy: do you want to be a pizza delivery business, or a plumber?  Pizza delivery – choose from a picture, it arrives and looks like it should. We do a lot of dashboard pizza – asked for a chart here, there, summary table, no creativity. Plumber is domain expert. Turns up and asks questions about the problem. Brings tools and fittings to fix, but doesn't focus on them. Focus on understanding the customer's problem. Then gets on with work, and trusted to deliver result.
 
 [Software carpentry](https://software-carpentry.org/) and [linting](https://github.com/r-lib/lintr).
 

@@ -1,5 +1,5 @@
 ---
-title: "NHS-R Community Conference – organisers’ perspective"
+title: "NHS-R Community Conference – organisers' perspective"
 date: "8 December 2020"
 date-modified: "12 July 2024"
 categories:
@@ -8,7 +8,7 @@ author: NHS-R Community Team
 subtitle: >
 ---
 
-WoW – that’s the best description we can come up with for our third NHS-R Conference 2020 which took place virtually during first two weeks of November 2020.
+WoW – that's the best description we can come up with for our third NHS-R Conference 2020 which took place virtually during first two weeks of November 2020.
 
 ![](img/menti-feedback.png){fig-alt="Word cloud with words inspiring, informative and friendly prominent in size"}
 
@@ -28,23 +28,23 @@ Newcomers ask what is R? A nice, clear question but as the conference program sh
 
 The NHS-R Conference offers a pulse check on the use of R in the NHS and the trend is clear. Our first people had 120 registrations, our second – 300. This year we had more than 1,000 registrations, 600 participants attended live and more than 300 re-watched later. If you missed the conference, you still have a chance to catch up. All the talks are recorded and are available on our YouTube channel: please have a look at [talks](https://www.youtube.com/playlist?list=PLXCrMzQaI6c0Kvs7lE-Rxdig5nc5-4Xx2) and [workshops](https://www.youtube.com/playlist?list=PLXCrMzQaI6c3EAh10hDZectzBALWPk19w) playlists. They will also be uploaded to our [website](https://nhsrcommunity.com/). Conference materials are being uploaded to our [github page](https://github.com/nhs-r-community/Conference_2020).
 
-> *“Thank you to all the organisers & contributors, it was fantastic & I’ve learned so much!”*
+> *“Thank you to all the organisers & contributors, it was fantastic & I've learned so much!”*
 
 *Lyn Howard, Clinical Network Coordinator, NWC Clinical Network*
 
 Our annual survey had some key data – still 1/3 of analysts regard themselves as novices. Please consider running a workshop for the NHS-R Community and we will do whatever we can to support you!
 
-> *“The conference was a huge success and I though really highlighted some of the great work that’s going on around the country with R.”*
+> *“The conference was a huge success and I though really highlighted some of the great work that's going on around the country with R.”*
 
 *Dr Richard Issitt, Clinical Research Fellow, Great Ormond Street Hospital*
 
-Our new venture is as partners with [Hexitme](https://hexitime.com/). There was a sticky notes session on MIRO – below is a picture of the board – so much energy to mobilise knowledge in our community! On Hexitime we have an “NHS-R Wishing Well” for people to suggest ideas to the community.
+Our new venture is as partners with [Hexitime](https://hexitime.com/). There was a sticky notes session on MIRO – below is a picture of the board – so much energy to mobilise knowledge in our community! On Hexitime we have an “NHS-R Wishing Well” for people to suggest ideas to the community.
 
 ![](img/Hexitime.png){fig-alt="Screenshot of post it notes for the questions: What are the biggest challenges you experience; what skills, experience or expertise could you offer, what support would you request, what ideas do you have to improve the quality of our work?"}
 
-The NHS-R Conference has become the premier data science conference in the NHS and care calendar. It has grown to this because of the engagement, passion and giving of our community members who contribute to together with support from RStudio, MANGO and Jumping Rivers. Every “little” action count’s and you can participate in making the healthcare analytics better.
+The NHS-R Conference has become the premier data science conference in the NHS and care calendar. It has grown to this because of the engagement, passion and giving of our community members who contribute to together with support from RStudio, MANGO and Jumping Rivers. Every “little” action count's and you can participate in making the healthcare analytics better.
 
-1.  Join us on Hextime
+1.  Join us on Hexitime
 
 2.  Please write a Blog post! You can see the examples on this website, just send a ready version to the [nhs.rcommunity\@nhs.net](mailto:nhs.rcommunity@nhs.net)
 

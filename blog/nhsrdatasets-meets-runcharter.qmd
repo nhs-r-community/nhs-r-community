@@ -14,11 +14,11 @@ subtitle: >
 
 # Background
 
-The {NHSRdatasets} package made it to CRAN recently, and as it is designed for use by NHS data analysts, and I am an NHS data analyst, let’s take a look at it. Thanks to Chris Mainey and Tom Jemmett for getting this together.
+The {NHSRdatasets} package made it to CRAN recently, and as it is designed for use by NHS data analysts, and I am an NHS data analyst, let's take a look at it. Thanks to Chris Mainey and Tom Jemmett for getting this together.
 
 # Load packages and data
 
-As above let’s load what we need for this session. The {runcharter} package is built using {data.table}, but I’m using {dplyr} in this main section to show that you don’t need to know {data.table} to use it.
+As above let's load what we need for this session. The {runcharter} package is built using {data.table}, but I'm using {dplyr} in this main section to show that you don't need to know {data.table} to use it.
 
 :::{.callout-tip collapse=false appearance='default' icon=true}
 ## Installing from GitHub
@@ -32,7 +32,7 @@ library(dplyr)
 library(skimr)
 ```
 
-However- seriously, do take a look at {data.table}. It’s not as hard to understand as some might have you believe. A little bit of effort pays off. You can load the {runcharter} package from github using the {remotes} package. (I’ve managed to install it on Windows and Ubuntu. Mac OS? No idea, I have no experience of that).
+However- seriously, do take a look at {data.table}. It's not as hard to understand as some might have you believe. A little bit of effort pays off. You can load the {runcharter} package from github using the {remotes} package. (I've managed to install it on Windows and Ubuntu. Mac OS? No idea, I have no experience of that).
 
 ```{r}
 #| eval: true
@@ -41,17 +41,17 @@ ae <- ae_attendances #  a string
 rm(ae_attendances) # just typing 'ae' brings it to life in the environment
 ```
 
-That felt a bit glitchy. There has to be a sleeker way to load and assign a built in dataset but I couldn’t find one. Cursory google to [Stackoverflow](https://stackoverflow.com/questions/30951204/load-dataset-from-r-package-using-data-assign-it-directly-to-a-variable).
+That felt a bit glitchy. There has to be a sleeker way to load and assign a built in dataset but I couldn't find one. Cursory google to [Stackoverflow](https://stackoverflow.com/questions/30951204/load-dataset-from-r-package-using-data-assign-it-directly-to-a-variable).
 
-Let’s have a look at the data:
+Let's have a look at the data:
 
 ```{r}
 glimpse(ae)
 ```
 
-Lot’s of factors. I’m actually very grateful for this package, as it caused me major issues when I first tried to plot this data using an earlier version of {runcharter.} I hadn’t considered factors as a possible grouping variable, which was a pretty big miss, as all the facets were out of order. All sorted now.
+Lot's of factors. I'm actually very grateful for this package, as it caused me major issues when I first tried to plot this data using an earlier version of {runcharter.} I hadn't considered factors as a possible grouping variable, which was a pretty big miss, as all the facets were out of order. All sorted now.
 
-There’s way too much data for my tiny laptop screen, so I will filter the data for type 1 departments – the package help gives us a great link to explain what this means
+There's way too much data for my tiny laptop screen, so I will filter the data for type 1 departments – the package help gives us a great link to explain what this means
 
 ```{r}
 type1 <- ae %>%
@@ -69,21 +69,21 @@ p <- runcharter(type1,
 )
 ```
 
-The runcharter function returns both a plot, and a data.table/ data.frame showing a summary of any runs in the desired direction (I’m assuming folk reading this have a passing knowledge of run charts, but if not, you can look at the [package vignette](https://www.johnmackintosh.com/projects/runcharter/), which is the cause of most of my commits!!)
+The runcharter function returns both a plot, and a data.table/ data.frame showing a summary of any runs in the desired direction (I'm assuming folk reading this have a passing knowledge of run charts, but if not, you can look at the [package vignette](https://www.johnmackintosh.com/projects/runcharter/), which is the cause of most of my commits!!)
 
-Don’t try loading the plot right now, because it is huge, and takes ages. If we look at the summary dataframe, we can see 210 rows, a fairly decent portion of which relate to significant increases above the original median value
+Don't try loading the plot right now, because it is huge, and takes ages. If we look at the summary dataframe, we can see 210 rows, a fairly decent portion of which relate to significant increases above the original median value
 
 ```{r}
 p$sustained
 ```
 
-Let’s use {skimr} to get a sense of this
+Let's use {skimr} to get a sense of this
 
 ```{r}
 skimr::skim(p$sustained)
 ```
 
-To keep this manageable, I’m going to filter out for areas that have median admissions > 10000 (based on the first 13 data points)
+To keep this manageable, I'm going to filter out for areas that have median admissions > 10000 (based on the first 13 data points)
 
 ```{r}
 high_admits <- p$sustained %>%
@@ -91,7 +91,7 @@ high_admits <- p$sustained %>%
   select(org_code)
 ```
 
-Then I change the `org_code` from factor to character, and pull out unique values. I’m sure there is a slicker way of doing this, but it’s getting late, and I don’t get paid for this..
+Then I change the `org_code` from factor to character, and pull out unique values. I'm sure there is a slicker way of doing this, but it's getting late, and I don't get paid for this..
 
 I use the result to create a smaller data frame
 
@@ -102,7 +102,7 @@ type1_high <- type1 %>%
   filter(org_code %in% high_admits$org_code)
 ```
 
-And now I can produce a plot that fits on screen. I’ve made the individual scales free along the y axis, and added titles and so on
+And now I can produce a plot that fits on screen. I've made the individual scales free along the y axis, and added titles and so on
 
 ```{r}
 p2 <- runcharter(type1_high,
@@ -121,7 +121,7 @@ p2 <- runcharter(type1_high,
 )
 ```
 
-Let’s look at the sustained dataframe
+Let's look at the sustained dataframe
 
 ```{r}
 p2$sustained
@@ -134,7 +134,7 @@ And of course, the plot itself
 p2$runchart
 ```
 
-I haven’t looked into the actual data too much, but there are some interesting little facets here – what’s the story with RDE, RRK and RTG for example? I don’t know which Trusts these codes represent, but they show a marked increase. Of course, generally, all areas show an increase at some point.
+I haven't looked into the actual data too much, but there are some interesting little facets here – what's the story with RDE, RRK and RTG for example? I don't know which Trusts these codes represent, but they show a marked increase. Of course, generally, all areas show an increase at some point.
 
 The RGN (top right) and RVV (mid left) show the reason why I worked on this package – we can see that there has been more than one run above the median. . Performing this analysis in Excel is not much fun after a while.
 

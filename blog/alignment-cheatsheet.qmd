@@ -12,11 +12,11 @@ execute:
 subtitle: >
 ---
 
-I’ve used `{ggtext}`’s `geom_textbox()` a lot in my recent data visualisations, but, every time, I end up resorting to a bit of trial and error to get the alignment just right. Time to create a cheatsheet that will be useful to my future self, and hopefully to a few others also.
+I've used `{ggtext}`'s `geom_textbox()` a lot in my recent data visualisations, but, every time, I end up resorting to a bit of trial and error to get the alignment just right. Time to create a cheatsheet that will be useful to my future self, and hopefully to a few others also.
 
 ## **First, why `geom_textbox()`?**
 
-I like it for its versatility. It allows for fun things with markdown and a limited number of html tags, which makes it easy to format the text on the fly. I’ll demo a few tricks in the code below but cover them in more detail elsewhere. It also allows for easy placement and manipulation of the box itself, tweaking the radius of the corners, the colour, how thick the border is, and many more things.
+I like it for its versatility. It allows for fun things with markdown and a limited number of html tags, which makes it easy to format the text on the fly. I'll demo a few tricks in the code below but cover them in more detail elsewhere. It also allows for easy placement and manipulation of the box itself, tweaking the radius of the corners, the colour, how thick the border is, and many more things.
 
 What are the alignment parameters?
 
@@ -28,9 +28,9 @@ What are the alignment parameters?
 
 -   `halign`
 
-These can be set per textbox using values within aes() to allow for different alignments for different textboxes, or across the board outside of aes() so that the same alignment settings are applied to all the textboxes. In this demo, I’ll set different values for each box.
+These can be set per textbox using values within aes() to allow for different alignments for different textboxes, or across the board outside of aes() so that the same alignment settings are applied to all the textboxes. In this demo, I'll set different values for each box.
 
-## **OK, let’s go!**
+## **OK, let's go!**
 
 First, we need to load the necessary libraries:
 
@@ -40,7 +40,7 @@ library(ggtext)
 library(extrafont)
 ```
 
-Next, let’s put a tibble together to provide data for our textboxes.
+Next, let's put a tibble together to provide data for our textboxes.
 
 ```         
 alignments <- tibble("h_align" = sort(rep(c(0, 0.5, 1), 3)),
@@ -55,7 +55,7 @@ alignments <- tibble("h_align" = sort(rep(c(0, 0.5, 1), 3)),
                   "Here's some text in a box, and *this* is how everything aligns!"))
 ```
 
-And finally, let’s create a plot to see how everything aligns.
+And finally, let's create a plot to see how everything aligns.
 
 ```         
 ggplot(alignments) +
@@ -95,13 +95,13 @@ ggplot(alignments) +
 
 -   `h`/`valign` determines the alignment of the text within the box
 
--   for `h`/`valign` 0 to 1 moves the text from bottom to top and from left to right inside the boxes (huh, that’s the same direction as 0 to 1 on the axes – that should make it easier to remember!)
+-   for `h`/`valign` 0 to 1 moves the text from bottom to top and from left to right inside the boxes (huh, that's the same direction as 0 to 1 on the axes – that should make it easier to remember!)
 
--   for `h`/`vjust` 0 to 1 goes… well I’m not too sure!
+-   for `h`/`vjust` 0 to 1 goes… well I'm not too sure!
 
 I think my confusion around how to verbalise the direction lies in what we use as our reference point. Are we aligning the top of the box to the coordinate, or are we aligning the box to the bottom of the coordinate? If we keep our focus on the bottom/middle top of the box, `vjust = 1` means “make the top of this box line up with the y-coordinate” and the 0 to 1 direction stays consistent with the direction of the y axis. Happy days!
 
-But I think I’ll probably still end up referring back to this plot.
+But I think I'll probably still end up referring back to this plot.
 
 Originally posted: <https://www.cararthompson.com/posts/2021-09-02-alignment-cheat-sheet/alignment-cheat-sheet.html>
 

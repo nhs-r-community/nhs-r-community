@@ -20,11 +20,11 @@ It is an hour every other Friday at 11:00 – 12:00.
 
 **Who is it aimed at?**
 
-Everyone of course.  We did a rough and self-determined straw poll.  About 40% said they were beginners, 45% intermediate and 15% advanced.  So please don’t feel that it is any way elitist.
+Everyone of course.  We did a rough and self-determined straw poll.  About 40% said they were beginners, 45% intermediate and 15% advanced.  So please don't feel that it is any way elitist.
 
 **What do the sessions look like**?
 
-They are all different, the whole thing is organic, and we don’t have a strict agenda. 
+They are all different, the whole thing is organic, and we don't have a strict agenda. 
 
 **A rough agenda**
 
@@ -68,7 +68,7 @@ We have run sessions on how to write and use loops, how to make choropleth (heat
 
 **Join us!**
 
-That’s my final plea, come and join us and keep this wonderful community alive and be proud to be part of it.
+That's my final plea, come and join us and keep this wonderful community alive and be proud to be part of it.
 
 If you want an invite, ping me an email at [simon.wellesley-miller\@nhs.net](mailto:simon.wellesley-miller@nhs.net)
 

@@ -232,7 +232,7 @@ and I couldn't find any reference to this in the Wiki page or the document from 
 
 # A conclusion
 
-If anyone has created a package or script for NHS number checks and wants to share please feel free to write a blog. NHS-R Community also has a GitHub repository at <https://github.com/nhs-r-community> where code like this blog can go (I wrote this in Rmarkdown).
+If anyone has created a package or script for NHS number checks and wants to share please feel free to write a blog. NHS-R Community also has a GitHub repository at <https://github.com/nhs-r-community> where code like this blog can go (I wrote this in RMarkdown).
 
 Blogs can be emailed to [nhs.rcommunity@nhs.net](mailto:nhs.rcommunity@nhs.net) and get checked by a group of enthusiast volunteers for publishing.
 

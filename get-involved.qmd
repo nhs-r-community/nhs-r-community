@@ -87,7 +87,7 @@ execute:
   eval: false
 ```
 
-More details on the [excution options](https://quarto.org/docs/computations/execution-options.html) are available from the Quarto documentation website.
+More details on the [execution options](https://quarto.org/docs/computations/execution-options.html) are available from the Quarto documentation website.
 
 ### Website creation
 
@@ -132,7 +132,7 @@ We have a regular [coffee and coding](https://nhsrway.nhsrcommunity.com/communit
 
 ## Practising coding
 
-No matter where you are in your journey learning open source coding tools NHS-R Community welcomes contributions to the [GitHub repostories](https://github.com/nhs-r-community) where we have Quarto books, a website, R packages and training materials.
+No matter where you are in your journey learning open source coding tools NHS-R Community welcomes contributions to the [GitHub repositories](https://github.com/nhs-r-community) where we have Quarto books, a website, R packages and training materials.
 This is an area for practising techniques as we don't hold sensitive data.
 
 Projects across our account use R, git, GitHub actions, [Docker](https://github.com/nhs-r-community/r_gh_actions), [R universe](https://github.com/nhs-r-community/nhs-r-community.r-universe.dev). 

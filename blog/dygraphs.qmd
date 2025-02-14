@@ -14,9 +14,9 @@ subtitle: >
   "Interactive charts for mortality surveillance"
 ---
 
-I recently presented some of the mortality surveillance charts we use to @RLadiesLondon (a very welcoming group!) and one that got some interest was a chart of Nottinghamshire Healthcare NHS Foundation Trust deaths compared to ONS Provisionally Registered deaths. The chart looks good because it’s interactive but this type of chart can be confusing because of the 2 y axes.
+I recently presented some of the mortality surveillance charts we use to @RLadiesLondon (a very welcoming group!) and one that got some interest was a chart of Nottinghamshire Healthcare NHS Foundation Trust deaths compared to ONS Provisionally Registered deaths. The chart looks good because it's interactive but this type of chart can be confusing because of the 2 y axes.
 
-When I show this report I make it clear that the two axes units are very different and that its purpose is to show that the pattern of the deaths in the wider population matches that of the deaths recorded by the Trust. It’s well known within Public Health that the pattern of deaths is seasonal, with a peak around January in the UK. However, this Public Health knowledge is not necessarily common knowledge in Secondary Care Trusts and it was one of the great benefits of having @IantheBee both create and present this report.
+When I show this report I make it clear that the two axes units are very different and that its purpose is to show that the pattern of the deaths in the wider population matches that of the deaths recorded by the Trust. It's well known within Public Health that the pattern of deaths is seasonal, with a peak around January in the UK. However, this Public Health knowledge is not necessarily common knowledge in Secondary Care Trusts and it was one of the great benefits of having @IantheBee both create and present this report.
 
 # Getting ONS Provisional Data
 
@@ -24,9 +24,9 @@ I wrote about getting and formatting the spreadsheets from ONS for the East Midl
 
 <https://nhsrcommunity.com/blog/format-ons-spreadsheet/>
 
-but for the purposes of the mortality surveillance report I’ve used several years data and I normally keep the spreadsheets, save the merged data and then load that each time I need to run the R markdown report.
+but for the purposes of the mortality surveillance report I've used several years data and I normally keep the spreadsheets, save the merged data and then load that each time I need to run the R markdown report.
 
-For the purposes of this blog I’ve amended the formatting code by adding functions so each year can be transformed and is available to plot:
+For the purposes of this blog I've amended the formatting code by adding functions so each year can be transformed and is available to plot:
 
 ```{r}
 library(janitor)
@@ -154,7 +154,7 @@ Deaths <- bind_rows(
   )
 ```
 
-This code may give a few warnings saying that NAs have been introduced by coercion which is because there are many cells in the spreadsheets that have no data in them at all. It’s a good thing they have nothing (and effectively NAs) as having 0s could confuse analysis as it isn’t clear if the 0 is a real 0 or missing data.
+This code may give a few warnings saying that NAs have been introduced by coercion which is because there are many cells in the spreadsheets that have no data in them at all. It's a good thing they have nothing (and effectively NAs) as having 0s could confuse analysis as it isn't clear if the 0 is a real 0 or missing data.
 
 To suppress warnings in R Markdown add `warning = FALSE` to the header, however, I like to keep the warnings just in case.
 
@@ -167,7 +167,7 @@ library(openxlsx) # To write to xls if required.
 write.xlsx(Deaths, "ImportProvisionalDeaths.xlsx")
 ```
 
-If you’ve saved the combined file, to call it again in a script use the following code:
+If you've saved the combined file, to call it again in a script use the following code:
 
 ```{r}
 library(readxl)
@@ -230,7 +230,7 @@ dygraph(ONSAlldeaths_series, main = "East Midlands Weekly Deaths/Randomly genera
   dyRangeSelector()
 ```
 
-When you’ve plotted the chart if you wave the cursor over the points you will see information about those points, you are also able to zoom in by using the scrolling bar at the bottom of the chart (this was from the `dyRangeSelector()` code.
+When you've plotted the chart if you wave the cursor over the points you will see information about those points, you are also able to zoom in by using the scrolling bar at the bottom of the chart (this was from the `dyRangeSelector()` code.
 
 Other options are detailed here: <https://rstudio.github.io/dygraphs/index.html>
 
@@ -250,7 +250,7 @@ dygraph(ONSAlldeaths_series, main = "East Midlands Weekly Deaths") %>%
 
 # The case of the mysteriously disappearing interactive graph in R Markdown html output
 
-I’d rendered (knit or run) the html reports with the interactive graphs and it had all worked so I emailed the report to people as promised and then the emails came back: “Some of the graphs are missing, can you resend?”. Perplexed, I opened the saved file from the server and, yes, indeed some of the charts had disappeared! Where there should be lovely interactive charts were vast swathes of blank screen. What had happened? The code ran fine, looked fine and how do you even Google this mystery?
+I'd rendered (knit or run) the html reports with the interactive graphs and it had all worked so I emailed the report to people as promised and then the emails came back: “Some of the graphs are missing, can you resend?”. Perplexed, I opened the saved file from the server and, yes, indeed some of the charts had disappeared! Where there should be lovely interactive charts were vast swathes of blank screen. What had happened? The code ran fine, looked fine and how do you even Google this mystery?
 
 Turns out my default browser, and I suspect it is throughout most of the NHS because lots of NHS systems depend on it, is Microsoft Explorer. Whilst I have the latest version these reports have never opened properly in Explorer.
 

@@ -4,7 +4,15 @@ date: "8 January 2020"
 date-modified: "11 July 2024"
 categories:
   - Forecasting
-author: Bahman Rostrami-Tobar
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+author: Bahman Rostrami-Tabar
+=======
+author: Bahman Rostami-Tobar
+>>>>>>> Stashed changes
+=======
+author: Bahman Rostami-Tobar
+>>>>>>> Stashed changes
 subtitle: >
   "Democratising forecasting project"
 ---
@@ -17,7 +25,7 @@ This workshop was only available in person but recordings from on NHS-R Communit
 
 The initiative sponsored by the [International Institute of Forecasters](https://forecasters.org/) provides cutting-edge training in the use of forecasting with R software in developing countries. There is no doubt that many people in developing countries cannot afford high fees to attend forecasting workshops. The project aims to make such a training accessible to those people and provide up-to-date training on the principles of forecasting and create a network of forecasters to conduct research on forecasting with social impact for less developed countries. The training has been delivered in Tunisia, Iraq, Senegal, Uganda, Nigeria, Turkey, Indonesia so far.
 
-We expand the “Democratising Forecasting” initiative to deliver four forecasting workshops per year for the National Health Service (NHS), UK, in collaboration with NHS-R community. We give our time for free despite the debate that such organisations may afford to pay such trainings.
+We expand the “Democratising Forecasting” initiative to deliver four forecasting workshops per year for the National Health Service (NHS), UK, in collaboration with NHS-R community. We give our time for free despite the debate that such organisations may afford to pay such training.
 
 # Why forecasting for NHS
 
@@ -75,7 +83,7 @@ Lunch: 12:30 p.m. – 01:30 p.m.
 
 Title: Essentials to do forecasting using R
 
-Date: Two weeks before the workshop (TBC)
+Date: Two weeks before the workshop (to be confirmed)
 
 ## Day 1
 
@@ -85,7 +93,7 @@ Date: Two weeks before the workshop (TBC)
 
 1.3. Time series patterns and decomposition: what could be used in data for forecasting task? how to detect systematic pattern in the data? how to separate non-systematic pattern?
 
-1.4. Forecaster’s toolbox: How to use time series graphics to identify patterns?  what is a forecasting benchmark? What are the simple forecasting methods that could be used as benchmark? How to generate point forecasts and prediction interval using simple forecasting methods?
+1.4. Forecaster's toolbox: How to use time series graphics to identify patterns?  what is a forecasting benchmark? What are the simple forecasting methods that could be used as benchmark? How to generate point forecasts and prediction interval using simple forecasting methods?
 
 1.5. Forecast accuracy evaluation: How do we know if the forecasting method captures systematic patterns available in data? How to judge whether a forecast is accurate or not? How to evaluate the accuracy of point forecasts and prediction interval? Why do we need to distinguish between fitting and forecast?
 

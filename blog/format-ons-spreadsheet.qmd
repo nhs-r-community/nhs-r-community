@@ -116,7 +116,7 @@ DeathsImport2 <- DeathsImport %>%
 ```
 
 ::: aside
-`gather()` and `spread()` from the {tidyr} package, which is part of {tidyverse} have been superceded by functions `pivot_longer()` and `pivot_wider()`.
+`gather()` and `spread()` from the {tidyr} package, which is part of {tidyverse} have been superseded by functions `pivot_longer()` and `pivot_wider()`.
 :::
 
 There are great commands called `gather()` and `spread()` which can be used to move wide form data to long and vice versa but with this I noticed that I just needed to turn it on its side so I used `t()` which is also useful as it turns the data frame to a matrix. You can see this by looking in the 'Environment' window in the top right of R Studio; there is no blue circle with an arrow next to `t_DeathsImport.`

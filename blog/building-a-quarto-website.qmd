@@ -35,7 +35,7 @@ I particularly was keen to follow the work of the Brian Tarran for the Royal Sta
 And I also really like Silvia Canelón's [personal blog site](https://silviacanelon.com/) for its beauty and functionality. 
 Silvia has particularly worked hard on accessibility of her website and has written a lot of CSS code which I'm learning through what she has shared.
 
-Accessibility is something that the WordPress site needed considerable work on, particularly when checked with a website called the [Web Accessbility Evaluation Tool](https://wave.webaim.org/) which Silvia recommends on her blog site. 
+Accessibility is something that the WordPress site needed considerable work on, particularly when checked with a website called the [Web Accessibility Evaluation Tool](https://wave.webaim.org/) which Silvia recommends on her blog site. 
 The new Quarto site will need this too of course but now that the code is out in the open, anyone can contribute. 
 That can be either making changes to the code but also highlighting problems as issues that can then be open to everyone to view.
 

@@ -268,7 +268,7 @@ Just to highlight three main tasks included in this population-rates sub-section
 source("UI/ui_get_population_figures.R", local = TRUE)
 ```
 
-After downloading the requested data by using the World Bank’s API, the resulting XMS file is formatted in long country-year format.
+After downloading the requested data by using the World Bank's API, the resulting XMS file is formatted in long country-year format.
 
 **b). Cleaning WDI population data to match COVID19 country names list** This is performed by the script called “ui_get_population_figures.R” located in the Shiny folder structure within a specific folder for UI scripts Using a which statement, it accounts for country name mismatches between COVID and WDI data sources, so population data matches COVID19 metrics.
 
@@ -451,7 +451,7 @@ Modeltime
 
 #### **8. Source code available in Github**
 
-As this blog article was a brief description of the Shiny app I’ve designed, please follow the link below to get the source code from Github: `00 Maps data prep_SHINY_APP.R`, `01 Leaf and pop figures_SHINY_APP.R`, `02 ui_server_SHINY_APP.R`.
+As this blog article was a brief description of the Shiny app I've designed, please follow the link below to get the source code from Github: `00 Maps data prep_SHINY_APP.R`, `01 Leaf and pop figures_SHINY_APP.R`, `02 ui_server_SHINY_APP.R`.
 
 Sharing this script and connecting with other NHSR analysts will be good starting point to lean how to code consistently and also to follow a specific NHSR coding style when using R.
 

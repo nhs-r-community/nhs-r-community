@@ -9,7 +9,7 @@ author: Chris Beeley
 subtitle: >
 ---
 
-There is a new newscast podcast available, for those of you who don’t listen to podcasts here is a summary of what we talked about. Listen to the [episode](http://soundcloud.com/nhs-r-community/nhs-r-newscast-28th-october-2022), find it wherever you get your podcasts.
+There is a new newscast podcast available, for those of you who don't listen to podcasts here is a summary of what we talked about. Listen to the [episode](http://soundcloud.com/nhs-r-community/nhs-r-newscast-28th-october-2022), find it wherever you get your podcasts.
 
 ## **Linting part deux**
 
@@ -29,7 +29,7 @@ There is a new newscast podcast available, for those of you who don’t listen t
 
 ## **Structuring projects**
 
-scripts, setwd when reading and writing local files
+scripts, `setwd` when reading and writing local files
 
 Projects, self-contained and simpler to use (relative filepaths, folder structures, .gitignores)
 

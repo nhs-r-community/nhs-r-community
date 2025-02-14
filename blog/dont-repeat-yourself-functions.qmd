@@ -10,13 +10,13 @@ subtitle: >
   "Writing functions to reduce repetition and improve productivity"
 ---
 
-One of the greatest benefits of using R over spreadsheets is that it’s very easy to re-use and repurpose code, for example if we need to produce the same chart over and over again, but for different cuts of the data.
+One of the greatest benefits of using R over spreadsheets is that it's very easy to re-use and repurpose code, for example if we need to produce the same chart over and over again, but for different cuts of the data.
 
-Let’s imagine that we are trying to create a plot for arrivals to A&E departments using the `ae_attendances` dataset from the {NHSRdatasets} package.
+Let's imagine that we are trying to create a plot for arrivals to A&E departments using the `ae_attendances` dataset from the {NHSRdatasets} package.
 
 # Creating our first plot
 
-First we want to create a plot for all of England’s A&E departments over the last 3 financial years.
+First we want to create a plot for all of England's A&E departments over the last 3 financial years.
 
 ```{r}
 library(tidyverse)
@@ -74,12 +74,12 @@ ae_attendances %>%
   )
 ```
 
-So, what changed between our first plot and the second? Well, we’ve added a line to filter the data, and changed the subtitle, but that’s it. The rest of the code is repeated.
+So, what changed between our first plot and the second? Well, we've added a line to filter the data, and changed the subtitle, but that's it. The rest of the code is repeated.
 
 # Creating yet another copy of the first plot
-Let’s say we want to run this code again and create a plot for another organisation. So again, let’s copy and paste.
+Let's say we want to run this code again and create a plot for another organisation. So again, let's copy and paste.
 
-But perhaps at this point we also decide that we want the label’s on the y-axis to use comma number formatting, we want to change the dots and lines to bars, and we want to colour the bars in NHS Blue.
+But perhaps at this point we also decide that we want the label's on the y-axis to use comma number formatting, we want to change the dots and lines to bars, and we want to colour the bars in NHS Blue.
 
 ```{r}
 # the scales package has nice functions for neatly formatting chart axes
@@ -108,15 +108,15 @@ ae_attendances %>%
   )
 ```
 
-Now, we want to go back and change the rest of the plots to have the same look and feel. Well, you will have to go back up and change those plots individually, which when there’s just 3 plots then so what? It’s easy enough to go back and change those!
+Now, we want to go back and change the rest of the plots to have the same look and feel. Well, you will have to go back up and change those plots individually, which when there's just 3 plots then so what? It's easy enough to go back and change those!
 
-But what if it’s 300 plots? Or, what if those 3 plots are in 3 different places
-in a very large report? What if those 3 plots are in separate reports? What if it wasn’t just a handful of lines code we are adding but lots of lines?
+But what if it's 300 plots? Or, what if those 3 plots are in 3 different places
+in a very large report? What if those 3 plots are in separate reports? What if it wasn't just a handful of lines code we are adding but lots of lines?
 
 # Creating functions
-This is where we should start to think about extracting the shared logic between the different plot’s into a function. This is sometimes called “DRY” for “Don’t Repeat Yourself”. Where possible we should aim to eliminate duplication in our code.
+This is where we should start to think about extracting the shared logic between the different plot's into a function. This is sometimes called “DRY” for “Don't Repeat Yourself”. Where possible we should aim to eliminate duplication in our code.
 
-In R it’s pretty simple to create a function. Here’s a really simple example:
+In R it's pretty simple to create a function. Here's a really simple example:
 
 ```{r}
 my_first_function <- function(x) {
@@ -125,11 +125,11 @@ my_first_function <- function(x) {
 }
 ```
 
-This creates a function called `my_first_function`: you assign functions just like any other variable in R by using the `<-` assignment operator. You then type the keyword `function` which is immediately followed by a pair of parentheses. Inside the parentheses you can name “arguments” that the function takes (zero or more), then finally a set of curly brackets, { and }, which contain the code you want to execute (the function’s body).
+This creates a function called `my_first_function`: you assign functions just like any other variable in R by using the `<-` assignment operator. You then type the keyword `function` which is immediately followed by a pair of parentheses. Inside the parentheses you can name “arguments” that the function takes (zero or more), then finally a set of curly brackets, { and }, which contain the code you want to execute (the function's body).
 
 The functions body can contain one or more lines of code. Whatever line of code is executed last is what is returned by the function. In the example above, we first create a new variable called `y`, but we return the value of `y + 1`.
 
-The values that we create inside our function (in this case, `y`) only exist within the function, and they only exist when the function is called (so subsequent calls of the function don’t see previous values).
+The values that we create inside our function (in this case, `y`) only exist within the function, and they only exist when the function is called (so subsequent calls of the function don't see previous values).
 
 We can then simply use our function like so:
 
@@ -143,9 +143,9 @@ Which should show the value “10” in the console.
 
 The first thing we should look to do is see what parts of the code above are identical, which parts are similar but change slightly between calls, and which parts are completely different.
 
-For example, in our plot above, each example uses the same data summarisation, and the same call to {ggplot}. We slightly changed how we were displaying our charts (we started off with `geom_point()` and `geom_line()`, but changed to `geom_col()` in the third plot). Let’s go with the chart used in the third version as our base plot.
+For example, in our plot above, each example uses the same data summarisation, and the same call to {ggplot}. We slightly changed how we were displaying our charts (we started off with `geom_point()` and `geom_line()`, but changed to `geom_col()` in the third plot). Let's go with the chart used in the third version as our base plot.
 
-The subtitle’s differ slightly between the 3 plots, but we could extract this to be an argument to the function. So my first attempt at converting this plot to a function might be:
+The subtitle's differ slightly between the 3 plots, but we could extract this to be an argument to the function. So my first attempt at converting this plot to a function might be:
 
 ```{r}
 ae_plot <- function(data, subtitle) {
@@ -184,9 +184,9 @@ ae_attendances %>%
   ae_plot(paste("org_code =", second_org_code))
 ```
 
-Now, we’ve managed to remove most of the duplication in our code! If we decide we no longer like the blue points and line we can easily change the function, or if we want to switch to a bar chart instead of the line chart we only have to update the code once; when we re-run our code all of the plots will change.
+Now, we've managed to remove most of the duplication in our code! If we decide we no longer like the blue points and line we can easily change the function, or if we want to switch to a bar chart instead of the line chart we only have to update the code once; when we re-run our code all of the plots will change.
 
-Of course, this leads to it’s own problems: what if we want 3 charts to have blue points but one use red? We could either add a colour argument to the function, or we could remove the logic which adds the points and lines to the chart but does everything else: then we could just add the points on at the end (or, create a red function and a blue function; each function would first call the main function before doing their own stuff).
+Of course, this leads to it's own problems: what if we want 3 charts to have blue points but one use red? We could either add a colour argument to the function, or we could remove the logic which adds the points and lines to the chart but does everything else: then we could just add the points on at the end (or, create a red function and a blue function; each function would first call the main function before doing their own stuff).
 
 # In Summary
 
@@ -202,7 +202,7 @@ Once you have mastered writing functions then you might want to read up on `tidy
 
 You may also want to have a go at object orientated programming, which is covered in the **Advanced R book**.
 
-Any time you see yourself copying and pasting code try to remember, Don’t Repeat Yourself!
+Any time you see yourself copying and pasting code try to remember, Don't Repeat Yourself!
 
 Tom is a Senior Data Scientist working at the Strategy Unit. 
 

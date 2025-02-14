@@ -4,7 +4,7 @@ date: "10 October 2022"
 date-modified: "27 July 2024"
 categories:
   - RMarkdown
-author: Daniel Weiland
+author: Daniel Weiand
 image: img/pexels-pixabay-261763.jpg
 image-alt: "Photograph of writing"
 execute: 
@@ -16,7 +16,7 @@ This is a blog post that describes my experience of using RMD for academic writi
 
 ## **YAML setup in RMD**
 
-RMD files start with Yet Another Markup Language (YAML) code. This is how I’ve set up my YAML in order to render an academic report in RMD.
+RMD files start with Yet Another Markup Language (YAML) code. This is how I've set up my YAML in order to render an academic report in RMD.
 
 ```         
 title: "Title of manuscript"
@@ -65,7 +65,7 @@ knitr::opts_chunk$set(echo = FALSE, #Whether to display the source code in the o
 
 ## **The {here} package**
 
-To ensure that the RMD document renders correctly, I’ve found the {here} package to be an absolute life saver. As per the package’s R documentation, it uses a reasonable heuristics to find your project’s files, based on the current working directory at the time when the package is loaded.
+To ensure that the RMD document renders correctly, I've found the {here} package to be an absolute life saver. As per the package's R documentation, it uses a reasonable heuristics to find your project's files, based on the current working directory at the time when the package is loaded.
 
 ## **Using the {citr} package**
 

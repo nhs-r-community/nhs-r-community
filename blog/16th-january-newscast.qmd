@@ -9,7 +9,7 @@ author: Chris Beeley
 subtitle: >
 ---
 
-Time for another NHS-R newscast! You can [listen to the episode](https://soundcloud.com/nhs-r-community/nhs-r-newscast-16th-january-2023), but for those of you who don’t listen to podcasts here is a roundup of what we covered
+Time for another NHS-R newscast! You can [listen to the episode](https://soundcloud.com/nhs-r-community/nhs-r-newscast-16th-january-2023), but for those of you who don't listen to podcasts here is a roundup of what we covered
 
 The first item of news is that The Strategy Unit is the new home of NHS-R. Chris Beeley and Zoë Turner both now work at The Strategy Unit and have NHS-R in their job descriptions. They plan to be doing much more work in the future on communicating better with members (maybe a newsletter, more blogs…), organising hacks (which would be a first for the community), and a mentoring scheme (more on which later).
 
@@ -30,7 +30,7 @@ We talked about [semantic versioning](https://semver.org/) and how useful it can
 
 Chris made a passing reference to the Python 2/ 3 mess, particularly in the Linux world, and as always there is an [XKCD](https://xkcd.com/1987/) for that.
 
-Lastly we talked about the amazing [John MacKintosh’s patientcounter package](https://github.com/johnmackintosh/patientcounter), as well as some more of his packages such as rock themes and pop themes:
+Lastly we talked about the amazing [John MacKintosh's patientcounter package](https://github.com/johnmackintosh/patientcounter), as well as some more of his packages such as rock themes and pop themes:
 
 <https://github.com/johnmackintosh/rockthemes>
 

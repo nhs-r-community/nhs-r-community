@@ -26,7 +26,7 @@ who might be R curious, can see just what the fuss is about.
 To do so I want to recap on the example I showed at the AphA Scotland 
 event.
 
-This,in turn goes back to some work I’ve been doing with Neil Pettinger,
+This,in turn goes back to some work I've been doing with Neil Pettinger,
 where we are looking 
 [at ways to visualise patient flow](https://johnmackintosh.net/blog/2017-12-21-flow/).
 
@@ -38,20 +38,20 @@ also showed some of the data transformation steps carried out using
 In this post I want to focus on that a but further, by showing the SQL
 code I would write to arrive at the same end result.
 
-In order to do this I imported Neil’s spreadsheet (which I’ve uploaded -
-with Neil’s permission to the repo
+In order to do this I imported Neil's spreadsheet (which I've uploaded -
+with Neil's permission to the repo
 [RowOfDots](https://github.com/johnmackintosh/RowOfDots)) to into a SQL
 Server table (by using the built in import wizard, for a quick but not
 reproducible way of ingesting the data).
 
-Here’s how that looks:
+Here's how that looks:
 
 ![](img/flow-patient-data.png){fig-alt="A screenshot of a spreadsheet with fake A&E data of times, names and ward transfers in and out."}
 
 NB - ALL patient names are entirely made up.
 
 As a reminder, for this task we need to create a column that mimics
-Excel’s floor function and reduces the MovementDateTime field to the
+Excel's floor function and reduces the MovementDateTime field to the
 nearest 15 mins. We also want to get a count of how many patient were
 either moving IN or OUT during each 15 minute segment of the day.
 
@@ -69,7 +69,7 @@ FROM [DB].[dbo].[TABLENAME]
 GO
 ```
 
-You’d need to replace the database and table names to suit. I’m not
+You'd need to replace the database and table names to suit. I'm not
 going to explain the code for flooring the datetime field - just know
 that it works, but you may want to compare the syntax for the case when
 statement with the equivalent {dplyr} code (see later).
@@ -88,7 +88,7 @@ so that our newly created counter column can be utilised. This is a
 similar idea to the the method of mutating a column in {dplyr}, and having
 it available within the next pipe.
 
-We have to make use of SQL’s windowing functionality to create virtual
+We have to make use of SQL's windowing functionality to create virtual
 groupings and orders within the data ( SQL is a set based language, and
 there is no concept of row order within a set. Therefore to get a
 cumulative count, we need to make SQL think in terms of rows by
@@ -117,20 +117,20 @@ FROM
 cast(round(floor(cast([MovementDateTime] AS float(53))*24*4)/(24*4),5) AS smalldatetime) AS Movement15,
 (CASE WHEN IN_OUT = 'IN' THEN 1 ELSE -1 END) AS [counter]
 FROM [DB].[dbo].[TABLENAME])x
-Understanding windowing techniques is a great SQL skill to have. Don’t forget where you first saw this ;)!
+Understanding windowing techniques is a great SQL skill to have. Don't forget where you first saw this ;)!
 ```
 
-Understanding windowing techniques is a great SQL skill to have. Don’t
+Understanding windowing techniques is a great SQL skill to have. Don't
 forget where you first saw this ;)!
 
 A couple of things to note here are that when we wrap or “nest” the
-original query, I gave it the alias ‘x’. You do need to provide an alias
-for this inner query, or the outer query won’t work. Although not
+original query, I gave it the alias ‘x'. You do need to provide an alias
+for this inner query, or the outer query won't work. Although not
 strictly necessary, I also prefixed the column names in the outer query
-so it’s clear that I am selecting the columns from the “virtual” table
+so it's clear that I am selecting the columns from the “virtual” table
 defined by the inner query.
 
-Here’s the output with our new Row number (or RNumber) field.
+Here's the output with our new Row number (or RNumber) field.
 
 ![](img/flow-patient-data-rn.png){fig-alt="The same screenshot as before of fake data with the column R_Number added to the end"}
 
@@ -179,17 +179,17 @@ GO
 
 To recap - our first query floored the movement time to 15 minute
 intervals and gave us a counter field, we then used that counter field
-to generate a row number field. Now, even if I’d ordered the result of
-the second query by MovementDateTime, it still wouldn’t suffice because
+to generate a row number field. Now, even if I'd ordered the result of
+the second query by MovementDateTime, it still wouldn't suffice because
 the rownumbers are all positive, and I want them to be negative when the
 movement was a movement OUT.
 
-We can’t manipulate the row number field within the same query that it
+We can't manipulate the row number field within the same query that it
 is created, so we nest the whole lot once more, this time arranging in
 the correct time order and multiplying the counter field by our row
 number field.
 
-You’ll notice the second query has been aliased (with a ‘y’) and the
+You'll notice the second query has been aliased (with a ‘y') and the
 columns prefixed so that is is clear exactly where the query is
 obtaining the data from.
 
@@ -220,7 +220,7 @@ A lot more elegant? Definitely.
 
 Another approach to writing the code in SQL would be to use a Common
 Table Expression, which is a more straightforward of writing and reading
-it. It’s a similar idea in that you create virtual tables with queries
+it. It's a similar idea in that you create virtual tables with queries
 that then run top to bottom until you get your final output. However
 that is a post for another day :)
 

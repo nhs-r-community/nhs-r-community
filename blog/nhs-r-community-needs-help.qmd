@@ -8,53 +8,53 @@ author: Zoë Turner
 subtitle: >
 ---
 
-I’ve been an analyst for over a decade in the NHS and for the most part I’d never been to a conference related to my work. Partly it was that they didn’t really exist but also that there is a cost involved for tickets, travel, sometimes hotel, and there was never any budget. Then in 2018 things changed for me. NHS-R Community was set up and I went to one of the first free training sessions in Leeds and because it was free I got a rare agreement for the Trust to cover the costs for travel and hotel. Also in 2018 we had the first (still free!) NHS-R Community conference and I got a lift there so the only cost was the of me being away from my work.
+I've been an analyst for over a decade in the NHS and for the most part I'd never been to a conference related to my work. Partly it was that they didn't really exist but also that there is a cost involved for tickets, travel, sometimes hotel, and there was never any budget. Then in 2018 things changed for me. NHS-R Community was set up and I went to one of the first free training sessions in Leeds and because it was free I got a rare agreement for the Trust to cover the costs for travel and hotel. Also in 2018 we had the first (still free!) NHS-R Community conference and I got a lift there so the only cost was the of me being away from my work.
 
-Since 2020 the conference has been either fully in person or streamed so more people can join ^[1](http://localhost:6380/#fn1)^ and one of the great side effects of going virtual is that things are recorded so we have a [YouTube channel](https://www.youtube.com/c/NHSRCommunity) full of wonderful content from the NHS-R Community. And we also have increasing opportunity to go to other conferences like [HACA](https://uobevents.eventsair.com/haca-2023/) and [AphA](https://www.aphanalysts.org/) but with greater choice it can become even harder to justify the time out of the job to attend or catch up on conferences.
+Since 2020 the conference has been either fully in person or streamed so more people can join ^[1](http://localhost:6380/#fn1)^ and one of the great side effects of going virtual is that things are recorded so we have a [YouTube channel](https://www.youtube.com/c/nhsrcommunity) full of wonderful content from the NHS-R Community. And we also have increasing opportunity to go to other conferences like [HACA](https://uobevents.eventsair.com/haca-2023/) and [AphA](https://www.aphanalysts.org/) but with greater choice it can become even harder to justify the time out of the job to attend or catch up on conferences.
 
-This year’s NHS-R/NHS.pycom conference was a success for those that could attend and partly that’s because we tried things out:
+This year's NHS-R/NHS.pycom conference was a success for those that could attend and partly that's because we tried things out:
 
--   we did QR codes to sign in and [the code](https://github.com/nhs-r-community/conf-23-checkin) is in the open
+-   we did QR codes to sign in and [the code](https://github.com/nhs-r-community/conf-23-checkin) is in the open
 
--   we gave [Slack](https://resources.nhsrcommunity.com/forum-groups.html#slack) a go for questions and got really great conversations and connections
+-   we gave [Slack](https://resources.nhsrcommunity.com/forum-groups.html#slack) a go for questions and got really great conversations and connections
 
--   we tried [unconferencing](https://soundcloud.com/nhs-r-community/nhs-r-nhs-pycom-conference-newscast-10th-october-2023) where people made suggestions for round table talks.
+-   we tried [unconferencing](https://soundcloud.com/nhs-r-community/nhs-r-nhs-pycom-conference-newscast-10th-october-2023) where people made suggestions for round table talks.
 
 But we got things wrong:
 
--   we don’t have subtitles on our streamed recordings
+-   we don't have subtitles on our streamed recordings
 
--   we didn’t collate presentation links or share them in advance of the talks
+-   we didn't collate presentation links or share them in advance of the talks
 
--   we didn’t promote the conference as well as we’ve done in previous years.
+-   we didn't promote the conference as well as we've done in previous years.
 
 We can do better.
 
 But what is it that we want to be better at?\
 Is it putting on a better conference?\
 Is it producing more output that convinces managers who are not sure of the uses of open source programming?\
-Is it changing our name as it suggests we are just “NHS” and “R” – which we aren’t?\
+Is it changing our name as it suggests we are just “NHS” and “R” – which we aren't?\
 Have we done enough?
 
-We might have a lot of work to do but one thing I do know is that if we are going to do more we are going to do this together because all that we’ve built has been by us: the NHS-R Community.
+We might have a lot of work to do but one thing I do know is that if we are going to do more we are going to do this together because all that we've built has been by us: the NHS-R Community.
 
-And how do we do better? I think we need to start with a new Committee to help shape the next 3 years. We have questions around rebranding and promotion of the work we do, how do we measure how successful we are (which helps with funding opportunities), what shall we do with our space at the [HACA conference](https://uobevents.eventsair.com/haca-2023/) 2024, and of course there is our own conference to plan.
+And how do we do better? I think we need to start with a new Committee to help shape the next 3 years. We have questions around rebranding and promotion of the work we do, how do we measure how successful we are (which helps with funding opportunities), what shall we do with our space at the [HACA conference](https://uobevents.eventsair.com/haca-2023/) 2024, and of course there is our own conference to plan.
 
 ## **Can you help?**
 
 Would you come to the Committee and share your views? The more diverse the better.
 
-We need commitment of your time and, more importantly, we need your enthusiasm and desire to keep the NHS-R Community going so in the next few weeks I’ll be setting up Committee meeting where our first task will be to shape what we, as a Committee and a Community, will do.
+We need commitment of your time and, more importantly, we need your enthusiasm and desire to keep the NHS-R Community going so in the next few weeks I'll be setting up Committee meeting where our first task will be to shape what we, as a Committee and a Community, will do.
 
-If you are interested in being involved with the Committee please contact me via our Slack group or email [zoe.turner3\@nhs.net](mailto:zoe.turner3@nhs.net)
+If you are interested in being involved with the Committee please contact me via our Slack group or email [zoe.turner3\@nhs.net](mailto:zoe.turner3@nhs.net)
 
 ## **Join the Slack groups**
 
-Details are in the [Open Analytics Resources](https://resources.nhsrcommunity.com/forum-groups.html#slack) and feel free to contact NHS-R Community via email at [nhs.rcommunity\@nhs.net](mailto:nhs.rcommunity@nhs.net)
+Details are in the [Open Analytics Resources](https://resources.nhsrcommunity.com/forum-groups.html#slack) and feel free to contact NHS-R Community via email at [nhs.rcommunity\@nhs.net](mailto:nhs.rcommunity@nhs.net)
 
 ## **Footnotes**
 
-1.  Hybrid is a tricky label to give a conference as you need to have both participants and speakers to be in person and virtual so I can’t say that we’ve done that in NHS-R Community..[↩︎](http://localhost:6380/#fnref1)
+1.  Hybrid is a tricky label to give a conference as you need to have both participants and speakers to be in person and virtual so I can't say that we've done that in NHS-R Community..[↩︎](http://localhost:6380/#fnref1)
 
     ### Comments
 

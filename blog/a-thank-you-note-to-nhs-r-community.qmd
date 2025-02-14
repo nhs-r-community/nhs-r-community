@@ -10,7 +10,7 @@ subtitle: >
 
 The less said about 2020 the better, but I want to write about something positive that has happened to me this week, but which was the result of work done by, and for, NHS-R Community throughout the year-that-shall-not-be-mentioned.
 
-At the end of November last year, R Studio announced its 2021 conference and their diversity scholarships <https://blog.rstudio.com/2020/11/30/diversity-scholarships/>. In previous years, these scholarships have been used to support people to attend the conference in person, but this year – as it’s virtual – the conference is free, so the scholarship includes:
+At the end of November last year, R Studio announced its 2021 conference and their diversity scholarships <https://blog.rstudio.com/2020/11/30/diversity-scholarships/>. In previous years, these scholarships have been used to support people to attend the conference in person, but this year – as it's virtual – the conference is free, so the scholarship includes:
 
 -   Opportunities for online networking and support before and during the virtual conference
 
@@ -24,8 +24,8 @@ Seeing this blog, I listed out all the things I had done for NHS-R Community, ti
 
 This week I heard that I was successful.
 
-This is a jaw-dropping form of recognition as the scholarships were not restricted by country this year so I expect a little over 70 people will have applied! It means so much more to me than a line on my CV because it’s an acknowledgement of all that the NHS-R Community means to me; if it weren’t for our community, I wouldn’t have had the opportunities and support I needed to get this far in my R journey.
+This is a jaw-dropping form of recognition as the scholarships were not restricted by country this year so I expect a little over 70 people will have applied! It means so much more to me than a line on my CV because it's an acknowledgement of all that the NHS-R Community means to me; if it weren't for our community, I wouldn't have had the opportunities and support I needed to get this far in my R journey.
 
-When I wrote out the list of what I’d done on behalf of NHS-R Community, it turned out to be quite a surprising list – so much so that even my husband (who I’d asked to ‘sense check’ my writing) felt compelled to remark on how much work I had done. But such work isn’t hard when you have fun and feel safe to try things out without fear of failure. And that’s why I did so much, because if you want to try out something – blog, teach, share some code or just ask a question – there are places to go for support, but none quite like the support you get from a group of like-minded R and healthcare data enthusiasts, such as those we find at NHS-R Community.
+When I wrote out the list of what I'd done on behalf of NHS-R Community, it turned out to be quite a surprising list – so much so that even my husband (who I'd asked to ‘sense check' my writing) felt compelled to remark on how much work I had done. But such work isn't hard when you have fun and feel safe to try things out without fear of failure. And that's why I did so much, because if you want to try out something – blog, teach, share some code or just ask a question – there are places to go for support, but none quite like the support you get from a group of like-minded R and healthcare data enthusiasts, such as those we find at NHS-R Community.
 
 Thank you NHS-R Community; you are the best.

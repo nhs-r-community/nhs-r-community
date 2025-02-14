@@ -12,7 +12,7 @@ categories:
   - Web scraping
 author: Zoë Turner
 image: img/typewriter.jpg
-image-alt: "Photo of an old typwriter with the paper ready to be typed on"
+image-alt: "Photo of an old typewriter with the paper ready to be typed on"
 execute:
   eval: false
 ---

@@ -5,7 +5,7 @@ title: "Accessibility commitment"
 
 Return to [home page](/) or [about page](/about).
 
-Inspired from Silvia Canelón's [committment to accessiblity](https://silviacanelon.com/accessibility) NHS-R Community welcomes feedback on the accessibility of this site and any links to its materials including code and training materials.
+Inspired from Silvia Canelón's [commitment to accessibility](https://silviacanelon.com/accessibility) NHS-R Community welcomes feedback on the accessibility of this site and any links to its materials including code and training materials.
 We have used the [Web Accessibility Evaluation Tool](https://wave.webaim.org/) to manually check for accessibility errors and corrected where possible.
 
 # Reporting accessibility problems with this website

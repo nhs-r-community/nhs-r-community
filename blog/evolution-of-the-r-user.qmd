@@ -15,11 +15,11 @@ Image adapted from source: <https://www.r-project.org/logo/>
 
 # The beginning
 
-My journey with R began when a colleague of mine said to me that there was software out there, called R, where you could plot all the fields in a matrix of data against each other with one function to visualise any relationships within the dataset. I remember thinking how powerful that could be but never had a chance to investigate it as we weren’t allowed to install R on our work machines.
+My journey with R began when a colleague of mine said to me that there was software out there, called R, where you could plot all the fields in a matrix of data against each other with one function to visualise any relationships within the dataset. I remember thinking how powerful that could be but never had a chance to investigate it as we weren't allowed to install R on our work machines.
 
 Four years and two jobs later, I was in a conversation with my new colleagues about how interesting it would be to see which variables in a dataset correlate with one another. I remembered R and my previous conversation, and embarked on a journey to find that function. This journey has resulted in transforming my view of data analytics.
 
-In this blog post I try to describe what I’ve witnessed as a fairly typical journey through the R and RStudio toolkit, especially for users who come from a background of using Excel as their main analytical tool. I hope that if you are on the journey this blog can help with future steps.
+In this blog post I try to describe what I've witnessed as a fairly typical journey through the R and RStudio toolkit, especially for users who come from a background of using Excel as their main analytical tool. I hope that if you are on the journey this blog can help with future steps.
 
 # Using the console
 
@@ -69,17 +69,17 @@ It is also very exciting that the same code can produce a Word document, an html
 Here are a couple of useful links:
 
 - Beginners [tutorial](https://rmarkdown.rstudio.com/lesson-1.html)
-- The recently published [‘definitive guide’](https://bookdown.org/yihui/rmarkdown/)
+- The recently published [‘definitive guide'](https://bookdown.org/yihui/rmarkdown/)
 
 ## Projects
 
-Excitement factor: 2 (they aren’t exciting but they are sooooo useful)
+Excitement factor: 2 (they aren't exciting but they are sooooo useful)
 
 ![Screenshot of RStudio Project wizard](img/projects-wizard.png)
 
 Useful link: [https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects](https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects)
 
-It is difficult to share RMarkdown documents so other people can “knit” them. There are issues around working directories and imported files that are saved in a location other people can’t access. Here are some normal conversation starters for people in this situation:
+It is difficult to share RMarkdown documents so other people can “knit” them. There are issues around working directories and imported files that are saved in a location other people can't access. Here are some normal conversation starters for people in this situation:
 
 “Save these files in the same folder as the markdown document…”
 
@@ -99,7 +99,7 @@ Excitement factor: 5
 
 Source: [https://cpelat.shinyapps.io/mass/](https://cpelat.shinyapps.io/mass/)
 
-Users generally are quite confident at this point. They can make stories out of data and share them with others. The natural next step is to try and make the stories interactive using Shiny. Shiny seems like it should be similar to RMarkdown, but it isn’t and it is hard. Some users persist and some go back to their comfort zone.
+Users generally are quite confident at this point. They can make stories out of data and share them with others. The natural next step is to try and make the stories interactive using Shiny. Shiny seems like it should be similar to RMarkdown, but it isn't and it is hard. Some users persist and some go back to their comfort zone.
 
 # Functional programming
 
@@ -116,7 +116,7 @@ useful_function(9)
 
 ```
 
-Coding is sometimes compared to an art, where the objective is to write some ‘beautiful’ code in the shortest, most understandable and robust form possible. This is where functional programming helps. Users find themselves repeating lines of code multiple times throughout analyses or projects. Writing functions helps to save time, “prettify” code and reduce its length.
+Coding is sometimes compared to an art, where the objective is to write some ‘beautiful' code in the shortest, most understandable and robust form possible. This is where functional programming helps. Users find themselves repeating lines of code multiple times throughout analyses or projects. Writing functions helps to save time, “prettify” code and reduce its length.
 
 # Packages
 
@@ -128,7 +128,7 @@ say("Good things come in small packages",
     by = "chicken")
 ```
 
-When many functions revolve around a vaguely similar topic they can be grouped into a package. What’s more, other people are also probably doing, or would like to do, very similar tasks. Users can put their related functions together into a package and make that package available for others.
+When many functions revolve around a vaguely similar topic they can be grouped into a package. What's more, other people are also probably doing, or would like to do, very similar tasks. Users can put their related functions together into a package and make that package available for others.
 
 A few pointers and plugs here:
 
@@ -140,10 +140,10 @@ A few pointers and plugs here:
 This is generally the point where R experiences diverge from each other. The different paths may be:
 
 - Analysis – using the skills developed to perform analysis  
-- Analytical blogs – publishing analysis and stories. rpubs offers all R users the ability to publish their markdown documents publicly  
+- Analytical blogs – publishing analysis and stories. RPubs offers all R users the ability to publish their markdown documents publicly  
 - Mastering code management – using software like Git, users can share code to be transparent and reproducible. This method also facilitates collaboration well  
 - Writing more packages – as an organisation, packages perform a great function to standardise processes and make people have easier R experiences  
-- Contributing to other people’s packages – all R packages are developed in the open. Generally, anyone has the ability to take someone’s code, change it, and offer the change up to the original developer to include into future version of the code  
+- Contributing to other people's packages – all R packages are developed in the open. Generally, anyone has the ability to take someone's code, change it, and offer the change up to the original developer to include into future version of the code  
 - Writing books – using RMarkdown alongside bookdown  
 - Learn Python and start again 😉
 

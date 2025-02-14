@@ -1,5 +1,5 @@
 ---
-title: "We need you: share your COVID-19 work on NHSE/I’s regular mini-huddle series"
+title: "We need you: share your COVID-19 work on NHSE/I's regular mini-huddle series"
 date: "21 May 2020"
 date-modified: "11 July 2024"
 categories:
@@ -20,7 +20,7 @@ This is a platform that anyone can join but some workspaces are restricted in ac
 
 Weekly huddles showcase work on a specific topic, and the back catalogue of recordings can be found [on FutureNHS](https://future.nhs.uk/DataAnalyticsCovid19/view?objectID=18976912). The mini-huddles are a spin off series where speakers get into the detail behind a single topic, like geo-mapping or a dashboard. The team curating these huddles are keen to have a mini-huddle on COVID-19 analysis in R. **If you are interested in sharing your analysis relating to COVID-19 using R, please get in touch with Sophie Hodges** via email [sophie.hodges5\@nhs.net](mailto:sophie.hodges5@nhs.net)
 
- If you haven’t already, please sign up to the COVID-19 data and analytics workspace [here](https://future.nhs.uk/DataAnalyticsCovid19/grouphome). The community is currently 6500-strong with members across the NHS, public health, local authorities, charities and commercial organisations. Mini-huddles usually draw an audience between 30 and 80 attendees so it’s a great opportunity to share your work, discuss findings and network with others working on similar issues.
+ If you haven't already, please sign up to the COVID-19 data and analytics workspace [here](https://future.nhs.uk/DataAnalyticsCovid19/grouphome). The community is currently 6500-strong with members across the NHS, public health, local authorities, charities and commercial organisations. Mini-huddles usually draw an audience between 30 and 80 attendees so it's a great opportunity to share your work, discuss findings and network with others working on similar issues.
 
 Please get in touch if this sounds of interest. And a huge thank you from NHSE/I. The work being done by the analytical community is a key plank of the COVID-19 effort.
 

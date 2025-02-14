@@ -13,6 +13,6 @@ I love keyboard shortcuts. I work in [R studio](https://www.rstudio.com/) and us
 
 `Ctrl+enter or cmd+enter ` (Mac) will run the command where the cursor is and then move the cursor down. This is perfect for when you want to run your code line by line.
 
-`Ctrl+shift+m` or `cmd+shift+m` (Mac) will insert a pipe (if you don’t already use pipes then you can learn more in [R for Data Science](https://r4ds.hadley.nz/workflow-style.html#sec-pipes).
+`Ctrl+shift+m` or `cmd+shift+m` (Mac) will insert a pipe (if you don't already use pipes then you can learn more in [R for Data Science](https://r4ds.hadley.nz/workflow-style.html#sec-pipes).
 
 `Ctrl+shift+F10` or `cmd+shift+F10` (Mac) will restart your R session. It unloads your packages but leaves the elements in your environment untouched. I use this a lot when I am jumping between scripts to minimise conflicts between packages.

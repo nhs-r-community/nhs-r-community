@@ -15,8 +15,8 @@ To create a template workflow for a stream of analytics and data presentation pr
 
 # The Solution:
 
-We have created a ‘Data Science’ template, inspired by Cookiecutter Data Science and using the `targets` R package to logically break down code into small reusable chunks applied to our research datasets.
+We have created a ‘Data Science' template, inspired by Cookiecutter Data Science and using the `targets` R package to logically break down code into small reusable chunks applied to our research datasets.
 
 # The Results:
 
-We are now running (and have completed) a number of projects from estimation of surgery lengths with XGBOOST, to dashboarding cardiac data for MDTs, to creating articles on historic data trends at GOSH and many more.  This has provided us a rich common codebase applicable in all sorts of contexts, as well as giving us a headstart when understanding each other’s code and collaborating on development.
+We are now running (and have completed) a number of projects from estimation of surgery lengths with XGBOOST, to dashboarding cardiac data for MDTs, to creating articles on historic data trends at GOSH and many more.  This has provided us a rich common codebase applicable in all sorts of contexts, as well as giving us a headstart when understanding each other's code and collaborating on development.

@@ -9,11 +9,11 @@ author: Zoë Turner
 subtitle: >
 ---
 
-We have another newscast from the podcast, if you don’t do the whole podcast thing here are the notes and links from what we talked about.
+We have another newscast from the podcast, if you don't do the whole podcast thing here are the notes and links from what we talked about.
 
 The NHS-R Conference call for abstracts has been extended to 23rd June 2023 <https://www.smartsurvey.co.uk/s/7FLFRY/>
 
-we’ve started an [NHSR-Way book](https://nhs-r-community.github.io/NHSR-way/) and also published through [Netlify](https://nhsr-way.netlify.app/) because some organisations block GitHub published pages. This book is inspired by [The Turing Way](https://www.the-turing-way.netlify.app/) and [The GDS Way](https://gds-way.cloudapps.digital/) with more technical elements coming from the [Statement on Tools](https://nhs-r-community.github.io/statements-on-tools/) book. For example, on licences we’ve detailed [a lot of the options](https://nhs-r-community.github.io/statements-on-tools/open-code-in-the-nhs.html#licenceslicenses) in the Statement on Tools but then said [what NHS-R Community use](https://nhs-r-community.github.io/NHSR-way/style-guides.html#licenceslicenses) in the NHS-R Way.
+we've started an [NHSR-Way book](https://nhs-r-community.github.io/NHSR-way/) and also published through [Netlify](https://nhsr-way.netlify.app/) because some organisations block GitHub published pages. This book is inspired by [The Turing Way](https://www.the-turing-way.netlify.app/) and [The GDS Way](https://gds-way.cloudapps.digital/) with more technical elements coming from the [Statement on Tools](https://nhs-r-community.github.io/statements-on-tools/) book. For example, on licences we've detailed [a lot of the options](https://nhs-r-community.github.io/statements-on-tools/open-code-in-the-nhs.html#licenceslicenses) in the Statement on Tools but then said [what NHS-R Community use](https://nhs-r-community.github.io/NHSR-way/style-guides.html#licenceslicenses) in the NHS-R Way.
 
 The [NHSR book club](https://github.com/nhs-r-community/book_group) have started reading the [R4DS second edition](https://r4ds.hadley.nz/) and created an [unofficial solutions book](https://nhs-r-community.github.io/r4ds-ed2-exercise-solutions/).
 
