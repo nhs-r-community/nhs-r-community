@@ -20,6 +20,8 @@ Hi! This is my first blog post here and I'm excited to have the chance to share 
 
 Machine learning for predictive analytics is becoming increasingly popular (and essential) throughout healthcare, particularly within the NHS. Machine learning models within healthcare can be successfully deployed for a variety of use cases. This area of healthcare analytics is constantly growing as new techniques become more prevalent and machine learning resources become more accessible to information professionals based within NHS organisations. While some of these solutions are deployed on a large scale and require the investment of an abundance of time and money, smaller scale models can often be developed in-house, taking advantage of the wide array of tools that R has on offer for machine learning. In this example, I will show how I developed a random forest model to predict whether or not a patient's length of stay was going to be \< or \>= 7 days. The data used to train such a model would be available for most data analysts within the NHS through their trust's internal electronic patient record systems.
 
+The code shown for this particular machine learning task is specific to the context and model discussed in this blog post. This is not a comprehensive guide on how to approach a machine learning task within R or a complete overview of all the relevant considerations necessary. While I hope that readers find this post interesting, anyone considering undertaking something similar should seek the relevant guidance to do so.
+
 ::: {.callout-note appearance="simple"}
 ## The objective of this model is to classify whether or not a patient's length of stay will be \< or \>= 7 days, rather than predicting the exact number of days!
 :::
