@@ -59,7 +59,7 @@ But I am confident that many colleagues in analytics and data science
 would benefit from a sense of community and mutual support.
 
 Since 2018, the NHS-R community has been a friendly, values-led group of
-NHS (plus public sector and more) employees hell-bent on doing the best
+NHS (plus public sector and more) employees intent on doing the best
 thing for patients with the best data, in the best way.\
 The community has supported analytics and data science by providing
 training, resources and crucially, positive spaces to talk, share
