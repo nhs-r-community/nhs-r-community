@@ -9,6 +9,8 @@ subtitle: ""
 editor: 
   markdown: 
     wrap: 72
+image: img/WOCinTech.jpg
+image-alt: "Photo of three women collaborating with laptops. Attributed to WOCinTechChat.com"
 ---
 
 I was alerted to the news of NHS England’s fate by my phone pinging a
