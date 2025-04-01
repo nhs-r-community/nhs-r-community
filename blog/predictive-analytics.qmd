@@ -28,7 +28,7 @@ The code shown for this particular machine learning task is specific to the cont
 
 ## Data Set Preparation & Variable Selection
 
-The variables used in the data set to train the model were selected as it was thought they would be useful as indicators for a patient's length of stay. These included age, elective / non-elective admission, whether the patient was admitted from a nursing home or not, theatre records, the patient's sepsis status and the presence of particular comorbidities (that is previous diagnosis of dementia, COPD, heart failure and diabetes).
+The variables used in the data set to train the model were selected as it was thought they would be useful as indicators for a patient's length of stay. These included age, elective / non-elective admission, whether the patient was admitted from a nursing home or not, theatre records, the patient's sepsis status and the presence of particular comorbidities (that is previous diagnosis of dementia, chronic obstructive pulmonary disease, heart failure and diabetes).
 
 To allow the model to be trained on this data, all of the categorical variables had to be re-categorised using "one hot encoding", where the values of each of these variables would then be represented in a separate column identified with a 1 or a 0. This alteration allows the input into the model to be numeric. As only categorical variables needed to be encoded, age did not need to be altered.
 
