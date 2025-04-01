@@ -54,7 +54,7 @@ library(randomForest)
 set.seed(10)
 
 # dataset preparation
-Results <- read.csv("DATASET", header = T, stringsAsFactors = T)
+Results <- read.csv("DATASET", header = TRUE, stringsAsFactors = TRUE)
 
 # check dataset
 head(Results)
