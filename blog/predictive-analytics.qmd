@@ -9,7 +9,7 @@ categories:
   - SQL
 author: "Joseph Mosley"
 image: img/computer-with-analytics.jpg
-image-alt: "Graphic of a laptop with stylised analytics on the screen"
+image-alt: "Graphic of a laptop with stylised analytics on the screen."
 subtitle: "A brief overview of my journey using R to develop a predictive model for length of stay."
 eval: false
 ---
