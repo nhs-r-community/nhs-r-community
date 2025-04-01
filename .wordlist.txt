@@ -1508,6 +1508,8 @@ wifi
 wininet
 withr
 withupdatedrespiratoryrow
+WOCinTech
+WOCinTechChat
 wordcloud
 wordlist
 wordpress
