@@ -1,0 +1,53 @@
+---
+title: "fellowship"
+format: html
+---
+
+Our Community is largely volunteer-led. 
+We depend on our members to get involved
+in the running and decision making of NHS-R, so that it remains a useful set
+of ever-growing resources to support and encourage our membership.
+
+In recognition of the significant contributions from members, the NHS-R Community
+awards the honorary title of Fellow for a set period of 3 years.
+
+Fellowships are a great way to advertise your contributions, show your skillset
+and dedication to open source coding in healthcare, and embellish your CV with
+evidence of your community spirit.
+
+For details on how to nominate yourself or someoone else for a Fellowship, please
+visit the [NHSR-Way book](https://nhsrway.nhsrcommunity.com/nhsr-fellows.html)
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+library(gt)
+library(dplyr)
+library(readxl)
+
+#read from SharePoint CSV
+
+sharepoint_site <- Sys.getenv("NHSR_SITE")
+template_path <- Sys.getenv("NHSR_PATH")
+
+site <- Microsoft365R::get_sharepoint_site(sharepoint_site)
+drv <- site$get_drive()
+tmp_file <- tempfile(fileext = ".xlsx")
+drv$download_file(template_path, dest = tmp_file)
+xlsx <- readxl::read_xlsx(tmp_file)
+unlink(tmp_file)
+
+xlsx |>
+  mutate("Date of Award" = as.Date(as.character(From), format = "%Y-%m-%d"),
+         "Renewal Date" = as.Date(as.character(`To (duration 3 years)`), format = "%Y-%m-%d")) |>
+  mutate(Name = paste(`First name`,Surname)) |>
+  select(Title, Name, Organisation, `Date of Award`, 
+         `Renewal Date`) |>
+  filter(`Renewal Date` > Sys.Date(),
+         Title == "Fellow") |> #only display 'live' fellowships
+  mutate("Date of Award" = format(`Date of Award`, format = "%b %Y")) |>
+  select(-`Renewal Date`) |>
+  gt::gt() |>
+  gt::tab_header("List of current NHS-R Fellows") |>
+  gt::tab_footnote("Organisations are at the time of award")
+  
+```
+
