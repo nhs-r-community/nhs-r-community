@@ -51,9 +51,9 @@ website:
       - text: "Get Involved"
         href: get-involved.qmd
         aria-label: Get Involved page
-      - text: "Fellowships"
-        href: fellowship.qmd
-        aria-label: Fellowships page
+      # - text: "Fellowships"
+      #   href: fellowship.qmd
+      #   aria-label: Fellowships page
       - text: Home
         href: index.qmd
         aria-label: Home page
