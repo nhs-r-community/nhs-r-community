@@ -6,6 +6,11 @@ on:
   push:
     branches: ["main"]
 
+  # Also run when a PR is opened
+  pull_request:
+    types: [opened, synchronize, reopened]
+  
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
