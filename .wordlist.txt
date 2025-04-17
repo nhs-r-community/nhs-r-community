@@ -1512,6 +1512,8 @@ wifi
 wininet
 withr
 withupdatedrespiratoryrow
+WOCinTech
+WOCinTechChat
 wordcloud
 wordlist
 wordpress
@@ -1549,3 +1551,17 @@ zoe
 zx
 Çetinkaya
 NA
+XGBoost
+stats
+randomForest
+COPD
+comorbidities
+Pred
+diag
+dbo
+dsn
+DSN
+MyQuery
+dbGetQuery
+Depositphotos
+myDSN

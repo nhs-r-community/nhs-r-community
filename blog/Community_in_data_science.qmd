@@ -1,0 +1,95 @@
+---
+title: "The importance of community in NHS data science"
+date: "31 March 2025"
+date-modified: "31 March 2025"
+categories:
+  - NHS-R
+author: Claire Welsh
+subtitle: ""
+editor: 
+  markdown: 
+    wrap: 72
+image: img/WOCinTech.jpg
+image-alt: "Photo of three women collaborating with laptops. Attributed to WOCinTechChat.com"
+---
+
+I was alerted to the news of NHS England’s fate by my phone pinging a
+news app alert to me mid-meeting.\
+I try to avoid such distractions, but for obvious reasons this one
+caught my eye.\
+For a moment I was incredulous. “That’s not what they mean, surely. I
+mean, they can’t, can they?!”.
+
+I joined the NHS much more recently than most of my colleagues, but I
+started by joining an organisation that had barely begun to settle into
+its new home in NHS Digital before the announcement came that we’d be
+moving into NHS England.\
+NDRS, my previous team, had been part of Public Health England, which
+was disbanded during the pandemic.\
+I loved that job but left late last year to pursue my current role in
+The Strategy Unit.\
+Therefore, the recent news left me feeling a mix of vertigo and deep
+exhaustion on behalf of my ex-colleagues for having to undergo such big
+change again, along with relief that I’d left when I did (plus a good
+dose of guilt for feeling relieved).
+
+I joined the NHS, as so many of us did, because I need to feel a sense
+of genuine impact from my work. We’re surrounded by evidence of need:
+long waiting lists, chronic diseases, burned-out clinical staff, growing
+populations, desperate inequalities and terrifying headlines. We have
+what we need to fix these issues. We really do. Thousands of motivated,
+caring, skilled medical staff, mind-bending amounts of world-class
+health data, and the modern tools that can squeeze every drop of truth
+and value from those data. But NHS data and computing tools are useless
+without energetic and skilful analysts and data scientists.
+
+Medicine is an evidence-based profession. With something as important as
+our health and lives, we cannot rely on guesswork, assumptions, or our
+biases. We look to data to answer the big questions. But we ask these
+questions because we feel empathy for patients and their families. I’m
+worried that the analytical workforce we rely upon to do a lot of the
+hard work of turning data into better health outcomes, are themselves in
+need of empathy right now.
+
+Organisational change is very disruptive, time consuming, and
+exhausting. Those who are now fearing for their jobs may be feeling
+undervalued and vulnerable. I can’t comment on the necessity of the
+government’s choice, as its very far above my pay grade.\
+But I am confident that many colleagues in analytics and data science
+would benefit from a sense of community and mutual support.
+
+Since 2018, the NHS-R community has been a friendly, values-led group of
+NHS (plus public sector and more) employees intent on doing the best
+thing for patients with the best data, in the best way.\
+The community has supported analytics and data science by providing
+training, resources and crucially, positive spaces to talk, share
+problems, swap tips and revel in the magic of coding. It’s all
+delightfully nerdy. The community has also received a good deal of
+recognition for its efforts, including this from the 2022 [Goldacre
+review](https://www.gov.uk/government/publications/better-broader-safer-using-health-data-for-research-and-analysis/better-broader-safer-using-health-data-for-research-and-analysis):
+
+*“The NHS-R community – with its welcoming and supportive ethos –
+provides an excellent entry point for those looking to begin learning
+the benefits of working with modern, open and collaborative data science
+tools, and those looking to further develop their skills by accessing
+the expertise in the community.”*
+
+Through the community’s Slack group, and the direct links to other
+community members I have forged through it, I’ve been able to chat,
+commiserate, vent, argue and de-stress with like-minded colleagues from
+across the NHS. I hugely value this, and I know many others do too.
+Feeling supported and included is a human need, and when work can be
+tough, leaning into these types of communities can offer genuine
+positivity and relief.
+
+So, my advice to anyone in the NHS or wider public sector, who codes or
+aspires to, for health and care analysis, is to join the community. Make
+use of it. Post questions in the
+[Slack](https://nhsrcommunity.slack.com/). Come along to [Coffee and
+Code](https://nhsrway.nhsrcommunity.com/community-handbook.html). Read
+our [blogs](https://nhsrcommunity.com/blog/). Give yourself the space to
+use our resources to fall down an interesting [rabbit hole or
+two](https://github.com/nhs-r-community). Reach out to community
+members, offer support to others. 
+Be [part of NHS-R](https://nhsrcommunity.com/get-involved.html). The
+wonderful nerdy content is fantastic, but community is the real point.
