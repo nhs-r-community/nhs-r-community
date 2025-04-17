@@ -6,7 +6,7 @@ editor:
     wrap: 72
 ---
 
-Our Community is largely volunteer-led. We depend on our members to get
+Our community is largely volunteer-led. We depend on our members to get
 involved in the running and decision making of NHS-R, so that it remains
 a useful set of ever-growing resources to support and encourage our
 membership.
