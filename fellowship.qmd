@@ -16,10 +16,10 @@ Community awards the honorary title of Fellow for a set period of 3
 years.
 
 Fellowships are a great way to advertise your contributions, show your
-skillset and dedication to open source coding in healthcare, and
+skill set and dedication to open source coding in healthcare, and
 embellish your CV with evidence of your community spirit.
 
-For details on how to nominate yourself or someoone else for a
+For details on how to nominate yourself or some-one else for a
 Fellowship, please visit the [NHSR-Way
 book](https://nhsrway.nhsrcommunity.com/nhsr-fellows.html)
 
@@ -27,8 +27,6 @@ book](https://nhsrway.nhsrcommunity.com/nhsr-fellows.html)
 library(gt)
 library(dplyr)
 library(readxl)
-
-#read from SharePoint CSV
 
 sharepoint_site <- Sys.getenv("NHSR_SITE")
 template_path <- Sys.getenv("NHSR_PATH")
@@ -54,4 +52,12 @@ xlsx |>
   gt::tab_header("List of current NHS-R Fellows") |>
   gt::tab_footnote("*Organisations listed are at the time of award")
   
+
 ```
+
+If you have any questions about Fellowships, or would like to alter or
+remove your details from the Fellowship list above, please email us at
+[nhs.rcommunity\@nhs.net](mailto:nhs.rcommunity@nhs.net).
+
+# *Thank you for your support!* 
+
