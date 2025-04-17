@@ -131,6 +131,8 @@ DDoS
 DEATHR
 DEFRA
 DES
+dest
+drv
 DGAVG
 DHSC
 DL
@@ -606,6 +608,7 @@ Sellors
 Sgorbati's
 Shahima
 Sharepoint
+sharepoint
 Shenton
 Sherlaw
 Shewhart
@@ -668,6 +671,7 @@ UCL
 UHB
 UK
 UKCity
+unlink
 UTF
 Unconference
 UniformNumberCheck
