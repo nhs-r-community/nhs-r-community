@@ -41,6 +41,12 @@ jobs:
           key: packages
           path: /usr/local/lib/R/site-library
 
+      - name: Install system dependencies for sf
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libudunits2-dev libgdal-dev libgeos-dev libproj-dev libjq-dev
+
       - name: Install runcharter
         run: |
           remotes::install_github("johnmackintosh/runcharter")
