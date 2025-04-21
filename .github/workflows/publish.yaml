@@ -43,8 +43,8 @@ jobs:
 
       - name: Install system dependencies for sf
         run: |
-          apt-get update
-          apt-get install -y \
+         sudo apt-get update
+         sudo apt-get install -y \
             libudunits2-dev libgdal-dev libgeos-dev libproj-dev
 
       - name: Install runcharter
