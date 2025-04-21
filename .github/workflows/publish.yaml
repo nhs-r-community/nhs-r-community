@@ -45,7 +45,7 @@ jobs:
         run: |
           apt-get update
           apt-get install -y \
-            libudunits2-dev libgdal-dev libgeos-dev libproj-dev libjq-dev
+            libudunits2-dev libgdal-dev libgeos-dev libproj-dev libproj22
 
       - name: Install runcharter
         run: |
