@@ -47,15 +47,11 @@ jobs:
          sudo apt-get install -y \
             libudunits2-dev libgdal-dev libgeos-dev libproj-dev
 
-      - name: Install runcharter
+      - name: Install R pkg dependencies
         run: |
+          utils::install.packages("remotes")
           remotes::install_github("johnmackintosh/runcharter")
-        shell: Rscript {0}
-        env:
-          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Install pillar
-        run: |
+          remotes::install_github("rundel/checklist")
           utils::install.packages("pillar")
         shell: Rscript {0}
         env:
