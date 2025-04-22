@@ -52,8 +52,7 @@ jobs:
           utils::install.packages("remotes")
           remotes::install_github("johnmackintosh/runcharter")
           remotes::install_github("rundel/checklist")
-          utils::install.packages("pillar")
-          utils::install.packages("kableExtra")
+          utils::install.packages(c("pillar", "svglite", "kableExtra"))
         shell: Rscript {0}
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
