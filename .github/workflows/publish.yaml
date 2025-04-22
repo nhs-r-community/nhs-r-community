@@ -77,6 +77,6 @@ jobs:
           # Upload entire repository
           path: '_site/'
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+     # - name: Deploy to GitHub Pages
+     #   id: deployment
+     #   uses: actions/deploy-pages@v4
