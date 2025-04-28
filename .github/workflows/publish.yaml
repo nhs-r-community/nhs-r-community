@@ -45,7 +45,7 @@ jobs:
         run: |
          sudo apt-get update
          sudo apt-get install -y \
-            libudunits2-dev libgdal-dev libgeos-dev libproj-dev
+            libudunits2-dev libgdal-dev libgeos-dev libproj-dev libfontconfig1-dev
 
       - name: Install R pkg dependencies
         run: |
