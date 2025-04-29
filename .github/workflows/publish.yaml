@@ -3,7 +3,7 @@ name: Publish Quarto page to GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
-  pull_request:
+  push:
     branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -41,7 +41,7 @@ jobs:
           key: packages
           path: /usr/local/lib/R/site-library
 
-      - name: Install system dependencies for sf
+      - name: Install system dependencies
         run: |
          sudo apt-get update
          sudo apt-get install -y \
@@ -77,6 +77,6 @@ jobs:
           # Upload entire repository
           path: '_site/'
 
-     # - name: Deploy to GitHub Pages
-     #   id: deployment
-     #   uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
