@@ -40,7 +40,7 @@ unlink(tmp_file)
 
 xlsx |>
   mutate("Title Valid From" = as.Date(`Title Valid From`, format = "%Y-%m-%d")) |>
-  mutate(Name = `Applicant Name`,
+  rename(Name = `Applicant Name`,
          show = `Data Accurate and Permission to Publish Received?`) |>
   select(Name,  
          Organisation = `Applicant's Place of Employment and Role`, 
