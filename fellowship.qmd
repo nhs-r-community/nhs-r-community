@@ -41,10 +41,12 @@ unlink(tmp_file)
 xlsx |>
   mutate("Title Valid From" = as.Date(`Title Valid From`, format = "%Y-%m-%d")) |>
   rename(Name = `Applicant Name`,
-         show = `Data Accurate and Permission to Publish Received?`) |>
+         show = `Data Accurate and Permission to Publish Received?`,
+         Organisation = `Applicant's Place of Employment and Role`,
+         Awarded = `Title Valid From`) |>
   select(Name,  
-         Organisation = `Applicant's Place of Employment and Role`, 
-         Awarded = `Title Valid From`,
+         Organisation, 
+         Awarded,
          show) |>
   filter((Sys.Date() - Awarded) < (365*3),
          !is.na(Awarded),
