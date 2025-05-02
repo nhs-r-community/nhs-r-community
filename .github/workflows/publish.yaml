@@ -1,54 +1,55 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Publish Quarto page to GitHub Pages
-
+name: Quarto Website CI/CD
 on:
-  # Runs on pushes targeting the default branch
+  pull_request:
+    branches: ["main"]
+
   push:
     branches: ["main"]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
   schedule:
     - cron: "0 4 * * *"
 
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
-  publish-site:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  render:
+    name: Render Quarto Website
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - uses: r-lib/actions/setup-r@v2
-
-      - uses: actions/cache@v4
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
         with:
-          key: packages
-          path: /usr/local/lib/R/site-library
+          use-public-rspm: true 
+
+      - name: Cache R packages
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-r-${{ hashFiles('**/*.qmd') }}-${{ hashFiles('**/*.R') }}-1
+          restore-keys: ${{ runner.os }}-r-
 
       - name: Install system dependencies
         run: |
-         sudo apt-get update
-         sudo apt-get install -y \
-            libudunits2-dev libgdal-dev libgeos-dev libproj-dev libfontconfig1-dev libharfbuzz-dev libfribidi-dev libfreetype6-dev
+          sudo apt-get update
+          sudo apt-get install -y \
+            libudunits2-dev libgdal-dev libgeos-dev libproj-dev \
+            libfontconfig1-dev libharfbuzz-dev libfribidi-dev libfreetype6-dev
 
-      - name: Install R pkg dependencies
+      - name: Install R package dependencies
         run: |
+          options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/jammy/latest"))
           utils::install.packages("remotes")
           remotes::install_github("johnmackintosh/runcharter")
           remotes::install_github("rundel/checklist")
@@ -59,22 +60,44 @@ jobs:
 
       - name: Install Missing Packages
         run: |
+          options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/jammy/latest"))
           missing = checklist::install_missing_pkgs(dir = "./", glob = "*.qmd")
         shell: Rscript {0}
 
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render
+      - name: Render Quarto Website
         uses: quarto-dev/quarto-actions/render@v2
+
+      - name: Upload rendered site as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: rendered-site
+          path: '_site/'
+          retention-days: 1
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: render
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download rendered site
+        uses: actions/download-artifact@v3
+        with:
+          name: rendered-site
+          path: '_site/'
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
-      - name: Upload artifact
+      - name: Upload to GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
           path: '_site/'
 
       - name: Deploy to GitHub Pages
