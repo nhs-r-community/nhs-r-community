@@ -1,0 +1,69 @@
+---
+title: "fellowship"
+format: html
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+Our community is largely volunteer-led. We depend on our members to get
+involved in the running and decision making of NHS-R, so that it remains
+a useful set of ever-growing resources to support and encourage our
+membership.
+
+In recognition of the significant contributions from members, the NHS-R
+Community awards the honorary title of Fellow for a set period of 3
+years.
+
+Fellowships are a great way to advertise your contributions, show your
+skill set and dedication to open source coding in healthcare, and
+embellish your CV with evidence of your community spirit.
+
+For details on how to nominate yourself or someone else for a
+Fellowship, please visit the [NHSR-Way
+book](https://nhsrway.nhsrcommunity.com/nhsr-fellows.html)
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+library(gt)
+library(dplyr)
+library(readxl)
+
+sharepoint_site <- Sys.getenv("NHSR_SITE")
+template_path <- Sys.getenv("NHSR_PATH")
+
+site <- Microsoft365R::get_sharepoint_site(sharepoint_site)
+drv <- site$get_drive()
+tmp_file <- tempfile(fileext = ".xlsx")
+drv$download_file(template_path, dest = tmp_file)
+xlsx <- readxl::read_xlsx(tmp_file, skip = 2) 
+unlink(tmp_file)
+
+xlsx |>
+  mutate("Title Valid From" = as.Date(`Title Valid From`, format = "%Y-%m-%d")) |>
+  rename(Name = `Applicant Name`,
+         show = `Data Accurate and Permission to Publish Received?`,
+         Organisation = `Applicant's Place of Employment and Role`,
+         Awarded = `Title Valid From`) |>
+  select(Name,  
+         Organisation, 
+         Awarded,
+         show) |>
+  filter((Sys.Date() - Awarded) < (365*3),
+         !is.na(Awarded),
+         show == "Yes") |>
+  select(-show) |>
+  mutate(Awarded = format(Awarded, format = "%b %Y")) |>
+  arrange(Name) |>
+  gt::gt() |>
+  gt::tab_header("List of current NHS-R Fellows") |>
+  gt::tab_footnote("*Organisations listed are at the time of award")
+  
+
+```
+
+If you have any questions about Fellowships, or would like to alter or
+remove your details from the Fellowship list above, please email us at
+[nhs.rcommunity\@nhs.net](mailto:nhs.rcommunity@nhs.net).
+
+# *Thank you for your support!* 
+
