@@ -26,37 +26,14 @@ book](https://nhsrway.nhsrcommunity.com/nhsr-fellows.html)
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
 library(gt)
 library(dplyr)
-library(readxl)
 
-sharepoint_site <- Sys.getenv("NHSR_SITE")
-template_path <- Sys.getenv("NHSR_PATH")
-
-site <- Microsoft365R::get_sharepoint_site(sharepoint_site)
-drv <- site$get_drive()
-tmp_file <- tempfile(fileext = ".xlsx")
-drv$download_file(template_path, dest = tmp_file)
-xlsx <- readxl::read_xlsx(tmp_file, skip = 2) 
-unlink(tmp_file)
-
-xlsx |>
-  mutate("Title Valid From" = as.Date(`Title Valid From`, format = "%Y-%m-%d")) |>
-  rename(Name = `Applicant Name`,
-         show = `Data Accurate and Permission to Publish Received?`,
-         Organisation = `Applicant's Place of Employment and Role`,
-         Awarded = `Title Valid From`) |>
-  select(Name,  
-         Organisation, 
-         Awarded,
-         show) |>
-  filter((Sys.Date() - Awarded) < (365*3),
-         !is.na(Awarded),
-         show == "Yes") |>
-  select(-show) |>
-  mutate(Awarded = format(Awarded, format = "%b %Y")) |>
-  arrange(Name) |>
+fellows <- read.csv("Current_Fellows.csv", check.names = F) 
+fellows |>
+  mutate("Valid From" = format(`Valid From`, format = "%b %Y")) |>
   gt::gt() |>
   gt::tab_header("List of current NHS-R Fellows") |>
-  gt::tab_footnote("*Organisations listed are at the time of award")
+  gt::tab_footnote("*Organisations listed are at the time of award") |>
+  gt::opt_row_striping()
   
 
 ```
