@@ -44,7 +44,7 @@ data$most_value[data$most_value == "Youtube recordings"] <- "Training - Youtube 
 data$most_value[data$most_value == "Conference in person"] <- "NHS-R conference – in person attendance"
 data$most_value[data$most_value == "NHS-R in person conference"] <- "NHS-R conference – in person attendance"
 data$most_value[data$most_value == "In person conference"] <- "NHS-R conference – in person attendance"
-data$most_value[data$most_value == "Trainings/webinars online"] <- "Webinars – YouTube recordings"
+data$most_value[data$most_value == "Training/webinars online"] <- "Webinars – YouTube recordings"
 data$most_value[data$most_value == "Webinar/training recordings"] <- "Webinars – YouTube recordings"
  
 ```
@@ -54,7 +54,7 @@ data$most_value[data$most_value == "Webinar/training recordings"] <- "Webinars �
 :::
 
 
-The 2025 NHS-R Community Questionnaire was opened on 2025-04-09 and closed on 2025-05-07 (`r as.Date("2025-05-07") - as.Date("2025-04-09")` days in total) . In total we recieved `r length(data$id)` responses.
+The 2025 NHS-R Community Questionnaire was opened on 2025-04-09 and closed on 2025-05-07 (`r as.Date("2025-05-07") - as.Date("2025-04-09")` days in total) . In total we received `r length(data$id)` responses.
 
 ## Respondent description
 
@@ -131,7 +131,7 @@ props |>
   geom_bar(stat = "identity", aes(fill = prop>25)) +
   coord_flip()+
   labs(title = "Use of Resources",
-       subtitle = "Proportion of respondents reporting 'often' or\n'occasional' use of each NHS-R resource",
+       subtitle = "Proportion of respondents reporting 'often' or \n 'occasional' use of each NHS-R resource",
        x = "",
        y = "Percentage",
        fill = "Over 25% of respondents") +
