@@ -1571,7 +1571,7 @@ IYOT
 bluesky
 oa
 outcompetes
-RPYsoc
+RPYSoc
 Pluralsight
 upskilling
 Darzi
