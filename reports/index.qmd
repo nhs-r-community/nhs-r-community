@@ -1,0 +1,13 @@
+---
+pagetitle: Reports | Made in Quarto
+title: Reports
+search: true
+repo-actions: false
+listing:
+    contents: 
+    - /reports
+    type: grid
+    categories: true
+    sort: date-meta
+
+---

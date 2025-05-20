@@ -1,0 +1,268 @@
+---
+title: "NHS-R 2025 Questionnaire Analysis"
+format: html
+execute:
+  echo: false
+  warning: false
+  message: false
+embed-resources: true
+date-meta: 2025-05-20
+description: |
+  This report describes the analysis of the results of a community-wide NHS-R online questionnaire which was active in Spring 2025.
+image: StockCake-Healthcare Data Analysis_1747409640.jpg
+image-alt: Shield logo for Fellowship status with the NHS-R Community.
+categories:
+  - data-science
+  - engagement
+  - community_building
+---
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(wordcloud)
+library(RColorBrewer)
+library(tm)
+library(kableExtra)
+
+data <- read_excel("../NHS-R Questionnaire 2025 Data Export.xlsx") 
+
+names(data) <- c("id","userno","name","email","ip","uniid","started","ended","engaged_very","engaged_active","engaged_less","engaged_inactive","engaged_unaware", "why_not_more",
+"work_area","career_phase","NHS-R Community website","NHS-R conference – in person attendance","NHS-R conference – online live attendance","NHS-R conference – recordings"," Training – online attendance","Training – YouTube recordings","Coffee and Code ","Webinars – online attendance","Webinars – YouTube recordings","Book: NHS-R Way ","Book: Health Inequalities Notebook","Book: Open Analytics Resources","Book: NHS-R Training","NHS-R GitHub/packages","Blogs","Podcasts","Slack","LinkedIn","Bluesky","Mastodon",
+"continue","most_value","value_because","mean_to_you","other_sources","suggestions","testimonial","prize_draw_name","prize_draw_email")
+
+data <- data |> filter(!is.na(id)) |>
+  select(-c(userno, name, email, ip, uniid, started, ended)) 
+data <- data |>  mutate(career_phase = factor(career_phase, levels = c("Early days (< 1 year)","Beginner (1 - 3 years)","Experienced (3+ years)","Advanced (5+ years)")))
+
+#tidy up some text
+data$most_value[data$most_value == "NHS-R conference"] <- "NHS-R conference – in person attendance"
+data$most_value[data$most_value == "Training with online attendance"] <- "Training – online attendance"
+data$most_value[data$most_value == "NHS-R Way"] <- "Book:NHS-R Way"
+data$most_value[data$most_value == "Community chat on Slack"] <- "Slack"
+data$most_value[data$most_value == "Youtube recordings"] <- "Training - Youtube recordings"
+data$most_value[data$most_value == "Conference in person"] <- "NHS-R conference – in person attendance"
+data$most_value[data$most_value == "NHS-R in person conference"] <- "NHS-R conference – in person attendance"
+data$most_value[data$most_value == "In person conference"] <- "NHS-R conference – in person attendance"
+data$most_value[data$most_value == "Trainings/webinars online"] <- "Webinars – YouTube recordings"
+data$most_value[data$most_value == "Webinar/training recordings"] <- "Webinars – YouTube recordings"
+ 
+```
+
+::: {.callout-note}
+## HEADLINE: The NHS-R Community is greatly valued and heavily utilised. It is a unique resource allowing colleagues, both domestic and international, to access high quality, timely advice, and spaces to communicate, collaborate and contribute. No other community, inside the NHS or outside, compares to NHS-R in terms of how welcoming, supportive, and useful we are, especially to those working on coding or data analysis alone within their team.
+:::
+
+
+The 2025 NHS-R Community Questionnaire was opened on 2025-04-09 and closed on 2025-05-07 (`r as.Date("2025-05-07") - as.Date("2025-04-09")` days in total) . In total we recieved `r length(data$id)` responses.
+
+## Respondent description
+
+Most respondents were in an advanced stage of their R career (5+ years of experience).
+This may reflect the maturity of coders in the community, or be a selection bias effect created through greater confidence in questionnaire completion by more experienced coders.
+Alternatively, perhaps the early career coders in the NHS and beyond are less aware of communities like NHS-R, and that we are not currently 'breaking through' into their networks well enough.
+
+```{r}
+data |>
+  ggplot(aes(x = career_phase, fill = career_phase)) +
+  geom_bar(stat = "count") +
+  labs(title = "Count of 34 respondents by career phase",
+       x = "",
+       y = "Count",
+       fill = "Career Phase") +
+  theme(axis.text.x = element_blank())
+```
+
+Rather unsurprisingly (given the places the questionnaire was advertised), no respondents reported being unaware of the NHS-R Community.
+
+There were `r length(data$engaged_very[data$engaged_very == "Yes"])` respondents who reported being very active in the community (agreeing with the statement "*I have contributed to the NHS-R Community, its code, Slack engagement, events, training and/or resources*"), and a similar number who reported being inactive.
+
+The majority of respondents (*n* = `r sum(length(data$engaged_active[data$engaged_active == "Yes"]) + length(data$engaged_less[data$engaged_less == "Yes"]))`, `r round(sum(length(data$engaged_active[data$engaged_active == "Yes"]) + length(data$engaged_less[data$engaged_less == "Yes"]))/length(data$id) * 100)`%) reported being either active or less active (i.e. agreeing with the statements "*I often/have occasionally use(d) the resources available via the NHS-R Community (code, Slack engagement, events, training and/or resources)*". All those reporting to be very active in the community were respondents in the two most experienced categories, possibly suggesting that we need to do more to encourage early R-coders to feel empowered to contribute or engage. All of the inactive community members were also either experienced or advanced coders.
+
+In terms of work types, the breakdown of respondents is shown below.
+Most respondents reported working in provider trusts. 
+
+```{r}
+data$work_area <- forcats::fct_infreq(data$work_area)
+data |>
+  group_by(work_area) |>
+  ggplot(aes(x = work_area, fill = work_area)) +
+  geom_bar(stat = "count") +
+  labs(title = "Count of 34 respondents by type of employer",
+       x = "",
+       y = "Count",
+       fill = "Employer Type") +
+  theme(axis.text.x = element_blank())
+```
+
+## Blockers on more engagement
+
+We asked: "_Please tell us why you have engaged at that level, and what has stopped you engaging with NHS-R further?_".
+
+Most respondents to this question cited a desire to engage more but with a lack of time to do so.
+
+_"It's me not you!"_
+
+## Frequency of resource use
+
+```{r}
+res <- data |>
+  select(1,10:29) |>
+  pivot_longer(-id, names_to = "Resource", values_to = "Use") |>
+  mutate(use = case_when(`Use` == "Occasionally" ~ 1,.default = 0),
+         venue = case_when(str_detect(Resource, "online|website|record|Book|cc|way|hi|oa|book|pkg|blog|pod|slack|linkedin|bluesky|mastodon|train") ~ "Remote",
+                           str_detect(Resource, "in_person") ~ "In Person"),
+         timing = case_when(str_detect(Resource, "online|website|record|conf_record|Training|Training – YouTube recordings|Webinars – YouTube recordings|way|hi|oa|book|pkg|blog|pod|slack|linkedin|bluesky|mastodon") ~ "IYOT",
+                            str_detect(Resource, "cc|live|conf_in_person|conf_online|Training – online attendance|Webinars – online attendance") ~ "Scheduled"))
+
+
+res$Use[res$Use == "-"] <- NA
+
+props <- res |>
+  filter(!Use == "-") |>
+  group_by(Resource) |>
+  summarise(n = n(),
+            sum = sum(use),
+            prop = (sum/n)*100) 
+
+
+props |>
+  ggplot(aes(x = reorder(Resource, prop), y = prop)) +
+  geom_bar(stat = "identity", aes(fill = prop>25)) +
+  coord_flip()+
+  labs(title = "Use of Resources",
+       subtitle = "Proportion of respondents reporting 'often' or\n'occasional' use of each NHS-R resource",
+       x = "",
+       y = "Percentage",
+       fill = "Over 25% of respondents") +
+  theme(legend.position = "bottom")
+```
+
+Watching the RPYSOC conference live remotely was the most used resource. 
+Of those resources used often or occasionally by 25% or more of respondents, all but Coffee and Code were unscheduled, meaning they were resources the users could access at times that suited them.
+
+Few respondents reported often or occasionally using the social media platforms LinkedIn, Bluesky and Mastodon.
+Similarly few respondents reported attending the RPYSOC conference in person, however it must be noted that fees, travel and greater amounts of time away from work are required to make use of this resource compared to those accessed on the user's schedule. Also, attending live training is subject to restricted class sizes, so it is perhaps unsurprising that this outcompetes accessing recordings of training.
+
+The resource that most respondents picked as their most valued resources were the community chat on Slack and in person conference attendance.
+Coffee and code was also very popular. N.B. that we did not include an option to choose recordings of Coffee and Code, so we cannot differentiate between proponents of live sessions or recordings of these.
+
+```{r}
+data |>
+  filter(most_value != "-") |>
+  group_by("Most Valued Resource" = most_value) |>
+  summarise(n = n()) |>
+  arrange(-n) |>
+  kable()|>
+  kable_styling()
+```
+
+All but one respondent reported intending to continue using the NHS-R resources in future.
+
+
+### Testimonials on the RPYSOC Conference and the NHS-R Community Slack group
+
+_"We have also abandoned some project ideas based on the presentations. This may sound like a negative but I think this may be the most important and **impactful** contribution of them all. In the public sector, we don't want to put resources into projects that don't have a high chance of success and the sooner we understand that a project belongs in that category, the better. I particularly want to commend the conference organizers for finding and scheduling speakers who speak about the real world of working with healthcare data - not a fantasy future world where everything works perfectly the first time and the data are clean and complete. I think this is only possible as no-one is trying to sell anyone on anything as there are no consultants or suppliers pushing for their magical solution. I think this is really valuable and I hope you have the resources to keep doing this!"_
+
+_"The Youtube recording of my talk was **super helpful** - I sent the recording link around my department (a genetics lab where no-one else codes in R) and I think my colleagues finally got why I keep promoting R. Several colleagues approached me afterwards and said they wanted to learn how to code."_
+
+_"The RPYSoc conference is my favorite conference of the year, and I always leave feeling **inspired** and **excited** about all the projects that get presented."_
+
+_"Such a great way to keep in touch and keep abreast of development and ask for help. An **invaluable** resource."_
+
+_"This year I've set up an organisational GitHub and project management system for my team, almost entirely based on guidance and resources which were presented / discussed at the NHS-R conference, then with additional support via the slack group. I find the NHS-R conference **so practically useful** and I've learned things I've applied straight away every year I've attended. It would be an **incredibly sad loss** to the community if it were not to happen. The slack group is also **invaluable** as a source of news and again I've received really high quality assistance and support through the slack channel."_
+
+## What does the Community mean to you?
+
+_"Big question! It means a lot - really important part of learning from other analysts and contributing"_
+
+_"Is **tangible support** for doing things more effectively and efficiently as well as sharing good practice. Out of all the many existing and attempted community groups NHS-R is **by far the best community** for doing this"_
+
+_"It means **I'm not alone** and I'm part of a community of practice that is committed to continuous improvement and producing the **highest quality, best value outputs**."_
+
+_"It provides me with access to a **diverse** group of people to learn from, I work in a small team of 3 and can't get this from my workplace."_
+
+Recurrent themes in this section included;
+
+- 👋 Community atmosphere
+- 🤗 Welcoming
+- 👩‍⚕️ Sense of belonging & shared purpose
+- 💯 Best practice
+- 💖 Sharing
+- 🏝 Support for isolated coders
+- 👩‍🏫 Encouraging beginners
+
+## Alternative support sources
+
+We asked our members where they may go for similar content and community support should NHS-R cease to operate. 
+There were many suggestions, but almost all were either not healthcare-specific, too advanced and intimidating for beginners, too exclusive (e.g. only for course alumni), or not free and open-source. 
+
+- NHS Pycom
+- NHS Futures
+- Turing Way
+- Government Data Science Slack
+- HSMA Slack (for alumni only)
+- HACA
+- Posit Community
+- Stack Overflow
+- YouTube
+- AI
+- Pluralsight
+- Midlands Analyst Network
+- AnalystX
+- R podcasts
+
+## Suggestions for improvement
+
+Although almost all respondents reported themes like:
+_"I am very happy"_ or
+_"It is a great community. Please keep the events and training coming - it is amazing to have a conduit to find and learn from very talented people."_,
+
+others did offer some suggestions. These can be grouped into the following categories:
+
+1.  Offer more training sessions
+2.  Advertise on Trust websites
+3.  Offer training for more advanced coders, not just beginners
+4.  Fund the Slack to preserve its history
+5.  Host a better, more complete calendar of events
+6.  Improved booking system for coffee and code
+
+
+## Testimonials
+
+_"I think NHSR is **irreplaceable**, and I think it should be funded by NHSE rather than disappear. The **NHS benefits** from many forms of analytics improvement enabled by NHSE."_
+
+_"I have found the NHS-R community an **invaluable** resource for developing my analytics and data science skills and the conference is the highlight of my working year. This has become even more important now I'm developing a data science function within my team and NHS-R is a big part of enabling this to happen.  I find the NHS-R conference **so practically useful** and I've learned things I've applied straight away every year I've attended. NHS-R means I'm part of a community of practice that is committed to **continuous improvement** and **collaboration** and facilitating **sharing** and support between organisations. It is the **friendliest** and most proactive and **practical** of all the networks I am a part of."_
+
+_"**NHSR is busy being the difference we all need**. It is **enabling and upskilling** analysts to be more productive, do more advanced work, and collaborate across organisational boundaries"_
+
+_"The NHS is hundreds of separate organisations - NHSR is one of very few who are **successfully helping analysts** work across those boundaries, and patients and staff are benefiting as a result."_
+
+_"I can't imagine the NHS ceasing to exist. It would be massively short sighted. I am really **proud** to be part of this community. I think the NHS R community is **vital** to further the aims of the Goldacre report and to support the work required based on the Darzi report. I regularly mention the NHS R community in my work as a consultant doctor in the NHS. I don't have an alternative to the Slack community. And the **conference is really excellent**. I wouldn't know how to code in R without the community, as in **I would have given up** without the help I got on the slack channel."_
+
+_"The NHS-R/pycom conferences organised by the NHS-R and python communities have been a great **value-add** for both myself as a senior analytical leader, as well as my team of healthcare analysts and data scientists. Providing a broad mix of content that caters to analysts at different skill levels and/or points in their career, it offers **'something for everyone'** and surfaces work on common themes and problems from across the NHS. The **welcoming** nature of the conferences made it easy for my team members not only to attend, but also to contribute themselves through talks and webinars, and develop more **confidence** and **'pride'** in their work and skills along the way."_
+
+_"The resources available are **extremely useful**. The back catalogue of recorded webinars available on YouTube have been **invaluable**"_
+
+
+## 🥂 Prize draw winners 🎉!
+
+```{r}
+#| echo: false
+#| eval: false
+  
+set.seed(1234)
+data |>
+  mutate(prize_draw_email = case_when(prize_draw_email == "-" ~ NA, .default = prize_draw_email),
+         prize_draw_name = case_when(prize_draw_name == "-" ~ NA, .default = prize_draw_name)) |>
+  filter(!is.na(prize_draw_email) & !is.na(prize_draw_name)) |>
+  mutate(random = runif(13,0,1)) |>
+  arrange(random) |>
+  top_n(2) |>
+  select(prize_draw_name)
+```
+
+The randomly selected winners of the two £25 Amazon vouchers go to Oliver Peatman and Helena Robinson. Congratulations both!
+
+
+
