@@ -1561,3 +1561,9 @@ MyQuery
 dbGetQuery
 Depositphotos
 myDSN
+Peatman
+StockCake
+RColorBrewer
+ip
+uniid
+userno
