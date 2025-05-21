@@ -6,6 +6,8 @@ categories:
   - GitHub Action
 author: Zoë Turner
 subtitle: "Setting up a GitHub action to check spelling on repositories"
+execute: 
+  eval: false
 ---
 
 Spell checking can be a really important feature of coding, particularly when creating reports, dashboards or websites. Some R solutions have spelling checks built into them, for example RStudio has a spell check function in the IDE (with underlining words that aren't recognised in the Visual view) and [`Golem`](https://github.com/ThinkR-open/golem) ("a framework for building robust Shiny apps") has the `spelling` R package built into it. But when you are creating reports at a fast pace or building dashboards in flexdashboards, Shiny or Quarto, then mistakes may get missed. Spelling, being what it is, can also be incredibly hard to spot: a dropped letter or a switch can be easily overlooked and if you have several files to check you will need a quick and reliable way to do this.
