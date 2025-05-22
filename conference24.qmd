@@ -28,7 +28,7 @@ We will be using a dedicated conference channel #in-person-conference-talks on S
 
 There will also be an unconference channel: #unconferencing-session.
 
-A link to join the NHS-R community Slack channel can be found in our [postcard](https://postcard.nhsrcommunity.com/). More details on how we use Slack can be found in the [NHS-R Way](https://nhsrway.nhsrcommunity.com/community-handbook.html#slack).
+A link to join the NHS-R community Slack channel can be found in our [postcard](https://postcard.nhsrcommunity.com/). More details on how we use Slack can be found in the [NHS-R Way](https://nhsrway.nhsrcommunity.com/).
 
 ## Programme
 

@@ -36,7 +36,7 @@ This site is currently being moved from WordPress to Quarto. Once this is workin
 
 - **Slack:** [postcard.nhsrcommunity.com](https://postcard.nhsrcommunity.com/)
 
-For details on how NHS-R Community use social media can be found in the NHS-R Community book chapter [Community Handbook](https://nhsrway.nhsrcommunity.com/community-handbook.html#social-media).
+For details on how NHS-R Community use social media can be found in the [NHS-R Way book](https://nhsrway.nhsrcommunity.com/).
 
 ## Special thanks
 
