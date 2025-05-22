@@ -30,6 +30,7 @@ library(dplyr)
 fellows <- read.csv("Current_Fellows.csv", check.names = F) 
 fellows |>
   mutate("Valid From" = format(`Valid From`, format = "%b %Y")) |>
+  arrange(Name) |>
   gt::gt() |>
   gt::tab_header("List of current NHS-R Fellows") |>
   gt::tab_footnote("*Organisations listed are at the time of award") |>
