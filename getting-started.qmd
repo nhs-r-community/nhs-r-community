@@ -28,6 +28,7 @@ Whether you post your question to someone directly, through a [Slack group](#con
 
 For a quick demonstration of using {reprex} as an RStudio add-in NHS-R Community have a short video with checked subtitles:
 
+If you prefer to use the command line or the R program (and not RStudio) go straight to [10:36 in the YouTube video](https://www.youtube.com/watch?v=iLfzNWh2dLI&t=636s).
+
 <iframe width="500" height="282" src="https://www.youtube.com/embed/iLfzNWh2dLI?si=rZwSEFIL0N7gBEJj" title="How to use the reprex R package to produce a reproducible example" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-If you prefer to use the command line or the R program (and not RStudio) go straight to [10:36 in the YouTube video](https://www.youtube.com/watch?v=iLfzNWh2dLI&t=636s).
