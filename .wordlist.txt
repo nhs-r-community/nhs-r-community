@@ -1565,3 +1565,17 @@ MyQuery
 dbGetQuery
 Depositphotos
 myDSN
+Peatman
+StockCake
+RColorBrewer
+ip
+uniid
+userno
+IYOT
+bluesky
+oa
+outcompetes
+RPYSoc
+Pluralsight
+upskilling
+Darzi

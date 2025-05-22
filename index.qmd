@@ -15,6 +15,17 @@ about:
   id: hero-heading
 
 listing:
+  - id: reports
+    contents:
+    - /reports
+    - "!reports/index.qmd"
+    sort: "title"
+    type: grid
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    max-items: 3
+    feed: false
   - id: books
     contents: 
     - /books
