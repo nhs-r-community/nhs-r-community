@@ -25,10 +25,10 @@ library(tm)
 library(kableExtra)
 library(readr)
 
-col_names <- c("career_phase","NHS-R Community website","NHS-R conference – in person attendance","NHS-R conference – online live attendance","NHS-R conference – recordings"," Training – online attendance","Training – YouTube recordings","Coffee and Code ","Webinars – online attendance","Webinars – YouTube recordings","Book: NHS-R Way ","Book: Health Inequalities Notebook","Book: Open Analytics Resources","Book: NHS-R Training","NHS-R GitHub/packages","Blogs","Podcasts","Slack","LinkedIn","Bluesky","Mastodon","most_value","work_area")
+col_names <- c("career_phase","NHS-R Community website","NHS-R conference – in person attendance","NHS-R conference – online live attendance","NHS-R conference – recordings"," Training – online attendance","Training – YouTube recordings","Coffee and Code ","Webinars – online attendance","Webinars – YouTube recordings","Book: NHS-R Way ","Book: Health Inequalities Notebook","Book: Open Analytics Resources","Book: NHS-R Training","NHS-R GitHub/packages","Blogs","Podcasts","Slack","LinkedIn","Bluesky","Mastodon","most_value","work_area","very_active","active","less_active","inactive","unaware")
 
 data <- read_csv("NHS-R Questionnaire 2025 Data Export.csv", 
-                 col_names = col_names) 
+                 col_names = col_names, skip = 1) 
 
 data <- data |>  
   mutate(id = row_number(),
@@ -74,9 +74,9 @@ data |>
 
 Rather unsurprisingly (given the places the questionnaire was advertised), no respondents reported being unaware of the NHS-R Community.
 
-There were `r length(data$engaged_very[data$engaged_very == "Yes"])` respondents who reported being very active in the community (agreeing with the statement "*I have contributed to the NHS-R Community, its code, Slack engagement, events, training and/or resources*"), and a similar number who reported being inactive.
+There were `r length(data$id[data$very_active == "Yes"])` respondents who reported being very active in the community (agreeing with the statement "*I have contributed to the NHS-R Community, its code, Slack engagement, events, training and/or resources*"), and a similar number who reported being inactive.
 
-The majority of respondents (*n* = `r sum(length(data$engaged_active[data$engaged_active == "Yes"]) + length(data$engaged_less[data$engaged_less == "Yes"]))`, `r round(sum(length(data$engaged_active[data$engaged_active == "Yes"]) + length(data$engaged_less[data$engaged_less == "Yes"]))/length(data$id) * 100)`%) reported being either active or less active (i.e. agreeing with the statements "*I often/have occasionally use(d) the resources available via the NHS-R Community (code, Slack engagement, events, training and/or resources)*". All those reporting to be very active in the community were respondents in the two most experienced categories, possibly suggesting that we need to do more to encourage early R-coders to feel empowered to contribute or engage. All of the inactive community members were also either experienced or advanced coders.
+The majority of respondents (*n* = `r sum(length(data$active[data$active == "Yes"]) + length(data$less_active[data$less_active == "Yes"]))`, `r round(sum(length(data$active[data$active == "Yes"]) + length(data$less_active[data$less_active == "Yes"]))/length(data$id) * 100)`%) reported being either active or less active (i.e. agreeing with the statements "*I often/have occasionally use(d) the resources available via the NHS-R Community (code, Slack engagement, events, training and/or resources)*". All those reporting to be very active in the community were respondents in the two most experienced categories, possibly suggesting that we need to do more to encourage early R-coders to feel empowered to contribute or engage. All of the inactive community members were also either experienced or advanced coders.
 
 In terms of work types, the breakdown of respondents is shown below.
 Most respondents reported working in provider trusts. 
@@ -106,7 +106,7 @@ _"It's me not you!"_
 
 ```{r}
 res <- data |>
-  select(2:21, 24) |>
+  select(2:21,29) |>
   pivot_longer(-id, names_to = "Resource", values_to = "Use") |>
   mutate(use = case_when(`Use` == "Occasionally" ~ 1,.default = 0),
          venue = case_when(str_detect(Resource, "online|website|record|Book|cc|way|hi|oa|book|pkg|blog|pod|slack|linkedin|bluesky|mastodon|train") ~ "Remote",
