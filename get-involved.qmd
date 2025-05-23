@@ -128,7 +128,7 @@ The NHS-R Community Committee meets regularly and details of what the Committee 
 
 ### Coffee and Coding
 
-We have a regular [coffee and coding](https://nhsrway.nhsrcommunity.com/community-handbook.html#coffee-and-coding) meeting where you can bring a question, some code you need help with or just come along to hear how about others' work.
+We have a regular [coffee and coding](https://nhsrway.nhsrcommunity.com/Coffee_and_code.html) meeting where you can bring a question, some code you need help with or just come along to hear how about others' work.
 
 ## Practising coding
 
@@ -162,7 +162,7 @@ We just ask that anything that is passed to our repository is open under the MIT
 
 ## Teaching and sharing
 
-NHS-R Community hosts very popular, free, [workshops and webinars](https://nhsrway.nhsrcommunity.com/community-handbook.html) throughout the year.
+NHS-R Community hosts very popular, free, [workshops and webinars](https://nhsrway.nhsrcommunity.com/get-involved.html) throughout the year.
 
 All our materials are free to use, copy and change and we publish all our [joining instructions](https://nhsrway.nhsrcommunity.com/training.html).
 
