@@ -26,6 +26,7 @@ listing:
     filter-ui: false
     max-items: 3
     feed: false
+    
   - id: books
     contents: 
     - /books
@@ -62,6 +63,11 @@ Building a community of practice for data analysis and data science using open s
 [Get Started](getting-started.qmd){.btn .btn-lg .btn-primary role="button"} [Get Involved](get-involved.qmd){.btn .btn-lg .btn-primary role="button"}
 :::
 
+:::
+
+## [Reports](reports/index.qmd)
+
+::: {#reports}
 :::
 
 ## [Blog](blog/index.qmd)
