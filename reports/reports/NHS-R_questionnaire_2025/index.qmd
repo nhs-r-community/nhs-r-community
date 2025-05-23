@@ -23,10 +23,12 @@ library(wordcloud)
 library(RColorBrewer)
 library(tm)
 library(kableExtra)
+library(readr)
 
-data <- read.csv("NHS-R Questionnaire 2025 Data Export.csv") 
+col_names <- c("career_phase","NHS-R Community website","NHS-R conference – in person attendance","NHS-R conference – online live attendance","NHS-R conference – recordings"," Training – online attendance","Training – YouTube recordings","Coffee and Code ","Webinars – online attendance","Webinars – YouTube recordings","Book: NHS-R Way ","Book: Health Inequalities Notebook","Book: Open Analytics Resources","Book: NHS-R Training","NHS-R GitHub/packages","Blogs","Podcasts","Slack","LinkedIn","Bluesky","Mastodon","most_value","work_area")
 
-names(data) <- c("career_phase","NHS-R Community website","NHS-R conference – in person attendance","NHS-R conference – online live attendance","NHS-R conference – recordings"," Training – online attendance","Training – YouTube recordings","Coffee and Code ","Webinars – online attendance","Webinars – YouTube recordings","Book: NHS-R Way ","Book: Health Inequalities Notebook","Book: Open Analytics Resources","Book: NHS-R Training","NHS-R GitHub/packages","Blogs","Podcasts","Slack","LinkedIn","Bluesky","Mastodon","most_value","work_area")
+data <- read.csv("NHS-R Questionnaire 2025 Data Export.csv", 
+                 col_names = col_names) 
 
 data <- data |>  
   mutate(id = row_number(),
