@@ -19,21 +19,20 @@ categories:
 
 ```{r}
 library(tidyverse)
-library(readxl)
 library(wordcloud)
 library(RColorBrewer)
 library(tm)
 library(kableExtra)
+library(readr)
 
-data <- read_excel("../NHS-R Questionnaire 2025 Data Export.xlsx") 
+col_names <- c("career_phase","NHS-R Community website","NHS-R conference – in person attendance","NHS-R conference – online live attendance","NHS-R conference – recordings"," Training – online attendance","Training – YouTube recordings","Coffee and Code ","Webinars – online attendance","Webinars – YouTube recordings","Book: NHS-R Way ","Book: Health Inequalities Notebook","Book: Open Analytics Resources","Book: NHS-R Training","NHS-R GitHub/packages","Blogs","Podcasts","Slack","LinkedIn","Bluesky","Mastodon","most_value","work_area")
 
-names(data) <- c("id","userno","name","email","ip","uniid","started","ended","engaged_very","engaged_active","engaged_less","engaged_inactive","engaged_unaware", "why_not_more",
-"work_area","career_phase","NHS-R Community website","NHS-R conference – in person attendance","NHS-R conference – online live attendance","NHS-R conference – recordings"," Training – online attendance","Training – YouTube recordings","Coffee and Code ","Webinars – online attendance","Webinars – YouTube recordings","Book: NHS-R Way ","Book: Health Inequalities Notebook","Book: Open Analytics Resources","Book: NHS-R Training","NHS-R GitHub/packages","Blogs","Podcasts","Slack","LinkedIn","Bluesky","Mastodon",
-"continue","most_value","value_because","mean_to_you","other_sources","suggestions","testimonial","prize_draw_name","prize_draw_email")
+data <- read.csv("NHS-R Questionnaire 2025 Data Export.csv", 
+                 col_names = col_names) 
 
-data <- data |> filter(!is.na(id)) |>
-  select(-c(userno, name, email, ip, uniid, started, ended)) 
-data <- data |>  mutate(career_phase = factor(career_phase, levels = c("Early days (< 1 year)","Beginner (1 - 3 years)","Experienced (3+ years)","Advanced (5+ years)")))
+data <- data |>  
+  mutate(id = row_number(),
+         career_phase = factor(career_phase, levels = c("Early days (< 1 year)","Beginner (1 - 3 years)","Experienced (3+ years)","Advanced (5+ years)")))
 
 #tidy up some text
 data$most_value[data$most_value == "NHS-R conference"] <- "NHS-R conference – in person attendance"
@@ -107,7 +106,7 @@ _"It's me not you!"_
 
 ```{r}
 res <- data |>
-  select(1,10:29) |>
+  select(2:21, 24) |>
   pivot_longer(-id, names_to = "Resource", values_to = "Use") |>
   mutate(use = case_when(`Use` == "Occasionally" ~ 1,.default = 0),
          venue = case_when(str_detect(Resource, "online|website|record|Book|cc|way|hi|oa|book|pkg|blog|pod|slack|linkedin|bluesky|mastodon|train") ~ "Remote",
