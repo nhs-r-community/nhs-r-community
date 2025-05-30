@@ -1,0 +1,46 @@
+---
+sidebar: false
+page-layout: article
+toc: false
+title-block-banner: true
+---
+
+## Upcoming NHS-R events
+
+-----
+
+### JUNE 2025
+
+📆 2nd,3rd Training: Intermediate R
+  + 09:00 - 13:00 (GMT)
+  + 🔗 Registration Links:
+  Day 1: https://events.teams.microsoft.com/event/e294e006-bc5e-48ab-b0b1-46e4c1a2cd15@f47807cf-afbc-4184-a579-8678bea3019a
+  Day 2: https://events.teams.microsoft.com/event/9d8566b2-035c-46ad-91a3-5d782dac1a1b@f47807cf-afbc-4184-a579-8678bea3019a
+
+📆 11th **Coffee and Coding**:
+  + 14:00 - 15:00 (GMT)
+  + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
+  + Meeting ID: 331 945 876 23
+  + Passcode: Po2nEx
+  
+📆 27th **Coffee and Coding**:
+  + 11:00 - 12:00 (GMT)
+  + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
+  + Meeting ID: 331 945 876 23
+  + Passcode: Po2nEx
+  
+------
+
+### JULY 2025
+
+📆 10th **Coffee and Coding**:
+  + 14:00 - 15:00 (GMT)
+  + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
+  + Meeting ID: 331 945 876 23
+  + Passcode: Po2nEx
+  
+📆 23rd **Coffee and Coding**:
+  + 14:00 - 15:00 (GMT)
+  + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
+  + Meeting ID: 331 945 876 23
+  + Passcode: Po2nEx
