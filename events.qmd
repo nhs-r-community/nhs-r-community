@@ -33,6 +33,10 @@ title-block-banner: true
 
 ### JULY 2025
 
+📆 9th **Workshop: "Better, Kinder Code Review with Dr Toby Hodges"**
+  + 10:00 - 11:30 (GMT)
+  + 🔗 [Meeting Link](https://events.teams.microsoft.com/event/0be32c13-7c12-4529-9357-98c20cb3663f@37c354b2-85b0-47f5-b222-07b48d774ee3)
+
 📆 10th **Coffee and Coding**:
   + 14:00 - 15:00 (GMT)
   + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
@@ -44,3 +48,11 @@ title-block-banner: true
   + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
   + Meeting ID: 331 945 876 23
   + Passcode: Po2nEx
+
+-------
+
+### SEPTEMBER 2025
+
+📆 11th **Webinar: "Complexity Made Approachable: Rethinking R-Based Modelling for Healthcare with AM-Smart Tools with Brian Castellani, Corey Schimpf and Chris Caden"**
+  + 13:00 - 14:00 (GMT)
+    + 🔗 [Meeting Link](https://events.teams.microsoft.com/event/0be32c13-7c12-4529-9357-98c20cb3663f@37c354b2-85b0-47f5-b222-07b48d774ee
