@@ -11,9 +11,6 @@ categories:
 image: img/av-bed-occ-stps.PNG
 image-alt: "Screenshot of the England STPs maps with average bed occupancy during winter 2018/19 coloured"
 author: Fiona Grimm
-execute: 
-  cache: true
-  freeze: true
 subtitle: >
 ---
 
@@ -285,10 +282,12 @@ cols_to_check <- c(
 # within any trust/variable combination
 Sitrep_missing_or_zero <- Sitrep_daily %>%
   filter(name != "ENGLAND") %>%
-# Updated code from `gather(cols_to_check, key = "variable", value = "value") %>%`
-  pivot_longer(cols = cols_to_check, 
-               names_to = "variable",
-               values_to = "value") %>%
+  # Updated code from `gather(cols_to_check, key = "variable", value = "value") %>%`
+  pivot_longer(
+    cols = cols_to_check,
+    names_to = "variable",
+    values_to = "value"
+  ) %>%
   filter(value == 0 | is.na(value)) %>%
   # Sort and assign a period ID to consecutive days
   arrange(code, variable, date) %>%
@@ -623,10 +622,10 @@ To map the code was edited to {ggplot2} following [R gallery](https://r-graph-ga
 
 # STP_geojson_filename <- "Sustainability_and_Transformation_Partnerships_February_2017_Ultra_Generalised_Clipped_Boundaries_in_England.geojson.json"
 # STP_geojson_url <- "http://geoportal1-ons.opendata.arcgis.com/datasets/571bd4512165461fad70a0ccc36450e4_4.geojson"
-# 
+#
 # download.file(STP_geojson_url, STP_geojson_filename)
 # data_json <- geojson_read(STP_geojson_filename, what = "sp")
-# 
+#
 # plot(data_json)
 ```
 
@@ -649,7 +648,7 @@ The `cut()` function provided a convenient way to divide the variable bed.occupa
 
 ```{r}
 #| classes: preview-image
-STP_shape_monthly <- my_sf |> 
+STP_shape_monthly <- my_sf |>
   left_join(Sitrep_monthly_average_bySTP, by = c("stp17cd" = "STP_code"))
 
 STP_shape_monthly <- STP_shape_monthly %>%
@@ -677,9 +676,11 @@ STP_shape_monthly <- STP_shape_monthly %>%
   filter(!is.na(month))
 
 # Plot and save the map
-ggplot(STP_shape_monthly, aes(x = long,
-                              y = lat,
-                              fill = occupancy.rate.cut)) +
+ggplot(STP_shape_monthly, aes(
+  x = long,
+  y = lat,
+  fill = occupancy.rate.cut
+)) +
   geom_sf(colour = "white") +
   # Remove grid lines
   theme_void() +
@@ -690,7 +691,7 @@ ggplot(STP_shape_monthly, aes(x = long,
   # Define colour palette
   scale_fill_manual(values = c("#dd0031", "#ee7074", "#f2a0a2", "#aad3e5"), drop = FALSE) +
   guides(fill = guide_legend(ncol = 2, byrow = FALSE, label.hjust = 0)) +
-  labs(title = "Average bed occupancy within STPs during winter 2018/19") + 
+  labs(title = "Average bed occupancy within STPs during winter 2018/19") +
   # Other design choices
   theme(
     plot.title = element_text(size = 16, colour = "#005078", margin = margin(b = 15, unit = "mm")),

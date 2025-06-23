@@ -7,5 +7,16 @@
 
 /.quarto/
 /_site/
-/_freeze/
 /_cache/
+
+blog/*.html
+blog/*_files
+blog/*_cache
+blog/*.xlsx
+blog/*.xls
+
+site_libs/
+
+renv/
+.Rprofile
+renv.lock

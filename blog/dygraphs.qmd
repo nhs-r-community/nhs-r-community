@@ -6,9 +6,6 @@ categories:
   - dygraphs
   - dplyr
   - base R
-execute: 
-  cache: true
-  freeze: true
 author: Zoë Turner
 subtitle: >
   "Interactive charts for mortality surveillance"
