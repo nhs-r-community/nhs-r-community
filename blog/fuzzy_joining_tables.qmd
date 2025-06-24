@@ -8,9 +8,6 @@ categories:
 author: Tom Jemmett
 image: img/photo-taxi.png
 image-alt: "Photo of taxis moving very fast so appears in streaks of colour"
-execute: 
-  cache: true
-  freeze: true
 subtitle: >
 ---
 
@@ -97,9 +94,9 @@ dist_matrix <- stringdist::stringsimmatrix(
 However, simply calculating the string distance matrix doesn't give us a solution to the problem. In the table below, you can see that in column y, some rows appear more than once, and eyeballing the match it's clear it hasn't found the correct pair.
 
 ```{r}
-# we can find the index of the maximum 
+# we can find the index of the maximum
 tibble(
-   x = icbs$description |> str_remove_all("^NHS | Integrated Care Board$"),
+  x = icbs$description |> str_remove_all("^NHS | Integrated Care Board$"),
   y = stps$description[apply(dist_matrix, 1, which.max)]
 ) |>
   group_by(y) |>
@@ -122,7 +119,7 @@ vertices <- dplyr::bind_rows(
 ) |>
   dplyr::relocate(name, .before = dplyr::everything()) |>
   # the "type" column needs to be a logical vector, so we use TRUE for the first type, and FALSE for the second
-  dplyr::mutate(dplyr::across("type", ~.x == "icbs"))
+  dplyr::mutate(dplyr::across("type", ~ .x == "icbs"))
 
 vertices
 ```
@@ -141,8 +138,8 @@ edges <- dist_matrix |>
     \(.x) tibble::tibble(from = icbs$code, weight = .x)
   ) |>
   mutate(
-    across(to, ~paste0("icb_", .x)),
-    across(from, ~paste0("stp_", .x))
+    across(to, ~ paste0("icb_", .x)),
+    across(from, ~ paste0("stp_", .x))
   )
 
 edges

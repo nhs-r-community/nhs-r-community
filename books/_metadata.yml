@@ -1,6 +1,6 @@
 # Freeze computed outputs
 execute:
-  freeze: true
+  freeze: auto
 
 # Enable banner style title blocks
 title-block-banner: true

@@ -9,9 +9,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-  schedule:
-    - cron: "0 4 * * *"
-
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -27,40 +24,23 @@ concurrency:
 jobs:
   # Single deploy job since we're just deploying
   publish-site:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - uses: r-lib/actions/setup-r@v2
-
-      - uses: actions/cache@v4
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
         with:
-          key: packages
-          path: /usr/local/lib/R/site-library
+          use-public-rspm: true
 
       - name: Install system dependencies
         run: |
-         sudo apt-get update
-         sudo apt-get install -y \
-            libudunits2-dev libgdal-dev libgeos-dev libproj-dev libfontconfig1-dev libharfbuzz-dev libfribidi-dev libfreetype6-dev
+          sudo apt update
+          sudo apt install -y libxml2-dev
 
-      - name: Install R pkg dependencies
+      - name: Install R dependencies
         run: |
-          utils::install.packages("remotes")
-          remotes::install_github("johnmackintosh/runcharter")
-          remotes::install_github("rundel/checklist")
-          utils::install.packages(c("tidyverse", "pillar", "svglite", "kableExtra"))
-        shell: Rscript {0}
-        env:
-          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Install Missing Packages
-        run: |
-          missing = checklist::install_missing_pkgs(dir = "./", glob = "*.qmd")
-        shell: Rscript {0}
+          Rscript -e 'install.packages(c("rmarkdown", "downlit", "xml2"))'
 
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
