@@ -40,7 +40,7 @@ jobs:
 
       - name: Install R dependencies
         run: |
-          install.packages(c("rmarkdown", "downlit", "xml2"))
+          Rscript -e 'install.packages(c("rmarkdown", "downlit", "xml2"))'
 
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
