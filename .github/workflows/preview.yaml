@@ -1,0 +1,33 @@
+name: Preview Quarto page to GitHub Pages
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+      
+concurrency: preview-${{ github.ref }}
+
+jobs:
+  build-site:
+    uses: ./.github/workflows/build.yaml
+
+  publish-site:
+    runs-on: ubuntu-latest
+    needs: build-site
+    steps:
+      - uses: actions/checkout@v4
+        
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        if: github.event.pull_request.state != 'closed'
+        with:
+          name: build-site
+          path: _site
+
+      - name: Deploy PR Preview
+        uses: rossjrw/pr-preview-action@v1.4.8
+        with:
+          source-dir: ./_site/
