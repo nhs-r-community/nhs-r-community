@@ -75,9 +75,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9c826f1075cf18f60ad14c11d84aad19.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0baad9fa9d8d377f0313a850e8e4bdd5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-9c826f1075cf18f60ad14c11d84aad19.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-591b7a3c814fb24ef320630d0b6a45a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c62d6f4e119558d5b23387cebfdd730a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-591b7a3c814fb24ef320630d0b6a45a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script><script id="quarto-search-options" type="application/json">{
@@ -491,34 +491,34 @@ Archived data
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">data_confirmed</span><span class="op">)</span></span>
 <span><span class="co"># First rename the two first columns using rename() function</span></span>
-<span><span class="va">confirmed_tidy</span> <span class="op">&lt;-</span> <span class="va">data_confirmed</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">confirmed_tidy</span> <span class="op">&lt;-</span> <span class="va">data_confirmed</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">rename</span><span class="op">(</span></span>
 <span>    Province <span class="op">=</span> <span class="st">"Province/State"</span>,</span>
 <span>    Country <span class="op">=</span> <span class="st">"Country/Region"</span></span>
-<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span></span>
+<span>  <span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">pivot_longer</span><span class="op">(</span></span>
 <span>    names_to <span class="op">=</span> <span class="st">"date"</span>,</span>
 <span>    cols <span class="op">=</span> <span class="fl">5</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">data_confirmed</span><span class="op">)</span></span>
-<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Province</span>, <span class="va">Country</span>, <span class="va">Lat</span>, <span class="va">Long</span>, <span class="va">date</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">summarise</span><span class="op">(</span><span class="st">"Confirmed"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">value</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Province</span>, <span class="va">Country</span>, <span class="va">Lat</span>, <span class="va">Long</span>, <span class="va">date</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">summarise</span><span class="op">(</span><span class="st">"Confirmed"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">value</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">mutate</span><span class="op">(</span>date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">date</span>, <span class="st">"%m/%d/%y"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="stack-all-covid19-and-lat-long-metrics-into-a-master-file" class="level4"><h4 class="anchored" data-anchor-id="stack-all-covid19-and-lat-long-metrics-into-a-master-file"><strong>4. Stack all COVID19 and Lat Long metrics into a master file</strong></h4>
 <p>The final metrics set is made of recovered and death COVID19 cases, by country and by date. Countries and dates are displayed in rows and metrics in columns.The original data also includes two columns for latitude and longitude used later to produce a map using Leaflet package.</p>
 <div class="cell">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Now we merge them together</span></span>
-<span><span class="va">MAPDATA</span> <span class="op">&lt;-</span> <span class="va">confirmed_tidy</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">MAPDATA</span> <span class="op">&lt;-</span> <span class="va">confirmed_tidy</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">full_join</span><span class="op">(</span><span class="va">deceased_tidy</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">MAPDATAF</span> <span class="op">&lt;-</span> <span class="va">MAPDATA</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">MAPDATAF</span> <span class="op">&lt;-</span> <span class="va">MAPDATA</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="co"># Now we merge them together</span></span>
-<span>  <span class="fu">MAPDATA</span><span class="op">(</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">confirmed_tidy</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">MAPDATA</span><span class="op">(</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">confirmed_tidy</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">full_join</span><span class="op">(</span><span class="va">deceased_tidy</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">MAPDATAF</span> <span class="op">&lt;-</span> <span class="va">MAPDATA</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">full_join</span><span class="op">(</span><span class="va">recovered_tidy</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">arrange</span><span class="op">(</span><span class="va">Province</span>, <span class="va">Country</span>, <span class="va">date</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">MAPDATAF</span> <span class="op">&lt;-</span> <span class="va">MAPDATA</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">full_join</span><span class="op">(</span><span class="va">recovered_tidy</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">arrange</span><span class="op">(</span><span class="va">Province</span>, <span class="va">Country</span>, <span class="va">date</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="co"># Recode NA values into 0</span></span>
 <span>  <span class="fu">mutate</span><span class="op">(</span></span>
 <span>    Confirmed <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">Confirmed</span><span class="op">)</span>, <span class="fl">0</span>, <span class="va">Confirmed</span><span class="op">)</span>,</span>
@@ -534,37 +534,37 @@ Archived data
 </div>
 <p>It is important to ensure any missing value is left in the file to ensure Leaflet maps works properly.</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">MAPDATAG</span> <span class="op">&lt;-</span> <span class="va">MAPDATAF</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">mutate</span><span class="op">(</span></span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">MAPDATAG</span> <span class="op">&lt;-</span> <span class="va">MAPDATAF</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span></span>
 <span>  Confirmed <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">Confirmed</span><span class="op">)</span>, <span class="fl">0</span>, <span class="va">Confirmed</span><span class="op">)</span>,</span>
 <span>  Deaths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">Deaths</span><span class="op">)</span>, <span class="fl">0</span>, <span class="va">Deaths</span><span class="op">)</span>,</span>
 <span>  Recovered <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">Recovered</span><span class="op">)</span>, <span class="fl">0</span>, <span class="va">Recovered</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">MAPDATAH</span> <span class="op">&lt;-</span> <span class="va">MAPDATAG</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span></span>
+<span><span class="va">MAPDATAH</span> <span class="op">&lt;-</span> <span class="va">MAPDATAG</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">pivot_longer</span><span class="op">(</span></span>
 <span>    names_to <span class="op">=</span> <span class="st">"Metric"</span>,</span>
 <span>    cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Confirmed"</span>, <span class="st">"Deaths"</span>, <span class="st">"Recovered"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">PLOT_LEAFLET_MAPS</span> <span class="op">&lt;-</span> <span class="va">MAPDATAH</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">Metric</span>, values_from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">PLOT_LEAFLET_MAPS</span> <span class="op">&lt;-</span> <span class="va">MAPDATAH</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">Metric</span>, values_from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="final-data-wrangling-output-files" class="level4"><h4 class="anchored" data-anchor-id="final-data-wrangling-output-files"><strong>5. Final data wrangling output files</strong></h4>
 <p>The data wrangling step outputs two files required for the Shiny app: the first one contains COVID metrics plus Lat Long variable for Leaflet maps and the second includes COVID metrics to be merged with country population figures.</p>
 <section id="covid-metrics-set-including-lat-long-variables-for-leaflet-maps" class="level5"><h5 class="anchored" data-anchor-id="covid-metrics-set-including-lat-long-variables-for-leaflet-maps"><strong>5.1 COVID metrics set including Lat Long variables for Leaflet maps</strong></h5>
 <p>The next step is to create a new data set fo be used in the map on the first tab. It will contain metric variables and Latitude and Longitude variables. The map will display using pop-up circles as tool tips the number of cases per country, and it will be animated using a timeline below the map.</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">MAPDATAH</span> <span class="op">&lt;-</span> <span class="va">MAPDATAG</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">MAPDATAH</span> <span class="op">&lt;-</span> <span class="va">MAPDATAG</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">pivot_longer</span><span class="op">(</span></span>
 <span>    names_to <span class="op">=</span> <span class="st">"Metric"</span>,</span>
 <span>    cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Confirmed"</span>, <span class="st">"Deaths"</span>, <span class="st">"Recovered"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">DATAMAP</span> <span class="op">&lt;-</span> <span class="va">MAPDATAH</span></span>
-<span><span class="va">PLOT_LEAFLET</span> <span class="op">&lt;-</span> <span class="va">DATAMAP</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">Metric</span>, values_from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">PLOT_LEAFLET</span> <span class="op">&lt;-</span> <span class="va">DATAMAP</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">Metric</span>, values_from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">PLOT_LEAFLET_MAPS</span> <span class="op">&lt;-</span> <span class="va">PLOT_LEAFLET</span></span>
 <span></span>
@@ -573,28 +573,28 @@ Archived data
 <p>These are the set of metrics created for the map tab:</p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># This file weill be use to comparae COVID19 rates across different countries</span></span>
-<span><span class="va">PLOT_LEAFLET2_conf</span> <span class="op">&lt;-</span> <span class="va">PLOT_LEAFLET_MAPS</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">select</span><span class="op">(</span><span class="va">Country</span>, <span class="va">date</span>, <span class="va">Confirmed</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Country</span>, <span class="va">date</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">PLOT_LEAFLET2_conf</span> <span class="op">&lt;-</span> <span class="va">PLOT_LEAFLET_MAPS</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">Country</span>, <span class="va">date</span>, <span class="va">Confirmed</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Country</span>, <span class="va">date</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">summarise</span><span class="op">(</span><span class="st">"Confirmed"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">Confirmed</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">PLOT_LEAFLET2_death</span> <span class="op">&lt;-</span> <span class="va">PLOT_LEAFLET_MAPS</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">select</span><span class="op">(</span><span class="va">Country</span>, <span class="va">date</span>, <span class="va">Deaths</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Country</span>, <span class="va">date</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">PLOT_LEAFLET2_death</span> <span class="op">&lt;-</span> <span class="va">PLOT_LEAFLET_MAPS</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">Country</span>, <span class="va">date</span>, <span class="va">Deaths</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Country</span>, <span class="va">date</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">summarise</span><span class="op">(</span><span class="st">"Death"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">Deaths</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">PLOT_LEAFLET2_Recov</span> <span class="op">&lt;-</span> <span class="va">PLOT_LEAFLET_MAPS</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">select</span><span class="op">(</span><span class="va">Country</span>, <span class="va">date</span>, <span class="va">Recovered</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Country</span>, <span class="va">date</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">PLOT_LEAFLET2_Recov</span> <span class="op">&lt;-</span> <span class="va">PLOT_LEAFLET_MAPS</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">Country</span>, <span class="va">date</span>, <span class="va">Recovered</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Country</span>, <span class="va">date</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">summarise</span><span class="op">(</span><span class="st">"Recovered"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">Recovered</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Join together</span></span>
-<span><span class="va">PLOT_LEAFLET_RATES</span> <span class="op">&lt;-</span> <span class="va">PLOT_LEAFLET2_conf</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">full_join</span><span class="op">(</span><span class="va">PLOT_LEAFLET2_death</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">PLOT_LEAFLET_RATES</span> <span class="op">&lt;-</span> <span class="va">PLOT_LEAFLET2_conf</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">full_join</span><span class="op">(</span><span class="va">PLOT_LEAFLET2_death</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">arrange</span><span class="op">(</span><span class="va">Country</span>, <span class="va">date</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">PLOT_LEAFLET_RATES</span> <span class="op">&lt;-</span> <span class="va">PLOT_LEAFLET_RATES</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">full_join</span><span class="op">(</span><span class="va">PLOT_LEAFLET2_Recov</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">PLOT_LEAFLET_RATES</span> <span class="op">&lt;-</span> <span class="va">PLOT_LEAFLET_RATES</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">full_join</span><span class="op">(</span><span class="va">PLOT_LEAFLET2_Recov</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">arrange</span><span class="op">(</span><span class="va">Country</span>, <span class="va">date</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">PLOT_LEAFLET_CDR_NUM</span> <span class="op">&lt;-</span> <span class="va">PLOT_LEAFLET_RATES</span></span>
@@ -642,8 +642,8 @@ Archived data
 <p>There are a couple of calculations needed before rates for COVID19 confirmed, recovered and death cases are calculated:</p>
 <p>First the JHU cases is based on cumulative data, so previous day is subtracted to obtain the daily count of events for each metrics.</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">POPG_RATES</span> <span class="op">&lt;-</span> <span class="va">POPG</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">arrange</span><span class="op">(</span><span class="va">Country</span>, <span class="va">date</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">POPG_RATES</span> <span class="op">&lt;-</span> <span class="va">POPG</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">arrange</span><span class="op">(</span><span class="va">Country</span>, <span class="va">date</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">mutate</span><span class="op">(</span></span>
 <span>    ConD <span class="op">=</span> <span class="va">Confirmed</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">Confirmed</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
 <span>    RecD <span class="op">=</span> <span class="va">Recovered</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">Recovered</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
@@ -653,8 +653,8 @@ Archived data
 </div>
 <p>Compute now rates based on daily figures.</p>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">POPG_RATESF</span> <span class="op">&lt;-</span> <span class="va">POPG_RATES</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">select</span><span class="op">(</span><span class="va">Country</span>, <span class="va">date</span>, <span class="va">year</span>, <span class="va">population</span>, <span class="va">ConD</span>, <span class="va">RecD</span>, <span class="va">DeathD</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">POPG_RATESF</span> <span class="op">&lt;-</span> <span class="va">POPG_RATES</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">Country</span>, <span class="va">date</span>, <span class="va">year</span>, <span class="va">population</span>, <span class="va">ConD</span>, <span class="va">RecD</span>, <span class="va">DeathD</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">mutate</span><span class="op">(</span></span>
 <span>    CONFR <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">ceiling</a></span><span class="op">(</span><span class="op">(</span><span class="op">(</span><span class="va">ConD</span> <span class="op">/</span> <span class="va">population</span><span class="op">)</span> <span class="op">*</span> <span class="fl">10000</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>    RECR <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">ceiling</a></span><span class="op">(</span><span class="op">(</span><span class="op">(</span><span class="va">RecD</span> <span class="op">/</span> <span class="va">population</span><span class="op">)</span> <span class="op">*</span> <span class="fl">10000</span><span class="op">)</span><span class="op">)</span>,</span>
@@ -667,25 +667,25 @@ Archived data
 <div class="cell">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://zoo.R-Forge.R-project.org/">zoo</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">RATES7DGAVG</span> <span class="op">&lt;-</span> <span class="va">POPRATESG</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Country</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">select</span><span class="op">(</span><span class="va">date</span>, <span class="va">Country</span>, <span class="va">population</span>, <span class="va">ConD</span>, <span class="va">RecD</span>, <span class="va">DeathD</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">RATES7DGAVG</span> <span class="op">&lt;-</span> <span class="va">POPRATESG</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Country</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">date</span>, <span class="va">Country</span>, <span class="va">population</span>, <span class="va">ConD</span>, <span class="va">RecD</span>, <span class="va">DeathD</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">mutate</span><span class="op">(</span></span>
-<span>    CONF_ma07 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/zoo/man/rollmean.html">rollmean</a></span><span class="op">(</span><span class="va">ConD</span>, k <span class="op">=</span> <span class="fl">7</span>, fill <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>    REC_ma07 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/zoo/man/rollmean.html">rollmean</a></span><span class="op">(</span><span class="va">RecD</span>, k <span class="op">=</span> <span class="fl">7</span>, fill <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
-<span>    DEATH_ma07 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/zoo/man/rollmean.html">rollmean</a></span><span class="op">(</span><span class="va">DeathD</span>, k <span class="op">=</span> <span class="fl">7</span>, fill <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></span>
+<span>    CONF_ma07 <span class="op">=</span> <span class="fu">rollmean</span><span class="op">(</span><span class="va">ConD</span>, k <span class="op">=</span> <span class="fl">7</span>, fill <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>    REC_ma07 <span class="op">=</span> <span class="fu">rollmean</span><span class="op">(</span><span class="va">RecD</span>, k <span class="op">=</span> <span class="fl">7</span>, fill <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>    DEATH_ma07 <span class="op">=</span> <span class="fu">rollmean</span><span class="op">(</span><span class="va">DeathD</span>, k <span class="op">=</span> <span class="fl">7</span>, fill <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Finally there is a round done on calculated taxes to avoid any decimal places.</p>
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">POP_POPULATEDT</span> <span class="op">&lt;-</span> <span class="va">POP_POPULATED_RENAME</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">POP_POPULATEDT</span> <span class="op">&lt;-</span> <span class="va">POP_POPULATED_RENAME</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">mutate</span><span class="op">(</span></span>
 <span>    Confirmed_10000 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">Confirmed_Rate</span>, digits <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,</span>
 <span>    Recovered_10000 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">Recovered_Rate</span>, digits <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,</span>
 <span>    Deaths_10000 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">Death_Rate</span>, digits <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span></span>
-<span><span class="va">POP_POPULATED</span> <span class="op">&lt;-</span> <span class="va">POP_POPULATEDT</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">POP_POPULATED</span> <span class="op">&lt;-</span> <span class="va">POP_POPULATEDT</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">select</span><span class="op">(</span></span>
 <span>    <span class="va">date</span>, <span class="va">Country</span>, <span class="va">Population</span>, <span class="va">Confirmed</span>, <span class="va">Recovered</span>, <span class="va">Death</span>,</span>
 <span>    Conf_7D_10000 <span class="op">=</span> <span class="va">Confirmed_10000</span>,</span>

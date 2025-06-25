@@ -75,9 +75,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9c826f1075cf18f60ad14c11d84aad19.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0baad9fa9d8d377f0313a850e8e4bdd5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-9c826f1075cf18f60ad14c11d84aad19.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-591b7a3c814fb24ef320630d0b6a45a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c62d6f4e119558d5b23387cebfdd730a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-591b7a3c814fb24ef320630d0b6a45a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script><script id="quarto-search-options" type="application/json">{
@@ -459,7 +459,7 @@ In this case, set.seed(x) is important in order to make your results reproducibl
 <span><span class="va">Testing</span> <span class="op">&lt;-</span> <span class="va">Results</span><span class="op">[</span><span class="va">index</span> <span class="op">==</span> <span class="fl">2</span>, <span class="op">]</span></span>
 <span></span>
 <span><span class="co"># build model</span></span>
-<span><span class="va">MODEL</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/randomForest/man/randomForest.html">randomForest</a></span><span class="op">(</span><span class="va">Length.Of.Stay</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">Training</span><span class="op">)</span></span>
+<span><span class="va">MODEL</span> <span class="op">&lt;-</span> <span class="fu">randomForest</span><span class="op">(</span><span class="va">Length.Of.Stay</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">Training</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># evaluate model accuracy through a confusion matrix</span></span>
 <span><span class="va">LOS_Pred</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">MODEL</span>, <span class="va">Testing</span><span class="op">)</span></span>
@@ -481,7 +481,7 @@ In this case, set.seed(x) is important in order to make your results reproducibl
 <span><span class="va">myDSN</span> <span class="op">&lt;-</span> <span class="st">"LOCAL_DSN_NAME"</span></span>
 <span></span>
 <span><span class="co"># define query</span></span>
-<span><span class="va">con</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dbi.r-dbi.org/reference/dbConnect.html">dbConnect</a></span><span class="op">(</span><span class="fu">odbc</span><span class="fu">::</span><span class="fu"><a href="https://odbc.r-dbi.org/reference/dbConnect-OdbcDriver-method.html">odbc</a></span><span class="op">(</span><span class="op">)</span>, dsn <span class="op">=</span> <span class="va">myDSN</span><span class="op">)</span></span>
+<span><span class="va">con</span> <span class="op">&lt;-</span> <span class="fu">dbConnect</span><span class="op">(</span><span class="fu">odbc</span><span class="fu">::</span><span class="fu">odbc</span><span class="op">(</span><span class="op">)</span>, dsn <span class="op">=</span> <span class="va">myDSN</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># define query</span></span>
 <span><span class="va">MyQuery</span> <span class="op">&lt;-</span> <span class="st">"SELECT * FROM [Database].[dbo].[Table]"</span></span>

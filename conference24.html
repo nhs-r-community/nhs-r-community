@@ -73,9 +73,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-29fa12463f9c0a881e61db2c0083e6a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-9530b62e6ea91b2df91664acfa4fb070.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-29fa12463f9c0a881e61db2c0083e6a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4f3ac4d186401f619b2567f8d77f5bc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-6f05ebb123f474b166ddfe348e942f2b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-4f3ac4d186401f619b2567f8d77f5bc4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script><script id="quarto-search-options" type="application/json">{
@@ -371,7 +371,7 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <span>  <span class="st">"Closing of day"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span></span>
+<span><span class="fu">tibble</span><span class="fu">::</span><span class="fu">tribble</span><span class="op">(</span></span>
 <span>  <span class="op">~</span><span class="va">Time</span>, <span class="op">~</span><span class="va">Title</span>, <span class="op">~</span><span class="va">Speaker</span>,</span>
 <span>  <span class="st">"09:00 – 09:45"</span>, <span class="st">"Registration and coffee"</span>, <span class="st">""</span>,</span>
 <span>  <span class="st">"09:45 – 09:55"</span>, <span class="st">"Welcome and Housekeeping"</span>, <span class="st">"Zoë Turner"</span>,</span>
@@ -399,13 +399,13 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <span>  <span class="st">"16:30 – 16:45"</span>, <span class="st">"Cracking open the TiN: how we build a one-stop statistics website using R, GitHub and BigQuery"</span>, <span class="st">"Mohan Del"</span>,</span>
 <span>  <span class="st">"16:45 – 17:10"</span>, <span class="st">"Closing of day"</span>, <span class="st">""</span></span>
 <span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/cols_width.html">cols_width</a></span><span class="op">(</span></span>
+<span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu">gt</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu">cols_width</span><span class="op">(</span></span>
 <span>    <span class="va">Time</span> <span class="op">~</span> <span class="fu">px</span><span class="op">(</span><span class="fl">110</span><span class="op">)</span>,</span>
 <span>    <span class="va">Title</span> <span class="op">~</span> <span class="fu">px</span><span class="op">(</span><span class="fl">500</span><span class="op">)</span>,</span>
 <span>    <span class="va">Speaker</span> <span class="op">~</span> <span class="fu">px</span><span class="op">(</span><span class="fl">150</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">gtExtras</span><span class="fu">::</span><span class="fu"><a href="https://jthomasmock.github.io/gtExtras/reference/gt_highlight_rows.html">gt_highlight_rows</a></span><span class="op">(</span>rows <span class="op">=</span> <span class="va">Title</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">fixed_points</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu">gtExtras</span><span class="fu">::</span><span class="fu">gt_highlight_rows</span><span class="op">(</span>rows <span class="op">=</span> <span class="va">Title</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">fixed_points</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div id="opczenmckl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#opczenmckl table {
@@ -986,7 +986,7 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu">tribble</span><span class="op">(</span></span>
 <span>  <span class="op">~</span><span class="va">Time</span>, <span class="op">~</span><span class="va">Title</span>, <span class="op">~</span><span class="va">Speaker</span>,</span>
 <span>  <span class="st">"09:00 – 09:45"</span>, <span class="st">"Registration and coffee"</span>, <span class="st">""</span>,</span>
 <span>  <span class="st">"09:45 – 09:55"</span>, <span class="st">"Welcome and Housekeeping"</span>, <span class="st">"Zoë Turner"</span>,</span>
@@ -1012,13 +1012,13 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <span>  <span class="st">"16:15 – 16:20"</span>, <span class="st">"Raffle"</span>, <span class="st">""</span>,</span>
 <span>  <span class="st">"16:20"</span>, <span class="st">"Closing of the day"</span>, <span class="st">""</span></span>
 <span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/cols_width.html">cols_width</a></span><span class="op">(</span></span>
+<span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu">gt</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu">cols_width</span><span class="op">(</span></span>
 <span>    <span class="va">Time</span> <span class="op">~</span> <span class="fu">px</span><span class="op">(</span><span class="fl">110</span><span class="op">)</span>,</span>
 <span>    <span class="va">Title</span> <span class="op">~</span> <span class="fu">px</span><span class="op">(</span><span class="fl">500</span><span class="op">)</span>,</span>
 <span>    <span class="va">Speaker</span> <span class="op">~</span> <span class="fu">px</span><span class="op">(</span><span class="fl">150</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">gtExtras</span><span class="fu">::</span><span class="fu"><a href="https://jthomasmock.github.io/gtExtras/reference/gt_highlight_rows.html">gt_highlight_rows</a></span><span class="op">(</span>rows <span class="op">=</span> <span class="va">Title</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">fixed_points</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu">gtExtras</span><span class="fu">::</span><span class="fu">gt_highlight_rows</span><span class="op">(</span>rows <span class="op">=</span> <span class="va">Title</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">fixed_points</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div id="rydbsvkjii" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#rydbsvkjii table {
@@ -1604,7 +1604,7 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <p>For more information on unconferencing we have a <a href="https://nhsrcommunity.substack.com/p/nhs-r-podcast-14th-december-unconferences-6da?utm_source=substack&amp;utm_medium=email">podcast talk</a> with Pawel Orzechowski from the University of Edinburgh who introduced the idea of unconferencing to us and a <a href="./blog/what-was-the-unconference.html">blog</a> by Ben Murch on how it went at the 2023 conference.</p>
 <p>RPySOC24 Unconference sessions:</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu">tribble</span><span class="op">(</span></span>
 <span>  <span class="op">~</span><span class="va">Time</span>, <span class="op">~</span><span class="va">Title</span>,</span>
 <span>  <span class="st">"09:55"</span>, <span class="st">"NLP techniques and practical usage questions/discussions "</span>,</span>
 <span>  <span class="st">"09:55"</span>, <span class="st">"CPD from entry-level to C10 – whats worth doing questions/discussions"</span>,</span>
@@ -1626,8 +1626,8 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <span>  <span class="st">"14:20"</span>, <span class="st">"System dynamics simulation"</span>,</span>
 <span></span>
 <span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/cols_width.html">cols_width</a></span><span class="op">(</span></span>
+<span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu">gt</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">gt</span><span class="fu">::</span><span class="fu">cols_width</span><span class="op">(</span></span>
 <span>    <span class="va">Time</span> <span class="op">~</span> <span class="fu">px</span><span class="op">(</span><span class="fl">110</span><span class="op">)</span>,</span>
 <span>    <span class="va">Title</span> <span class="op">~</span> <span class="fu">px</span><span class="op">(</span><span class="fl">500</span><span class="op">)</span>,</span>
 <span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

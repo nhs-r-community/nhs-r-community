@@ -75,9 +75,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9c826f1075cf18f60ad14c11d84aad19.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0baad9fa9d8d377f0313a850e8e4bdd5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-9c826f1075cf18f60ad14c11d84aad19.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-591b7a3c814fb24ef320630d0b6a45a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c62d6f4e119558d5b23387cebfdd730a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-591b7a3c814fb24ef320630d0b6a45a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script><script id="quarto-search-options" type="application/json">{
@@ -403,7 +403,7 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <p>However, there was a slight complication in our data: as this was part of a wider report we would group some of the activity (the Critical Care Bed Day’s) together at one part in the report, but also be able to break these records down into Elective/Emergency.</p>
 <p>The table below shows what some of this activity data looked like (we just show the type’s of activity and the subgroups below).</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">activity_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">activity_data</span> <span class="op">&lt;-</span> <span class="fu">tribble</span><span class="op">(</span></span>
 <span>  <span class="op">~</span><span class="va">type</span>,                  <span class="op">~</span><span class="va">sub_group</span>,                     <span class="op">~</span><span class="va">alt_sub_group</span>,        <span class="op">~</span><span class="va">n</span>,</span>
 <span>  <span class="st">"Urgent Service Event"</span>, <span class="st">"Emergency Admission"</span>,          <span class="cn">NA</span>,                    <span class="fl">2.00</span>,</span>
 <span>  <span class="st">"Urgent Service Event"</span>, <span class="st">"A&amp;E Attendance"</span>,               <span class="cn">NA</span>,                    <span class="fl">3.00</span>,</span>
@@ -419,7 +419,7 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># don't show the n column here, this is just used to generate rows later</span></span>
-<span><span class="va">activity_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">n</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">activity_data</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">n</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 11 × 3
    type                 sub_group                    alt_sub_group      
@@ -440,22 +440,22 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <p>To demonstrate the issue with the initial summary code I produced we can generate some synthetic data. The real dataset included far more columns (e.g.&nbsp;the date of the activity, the organisation where the activity happened at), but for this demonstration we just generate a patient id.</p>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">activity_synthetic</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">people</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">activity_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>pid <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">n</span>, <span class="kw">function</span><span class="op">(</span><span class="va">.x</span><span class="op">)</span> <span class="op">{</span></span>
-<span>      <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span><span class="va">people</span>, <span class="va">.x</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>        <span class="fu"><a href="https://purrr.tidyverse.org/reference/imap.html">imap</a></span><span class="op">(</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">.y</span>, <span class="va">.x</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="va">activity_data</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>pid <span class="op">=</span> <span class="fu">map</span><span class="op">(</span><span class="va">n</span>, <span class="kw">function</span><span class="op">(</span><span class="va">.x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span><span class="va">people</span>, <span class="va">.x</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>        <span class="fu">imap</span><span class="op">(</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">.y</span>, <span class="va">.x</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>        <span class="fu">flatten_dbl</span><span class="op">(</span><span class="op">)</span></span>
-<span>    <span class="op">}</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unnest.html">unnest</a></span><span class="op">(</span><span class="va">pid</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">n</span><span class="op">)</span></span>
+<span>    <span class="op">}</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">unnest</span><span class="op">(</span><span class="va">pid</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">n</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="va">activity_100k</span> <span class="op">&lt;-</span> <span class="fu">activity_synthetic</span><span class="op">(</span><span class="fl">100000</span><span class="op">)</span></span>
-<span><span class="va">activity_10k</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">activity_100k</span>, <span class="va">pid</span> <span class="op">&lt;=</span> <span class="fl">10000</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">activity_10k</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">activity_100k</span>, <span class="va">pid</span> <span class="op">&lt;=</span> <span class="fl">10000</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here is a sample of this data:</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">activity_10k</span>, <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">sample_n</span><span class="op">(</span><span class="va">activity_10k</span>, <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 4
    type                 sub_group             alt_sub_group         pid
@@ -477,20 +477,20 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <p>This is the code that I originally came up with, which I’m wrapping in a function for now so we can benchmark our different approaches later. First we update the <code>type</code> and <code>subgroup</code> columns, then we perform the summarisation steps (get the distinct rows for each individual, then count how many individuals there were for that activity).</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dplyr_naive</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">activity</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">activity</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="va">type</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">sub_group</span> <span class="op">==</span> <span class="st">"Critical Care Bed Day"</span>,</span>
+<span>  <span class="va">activity</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">mutate</span><span class="op">(</span><span class="fu">across</span><span class="op">(</span><span class="va">type</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">sub_group</span> <span class="op">==</span> <span class="st">"Critical Care Bed Day"</span>,</span>
 <span>                                <span class="va">sub_group</span>, <span class="va">.x</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>           <span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="va">sub_group</span>,</span>
+<span>           <span class="fu">across</span><span class="op">(</span><span class="va">sub_group</span>,</span>
 <span>                  <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">type</span> <span class="op">==</span> <span class="st">"Critical Care Bed Day"</span>,</span>
 <span>                          <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Critical Care ("</span>,</span>
-<span>                                 <span class="fu"><a href="https://stringr.tidyverse.org/reference/word.html">word</a></span><span class="op">(</span><span class="va">alt_sub_group</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>                                 <span class="fu">word</span><span class="op">(</span><span class="va">alt_sub_group</span>, <span class="fl">1</span><span class="op">)</span>,</span>
 <span>                                 <span class="st">")"</span><span class="op">)</span>,</span>
-<span>                          <span class="va">.x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">type</span>, <span class="va">sub_group</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="va">pid</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">type</span>, <span class="va">sub_group</span><span class="op">)</span></span>
+<span>                          <span class="va">.x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">type</span>, <span class="va">sub_group</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">distinct</span><span class="op">(</span><span class="va">pid</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">count</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">arrange</span><span class="op">(</span><span class="va">type</span>, <span class="va">sub_group</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can test how long this takes to run with our 100,000 patient dataset.</p>
@@ -505,21 +505,21 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <p>So the question is, can we reduce the amount of rows we have to update? Yes! We can simply perform the summary steps before updating the labels! This is the approach I settled on: it’s largely the same as above, I just have to include the <code>alt_sub_group</code> column in the group by step, and remove this column from the results at the end.</p>
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dplyr_improved</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">activity</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">activity</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">type</span>, <span class="va">sub_group</span>, <span class="va">alt_sub_group</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="va">pid</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="va">type</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">sub_group</span> <span class="op">==</span> <span class="st">"Critical Care Bed Day"</span>,</span>
+<span>  <span class="va">activity</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">type</span>, <span class="va">sub_group</span>, <span class="va">alt_sub_group</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">distinct</span><span class="op">(</span><span class="va">pid</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">count</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">mutate</span><span class="op">(</span><span class="fu">across</span><span class="op">(</span><span class="va">type</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">sub_group</span> <span class="op">==</span> <span class="st">"Critical Care Bed Day"</span>,</span>
 <span>                                <span class="va">sub_group</span>, <span class="va">.x</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>           <span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="va">sub_group</span>,</span>
+<span>           <span class="fu">across</span><span class="op">(</span><span class="va">sub_group</span>,</span>
 <span>                  <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">type</span> <span class="op">==</span> <span class="st">"Critical Care Bed Day"</span>,</span>
 <span>                          <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Critical Care ("</span>,</span>
-<span>                                 <span class="fu"><a href="https://stringr.tidyverse.org/reference/word.html">word</a></span><span class="op">(</span><span class="va">alt_sub_group</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>                                 <span class="fu">word</span><span class="op">(</span><span class="va">alt_sub_group</span>, <span class="fl">1</span><span class="op">)</span>,</span>
 <span>                                 <span class="st">")"</span><span class="op">)</span>,</span>
-<span>                          <span class="va">.x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">alt_sub_group</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">type</span>, <span class="va">sub_group</span><span class="op">)</span></span>
+<span>                          <span class="va">.x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">alt_sub_group</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">arrange</span><span class="op">(</span><span class="va">type</span>, <span class="va">sub_group</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>How does this perform?</p>
@@ -535,14 +535,14 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <p>First, here is basically the first approach translated to <a href="https://r-datatable.com">data.table</a></p>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data.table_naive</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">activity</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">adt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdatatable.gitlab.io/data.table/reference/as.data.table.html">as.data.table</a></span><span class="op">(</span><span class="va">activity</span><span class="op">)</span></span>
+<span>  <span class="va">adt</span> <span class="op">&lt;-</span> <span class="fu">as.data.table</span><span class="op">(</span><span class="va">activity</span><span class="op">)</span></span>
 <span></span>
 <span>  <span class="va">adt</span><span class="op">[</span>, <span class="va">type</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">sub_group</span> <span class="op">==</span> <span class="st">"Critical Care Bed Day"</span>,</span>
 <span>                       <span class="st">"Critical Care Bed Day"</span>,</span>
 <span>                       <span class="va">type</span><span class="op">)</span><span class="op">]</span></span>
 <span>  <span class="va">adt</span><span class="op">[</span>, <span class="va">sub_group</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">type</span> <span class="op">==</span> <span class="st">"Critical Care Bed Day"</span>,</span>
 <span>                            <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Critical Care ("</span>,</span>
-<span>                            <span class="fu"><a href="https://stringr.tidyverse.org/reference/word.html">word</a></span><span class="op">(</span><span class="va">alt_sub_group</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>                            <span class="fu">word</span><span class="op">(</span><span class="va">alt_sub_group</span>, <span class="fl">1</span><span class="op">)</span>,</span>
 <span>                            <span class="st">")"</span><span class="op">)</span>,</span>
 <span>                            <span class="va">sub_group</span><span class="op">)</span><span class="op">]</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">adt</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">type</span>, <span class="va">sub_group</span><span class="op">)</span>, <span class="fu">.</span><span class="op">(</span>n <span class="op">=</span> <span class="va">.N</span><span class="op">)</span>,</span>
@@ -552,14 +552,14 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <p>and here is the second approach</p>
 <div class="cell">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data.table_improved</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">activity</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">adt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdatatable.gitlab.io/data.table/reference/as.data.table.html">as.data.table</a></span><span class="op">(</span><span class="va">activity</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="va">adt</span> <span class="op">&lt;-</span> <span class="fu">as.data.table</span><span class="op">(</span><span class="va">activity</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="va">.</span><span class="op">[</span>, <span class="fu">.</span><span class="op">(</span>n <span class="op">=</span> <span class="va">.N</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"type"</span>, <span class="st">"sub_group"</span>, <span class="st">"alt_sub_group"</span><span class="op">)</span><span class="op">]</span></span>
 <span></span>
 <span>  <span class="va">adt</span><span class="op">[</span><span class="va">sub_group</span> <span class="op">==</span> <span class="st">"Critical Care Bed Day"</span>,</span>
 <span>      <span class="va">type</span> <span class="op">:=</span> <span class="st">"Critical Care Bed Day"</span><span class="op">]</span></span>
 <span>  <span class="va">adt</span><span class="op">[</span><span class="va">type</span> <span class="op">==</span> <span class="st">"Critical Care Bed Day"</span>,</span>
-<span>      <span class="va">subgroup</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Critical Care ("</span>, <span class="fu"><a href="https://stringr.tidyverse.org/reference/word.html">word</a></span><span class="op">(</span><span class="va">alt_sub_group</span>, <span class="fl">1</span><span class="op">)</span>, <span class="st">")"</span><span class="op">)</span><span class="op">]</span></span>
+<span>      <span class="va">subgroup</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Critical Care ("</span>, <span class="fu">word</span><span class="op">(</span><span class="va">alt_sub_group</span>, <span class="fl">1</span><span class="op">)</span>, <span class="st">")"</span><span class="op">)</span><span class="op">]</span></span>
 <span>  <span class="va">adt</span><span class="op">[</span>, <span class="va">alt_sub_group</span> <span class="op">:=</span> <span class="cn">NULL</span><span class="op">]</span></span>
 <span></span>
 <span>  <span class="va">adt</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">type</span>, <span class="va">sub_group</span><span class="op">)</span>, <span class="op">]</span></span>
@@ -568,15 +568,15 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 </section><section id="benchmarking" class="level2"><h2 class="anchored" data-anchor-id="benchmarking"><strong>benchmarking</strong></h2>
 <p>Now, we can benchmark the different functions to see how they perform.</p>
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">bench</span><span class="fu">::</span><span class="fu"><a href="https://bench.r-lib.org/reference/mark.html">mark</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">bench</span><span class="fu">::</span><span class="fu">mark</span><span class="op">(</span></span>
 <span>  <span class="fu">dplyr_naive</span><span class="op">(</span><span class="va">activity_10k</span><span class="op">)</span>,</span>
 <span>  <span class="fu">data.table_naive</span><span class="op">(</span><span class="va">activity_10k</span><span class="op">)</span>,</span>
 <span>  <span class="fu">dplyr_improved</span><span class="op">(</span><span class="va">activity_10k</span><span class="op">)</span>,</span>
 <span>  <span class="fu">data.table_improved</span><span class="op">(</span><span class="va">activity_10k</span><span class="op">)</span>,</span>
 <span>  iterations <span class="op">=</span> <span class="fl">10</span>,</span>
 <span>  check <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">expression</span>, <span class="va">min</span>, <span class="va">median</span>, <span class="va">mem_alloc</span>, <span class="va">n_gc</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>   <span class="fu">select</span><span class="op">(</span><span class="va">expression</span>, <span class="va">min</span>, <span class="va">median</span>, <span class="va">mem_alloc</span>, <span class="va">n_gc</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 4
   expression                             min   median mem_alloc
@@ -590,15 +590,15 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <p>The table above shows how the improved approach is significantly better than the naive approach. We can see that the median time to run the function is significantly better (note that the naive functions are in seconds, but the improved functions are in milliseconds), but also the amount of memory that is being allocated is much, much lower. The <code>n_gc</code> value tells us how many times the <a href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)">“garbage collector”</a> ran. We want this figure to be low.</p>
 <p>We can also see how the function works with the 100,000 row dataset.</p>
 <div class="cell">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">bench</span><span class="fu">::</span><span class="fu"><a href="https://bench.r-lib.org/reference/mark.html">mark</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">bench</span><span class="fu">::</span><span class="fu">mark</span><span class="op">(</span></span>
 <span>  <span class="fu">dplyr_naive</span><span class="op">(</span><span class="va">activity_100k</span><span class="op">)</span>,</span>
 <span>  <span class="fu">data.table_naive</span><span class="op">(</span><span class="va">activity_100k</span><span class="op">)</span>,</span>
 <span>  <span class="fu">dplyr_improved</span><span class="op">(</span><span class="va">activity_100k</span><span class="op">)</span>,</span>
 <span>  <span class="fu">data.table_improved</span><span class="op">(</span><span class="va">activity_100k</span><span class="op">)</span>,</span>
 <span>  iterations <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  check <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">expression</span>, <span class="va">min</span>, <span class="va">median</span>, <span class="va">mem_alloc</span>, <span class="va">n_gc</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">expression</span>, <span class="va">min</span>, <span class="va">median</span>, <span class="va">mem_alloc</span>, <span class="va">n_gc</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 4
   expression                              min   median mem_alloc

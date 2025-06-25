@@ -75,9 +75,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9c826f1075cf18f60ad14c11d84aad19.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0baad9fa9d8d377f0313a850e8e4bdd5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-9c826f1075cf18f60ad14c11d84aad19.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-591b7a3c814fb24ef320630d0b6a45a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c62d6f4e119558d5b23387cebfdd730a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-591b7a3c814fb24ef320630d0b6a45a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script><script id="quarto-search-options" type="application/json">{
@@ -406,20 +406,20 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <span><span class="co"># Create the wrapper function</span></span>
 <span><span class="va">package_trackeR</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">packages</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="co"># Create the downloads for the package</span></span>
-<span>  <span class="va">dl</span> <span class="op">&lt;-</span> <span class="fu">dlstats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/dlstats/man/cran_stats.html">cran_stats</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">packages</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="va">dl</span> <span class="op">&lt;-</span> <span class="fu">dlstats</span><span class="fu">::</span><span class="fu">cran_stats</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">packages</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="co"># Create the plot</span></span>
-<span>  <span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
+<span>  <span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span></span>
 <span>    <span class="va">dl</span>,</span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">end</span>, <span class="va">downloads</span>, group <span class="op">=</span> <span class="va">package</span><span class="op">)</span></span>
+<span>    <span class="fu">aes</span><span class="op">(</span><span class="va">end</span>, <span class="va">downloads</span>, group <span class="op">=</span> <span class="va">package</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">package</span><span class="op">)</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>shape <span class="op">=</span> <span class="va">package</span>, color <span class="op">=</span> <span class="va">package</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span>
-<span>  <span class="va">plot</span> <span class="op">&lt;-</span> <span class="va">plot</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Download date"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Number of downloads"</span><span class="op">)</span></span>
+<span>    <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>color <span class="op">=</span> <span class="va">package</span><span class="op">)</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>shape <span class="op">=</span> <span class="va">package</span>, color <span class="op">=</span> <span class="va">package</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="va">plot</span> <span class="op">&lt;-</span> <span class="va">plot</span> <span class="op">+</span> <span class="fu">xlab</span><span class="op">(</span><span class="st">"Download date"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ylab</span><span class="op">(</span><span class="st">"Number of downloads"</span><span class="op">)</span></span>
 <span>  <span class="co"># Create a list for multiple returns</span></span>
 <span>  <span class="va">returns_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
-<span>    <span class="st">"download_df"</span> <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">dl</span><span class="op">)</span>,</span>
+<span>    <span class="st">"download_df"</span> <span class="op">=</span> <span class="fu">as_tibble</span><span class="op">(</span><span class="va">dl</span><span class="op">)</span>,</span>
 <span>    <span class="st">"downloads_to_date"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">dl</span><span class="op">$</span><span class="va">downloads</span><span class="op">)</span>,</span>
 <span>    <span class="st">"downloads_plot"</span> <span class="op">=</span> <span class="va">plot</span></span>
 <span>  <span class="op">)</span></span>

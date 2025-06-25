@@ -75,9 +75,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9c826f1075cf18f60ad14c11d84aad19.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0baad9fa9d8d377f0313a850e8e4bdd5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-9c826f1075cf18f60ad14c11d84aad19.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-591b7a3c814fb24ef320630d0b6a45a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c62d6f4e119558d5b23387cebfdd730a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-591b7a3c814fb24ef320630d0b6a45a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script><script id="quarto-search-options" type="application/json">{
@@ -384,7 +384,7 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <main class="content quarto-banner-title-block" id="quarto-document-content"><!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html --><!--
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
---><!-- <header id="title-block-header" class="quarto-title-block default page-columns"> --><!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> --><p>I’ve used <a href="https://wilkelab.org/ggtext/">ggtext</a>’s <code><a href="https://wilkelab.org/ggtext/reference/geom_textbox.html">geom_textbox()</a></code> a lot in my recent data visualisations, but, every time, I end up resorting to a bit of trial and error to get the alignment just right. Time to create a cheatsheet that will be useful to my future self, and hopefully to a few others also.</p>
+--><!-- <header id="title-block-header" class="quarto-title-block default page-columns"> --><!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> --><p>I’ve used <a href="https://wilkelab.org/ggtext/">ggtext</a>’s <code>geom_textbox()</code> a lot in my recent data visualisations, but, every time, I end up resorting to a bit of trial and error to get the alignment just right. Time to create a cheatsheet that will be useful to my future self, and hopefully to a few others also.</p>
 <section id="first-why-geom_textbox" class="level2"><h2 class="anchored" data-anchor-id="first-why-geom_textbox"><strong>First, why <code>geom_textbox()</code>?</strong></h2>
 <p>I like it for its versatility. It allows for fun things with markdown and a limited number of html tags, which makes it easy to format the text on the fly. I’ll demo a few tricks in the code below but cover them in more detail elsewhere. It also allows for easy placement and manipulation of the box itself, tweaking the radius of the corners, the colour, how thick the border is, and many more things.</p>
 <p>What are the alignment parameters?</p>

@@ -11,7 +11,7 @@
 <description>Blogs are submitted from NHS-R Community members.&lt;br&gt;
 </description>
 <generator>quarto-1.7.32</generator>
-<lastBuildDate>Sun, 30 Mar 2025 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 31 Mar 2025 00:00:00 GMT</lastBuildDate>
 <item>
   <title>The importance of community in NHS data science</title>
   <dc:creator>Claire Welsh</dc:creator>
@@ -51,7 +51,7 @@ The community has supported analytics and data science by providing training, re
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
   <category>NHS-R</category>
   <guid>https://nhsrcommunity.com/blog/Community_in_data_science.html</guid>
-  <pubDate>Sun, 30 Mar 2025 23:00:00 GMT</pubDate>
+  <pubDate>Mon, 31 Mar 2025 00:00:00 GMT</pubDate>
   <media:content url="https://nhsrcommunity.com/blog/img/WOCinTech.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -287,7 +287,7 @@ font-style: inherit;">MODEL</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/pkg/randomForest/man/randomForest.html">randomForest</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">randomForest</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -428,7 +428,7 @@ font-style: inherit;">con</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dbi.r-dbi.org/reference/dbConnect.html">dbConnect</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">dbConnect</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -436,7 +436,7 @@ font-style: inherit;">odbc</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://odbc.r-dbi.org/reference/dbConnect-OdbcDriver-method.html">odbc</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">odbc</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -625,7 +625,7 @@ font-style: inherit;">here</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">here</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -664,7 +664,7 @@ font-style: inherit;">readr</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">read_delim</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -694,7 +694,7 @@ font-style: inherit;">dplyr</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">arrange</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -779,7 +779,7 @@ font-style: inherit;">here</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">here</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -875,7 +875,7 @@ font-style: inherit;"><a href="https://rdrr.io/r/base/warning.html">suppressWarn
 background-color: null;
 font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">read_csv</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="st" style="color: #20794D;
 background-color: null;
@@ -883,18 +883,18 @@ font-style: inherit;">"https://raw.githubusercontent.com/StatsGary/SyntheticNEWS
 background-color: null;
 font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">dplyr</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">select</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">everything</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -910,7 +910,7 @@ font-style: inherit;">)</span></span>
 <span></span>
 <span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">glimpse</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -954,7 +954,7 @@ font-style: inherit;">syn_df</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/pkg/synthpop/man/syn.html">syn</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">syn</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -990,7 +990,7 @@ background-color: null;
 font-style: inherit;">syn</span></span>
 <span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">glimpse</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -1034,7 +1034,7 @@ font-style: inherit;">obs</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">tibble</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span>label <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1057,7 +1057,7 @@ font-style: inherit;">synth</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">tibble</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span>label <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1086,10 +1086,10 @@ font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">obs</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">bind_rows</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -1108,14 +1108,14 @@ font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">merged</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">ggplot</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">aes</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -1132,7 +1132,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">geom_histogram</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span>alpha <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1149,7 +1149,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">theme_minimal</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1158,7 +1158,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">scale_fill_manual</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span>values <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1179,7 +1179,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">labs</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span></span>
 <span>    title <span class="op" style="color: #5E5E5E;
@@ -1208,7 +1208,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">theme</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span>legend.position <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1239,7 +1239,7 @@ font-style: inherit;">)</span></span></code></pre></div>
 </section><a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
   <category>Data</category>
   <guid>https://nhsrcommunity.com/blog/create-synthetic-data.html</guid>
-  <pubDate>Mon, 30 Sep 2024 23:00:00 GMT</pubDate>
+  <pubDate>Tue, 01 Oct 2024 00:00:00 GMT</pubDate>
   <media:content url="https://nhsrcommunity.com/blog/img/natural-bricks.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -1369,7 +1369,7 @@ font-style: inherit;"># format for display</span></span>
 background-color: null;
 font-style: inherit;">cqc_load</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># show the first 10 rows</span></span>
@@ -1383,7 +1383,7 @@ font-style: inherit;">10</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># format as a table</span></span>
@@ -2071,10 +2071,10 @@ font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">cqc_load</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">group_by</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -2084,10 +2084,10 @@ font-style: inherit;">location_latest_overall_rating</span><span class="op" styl
 background-color: null;
 font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">summarise</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span>number <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2097,7 +2097,7 @@ font-style: inherit;">dplyr</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">n</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2105,10 +2105,10 @@ font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2124,19 +2124,19 @@ font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">ungroup</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">mutate</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span>pub_date <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2156,10 +2156,10 @@ font-style: inherit;">)</span></span>
 background-color: null;
 font-style: inherit;">rat_overtime</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">pivot_wider</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span></span>
 <span>    id_cols <span class="op" style="color: #5E5E5E;
@@ -2181,7 +2181,7 @@ font-style: inherit;">number</span></span>
 background-color: null;
 font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op" style="color: #5E5E5E;
@@ -2290,13 +2290,13 @@ font-style: inherit;">)</span></span></code></pre></div>
 <div class="cell">
 <div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">ggplot</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">rat_overtime</span>, <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">aes</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -2315,7 +2315,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">geom_bar</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span>stat <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2332,7 +2332,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">theme_minimal</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2341,7 +2341,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">labs</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span></span>
 <span>    x <span class="op" style="color: #5E5E5E;
@@ -2390,10 +2390,10 @@ font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">cqc_load</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">group_by</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -2405,10 +2405,10 @@ font-style: inherit;">location_latest_overall_rating</span><span class="op" styl
 background-color: null;
 font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">summarise</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span>number <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2418,7 +2418,7 @@ font-style: inherit;">dplyr</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">n</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2426,10 +2426,10 @@ font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2467,19 +2467,19 @@ font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">ungroup</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">mutate</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span>pub_date <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2497,13 +2497,13 @@ font-style: inherit;">)</span></span>
 <span></span>
 <span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">ggplot</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">region_ratings_overtime</span>, <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">aes</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -2522,7 +2522,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">geom_bar</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span>stat <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2539,7 +2539,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">theme_minimal</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2548,7 +2548,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">facet_wrap</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2561,7 +2561,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">labs</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span></span>
 <span>    x <span class="op" style="color: #5E5E5E;
@@ -2611,10 +2611,10 @@ font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">cqc_load</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">mutate</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span>location_hsca_start_date <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2630,10 +2630,10 @@ font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -2697,16 +2697,16 @@ font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">mutate</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span>location_month <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://lubridate.tidyverse.org/reference/round_date.html">floor_date</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">floor_date</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -2720,10 +2720,10 @@ font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">group_by</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -2731,17 +2731,17 @@ font-style: inherit;">location_month</span><span class="op" style="color: #5E5E5
 background-color: null;
 font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">summarise</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span></span>
 <span>    number <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">n</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2767,10 +2767,10 @@ font-style: inherit;">)</span></span>
 background-color: null;
 font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+font-style: inherit;">%&gt;%</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">mutate</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span></span>
 <span>    location_year <span class="op" style="color: #5E5E5E;
@@ -2785,7 +2785,7 @@ font-style: inherit;"><a href="https://rdrr.io/r/base/format.html">format</a></s
 background-color: null;
 font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://lubridate.tidyverse.org/reference/round_date.html">floor_date</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">floor_date</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -2821,13 +2821,13 @@ font-style: inherit;">)</span></span>
 <span></span>
 <span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">ggplot</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">carehome_openings</span>, <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">aes</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span>x <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2854,7 +2854,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">geom_line</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2863,7 +2863,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">theme_minimal</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2879,13 +2879,13 @@ font-style: inherit;">)</span></span></code></pre></div>
 <div class="cell">
 <div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">ggplot</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">carehome_openings</span>, <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">aes</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span>x <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2912,7 +2912,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">geom_line</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2921,7 +2921,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">theme_minimal</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -2939,7 +2939,7 @@ font-style: inherit;">)</span></span></code></pre></div>
 </section><a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
   <category>Data</category>
   <guid>https://nhsrcommunity.com/blog/cqc-data.html</guid>
-  <pubDate>Sat, 28 Sep 2024 23:00:00 GMT</pubDate>
+  <pubDate>Sun, 29 Sep 2024 00:00:00 GMT</pubDate>
   <media:content url="https://nhsrcommunity.com/blog/img/stack-papers.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2986,7 +2986,7 @@ font-style: inherit;">NHSRdatasets</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">::</span><span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;"><a href="https://nhs-r-community.github.io/NHSRdatasets/reference/LOS_model.html">LOS_model</a></span> <span class="op" style="color: #5E5E5E;
+font-style: inherit;">LOS_model</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2994,7 +2994,7 @@ font-style: inherit;">dplyr</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_sample</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">slice_sample</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span>n <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -3043,7 +3043,7 @@ font-style: inherit;">NHSRdatasets</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">::</span><span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;"><a href="https://nhs-r-community.github.io/NHSRdatasets/reference/LOS_model.html">LOS_model</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">LOS_model</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span><span class="va" style="color: #111111;
 background-color: null;
@@ -3106,7 +3106,7 @@ font-style: inherit;">dplyr</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">left_join</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -3114,7 +3114,7 @@ font-style: inherit;">NHSRdatasets</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">::</span><span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;"><a href="https://nhs-r-community.github.io/NHSRdatasets/reference/LOS_model.html">LOS_model</a></span>, <span class="va" style="color: #111111;
+font-style: inherit;">LOS_model</span>, <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">df</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -3123,7 +3123,7 @@ background-color: null;
 font-style: inherit;">|&gt;</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">select</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span><span class="va" style="color: #111111;
 background-color: null;
@@ -3138,7 +3138,7 @@ background-color: null;
 font-style: inherit;">|&gt;</span></span>
 <span>  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_sample</a></span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">slice_sample</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">(</span>n <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -3180,7 +3180,7 @@ font-style: inherit;">)</span></span></code></pre></div>
   <category>NHS-R</category>
   <category>R tips</category>
   <guid>https://nhsrcommunity.com/blog/asking_for_help.html</guid>
-  <pubDate>Tue, 30 Jul 2024 23:00:00 GMT</pubDate>
+  <pubDate>Wed, 31 Jul 2024 00:00:00 GMT</pubDate>
   <media:content url="https://nhsrcommunity.com/blog/img/help-button.png" medium="image" type="image/png" height="121" width="144"/>
 </item>
 <item>
@@ -3252,7 +3252,7 @@ font-style: inherit;">)</span></span></code></pre></div>
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
   <category>Conference</category>
   <guid>https://nhsrcommunity.com/blog/nhs-r-community-conference-2023-my-experience-of-the-event.html</guid>
-  <pubDate>Mon, 03 Jun 2024 23:00:00 GMT</pubDate>
+  <pubDate>Tue, 04 Jun 2024 00:00:00 GMT</pubDate>
   <media:content url="https://nhsrcommunity.com/blog/img/2023-nhsr-conference.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3292,8 +3292,213 @@ font-style: inherit;">)</span></span></code></pre></div>
   <category>RMarkdown</category>
   <category>Quarto</category>
   <guid>https://nhsrcommunity.com/blog/publish-on-github.html</guid>
-  <pubDate>Sun, 02 Jun 2024 23:00:00 GMT</pubDate>
+  <pubDate>Mon, 03 Jun 2024 00:00:00 GMT</pubDate>
   <media:content url="https://nhsrcommunity.com/blog/img/screenshot-github-settings.PNG" medium="image"/>
+</item>
+<item>
+  <title>Showcasing a function - separate()
+</title>
+  <dc:creator>Zoë Turner</dc:creator>
+  <link>https://nhsrcommunity.com/blog/showcasing-functions-separate.html</link>
+  <description><![CDATA[ <!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html --><!--
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+--><!-- <header id="title-block-header" class="quarto-title-block default page-columns"> --><!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> --><section id="create-data" class="level2"><h2 class="anchored" data-anchor-id="create-data">Create data</h2>
+<p>This was written originally in an Excel spreadsheet and used {datapasta} to copy into R as code to build the same data frame. {datapasta} can be access through RStudio as an Addin as well as code. Find out more about {datapasta} from the <a href="https://intro-r-rstudio.nhsrcommunity.com/session-datapasta.html#/title-slide">Introduction to R and R Studio course</a>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">data</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tibble</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tribble</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span></span>
+<span>    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Patient</span>,          <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Codes</span>,</span>
+<span>  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientA"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"A01, A02, A03"</span>,</span>
+<span>  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientB"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B01; B02; B03"</span>,</span>
+<span>  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientC"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"C01; C03"</span>,</span>
+<span>  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientD"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"D01. D02. D03"</span></span>
+<span>  <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+</div>
+</section><section id="separate-codes-by-position" class="level2"><h2 class="anchored" data-anchor-id="separate-codes-by-position">Separate codes by position</h2>
+<p>Separate into columns in the order data appears</p>
+<div class="cell">
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">data</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tidyr</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">separate</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Codes</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col1"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col2"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col3"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+  Patient  col1  col2  col3 
+  &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+1 PatientA A01   A02   A03  
+2 PatientB B01   B02   B03  
+3 PatientC C01   C03   &lt;NA&gt; 
+4 PatientD D01   D02   D03  </code></pre>
+</div>
+</div>
+<p><a href="https://tidyr.tidyverse.org/reference/separate.html">https://tidyr.tidyverse.org/reference/separate.html</a></p>
+</section><section id="add-a-pivot" class="level2"><h2 class="anchored" data-anchor-id="add-a-pivot">Add a pivot</h2>
+<p>To move wide data to longer:</p>
+<div class="cell">
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">data</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tidyr</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">separate</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Codes</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col1"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col2"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col3"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tidyr</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pivot_longer</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>cols <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">starts_with</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>,</span>
+<span>               names_to <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"type"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 3
+   Patient  type  value
+   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;
+ 1 PatientA col1  A01  
+ 2 PatientA col2  A02  
+ 3 PatientA col3  A03  
+ 4 PatientB col1  B01  
+ 5 PatientB col2  B02  
+ 6 PatientB col3  B03  
+ 7 PatientC col1  C01  
+ 8 PatientC col2  C03  
+ 9 PatientC col3  &lt;NA&gt; 
+10 PatientD col1  D01  
+11 PatientD col2  D02  
+12 PatientD col3  D03  </code></pre>
+</div>
+</div>
+
+
+</section><a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
+  <category>R tips</category>
+  <guid>https://nhsrcommunity.com/blog/showcasing-functions-separate.html</guid>
+  <pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://nhsrcommunity.com/blog/img/screenshot-separate-code.png" medium="image" type="image/png" height="91" width="144"/>
 </item>
 <item>
   <title>Recoding an NA and back again</title>
@@ -3536,211 +3741,6 @@ font-style: inherit;">1000</span>))</span></code></pre></div>
   <category>R tips</category>
   <guid>https://nhsrcommunity.com/blog/coding-to-and-from-NA.html</guid>
   <pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Showcasing a function - separate()
-</title>
-  <dc:creator>Zoë Turner</dc:creator>
-  <link>https://nhsrcommunity.com/blog/showcasing-functions-separate.html</link>
-  <description><![CDATA[ <!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html --><!--
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
---><!-- <header id="title-block-header" class="quarto-title-block default page-columns"> --><!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> --><section id="create-data" class="level2"><h2 class="anchored" data-anchor-id="create-data">Create data</h2>
-<p>This was written originally in an Excel spreadsheet and used {datapasta} to copy into R as code to build the same data frame. {datapasta} can be access through RStudio as an Addin as well as code. Find out more about {datapasta} from the <a href="https://intro-r-rstudio.nhsrcommunity.com/session-datapasta.html#/title-slide">Introduction to R and R Studio course</a>.</p>
-<div class="cell">
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">data</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tibble</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span></span>
-<span>    <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">Patient</span>,          <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">Codes</span>,</span>
-<span>  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"PatientA"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"A01, A02, A03"</span>,</span>
-<span>  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"PatientB"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B01; B02; B03"</span>,</span>
-<span>  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"PatientC"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"C01; C03"</span>,</span>
-<span>  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"PatientD"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"D01. D02. D03"</span></span>
-<span>  <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span></code></pre></div>
-</div>
-</section><section id="separate-codes-by-position" class="level2"><h2 class="anchored" data-anchor-id="separate-codes-by-position">Separate codes by position</h2>
-<p>Separate into columns in the order data appears</p>
-<div class="cell">
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span></span>
-<span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">data</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|&gt;</span> </span>
-<span>  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tidyr</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">Codes</span>, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col1"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col2"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col3"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 4
-  Patient  col1  col2  col3 
-  &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
-1 PatientA A01   A02   A03  
-2 PatientB B01   B02   B03  
-3 PatientC C01   C03   &lt;NA&gt; 
-4 PatientD D01   D02   D03  </code></pre>
-</div>
-</div>
-<p><a href="https://tidyr.tidyverse.org/reference/separate.html">https://tidyr.tidyverse.org/reference/separate.html</a></p>
-</section><section id="add-a-pivot" class="level2"><h2 class="anchored" data-anchor-id="add-a-pivot">Add a pivot</h2>
-<p>To move wide data to longer:</p>
-<div class="cell">
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">data</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|&gt;</span> </span>
-<span>  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tidyr</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">Codes</span>, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col1"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col2"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col3"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|&gt;</span> </span>
-<span>  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tidyr</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>cols <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>,</span>
-<span>               names_to <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"type"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 12 × 3
-   Patient  type  value
-   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;
- 1 PatientA col1  A01  
- 2 PatientA col2  A02  
- 3 PatientA col3  A03  
- 4 PatientB col1  B01  
- 5 PatientB col2  B02  
- 6 PatientB col3  B03  
- 7 PatientC col1  C01  
- 8 PatientC col2  C03  
- 9 PatientC col3  &lt;NA&gt; 
-10 PatientD col1  D01  
-11 PatientD col2  D02  
-12 PatientD col3  D03  </code></pre>
-</div>
-</div>
-
-
-</section><a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
-  <category>R tips</category>
-  <guid>https://nhsrcommunity.com/blog/showcasing-functions-separate.html</guid>
-  <pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://nhsrcommunity.com/blog/img/screenshot-separate-code.png" medium="image" type="image/png" height="91" width="144"/>
 </item>
 <item>
   <title>Building a Quarto website for NHS-R Community</title>
@@ -4087,7 +4087,7 @@ Have we done enough?</p>
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
   <category>NHS-R</category>
   <guid>https://nhsrcommunity.com/blog/nhs-r-community-needs-help.html</guid>
-  <pubDate>Thu, 19 Oct 2023 23:00:00 GMT</pubDate>
+  <pubDate>Fri, 20 Oct 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>AphA blog – August 2023</title>
@@ -4133,7 +4133,7 @@ Have we done enough?</p>
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
   <category>NHS-R</category>
   <guid>https://nhsrcommunity.com/blog/apha-blog-august-2023.html</guid>
-  <pubDate>Mon, 04 Sep 2023 23:00:00 GMT</pubDate>
+  <pubDate>Tue, 05 Sep 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>July Blog</title>
@@ -4200,7 +4200,7 @@ Have we done enough?</p>
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
   <category>NHS-R</category>
   <guid>https://nhsrcommunity.com/blog/july-blog.html</guid>
-  <pubDate>Tue, 18 Jul 2023 23:00:00 GMT</pubDate>
+  <pubDate>Wed, 19 Jul 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>AphA June Blog</title>
@@ -4268,12 +4268,12 @@ Have we done enough?</p>
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
   <category>NHS-R</category>
   <guid>https://nhsrcommunity.com/blog/apha-june-blog.html</guid>
-  <pubDate>Mon, 17 Jul 2023 23:00:00 GMT</pubDate>
+  <pubDate>Tue, 18 Jul 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>NHS-R newscast 20th July 2023</title>
+  <title>NHS-R newscast 25th May 2023</title>
   <dc:creator>Zoë Turner</dc:creator>
-  <link>https://nhsrcommunity.com/blog/nhs-r-newscast-20th-july-2023.html</link>
+  <link>https://nhsrcommunity.com/blog/nhs-r-newscast-25th-may-2023.html</link>
   <description><![CDATA[ 
 
 
@@ -4288,26 +4288,17 @@ Have we done enough?</p>
 
 
 <p>We have another newscast from the podcast, if you don’t do the whole podcast thing here are the notes and links from what we talked about.</p>
-<p>The NHS-R 2023 Conference tickets are now available for the in-person and virtual event on 17 and 18 October. We’ll be having a side room unconference and the social event was mentioned – details are all to come!</p>
-<p>Tom Smith gave an update on the HACA 2023 conference as, although he hadn’t made it to the event himself due to work commitments, he had seen some of the posters. One poster stood out to him from someone in his own Trust who he hadn’t realised was working on a similar project and it showed the power of connections that conferences like this can have in connecting people and projects.</p>
-<p>Zoë mentioned (a few times!) about the pull request she’d had accepted from Hadley Wickham for the inclusion of back ticks in the second edition R for Data Science <a href="https://github.com/hadley/r4ds/pull/1522" class="uri">https://github.com/hadley/r4ds/pull/1522</a>. And on the theme of “small changes” to famous repositories she had also had a pull requested accepted to the {NHSRplotthedots} for text change to remove a reference to here and a link <a href="https://github.com/nhs-r-community/NHSRplotthedots/pull/183/files" class="uri">https://github.com/nhs-r-community/NHSRplotthedots/pull/183/files</a>, making the text more readable for screen readers.</p>
-<p>Tom updated on a few recent, bigger, changes to {NHSRplotthedots} in preparation for a new release ahead of this year’s NHS-R Community Conference. This has included some {plotly} code from a colleague who could contribute with their knowledge of {plotly} to help make {NHSRplotthedots} more interactive in its charts.</p>
-<p>Tom put out a plea to everyone to get in touch via&nbsp;<a href="https://nhsrcommunity.slack.com/">NHS-R Slack</a>&nbsp;or&nbsp;<a href="https://nhsrcommunity.com/nhs-r-newscast-20th-july-2023/nhs.rcommunity@nhs.net">email</a>&nbsp;if you use {NHSRplotthedots} and what you have used it for.</p>
+<p>The NHS-R Conference call for abstracts has been extended to 23rd June 2023 <a href="https://www.smartsurvey.co.uk/s/7FLFRY/" class="uri">https://www.smartsurvey.co.uk/s/7FLFRY/</a></p>
+<p>we’ve started an <a href="https://nhs-r-community.github.io/NHSR-way/">NHSR-Way book</a> and also published through <a href="https://nhsr-way.netlify.app/">Netlify</a> because some organisations block GitHub published pages. This book is inspired by <a href="https://www.the-turing-way.netlify.app/">The Turing Way</a> and <a href="https://gds-way.cloudapps.digital/">The GDS Way</a> with more technical elements coming from the <a href="https://nhs-r-community.github.io/statements-on-tools/">Statement on Tools</a> book. For example, on licences we’ve detailed <a href="https://nhs-r-community.github.io/statements-on-tools/open-code-in-the-nhs.html#licenceslicenses">a lot of the options</a> in the Statement on Tools but then said <a href="https://nhs-r-community.github.io/NHSR-way/style-guides.html#licenceslicenses">what NHS-R Community use</a> in the NHS-R Way.</p>
+<p>The <a href="https://github.com/nhs-r-community/book_group">NHSR book club</a> have started reading the <a href="https://r4ds.hadley.nz/">R4DS second edition</a> and created an <a href="https://nhs-r-community.github.io/r4ds-ed2-exercise-solutions/">unofficial solutions book</a>.</p>
+<p>Zoë Turner will be talking next month at the Government Data Science Community Meet-Up: <a href="https://www.eventbrite.co.uk/e/government-data-science-community-meet-up-the-data-science-toolshed-tickets-578774920367">The Data Science Toolshed</a> Tue 13 Jun 2023 1.30 to 3pm. Title to be confirmed but about how people can contribute to NHS-R open repositories or even pass them to NHS-R as has happened with the <a href="https://github.com/nhs-r-community/quarto-nhs-theme">quarto NHS theme</a> from Craig Shenton and <a href="https://github.com/nhs-r-community/NHSRepisodes">{NHSRepisodes}</a> package from Tim Taylor. Sign up to the event is free for Public Sector and Civil Service</p>
+<p>Chris Beeley spoke at the DataConnect23 Government <a href="https://www.eventbrite.co.uk/e/dataconnect23-launch-event-tickets-546319846367">launch event</a> and gave a taster session of text mining of patient experience data. Sign up to DataConnect events can be found at <a href="https://www.gov.uk/government/news/dataconnect23-is-on-its-way" class="uri">https://www.gov.uk/government/news/dataconnect23-is-on-its-way</a></p>
 <section id="finds-from-the-slack-group" class="level2">
 <h2 class="anchored" data-anchor-id="finds-from-the-slack-group"><strong>Finds from the Slack group</strong></h2>
-<p>Chris shared his life hack of ordering GitHub notifications&nbsp;<a href="https://docs.github.com/en/github-ae@latest/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications">by repository</a>&nbsp;instead of the default of by date. It’s possible to subscribe and watch any repository on GitHub and notifications can build up rapidly if you are part of teams repositories like NHS-R Community. Having them grouped by repository can help manage those messages.</p>
-<p>Tom gave his regular shout out to John Mackintosh’s&nbsp;<a href="https://github.com/johnmackintosh/patientcounter">{patientcounter}</a>&nbsp;package. If you work with patient level data this package is likely to help you at some point with your analysis:</p>
-<p><em>How many patients were in the hospital at 10 AM yesterday?<br>
-How many were in during each 15 minute spell between 2pm and 6pm?<br>
-How many were in during the last week, by hour?</em></p>
-<p><em>This package aims to make answering these questions easier and quicker.</em></p>
-<p><em>No SQL? No problem!</em></p>
-<p><em>If you have time in, time out, a unique patient identifier, and optionally, a grouping variable to track moves between departments, this package will tell you how many patients were ‘IN’ at any time, at whatever granularity you need.</em></p>
-<p>Zoë started by mentioning the&nbsp;<a href="https://github.com/wurli/pivotr">{pivotr}</a>&nbsp;package:</p>
-<p><em>A shiny implementation of Excel’s PivotTables. Perform your aggregation/pivoting in the GUI, then copy the dplyr/tidyr code into your R script</em></p>
-<p>but quickly changed to talking about Matt Dray’s&nbsp;<a href="https://github.com/matt-dray/quartostamp">{quartostamp}</a>&nbsp;because she uses it as regularly now as {tidyverse} as she’s creating Quarto slides and books. The package changes the RStudio IDE so that add ins can be selected to put the required text into your code for Quarto so you don’t have to remember the formats.</p>
-<p>Chris talked about a function in {purrr} called&nbsp;<a href="https://purrr.tidyverse.org/reference/pluck.html"><code>pluck()</code></a>&nbsp;which gets and sets elements within nested structures. Allison Horst has also drawn a lovely image to explain&nbsp;<code>pluck()</code>&nbsp;<a href="https://allisonhorst.com/r-packages-functions" class="uri">https://allisonhorst.com/r-packages-functions</a>. Chris also mentioned that page breaks in Quarto can be made really simply:<br>
-<code></code></p>
+<p>Python linter: <a href="https://github.com/charliermarsh/ruff" class="uri">https://github.com/charliermarsh/ruff</a></p>
+<p>Look at this great guidance on pie charts, unfairly maligned <a href="https://analysisfunction.civilservice.gov.uk/support/communicating-analysis/introduction-to-data-visualisation-e-learning/module-9-pie-charts/">Pie charts</a> from the Government Analysis Function.</p>
+<p>A retro graphic to brighten up the Python exception messages – <a href="https://github.com/James-Ansley/cowexcept" class="uri">https://github.com/James-Ansley/cowexcept</a> (can feature a dragon as well as a cow!).</p>
+<p>For an extension of retro visuals then check out Star Wars in the Linux Terminal – <a href="https://www.linuxfordevices.com/tutorials/linux/ascii-star-wars-linux-terminal" class="uri">https://www.linuxfordevices.com/tutorials/linux/ascii-star-wars-linux-terminal</a></p>
 
 
 </section>
@@ -4315,8 +4306,8 @@ How many were in during the last week, by hour?</em></p>
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
   <category>NHS-R</category>
   <category>Podcast</category>
-  <guid>https://nhsrcommunity.com/blog/nhs-r-newscast-20th-july-2023.html</guid>
-  <pubDate>Wed, 14 Jun 2023 23:00:00 GMT</pubDate>
+  <guid>https://nhsrcommunity.com/blog/nhs-r-newscast-25th-may-2023.html</guid>
+  <pubDate>Thu, 15 Jun 2023 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

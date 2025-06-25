@@ -75,9 +75,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9c826f1075cf18f60ad14c11d84aad19.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0baad9fa9d8d377f0313a850e8e4bdd5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-9c826f1075cf18f60ad14c11d84aad19.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-591b7a3c814fb24ef320630d0b6a45a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c62d6f4e119558d5b23387cebfdd730a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-591b7a3c814fb24ef320630d0b6a45a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script><script id="quarto-search-options" type="application/json">{
@@ -407,7 +407,7 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <section id="choosing-the-file-to-import" class="level2"><h2 class="anchored" data-anchor-id="choosing-the-file-to-import">Choosing the file to import</h2>
 <p>The file we have to import is a prepared csv file and instead of hard coding the path to load the file from I simply use:</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/choose.files.html">choose.files</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu">choose.files</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="img/screenshot-choose.files.png" class="img-fluid figure-img"></p>
@@ -443,10 +443,10 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">corpus_tm</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tm.r-forge.r-project.org/">tm</a></span><span class="op">)</span></span>
 <span></span>
-<span>  <span class="va">corpus_tm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tm/man/Corpus.html">Corpus</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/tm/man/VectorSource.html">VectorSource</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="va">corpus_tm</span> <span class="op">&lt;-</span> <span class="fu">Corpus</span><span class="op">(</span><span class="fu">VectorSource</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This function allows you to pass any data frame to the function and creates a corpus for each data frame you pass to the function. The data frame would be passed to the x parameter. The <code><a href="https://rdrr.io/pkg/tm/man/VectorSource.html">VectorSource()</a></code> function creates an element for each part of the corpus.</p>
+<p>This function allows you to pass any data frame to the function and creates a corpus for each data frame you pass to the function. The data frame would be passed to the x parameter. The <code>VectorSource()</code> function creates an element for each part of the corpus.</p>
 </section><section id="create-corpus-for-highlights-and-improvements-data-frame" class="level2"><h2 class="anchored" data-anchor-id="create-corpus-for-highlights-and-improvements-data-frame">Create Corpus for Highlights and Improvements data frame</h2>
 <p>Now the function has been created, I can simply pass the two separate data frames I created before to create two corpuses:</p>
 <div class="cell">
@@ -467,14 +467,14 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <span></span>
 <span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tm.r-forge.r-project.org/">tm</a></span><span class="op">)</span></span>
 <span></span>
-<span>  <span class="va">corpus_to_use</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/tm/man/tm_map.html">tm_map</a></span><span class="op">(</span><span class="va">removePunctuation</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/tm/man/tm_map.html">tm_map</a></span><span class="op">(</span><span class="va">stripWhitespace</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/tm/man/tm_map.html">tm_map</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/tm/man/content_transformer.html">content_transformer</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span><span class="op">(</span><span class="va">x</span>, to <span class="op">=</span> <span class="st">"UTF-8"</span>, sub <span class="op">=</span> <span class="st">"byte"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/tm/man/tm_map.html">tm_map</a></span><span class="op">(</span><span class="va">removeNumbers</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/tm/man/tm_map.html">tm_map</a></span><span class="op">(</span><span class="va">removeWords</span>, <span class="fu"><a href="https://rdrr.io/pkg/tm/man/stopwords.html">stopwords</a></span><span class="op">(</span><span class="st">"en"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/tm/man/tm_map.html">tm_map</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/tm/man/content_transformer.html">content_transformer</a></span><span class="op">(</span><span class="va">tolower</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/tm/man/tm_map.html">tm_map</a></span><span class="op">(</span><span class="va">removeWords</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"etc"</span>, <span class="st">"i.e."</span>, <span class="st">"e.g."</span>, <span class="fu"><a href="https://rdrr.io/pkg/tm/man/stopwords.html">stopwords</a></span><span class="op">(</span><span class="st">"english"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="va">corpus_to_use</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">tm_map</span><span class="op">(</span><span class="va">removePunctuation</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">tm_map</span><span class="op">(</span><span class="va">stripWhitespace</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">tm_map</span><span class="op">(</span><span class="fu">content_transformer</span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span><span class="op">(</span><span class="va">x</span>, to <span class="op">=</span> <span class="st">"UTF-8"</span>, sub <span class="op">=</span> <span class="st">"byte"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">tm_map</span><span class="op">(</span><span class="va">removeNumbers</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">tm_map</span><span class="op">(</span><span class="va">removeWords</span>, <span class="fu">stopwords</span><span class="op">(</span><span class="st">"en"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">tm_map</span><span class="op">(</span><span class="fu">content_transformer</span><span class="op">(</span><span class="va">tolower</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">tm_map</span><span class="op">(</span><span class="va">removeWords</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"etc"</span>, <span class="st">"i.e."</span>, <span class="st">"e.g."</span>, <span class="fu">stopwords</span><span class="op">(</span><span class="st">"english"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The parameter here takes the corpus object previously created and uses the corpus passed to:</p>
@@ -505,21 +505,21 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span> <span class="va">find_freq_terms_fun</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">corpus_in</span><span class="op">)</span><span class="op">{</span></span>
 <span></span>
-<span>  <span class="va">doc_term_mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tm/man/matrix.html">TermDocumentMatrix</a></span><span class="op">(</span><span class="va">corpus_in</span><span class="op">)</span></span>
+<span>  <span class="va">doc_term_mat</span> <span class="op">&lt;-</span> <span class="fu">TermDocumentMatrix</span><span class="op">(</span><span class="va">corpus_in</span><span class="op">)</span></span>
 <span></span>
-<span>  <span class="va">freq_terms</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tm/man/findFreqTerms.html">findFreqTerms</a></span><span class="op">(</span><span class="va">doc_term_mat</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">doc_term_mat</span><span class="op">$</span><span class="va">nrow</span><span class="op">)</span><span class="op">]</span></span>
+<span>  <span class="va">freq_terms</span> <span class="op">&lt;-</span> <span class="fu">findFreqTerms</span><span class="op">(</span><span class="va">doc_term_mat</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">doc_term_mat</span><span class="op">$</span><span class="va">nrow</span><span class="op">)</span><span class="op">]</span></span>
 <span></span>
 <span>  <span class="va">terms_grouped</span> <span class="op">&lt;-</span></span>
 <span></span>
-<span>    <span class="va">doc_term_mat</span><span class="op">[</span><span class="va">freq_terms</span>,<span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="va">doc_term_mat</span><span class="op">[</span><span class="va">freq_terms</span>,<span class="op">]</span> <span class="op">%&gt;%</span></span>
 <span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Term<span class="op">=</span><span class="va">freq_terms</span>, Frequency <span class="op">=</span> <span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Term<span class="op">=</span><span class="va">freq_terms</span>, Frequency <span class="op">=</span> <span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span></span>
-<span>    <span class="fu">arrange</span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">Frequency</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu">arrange</span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">Frequency</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span></span>
 <span>    <span class="fu">mutate</span><span class="op">(</span>prop_term_to_total_terms<span class="op">=</span><span class="va">Frequency</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>

@@ -75,9 +75,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9c826f1075cf18f60ad14c11d84aad19.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0baad9fa9d8d377f0313a850e8e4bdd5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-9c826f1075cf18f60ad14c11d84aad19.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-591b7a3c814fb24ef320630d0b6a45a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c62d6f4e119558d5b23387cebfdd730a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-591b7a3c814fb24ef320630d0b6a45a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script><script id="quarto-search-options" type="application/json">{
@@ -397,8 +397,8 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">Validity</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span><span class="va">Validity</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span></span>
 <span>    length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">NHSNumber</span><span class="op">)</span>,</span>
 <span>    A <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substring</a></span><span class="op">(</span><span class="va">NHSNumber</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">*</span> <span class="fl">10</span>,</span>
 <span>    B <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substring</a></span><span class="op">(</span><span class="va">NHSNumber</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">*</span> <span class="fl">9</span>,</span>
@@ -413,25 +413,25 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <span>    Total <span class="op">=</span> <span class="va">A</span> <span class="op">+</span> <span class="va">B</span> <span class="op">+</span> <span class="va">C</span> <span class="op">+</span> <span class="va">D</span> <span class="op">+</span> <span class="va">E</span> <span class="op">+</span> <span class="va">G</span> <span class="op">+</span> <span class="va">H</span> <span class="op">+</span> <span class="va">I</span> <span class="op">+</span> <span class="va">J</span>,</span>
 <span>    Remainder <span class="op">=</span> <span class="va">Total</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">11</span>,</span>
 <span>    Digit <span class="op">=</span> <span class="fl">11</span> <span class="op">-</span> <span class="va">Remainder</span>,</span>
-<span>    Summary <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>    Summary <span class="op">=</span> <span class="fu">case_when</span><span class="op">(</span></span>
 <span>      <span class="va">Digit</span> <span class="op">==</span> <span class="fl">10</span> <span class="op">~</span> <span class="fl">999</span>,</span>
 <span>      <span class="va">Digit</span> <span class="op">==</span> <span class="fl">11</span> <span class="op">~</span> <span class="fl">0</span>,</span>
 <span>      <span class="cn">TRUE</span> <span class="op">~</span> <span class="va">Digit</span></span>
 <span>    <span class="op">)</span>,</span>
-<span>    Valid <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>    Valid <span class="op">=</span> <span class="fu">case_when</span><span class="op">(</span></span>
 <span>      <span class="va">Summary</span> <span class="op">==</span> <span class="va">End</span> <span class="op">&amp;</span> <span class="va">length</span> <span class="op">==</span> <span class="fl">10</span> <span class="op">~</span> <span class="cn">TRUE</span>,</span>
 <span>      <span class="cn">TRUE</span> <span class="op">~</span> <span class="cn">FALSE</span></span>
 <span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Valid</span> <span class="op">==</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Valid</span> <span class="op">==</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="importing-data" class="level1"><h1>Importing data</h1>
 <p>Data is imported into R via Excel or, in my case, I used a SQL connection which worked better as a couple of our systems hold many hundreds of thousands of NHS Numbers and I wanted to check them all. Excel might have got a bit of indigestion from that. Also, it meant I wasn’t storing NHS Numbers anywhere to then run through R. My systems are secure but it’s always worrying having such large amounts of sensitive data in one place and outside of an even securer system like a clinical database.</p>
 <p>Data doesn’t always import into R the same way and for mine I needed to remove NULLs and make the NHSNumber column, which was a factor, into a character and then numeric format:</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">NHSNumber</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>NHSNumber <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">NHSNumber</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">NHSNumber</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>NHSNumber <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">NHSNumber</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="factors" class="level1"><h1>Factors</h1>
 <p>Factors are a new thing for me as but, as I understand it, they put data into groups but in the background. For example, if you had male, female and other these would be 3 factors and if you join that to another data set which doesn’t happen to have “other” as a category the factor would still linger around in the data, appearing in a count as 0 as the table still has the factor information but no data in that group.</p>
@@ -469,7 +469,7 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <pre><code>     Summary = case_when(Digit == 10 ~ 999,
                          Digit == 11 ~ 0,
                          TRUE ~ Digit),</code></pre>
-<p>Lots of people use <code>if(else())</code> in R but I like <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> because it’s like SQL. The lines run in logical order:</p>
+<p>Lots of people use <code>if(else())</code> in R but I like <code>case_when()</code> because it’s like SQL. The lines run in logical order:</p>
 <ul>
 <li>when the digit = 10 then it’s invalid so I put in 999 as that’s so high (in the hundreds) it shouldn’t match the Digit/Checksum (which is a unit),</li>
 <li>if it’s 11 then change that to 0 following the methodology,</li>
@@ -479,7 +479,7 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <pre><code>     Valid = case_when(Summary == End &amp; length == 10 ~ TRUE,
                        TRUE ~ FALSE
                        )) %&gt;% </code></pre>
-<p><code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> again but this time to get the TRUE/FALSE validity. If the number generated is the same as the last digit of the NHS Number AND the length of the NHS Number is 10 then TRUE, else FALSE.</p>
+<p><code>case_when()</code> again but this time to get the TRUE/FALSE validity. If the number generated is the same as the last digit of the NHS Number AND the length of the NHS Number is 10 then TRUE, else FALSE.</p>
 <p>I liked this like of code as it was a bit strange saying TRUE then FALSE but it’s logical!</p>
 <pre><code>  filter(Valid == FALSE)</code></pre>
 <p>Just bring back what isn’t valid.</p>

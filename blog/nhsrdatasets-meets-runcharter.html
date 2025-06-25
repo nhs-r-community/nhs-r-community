@@ -75,9 +75,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9c826f1075cf18f60ad14c11d84aad19.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0baad9fa9d8d377f0313a850e8e4bdd5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-9c826f1075cf18f60ad14c11d84aad19.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-591b7a3c814fb24ef320630d0b6a45a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c62d6f4e119558d5b23387cebfdd730a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-591b7a3c814fb24ef320630d0b6a45a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script><script id="quarto-search-options" type="application/json">{
@@ -422,7 +422,7 @@ Installing from GitHub
 <p>That felt a bit glitchy. There has to be a sleeker way to load and assign a built in dataset but I couldn’t find one. Cursory google to <a href="https://stackoverflow.com/questions/30951204/load-dataset-from-r-package-using-data-assign-it-directly-to-a-variable">Stackoverflow</a>.</p>
 <p>Let’s have a look at the data:</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">ae</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">glimpse</span><span class="op">(</span><span class="va">ae</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 12,765
 Columns: 6
@@ -437,12 +437,12 @@ $ admissions  &lt;dbl&gt; 5060, 0, 0, 6943, 0, 0, 0, 0, 3597, 0, 2202, 0, 0, 0, 
 <p>Lot’s of factors. I’m actually very grateful for this package, as it caused me major issues when I first tried to plot this data using an earlier version of {runcharter.} I hadn’t considered factors as a possible grouping variable, which was a pretty big miss, as all the facets were out of order. All sorted now.</p>
 <p>There’s way too much data for my tiny laptop screen, so I will filter the data for type 1 departments – the package help gives us a great link to explain what this means</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">type1</span> <span class="op">&lt;-</span> <span class="va">ae</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">type</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">period</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">type1</span> <span class="op">&lt;-</span> <span class="va">ae</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">type</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">arrange</span><span class="op">(</span><span class="va">period</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># plot attendances</span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/runcharter/man/runcharter.html">runcharter</a></span><span class="op">(</span><span class="va">type1</span>,</span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">runcharter</span><span class="op">(</span><span class="va">type1</span>,</span>
 <span>  med_rows <span class="op">=</span> <span class="fl">13</span>, <span class="co"># median of first 13 points</span></span>
 <span>  runlength <span class="op">=</span> <span class="fl">9</span>, <span class="co"># find a run of 9 consecutive points</span></span>
 <span>  direction <span class="op">=</span> <span class="st">"above"</span>, <span class="co"># find run above the original median</span></span>
@@ -473,7 +473,7 @@ $ admissions  &lt;dbl&gt; 5060, 0, 0, 6943, 0, 0, 0, 0, 3597, 0, 2202, 0, 0, 0, 
 </div>
 <p>Let’s use {skimr} to get a sense of this</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">skimr</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim</a></span><span class="op">(</span><span class="va">p</span><span class="op">$</span><span class="va">sustained</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">skimr</span><span class="fu">::</span><span class="fu">skim</span><span class="op">(</span><span class="va">p</span><span class="op">$</span><span class="va">sustained</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Data summary</caption>
@@ -684,21 +684,21 @@ $ admissions  &lt;dbl&gt; 5060, 0, 0, 6943, 0, 0, 0, 0, 3597, 0, 2202, 0, 0, 0, 
 </div>
 <p>To keep this manageable, I’m going to filter out for areas that have median admissions &gt; 10000 (based on the first 13 data points)</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">high_admits</span> <span class="op">&lt;-</span> <span class="va">p</span><span class="op">$</span><span class="va">sustained</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">median</span> <span class="op">&gt;</span> <span class="fl">10000</span> <span class="op">&amp;</span> <span class="va">run_type</span> <span class="op">==</span> <span class="st">"sustained"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">org_code</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">high_admits</span> <span class="op">&lt;-</span> <span class="va">p</span><span class="op">$</span><span class="va">sustained</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">median</span> <span class="op">&gt;</span> <span class="fl">10000</span> <span class="op">&amp;</span> <span class="va">run_type</span> <span class="op">==</span> <span class="st">"sustained"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">org_code</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then I change the <code>org_code</code> from factor to character, and pull out unique values. I’m sure there is a slicker way of doing this, but it’s getting late, and I don’t get paid for this..</p>
 <p>I use the result to create a smaller data frame</p>
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">high_admits</span><span class="op">$</span><span class="va">org_code</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">high_admits</span><span class="op">$</span><span class="va">org_code</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">type1_high</span> <span class="op">&lt;-</span> <span class="va">type1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">org_code</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">high_admits</span><span class="op">$</span><span class="va">org_code</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">type1_high</span> <span class="op">&lt;-</span> <span class="va">type1</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">org_code</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">high_admits</span><span class="op">$</span><span class="va">org_code</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And now I can produce a plot that fits on screen. I’ve made the individual scales free along the y axis, and added titles and so on</p>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/runcharter/man/runcharter.html">runcharter</a></span><span class="op">(</span><span class="va">type1_high</span>,</span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">runcharter</span><span class="op">(</span><span class="va">type1_high</span>,</span>
 <span>  med_rows <span class="op">=</span> <span class="fl">13</span>, <span class="co"># median of first 13 points as before</span></span>
 <span>  runlength <span class="op">=</span> <span class="fl">9</span>, <span class="co"># find a run of 9 consecutive points</span></span>
 <span>  direction <span class="op">=</span> <span class="st">"above"</span>,</span>
