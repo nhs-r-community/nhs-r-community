@@ -13,9 +13,7 @@ title-block-banner: true
 
 📆 2nd,3rd Training: Intermediate R
   + 09:00 - 13:00 (GMT)
-  + 🔗 Registration Links:
-  Day 1: https://events.teams.microsoft.com/event/e294e006-bc5e-48ab-b0b1-46e4c1a2cd15@f47807cf-afbc-4184-a579-8678bea3019a
-  Day 2: https://events.teams.microsoft.com/event/9d8566b2-035c-46ad-91a3-5d782dac1a1b@f47807cf-afbc-4184-a579-8678bea3019a
+  + 🔗 [Registration Link](https://events.teams.microsoft.com/event/e294e006-bc5e-48ab-b0b1-46e4c1a2cd15@f47807cf-afbc-4184-a579-8678bea3019a)
 
 📆 11th **Coffee and Coding**:
   + 14:00 - 15:00 (GMT)
@@ -55,4 +53,4 @@ title-block-banner: true
 
 📆 11th **Webinar: "Complexity Made Approachable: Rethinking R-Based Modelling for Healthcare with AM-Smart Tools with Brian Castellani, Corey Schimpf and Chris Caden"**
   + 13:00 - 14:00 (GMT)
-    + 🔗 [Meeting Link](https://events.teams.microsoft.com/event/0be32c13-7c12-4529-9357-98c20cb3663f@37c354b2-85b0-47f5-b222-07b48d774ee
+    + 🔗 [Meeting Link](https://events.teams.microsoft.com/event/0be32c13-7c12-4529-9357-98c20cb3663f@37c354b2-85b0-47f5-b222-07b48d774ee)
