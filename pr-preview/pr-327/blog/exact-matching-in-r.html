@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Dan Lewer">
+<meta name="dcterms.date" content="2019-07-30">
+<title>Exact Matching in R – NHS-R Community Quarto website</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//img/nhsr-logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e33519c064eec2719b5a2f1f958bfacc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-617fa1a293f2d4bba6be0969c851d4df.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-e33519c064eec2719b5a2f1f958bfacc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1T1K3D1BKL"></script><script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
+</script><link rel="stylesheet" href="../assets/nhsr.css">
+</head>
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="https://nhsrcommunity.com/" class="navbar-brand navbar-brand-logo">
+    <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo"></a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../contact.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../events.html"> 
+<span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../conference24.html"> 
+<span class="menu-text">conference</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../books/index.html"> 
+<span class="menu-text">Books</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blog/index.html"> 
+<span class="menu-text">Blogs</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../packages.html"> 
+<span class="menu-text">R Packages</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../getting-started.html"> 
+<span class="menu-text">Getting Started</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../get-involved.html"> 
+<span class="menu-text">Get Involved</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../fellowship.html"> 
+<span class="menu-text">Fellowships</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+</div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/nhs-r-community" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns"><div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
+<h1 class="title">Exact Matching in R</h1>
+<p class="subtitle lead"></p>
+<p>“A case study of the health and care costs associated with living alone, using linked data from the London Borough of Barking &amp; Dagenham”</p>
+    <div class="quarto-categories">
+        <div class="quarto-category">R tips</div>
+        <div class="quarto-category">Statistics</div>
+        <div class="quarto-category">data.table</div>
+        <div class="quarto-category">Data</div>
+      </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dan Lewer </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 30, 2019</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">July 10, 2024</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+
+</header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content"><!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html --><!--
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+--><!-- <header id="title-block-header" class="quarto-title-block default page-columns"> --><!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> --><p>I’ve been working with a group of analysts in East London who are interested in joined-up health and social care data. They’ve created a powerful, unique dataset that shows how each resident of the <a href="https://www.health.org.uk/improvement-projects/building-analyst-capabilities-to-demonstrate-the-value-of-connected-health-and">London Borough of Barking &amp; Dagenham interacts with NHS and council services</a>. The possibilities are enormous, both in terms of understanding the way that people use services across a whole system, and for more general public health research.</p>
+<p>You can download a sample of the data <a href="https://nhsrcommunity.com/wp-content/uploads/2019/07/sample_lbbd_dataset.csv" class="uri">https://nhsrcommunity.com/wp-content/uploads/2019/07/sample_lbbd_dataset.csv</a></p>
+<p>Today we’re interested in whether social isolation is related to healthcare costs, and we’re going to use <strong>exact matching</strong> to explore this issue. Our theory is that people who live alone have higher healthcare costs because they have less support from family members.</p>
+<p>Here’s an extract from the data. ‘Total cost’ means the cost of health and social care in one year. The actual dataset has many more variables!</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="ktwcqkhjih" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ktwcqkhjih table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ktwcqkhjih thead, #ktwcqkhjih tbody, #ktwcqkhjih tfoot, #ktwcqkhjih tr, #ktwcqkhjih td, #ktwcqkhjih th {
+  border-style: none;
+}
+
+#ktwcqkhjih p {
+  margin: 0;
+  padding: 0;
+}
+
+#ktwcqkhjih .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ktwcqkhjih .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ktwcqkhjih .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ktwcqkhjih .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ktwcqkhjih .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ktwcqkhjih .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ktwcqkhjih .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ktwcqkhjih .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ktwcqkhjih .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ktwcqkhjih .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ktwcqkhjih .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ktwcqkhjih .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ktwcqkhjih .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ktwcqkhjih .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ktwcqkhjih .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ktwcqkhjih .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ktwcqkhjih .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ktwcqkhjih .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ktwcqkhjih .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ktwcqkhjih .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ktwcqkhjih .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ktwcqkhjih .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ktwcqkhjih .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ktwcqkhjih .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ktwcqkhjih .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ktwcqkhjih .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ktwcqkhjih .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ktwcqkhjih .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ktwcqkhjih .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ktwcqkhjih .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ktwcqkhjih .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ktwcqkhjih .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ktwcqkhjih .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ktwcqkhjih .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ktwcqkhjih .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ktwcqkhjih .gt_left {
+  text-align: left;
+}
+
+#ktwcqkhjih .gt_center {
+  text-align: center;
+}
+
+#ktwcqkhjih .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ktwcqkhjih .gt_font_normal {
+  font-weight: normal;
+}
+
+#ktwcqkhjih .gt_font_bold {
+  font-weight: bold;
+}
+
+#ktwcqkhjih .gt_font_italic {
+  font-style: italic;
+}
+
+#ktwcqkhjih .gt_super {
+  font-size: 65%;
+}
+
+#ktwcqkhjih .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ktwcqkhjih .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ktwcqkhjih .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ktwcqkhjih .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ktwcqkhjih .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ktwcqkhjih .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ktwcqkhjih .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#ktwcqkhjih .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ktwcqkhjih div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead><tr class="gt_col_headings header">
+<th id="ID" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ID</th>
+<th id="Age.group" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Age.group</th>
+<th id="Sex" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Sex</th>
+<th id="Number.of.long-term.conditions" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Number.of.long-term.conditions</th>
+<th id="Lives.alone" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Lives.alone</th>
+<th id="Total.cost" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Total.cost</th>
+</tr></thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="ID">1</td>
+<td class="gt_row gt_right" headers="Age.group">50-64</td>
+<td class="gt_row gt_left" headers="Sex">Male</td>
+<td class="gt_row gt_right" headers="Number.of.long-term.conditions">0</td>
+<td class="gt_row gt_left" headers="Lives.alone">No</td>
+<td class="gt_row gt_left" headers="Total.cost">£93</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="ID">2</td>
+<td class="gt_row gt_right" headers="Age.group">65-74</td>
+<td class="gt_row gt_left" headers="Sex">Female</td>
+<td class="gt_row gt_right" headers="Number.of.long-term.conditions">1</td>
+<td class="gt_row gt_left" headers="Lives.alone">Yes</td>
+<td class="gt_row gt_left" headers="Total.cost">£0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="ID">3</td>
+<td class="gt_row gt_right" headers="Age.group">50-64</td>
+<td class="gt_row gt_left" headers="Sex">Male</td>
+<td class="gt_row gt_right" headers="Number.of.long-term.conditions">4</td>
+<td class="gt_row gt_left" headers="Lives.alone">No</td>
+<td class="gt_row gt_left" headers="Total.cost">£1065</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="ID">4</td>
+<td class="gt_row gt_right" headers="Age.group">85+</td>
+<td class="gt_row gt_left" headers="Sex">Female</td>
+<td class="gt_row gt_right" headers="Number.of.long-term.conditions">5</td>
+<td class="gt_row gt_left" headers="Lives.alone">Yes</td>
+<td class="gt_row gt_left" headers="Total.cost">£7210</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>For the purposes of this blog, we’ll use a sample of 5000 (out of 114,000) individuals, with some changes to the values to ensure anonymity.</p>
+<section id="descriptive-stats" class="level1 page-columns page-full"><h1>Descriptive stats</h1>
+<p>The first thing we’ll look at is whether people who live alone are different. I find descriptive tables fiddly so often use a function that can be re-used across a number of variables:</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>{data.table} imports the 5000 rows very quickly but note that the object created, <code>d</code>, is a <code>data.table</code> and will act differently to a <code>data.frame</code> or <code>tibble</code>.</p>
+</div></div><div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># change your working directory to the place you've saved it and build the path to it using the {here} package which locates the RProj file of a project rather than requiring `setwd()` which can often be difficult to use with network drives when the start `\\`</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span> <span class="co"># useful for efficient reading and summarising of data</span></span>
+<span></span>
+<span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu">fread</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu">here</span><span class="op">(</span><span class="op">)</span>, <span class="st">"/blog/data/sample_lbbd_dataset.csv"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># describe age, sex and number of long-term conditions</span></span>
+<span><span class="va">describe.by.isolation</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">variable</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">d</span><span class="op">[</span>, <span class="va">variable</span>, with <span class="op">=</span> <span class="cn">F</span><span class="op">]</span><span class="op">)</span>, <span class="va">d</span><span class="op">$</span><span class="va">livesalone</span><span class="op">)</span></span>
+<span>  <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/proportions.html">prop.table</a></span><span class="op">(</span><span class="va">a</span>, <span class="fl">2</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span>, <span class="fl">0</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">a</span>, <span class="st">" ("</span>, <span class="va">p</span>, <span class="st">")"</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span>, dimnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Live with others"</span>, <span class="st">"Lives alone"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"age_grp"</span>, <span class="st">"sex"</span>, <span class="st">"LTC_grp"</span><span class="op">)</span>, <span class="va">describe.by.isolation</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+      Live with others Lives alone
+50-64 "2514 (65)"      "425 (37)" 
+65-74 "825 (21)"       "277 (24)" 
+75-84 "370 (10)"       "255 (22)" 
+85+   "150 (4)"        "184 (16)" 
+
+[[2]]
+       Live with others Lives alone
+Female "1946 (50)"      "663 (58)" 
+Male   "1913 (50)"      "478 (42)" 
+
+[[3]]
+   Live with others Lives alone
+0  "1368 (35)"      "305 (27)" 
+1  "1159 (30)"      "329 (29)" 
+2  "727 (19)"       "228 (20)" 
+3+ "605 (16)"       "279 (24)" </code></pre>
+</div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># describe healthcare costs</span></span>
+<span><span class="va">d</span><span class="op">[</span>, <span class="fu">.</span><span class="op">(</span>mean_cost <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span>, sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span>, med_cost <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span>, iqr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/IQR.html">IQR</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span><span class="op">)</span>, <span class="va">livesalone</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   livesalone mean_cost        sd med_cost      iqr
+       &lt;lgcl&gt;     &lt;num&gt;     &lt;num&gt;    &lt;num&gt;    &lt;num&gt;
+1:      FALSE  2367.962  7951.524  469.500 1272.878
+2:       TRUE  4715.150 11527.056  780.989 2899.131</code></pre>
+</div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">d</span><span class="op">$</span><span class="va">cost</span><span class="op">[</span><span class="va">d</span><span class="op">$</span><span class="va">livesalone</span><span class="op">]</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"Lives alone"</span>, xlab <span class="op">=</span> <span class="st">"Log cost + 1"</span>, col <span class="op">=</span> <span class="st">"red"</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">14</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">d</span><span class="op">$</span><span class="va">cost</span><span class="op">[</span><span class="op">!</span><span class="va">d</span><span class="op">$</span><span class="va">livesalone</span><span class="op">]</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"Does not live alone"</span>, xlab <span class="op">=</span> <span class="st">"Log cost + 1"</span>, col <span class="op">=</span> <span class="st">"green"</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">14</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="exact-matching-in-r_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>People who live alone are older, more likely to be female and have more long-term health problems. Their mean healthcare costs are £2,347 higher. The difference in healthcare costs is visible on the histograms, which we have displayed on a log scale because some values are extremely high. There’s some ‘zero inflation’ in both groups – people with no healthcare costs who do not fit into the otherwise lognormal-ish distribution. So far not too surprising – but are the increased healthcare costs explained by the differences in age, sex and health?</p>
+</section><section id="regression" class="level1"><h1>Regression</h1>
+<p>One approach would be to use regression. We could fit a linear model – this is actually not a great fit for patients with higher healthcare costs, but we won’t go into that here.</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">linear_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">cost</span> <span class="op">~</span> <span class="va">livesalone</span> <span class="op">+</span> <span class="va">age_grp</span> <span class="op">+</span> <span class="va">sex</span> <span class="op">+</span> <span class="va">LTC_grp</span>, <span class="va">d</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">linear_model</span><span class="op">)</span> <span class="co"># diagnostics show that a linear model is not a great fit. You might have to press return to see all the plots before you can continue.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="exact-matching-in-r_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="exact-matching-in-r_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="exact-matching-in-r_files/figure-html/unnamed-chunk-3-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="exact-matching-in-r_files/figure-html/unnamed-chunk-3-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">linear_model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = cost ~ livesalone + age_grp + sex + LTC_grp, data = d)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-12101  -2540   -847    -97 167419 
+
+Coefficients:
+               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       621.0      257.2   2.415  0.01579 *  
+livesaloneTRUE    891.7      300.8   2.965  0.00305 ** 
+age_grp65-74      287.6      307.5   0.935  0.34962    
+age_grp75-84     1928.9      395.0   4.884 1.07e-06 ***
+age_grp85+       5809.5      518.4  11.208  &lt; 2e-16 ***
+sexMale          -424.8      242.5  -1.752  0.07985 .  
+LTC_grp1          733.6      305.2   2.403  0.01629 *  
+LTC_grp2         2572.9      350.6   7.339 2.51e-13 ***
+LTC_grp3+        4977.0      372.0  13.381  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 8522 on 4991 degrees of freedom
+Multiple R-squared:  0.09449,   Adjusted R-squared:  0.09304 
+F-statistic:  65.1 on 8 and 4991 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>The results suggest that health and care costs for people who live alone are £892 more than those who do not live alone, on average. Clearly the variables we added to the model are important confounders, as this is much lower than the ‘crude’ difference of £2,347. Two limitations of this approach are that we will have to think quite carefully about the fit of the model to the data, and that we can’t describe how living alone affects the distribution of costs.</p>
+</section><section id="exact-matching" class="level1"><h1>Exact matching</h1>
+<p>We therefore used exact matching, in which each individual who lives alone is matched to an individual who does not live alone, based on specified variables such as age group and sex. We developed a function that does this by stratifying the data and then matching ‘cases’ and ‘controls’ randomly. Unmatched individuals are deleted from the dataset, leaving a dataset that is balanced in terms of the variables you specify. Let me know here if there’s any other functionality you want and we can try and incorporate it.</p>
+<p>Let’s try matching on age group, sex and the grouped number of long-term conditions:</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#' @param data dataset containing:</span></span>
+<span><span class="co">#' @param treat treatment/exposure variable 'mvar' (a string specifying variable name).</span></span>
+<span><span class="co">#' @param mvar matching variable 'mvar' (a string specifying variable name). If you want to match on multiple variables, concatenate them first.</span></span>
+<span><span class="co">#' @param ratio controls (an integer &gt; 0)</span></span>
+<span><span class="co">#' @param seed for fixing random selection of cases/controls (an integer; default NULL means no seed). Choice of seed is arbitrary.</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @return data.table of matched observations, with additional variable 'id' for use in paired/grouped analyses</span></span>
+<span></span>
+<span><span class="va">smatch</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">treat</span>, <span class="va">mvar</span>, <span class="va">ratio</span> <span class="op">=</span> <span class="fl">1</span>, <span class="va">seed</span> <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu">setnames</span><span class="op">(</span><span class="va">data</span>, <span class="va">mvar</span>, <span class="st">".mvar"</span><span class="op">)</span></span>
+<span>  <span class="va">targ</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span>, <span class="fu">.</span><span class="op">(</span>case <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span><span class="op">(</span><span class="va">treat</span><span class="op">)</span><span class="op">)</span>, control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span><span class="op">(</span><span class="va">treat</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, <span class="va">.mvar</span><span class="op">]</span></span>
+<span>  <span class="va">targ</span><span class="op">[</span>, <span class="va">cst</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">pmin</a></span><span class="op">(</span><span class="va">control</span> <span class="op">/</span> <span class="va">ratio</span>, <span class="va">case</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></span>
+<span>  <span class="va">targ</span><span class="op">[</span>, <span class="va">cnt</span> <span class="op">:=</span> <span class="va">cst</span> <span class="op">*</span> <span class="va">ratio</span><span class="op">]</span></span>
+<span>  <span class="va">targ</span> <span class="op">&lt;-</span> <span class="va">targ</span><span class="op">[</span><span class="va">cst</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">]</span></span>
+<span>  <span class="va">l2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">targ</span><span class="op">$</span><span class="va">cst</span><span class="op">)</span></span>
+<span>  <span class="va">ids</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mapply.html">mapply</a></span><span class="op">(</span><span class="st">":"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="va">l2</span><span class="op">[</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">targ</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>, <span class="va">l2</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">ids</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">targ</span><span class="op">$</span><span class="va">.mvar</span></span>
+<span>  <span class="va">case</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
+<span>  <span class="va">control</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
+<span>  </span>
+<span>  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">withr</span><span class="fu">::</span><span class="fu"><a href="https://withr.r-lib.org/reference/with_seed.html">with_preserve_seed</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="va">seed</span><span class="op">)</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="va">targ</span><span class="op">$</span><span class="va">.mvar</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">case</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span><span class="op">(</span><span class="va">treat</span><span class="op">)</span> <span class="op">==</span> <span class="cn">T</span> <span class="op">&amp;</span> <span class="va">.mvar</span> <span class="op">==</span> <span class="va">i</span><span class="op">]</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">.N</span>, <span class="va">targ</span><span class="op">$</span><span class="va">cst</span><span class="op">[</span><span class="va">targ</span><span class="op">$</span><span class="va">.mvar</span> <span class="op">==</span> <span class="va">i</span><span class="op">]</span><span class="op">)</span><span class="op">]</span></span>
+<span>    <span class="va">case</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">[</span>, <span class="va">id</span> <span class="op">:=</span> <span class="va">ids</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">]</span></span>
+<span>    <span class="va">control</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span><span class="op">(</span><span class="va">treat</span><span class="op">)</span> <span class="op">==</span> <span class="cn">F</span> <span class="op">&amp;</span> <span class="va">.mvar</span> <span class="op">==</span> <span class="va">i</span><span class="op">]</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">.N</span>, <span class="va">targ</span><span class="op">$</span><span class="va">cnt</span><span class="op">[</span><span class="va">targ</span><span class="op">$</span><span class="va">.mvar</span> <span class="op">==</span> <span class="va">i</span><span class="op">]</span><span class="op">)</span><span class="op">]</span></span>
+<span>    <span class="va">control</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">[</span>, <span class="va">id</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">ids</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span>, each <span class="op">=</span> <span class="va">ratio</span><span class="op">)</span><span class="op">]</span></span>
+<span>  <span class="op">}</span></span>
+<span>  <span class="fu">rbindlist</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">case</span>, <span class="va">control</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># create a single variable summarising matching variables</span></span>
+<span><span class="va">d</span><span class="op">$</span><span class="va">mvar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span><span class="op">(</span><span class="st">"paste0"</span>, <span class="va">d</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"age_grp"</span>, <span class="st">"sex"</span>, <span class="st">"LTC_grp"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># create 1:1 matched dataset.</span></span>
+<span><span class="va">matched_data</span> <span class="op">&lt;-</span> <span class="fu">smatch</span><span class="op">(</span><span class="va">d</span>, treat <span class="op">=</span> <span class="st">"livesalone"</span>, mvar <span class="op">=</span> <span class="st">"mvar"</span>, ratio <span class="op">=</span> <span class="fl">1</span>, seed <span class="op">=</span> <span class="fl">74</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># check balance: same number of individuals in each group</span></span>
+<span><span class="fu">dcast</span><span class="op">(</span><span class="va">matched_data</span>, <span class="va">age_grp</span> <span class="op">+</span> <span class="va">sex</span> <span class="op">+</span> <span class="va">LTC_grp</span> <span class="op">~</span> <span class="va">livesalone</span>, value.var <span class="op">=</span> <span class="st">"id"</span>, fun.aggregate <span class="op">=</span> <span class="va">length</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Key: &lt;age_grp, sex, LTC_grp&gt;
+    age_grp    sex LTC_grp FALSE  TRUE
+     &lt;char&gt; &lt;char&gt;  &lt;char&gt; &lt;int&gt; &lt;int&gt;
+ 1:   50-64 Female       0    62    62
+ 2:   50-64 Female       1    65    65
+ 3:   50-64 Female       2    31    31
+ 4:   50-64 Female      3+    24    24
+ 5:   50-64   Male       0   100   100
+ 6:   50-64   Male       1    76    76
+ 7:   50-64   Male       2    40    40
+ 8:   50-64   Male      3+    27    27
+ 9:   65-74 Female       0    39    39
+10:   65-74 Female       1    46    46
+11:   65-74 Female       2    31    31
+12:   65-74 Female      3+    41    41
+13:   65-74   Male       0    32    32
+14:   65-74   Male       1    34    34
+15:   65-74   Male       2    22    22
+16:   65-74   Male      3+    32    32
+17:   75-84 Female       0    30    30
+18:   75-84 Female       1    45    45
+19:   75-84 Female       2    38    38
+20:   75-84 Female      3+    58    58
+21:   75-84   Male       0    10    10
+22:   75-84   Male       1    24    24
+23:   75-84   Male       2    15    15
+24:   75-84   Male      3+    27    27
+25:     85+ Female       0    11    11
+26:     85+ Female       1    19    19
+27:     85+ Female       2    11    11
+28:     85+ Female      3+    23    23
+29:     85+   Male       0     5     5
+30:     85+   Male       1     8     8
+31:     85+   Male       2    13    13
+32:     85+   Male      3+    13    13
+    age_grp    sex LTC_grp FALSE  TRUE</code></pre>
+</div>
+</div>
+<p>Now we have a dataset that is balanced in terms of age, sex and the count of long-term conditions. Let’s see how healthcare costs compare:</p>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">matched_data</span><span class="op">[</span>, <span class="fu">.</span><span class="op">(</span>mean_cost <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span>, sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span>, med_cost <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span>, iqr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/IQR.html">IQR</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span><span class="op">)</span>, <span class="va">livesalone</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   livesalone mean_cost        sd med_cost      iqr
+       &lt;lgcl&gt;     &lt;num&gt;     &lt;num&gt;    &lt;num&gt;    &lt;num&gt;
+1:       TRUE  4248.037 10804.742 730.1007 2469.241
+2:      FALSE  3383.810  9362.913 669.2357 1967.224</code></pre>
+</div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># histograms of cost</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">matched_data</span><span class="op">$</span><span class="va">cost</span><span class="op">[</span><span class="va">d</span><span class="op">$</span><span class="va">livesalone</span><span class="op">]</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"Lives alone"</span>, xlab <span class="op">=</span> <span class="st">"Log cost + 1"</span>, col <span class="op">=</span> <span class="st">"red"</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">14</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">matched_data</span><span class="op">$</span><span class="va">cost</span><span class="op">[</span><span class="op">!</span><span class="va">d</span><span class="op">$</span><span class="va">livesalone</span><span class="op">]</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"Does not live alone"</span>, xlab <span class="op">=</span> <span class="st">"Log cost + 1"</span>, col <span class="op">=</span> <span class="st">"green"</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">14</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="exact-matching-in-r_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># t-test (in reality you might want a paired test, and to check whether a t-test is appropriate)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">cost</span> <span class="op">~</span> <span class="va">livesalone</span>, <span class="va">matched_data</span><span class="op">)</span> <span class="co"># notice how wide the confidence intervals are for this reduced dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  cost by livesalone
+t = -1.9606, df = 2060.3, p-value = 0.05006
+alternative hypothesis: true difference in means between group FALSE and group TRUE is not equal to 0
+95 percent confidence interval:
+ -1728.6837721     0.2281226
+sample estimates:
+mean in group FALSE  mean in group TRUE 
+           3383.810            4248.037 </code></pre>
+</div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># proportion with costs over £10000</span></span>
+<span><span class="va">matched_data</span><span class="op">[</span>, <span class="fu">.</span><span class="op">(</span>over10k <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">cost</span> <span class="op">&gt;</span> <span class="fl">10000</span><span class="op">)</span> <span class="op">/</span> <span class="va">.N</span><span class="op">)</span>, <span class="va">livesalone</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   livesalone    over10k
+       &lt;lgcl&gt;      &lt;num&gt;
+1:       TRUE 0.10551331
+2:      FALSE 0.08555133</code></pre>
+</div>
+</div>
+<p>The mean difference is £803. When we used the whole dataset, this value was even closer to the coefficient from linear regression. It’s now difficult to see a difference in the histograms, but you can easily create any description of the distribution that you like – for example the proportion of patients that have costs over £10,000.</p>
+</section><section id="who-got-matched-and-who-didnt" class="level1"><h1>Who got matched and who didn’t?</h1>
+<p>The point of matching was to create a comparison group of people who don’t live alone who were in some ways similar to the group who do. We probably had to delete lots of people who don’t live alone in a systematic way (for example men and younger people who do not live alone were more likely to be deleted). We might also have deleted some of the group who do live alone, which could be more problematic if we want to generalise our results to the population. Let’s see who got deleted…</p>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">d</span><span class="op">[</span>, <span class="va">matched</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">PID</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">matched_data</span><span class="op">$</span><span class="va">PID</span>, <span class="st">"matched"</span>, <span class="st">"unmatched"</span><span class="op">)</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># just looking at age group for now</span></span>
+<span><span class="va">compare_matched</span> <span class="op">&lt;-</span> <span class="fu">dcast</span><span class="op">(</span><span class="va">d</span>, <span class="va">age_grp</span> <span class="op">~</span> <span class="va">livesalone</span> <span class="op">+</span> <span class="va">matched</span>, value.var <span class="op">=</span> <span class="st">"PID"</span><span class="op">)</span></span>
+<span><span class="va">compare_matched</span><span class="op">[</span>, <span class="st">"TRUE_total"</span> <span class="op">:=</span> <span class="va">TRUE_matched</span> <span class="op">+</span> <span class="va">TRUE_unmatched</span><span class="op">]</span></span>
+<span><span class="va">compare_matched</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">.SD</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span><span class="op">)</span>, .SDcols <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   FALSE_matched FALSE_unmatched TRUE_matched TRUE_unmatched TRUE_total
+           &lt;num&gt;           &lt;num&gt;        &lt;num&gt;          &lt;num&gt;      &lt;num&gt;
+1:     40.399240       74.421090    40.399240       0.000000   37.24803
+2:     26.330798       19.522622    26.330798       0.000000   24.27695
+3:     23.479087        4.381902    23.479087       8.988764   22.34882
+4:      9.790875        1.674385     9.790875      91.011236   16.12621</code></pre>
+</div>
+</div>
+<p>You can see that some of the ‘lives alone’ group got deleted (<code>TRUE_unmatched</code>), and they were all in the older age groups. The difference between everyone who lives alone (<code>TRUE_total</code>) and the matched group (<code>TRUE_matched</code>) is diluted, because the oldest groups are a relatively small part of the data. Nonetheless, I would say this is a fairly important difference. If you are concerned about generalisability to the population, you might want to restrict the analysis to people aged under 85. In the full dataset this was not be a problem (as there were lots more potential ‘controls’), but you might encounter similar issues if you match on more detailed variables.</p>
+<p><strong>Final point!</strong> We’ve focused on a technical solution to exact matching. We haven’t really thought about which variables we should be matching on. This is a matter of judgement, and needs a bit of thinking before we dive into the matching process. Just like covariates in regression, the matching variables are confounders – they’re alternative explanations for an association between living alone and healthcare costs. Age and sex are clearly important. Health status is more complex. Do you want to think about long-term conditions as something that cause people to live alone, or the product of living alone? If people are sicker because they live alone, matching on the number of long term conditions might falsely reduce the association between living alone and healthcare costs.</p>
+<p>This blog was written by Dan Lewer, NIHR Doctoral Research Fellow / SpR Public Health. Department of Epidemiology &amp; Public Health, UCL</p>
+<p>This blog has been formatted to remove <a href="https://nhsrway.nhsrcommunity.com/style-guides.html#avoid-latin-abbreviation">Latin Abbreviations</a>.</p>
+
+
+</section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nhsrcommunity\.com\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+<p>2025 NHS-R Community ∙ Made with <a href="https://quarto.org/"><img src="https://quarto.org/quarto.png" class="img-fluid" alt="Quarto logo blue round circle with a cross within the circumference" width="65"></a></p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="https://fosstodon.org/@NHSrCommunity" aria-label="Go to NHSR's Fosstodon page" title="mastodon" target="_blank" rel="noopener"> <i class="link-dark me-1" aria-hidden="true"></i> <i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a> <a href="https://bsky.app/profile/nhsrcommunity.bsky.social" aria-label="Go to NHSR's Bluesky page" title="bluesky" target="_blank" rel="noopener"> <i class="link-dark me-1" aria-hidden="true"></i> <iconify-icon role="img" inline="" icon="fa6-brands:bluesky" aria-label="Icon bluesky from fa6-brands Iconify.design set." title="Icon bluesky from fa6-brands Iconify.design set."></iconify-icon></a> <a href="https://github.com/nhs-r-community" aria-label="Go to NHSR's GitHub" title="github" target="_blank" rel="noopener"> <i class="link-dark me-1" aria-hidden="true"></i> <i class="fa-brands fa-github" aria-label="github"></i></a> <a href="https://soundcloud.com/nhs-r-community" aria-label="Go to NHSR's SoundCloud" title="soundcloud" target="_blank" rel="noopener"> <i class="link-dark me-1" aria-hidden="true"></i> <i class="fa-brands fa-soundcloud" aria-label="soundcloud"></i></a> <a href="https://www.linkedin.com/in/nhs-r-community-2555a6282/" aria-label="Go to NHSR's LinkedIn" title="LinkedIn" target="_blank" rel="noopener"> <i class="link-dark me-1" aria-hidden="true"></i> <i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a></p>
+<div class="toc-actions"><ul><li><a href="https://github.com/nhs-r-community/nhs-r-community/edit/main/blog/exact-matching-in-r.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nhs-r-community/nhs-r-community/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+<li class="nav-item">
+    <a class="nav-link" href="../accessibility.html">
+<p>Accessibility</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../ts-and-cs.html">
+<p>Terms and Conditions</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../contact.html">
+<p>Contact</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../licence.html">
+<p>Licence</p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../blog/index.xml">
+      <i class="bi bi-rss" role="img" aria-label="RSS blog feed">
+</i> 
+    </a>
+  </li>  
+</ul>
+</div>
+  </div>
+</footer>
+
+
+</body></html>
