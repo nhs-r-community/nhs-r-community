@@ -12,16 +12,19 @@ title-block-banner: true
 ### JULY 2025
 
 📆 9th **Workshop: "Better, Kinder Code Review with Dr Toby Hodges"**
+
   + 10:00 - 11:30 (GMT)
   + 🔗 [Registration Link](https://gbr01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fsubstack.com%2Fredirect%2F20d3723e-439d-4944-a166-a395047c1b4f%3Fj%3DeyJ1IjoiNWptcmZvIn0.hDMD6vq0uokyLghtQmVfbASWmqqbnrS6owqhW8wuDtA&data=05%7C02%7Ccaileigh.solomenca%40nhs.net%7C13325ee7044c40f6efbe08ddb88fbe87%7C37c354b285b047f5b22207b48d774ee3%7C0%7C0%7C638869649779195170%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=r2PzRVjAcYRbFbkdnV%2F5rfnSlvM%2BwCLt4D7SO94Ii9Q%3D&reserved=0)
 
 📆 10th **Coffee and Coding**:
+
   + 14:00 - 15:00 (GMT)
   + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
   + Meeting ID: 331 945 876 23
   + Passcode: Po2nEx
   
 📆 23rd **Coffee and Coding**:
+
   + 14:00 - 15:00 (GMT)
   + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
   + Meeting ID: 331 945 876 23
