@@ -1589,3 +1589,14 @@ Caden
 Castellani
 Schimpf
 cb
+XG
+dummyVars
+xgboost
+newdata
+createDataPartition
+DMatrix
+xgb
+nrounds
+pred
+overfitting
+undersampling
