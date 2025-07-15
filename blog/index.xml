@@ -11,7 +11,754 @@
 <description>Blogs are submitted from NHS-R Community members.&lt;br&gt;
 </description>
 <generator>quarto-1.7.32</generator>
-<lastBuildDate>Mon, 31 Mar 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 14 Jun 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Predictive Analytics within healthcare - XG Boost models for inpatient fall risk predictions</title>
+  <dc:creator>Joseph Mosley</dc:creator>
+  <link>https://nhsrcommunity.com/blog/Predictive_Analytics_Within_Healthcare-XGBoost.html</link>
+  <description><![CDATA[ <!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html --><!--
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+--><!-- <header id="title-block-header" class="quarto-title-block default page-columns"> --><!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> --><section id="introduction" class="level2"><h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Hi! This blog post acts as a follow up to my previous entry to the NHS-R Community website, regarding the use of <a href="https://nhsrcommunity.com/blog/predictive-analytics.html">random forest models to predict a patient’s length of stay</a>. This time, the aim was to classify a patient as either “at risk” or “not at risk” of falling as an inpatient, utilising the XG Boost technology available within R. The classification depended on a variety of predictor variables, agreed with a senior digital nursing colleague working within the same acute trust as me. The intention behind this project was to see how accurately a patient could be classified into a fall risk category, using the agreed predictor variables. The goals and proposed methodology of this project were established after discussions with the previously mentioned senior digital nursing colleague, in which we set out to determine what the most appropriate way to approach this task would be regarding a clinical perspective, variable selection and potential clinical use cases. The accuracy of the eventually completed model was assessed through predictions on a testing data set, where the model was used to classify patients as either at risk of falling or not. This prediction was then compared with the actual fact of whether each specific patient did experience a fall during their inpatient spell or not. The testing data set for this accuracy assessment was a section of the primary data set used for this project, as the primary data set was split into both a training and testing section.</p>
+<p>As mentioned within my previous predictive analytics post (linked above), this blog post is not intended to be a comprehensive guide on how to approach a machine learning task within R, best practice for utilising XG Boost or a complete overview of all of the relevant considerations necessary for such a project. This blog post is intended to act as an overview of how I approached this specific project, that hopefully potential readers might find interesting. The considerations and methods discussed within this blog post are specific to the context of this project only. If you are thinking about undertaking a similar machine learning project, you should seek the relevant guidance to do so.</p>
+</section><section id="data-set-preparation-and-variable-selection" class="level2"><h2 class="anchored" data-anchor-id="data-set-preparation-and-variable-selection">Data Set Preparation and Variable Selection</h2>
+<p>For this project, the variables used were discussed with the previously mentioned senior digital nursing colleague prior to the development and testing of the model. The features were chosen as it was thought that they would act as ideal predictor variables for whether or not an inpatient may experience a fall. The final predictor variables used in the model were as follows, “Sex”, “Non-Elective Stay”, “Dementia Diagnosis”, “Current Delirium”, “Parkinson’s Diagnosis”, “Current Low Blood Pressure”, “Previous Fall Flag” and “Age Category”. A positive to using these particular variables was that they were all readily available in internal electronic patient record systems.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>While these predictor variables were the final ones utilised within this model, they were not the only ones considered from the start of the project. This is discussed in more detail later, within the section “Performance and Challenges”.</p>
+</div>
+</div>
+</div>
+<p>In order to transform and clean this data into an appropriate format, a SQL query was used to retrieve all of the relevant fields from the necessary electronic patient record systems and wrangle this into the data set that would eventually be used in the project. Next, this data was saved as a CSV file and used to train the model within the primary R script.</p>
+<p>As the input for this specific model needed to be numeric, “one hot encoding” was once again used to create a numeric column for each value within the categorical variables. This encoding was performed within the R script itself.</p>
+</section><section id="model-creation" class="level2"><h2 class="anchored" data-anchor-id="model-creation">Model Creation</h2>
+<p>This model was created in R using the following packages, “tidyverse”, “xgboost” and “caret”. The primary data set was initially imported into R as a CSV, this file is referred to in the example script below as “CSV File”. The data was then encoded using the function “dummyVars”, with any irrelevant columns then removed. For this project, the data was split into a training section containing 70% of the initial data and a testing section containing 30% of the initial data.</p>
+<p>Following this, the optimal number of rounds and the maximum depth of the model were established. This was done through gradual adjustments to each of these values, with improvements and drops in performance and prediction quality noted. In the example script provided below, “x” would be replaced by the depth and “y” would be replaced by the number of rounds. Once the model was trained, the accuracy and recall was then assessed through a confusion matrix. As this was a heavily imbalanced data set, where a much larger proportion of patients did not experience a fall compared to those that did, the threshold for classification needed to be altered from the default value in order to receive meaningful and useful predictions. Within the example script, “t” would be replaced by the specific threshold value determined to be optimal for classification. For this project, the threshold was eventually decided through a process of gradual alterations, with improvements and drops within the accuracy and recall scores of the model noted.</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>As mentioned within my previous predictive analytics post, I established a seed within the R script using the set.seed() function, in order to ensure that the results were reproducible.</p>
+</div>
+</div>
+</div>
+<p>The example script showing how this project was approached within R is shown below.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#LOAD LIBRARIES</span></span>
+<span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;"><a href="https://github.com/dmlc/xgboost">xgboost</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> </span>
+<span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;"><a href="https://github.com/topepo/caret/">caret</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> </span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#SET SEED SO THAT RESULTS ARE REPRODUCIBLE</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">200</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#IMPORT DATA</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Results</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"CSV File"</span>, header<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">T</span>, stringsAsFactors<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">T</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#CHECK INITIAL DATA</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">glimpse</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Results</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#ENCODE DATA</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">dmy</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">dummyVars</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">" ~ ."</span>, data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Results</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">encoded_data</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">dmy</span>, newdata <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Results</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">encoded_data</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Fall.Y</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">encoded_data</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Fall.Y</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">formatted_data</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">encoded_data</span>, select <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Fall.N</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#CHECK FORMATTED DATA</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">glimpse</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">formatted_data</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#DATA SPLIT INTO TRAINING (70%) AND TESTING (30%)</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">parts</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">createDataPartition</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">formatted_data</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Fall.Y</span>, p <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.7</span>, list <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">F</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">train</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">formatted_data</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">parts</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">test</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">formatted_data</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">parts</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#PREDICTOR AND RESPONSE - TRAINING</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">train_x</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/data.matrix.html">data.matrix</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">train</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">21</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">train_y</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/data.matrix.html">data.matrix</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">train</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">21</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#PREDICTOR AND RESPONSE - TESTING</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">test_x</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/data.matrix.html">data.matrix</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">test</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">21</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">test_y</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/data.matrix.html">data.matrix</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">test</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">21</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#FINAL TRAINING AND TESTING</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">xgb_train</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xgb.DMatrix</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">train_x</span>, label <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">train_y</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">xgb_test</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xgb.DMatrix</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">test_x</span>, label <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">test_y</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#SAMPLE MODEL</span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#X WOULD BE THE MAXIMUM DEPTH</span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Y WOULD BE THE NUMBER OF ROUNDS</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">depth</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">x</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">rounds</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">y</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">final</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xgboost</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">xgb_train</span>, max.depth <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">depth</span>, nrounds <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">rounds</span>, verbose <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, objective<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'binary:logistic'</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#MAKE FINAL PREDICTIONS ON TEST DATA</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">pred_test</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">final</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">xgb_test</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#ASSESS ACCURACY</span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#T WOULD BE THE IDEAL THRESHOLD FOR CLASSIFICATION, DETERMINED AFTER TESTING</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">threshold</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">t</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">a</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">test_y</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">b</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">if_else</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">pred_test</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">threshold</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">CONFUSION_MATRIX</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>Test_Value <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">a</span>, Prediction_Value <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">b</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">CONFUSION_MATRIX</span></span></code></pre></div>
+</div>
+</section><section id="performance-and-challenges" class="level2"><h2 class="anchored" data-anchor-id="performance-and-challenges">Performance and Challenges</h2>
+<p>As the data set behind this model was quite heavily imbalanced, one of the solutions used to attempt to overcome this was to manually alter the balance of the training section of the data set through “oversampling” and “undersampling”. While this did result in reasonably high accuracy scores, it is believed that an unintended consequence of this was that “overfitting” took place. This conclusion was reached as predictions in testing were not generally in line with what was expected, despite the reasonably high accuracy scores. Due to this, the original data set balance was used, with a lowered threshold for classification (as previously mentioned). One of the key variables believed to have contributed to the overfitting issue was age, when used in a continuous, numeric format. Performance was generally better when age was altered to present as a categorical field, for example, 0-18 rather than a specific numeric value. While the issue of overfitting seemed to be a lot less prevalent by the end of the project, as predictions were more consistent with what would be expected, it is important to note that this does not mean there was absolutely no overfitting present within the model still.</p>
+<p>As previously mentioned, certain variables originally considered were eventually removed from the data set and not included within the final version of the model. This is because they were determined to generally not be good predictor variables within the context of this specific data set and model. They may have actually been hindering the overall performance of the model. The variables removed were “Current Dizziness”, “Current Elevated Heart Rate”, “Current Visual Impairment” and “Current Incontinence”. While these variables were determined to not be good predictors within this particular project, they could still potentially be useful within another setting and context for the same purpose of predicting fall risk.</p>
+<p>For the variables utilised within the final model, a chart is shown below visualising the feature importance of all those still included. The plot was created using the package “ggplot2”. The R script for this plot is also shown below, the script presumes that the model has already been created, as the model “final” from the previous script shown is referenced.</p>
+<div class="cell">
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#LOAD LIBRARIES</span></span>
+<span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#FEATURE IMPORTANCE</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">model_feature_importance</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xgb.importance</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>model <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">final</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">model_feature_importance</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">model_feature_importance</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">arrange</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">desc</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Gain</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#FEATURE IMPORTANT PLOT - GGPLOT2</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">model_feature_importance</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Feature</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Gain</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>, y <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Gain</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_bar</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>stat <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"identity"</span>, fill <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"red"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coord_flip</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>title <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Feature Importance (Gain) Within Model"</span>, x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Variable"</span>, y <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Feature Importance"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_light</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+</div>
+<p><strong>Plot Of Feature Importance</strong></p>
+<p><img src="https://nhsrcommunity.com/blog/img/Feature_Importance.png" class="img-fluid" width="492"></p>
+<p>The performance of the XG Boost model was compared with a Logistic Regression model and a Random Forest model, both also created in R using the same data set. Overall, the XG Boost model seemingly returned a better accuracy and gave higher quality predictions with this specific data set than either of the other classification methods.</p>
+<p>As an inpatient fall could be considered to be rather awkward to predict, in that multiple patients that did not fall could theoretically be admitted with the exact same values as a patient that did fall, a goal of achieving an overall accuracy and recall score of 70% was set for this specific project. Precision, while very important for some projects, was not deemed to be a priority over recall and overall accuracy for this specific project. This is because the impact of a false positive (being a patient predicted to fall that did not actually fall) would be more acceptable in the context of this project than a false negative (being a patient that did fall but was predicted not to). The final accuracy score for this project was 69.39%, while the recall score was 67.83%.</p>
+</section><section id="interactivity-for-users" class="level2"><h2 class="anchored" data-anchor-id="interactivity-for-users">Interactivity For Users</h2>
+<p>Similarly to the previously mentioned Random Forest prediction project, it was thought that users would need a way to simply interact with the model to input values and receive their predictions. For this, I created a shiny app that would allow users to utilise check boxes to input the various predictor values for a hypothetical patient. The app would then produce a fall risk classification based on these predictor values using the model. In theory, this app would be hosted and accessed internally within a trust, for relevant staff to use for predictions. Below, a screenshot is shown of an example of the final output of the app based on the predictor values entered. In this case, the model predicted that the patient would be a fall risk.</p>
+<p><strong>Screenshot Of App</strong></p>
+<p><img src="https://nhsrcommunity.com/blog/img/App.png" class="img-fluid" width="300"></p>
+</section><section id="considerations-and-notes" class="level2"><h2 class="anchored" data-anchor-id="considerations-and-notes">Considerations and Notes</h2>
+<p>. If such a model were to ever be used for clinical purposes, it would require further validation to absolutely ensure that the performance was to a high standard and that predictions were meaningful. As previously mentioned, there may have still been overfitting present within the final version of this model, even if this was to a lesser extent than it would have otherwise been if the relevant corrections and amendments had not been made.</p>
+<p>. While I opted to use an XG Boost model created specifically within R for this project, it should be noted that alternative classification methods and other tech stacks could have also been used to develop a similar model.</p>
+<p>. When utilising patient data for such a model, there are obvious information governance considerations necessary. The data set used to create this model was limited to only variables that were utilised for predictions, no unnecessary information was extracted. Additionally, this data was wrangled, stored and analysed on the trust’s internal network only.</p>
+<p>. My role within my organisation is not explicitly that of a “Data Scientist” or primarily a machine learning focused role, my current title is “Information Development Analyst”. While I have a keen interest in R, machine learning and the potential applications of this within the NHS, <strong><em>I am definitely not an authority</em></strong> in this area of healthcare analytics. The methods used for this undertaking are specific to the goals and context of this project only. If you are considering creating something similar within your own organisation, you should seek the relevant guidance to do so.</p>
+<p>. Once the age variable had been altered to present in a categorical format, rather than as a continuous numeric value, it may have been more appropriate to utilise “ordinal encoding” rather than “one hot encoding” for this specific variable. However, a version of the model was created with this applied as an alternative and this did not appear to impact the performance of the model. Nevertheless, I plan to eventually create a second version of the model with this considered, along with more recent data included, as the time period for admissions within the data set used for this project was the 1st January 2021 - 31st December 2024.</p>
+<p>. Throughout this blog post, I have continually referred to a senior digital nursing colleague who had valuable input into this project from a clinical perspective, particularly for considering potential clinical use cases and initial variable selection. Thanks Hannah for your contribution to this project!</p>
+</section><section id="final-thoughts" class="level2"><h2 class="anchored" data-anchor-id="final-thoughts">Final Thoughts</h2>
+<p>Thank you for taking the time to read this post! I hope you have found it as interesting as I found undertaking the project itself.</p>
+<p>There are certainly untapped applications for prediction models, similar to the one described in this post, to be created and implemented throughout the NHS and healthcare analytics more generally for a variety of clinical and non-clinical use cases. Some organisations may already have large amounts of resources dedicated to the development and implementation of internal prediction models, while others may not have started to explore the possibilities and potential benefits of this yet. Each organisation looking to implement predictive analytics would likely benefit in unique ways, depending on where attention and resources were focused. Wherever these models are implemented, it is obviously imperative that they are done so with care and extensively checked before they are allowed to influence any potential decisions within a healthcare organisation. As this technology has become more accessible through open source tech stacks (such as R and Python) and more digestible through the increased availability of online resources, I am personally excited to see any further developments, particularly within the NHS and wider healthcare space.</p>
+
+
+</section><a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
+  <category>Predictive Analytics</category>
+  <category>Machine Learning</category>
+  <guid>https://nhsrcommunity.com/blog/Predictive_Analytics_Within_Healthcare-XGBoost.html</guid>
+  <pubDate>Sat, 14 Jun 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://nhsrcommunity.com/blog/img/preview.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>The importance of community in NHS data science</title>
   <dc:creator>Claire Welsh</dc:creator>
@@ -3296,6 +4043,211 @@ font-style: inherit;">)</span></span></code></pre></div>
   <media:content url="https://nhsrcommunity.com/blog/img/screenshot-github-settings.PNG" medium="image"/>
 </item>
 <item>
+  <title>Showcasing a function - separate()
+</title>
+  <dc:creator>Zoë Turner</dc:creator>
+  <link>https://nhsrcommunity.com/blog/showcasing-functions-separate.html</link>
+  <description><![CDATA[ <!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html --><!--
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+--><!-- <header id="title-block-header" class="quarto-title-block default page-columns"> --><!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> --><section id="create-data" class="level2"><h2 class="anchored" data-anchor-id="create-data">Create data</h2>
+<p>This was written originally in an Excel spreadsheet and used {datapasta} to copy into R as code to build the same data frame. {datapasta} can be access through RStudio as an Addin as well as code. Find out more about {datapasta} from the <a href="https://intro-r-rstudio.nhsrcommunity.com/session-datapasta.html#/title-slide">Introduction to R and R Studio course</a>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">data</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tibble</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tribble</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span></span>
+<span>    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Patient</span>,          <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Codes</span>,</span>
+<span>  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientA"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"A01, A02, A03"</span>,</span>
+<span>  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientB"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B01; B02; B03"</span>,</span>
+<span>  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientC"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"C01; C03"</span>,</span>
+<span>  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientD"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"D01. D02. D03"</span></span>
+<span>  <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+</div>
+</section><section id="separate-codes-by-position" class="level2"><h2 class="anchored" data-anchor-id="separate-codes-by-position">Separate codes by position</h2>
+<p>Separate into columns in the order data appears</p>
+<div class="cell">
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">data</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tidyr</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">separate</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Codes</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col1"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col2"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col3"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+  Patient  col1  col2  col3 
+  &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+1 PatientA A01   A02   A03  
+2 PatientB B01   B02   B03  
+3 PatientC C01   C03   &lt;NA&gt; 
+4 PatientD D01   D02   D03  </code></pre>
+</div>
+</div>
+<p><a href="https://tidyr.tidyverse.org/reference/separate.html">https://tidyr.tidyverse.org/reference/separate.html</a></p>
+</section><section id="add-a-pivot" class="level2"><h2 class="anchored" data-anchor-id="add-a-pivot">Add a pivot</h2>
+<p>To move wide data to longer:</p>
+<div class="cell">
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">data</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tidyr</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">separate</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Codes</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col1"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col2"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col3"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tidyr</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pivot_longer</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>cols <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">starts_with</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>,</span>
+<span>               names_to <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"type"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 3
+   Patient  type  value
+   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;
+ 1 PatientA col1  A01  
+ 2 PatientA col2  A02  
+ 3 PatientA col3  A03  
+ 4 PatientB col1  B01  
+ 5 PatientB col2  B02  
+ 6 PatientB col3  B03  
+ 7 PatientC col1  C01  
+ 8 PatientC col2  C03  
+ 9 PatientC col3  &lt;NA&gt; 
+10 PatientD col1  D01  
+11 PatientD col2  D02  
+12 PatientD col3  D03  </code></pre>
+</div>
+</div>
+
+
+</section><a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
+  <category>R tips</category>
+  <guid>https://nhsrcommunity.com/blog/showcasing-functions-separate.html</guid>
+  <pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://nhsrcommunity.com/blog/img/screenshot-separate-code.png" medium="image" type="image/png" height="91" width="144"/>
+</item>
+<item>
   <title>Recoding an NA and back again</title>
   <dc:creator>Zoë Turner</dc:creator>
   <link>https://nhsrcommunity.com/blog/coding-to-and-from-NA.html</link>
@@ -3536,211 +4488,6 @@ font-style: inherit;">1000</span>))</span></code></pre></div>
   <category>R tips</category>
   <guid>https://nhsrcommunity.com/blog/coding-to-and-from-NA.html</guid>
   <pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Showcasing a function - separate()
-</title>
-  <dc:creator>Zoë Turner</dc:creator>
-  <link>https://nhsrcommunity.com/blog/showcasing-functions-separate.html</link>
-  <description><![CDATA[ <!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html --><!--
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
---><!-- <header id="title-block-header" class="quarto-title-block default page-columns"> --><!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> --><section id="create-data" class="level2"><h2 class="anchored" data-anchor-id="create-data">Create data</h2>
-<p>This was written originally in an Excel spreadsheet and used {datapasta} to copy into R as code to build the same data frame. {datapasta} can be access through RStudio as an Addin as well as code. Find out more about {datapasta} from the <a href="https://intro-r-rstudio.nhsrcommunity.com/session-datapasta.html#/title-slide">Introduction to R and R Studio course</a>.</p>
-<div class="cell">
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">data</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tibble</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tribble</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span></span>
-<span>    <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">Patient</span>,          <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">Codes</span>,</span>
-<span>  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"PatientA"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"A01, A02, A03"</span>,</span>
-<span>  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"PatientB"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B01; B02; B03"</span>,</span>
-<span>  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"PatientC"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"C01; C03"</span>,</span>
-<span>  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"PatientD"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"D01. D02. D03"</span></span>
-<span>  <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span></code></pre></div>
-</div>
-</section><section id="separate-codes-by-position" class="level2"><h2 class="anchored" data-anchor-id="separate-codes-by-position">Separate codes by position</h2>
-<p>Separate into columns in the order data appears</p>
-<div class="cell">
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span></span>
-<span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">data</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|&gt;</span> </span>
-<span>  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tidyr</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">separate</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">Codes</span>, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col1"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col2"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col3"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 4
-  Patient  col1  col2  col3 
-  &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
-1 PatientA A01   A02   A03  
-2 PatientB B01   B02   B03  
-3 PatientC C01   C03   &lt;NA&gt; 
-4 PatientD D01   D02   D03  </code></pre>
-</div>
-</div>
-<p><a href="https://tidyr.tidyverse.org/reference/separate.html">https://tidyr.tidyverse.org/reference/separate.html</a></p>
-</section><section id="add-a-pivot" class="level2"><h2 class="anchored" data-anchor-id="add-a-pivot">Add a pivot</h2>
-<p>To move wide data to longer:</p>
-<div class="cell">
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">data</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|&gt;</span> </span>
-<span>  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tidyr</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">separate</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">Codes</span>, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col1"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col2"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col3"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|&gt;</span> </span>
-<span>  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tidyr</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">pivot_longer</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>cols <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">starts_with</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>,</span>
-<span>               names_to <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"type"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 12 × 3
-   Patient  type  value
-   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;
- 1 PatientA col1  A01  
- 2 PatientA col2  A02  
- 3 PatientA col3  A03  
- 4 PatientB col1  B01  
- 5 PatientB col2  B02  
- 6 PatientB col3  B03  
- 7 PatientC col1  C01  
- 8 PatientC col2  C03  
- 9 PatientC col3  &lt;NA&gt; 
-10 PatientD col1  D01  
-11 PatientD col2  D02  
-12 PatientD col3  D03  </code></pre>
-</div>
-</div>
-
-
-</section><a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
-  <category>R tips</category>
-  <guid>https://nhsrcommunity.com/blog/showcasing-functions-separate.html</guid>
-  <pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://nhsrcommunity.com/blog/img/screenshot-separate-code.png" medium="image" type="image/png" height="91" width="144"/>
 </item>
 <item>
   <title>Building a Quarto website for NHS-R Community</title>
@@ -4269,45 +5016,6 @@ Have we done enough?</p>
   <category>NHS-R</category>
   <guid>https://nhsrcommunity.com/blog/apha-june-blog.html</guid>
   <pubDate>Tue, 18 Jul 2023 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>NHS-R newscast 25th May 2023</title>
-  <dc:creator>Zoë Turner</dc:creator>
-  <link>https://nhsrcommunity.com/blog/nhs-r-newscast-25th-may-2023.html</link>
-  <description><![CDATA[ 
-
-
-<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
-<!--
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
--->
-<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
-<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
-
-
-
-<p>We have another newscast from the podcast, if you don’t do the whole podcast thing here are the notes and links from what we talked about.</p>
-<p>The NHS-R Conference call for abstracts has been extended to 23rd June 2023 <a href="https://www.smartsurvey.co.uk/s/7FLFRY/" class="uri">https://www.smartsurvey.co.uk/s/7FLFRY/</a></p>
-<p>we’ve started an <a href="https://nhs-r-community.github.io/NHSR-way/">NHSR-Way book</a> and also published through <a href="https://nhsr-way.netlify.app/">Netlify</a> because some organisations block GitHub published pages. This book is inspired by <a href="https://www.the-turing-way.netlify.app/">The Turing Way</a> and <a href="https://gds-way.cloudapps.digital/">The GDS Way</a> with more technical elements coming from the <a href="https://nhs-r-community.github.io/statements-on-tools/">Statement on Tools</a> book. For example, on licences we’ve detailed <a href="https://nhs-r-community.github.io/statements-on-tools/open-code-in-the-nhs.html#licenceslicenses">a lot of the options</a> in the Statement on Tools but then said <a href="https://nhs-r-community.github.io/NHSR-way/style-guides.html#licenceslicenses">what NHS-R Community use</a> in the NHS-R Way.</p>
-<p>The <a href="https://github.com/nhs-r-community/book_group">NHSR book club</a> have started reading the <a href="https://r4ds.hadley.nz/">R4DS second edition</a> and created an <a href="https://nhs-r-community.github.io/r4ds-ed2-exercise-solutions/">unofficial solutions book</a>.</p>
-<p>Zoë Turner will be talking next month at the Government Data Science Community Meet-Up: <a href="https://www.eventbrite.co.uk/e/government-data-science-community-meet-up-the-data-science-toolshed-tickets-578774920367">The Data Science Toolshed</a> Tue 13 Jun 2023 1.30 to 3pm. Title to be confirmed but about how people can contribute to NHS-R open repositories or even pass them to NHS-R as has happened with the <a href="https://github.com/nhs-r-community/quarto-nhs-theme">quarto NHS theme</a> from Craig Shenton and <a href="https://github.com/nhs-r-community/NHSRepisodes">{NHSRepisodes}</a> package from Tim Taylor. Sign up to the event is free for Public Sector and Civil Service</p>
-<p>Chris Beeley spoke at the DataConnect23 Government <a href="https://www.eventbrite.co.uk/e/dataconnect23-launch-event-tickets-546319846367">launch event</a> and gave a taster session of text mining of patient experience data. Sign up to DataConnect events can be found at <a href="https://www.gov.uk/government/news/dataconnect23-is-on-its-way" class="uri">https://www.gov.uk/government/news/dataconnect23-is-on-its-way</a></p>
-<section id="finds-from-the-slack-group" class="level2">
-<h2 class="anchored" data-anchor-id="finds-from-the-slack-group"><strong>Finds from the Slack group</strong></h2>
-<p>Python linter: <a href="https://github.com/charliermarsh/ruff" class="uri">https://github.com/charliermarsh/ruff</a></p>
-<p>Look at this great guidance on pie charts, unfairly maligned <a href="https://analysisfunction.civilservice.gov.uk/support/communicating-analysis/introduction-to-data-visualisation-e-learning/module-9-pie-charts/">Pie charts</a> from the Government Analysis Function.</p>
-<p>A retro graphic to brighten up the Python exception messages – <a href="https://github.com/James-Ansley/cowexcept" class="uri">https://github.com/James-Ansley/cowexcept</a> (can feature a dragon as well as a cow!).</p>
-<p>For an extension of retro visuals then check out Star Wars in the Linux Terminal – <a href="https://www.linuxfordevices.com/tutorials/linux/ascii-star-wars-linux-terminal" class="uri">https://www.linuxfordevices.com/tutorials/linux/ascii-star-wars-linux-terminal</a></p>
-
-
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
-  <category>NHS-R</category>
-  <category>Podcast</category>
-  <guid>https://nhsrcommunity.com/blog/nhs-r-newscast-25th-may-2023.html</guid>
-  <pubDate>Thu, 15 Jun 2023 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
