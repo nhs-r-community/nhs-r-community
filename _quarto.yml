@@ -59,6 +59,9 @@ website:
       - text: Home
         href: index.qmd
         aria-label: Home page
+      - text: NLP
+        href: nlp.qmd
+        aria-label: NLP course
 
   page-footer:
     left: >-
