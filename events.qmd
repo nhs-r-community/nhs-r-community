@@ -46,3 +46,17 @@ title-block-banner: true
 📆 11th **Webinar: "Complexity Made Approachable: Rethinking R-Based Modelling for Healthcare with AM-Smart Tools with Brian Castellani, Corey Schimpf and Chris Caden"**
   + 13:00 - 14:00 (GMT)
   + 🔗 [Registration Link](https://gbr01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fsubstack.com%2Fredirect%2Fb6e9f3bf-4d7f-4b89-966b-92086c842fd7%3Fj%3DeyJ1IjoiNWptcmZvIn0.hDMD6vq0uokyLghtQmVfbASWmqqbnrS6owqhW8wuDtA&data=05%7C02%7Ccaileigh.solomenca%40nhs.net%7C13325ee7044c40f6efbe08ddb88fbe87%7C37c354b285b047f5b22207b48d774ee3%7C0%7C0%7C638869649779181955%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=ldHyju03Y0jGL%2FTErecTrsuLxSvr1pzpgedKgZsa1T0%3D&reserved=0)
+
+📆 23rd & 24th **Workshop: "Introduction to R and R Studio with Dr Claire Welsh"**
+
+  + 09:00 - 13:00 (GMT)
+  + 🔗 [Registration Link](https://forms.office.com/Pages/ResponsePage.aspx?id=slTDN7CF9UeyIge0jXdO44XdMKUqFgROnUm4_TKex1xUMjhVRENHS1lTU0gzSjRUWTdJUzBHVVk0My4u)
+
+-------
+
+### OCTOBER 2025
+
+📆 14th & 15th **Workshop: "Intermediate R with Dr Claire Welsh"**
+
+  + 09:00 - 13:00 (GMT)
+  + 🔗 [Registration Link](https://forms.office.com/Pages/ResponsePage.aspx?id=slTDN7CF9UeyIge0jXdO44XdMKUqFgROnUm4_TKex1xUOE9XTEM3RFZNWFY2Qlg5TUpZQ0YxT0IxVi4u)
