@@ -23,20 +23,40 @@ For details on how to nominate yourself or someone else for a
 Fellowship, please visit the [NHSR-Way
 book](https://nhsrway.nhsrcommunity.com/nhsr-fellows.html)
 
-```{r message=FALSE, warning=FALSE, echo=FALSE}
-library(gt)
-library(dplyr)
-
-fellows <- read.csv("Current_Fellows.csv", check.names = F) 
+```{r}
+#| label: fellowship-table
+#| message: False
+#| warning: False
+#| echo: False
+#| results: asis
+fellows <- read.csv("Current_Fellows.csv", check.names = FALSE)
 fellows |>
-  mutate("Valid From" = format(`Valid From`, format = "%b %Y")) |>
-  arrange(Name) |>
-  gt::gt() |>
+  dplyr::mutate("Valid From" = format(`Valid From`, format = "%b %Y")) |>
+  dplyr::arrange(Name) |>
+  gt::gt(id = "fellowship_table") |>
   gt::tab_header("List of current NHS-R Fellows") |>
   gt::tab_footnote("*Organisations listed are at the time of award") |>
-  gt::opt_row_striping()
-  
-
+  gt::opt_row_striping() |>
+  gt::opt_css(
+    "#fellowship_table .gt_footnotes,
+    #fellowship_table .gt_heading,
+    #fellowship_table .gt_col_heading,
+    #fellowship_table .gt_table_body {
+      color: unset;
+      font-family: unset;
+    }
+    #fellowship_table .gt_footnotes,
+    #fellowship_table .gt_col_heading {
+      background-color: rgba(128, 128, 128, 0.15)
+    }
+    #fellowship_table .gt_heading {
+      background-color: rgba(128, 128, 128, 0.2)
+    }
+    #fellowship_table .gt_table_body {
+      background-color: unset;
+    }"
+  ) |>
+  gt::as_raw_html(inline_css = TRUE)
 ```
 
 If you have any questions about Fellowships, or would like to alter or
