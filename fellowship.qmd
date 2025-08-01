@@ -63,5 +63,6 @@ If you have any questions about Fellowships, or would like to alter or
 remove your details from the Fellowship list above, please email us at
 [nhs.rcommunity\@nhs.net](mailto:nhs.rcommunity@nhs.net).
 
-# *Thank you for your support!* 
-
+::: {style="font-size: 1.8rem; font-style: italic; font-weight: 600; text-align: center;"}
+Thank you for your support!
+:::
