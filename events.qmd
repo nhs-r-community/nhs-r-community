@@ -13,7 +13,7 @@ title-block-banner: true
 
 📆 13th **Webinar: "An Improved I Chart with Jacob Anhøj and Mohammed Mohammed"**
   + 13:00 - 14:00 (GMT)
-  + 🔗 [Registration Link](https://gbr01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fsubstack.com%2Fredirect%2F7be90474-fbf6-4a6a-99f4-b5d8a6928fdd%3Fj%3DeyJ1IjoiNWptcmZvIn0.hDMD6vq0uokyLghtQmVfbASWmqqbnrS6owqhW8wuDtA&data=05%7C02%7Ccaileigh.solomenca%40nhs.net%7C13325ee7044c40f6efbe08ddb88fbe87%7C37c354b285b047f5b22207b48d774ee3%7C0%7C0%7C638869649779168070%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=s2KfcU91KoxeKR4dZedUP8S6pYqDaJ92tbtyDfpr%2FGk%3D&reserved=0)
+  + 🔗 [Registration Link](https://events.teams.microsoft.com/event/9e3deaaf-f93e-4bbc-9816-0406ff92c3eb@37c354b2-85b0-47f5-b222-07b48d774ee3?utm_source=substack&utm_medium=email)
   
 
 📆 8th **Coffee and Coding**:
@@ -43,7 +43,7 @@ title-block-banner: true
 
 📆 11th **Webinar: "Complexity Made Approachable: Rethinking R-Based Modelling for Healthcare with AM-Smart Tools with Brian Castellani, Corey Schimpf and Chris Caden"**
   + 13:00 - 14:00 (GMT)
-  + 🔗 [Registration Link](https://gbr01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fsubstack.com%2Fredirect%2Fb6e9f3bf-4d7f-4b89-966b-92086c842fd7%3Fj%3DeyJ1IjoiNWptcmZvIn0.hDMD6vq0uokyLghtQmVfbASWmqqbnrS6owqhW8wuDtA&data=05%7C02%7Ccaileigh.solomenca%40nhs.net%7C13325ee7044c40f6efbe08ddb88fbe87%7C37c354b285b047f5b22207b48d774ee3%7C0%7C0%7C638869649779181955%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=ldHyju03Y0jGL%2FTErecTrsuLxSvr1pzpgedKgZsa1T0%3D&reserved=0)
+  + 🔗 [Registration Link](https://events.teams.microsoft.com/event/0be32c13-7c12-4529-9357-98c20cb3663f@37c354b2-85b0-47f5-b222-07b48d774ee3?utm_source=substack&utm_medium=email)
   
 📆 19th **Coffee and Coding**:
 
