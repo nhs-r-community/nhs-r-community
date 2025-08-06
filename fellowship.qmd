@@ -19,7 +19,7 @@ Fellowships are a great way to advertise your contributions, show your
 skill set and dedication to open source coding in healthcare, and
 embellish your CV with evidence of your community spirit.
 
-For details on how to nominate yourself or someone else for a
+For details on how to nominate yourself, or someone else, for a
 Fellowship, please visit the [NHSR-Way
 book](https://nhsrway.nhsrcommunity.com/nhsr-fellows.html)
 
