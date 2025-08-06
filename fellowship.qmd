@@ -12,14 +12,14 @@ a useful set of ever-growing resources to support and encourage our
 membership.
 
 In recognition of the significant contributions from members, the NHS-R
-Community awards the honorary title of 'Fellow' for a set period of 3
+Community awards the honorary title of Fellow for a set period of 3
 years.
 
 Fellowships are a great way to advertise your contributions, show your
 skill set and dedication to open source coding in healthcare, and
 embellish your CV with evidence of your community spirit.
 
-For details on how to nominate yourself, or someone else, for a
+For details on how to nominate yourself or someone else for a
 Fellowship, please visit the [NHSR-Way
 book](https://nhsrway.nhsrcommunity.com/nhsr-fellows.html)
 
