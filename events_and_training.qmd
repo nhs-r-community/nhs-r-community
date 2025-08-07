@@ -1,20 +1,73 @@
 ---
-sidebar: false
-page-layout: article
-toc: false
-title-block-banner: true
+title: "Events and Training"
+format: html
 ---
 
-## Upcoming NHS-R events
+::: {.panel-tabset}
 
-------
+## Conference {#conference}
+
+![](img/RPYSOC25_banner.png)
+
+We are pleased to announce that the RPYSOC 2025 conference will be held at the Wellcome Trust (215 Euston Road, London), offering both in-person and virtual attendance options! 
+ 
+Conference dates: 
+Thursday 13th November 2025
+Friday 14th November 2025
+
+Registration to open shortly – **so watch this space!**
+ 
+To submit an abstract, please complete [this form](https://www.smartsurvey.co.uk/s/YQAO3E/). 
+ 
+Please note that the abstract submission deadline is **Friday 05th September 2025**. 
+We would be honoured to incorporate your work into the conference.
+
+Thank you for being part of the community during a time of change—we appreciate your engagement!
+
+
+## Webinars and Workshops {#webinars_and_workshops}
+
+Please note:
+
+- Workshop attendance is restricted to employees of the NHS, public sector, civil servants, voluntary sector, charities and academia, or who are retirees from any of these sectors.
+- Webinars are free to all to attend, and recordings are stored on our [YouTube Channel](https://www.youtube.com/@NHSRCommunity)
+
 
 ### August 2025
 
 📆 13th **Webinar: "An Improved I Chart with Jacob Anhøj and Mohammed Mohammed"**
   + 13:00 - 14:00 (GMT)
   + 🔗 [Registration Link](https://events.teams.microsoft.com/event/9e3deaaf-f93e-4bbc-9816-0406ff92c3eb@37c354b2-85b0-47f5-b222-07b48d774ee3?utm_source=substack&utm_medium=email)
+
+-----
+
+### September 2025
+
+📆 11th **Webinar: "Complexity Made Approachable: Rethinking R-Based Modelling for Healthcare with AM-Smart Tools with Brian Castellani, Corey Schimpf and Chris Caden"**
+  + 13:00 - 14:00 (GMT)
+  + 🔗 [Registration Link](https://events.teams.microsoft.com/event/0be32c13-7c12-4529-9357-98c20cb3663f@37c354b2-85b0-47f5-b222-07b48d774ee3?utm_source=substack&utm_medium=email)
+
+📆 23rd & 24th **Workshop: "Introduction to R and R Studio with Dr Claire Welsh"**
+
+  + 09:00 - 13:00 (GMT)
+  + 🔗 [Registration Link](https://forms.office.com/Pages/ResponsePage.aspx?id=slTDN7CF9UeyIge0jXdO44XdMKUqFgROnUm4_TKex1xUMjhVRENHS1lTU0gzSjRUWTdJUzBHVVk0My4u)
+
+------
+
+### October 2025
+
+📆 14th & 15th **Workshop: "Intermediate R with Dr Claire Welsh"**
+
+  + 09:00 - 13:00 (GMT)
+  + 🔗 [Registration Link](https://forms.office.com/Pages/ResponsePage.aspx?id=slTDN7CF9UeyIge0jXdO44XdMKUqFgROnUm4_TKex1xUOE9XTEM3RFZNWFY2Qlg5TUpZQ0YxT0IxVi4u)
   
+## Coffee & Coding {#coffee-and-code}
+
+Please note:
+
+- Coffee & Code sessions are a chance for like-minded coders to get together and chat, share tips, code snippets, and watch show-and-tells about useful or new R stuff. These sessions are run by Simon Wellesley-Miller (NHS England), and recordings are made available [here](https://future.nhs.uk/NHSERcommunity/view?objectID=41908688).
+
+### August 2025
 
 📆 8th **Coffee and Coding**:
 
@@ -41,21 +94,13 @@ title-block-banner: true
   + Meeting ID: 331 945 876 23
   + Passcode: Po2nEx
 
-📆 11th **Webinar: "Complexity Made Approachable: Rethinking R-Based Modelling for Healthcare with AM-Smart Tools with Brian Castellani, Corey Schimpf and Chris Caden"**
-  + 13:00 - 14:00 (GMT)
-  + 🔗 [Registration Link](https://events.teams.microsoft.com/event/0be32c13-7c12-4529-9357-98c20cb3663f@37c354b2-85b0-47f5-b222-07b48d774ee3?utm_source=substack&utm_medium=email)
-  
+
 📆 19th **Coffee and Coding**:
 
   + 11:00 - 12:00 (GMT)
   + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
   + Meeting ID: 331 945 876 23
   + Passcode: Po2nEx
-
-📆 23rd & 24th **Workshop: "Introduction to R and R Studio with Dr Claire Welsh"**
-
-  + 09:00 - 13:00 (GMT)
-  + 🔗 [Registration Link](https://forms.office.com/Pages/ResponsePage.aspx?id=slTDN7CF9UeyIge0jXdO44XdMKUqFgROnUm4_TKex1xUMjhVRENHS1lTU0gzSjRUWTdJUzBHVVk0My4u)
 
 -------
 
@@ -67,11 +112,6 @@ title-block-banner: true
   + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
   + Meeting ID: 331 945 876 23
   + Passcode: Po2nEx
-
-📆 14th & 15th **Workshop: "Intermediate R with Dr Claire Welsh"**
-
-  + 09:00 - 13:00 (GMT)
-  + 🔗 [Registration Link](https://forms.office.com/Pages/ResponsePage.aspx?id=slTDN7CF9UeyIge0jXdO44XdMKUqFgROnUm4_TKex1xUOE9XTEM3RFZNWFY2Qlg5TUpZQ0YxT0IxVi4u)
 
 📆 15th **Coffee and Coding**:
 
@@ -115,3 +155,38 @@ title-block-banner: true
   + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
   + Meeting ID: 331 945 876 23
   + Passcode: Po2nEx
+  
+
+
+## Training
+
+### NLP with R {#nlp}
+
+::: {.callout-warning}
+
+Limited-capacity free online training, apply **now** to secure your place!
+
+:::
+
+🎉 We're delighted to announce that, new for 2025, we are working in collaboration with Dr Pawel Orzechowski of the University of Edinburgh to offer a **FREE 10-week distance-learning introductory course in NLP with R for NHS employees**!
+
+The course will run from 8th September to 20th November 2025.
+In this course, students will explore the fundamental concepts of natural language processing (NLP) and its role in current and emerging technologies. 
+
+This course has been adapted from a postgraduate-level offering from the University and will be run using their bespoke learning platform and a set of fortnightly Teams sessions, culminating in a project presented back to the class in the final session. 
+
+To see if you meet the pre-requisites for applying, get more information on the course, and to submit your application, please visit [this online survey](https://www.smartsurvey.co.uk/s/WDIHWG/).  Please note, places on the course are limited, and will be assigned on a first-come-first-served basis for those meeting the prerequisite criteria. 
+Applications will close on **29th August**, so hurry to secure your place!🏃‍♀️
+
+Course dates:
+8th September - course begins
+
+Zoom meeting session dates (see invite email for Zoom links)
+
+- 24th September, 9:30:11:30 BST - Session 1
+- 8th October, 9:30:11:30 BST - Session 2
+- 22nd October, 9:30:11:30 BST - Session 3
+- 5th November, 9:30:11:30 BST - Session 4
+- 19th November, 9:30:11:30 BST - Final Session
+
+:::

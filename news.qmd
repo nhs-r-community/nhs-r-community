@@ -1,0 +1,24 @@
+---
+title: "NHS-R Community News"
+format: html
+---
+
+### Closing date for applications to NLP with R course
+
+Applications to join our FREE 10-week distance-learning course on Natural Language Processing with R course will close on **29th August**.
+This course is for NHS employees who are familiar with R but not with NLP.
+The course is being kindly provided by Dr Pawel Orzechowski of the University of Edinburgh.
+For more information on this course, [click here](#nlp).
+
+-----
+
+### Abstract Call for RPYSOC2025 Conference!
+
+![](img/RPYSOC25_banner.png)
+The RPYSOC2025 Conference will be held in London, on 13th and 14th November 2025. 
+This event will be hybrid, so presentations can be delivered in person or virtually.
+For more information on the conference, [see here](#conference).
+
+To submit an abstract, please [click here](https://www.smartsurvey.co.uk/s/YQAO3E/).
+
+Abstracts must be submitted by **5th September 2025**.

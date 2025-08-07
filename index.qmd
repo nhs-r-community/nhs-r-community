@@ -59,10 +59,6 @@ listing:
 
 Building a community of practice for data analysis and data science using open source software in the NHS and wider UK health and care system
 
-::: hero-buttons
-[Get Started](getting-started.qmd){.btn .btn-lg .btn-primary role="button"} [Get Involved](get-involved.qmd){.btn .btn-lg .btn-primary role="button"}
-:::
-
 :::
 
 ## [Reports](reports/index.qmd)

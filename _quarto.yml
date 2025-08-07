@@ -30,38 +30,26 @@ website:
       href: https://github.com/nhs-r-community
     right:
       - text: "About"
-        href: contact.qmd
+        href: about.qmd
         aria-label: About page
-      - text: Events
-        href: events.qmd
+      - text: "News"
+        href: news.qmd
+        aria-label: News page
+      - text: "Events and Training"
+        href: events_and_training.qmd
         aria-label: List of upcoming events
-      - text: conference
-        href: conference24.qmd
-        aria-label: conference page
-      - text: "Books"
-        href: books/index.qmd
-        aria-label: Books page
+      - text: "Resources"
+        href: resources.qmd
+        aria-label: Resrouces page
       - text: "Blogs"
         href: blog/index.qmd
-        aria-label: Blogs page
-      - text: "R Packages"
-        href: packages.qmd
-        aria-label: R Packages page
-      - text: "Getting Started"
-        href: getting-started.qmd
-        aria-label: Getting Started page
-      - text: "Get Involved"
-        href: get-involved.qmd
-        aria-label: Get Involved page
+        aria-label: Blogs listed
       - text: "Fellowships"
         href: fellowship.qmd
         aria-label: Fellowships page
-      - text: Home
-        href: index.qmd
-        aria-label: Home page
-      - text: NLP
-        href: nlp.qmd
-        aria-label: NLP course
+      - text: "Contact Us"
+        href: contact.qmd
+        aria-label: Contact details
 
   page-footer:
     left: >-
