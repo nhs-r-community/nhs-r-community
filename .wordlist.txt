@@ -89,6 +89,7 @@ CRS
 CSP
 CSPs
 CSSEGISandData
+css
 CSUs
 CTE
 CUSs
@@ -520,6 +521,7 @@ RECR
 RFR
 RG
 RGB
+rgba
 RGN
 RHM
 RII
