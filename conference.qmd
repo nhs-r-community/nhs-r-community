@@ -1,9 +1,0 @@
----
-sidebar: false
-page-layout: article
-toc: false
-title-block-banner: false
-code-fold: true
----
-
-## **Watch this space...**
