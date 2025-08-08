@@ -41,9 +41,6 @@ website:
       - text: "Resources"
         href: resources.qmd
         aria-label: Resources page
-      - text: "Blogs"
-        href: blog/index.qmd
-        aria-label: Blogs listed
       - text: "Fellowships"
         href: fellowship.qmd
         aria-label: Fellowships page
