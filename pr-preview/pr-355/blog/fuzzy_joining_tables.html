@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Tom Jemmett">
+<meta name="dcterms.date" content="2023-02-03">
+<title>Fuzzy joining tables using string distance methods – NHS-R Community Quarto website</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//img/nhsr-logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-cb0f9a82e1023f244a0f182ddea879de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-35642e26c351337f658a1f8866735c73.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-cb0f9a82e1023f244a0f182ddea879de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1T1K3D1BKL"></script><script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
+</script><link rel="stylesheet" href="../assets/nhsr.css">
+</head>
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="https://nhsrcommunity.com/" class="navbar-brand navbar-brand-logo">
+    <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo"></a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../news.html"> 
+<span class="menu-text">News</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blog/index.html"> 
+<span class="menu-text">Blogs</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-events-and-training" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Events and Training</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-events-and-training">
+<li>
+    <a class="dropdown-item" href="../conference.html">
+ <span class="dropdown-text">Conference</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../webinars-and-workshops.html">
+ <span class="dropdown-text">Webinars and Workshops</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../coffee-and-code.html">
+ <span class="dropdown-text">Coffee &amp; Coding</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../training.html">
+ <span class="dropdown-text">Training</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-resources">
+<li>
+    <a class="dropdown-item" href="../books/index.html">
+ <span class="dropdown-text">Books</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../videos.html">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../r-packages.html">
+ <span class="dropdown-text">R packages</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item">
+    <a class="nav-link" href="../fellowship.html"> 
+<span class="menu-text">Fellowships</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contact.html"> 
+<span class="menu-text">Contact Us</span></a>
+  </li>  
+</ul>
+</div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/nhs-r-community" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav><div id="quarto-announcement" data-announcement-id="7b06e708ae5ca75bf8bddafca9b1bf34" class="alert alert-primary hidden">
+<i class="bi bi-calendar2-event quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p><strong>Abstract Call for RPYSOC2025</strong> See our <a href="https://nhsrcommunity.com/conference.html">conference</a> page for more info.</p>
+</div>
+<i class="bi bi-x-lg quarto-announcement-action"></i>
+</div>
+</header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns"><div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
+<h1 class="title">Fuzzy joining tables using string distance methods</h1>
+    <div class="quarto-categories">
+        <div class="quarto-category">Strings</div>
+        <div class="quarto-category">tidyverse</div>
+      </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Tom Jemmett </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 3, 2023</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">July 27, 2024</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+
+</header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html --><!--
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+--><!-- <header id="title-block-header" class="quarto-title-block default page-columns"> --><!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> --><p>I recently had a problem where I had two datasets containing data which I needed to join together. The two datasets had a nice 1:1 mapping between them, but unfortunately there was not a nice coded identifier to join the two datasets. There was just a name field, and annoyingly there were subtle differences between the two.</p>
+<p>For demonstration purposes, I’m going to show a similar problem. Imagine that we have one dataset that contains data about <a href="https://en.wikipedia.org/wiki/Integrated_care_system">ICSs</a>, and another about <a href="https://en.wikipedia.org/wiki/Sustainability_and_transformation_plan">STPs</a>. (For those not familiar with English NHS geographies, STPs were 42 geographic areas covering England, which in July 2022 became ICSs). This has a 1:1 mapping, but some of the names changed slightly when ICSs came into effect.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/markvanderloo/stringdist">stringdist</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor">janitor</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r.igraph.org/">igraph</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you want to follow along, download the list of <a href="https://geoportal.statistics.gov.uk/documents/bec635f6c83e4582bcf76ce02c2be840/about">STPs</a> and <a href="https://geoportal.statistics.gov.uk/documents/25ba241a775e4a9db8e5c721ee73d85d/about">ICBs</a> from the ONS Geoportal site.</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">stps</span> <span class="op">&lt;-</span> <span class="fu">readxl</span><span class="fu">::</span><span class="fu">read_excel</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu">here</span><span class="op">(</span><span class="op">)</span>, <span class="st">"/STP_APR_2021_EN_NC.xlsx"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span>code <span class="op">=</span> <span class="va">STP21CDH</span>, description <span class="op">=</span> <span class="va">STP21NM</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">arrange</span><span class="op">(</span><span class="va">code</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">stps</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 42 × 2
+   code  description                           
+   &lt;chr&gt; &lt;chr&gt;                                 
+ 1 QE1   Healthier Lancashire and South Cumbria
+ 2 QF7   South Yorkshire and Bassetlaw         
+ 3 QGH   Herefordshire and Worcestershire      
+ 4 QH8   Mid and South Essex                   
+ 5 QHG   Bedfordshire, Luton and Milton Keynes 
+ 6 QHL   Birmingham and Solihull               
+ 7 QHM   Cumbria and North East                
+ 8 QJ2   Joined Up Care Derbyshire             
+ 9 QJG   Suffolk and North East Essex          
+10 QJK   Devon                                 
+# ℹ 32 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">icbs</span> <span class="op">&lt;-</span> <span class="fu">readxl</span><span class="fu">::</span><span class="fu">read_excel</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu">here</span><span class="op">(</span><span class="op">)</span>, <span class="st">"/ICB_JUL_2022_EN_NC.xlsx"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span>code <span class="op">=</span> <span class="va">ICB22CDH</span>, description <span class="op">=</span> <span class="va">ICB22NM</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">arrange</span><span class="op">(</span><span class="va">code</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">icbs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 42 × 2
+   code  description                                                    
+   &lt;chr&gt; &lt;chr&gt;                                                          
+ 1 QE1   NHS Lancashire and South Cumbria Integrated Care Board         
+ 2 QF7   NHS South Yorkshire Integrated Care Board                      
+ 3 QGH   NHS Herefordshire and Worcestershire Integrated Care Board     
+ 4 QH8   NHS Mid and South Essex Integrated Care Board                  
+ 5 QHG   NHS Bedfordshire, Luton and Milton Keynes Integrated Care Board
+ 6 QHL   NHS Birmingham and Solihull Integrated Care Board              
+ 7 QHM   NHS North East and North Cumbria Integrated Care Board         
+ 8 QJ2   NHS Derby and Derbyshire Integrated Care Board                 
+ 9 QJG   NHS Suffolk and North East Essex Integrated Care Board         
+10 QJK   NHS Devon Integrated Care Board                                
+# ℹ 32 more rows</code></pre>
+</div>
+</div>
+<p>Obviously, here we have the <a href="https://en.wikipedia.org/wiki/ONS_coding_system">“E54* ONS codes</a> which we could join on, a luxury I did not have. I’ve left these in to test the matching does work later.</p>
+<p>First of all, how many rows are we able to match joining on the name?</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">icbs</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">inner_join</span><span class="op">(</span><span class="va">stps</span>, by <span class="op">=</span> <span class="st">"description"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 0 × 3
+# ℹ 3 variables: code.x &lt;chr&gt;, description &lt;chr&gt;, code.y &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>None! Looking at the <code>icbs</code> dataset, we can see rows start with “NHS” and end with “Integrated Care Board”, which doesn’t happen in <code>stps</code>. Perhaps, by just stripping these we get a perfect match?</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">icbs</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">description</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span><span class="fu">across</span><span class="op">(</span><span class="va">description</span>, <span class="va">str_remove_all</span>, <span class="st">"^NHS | Integrated Care Board$"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">inner_join</span><span class="op">(</span><span class="va">stps</span> <span class="op">|&gt;</span> <span class="fu">select</span><span class="op">(</span><span class="va">description</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"description"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 1
+   description                                        
+   &lt;chr&gt;                                              
+ 1 Herefordshire and Worcestershire                   
+ 2 Mid and South Essex                                
+ 3 Bedfordshire, Luton and Milton Keynes              
+ 4 Birmingham and Solihull                            
+ 5 Suffolk and North East Essex                       
+ 6 Devon                                              
+ 7 Lincolnshire                                       
+ 8 Leicester, Leicestershire and Rutland              
+ 9 Kent and Medway                                    
+10 Hertfordshire and West Essex                       
+11 Bath and North East Somerset, Swindon and Wiltshire
+12 Northamptonshire                                   
+13 Gloucestershire                                    
+14 Somerset                                           
+15 Buckinghamshire, Oxfordshire and Berkshire West    
+16 Cambridgeshire and Peterborough                    
+17 Bristol, North Somerset and South Gloucestershire  
+18 Dorset                                             
+19 Coventry and Warwickshire                          
+20 Cheshire and Merseyside                            </code></pre>
+</div>
+</div>
+<p>Roughly half… not good enough!</p>
+<section id="string-distance-methods-to-the-rescue" class="level2"><h2 class="anchored" data-anchor-id="string-distance-methods-to-the-rescue"><strong>String distance methods to the rescue?</strong></h2>
+<p>Many of us will have had to compare strings at some point, perhaps using <code>LIKE</code> in Sql, or Regular Expressions (regexs) in R. But there are a class of algorithms that can calculate the “distance” or “similarity” between two strings.</p>
+<p>Consider the two words “grey” and “gray”. How similar are these two words? The <a href="https://en.wikipedia.org/wiki/Hamming_distance">Hamming Distance</a> algorithm compares two strings of equal length, and returns a number indicating how many positions are different in the string. So for our two words above, we get a distance of 1.</p>
+<p>A generally more useful method though is the <a href="https://en.wikipedia.org/wiki/Damerau-Levenshtein_distance">Damerau-Levenshtein distance</a>. This calculates the number of operations to make the first string equal the second string.</p>
+<p>Operations in this context are single-character insertions, deletions or substitutions, or transposition of two adjacent characters.</p>
+<p>Alternatively, we could consider the set of unique words used in two strings. We can count the intersection of words (words common to both strings) and divide by the count of all the words used to give us a value between 0 and 1. A value of 0 would indicate that the two strings are completely different, and a value of 1 would indicate that the two strings are very similar. This method is called the <a href="https://towardsdatascience.com/overview-of-text-similarity-metrics-3396c4601f50">Jaccard Similarity</a>.</p>
+<p>This is a very useful method for the problem I faced, as I expect the names in both datasets to be free of spelling mistakes.</p>
+</section><section id="using-the-jaccard-similarity-method" class="level2"><h2 class="anchored" data-anchor-id="using-the-jaccard-similarity-method"><strong>Using the Jaccard Similarity method</strong></h2>
+<p>First, we can use the <code>stringsimmatrix()</code> function from the <a href="https://github.com/markvanderloo/stringdist">stringdist</a> package to calculate the Jaccard Similarity matrix, comparing the names from the first table to the names from the second table.</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dist_matrix</span> <span class="op">&lt;-</span> <span class="fu">stringdist</span><span class="fu">::</span><span class="fu">stringsimmatrix</span><span class="op">(</span></span>
+<span>  <span class="va">icbs</span><span class="op">$</span><span class="va">description</span>,</span>
+<span>  <span class="va">stps</span><span class="op">$</span><span class="va">description</span>,</span>
+<span>  <span class="st">"jaccard"</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>However, simply calculating the string distance matrix doesn’t give us a solution to the problem. In the table below, you can see that in column y, some rows appear more than once, and eyeballing the match it’s clear it hasn’t found the correct pair.</p>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># we can find the index of the maximum</span></span>
+<span><span class="fu">tibble</span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="va">icbs</span><span class="op">$</span><span class="va">description</span> <span class="op">|&gt;</span> <span class="fu">str_remove_all</span><span class="op">(</span><span class="st">"^NHS | Integrated Care Board$"</span><span class="op">)</span>,</span>
+<span>  y <span class="op">=</span> <span class="va">stps</span><span class="op">$</span><span class="va">description</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">dist_matrix</span>, <span class="fl">1</span>, <span class="va">which.max</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">arrange</span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu">n</span><span class="op">(</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 2
+# Groups:   y [5]
+   x                                                 y                          
+   &lt;chr&gt;                                             &lt;chr&gt;                      
+ 1 Gloucestershire                                   Bristol, North Somerset an…
+ 2 Bristol, North Somerset and South Gloucestershire Bristol, North Somerset an…
+ 3 Shropshire, Telford and Wrekin                    Hampshire and the Isle of …
+ 4 Hampshire and Isle of Wight                       Hampshire and the Isle of …
+ 5 Lancashire and South Cumbria                      Healthier Lancashire and S…
+ 6 Leicester, Leicestershire and Rutland             Healthier Lancashire and S…
+ 7 Lincolnshire                                      North London Partners in H…
+ 8 North East London                                 North London Partners in H…
+ 9 North Central London                              North London Partners in H…
+10 Birmingham and Solihull                           Nottingham and Nottinghams…
+11 Derby and Derbyshire                              Nottingham and Nottinghams…
+12 Devon                                             Nottingham and Nottinghams…
+13 Sussex                                            Nottingham and Nottinghams…
+14 Humber and North Yorkshire                        Nottingham and Nottinghams…
+15 Northamptonshire                                  Nottingham and Nottinghams…
+16 Somerset                                          Nottingham and Nottinghams…
+17 Nottingham and Nottinghamshire                    Nottingham and Nottinghams…
+18 Dorset                                            Nottingham and Nottinghams…
+19 Surrey Heartlands                                 Nottingham and Nottinghams…
+20 Cheshire and Merseyside                           Nottingham and Nottinghams…</code></pre>
+</div>
+</div>
+</section><section id="graph-theory-saves-the-day" class="level2"><h2 class="anchored" data-anchor-id="graph-theory-saves-the-day"><strong>Graph theory saves the day</strong></h2>
+<p>There is a quick solution to this though using a <a href="https://en.wikipedia.org/wiki/Bipartite_graph">Bipartite Graph</a>. A Birpartite Graph is a type of network where we have vertices of two types, and edges only exist between nodes of the different types.</p>
+<p>We can use the <a href="https://r.igraph.org/">igraph</a> package to construct and manipulate graphs. First, let’s construct a table where we have names from the first table as nodes of one type, and the names from the second table as nodes of the other type.</p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># the column `name` is special in a named graph. it will uniquely identify each vertex.</span></span>
+<span><span class="va">vertices</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu">bind_rows</span><span class="op">(</span></span>
+<span>  .id <span class="op">=</span> <span class="st">"type"</span>,</span>
+<span>  icbs <span class="op">=</span> <span class="va">icbs</span> <span class="op">|&gt;</span> <span class="fu">mutate</span><span class="op">(</span>name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"icb_"</span>, <span class="va">code</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  stps <span class="op">=</span> <span class="va">stps</span> <span class="op">|&gt;</span> <span class="fu">mutate</span><span class="op">(</span>name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"stp_"</span>, <span class="va">code</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu">relocate</span><span class="op">(</span><span class="va">name</span>, .before <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu">everything</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># the "type" column needs to be a logical vector, so we use TRUE for the first type, and FALSE for the second</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu">mutate</span><span class="op">(</span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu">across</span><span class="op">(</span><span class="st">"type"</span>, <span class="op">~</span> <span class="va">.x</span> <span class="op">==</span> <span class="st">"icbs"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">vertices</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 84 × 4
+   name    type  code  description                                              
+   &lt;chr&gt;   &lt;lgl&gt; &lt;chr&gt; &lt;chr&gt;                                                    
+ 1 icb_QE1 TRUE  QE1   NHS Lancashire and South Cumbria Integrated Care Board   
+ 2 icb_QF7 TRUE  QF7   NHS South Yorkshire Integrated Care Board                
+ 3 icb_QGH TRUE  QGH   NHS Herefordshire and Worcestershire Integrated Care Boa…
+ 4 icb_QH8 TRUE  QH8   NHS Mid and South Essex Integrated Care Board            
+ 5 icb_QHG TRUE  QHG   NHS Bedfordshire, Luton and Milton Keynes Integrated Car…
+ 6 icb_QHL TRUE  QHL   NHS Birmingham and Solihull Integrated Care Board        
+ 7 icb_QHM TRUE  QHM   NHS North East and North Cumbria Integrated Care Board   
+ 8 icb_QJ2 TRUE  QJ2   NHS Derby and Derbyshire Integrated Care Board           
+ 9 icb_QJG TRUE  QJG   NHS Suffolk and North East Essex Integrated Care Board   
+10 icb_QJK TRUE  QJK   NHS Devon Integrated Care Board                          
+# ℹ 74 more rows</code></pre>
+</div>
+</div>
+<p>Then create weighted edges between each pair of names, using the distance matrix we calculated above.</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">edges</span> <span class="op">&lt;-</span> <span class="va">dist_matrix</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># this will convert our matrix into a list of lists</span></span>
+<span>  <span class="fu">purrr</span><span class="fu">::</span><span class="fu">array_branch</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># the lists will be in the same order as our original data</span></span>
+<span>  <span class="co"># so we can use purrr to change into a dataframe</span></span>
+<span>  <span class="fu">purrr</span><span class="fu">::</span><span class="fu">set_names</span><span class="op">(</span><span class="va">icbs</span><span class="op">$</span><span class="va">code</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">purrr</span><span class="fu">::</span><span class="fu">map_dfr</span><span class="op">(</span></span>
+<span>    .id <span class="op">=</span> <span class="st">"to"</span>,</span>
+<span>    \<span class="op">(</span><span class="va">.x</span><span class="op">)</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu">tibble</span><span class="op">(</span>from <span class="op">=</span> <span class="va">icbs</span><span class="op">$</span><span class="va">code</span>, weight <span class="op">=</span> <span class="va">.x</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span></span>
+<span>    <span class="fu">across</span><span class="op">(</span><span class="va">to</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"icb_"</span>, <span class="va">.x</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    <span class="fu">across</span><span class="op">(</span><span class="va">from</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"stp_"</span>, <span class="va">.x</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span><span class="va">edges</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,764 × 3
+   to      from    weight
+   &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;
+ 1 icb_QE1 stp_QE1  0.792
+ 2 icb_QE1 stp_QF7  0.519
+ 3 icb_QE1 stp_QGH  0.52 
+ 4 icb_QE1 stp_QH8  0.462
+ 5 icb_QE1 stp_QHG  0.483
+ 6 icb_QE1 stp_QHL  0.542
+ 7 icb_QE1 stp_QHM  0.625
+ 8 icb_QE1 stp_QJ2  0.429
+ 9 icb_QE1 stp_QJG  0.464
+10 icb_QE1 stp_QJK  0.12 
+# ℹ 1,754 more rows</code></pre>
+</div>
+</div>
+<p>This tibble gives us the string similarities between each pair of names from our two tables.</p>
+<p>Now that we have our edges and vertices, we can construct a graph, and find the maximum bipartite matching. This works without much effort as we constructed our vertices with a <code>type</code> logical column, and we constructed our edges with a <code>weight</code> numeric column. <a href="https://r.igraph.org/">igraph</a> handles the rest for us.</p>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu">graph_from_data_frame</span><span class="op">(</span><span class="va">edges</span>, <span class="cn">TRUE</span>, <span class="va">vertices</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu">max_bipartite_match</span><span class="op">(</span><span class="va">g</span><span class="op">)</span><span class="op">$</span><span class="va">matching</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">enframe</span><span class="op">(</span><span class="st">"icb_code"</span>, <span class="st">"stp_code"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co"># the results gives us results from icb22cdh-&gt;icb22cd and vice versa</span></span>
+<span>  <span class="co"># keep just the icb22cdh-&gt;icb22cd results</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">icb_code</span> <span class="op">|&gt;</span> <span class="fu">str_starts</span><span class="op">(</span><span class="st">"icb_"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span><span class="fu">across</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">icb_code</span>, <span class="va">stp_code</span><span class="op">)</span>, <span class="va">str_remove_all</span>, <span class="st">"^.{3}_"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">m</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">icb_code</span> <span class="op">==</span> <span class="va">stp_code</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">rename</span><span class="op">(</span>code <span class="op">=</span> <span class="va">icb_code</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">stp_code</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">inner_join</span><span class="op">(</span></span>
+<span>    <span class="va">icbs</span> <span class="op">|&gt;</span> <span class="fu">rename</span><span class="op">(</span>icb_name <span class="op">=</span> <span class="va">description</span><span class="op">)</span>,</span>
+<span>    by <span class="op">=</span> <span class="st">"code"</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">inner_join</span><span class="op">(</span></span>
+<span>    <span class="va">stps</span> <span class="op">|&gt;</span> <span class="fu">rename</span><span class="op">(</span>stp_name <span class="op">=</span> <span class="va">description</span><span class="op">)</span>,</span>
+<span>    by <span class="op">=</span> <span class="st">"code"</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span><span class="fu">across</span><span class="op">(</span><span class="fu">everything</span><span class="op">(</span><span class="op">)</span>, <span class="va">str_trunc</span>, <span class="fl">30</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">42</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 42 × 3
+   code  icb_name                       stp_name                      
+   &lt;chr&gt; &lt;chr&gt;                          &lt;chr&gt;                         
+ 1 QE1   NHS Lancashire and South Cu... Healthier Lancashire and So...
+ 2 QF7   NHS South Yorkshire Integra... South Yorkshire and Bassetlaw 
+ 3 QGH   NHS Herefordshire and Worce... Herefordshire and Worcester...
+ 4 QH8   NHS Mid and South Essex Int... Mid and South Essex           
+ 5 QHG   NHS Bedfordshire, Luton and... Bedfordshire, Luton and Mil...
+ 6 QHL   NHS Birmingham and Solihull... Birmingham and Solihull       
+ 7 QHM   NHS North East and North Cu... Cumbria and North East        
+ 8 QJ2   NHS Derby and Derbyshire In... Joined Up Care Derbyshire     
+ 9 QJG   NHS Suffolk and North East ... Suffolk and North East Essex  
+10 QJK   NHS Devon Integrated Care B... Devon                         
+11 QJM   NHS Lincolnshire Integrated... Lincolnshire                  
+12 QK1   NHS Leicester, Leicestershi... Leicester, Leicestershire a...
+13 QKK   NHS South East London Integ... Our Healthier South East Lo...
+14 QKS   NHS Kent and Medway Integra... Kent and Medway               
+15 QM7   NHS Hertfordshire and West ... Hertfordshire and West Essex  
+16 QMF   NHS North East London Integ... East London Health and Care...
+17 QMJ   NHS North Central London In... North London Partners in He...
+18 QMM   NHS Norfolk and Waveney Int... Norfolk and Waveney Health ...
+19 QNC   NHS Staffordshire and Stoke... Staffordshire and Stoke on ...
+20 QNQ   NHS Frimley Integrated Care... Frimley Health and Care ICS   
+21 QNX   NHS Sussex Integrated Care ... Sussex Health and Care Part...
+22 QOC   NHS Shropshire, Telford and... Shropshire and Telford and ...
+23 QOP   NHS Greater Manchester Inte... Greater Manchester Health a...
+24 QOQ   NHS Humber and North Yorksh... Humber, Coast and Vale        
+25 QOX   NHS Bath and North East Som... Bath and North East Somerse...
+26 QPM   NHS Northamptonshire Integr... Northamptonshire              
+27 QR1   NHS Gloucestershire Integra... Gloucestershire               
+28 QRL   NHS Hampshire and Isle of W... Hampshire and the Isle of W...
+29 QRV   NHS North West London Integ... North West London Health an...
+30 QSL   NHS Somerset Integrated Car... Somerset                      
+31 QT1   NHS Nottingham and Nottingh... Nottingham and Nottinghamsh...
+32 QT6   NHS Cornwall and the Isles ... Cornwall and the Isles of S...
+33 QU9   NHS Buckinghamshire, Oxford... Buckinghamshire, Oxfordshir...
+34 QUA   NHS Black Country Integrate... The Black Country and West ...
+35 QUE   NHS Cambridgeshire and Pete... Cambridgeshire and Peterbor...
+36 QUY   NHS Bristol, North Somerset... Bristol, North Somerset and...
+37 QVV   NHS Dorset Integrated Care ... Dorset                        
+38 QWE   NHS South West London Integ... South West London Health an...
+39 QWO   NHS West Yorkshire Integrat... West Yorkshire and Harrogat...
+40 QWU   NHS Coventry and Warwickshi... Coventry and Warwickshire     
+41 QXU   NHS Surrey Heartlands Integ... Surrey Heartlands Health an...
+42 QYG   NHS Cheshire and Merseyside... Cheshire and Merseyside       </code></pre>
+</div>
+</div>
+<p>This gives us a perfect match!</p>
+</section><section id="how-does-this-work" class="level2"><h2 class="anchored" data-anchor-id="how-does-this-work"><strong>How does this work?</strong></h2>
+<p>Roughly, the way this matching algorithm works is it starts off and finds the edge with the greatest possible matching score, and pairs those two nodes together. It then removes those nodes (and edges to/from those nodes) from the graph, and repeats until all nodes are paired, or no edges remain.</p>
+<p>This prevents the issue we initially saw, because a node can only be paired to one other node.</p>
+<p>This algorithm works when we have a good set of weights to the edges. In fact, if you try running the string similarity function with some of the different algorithms that are available, such as the Levenshtein Distance, most give us bipartite matchings that aren’t correct.</p>
+<p>For a more complete description, see the help page for the function (<a href="https://igraph.org/r/doc/matching.html">igraph::max_bipartite_match</a>), and the <a href="https://en.wikipedia.org/wiki/Push%E2%80%93relabel_maximum_flow_algorithm">Push-relabel maximum flow algorithm</a>.</p>
+</section><section id="final-thoughts" class="level2"><h2 class="anchored" data-anchor-id="final-thoughts"><strong>Final thoughts</strong></h2>
+<p>Hopefully this has been interesting to you and introduced some new and interesting techniques to play with. Both string-distance algorithms and graph theory are very powerful tools that crop up again and again in computer science, so are worth diving into if you are curious!</p>
+<p>There is an obvious question of, are there easier approaches to this problem? In this case, we only had 42 options, which is probably quick enough to solve by hand in Excel by starting with two sorted columns and manually lining up the correct rows.</p>
+<p>However, if you had a similar problem with more options then the manual approach would quickly becoming tiring. It is worth noting that you should not blindly trust the results; In my original problem I scanned the results and confirmed that I got the results I was after. In this example we had the codes which allowed us to confirm the correct results</p>
+<p>I also came into this problem expecting there to be a perfect 1:1 mapping between both sets. If it isn’t guaranteed that constraint holds in your problem then you may need to treat the results more cautiously.</p>
+<p>This post is also available as a <a href="https://gist.github.com/tomjemmett/fc5fa443a3c1d1bd964e9eba34bb2d10">quarto document</a>.</p>
+
+
+</section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nhsrcommunity\.com\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+<p>2025 NHS-R Community ∙ Made with <a href="https://quarto.org/"><img src="https://quarto.org/quarto.png" class="img-fluid" alt="Quarto logo blue round circle with a cross within the circumference" width="65"></a></p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="https://fosstodon.org/@NHSrCommunity" aria-label="Go to NHSR's Fosstodon page" title="mastodon" target="_blank" rel="noopener"> <i class="link-dark me-1" aria-hidden="true"></i> <i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a> <a href="https://bsky.app/profile/nhsrcommunity.bsky.social" aria-label="Go to NHSR's Bluesky page" title="bluesky" target="_blank" rel="noopener"> <i class="link-dark me-1" aria-hidden="true"></i> <iconify-icon role="img" inline="" icon="fa6-brands:bluesky" aria-label="Icon bluesky from fa6-brands Iconify.design set." title="Icon bluesky from fa6-brands Iconify.design set."></iconify-icon></a> <a href="https://github.com/nhs-r-community" aria-label="Go to NHSR's GitHub" title="github" target="_blank" rel="noopener"> <i class="link-dark me-1" aria-hidden="true"></i> <i class="fa-brands fa-github" aria-label="github"></i></a> <a href="https://soundcloud.com/nhs-r-community" aria-label="Go to NHSR's SoundCloud" title="soundcloud" target="_blank" rel="noopener"> <i class="link-dark me-1" aria-hidden="true"></i> <i class="fa-brands fa-soundcloud" aria-label="soundcloud"></i></a> <a href="https://www.linkedin.com/in/nhs-r-community-2555a6282/" aria-label="Go to NHSR's LinkedIn" title="LinkedIn" target="_blank" rel="noopener"> <i class="link-dark me-1" aria-hidden="true"></i> <i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a></p>
+<div class="toc-actions"><ul><li><a href="https://github.com/nhs-r-community/nhs-r-community/edit/main/blog/fuzzy_joining_tables.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nhs-r-community/nhs-r-community/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+<li class="nav-item">
+    <a class="nav-link" href="../accessibility.html">
+<p>Accessibility</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../ts-and-cs.html">
+<p>Terms and Conditions</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../contact.html">
+<p>Contact</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../licence.html">
+<p>Licence</p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../blog/index.xml">
+      <i class="bi bi-rss" role="img" aria-label="RSS blog feed">
+</i> 
+    </a>
+  </li>  
+</ul>
+</div>
+  </div>
+</footer>
+
+
+</body></html>
