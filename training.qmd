@@ -1,0 +1,32 @@
+---
+title: "Training"
+---
+
+## NLP with R {#nlp}
+
+::: {.callout-warning}
+
+Limited-capacity free online training, apply **now** to secure your place!
+
+:::
+
+🎉 We're delighted to announce that, new for 2025, we are working in collaboration with Dr Pawel Orzechowski of the University of Edinburgh to offer a **FREE 10-week distance-learning introductory course in NLP with R for NHS employees**!
+
+The course will run from 8th September to 20th November 2025.
+In this course, students will explore the fundamental concepts of natural language processing (NLP) and its role in current and emerging technologies. 
+
+This course has been adapted from a postgraduate-level offering from the University and will be run using their bespoke learning platform and a set of fortnightly Teams sessions, culminating in a project presented back to the class in the final session. 
+
+To see if you meet the pre-requisites for applying, get more information on the course, and to submit your application, please visit [this online survey](https://www.smartsurvey.co.uk/s/WDIHWG/).  Please note, places on the course are limited, and will be assigned on a first-come-first-served basis for those meeting the prerequisite criteria. 
+Applications will close on **29th August**, so hurry to secure your place!🏃‍♀️
+
+Course dates:
+8th September - course begins
+
+Zoom meeting session dates (see invite email for Zoom links)
+
+- 24th September, 9:30:11:30 BST - Session 1
+- 8th October, 9:30:11:30 BST - Session 2
+- 22nd October, 9:30:11:30 BST - Session 3
+- 5th November, 9:30:11:30 BST - Session 4
+- 19th November, 9:30:11:30 BST - Final Session

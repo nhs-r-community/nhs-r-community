@@ -1,0 +1,15 @@
+---
+title: "R packages"
+---
+
+The NHS-R community has created and are developing R packages to support analytics in health and care. 
+
+Contributions are very welcome. We appreciate code, documentation, bug fixes and designs for hexes. Please feel free to tackle any of the issues in the package GitHub repository or create a new issue. If you have other code or ideas for new packages, please let us know.
+
+[<img src="https://raw.githubusercontent.com/nhs-r-community/NHSRplotthedots/main/inst/images/logo.png" height="150" alt = "NHSRplotthedots"/>](https://nhs-r-community.github.io/NHSRplotthedots/)
+[<img src="https://raw.githubusercontent.com/nhs-r-community/NHSRdatasets/main/inst/images/nhsrdatasetslogo.png" height="150" alt = "NHSRdatasets"/>](https://nhs-r-community.github.io/NHSRdatasets/)
+[<img src="https://raw.githubusercontent.com/nhs-r-community/NHSRepisodes/main/inst/images/nhsrepisodeslogo.png" height="150" alt = "NHSRepisodes"/>](https://nhs-r-community.github.io/NHSRepisodes/)
+[<img src="https://raw.githubusercontent.com/nhs-r-community/NHSRtheme/main/inst/images/nhsrthemelogo.png" height="150" alt = "NHSRtheme"/>](https://nhs-r-community.github.io/NHSRtheme/)
+[<img src="img/NHSRwaitinglistlogo.png" height="150" alt = "NHSRwaitinglist"/>](https://nhs-r-community.github.io/NHSRwaitinglist/)
+[<img src="img/NHSRpopulationlogo.png" height="150" alt = "NHSRpopulation"/>](https://nhs-r-community.github.io/NHSRpopulation/)
+[<img src="img/NHSRpostcodetoolslogo.png" height="150" alt = "NHSRpostcodetools"/>](https://nhs-r-community.github.io/NHSRpostcodetools/)
