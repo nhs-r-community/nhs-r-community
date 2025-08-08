@@ -47,7 +47,7 @@ Please note:
   + 13:00 - 14:00 (GMT)
   + 🔗 [Registration Link](https://events.teams.microsoft.com/event/0be32c13-7c12-4529-9357-98c20cb3663f@37c354b2-85b0-47f5-b222-07b48d774ee3?utm_source=substack&utm_medium=email)
 
-📆 23rd & 24th **Workshop: "Introduction to R and R Studio with Dr Claire Welsh"**
+📆 23rd & 24th **Workshop: "Introduction to R and RStudio with Dr Claire Welsh"**
 
   + 09:00 - 13:00 (GMT)
   + 🔗 [Registration Link](https://forms.office.com/Pages/ResponsePage.aspx?id=slTDN7CF9UeyIge0jXdO44XdMKUqFgROnUm4_TKex1xUMjhVRENHS1lTU0gzSjRUWTdJUzBHVVk0My4u)
