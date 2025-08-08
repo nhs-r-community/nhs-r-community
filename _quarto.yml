@@ -38,6 +38,8 @@ website:
       - text: "Events and Training"
         href: events_and_training.qmd
         aria-label: List of upcoming events
+      - text: "Blogs"
+        href: blog/index.qmd
       - text: "Resources"
         href: resources.qmd
         aria-label: Resources page
