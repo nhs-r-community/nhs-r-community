@@ -41,6 +41,8 @@ website:
       - text: "News"
         href: news.qmd
         aria-label: News page
+      - text: "Blogs"
+        href: blog/index.qmd
       - text: "Events and Training"
         menu:
         - conference.qmd
