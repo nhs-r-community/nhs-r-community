@@ -284,12 +284,6 @@
     ]
   },
   {
-    "listing": "/reports/index.html",
-    "items": [
-      "/reports/reports/NHS-R_questionnaire_2025/index.html"
-    ]
-  },
-  {
     "listing": "/latest-content.html",
     "items": [
       "/books/index.html",
@@ -428,6 +422,12 @@
       "/blog/pareto-chart-in-ggplot2.html",
       "/blog/aiming-for-a-wrangle-free-or-reduced-world.html",
       "/blog/nhs-meets-r.html"
+    ]
+  },
+  {
+    "listing": "/reports/index.html",
+    "items": [
+      "/reports/reports/NHS-R_questionnaire_2025/index.html"
     ]
   }
 ]

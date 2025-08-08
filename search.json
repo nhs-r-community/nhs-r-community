@@ -1,10 +1,66 @@
 [
   {
-    "objectID": "events_and_training.html",
-    "href": "events_and_training.html",
-    "title": "Events and Training",
+    "objectID": "accessibility.html",
+    "href": "accessibility.html",
+    "title": "Accessibility commitment",
     "section": "",
-    "text": "ConferenceWebinars and WorkshopsCoffee & CodingTraining\n\n\n\nWe are pleased to announce that the RPYSOC 2025 conference will be held at the Wellcome Trust (215 Euston Road, London), offering both in-person and virtual attendance options!\nConference dates: Thursday 13th November 2025 Friday 14th November 2025\nRegistration to open shortly – so watch this space!\nTo submit an abstract, please complete this form.\nPlease note that the abstract submission deadline is Friday 05th September 2025. We would be honoured to incorporate your work into the conference.\nThank you for being part of the community during a time of change—we appreciate your engagement!\n\n\nPlease note:\n\nWorkshop attendance is restricted to employees of the NHS, public sector, civil servants, voluntary sector, charities and academia, or who are retirees from any of these sectors.\nWebinars are free to all to attend, and recordings are stored on our YouTube Channel\n\n\nAugust 2025\n📆 13th Webinar: “An Improved I Chart with Jacob Anhøj and Mohammed Mohammed” + 13:00 - 14:00 (GMT) + 🔗 Registration Link\n\n\n\nSeptember 2025\n📆 11th Webinar: “Complexity Made Approachable: Rethinking R-Based Modelling for Healthcare with AM-Smart Tools with Brian Castellani, Corey Schimpf and Chris Caden” + 13:00 - 14:00 (GMT) + 🔗 Registration Link\n📆 23rd & 24th Workshop: “Introduction to R and RStudio with Dr Claire Welsh”\n\n09:00 - 13:00 (GMT)\n🔗 Registration Link\n\n\n\n\nOctober 2025\n📆 14th & 15th Workshop: “Intermediate R with Dr Claire Welsh”\n\n09:00 - 13:00 (GMT)\n🔗 Registration Link\n\n\n\n\nPlease note:\n\nCoffee & Code sessions are a chance for like-minded coders to get together and chat, share tips, code snippets, and watch show-and-tells about useful or new R stuff. These sessions are run by Simon Wellesley-Miller (NHS England), and recordings are made available here.\n\n\nAugust 2025\n📆 8th Coffee and Coding:\n\n11:00 - 12:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n📆 21st Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n\n\n\nSeptember 2025\n📆 3rd Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n📆 19th Coffee and Coding:\n\n11:00 - 12:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n\n\n\nOctober 2025\n📆 2nd Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n📆 15th Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n📆 31st Coffee and Coding:\n\n11:00 - 12:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n\n\n\nNovember 2025\n📆 13th Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n📆 26th Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n\n\n\nDecember 2025\n📆 12th Coffee and Coding:\n\n11:00 - 12:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n\n\n\n\nNLP with R\n\n\n\n\n\n\nWarning\n\n\n\nLimited-capacity free online training, apply now to secure your place!\n\n\n🎉 We’re delighted to announce that, new for 2025, we are working in collaboration with Dr Pawel Orzechowski of the University of Edinburgh to offer a FREE 10-week distance-learning introductory course in NLP with R for NHS employees!\nThe course will run from 8th September to 20th November 2025. In this course, students will explore the fundamental concepts of natural language processing (NLP) and its role in current and emerging technologies.\nThis course has been adapted from a postgraduate-level offering from the University and will be run using their bespoke learning platform and a set of fortnightly Teams sessions, culminating in a project presented back to the class in the final session.\nTo see if you meet the pre-requisites for applying, get more information on the course, and to submit your application, please visit this online survey. Please note, places on the course are limited, and will be assigned on a first-come-first-served basis for those meeting the prerequisite criteria. Applications will close on 29th August, so hurry to secure your place!🏃‍♀️\nCourse dates: 8th September - course begins\nZoom meeting session dates (see invite email for Zoom links)\n\n24th September, 9:30:11:30 BST - Session 1\n8th October, 9:30:11:30 BST - Session 2\n22nd October, 9:30:11:30 BST - Session 3\n5th November, 9:30:11:30 BST - Session 4\n19th November, 9:30:11:30 BST - Final Session\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "Return to home page or about page.\nInspired from Silvia Canelón’s commitment to accessibility NHS-R Community welcomes feedback on the accessibility of this site and any links to its materials including code and training materials. We have used the Web Accessibility Evaluation Tool to manually check for accessibility errors and corrected where possible."
+  },
+  {
+    "objectID": "accessibility.html#website-practices",
+    "href": "accessibility.html#website-practices",
+    "title": "Accessibility commitment",
+    "section": "Website practices",
+    "text": "Website practices\nThis site has been designed with the following features in mind:\n\nThe colour palette is from NHS branding.\nFonts are set to Arial which is an NHS font.\nAlternative text is used for all images.\n\nAny learning will be used to improve the site and will also be shared with the community more widely through book resources like our Open Analytics page where we have started to collect links that support greater Accessibility."
+  },
+  {
+    "objectID": "accessibility.html#search-button",
+    "href": "accessibility.html#search-button",
+    "title": "Accessibility commitment",
+    "section": "Search button",
+    "text": "Search button\nThis is generated automatically through rendering a Quarto website and appears as an empty button.\nThere is an open issue on Quarto’s GitHub."
+  },
+  {
+    "objectID": "accessibility.html#default-thumbnail-image-for-blogs---no-alternative-text",
+    "href": "accessibility.html#default-thumbnail-image-for-blogs---no-alternative-text",
+    "title": "Accessibility commitment",
+    "section": "Default thumbnail image for blogs - no alternative text",
+    "text": "Default thumbnail image for blogs - no alternative text\nThe thumbnails for default images in blogs do not have alternative text, this particularly affects the blogs brought across from the original WordPress site as new blogs have specific images added. In code this relates to the image-placeholder:.\nThere is an open issue on Quarto’s GitHub and an issue on the website GitHub."
+  },
+  {
+    "objectID": "accessibility.html#empty-and-redundant-links",
+    "href": "accessibility.html#empty-and-redundant-links",
+    "title": "Accessibility commitment",
+    "section": "Empty and redundant links",
+    "text": "Empty and redundant links\nIn the blog thumbnail listing page images have missing links and redundant links."
+  },
+  {
+    "objectID": "accessibility.html#poor-contrast-colours",
+    "href": "accessibility.html#poor-contrast-colours",
+    "title": "Accessibility commitment",
+    "section": "Poor contrast colours",
+    "text": "Poor contrast colours\nThere are elements on the pages where there is insufficient colour contrast:\n\nBlog listing where the following pages is listed as .... This is currently too light to view. This is an issue on the website’s GitHub."
+  },
+  {
+    "objectID": "accessibility.html#missing-level-headers",
+    "href": "accessibility.html#missing-level-headers",
+    "title": "Accessibility commitment",
+    "section": "Missing level headers",
+    "text": "Missing level headers\nThere are elements on the pages where first and second level heading is missing."
+  },
+  {
+    "objectID": "accessibility.html#youtube-video-links",
+    "href": "accessibility.html#youtube-video-links",
+    "title": "Accessibility commitment",
+    "section": "YouTube video links",
+    "text": "YouTube video links\nThere are links to YouTube videos in this website that currently only have the automated YouTube subtitles."
+  },
+  {
+    "objectID": "accessibility.html#event-handlers-may-not-be-accessible",
+    "href": "accessibility.html#event-handlers-may-not-be-accessible",
+    "title": "Accessibility commitment",
+    "section": "Event handlers may not be accessible",
+    "text": "Event handlers may not be accessible\nThis website has used JavaScript events in Quarto and may not be accessible to both mouse and keyboard users."
   },
   {
     "objectID": "fellowship.html",
@@ -19,6 +75,13 @@
     "title": "Resources",
     "section": "",
     "text": "BooksVideosR packages\n\n\n\n\n\n\n\n\n\n\n\n\nNHS-R Way\n\n\n\n\n\n\n\n\n\n\n\nStatement on Tools\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHealth Inequalities\n\n\n\n\n\n\n\n\n\n\n\nOpen Analytics Reources\n\n\n\n\n\n\n\nTo view our recordings of workshops, webinars, past conferences and more, visit our YouTube Channel\n\n\nThe NHS-R community has created and are developing R packages to support analytics in health and care.\nContributions are very welcome. We appreciate code, documentation, bug fixes and designs for hexes. Please feel free to tackle any of the issues in the package GitHub repository or create a new issue. If you have other code or ideas for new packages, please let us know.\n      \n\n\n\nFor more information on all the free resources NHS-R provides, please visit the NHS-R Way Book\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "events.html",
+    "href": "events.html",
+    "title": "Events and Training",
+    "section": "",
+    "text": "ConferenceWebinars and WorkshopsCoffee & Coding\n\n\n\nWe are pleased to announce that the RPYSOC 2025 conference will be held at the Wellcome Trust (215 Euston Road, London), offering both in-person and virtual attendance options!\nConference dates: Thursday 13th November 2025 Friday 14th November 2025\nRegistration to open shortly – so watch this space!\nTo submit an abstract, please complete this form.\nPlease note that the abstract submission deadline is Friday 05th September 2025. We would be honoured to incorporate your work into the conference.\nThank you for being part of the community during a time of change—we appreciate your engagement!\n\n\nPlease note:\n\nWorkshop attendance is restricted to employees of the NHS, public sector, civil servants, voluntary sector, charities and academia, or who are retirees from any of these sectors.\nWebinars are free to all to attend, and recordings are stored on our YouTube Channel\n\n\nAugust 2025\n📆 13th Webinar: “An Improved I Chart with Jacob Anhøj and Mohammed Mohammed” + 13:00 - 14:00 (GMT) + 🔗 Registration Link\n\n\n\nSeptember 2025\n📆 11th Webinar: “Complexity Made Approachable: Rethinking R-Based Modelling for Healthcare with AM-Smart Tools with Brian Castellani, Corey Schimpf and Chris Caden” + 13:00 - 14:00 (GMT) + 🔗 Registration Link\n📆 23rd & 24th Workshop: “Introduction to R and RStudio with Dr Claire Welsh”\n\n09:00 - 13:00 (GMT)\n🔗 Registration Link\n\n\n\n\nOctober 2025\n📆 14th & 15th Workshop: “Intermediate R with Dr Claire Welsh”\n\n09:00 - 13:00 (GMT)\n🔗 Registration Link\n\n\n\n\nPlease note:\n\nCoffee & Code sessions are a chance for like-minded coders to get together and chat, share tips, code snippets, and watch show-and-tells about useful or new R stuff. These sessions are run by Simon Wellesley-Miller (NHS England), and recordings are made available here.\n\n\nAugust 2025\n📆 8th Coffee and Coding:\n\n11:00 - 12:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n📆 21st Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n\n\n\nSeptember 2025\n📆 3rd Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n📆 19th Coffee and Coding:\n\n11:00 - 12:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n\n\n\nOctober 2025\n📆 2nd Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n📆 15th Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n📆 31st Coffee and Coding:\n\n11:00 - 12:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n\n\n\nNovember 2025\n📆 13th Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n📆 26th Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n\n\n\nDecember 2025\n📆 12th Coffee and Coding:\n\n11:00 - 12:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "books/posts/NHSR-way/index.html",
@@ -1141,6 +1204,48 @@
     "text": "Archived data\n\n\n\n\n\nThe code in this blog will not work as the files have been renamed for archiving.\nUpdated code can be found at Pablo’s Github Repository\n\n\n\nProject structure\nThe aim of this blog article is to describe the initial experience of creating a Shiny dashboard this process involved a bit of reading on markdown documents and Shiny apps to learn how to code it.\nWhen designing this dashboard, I aimed to cover the following basic steps:\n\nDownload open data from a Github Repository\nCreate several indicators with their population rates by using World Band API\nUse {plotly} library for interactive plots to animate charts and maps in the Shiny app\nBuild a Shiny dashboard containing different visualizations types\n\nBelow there is a detailed description of the steps followed to design the app.\n1. Download COVID19 data\nWhen creating any dashboard, I would like to feed daily data to it and also update it as soon as that data becomes available. Since the start of the pandemic, many resources have become available to analyze and visualize information about cases and deaths on different countries worldwide, so I decided to use JHU Github [https://github.com/CSSEGISandData/COVID-19/archive/master.zip] to download daily data.\nThe script below selects daily confirmed, death and recovered COVID-19 cases, downloads it and compresses them. Finally it extracts the relevant indicators (confirmed, death and recovered cases) as .csv files.\n\nDownloadCOVIDData &lt;- function() {\n  # Create data directory if doesn't exist\n  if (!dir.exists(\"data\")) {\n    dir.create(\"data\")\n  }\n  # Download master.zip file\n  download.file(\n    url = \"https://github.com/CSSEGISandData/COVID-19/archive/master.zip\",\n    destfile = \"data/covid19JH.zip\"\n  )\n  data_path &lt;- \"COVID-19-master/csse_covid_19_data/csse_covid_19_time_series/\"\n\n  # Unzip covid19JH.zip file to extract .csv metric files (confirmed, deaths, recovered)\n  # time_series_covid19_confirmed_global.csv, time_series_covid19_deaths_global.csv,\n  # time_series_covid19_recovered_global.csv\n  unzip(\n    zipfile = \"data/covid19JH.zip\",\n    files = paste0(data_path, c(\n      \"time_series_covid19_confirmed_global.csv\",\n      \"time_series_covid19_deaths_global.csv\",\n      \"time_series_covid19_recovered_global.csv\"\n    )),\n    exdir = \"data\",\n    junkpaths = T\n  )\n}\n\nDownloadCOVIDData()\n\nThen I had to update that initial download every half an hour, in case the file was updated throughout the day. In order to get the most up to date info, I thought of running it I though about this script to be run on a server or VM seven days a week, so it will periodically check to get the most up to date information.\n\nDataupdate &lt;- function() {\n  T_refresh &lt;- 0.5 # hours\n  if (!dir_exists(\"data\")) {\n    dir.create(\"data\")\n    DownloadCOVIDData()\n  } else if ((!file.exists(\"data/covid19JH.zip\")) || as.double(Sys.time() - file_info(\"data/covid19JH.zip\")$change_time, units = \"hours\") &gt; T_refresh) {\n    # If the latest refresh exceeds 30 minutes, then you download it again\n    DownloadCOVIDData()\n  }\n}\n\nDataupdate()\n\nOnce the data was downloaded, I did some cleansing and data transformations from wide to long format, and also included new calculations with popularization data extracted from the World Bank API to create each of the indicators as rates per 10,000 population, using seven days rolling average to obtain an average of those daily indicators.\n2. Create new metrics from raw covid data\nAfter downloading the original data files, I extracted and assigned names to the three metrics I will use in the dashboard (data_confirmed,data_deceased,data_recovered).\n\ninput_covid &lt;- list.files(\"data/\", \".csv\")\n\nNFILES &lt;- length(input_covid)\nfile_Name &lt;- c(\"data_confirmed\", \"data_deceased\", \"data_recovered\", \"WDI_indicators\")\n\nfor (i in 1:NFILES) {\n  assign(\n    paste0(file_Name[i]), # Read and store data frames\n    read_csv(paste0(\n      \"data/\",\n      input_covid[i]\n    ))\n  )\n}\n\n3. Reshape data for plots\nOriginally, the data is created in wide format and I transformed it into long format, including some calculations. I also aggregated it to Country level and applied relevant date format to display time series data and animations using a timeline in maps.\nFor the purpose of this blog post, I will only describe this process for one metric COVID19 Confirmed cases, the code for remaining two metrics (deceased cases, recovered cases) can be found in my Github repo.\n\n# Confirmed cases \nlibrary(tidyr)\n\nnames(data_confirmed)\n# First rename the two first columns using rename() function\nconfirmed_tidy &lt;- data_confirmed %&gt;%\n  rename(\n    Province = \"Province/State\",\n    Country = \"Country/Region\"\n  ) %&gt;%\n  pivot_longer(\n    names_to = \"date\",\n    cols = 5:ncol(data_confirmed)\n  ) %&gt;%\n  group_by(Province, Country, Lat, Long, date) %&gt;%\n  summarise(\"Confirmed\" = sum(value, na.rm = T)) %&gt;%\n  mutate(date = as.Date(date, \"%m/%d/%y\"))\n\n4. Stack all COVID19 and Lat Long metrics into a master file\nThe final metrics set is made of recovered and death COVID19 cases, by country and by date. Countries and dates are displayed in rows and metrics in columns.The original data also includes two columns for latitude and longitude used later to produce a map using Leaflet package.\n\n# Now we merge them together\nMAPDATA &lt;- confirmed_tidy %&gt;%\n  full_join(deceased_tidy)\n\nMAPDATAF &lt;- MAPDATA %&gt;%\n  # Now we merge them together\n  MAPDATA() &lt;- confirmed_tidy %&gt;%\n  full_join(deceased_tidy)\n\nMAPDATAF &lt;- MAPDATA %&gt;%\n  full_join(recovered_tidy) %&gt;%\n  arrange(Province, Country, date) %&gt;%\n  # Recode NA values into 0\n  mutate(\n    Confirmed = ifelse(is.na(Confirmed), 0, Confirmed),\n    Deaths = ifelse(is.na(Deaths), 0, Deaths),\n    Recovered = ifelse(is.na(Recovered), 0, Recovered)\n  )\n\nAlong the process of building the final data set, I will produce several csv files to validate each data step.\n\nfile_pathCHK &lt;-('C://Pablo UK//43 R projects 2021//04 My Shiny app//04 Mycovid19 app//CHECKS/')\nFile_name &lt;-'/MAPDATAF.csv' \nwrite.csv(MAPDATAF,paste0(file_pathCHK,File_name),row.names = T)\n\nIt is important to ensure any missing value is left in the file to ensure Leaflet maps works properly.\n\nMAPDATAG &lt;- MAPDATAF %&gt;% mutate(\n  Confirmed = ifelse(is.na(Confirmed), 0, Confirmed),\n  Deaths = ifelse(is.na(Deaths), 0, Deaths),\n  Recovered = ifelse(is.na(Recovered), 0, Recovered)\n)\n\nMAPDATAH &lt;- MAPDATAG %&gt;%\n  pivot_longer(\n    names_to = \"Metric\",\n    cols = c(\"Confirmed\", \"Deaths\", \"Recovered\")\n  ) %&gt;%\n  ungroup()\n\nPLOT_LEAFLET_MAPS &lt;- MAPDATAH %&gt;%\n  pivot_wider(names_from = Metric, values_from = c(value))\n\n5. Final data wrangling output files\nThe data wrangling step outputs two files required for the Shiny app: the first one contains COVID metrics plus Lat Long variable for Leaflet maps and the second includes COVID metrics to be merged with country population figures.\n5.1 COVID metrics set including Lat Long variables for Leaflet maps\nThe next step is to create a new data set fo be used in the map on the first tab. It will contain metric variables and Latitude and Longitude variables. The map will display using pop-up circles as tool tips the number of cases per country, and it will be animated using a timeline below the map.\n\nMAPDATAH &lt;- MAPDATAG %&gt;%\n  pivot_longer(\n    names_to = \"Metric\",\n    cols = c(\"Confirmed\", \"Deaths\", \"Recovered\")\n  ) %&gt;%\n  ungroup()\n\nDATAMAP &lt;- MAPDATAH\nPLOT_LEAFLET &lt;- DATAMAP %&gt;%\n  pivot_wider(names_from = Metric, values_from = c(value))\n\nPLOT_LEAFLET_MAPS &lt;- PLOT_LEAFLET\n\nsave.image(\"C:/Pablo UK/43 R projects 2021/04 My Shiny app/04 Mycovid19 app/PLOT LEAFLET MAPS.RData\")\n\nThese are the set of metrics created for the map tab:\n\n# This file weill be use to comparae COVID19 rates across different countries\nPLOT_LEAFLET2_conf &lt;- PLOT_LEAFLET_MAPS %&gt;%\n  select(Country, date, Confirmed) %&gt;%\n  group_by(Country, date) %&gt;%\n  summarise(\"Confirmed\" = sum(Confirmed, na.rm = T))\n\nPLOT_LEAFLET2_death &lt;- PLOT_LEAFLET_MAPS %&gt;%\n  select(Country, date, Deaths) %&gt;%\n  group_by(Country, date) %&gt;%\n  summarise(\"Death\" = sum(Deaths, na.rm = T))\n\nPLOT_LEAFLET2_Recov &lt;- PLOT_LEAFLET_MAPS %&gt;%\n  select(Country, date, Recovered) %&gt;%\n  group_by(Country, date) %&gt;%\n  summarise(\"Recovered\" = sum(Recovered, na.rm = T))\n\n# Join together\nPLOT_LEAFLET_RATES &lt;- PLOT_LEAFLET2_conf %&gt;%\n  full_join(PLOT_LEAFLET2_death) %&gt;%\n  arrange(Country, date)\n\nPLOT_LEAFLET_RATES &lt;- PLOT_LEAFLET_RATES %&gt;%\n  full_join(PLOT_LEAFLET2_Recov) %&gt;%\n  arrange(Country, date)\n\nPLOT_LEAFLET_CDR_NUM &lt;- PLOT_LEAFLET_RATES\n\nsave.image(\"C:/Pablo UK/43 R projects 2021/04 My Shiny app/04 Mycovid19 app/PLOT LEAFLET CDR NUM.RData\")\n\nOur final set to compute COVID19 population rates is displayed below:\n5.2 COVID19 population rates\nI want to include population figures to obtain 10,000 population rates for each metric (cases, recovered,deaths covid19 cases) I first created new variables for those rates and then I merged the population figures in using the world Bank API. The aim of this section is to download population figures required to compute the relevant metric rates *10,000 population from World bank Development Indicators API. All the details from this script can be found in the Github repository.\nJust to highlight three main tasks included in this population-rates sub-section:\na). The use of Source() function to bring another script that pulls 2019 countries population data from WDI API The aim of this first section is to download population figures from the set of World Development Indicators provided by the World Bank data API.\n\n# # Include population figures   \nsource(\"UI/ui_get_population_figures.R\", local = TRUE)\n\nAfter downloading the requested data by using the World Bank’s API, the resulting XMS file is formatted in long country-year format.\nb). Cleaning WDI population data to match COVID19 country names list This is performed by the script called “ui_get_population_figures.R” located in the Shiny folder structure within a specific folder for UI scripts Using a which statement, it accounts for country name mismatches between COVID and WDI data sources, so population data matches COVID19 metrics.\n\n# LOAD population figures in the right way\n# Input missing values\nPOP_POPULATED &lt;- POP_DATA_2019\n\nCNpop &lt;- c(\n  \"Bahamas, The\", \"Brunei Darussalam\", \"Congo, Dem. Rep.\", \"Congo, Rep.\", \"Egypt, Arab Rep.\", \"Gambia, The\", \"Iran, Islamic Rep.\", \"Korea, Rep.\",\n  \"Kyrgyz Republic\", \"Micronesia, Fed. Sts.\", \"Russian Federation\", \"St. Kitts and Nevis\", \"St. Lucia\", \"St. Vincent and the Grenadines\",\n  \"Slovak Republic\", \"Syrian Arab Republic\", \"United States\", \"Venezuela, RB\", \"Yemen, Rep.\"\n)\n\nlength(CNpop)\n\nCNindic &lt;- c(\n  \"Bahamas\", \"Brunei\", \"Congo (Brazzaville)\", \"Congo (Kinshasa)\", \"Egypt\", \"Gambia\", \"Iran\", \"Korea, South\",\n  \"Kyrgyzstan\", \"Micronesia\", \"Russia\", \"Saint Kitts and Nevis\", \"Saint Lucia\", \"Saint Vincent and the Grenadines\",\n  \"Slovakia\", \"Syria\", \"US\", \"Venezuela\", \"Yemen\"\n)\nlength(CNindic)\n\n# Then we replace those values\nPOP_POPULATED[which(POP_POPULATED$country %in% CNpop), \"country\"] &lt;- CNindic\n\n6. Compute X10,000 population rates for selected metrics\nTwo preliminary calculations are needed before rates for COVID19 confirmed, recovered and death cases are calculated:\nFirst the JHU cases data is based on cumulative data, so previous day is subtracted to obtain the daily count of events for each metrics\nCompute now rates based on daily figures. Get those rates as 7 previous days rolling average to smooth daily fluctuations. Finally a rounding calculation is done on calculated rates to avoid any decimal places\nThere are a couple of calculations needed before rates for COVID19 confirmed, recovered and death cases are calculated:\nFirst the JHU cases is based on cumulative data, so previous day is subtracted to obtain the daily count of events for each metrics.\n\nPOPG_RATES &lt;- POPG %&gt;%\n  arrange(Country, date) %&gt;%\n  mutate(\n    ConD = Confirmed - lag(Confirmed, n = 1),\n    RecD = Recovered - lag(Recovered, n = 1),\n    DeathD = Death - lag(Death, n = 1)\n  )\ntail(POPG_RATES)\n\nCompute now rates based on daily figures.\n\nPOPG_RATESF &lt;- POPG_RATES %&gt;%\n  select(Country, date, year, population, ConD, RecD, DeathD) %&gt;%\n  mutate(\n    CONFR = ceiling(((ConD / population) * 10000)),\n    RECR = ceiling(((RecD / population) * 10000)),\n    DEATHR = ceiling(((DeathD / population) * 10000))\n  )\n\ntail(POPG_RATESF)\n\nGet those rates as 7 previous days rolling average to smooth daily fluctuations.\n\nlibrary(zoo)\n\nRATES7DGAVG &lt;- POPRATESG %&gt;%\n  group_by(Country) %&gt;%\n  select(date, Country, population, ConD, RecD, DeathD) %&gt;%\n  mutate(\n    CONF_ma07 = rollmean(ConD, k = 7, fill = NA),\n    REC_ma07 = rollmean(RecD, k = 7, fill = NA),\n    DEATH_ma07 = rollmean(DeathD, k = 7, fill = NA)\n  )\n\nFinally there is a round done on calculated taxes to avoid any decimal places.\n\nPOP_POPULATEDT &lt;- POP_POPULATED_RENAME %&gt;%\n  mutate(\n    Confirmed_10000 = round(Confirmed_Rate, digits = 0),\n    Recovered_10000 = round(Recovered_Rate, digits = 0),\n    Deaths_10000 = round(Death_Rate, digits = 0)\n  )\n\nPOP_POPULATED &lt;- POP_POPULATEDT %&gt;%\n  select(\n    date, Country, Population, Confirmed, Recovered, Death,\n    Conf_7D_10000 = Confirmed_10000,\n    Rec_7D_10000 = Recovered_10000,\n    Death_7D_10000 = Deaths_10000\n  )\n\nPOP_POPULATED\n\n6.1 Data set with rates ready for Shiny app\nThis is the final data set that goes into the shiny app\n\nhead(POP_POPULATED)\n\n7. Building the Shiny dashboard\nOnce that all the data is ready to build the Shiny dashboard, there where three main tabs that I wanted to display on the dashboard:\nThe script for the dashboard can be quite long, and it is available in the Github repository at the end of this blog article. As a general design choice, I opted for a standard Sidebar layout, using fluidrow and column functions to arrange the plots layout on each tab.\nThis is an example of the functions used to populate the infoBoxes on top of the dashboard.\nThe reactive components used in the plots and the maps to produce several animations were created using a input\\$Time_Slider function.\nui &lt;- dashboardPage(\n  \n  dashboardHeader(title = \"COVID-19\"),\n  # This Sidebar menu allows us to include new items on the sidebar\n  dashboardSidebar(\n                    sidebarMenu(\n                    # Setting id makes input$tabs give the tabName of currently-selected tab\n                    id = \"tabs\",\n                    menuItem(\"About\", tabName = \"about\", icon = icon(\"desktop\")),\n                    menuItem(\"Map\", tabName = \"map\", icon = icon(\"map\")),\n                    menuItem(\"Plots\", tabName = \"plot\", icon = icon(\"wifi\")),\n                    menuItem(\"Forecast\", tabName = \"forecast\", icon = icon(\"chart-line\")))\n  )\n  ,\n  dashboardBody(  # Infobox: Total figures KPI world\nThis is an example of the functions used to populate the infoBoxes on top of the dashboard.\ndashboardBody(  # Infobox: Total figures KPI world\n    fluidRow(infoBoxOutput(\"Total_cases_WORLD\", width = 3),\n             infoBoxOutput(\"Total_recovered_WORLD\", width = 3),\n             infoBoxOutput(\"Total_deaths_WORLD\", width = 3),\n             infoBoxOutput(\"Date\", width = 3)\n             ),\nThe reactive components used in the plots and the maps to produce several animations were created using a input\\$Time_Slider function.\n7.1. Interactive map with KPI and timeline\n\nPop-up and tool tips display COVID19 Total, recovered and death cases\nCircles radius are proportional to number of cases per country\nDynamic animation: Map changes as data varies in time\n\nMap tab\n7.2. Interactive line charts using {plotly} library\n\nKPI number of cases and day to day percent change\nDrop down menu to filter for specific countries\nLine chart cases by country, selected by drop down menu\nTop 10 country rates *10,000 cases\nInteractive plots to Zoom in and Zoom out using {plotly} library to display Top 10 country rates *10,000 cases\n\n7.3. In development\n\nMy intention is to include a new tab in coming weeks to include a predictive modelling tool using some modelling tool such as tidy models or modeltime, just to test it. In the long run I would like to learn how to implement hierarchical Bayesian modelling into some dashboard.\nAlso I would like to include a specific .CSS file in YAML section of the shiny dashboard to fine tuning the format applied on each tab.\n\nModeltime\n8. Source code available in Github\nAs this blog article was a brief description of the Shiny app I’ve designed, please follow the link below to get the source code from Github: 00 Maps data prep_SHINY_APP.R, 01 Leaf and pop figures_SHINY_APP.R, 02 ui_server_SHINY_APP.R.\nSharing this script and connecting with other NHSR analysts will be good starting point to lean how to code consistently and also to follow a specific NHSR coding style when using R.\nAny comments to this blog article, please feel free to email me at: pablo.leonrodenas@nhs.net\nThis blog has been edited for NHS-R Style.\n\n\n Back to topReuseCC0 1.0"
   },
   {
+    "objectID": "coffee-and-code.html",
+    "href": "coffee-and-code.html",
+    "title": "Coffee & Coding",
+    "section": "",
+    "text": "Please note:"
+  },
+  {
+    "objectID": "coffee-and-code.html#august-2025",
+    "href": "coffee-and-code.html#august-2025",
+    "title": "Coffee & Coding",
+    "section": "August 2025",
+    "text": "August 2025\n📆 8th Coffee and Coding:\n\n11:00 - 12:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n📆 21st Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx"
+  },
+  {
+    "objectID": "coffee-and-code.html#september-2025",
+    "href": "coffee-and-code.html#september-2025",
+    "title": "Coffee & Coding",
+    "section": "September 2025",
+    "text": "September 2025\n📆 3rd Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n📆 19th Coffee and Coding:\n\n11:00 - 12:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx"
+  },
+  {
+    "objectID": "coffee-and-code.html#october-2025",
+    "href": "coffee-and-code.html#october-2025",
+    "title": "Coffee & Coding",
+    "section": "October 2025",
+    "text": "October 2025\n📆 2nd Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n📆 15th Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n📆 31st Coffee and Coding:\n\n11:00 - 12:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx"
+  },
+  {
+    "objectID": "coffee-and-code.html#november-2025",
+    "href": "coffee-and-code.html#november-2025",
+    "title": "Coffee & Coding",
+    "section": "November 2025",
+    "text": "November 2025\n📆 13th Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n📆 26th Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx"
+  },
+  {
+    "objectID": "coffee-and-code.html#december-2025",
+    "href": "coffee-and-code.html#december-2025",
+    "title": "Coffee & Coding",
+    "section": "December 2025",
+    "text": "December 2025\n📆 12th Coffee and Coding:\n\n11:00 - 12:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx"
+  },
+  {
     "objectID": "contact.html",
     "href": "contact.html",
     "title": "NHS-R Community Quarto website",
@@ -1358,6 +1463,41 @@
     "text": "Notice and Takedown Policy\n\nincludes sensitive data redaction\nDetails of the Notice and Takedown Policy can be found in the NHS-R Way book along with details on how submissions with sensitive information will be rectified."
   },
   {
+    "objectID": "webinars-and-workshops.html",
+    "href": "webinars-and-workshops.html",
+    "title": "Webinars and Workshops",
+    "section": "",
+    "text": "Please note:"
+  },
+  {
+    "objectID": "webinars-and-workshops.html#august-2025",
+    "href": "webinars-and-workshops.html#august-2025",
+    "title": "Webinars and Workshops",
+    "section": "August 2025",
+    "text": "August 2025\n📆 13th Webinar: “An Improved I Chart with Jacob Anhøj and Mohammed Mohammed” + 13:00 - 14:00 (GMT) + 🔗 Registration Link"
+  },
+  {
+    "objectID": "webinars-and-workshops.html#september-2025",
+    "href": "webinars-and-workshops.html#september-2025",
+    "title": "Webinars and Workshops",
+    "section": "September 2025",
+    "text": "September 2025\n📆 11th Webinar: “Complexity Made Approachable: Rethinking R-Based Modelling for Healthcare with AM-Smart Tools with Brian Castellani, Corey Schimpf and Chris Caden” + 13:00 - 14:00 (GMT) + 🔗 Registration Link\n📆 23rd & 24th Workshop: “Introduction to R and RStudio with Dr Claire Welsh”\n\n09:00 - 13:00 (GMT)\n🔗 Registration Link"
+  },
+  {
+    "objectID": "webinars-and-workshops.html#october-2025",
+    "href": "webinars-and-workshops.html#october-2025",
+    "title": "Webinars and Workshops",
+    "section": "October 2025",
+    "text": "October 2025\n📆 14th & 15th Workshop: “Intermediate R with Dr Claire Welsh”\n\n09:00 - 13:00 (GMT)\n🔗 Registration Link"
+  },
+  {
+    "objectID": "r-packages.html",
+    "href": "r-packages.html",
+    "title": "R packages",
+    "section": "",
+    "text": "The NHS-R community has created and are developing R packages to support analytics in health and care.\nContributions are very welcome. We appreciate code, documentation, bug fixes and designs for hexes. Please feel free to tackle any of the issues in the package GitHub repository or create a new issue. If you have other code or ideas for new packages, please let us know.\n      \n\n\n\n Back to top"
+  },
+  {
     "objectID": "licence.html",
     "href": "licence.html",
     "title": "Licence",
@@ -1377,6 +1517,13 @@
     "title": "NHS-R Community Quarto website",
     "section": "",
     "text": "NHS-R Community has received support from various organisations over the years and those listed on the front page have provided financial support in the last 12 months.\nIf you wish to sponsor NHS-R Community for its activities or the conference, held in conjunction with NHS.pycom, please contact us at nhs.rcommunity@nhs.net."
+  },
+  {
+    "objectID": "videos.html",
+    "href": "videos.html",
+    "title": "Videos",
+    "section": "",
+    "text": "To view our recordings of workshops, webinars, past conferences and more, visit our YouTube Channel\n\n\n\n Back to top"
   },
   {
     "objectID": "blog/create-synthetic-data.html",
@@ -2597,6 +2744,13 @@
     "text": "This Code of Conduct is adapted from the Contributor Covenant, version 2.1, available at https://www.contributor-covenant.org/version/2/1/code_of_conduct.html.\nCommunity Impact Guidelines were inspired by [Mozilla’s code of conduct enforcement ladder][https://github.com/mozilla/inclusion].\nFor answers to common questions about this code of conduct, see the FAQ at https://www.contributor-covenant.org/faq. Translations are available at https://www.contributor-covenant.org/translations."
   },
   {
+    "objectID": "conference.html",
+    "href": "conference.html",
+    "title": "Conference",
+    "section": "",
+    "text": "We are pleased to announce that the RPYSOC 2025 conference will be held at the Wellcome Trust (215 Euston Road, London), offering both in-person and virtual attendance options!\nConference dates: - Thursday 13th November 2025 - Friday 14th November 2025\nRegistration to open shortly – so watch this space!\nTo submit an abstract, please complete this form.\nPlease note that the abstract submission deadline is Friday 5th September 2025. We would be honoured to incorporate your work into the conference.\nThank you for being part of the community during a time of change — we appreciate your engagement!\n\n\n\n Back to top"
+  },
+  {
     "objectID": "news.html",
     "href": "news.html",
     "title": "NHS-R Community News",
@@ -2611,66 +2765,17 @@
     "text": "Back to top"
   },
   {
-    "objectID": "accessibility.html",
-    "href": "accessibility.html",
-    "title": "Accessibility commitment",
+    "objectID": "training.html",
+    "href": "training.html",
+    "title": "Training",
     "section": "",
-    "text": "Return to home page or about page.\nInspired from Silvia Canelón’s commitment to accessibility NHS-R Community welcomes feedback on the accessibility of this site and any links to its materials including code and training materials. We have used the Web Accessibility Evaluation Tool to manually check for accessibility errors and corrected where possible."
+    "text": "Warning\n\n\n\nLimited-capacity free online training, apply now to secure your place!\n\n\n🎉 We’re delighted to announce that, new for 2025, we are working in collaboration with Dr Pawel Orzechowski of the University of Edinburgh to offer a FREE 10-week distance-learning introductory course in NLP with R for NHS employees!\nThe course will run from 8th September to 20th November 2025. In this course, students will explore the fundamental concepts of natural language processing (NLP) and its role in current and emerging technologies.\nThis course has been adapted from a postgraduate-level offering from the University and will be run using their bespoke learning platform and a set of fortnightly Teams sessions, culminating in a project presented back to the class in the final session.\nTo see if you meet the pre-requisites for applying, get more information on the course, and to submit your application, please visit this online survey. Please note, places on the course are limited, and will be assigned on a first-come-first-served basis for those meeting the prerequisite criteria. Applications will close on 29th August, so hurry to secure your place!🏃‍♀️\nCourse dates: 8th September - course begins\nZoom meeting session dates (see invite email for Zoom links)\n\n24th September, 9:30:11:30 BST - Session 1\n8th October, 9:30:11:30 BST - Session 2\n22nd October, 9:30:11:30 BST - Session 3\n5th November, 9:30:11:30 BST - Session 4\n19th November, 9:30:11:30 BST - Final Session"
   },
   {
-    "objectID": "accessibility.html#website-practices",
-    "href": "accessibility.html#website-practices",
-    "title": "Accessibility commitment",
-    "section": "Website practices",
-    "text": "Website practices\nThis site has been designed with the following features in mind:\n\nThe colour palette is from NHS branding.\nFonts are set to Arial which is an NHS font.\nAlternative text is used for all images.\n\nAny learning will be used to improve the site and will also be shared with the community more widely through book resources like our Open Analytics page where we have started to collect links that support greater Accessibility."
-  },
-  {
-    "objectID": "accessibility.html#search-button",
-    "href": "accessibility.html#search-button",
-    "title": "Accessibility commitment",
-    "section": "Search button",
-    "text": "Search button\nThis is generated automatically through rendering a Quarto website and appears as an empty button.\nThere is an open issue on Quarto’s GitHub."
-  },
-  {
-    "objectID": "accessibility.html#default-thumbnail-image-for-blogs---no-alternative-text",
-    "href": "accessibility.html#default-thumbnail-image-for-blogs---no-alternative-text",
-    "title": "Accessibility commitment",
-    "section": "Default thumbnail image for blogs - no alternative text",
-    "text": "Default thumbnail image for blogs - no alternative text\nThe thumbnails for default images in blogs do not have alternative text, this particularly affects the blogs brought across from the original WordPress site as new blogs have specific images added. In code this relates to the image-placeholder:.\nThere is an open issue on Quarto’s GitHub and an issue on the website GitHub."
-  },
-  {
-    "objectID": "accessibility.html#empty-and-redundant-links",
-    "href": "accessibility.html#empty-and-redundant-links",
-    "title": "Accessibility commitment",
-    "section": "Empty and redundant links",
-    "text": "Empty and redundant links\nIn the blog thumbnail listing page images have missing links and redundant links."
-  },
-  {
-    "objectID": "accessibility.html#poor-contrast-colours",
-    "href": "accessibility.html#poor-contrast-colours",
-    "title": "Accessibility commitment",
-    "section": "Poor contrast colours",
-    "text": "Poor contrast colours\nThere are elements on the pages where there is insufficient colour contrast:\n\nBlog listing where the following pages is listed as .... This is currently too light to view. This is an issue on the website’s GitHub."
-  },
-  {
-    "objectID": "accessibility.html#missing-level-headers",
-    "href": "accessibility.html#missing-level-headers",
-    "title": "Accessibility commitment",
-    "section": "Missing level headers",
-    "text": "Missing level headers\nThere are elements on the pages where first and second level heading is missing."
-  },
-  {
-    "objectID": "accessibility.html#youtube-video-links",
-    "href": "accessibility.html#youtube-video-links",
-    "title": "Accessibility commitment",
-    "section": "YouTube video links",
-    "text": "YouTube video links\nThere are links to YouTube videos in this website that currently only have the automated YouTube subtitles."
-  },
-  {
-    "objectID": "accessibility.html#event-handlers-may-not-be-accessible",
-    "href": "accessibility.html#event-handlers-may-not-be-accessible",
-    "title": "Accessibility commitment",
-    "section": "Event handlers may not be accessible",
-    "text": "Event handlers may not be accessible\nThis website has used JavaScript events in Quarto and may not be accessible to both mouse and keyboard users."
+    "objectID": "training.html#nlp",
+    "href": "training.html#nlp",
+    "title": "Training",
+    "section": "",
+    "text": "Warning\n\n\n\nLimited-capacity free online training, apply now to secure your place!\n\n\n🎉 We’re delighted to announce that, new for 2025, we are working in collaboration with Dr Pawel Orzechowski of the University of Edinburgh to offer a FREE 10-week distance-learning introductory course in NLP with R for NHS employees!\nThe course will run from 8th September to 20th November 2025. In this course, students will explore the fundamental concepts of natural language processing (NLP) and its role in current and emerging technologies.\nThis course has been adapted from a postgraduate-level offering from the University and will be run using their bespoke learning platform and a set of fortnightly Teams sessions, culminating in a project presented back to the class in the final session.\nTo see if you meet the pre-requisites for applying, get more information on the course, and to submit your application, please visit this online survey. Please note, places on the course are limited, and will be assigned on a first-come-first-served basis for those meeting the prerequisite criteria. Applications will close on 29th August, so hurry to secure your place!🏃‍♀️\nCourse dates: 8th September - course begins\nZoom meeting session dates (see invite email for Zoom links)\n\n24th September, 9:30:11:30 BST - Session 1\n8th October, 9:30:11:30 BST - Session 2\n22nd October, 9:30:11:30 BST - Session 3\n5th November, 9:30:11:30 BST - Session 4\n19th November, 9:30:11:30 BST - Final Session"
   }
 ]
