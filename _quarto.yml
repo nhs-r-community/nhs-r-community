@@ -40,7 +40,7 @@ website:
         aria-label: List of upcoming events
       - text: "Resources"
         href: resources.qmd
-        aria-label: Resrouces page
+        aria-label: Resources page
       - text: "Blogs"
         href: blog/index.qmd
         aria-label: Blogs listed
