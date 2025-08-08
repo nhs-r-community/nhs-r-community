@@ -2,12 +2,12 @@
 title: "Conference"
 ---
 
-
 ![](img/RPYSOC25_banner.png)
 
 We are pleased to announce that the RPYSOC 2025 conference will be held at the Wellcome Trust (215 Euston Road, London), offering both in-person and virtual attendance options! 
  
 Conference dates: 
+
 - Thursday 13th November 2025
 - Friday 14th November 2025
 
