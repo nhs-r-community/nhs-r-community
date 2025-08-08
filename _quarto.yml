@@ -35,14 +35,20 @@ website:
       - text: "News"
         href: news.qmd
         aria-label: News page
-      - text: "Events and Training"
-        href: events_and_training.qmd
-        aria-label: List of upcoming events
       - text: "Blogs"
         href: blog/index.qmd
+      - text: "Events and Training"
+        menu:
+        - conference.qmd
+        - webinars-and-workshops.qmd 
+        - coffee-and-code.qmd 
+        - training.qmd 
       - text: "Resources"
-        href: resources.qmd
-        aria-label: Resources page
+        menu:
+        - text: "Books"
+          href: books/index.qmd
+        - videos.qmd 
+        - r-packages.qmd 
       - text: "Fellowships"
         href: fellowship.qmd
         aria-label: Fellowships page
