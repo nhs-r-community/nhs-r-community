@@ -5,7 +5,7 @@ search: true
 repo-actions: false
 listing:
     contents: 
-    - /posts
+    - posts
     type: grid
     categories: true
     sort: date-meta
