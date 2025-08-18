@@ -36,7 +36,7 @@ Contributions are very welcome. We appreciate code, documentation, bug fixes and
 [<img src="img/NHSRwaitinglistlogo.png" height="150" alt = "NHSRwaitinglist"/>](https://nhs-r-community.github.io/NHSRwaitinglist/)
 [<img src="img/NHSRpopulationlogo.png" height="150" alt = "NHSRpopulation"/>](https://nhs-r-community.github.io/NHSRpopulation/)
 [<img src="img/NHSRpostcodetoolslogo.png" height="150" alt = "NHSRpostcodetools"/>](https://nhs-r-community.github.io/NHSRpostcodetools/)
-[<img src="https://raw.githubusercontent.com/nhs-r-community/FunnelPlotR/main/inst/images/logo.png" height="150" alt = "FunnelPlotR"/>](https://nhs-r-community.github.io/FunnelPlotR/)
+[<img src="https://raw.githubusercontent.com/nhs-r-community/FunnelPlotR/refs/heads/main/man/figures/logo.png" height="150" alt = "FunnelPlotR"/>](https://nhs-r-community.github.io/FunnelPlotR/)
 
 :::
 
