@@ -2,4 +2,7 @@
 # the repo. Unless a later match takes precedence,
 # @primary-owner and @secondary-owner will be requested for
 # review when someone opens a pull request.
-*       @DCEW @ChrisBeeley
+*       @nhs-r-community/admins
+
+# The @security team owns any file in the `/.github` directory
+/.github/ @nhs-r-community/security
