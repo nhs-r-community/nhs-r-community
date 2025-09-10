@@ -10,7 +10,7 @@
 <atom:link href="https://nhsrcommunity.com/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>Blogs are submitted from NHS-R Community members.&lt;br&gt;
 </description>
-<generator>quarto-1.7.33</generator>
+<generator>quarto-1.7.34</generator>
 <lastBuildDate>Sat, 14 Jun 2025 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Predictive Analytics within healthcare - XG Boost models for inpatient fall risk predictions</title>
