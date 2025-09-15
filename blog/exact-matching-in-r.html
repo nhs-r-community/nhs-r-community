@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Dan Lewer">
 <meta name="dcterms.date" content="2019-07-30">
@@ -66,18 +66,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="..//img/nhsr-logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-38f3945895c927b1dc2807f6922eeda9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-7eb9156fd5f38b477fe1e80f83deb6f7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-38f3945895c927b1dc2807f6922eeda9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ed602d676c2bda100158269a9bc0ec88.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-d450f0bbef5c9e20389c25578415d1f5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-ed602d676c2bda100158269a9bc0ec88.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script><script id="quarto-search-options" type="application/json">{
@@ -282,7 +283,7 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
   <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="https://nhsrcommunity.com/" class="navbar-brand navbar-brand-logo">
-    <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo"></a>
+    <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo light-content"><img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo dark-content"></a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -299,7 +300,7 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <span class="menu-text">News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog/index.html"> 
+    <a class="nav-link" href="../blog/index.qmd"> 
 <span class="menu-text">Blogs</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -872,7 +873,7 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
   height: 0px !important;
 }
 </style>
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead><tr class="gt_col_headings header">
 <th id="ID" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ID</th>
 <th id="Age.group" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Age.group</th>
@@ -926,7 +927,7 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>{data.table} imports the 5000 rows very quickly but note that the object created, <code>d</code>, is a <code>data.table</code> and will act differently to a <code>data.frame</code> or <code>tibble</code>.</p>
 </div></div><div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># change your working directory to the place you've saved it and build the path to it using the {here} package which locates the RProj file of a project rather than requiring `setwd()` which can often be difficult to use with network drives when the start `\\`</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># change your working directory to the place you've saved it and build the path to it using the {here} package which locates the RProj file of a project rather than requiring `setwd()` which can often be difficult to use with network drives when the start `\\`</span></span>
 <span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span> <span class="co"># useful for efficient reading and summarising of data</span></span>
 <span></span>
@@ -939,7 +940,7 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">a</span>, <span class="st">" ("</span>, <span class="va">p</span>, <span class="st">")"</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span>, dimnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Live with others"</span>, <span class="st">"Lives alone"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"age_grp"</span>, <span class="st">"sex"</span>, <span class="st">"LTC_grp"</span><span class="op">)</span>, <span class="va">describe.by.isolation</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"age_grp"</span>, <span class="st">"sex"</span>, <span class="st">"LTC_grp"</span><span class="op">)</span>, <span class="va">describe.by.isolation</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
       Live with others Lives alone
@@ -960,19 +961,19 @@ Male   "1913 (50)"      "478 (42)"
 2  "727 (19)"       "228 (20)" 
 3+ "605 (16)"       "279 (24)" </code></pre>
 </div>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># describe healthcare costs</span></span>
-<span><span class="va">d</span><span class="op">[</span>, <span class="fu">.</span><span class="op">(</span>mean_cost <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span>, sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span>, med_cost <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span>, iqr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/IQR.html">IQR</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span><span class="op">)</span>, <span class="va">livesalone</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># describe healthcare costs</span></span>
+<span><span class="va">d</span><span class="op">[</span>, <span class="fu">.</span><span class="op">(</span>mean_cost <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span>, sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span>, med_cost <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span>, iqr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/IQR.html">IQR</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span><span class="op">)</span>, <span class="va">livesalone</span><span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   livesalone mean_cost        sd med_cost      iqr
        &lt;lgcl&gt;     &lt;num&gt;     &lt;num&gt;    &lt;num&gt;    &lt;num&gt;
 1:      FALSE  2367.962  7951.524  469.500 1272.878
 2:       TRUE  4715.150 11527.056  780.989 2899.131</code></pre>
 </div>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">d</span><span class="op">$</span><span class="va">cost</span><span class="op">[</span><span class="va">d</span><span class="op">$</span><span class="va">livesalone</span><span class="op">]</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"Lives alone"</span>, xlab <span class="op">=</span> <span class="st">"Log cost + 1"</span>, col <span class="op">=</span> <span class="st">"red"</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">14</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">d</span><span class="op">$</span><span class="va">cost</span><span class="op">[</span><span class="op">!</span><span class="va">d</span><span class="op">$</span><span class="va">livesalone</span><span class="op">]</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"Does not live alone"</span>, xlab <span class="op">=</span> <span class="st">"Log cost + 1"</span>, col <span class="op">=</span> <span class="st">"green"</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">14</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">d</span><span class="op">$</span><span class="va">cost</span><span class="op">[</span><span class="op">!</span><span class="va">d</span><span class="op">$</span><span class="va">livesalone</span><span class="op">]</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"Does not live alone"</span>, xlab <span class="op">=</span> <span class="st">"Log cost + 1"</span>, col <span class="op">=</span> <span class="st">"green"</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">14</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="exact-matching-in-r_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
@@ -984,9 +985,9 @@ Male   "1913 (50)"      "478 (42)"
 </section><section id="regression" class="level1"><h1>Regression</h1>
 <p>One approach would be to use regression. We could fit a linear model – this is actually not a great fit for patients with higher healthcare costs, but we won’t go into that here.</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">linear_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">cost</span> <span class="op">~</span> <span class="va">livesalone</span> <span class="op">+</span> <span class="va">age_grp</span> <span class="op">+</span> <span class="va">sex</span> <span class="op">+</span> <span class="va">LTC_grp</span>, <span class="va">d</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">linear_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">cost</span> <span class="op">~</span> <span class="va">livesalone</span> <span class="op">+</span> <span class="va">age_grp</span> <span class="op">+</span> <span class="va">sex</span> <span class="op">+</span> <span class="va">LTC_grp</span>, <span class="va">d</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">linear_model</span><span class="op">)</span> <span class="co"># diagnostics show that a linear model is not a great fit. You might have to press return to see all the plots before you can continue.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">linear_model</span><span class="op">)</span> <span class="co"># diagnostics show that a linear model is not a great fit. You might have to press return to see all the plots before you can continue.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="exact-matching-in-r_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
@@ -1011,7 +1012,7 @@ Male   "1913 (50)"      "478 (42)"
 </figure>
 </div>
 </div>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">linear_model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">linear_model</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1045,7 +1046,7 @@ F-statistic:  65.1 on 8 and 4991 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>We therefore used exact matching, in which each individual who lives alone is matched to an individual who does not live alone, based on specified variables such as age group and sex. We developed a function that does this by stratifying the data and then matching ‘cases’ and ‘controls’ randomly. Unmatched individuals are deleted from the dataset, leaving a dataset that is balanced in terms of the variables you specify. Let me know here if there’s any other functionality you want and we can try and incorporate it.</p>
 <p>Let’s try matching on age group, sex and the grouped number of long-term conditions:</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#' @param data dataset containing:</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#' @param data dataset containing:</span></span>
 <span><span class="co">#' @param treat treatment/exposure variable 'mvar' (a string specifying variable name).</span></span>
 <span><span class="co">#' @param mvar matching variable 'mvar' (a string specifying variable name). If you want to match on multiple variables, concatenate them first.</span></span>
 <span><span class="co">#' @param ratio controls (an integer &gt; 0)</span></span>
@@ -1083,7 +1084,7 @@ F-statistic:  65.1 on 8 and 4991 DF,  p-value: &lt; 2.2e-16</code></pre>
 <span><span class="va">matched_data</span> <span class="op">&lt;-</span> <span class="fu">smatch</span><span class="op">(</span><span class="va">d</span>, treat <span class="op">=</span> <span class="st">"livesalone"</span>, mvar <span class="op">=</span> <span class="st">"mvar"</span>, ratio <span class="op">=</span> <span class="fl">1</span>, seed <span class="op">=</span> <span class="fl">74</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># check balance: same number of individuals in each group</span></span>
-<span><span class="fu">dcast</span><span class="op">(</span><span class="va">matched_data</span>, <span class="va">age_grp</span> <span class="op">+</span> <span class="va">sex</span> <span class="op">+</span> <span class="va">LTC_grp</span> <span class="op">~</span> <span class="va">livesalone</span>, value.var <span class="op">=</span> <span class="st">"id"</span>, fun.aggregate <span class="op">=</span> <span class="va">length</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu">dcast</span><span class="op">(</span><span class="va">matched_data</span>, <span class="va">age_grp</span> <span class="op">+</span> <span class="va">sex</span> <span class="op">+</span> <span class="va">LTC_grp</span> <span class="op">~</span> <span class="va">livesalone</span>, value.var <span class="op">=</span> <span class="st">"id"</span>, fun.aggregate <span class="op">=</span> <span class="va">length</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Key: &lt;age_grp, sex, LTC_grp&gt;
     age_grp    sex LTC_grp FALSE  TRUE
@@ -1125,27 +1126,27 @@ F-statistic:  65.1 on 8 and 4991 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>Now we have a dataset that is balanced in terms of age, sex and the count of long-term conditions. Let’s see how healthcare costs compare:</p>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">matched_data</span><span class="op">[</span>, <span class="fu">.</span><span class="op">(</span>mean_cost <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span>, sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span>, med_cost <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span>, iqr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/IQR.html">IQR</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span><span class="op">)</span>, <span class="va">livesalone</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">matched_data</span><span class="op">[</span>, <span class="fu">.</span><span class="op">(</span>mean_cost <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span>, sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span>, med_cost <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span>, iqr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/IQR.html">IQR</a></span><span class="op">(</span><span class="va">cost</span><span class="op">)</span><span class="op">)</span>, <span class="va">livesalone</span><span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   livesalone mean_cost        sd med_cost      iqr
        &lt;lgcl&gt;     &lt;num&gt;     &lt;num&gt;    &lt;num&gt;    &lt;num&gt;
 1:       TRUE  4248.037 10804.742 730.1007 2469.241
 2:      FALSE  3383.810  9362.913 669.2357 1967.224</code></pre>
 </div>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># histograms of cost</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># histograms of cost</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">matched_data</span><span class="op">$</span><span class="va">cost</span><span class="op">[</span><span class="va">d</span><span class="op">$</span><span class="va">livesalone</span><span class="op">]</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"Lives alone"</span>, xlab <span class="op">=</span> <span class="st">"Log cost + 1"</span>, col <span class="op">=</span> <span class="st">"red"</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">14</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">matched_data</span><span class="op">$</span><span class="va">cost</span><span class="op">[</span><span class="op">!</span><span class="va">d</span><span class="op">$</span><span class="va">livesalone</span><span class="op">]</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"Does not live alone"</span>, xlab <span class="op">=</span> <span class="st">"Log cost + 1"</span>, col <span class="op">=</span> <span class="st">"green"</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">14</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">matched_data</span><span class="op">$</span><span class="va">cost</span><span class="op">[</span><span class="op">!</span><span class="va">d</span><span class="op">$</span><span class="va">livesalone</span><span class="op">]</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"Does not live alone"</span>, xlab <span class="op">=</span> <span class="st">"Log cost + 1"</span>, col <span class="op">=</span> <span class="st">"green"</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">14</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="exact-matching-in-r_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># t-test (in reality you might want a paired test, and to check whether a t-test is appropriate)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">cost</span> <span class="op">~</span> <span class="va">livesalone</span>, <span class="va">matched_data</span><span class="op">)</span> <span class="co"># notice how wide the confidence intervals are for this reduced dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># t-test (in reality you might want a paired test, and to check whether a t-test is appropriate)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">cost</span> <span class="op">~</span> <span class="va">livesalone</span>, <span class="va">matched_data</span><span class="op">)</span> <span class="co"># notice how wide the confidence intervals are for this reduced dataset</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
@@ -1159,8 +1160,8 @@ sample estimates:
 mean in group FALSE  mean in group TRUE 
            3383.810            4248.037 </code></pre>
 </div>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># proportion with costs over £10000</span></span>
-<span><span class="va">matched_data</span><span class="op">[</span>, <span class="fu">.</span><span class="op">(</span>over10k <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">cost</span> <span class="op">&gt;</span> <span class="fl">10000</span><span class="op">)</span> <span class="op">/</span> <span class="va">.N</span><span class="op">)</span>, <span class="va">livesalone</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># proportion with costs over £10000</span></span>
+<span><span class="va">matched_data</span><span class="op">[</span>, <span class="fu">.</span><span class="op">(</span>over10k <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">cost</span> <span class="op">&gt;</span> <span class="fl">10000</span><span class="op">)</span> <span class="op">/</span> <span class="va">.N</span><span class="op">)</span>, <span class="va">livesalone</span><span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   livesalone    over10k
        &lt;lgcl&gt;      &lt;num&gt;
@@ -1172,12 +1173,12 @@ mean in group FALSE  mean in group TRUE
 </section><section id="who-got-matched-and-who-didnt" class="level1"><h1>Who got matched and who didn’t?</h1>
 <p>The point of matching was to create a comparison group of people who don’t live alone who were in some ways similar to the group who do. We probably had to delete lots of people who don’t live alone in a systematic way (for example men and younger people who do not live alone were more likely to be deleted). We might also have deleted some of the group who do live alone, which could be more problematic if we want to generalise our results to the population. Let’s see who got deleted…</p>
 <div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">d</span><span class="op">[</span>, <span class="va">matched</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">PID</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">matched_data</span><span class="op">$</span><span class="va">PID</span>, <span class="st">"matched"</span>, <span class="st">"unmatched"</span><span class="op">)</span><span class="op">]</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">d</span><span class="op">[</span>, <span class="va">matched</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">PID</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">matched_data</span><span class="op">$</span><span class="va">PID</span>, <span class="st">"matched"</span>, <span class="st">"unmatched"</span><span class="op">)</span><span class="op">]</span></span>
 <span></span>
 <span><span class="co"># just looking at age group for now</span></span>
 <span><span class="va">compare_matched</span> <span class="op">&lt;-</span> <span class="fu">dcast</span><span class="op">(</span><span class="va">d</span>, <span class="va">age_grp</span> <span class="op">~</span> <span class="va">livesalone</span> <span class="op">+</span> <span class="va">matched</span>, value.var <span class="op">=</span> <span class="st">"PID"</span><span class="op">)</span></span>
 <span><span class="va">compare_matched</span><span class="op">[</span>, <span class="st">"TRUE_total"</span> <span class="op">:=</span> <span class="va">TRUE_matched</span> <span class="op">+</span> <span class="va">TRUE_unmatched</span><span class="op">]</span></span>
-<span><span class="va">compare_matched</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">.SD</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span><span class="op">)</span>, .SDcols <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">compare_matched</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">.SD</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span><span class="op">)</span>, .SDcols <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   FALSE_matched FALSE_unmatched TRUE_matched TRUE_unmatched TRUE_total
            &lt;num&gt;           &lt;num&gt;        &lt;num&gt;          &lt;num&gt;      &lt;num&gt;
@@ -1257,13 +1258,14 @@ mean in group FALSE  mean in group TRUE
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

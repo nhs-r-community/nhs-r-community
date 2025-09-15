@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,17 +35,18 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-fc0cc20b807d365bbe85598c9858b452.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-d3261495df9e787718eacd1150070f14.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-fc0cc20b807d365bbe85598c9858b452.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f61c1ebab8034abb625aa581a34d2177.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-32de2b5df8c92487a5c6b4489f414351.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-f61c1ebab8034abb625aa581a34d2177.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
@@ -186,7 +187,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -375,7 +376,8 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="https://nhsrcommunity.com/" class="navbar-brand navbar-brand-logo">
-    <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo">
+    <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo light-content">
+    <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo dark-content">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -393,7 +395,7 @@ window.Quarto = {
 <span class="menu-text">News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog/index.html"> 
+    <a class="nav-link" href="./blog/index.qmd"> 
 <span class="menu-text">Blogs</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -491,7 +493,7 @@ window.Quarto = {
 <h2 data-anchor-id="reports"><a href="./reports/index.html">Reports</a></h2>
 <div id="listing-reports" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="ZGF0YS1zY2llbmNlJTJDZW5nYWdlbWVudCUyQ2NvbW11bml0eV9idWlsZGluZw==" data-listing-file-modified-sort="1757496336354" data-listing-reading-time-sort="12" data-listing-word-count-sort="2316">
+<div class="g-col-1" data-index="0" data-categories="ZGF0YS1zY2llbmNlJTJDZW5nYWdlbWVudCUyQ2NvbW11bml0eV9idWlsZGluZw==" data-listing-file-modified-sort="1757919694870" data-listing-reading-time-sort="12" data-listing-word-count-sort="2316">
 <a href="./reports/reports/NHS-R_questionnaire_2025/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -517,10 +519,32 @@ NHS-R 2025 Questionnaire Analysis
 </div>
 </section>
 <section id="blog" class="level2">
-<h2 data-anchor-id="blog"><a href="./blog/index.html">Blog</a></h2>
+<h2 data-anchor-id="blog"><a href="blog/index.qmd">Blog</a></h2>
 <div id="listing-blog" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="UHJlZGljdGl2ZSUyMEFuYWx5dGljcyUyQ01hY2hpbmUlMjBMZWFybmluZw==" data-listing-date-sort="1749859200000" data-listing-file-modified-sort="1757496336309" data-listing-date-modified-sort="1751932800000" data-listing-reading-time-sort="13" data-listing-word-count-sort="2410">
+<div class="g-col-1" data-index="0" data-categories="UiUyQ1Bvc2l0cm9uJTJDR2l0" data-listing-date-sort="1757376000000" data-listing-file-modified-sort="1757919694861" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1214">
+<a href="./blog/positron_for_product.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="blog/img/PST-Blog-PositronforProductOwners-A.jpg" alt="A data scientist working and an inset of the Positron IDE" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Positron for Product Owners
+</h5>
+<div class="card-text listing-description delink">
+The clever cookies at Posit (creators of RStudio) recently released Positron, their new ‘next generation’ integrated development environment (IDE), after 2+ years of…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+Sep 9, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="UHJlZGljdGl2ZSUyMEFuYWx5dGljcyUyQ01hY2hpbmUlMjBMZWFybmluZw==" data-listing-date-sort="1749859200000" data-listing-file-modified-sort="1757919694816" data-listing-date-modified-sort="1751932800000" data-listing-reading-time-sort="13" data-listing-word-count-sort="2410">
 <a href="./blog/Predictive_Analytics_Within_Healthcare-XGBoost.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -544,7 +568,7 @@ Jun 14, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="TkhTLVI=" data-listing-date-sort="1743379200000" data-listing-file-modified-sort="1757496336309" data-listing-date-modified-sort="1743379200000" data-listing-reading-time-sort="4" data-listing-word-count-sort="645">
+<div class="g-col-1" data-index="2" data-categories="TkhTLVI=" data-listing-date-sort="1743379200000" data-listing-file-modified-sort="1757919694816" data-listing-date-modified-sort="1743379200000" data-listing-reading-time-sort="4" data-listing-word-count-sort="645">
 <a href="./blog/Community_in_data_science.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -569,30 +593,6 @@ Mar 31, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="UHJlZGljdGl2ZSUyMEFuYWx5dGljcyUyQ01hY2hpbmUlMjBMZWFybmluZyUyQ2RwbHlyJTJDU1FM" data-listing-date-sort="1740614400000" data-listing-file-modified-sort="1757496336345" data-listing-date-modified-sort="1740700800000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1374">
-<a href="./blog/predictive-analytics.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./blog/img/computer-with-analytics.jpg" class="thumbnail-image card-img" style="height: 150px;" alt="Graphic of a laptop with stylised analytics on the screen.">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Predictive Analytics within healthcare - Random Forest models for predicting length of stay
-</h5>
-<div class="card-text listing-description delink">
-Hi! This is my first blog post here and I’m excited to have the chance to share my thoughts with you on this topic, as it is something that has seemingly exploded in…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Joseph Mosley
-</div>
-<div class="listing-date">
-Feb 27, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
@@ -601,7 +601,7 @@ Feb 27, 2025
 <h2 data-anchor-id="books"><a href="./books/index.html">Books</a></h2>
 <div id="listing-books" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="ZGF0YS1zY2llbmNlJTJDaGVhbHRoLWluZXF1YWxpdGllcw==" data-listing-file-modified-sort="1757496336348" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
+<div class="g-col-1" data-index="0" data-categories="ZGF0YS1zY2llbmNlJTJDaGVhbHRoLWluZXF1YWxpdGllcw==" data-listing-file-modified-sort="1757919694864" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
 <a href="./books/posts/health-inequalities/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -622,7 +622,7 @@ Health Inequalities
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="Y29kZS1vZi1jb25kdWN0JTJDdHJhaW5pbmc=" data-listing-file-modified-sort="1757496336348" data-listing-reading-time-sort="1" data-listing-word-count-sort="10">
+<div class="g-col-1" data-index="1" data-categories="Y29kZS1vZi1jb25kdWN0JTJDdHJhaW5pbmc=" data-listing-file-modified-sort="1757919694864" data-listing-reading-time-sort="1" data-listing-word-count-sort="10">
 <a href="./books/posts/NHSR-way/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -643,7 +643,7 @@ NHS-R Way book
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="ZGF0YS1zY2llbmNlJTJDYW5hbHlzaXMlMkNsaW5rcyUyQ3RyYWluaW5n" data-listing-file-modified-sort="1757496336348" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
+<div class="g-col-1" data-index="2" data-categories="ZGF0YS1zY2llbmNlJTJDYW5hbHlzaXMlMkNsaW5rcyUyQ3RyYWluaW5n" data-listing-file-modified-sort="1757919694864" data-listing-reading-time-sort="1" data-listing-word-count-sort="9">
 <a href="./books/posts/open-analytics-resources/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -766,13 +766,14 @@ Open Analytics Resources
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

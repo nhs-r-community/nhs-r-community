@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="dcterms.date" content="2021-04-22">
 <title>Can we rely on synthetic data to overcome data governance issue in healthcare? – NHS-R Community Quarto website</title>
@@ -65,18 +65,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="..//img/nhsr-logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-38f3945895c927b1dc2807f6922eeda9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-7eb9156fd5f38b477fe1e80f83deb6f7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-38f3945895c927b1dc2807f6922eeda9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ed602d676c2bda100158269a9bc0ec88.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-d450f0bbef5c9e20389c25578415d1f5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-ed602d676c2bda100158269a9bc0ec88.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script><script id="quarto-search-options" type="application/json">{
@@ -281,7 +282,7 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
   <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="https://nhsrcommunity.com/" class="navbar-brand navbar-brand-logo">
-    <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo"></a>
+    <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo light-content"><img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo dark-content"></a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -298,7 +299,7 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <span class="menu-text">News</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog/index.html"> 
+    <a class="nav-link" href="../blog/index.qmd"> 
 <span class="menu-text">Blogs</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -432,7 +433,7 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 Joint distribution <em>f(x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>, …, x<sub>p</sub>)</em> is approximated by a set of conditional distributions <em>f(x<sub>2</sub>|x<sub>1</sub>)</em>.</p>
 <p>For instance, we have the following original (real) data.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu">tribble</span><span class="op">(</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu">tribble</span><span class="op">(</span></span>
 <span>      <span class="op">~</span><span class="va">sex</span>,                   <span class="op">~</span><span class="va">edu</span>, <span class="op">~</span><span class="va">age</span>, <span class="op">~</span><span class="va">depress</span>,</span>
 <span>  <span class="st">"FEMALE"</span>,   <span class="st">"VOCATIONAL/GRAMMAR"</span>,  <span class="fl">57L</span>,       <span class="fl">6L</span>,</span>
 <span>    <span class="st">"MALE"</span>,   <span class="st">"VOCATIONAL/GRAMMAR"</span>,  <span class="fl">20L</span>,       <span class="fl">0L</span>,</span>
@@ -444,7 +445,7 @@ Joint distribution <em>f(x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>, …, x<sub
 <span>    <span class="st">"MALE"</span>,            <span class="st">"SECONDARY"</span>,  <span class="fl">39L</span>,       <span class="fl">4L</span>,</span>
 <span>  <span class="st">"FEMALE"</span>,            <span class="st">"SECONDARY"</span>,  <span class="fl">43L</span>,       <span class="fl">0L</span>,</span>
 <span>  <span class="st">"FEMALE"</span>,            <span class="st">"SECONDARY"</span>,  <span class="fl">63L</span>,       <span class="fl">6L</span></span>
-<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 4
    sex    edu                    age depress
@@ -463,7 +464,7 @@ Joint distribution <em>f(x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>, …, x<sub
 </div>
 <p>We can generate synthetic data using the algorithm described above.</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu">tribble</span><span class="op">(</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu">tribble</span><span class="op">(</span></span>
 <span>      <span class="op">~</span><span class="va">sex</span>,                       <span class="op">~</span><span class="va">edu</span>, <span class="op">~</span><span class="va">age</span>, <span class="op">~</span><span class="va">depress</span>,</span>
 <span>    <span class="st">"MALE"</span>,     <span class="st">"PRIMARY/NO EDUCATION"</span>,  <span class="fl">81L</span>,      <span class="fl">11L</span>,</span>
 <span>  <span class="st">"FEMALE"</span>,                <span class="st">"SECONDARY"</span>,  <span class="fl">75L</span>,       <span class="fl">9L</span>,</span>
@@ -475,7 +476,7 @@ Joint distribution <em>f(x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>, …, x<sub
 <span>  <span class="st">"FEMALE"</span>,       <span class="st">"VOCATIONAL/GRAMMAR"</span>,  <span class="fl">35L</span>,       <span class="fl">2L</span>,</span>
 <span>    <span class="st">"MALE"</span>, <span class="st">"POST-SECONDARY OR HIGHER"</span>,  <span class="fl">38L</span>,       <span class="fl">0L</span>,</span>
 <span>    <span class="st">"MALE"</span>,       <span class="st">"VOCATIONAL/GRAMMAR"</span>,  <span class="fl">25L</span>,       <span class="fl">0L</span></span>
-<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 4
    sex    edu                        age depress
@@ -499,13 +500,13 @@ Joint distribution <em>f(x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>, …, x<sub
 </div>
 </section><section id="national-early-warning-score-news-example-in-r" class="level3"><h3 class="anchored" data-anchor-id="national-early-warning-score-news-example-in-r"><strong>National early warning score (NEWS) example in R:</strong></h3>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/nhs-r-community/NHSRdatasets">NHSRdatasets</a></span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/nhs-r-community/NHSRdatasets">NHSRdatasets</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">NHSRdatasets</span><span class="fu">::</span><span class="va">synthetic_news_data</span></span>
 <span></span>
 <span><span class="va">df</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu">slice_head</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu">slice_head</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 12
     male   age  NEWS  syst  dias  temp pulse  resp   sat   sup alert  died
@@ -523,7 +524,7 @@ Joint distribution <em>f(x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>, …, x<sub
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      male            age              NEWS             syst      
  Min.   :0.000   Min.   : 17.00   Min.   : 0.000   Min.   : 65.0  
@@ -550,9 +551,9 @@ Joint distribution <em>f(x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>, …, x<sub
 </div>
 </section><section id="generate-the-synthetic-news-data-using-synthpop-r-package" class="level3"><h3 class="anchored" data-anchor-id="generate-the-synthetic-news-data-using-synthpop-r-package">Generate the synthetic NEWS data using synthpop R package</h3>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">synthpop</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">synthpop</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">syn_df</span> <span class="op">&lt;-</span> <span class="fu">syn</span><span class="op">(</span><span class="va">df</span>, seed <span class="op">=</span> <span class="fl">4321</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">syn_df</span> <span class="op">&lt;-</span> <span class="fu">syn</span><span class="op">(</span><span class="va">df</span>, seed <span class="op">=</span> <span class="fl">4321</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Warning: In your synthesis there are numeric variables with 5 or fewer levels: male, sup, alert, died.
 Consider changing them to factors. You can do it using parameter 'minnumlevels'.
@@ -562,8 +563,8 @@ Synthesis
  male age NEWS syst dias temp pulse resp sat sup
  alert died</code></pre>
 </div>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># synthetic data</span></span>
-<span><span class="va">syn_df</span><span class="op">$</span><span class="va">syn</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,<span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># synthetic data</span></span>
+<span><span class="va">syn_df</span><span class="op">$</span><span class="va">syn</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,<span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   male age NEWS syst dias temp pulse resp sat sup alert died
 1     1  56    1  126   84 35.7    72   17  98   0     0    0
@@ -579,7 +580,7 @@ Synthesis
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">syn_df</span><span class="op">$</span><span class="va">syn</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">syn_df</span><span class="op">$</span><span class="va">syn</span><span class="op">)</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      male           age              NEWS             syst      
  Min.   :0.00   Min.   : 17.00   Min.   : 0.000   Min.   : 65.0  
@@ -605,10 +606,10 @@ Synthesis
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="st">"synthetic_news_data.csv"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="st">"synthetic_news_data.csv"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">## "","x"</span></span>
-<span><span class="co">## "1","synthetic_news_data.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">## "1","synthetic_news_data.csv"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>For more discussion about {synthpop} R package <a href="http://gradientdescending.com/generating-synthetic-data-sets-with-synthpop-in-r/" class="uri">http://gradientdescending.com/generating-synthetic-data-sets-with-synthpop-in-r/</a></p>
 </section><section id="summary" class="level3"><h3 class="anchored" data-anchor-id="summary"><strong>Summary</strong></h3>
@@ -683,13 +684,14 @@ Synthesis
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
