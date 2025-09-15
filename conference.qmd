@@ -1,5 +1,5 @@
 ---
-title: "Conference"
+title: "RPySOC 2025: NHS-R/NHS.pycom Open Source Conference"
 ---
 
 ![](img/RPYSOC25_banner.png)
@@ -11,11 +11,36 @@ Conference dates:
 - Thursday 13th November 2025
 - Friday 14th November 2025
 
-Registration to open shortly – **so watch this space!**
- 
-To submit an abstract, please complete [this form](https://www.smartsurvey.co.uk/s/YQAO3E/). 
- 
-Please note that the abstract submission deadline is **Friday 5th September 2025**. 
-We would be honoured to incorporate your work into the conference.
+We're excited to be able to confirm we will be hosting keynote presentations from these great speakers ✨
 
-Thank you for being part of the community during a time of change — we appreciate your engagement!
+::: {#fig-keynotes layour-ncol=4}
+
+![**Prof Ben Goldacre** is a doctor, academic, writer, and broadcaster. He trained in medicine at Oxford and UCL, in psychiatry at the Maudsley, and in epidemiology at LSHTM. His academic and policy work is in informatics, epidemiology and evidence-based medicine, where he works on various problems including variation in care, better uses of routinely collected electronic health data, evidence-based social policy, access to clinical trial data, efficient trial design, and retracted papers. OpenSAFELY is a fully open source and highly secure analytics platform for NHS data created during the COVID-19 pandemic. It is currently executing code across an unprecedented scale of data: 58 million patients full raw GP records - 70 billion rows of information - linked onto various other sources including SGSS, SUS/HES, ECDS, ISARIC, ICNARC, ONS death, and more. All code for the platform, and for data management and analysis of each output, is shared under open licenses for review and re-use. OpenSAFELY has delivered a range of outputs in journals such as Nature, Lancet and the BMJ from a large national academic collaboration.](img/ben_goldacre.png)
+![**Cara Thompson** is an Edinburgh-based data visualisation consultant. She specialises in helping teams of data folks make the most of dataviz to communicate their insights to non specialist audiences. Alongside training and commisions, a lot of her work revolves around creating and automating dataviz design systems - a set of rules for colours and fonts which allow analysts to create on-brand and accessible visualisations that also look good, without all the soul searching normally involved in doing that. She is passionate about equipping others to make the most of dataviz, and always looks forward to hearing what others are up to!](img/cara_thompson.jpg)
+![**Dr Daniel Chalk** is a Senior Research Fellow at the NIHR Applied Research Collaboration for the South West Peninsula (PenARC), Director of the Health Service Modelling Associates (HSMA) Programme since its inception, and former chair of the PenCHORD research team.  He has nearly 15 years of experience collaborating with the NHS to apply Operational Research and Data Science methods to improve service delivery, with particular expertise in Discrete Event Simulation and Agent Based Simulation, and his work has led to reductions in cancer waiting times, supported end of life care resource planning, and fed into national policy making on diabetic retinopathy screening.  He has spent the last 12 years teaching and mentoring NHS staff to develop and apply skills in modelling and data science, and is a firm believer that anyone can be taught how to code and how to develop models with the right support.  He is a passionate advocate of open science and the use of Free and Open Source solutions.](img/dan_chalk.png)
+![Sammi Rosser is a researcher and teacher with an interest in how data science and operational research approaches can be used to improve the lives of patients. As a trainer on the Health Service Modelling Associates (HSMA) program, she is passionate about spreading the word about open approaches and empowering people to learn Python and apply it to healthcare problems. Her work focuses on pathway simulation modelling, geographic optimization, and data visualisation, and she has developed a range of tools, packages and eBooks designed to make reproducible healthcare analytics more accessible. Drawing on her experience from her time in the NHS and from advising on NHS data science projects across the country, she emphasises practical and pragmatic approaches for advancing the way the NHS uses data to support better decision-making.](img/sammi_rosser.jpg)
+
+:::
+
+## 📣 Registration 📣
+
+Registration for both in person and online tickets is completely **FREE**.
+
+Please register for **EACH DAY** of the conference that you would like to attend.
+
+Registration for the conference is now **OPEN** and will be available until ...
+All in person tickets include daytime refreshments and lunch.
+
+To register for either in person or online tickets please click here: [REGISTER](https://gbr01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.hdruk.ac.uk%2Fevents%2Frpysoc-2025-nhs-r-nhs-pycom-open-source-conference%2F&data=05%7C02%7Cclaire.welsh8%40nhs.net%7C4da85acf6b194474a7ce08ddf208f1bb%7C37c354b285b047f5b22207b48d774ee3%7C0%7C0%7C638932842437743393%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=y41VTzcUvjGXVwdbgqa1IZM%2FlDlfmjZJxRzqC%2FXDN9s%3D&reserved=0)
+
+For information on the venue, please see [below](#venue)
+
+
+## 🏢 Venue information {#sec-venue} 🏬
+
+Address: [Wellcome Trust](https://www.google.co.uk/maps/place/Wellcome+Trust/@51.5255457,-0.1371449,17z/data=!3m1!4b1!4m5!3m4!1s0x48761b25fe44f4b7:0x8d0b599119134025!8m2!3d51.5255424!4d-0.1349562?hl=en), Gibbs Building, 215 Euston Road, London, NW1 2BE.
+
+### Travel Info
+### Accessibility Info
+### Catering
+### Sponsorship
