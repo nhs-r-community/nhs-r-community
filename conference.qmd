@@ -1,21 +1,72 @@
 ---
-title: "Conference"
+title: "RPySOC 2025"
+subtitle: "NHS-R/NHS.pycom Open Source Conference"
 ---
 
 ![](img/RPYSOC25_banner.png)
 
-We are pleased to announce that the RPYSOC 2025 conference will be held at the Wellcome Trust (215 Euston Road, London), offering both in-person and virtual attendance options! 
+We are pleased to announce that the RPYSOC 2025 conference will be held at the Wellcome Trust, London, offering both 🏃‍♀️ in-person and 💻 virtual attendance options! 
  
 Conference dates: 
 
 - Thursday 13th November 2025
 - Friday 14th November 2025
 
-Registration to open shortly – **so watch this space!**
- 
-To submit an abstract, please complete [this form](https://www.smartsurvey.co.uk/s/YQAO3E/). 
- 
-Please note that the abstract submission deadline is **Friday 5th September 2025**. 
-We would be honoured to incorporate your work into the conference.
+## Registration
 
-Thank you for being part of the community during a time of change — we appreciate your engagement!
+Registration for RPySOC 2025 is now **OPEN**, and will close at 23:59 on the 3rd November 2025.
+
+To register for either in person or online tickets, please [CLICK HERE](https://www.hdruk.ac.uk/events/rpysoc-2025-nhs-r-nhs-pycom-open-source-conference/).  Please register for EACH DAY that you wish to attend.
+
+All tickets are free, and lunch and refreshments are provided to all in person delegates.
+
+::: {.callout-note}
+Please note that RPySOC 2025 will be hosted in partnership with [Health Data Research UK](https://www.hdruk.ac.uk/) and [The Wellcome Trust](https://wellcome.org/about-us/contact-us). The information you provide when registering to attend the conference will be used to set-up your access to the in-person and/or virtual event and will be visible to the Conference Team (NHS-R Community, NHS Python Community, The Strategy Unit), Health Data Research UK, The Wellcome Trust and other registered participants for conference-related purposes, such as session participation, networking, and presenter engagement.
+:::
+
+
+
+## Programme
+
+We are excited to announce that the following keynote speakers will be presenting at RPySOC 2025:
+
+::: {layout-ncol=2}
+
+![**Professor Ben Goldacre** is Bennett Professor of Evidence Based Medicine at the University of Oxford, and Director of the Bennett Institute for Applied Data Science. Recent projects include [OpenPrescribing.net](https://openprescribing.net/) and [OpenSAFELY.org](https://www.opensafely.org/), an open source secure data platform that has delivered high impact research analyses across 58 million patients’ GP records, developed in close collaboration with electronic health record system suppliers TPP and Optum (formerly EMIS). He is also a best selling writer of popular science books, and author of the Goldacre Review (“Better, Broader, Safer Uses of Health Data”) for Secretary of State for Health and Social Care, published in April 2022.](img/ben_goldacre.jpg){width="300"}
+
+![**Sammi Rosser** is a researcher and teacher with an interest in how data science and operational research approaches can be used to improve the lives of patients. As a trainer on the Health Service Modelling Associates (HSMA) program, she is passionate about spreading the word about open approaches and empowering people to learn Python and apply it to healthcare problems. Her work focuses on pathway simulation modelling, geographic optimization, and data visualisation, and she has developed a range of tools, packages and eBooks designed to make reproducible healthcare analytics more accessible. Drawing on her experience from her time in the NHS and from advising on NHS data science projects across the country, she emphasises practical and pragmatic approaches for advancing the way the NHS uses data to support better decision-making.](img/sammi_rosser.jpg){width="300"}
+
+![**Dr Dan Chalk** is a Senior Research Fellow at the NIHR Applied Research Collaboration for the South West Peninsula (PenARC), Director of the Health Service Modelling Associates (HSMA) Programme since its inception, and former chair of the PenCHORD research team.  He has nearly 15 years of experience collaborating with the NHS to apply Operational Research and Data Science methods to improve service delivery, with particular expertise in Discrete Event Simulation and Agent Based Simulation, and his work has led to reductions in cancer waiting times, supported end of life care resource planning, and fed into national policy making on diabetic retinopathy screening.  He has spent the last 12 years teaching and mentoring NHS staff to develop and apply skills in modelling and data science, and is a firm believer that anyone can be taught how to code and how to develop models with the right support.  He is a passionate advocate of open science and the use of Free and Open Source solutions.](img/dan_chalk.png){width="300"}
+
+![**Cara Thompson** is an Edinburgh-based data visualisation consultant. She specialises in helping teams of data folks make the most of dataviz to communicate their insights to non specialist audiences. Alongside training and commisions, a lot of her work revolves around creating and automating dataviz design systems - a set of rules for colours and fonts which allow analysts to create on-brand and accessible visualisations that also look good, without all the soul searching normally involved in doing that. She is passionate about equipping others to make the most of dataviz, and always looks forward to hearing what others are up to! ](img/cara_thompson.jpg){width="300"}
+
+:::
+
+
+
+### Venue address
+
+Wellcome Trust, Gibbs Building, 215 Euston Road, London NW1 2BE
+
+### Travel and accessibility
+
+Please refer to the [Wellcome Trust](https://wellcome.org/about-us/contact-us) website for travel and site accessibility advice.
+
+::: {.callout-important}
+
+**Data Collection**
+
+Please be advised that any data/information collected (from you) before, during and after RPySOC 2025 will be used for the purpose of administration within the NHS-R Community, NHS Python Community, The Strategy Unit and event co-sponsors. Your data/information will not be disclosed to any third party, except within the terms of UK General Data Protection Regulation (UK GDPR) and the UK Data Protection Act 2018. The data/information will also be used to support the NHS-R Community's, NHS Python Community’s, The Strategy Unit's and event co-sponsors' event management, marketing and market research activities.
+
+To see our host organisation's (NHS Midlands and Lancashire) Privacy Policy please [CLICK HERE](https://gbr01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.midlandsandlancashirecsu.nhs.uk%2Fstatutory-notices%2Fprivacy-policy-2%2F&data=05%7C02%7Cclaire.welsh8%40nhs.net%7C921827aa26314cb3021d08ddf5c6024f%7C37c354b285b047f5b22207b48d774ee3%7C0%7C0%7C638936952996941712%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=hoh0NKHonp9eOLFg5uxHvUR9OZKTbOgW2yJKvaHNGlQ%3D&reserved=0)
+
+**Recordings and Photography**
+
+Where possible, conference talks and activities will be recorded and published online. 
+If you would NOT like to be recorded, please make the Conference Team aware via the event registration form, an email to nhs.rcommunity@nhs.net, by direct message on Slack  and/or to the Conference Team in-person.
+
+A photographer will be present at The Wellcome Trust, if you would NOT like to be photographed and have your image published online, please make the Conference Team aware via the event registration form, an email to nhs.rcommunity@nhs.net, by direct message on Slack and/or to the Conference Team in-person.
+  
+**If for any reason you wish to withdraw your consent for any of the aforementioned, please email the Conference Team via nhs.rcommunity@nhs.net.**
+
+:::
