@@ -5,8 +5,10 @@ format: html
 
 ### RPySOC 2025 Conference Registration is now OPEN!
 
+![](img/RPYSOC25_banner.png)
+
 Please see the [conference](conference.qmd) page for details
 
-Registration will close at 23:59 on 3rd November 2025.
+Registration for in person tickets will close at 23:59 on 2nd November 2025.
 
 
