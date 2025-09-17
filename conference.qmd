@@ -16,7 +16,7 @@ Conference dates:
 
 Registration for RPySOC 2025 is now **OPEN**, and will close at 23:59 on the 3rd November 2025.
 
-To register for either in person or online tickets, please [CLICK HERE](https://www.hdruk.ac.uk/events/rpysoc-2025-nhs-r-nhs-pycom-open-source-conference/).  Please register for EACH DAY that you wish to attend.
+To register for either in person or online tickets, please [CLICK HERE](https://www.hdruk.ac.uk/events/rpysoc-2025-nhs-r-nhs-pycom-open-source-conference/).  
 
 All tickets are free, and lunch and refreshments are provided to all in person delegates.
 
