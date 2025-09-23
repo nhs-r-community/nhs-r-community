@@ -9,12 +9,6 @@ website:
   site-url: https://nhsrcommunity.com/
   page-navigation: true
   back-to-top-navigation: true
-  announcement:
-    icon: calendar2-event
-    dismissable: true
-    content: "**Abstract Call for RPYSOC2025** See our [conference](https://nhsrcommunity.com/conference.html) page for more info."
-    type: primary
-    position: below-navbar
   favicon: /img/nhsr-logo.png
   repo-url: https://github.com/nhs-r-community/nhs-r-community
   repo-actions: [edit, issue]
