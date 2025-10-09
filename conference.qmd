@@ -24,37 +24,37 @@ All tickets are free, and lunch and refreshments are provided to all in person d
 Please note that RPySOC 2025 will be hosted in partnership with [Health Data Research UK](https://www.hdruk.ac.uk/) and [The Wellcome Trust](https://wellcome.org/about-us/contact-us). The information you provide when registering to attend the conference will be used to set-up your access to the in-person and/or virtual event and will be visible to the Conference Team (NHS-R Community, NHS Python Community, The Strategy Unit), Health Data Research UK, The Wellcome Trust and other registered participants for conference-related purposes, such as session participation, networking, and presenter engagement.
 :::
 
-## Programme{#programme}
+## Programme {#programme}
 
 **Day 1 - Thursday 13th November**
 
 |  |  |  |
-|------------------|-----------------------------------|------------------|
+|-------------------|-----------------------------------|-------------------|
 | 09:00 | Registration and refreshments |  |
 | 10:00 | Welcome and safety briefing | Dr Claire Welsh |
 | 10:20 | Total Eclipse of the Excel Chart - A reflection on 12 years of teaching modelling and data science in the NHS | Dr Dan Chalk |
 | 10:50 | TBC | Cara Thompson |
-| 11:20 | BREAK |  |
+| 11:20 | **BREAK** |  |
 | 11:40 | Using open data and open source code to create an open elective waiting lists modelling tool (RTT Planner) | Sebastian Fox |
 | 12:00 | Using APIs in R to obtain Health indicators for interactive visualizations | Pablo Leon-Rodenas |
 | 12:20 | opencodecounts: An R package and Shiny app exploring NHS clinical coding data | Milan Wiedemann |
 | 12:30 | DES-igning Better Flow: Modelling Non-Elective Admissions | Helena Robinson |
 | 12:40 | Mapping Accessibility: Using R5py and GTFS Data to Optimise Women’s Health Hub Locations in the Sussex | Karrie Liu |
 | 12:50 | A Short Story of a Short Course - Natural Language Processing in R for Health and Social Care | Pawel Orzechowski and Brittany Blankinship |
-| 13:00 | LUNCH |  |
+| 13:00 | **LUNCH** |  |
 | 14:00 | Design a model for Community pharmacy workforce with open source data | Chaeyoon Kim |
 | 14:20 | Word is better than Quarto? | Jacqueline Grout and Matt Dray |
 | 14:40 | Deploying Python in production: containers, kubernetes and embracing yaml | Amadeus Stevenson |
 | 15:00 | Modelling Community waiting lists with NHS-R waiting list library | Simon Wellesley-Miller |
 | 15:10 | Transforming Health Needs Assessments: Reproducible Insights for Smarter NHS Planning | Rachel Christie |
 | 15:20 | Building QA into everyday workflows with GitHub | Rhian Davies |
-| 15:30 | BREAK |  |
+| 15:30 | **BREAK** |  |
 | 15:50 | The story of patientflow: from hospital prototype to Python package | Zella King |
 | 16:10 | Going for Gold: Adopting RAP-by-default to Create Analysts from Nowhere. | Joe Wilson |
 | 16:30 | Zhuzhing custom error messages with {cli} | Fran Barton |
 | 16:40 | Shattered pottery and cancer data: using R to rejoin the pieces | Joe Shaw |
 | 16:50 | Day 1 closing remarks | HDR UK |
-| 17:00 | CLOSE of day 1 |  |
+| 17:00 | **CLOSE of day 1** |  |
 
 **Day 2 - Friday 14th November**
 
@@ -63,18 +63,18 @@ Please note that RPySOC 2025 will be hosted in partnership with [Health Data Res
 :::
 
 |  |  |  |
-|------------------|-----------------------------------|------------------|
+|-------------------|-----------------------------------|-------------------|
 | 09:00 | Registration and refreshments |  |
 | 10:00 | Welcome and safety brief | Dr Claire Welsh and HDR UK |
 | 10:20 | Reusable by Default: Reflections on Building Sustainable Open Tools and Knowledge for Healthcare | Dr Sammi Rosser |
 | 10:50 | 3 years on NHS-RPy Unconference: open, self-organising exchange of ideas | Pawel Orzechowski and Brittany Blankinship |
 | 11:00 | Practical Testing for Reproducible Analytical Pipelines | Thomas Jemmett |
-| 11:20 | BREAK |  |
+| 11:20 | **BREAK** |  |
 | 11:40 | How we delivered the OpenSAFELY platform to analyse the whole population's GP records securely, transparently, with open code | Prof Ben Goldacre |
 | 12:10 | Patient-Level Analytics That Work: Using R to Achieve Rapid, Sustained MRSA Screening Compliance Improvements | Daniel Weiand |
 | 12:30 | Using simulation to evaluate a service: what to do when you've got no data, no clear questions, and no clue if it's working: | Chris Mainey |
 | 12:50 | Making national cancer audit reporting Shiny: a journey from Excel to web-based apps using R and Reproducible Analytical Pipelines. | Ella Barber |
-| 13:00 | LUNCH |  |
+| 13:00 | **LUNCH** |  |
 | 14:00 | Data Querying using Natural Language | Abhinav Jindal (Jin) |
 | 14:10 | MetaInsight - an R shiny app for network meta-analysis | Simon Smart |
 | 14:20 | Better together: lessons from RAP drop-ins | YiWen Hon |
@@ -84,10 +84,9 @@ Please note that RPySOC 2025 will be hosted in partnership with [Health Data Res
 | 15:10 | Publishing reproducible websites using R Quarto: Camden's JSNA Hub | Annie Yu |
 | 15:20 | What Patients Ask: Harnessing Free-Text Data for Patient-Centred Care | Mimi Reyburn |
 | 15:30 | Closing remarks | Dr Claire Welsh and HDR UK |
-| 16:00 | CLOSE of day 2 |  |
+| 16:00 | **CLOSE of day 2** |  |
 
------
-
+------------------------------------------------------------------------
 
 We are excited to announce that the following keynote speakers will be presenting at RPySOC 2025!:
 
@@ -101,12 +100,11 @@ We are excited to announce that the following keynote speakers will be presentin
 ![**Cara Thompson** is an Edinburgh-based data visualisation consultant. She specialises in helping teams of data folks make the most of dataviz to communicate their insights to non specialist audiences. Alongside training and commisions, a lot of her work revolves around creating and automating dataviz design systems - a set of rules for colours and fonts which allow analysts to create on-brand and accessible visualisations that also look good, without all the soul searching normally involved in doing that. She is passionate about equipping others to make the most of dataviz, and always looks forward to hearing what others are up to!](img/cara_thompson.jpg){width="300"}
 :::
 
-Please post all questions for speakers in the [conference Slack channel](https://nhsrcommunity.slack.com/archives/C02V0A8PDLZ). 
-Check back regularly as speakers will respond when they can.
+Please post all questions for speakers in the [conference Slack channel](https://nhsrcommunity.slack.com/archives/C02V0A8PDLZ). Check back regularly as speakers will respond when they can.
 
------
+------------------------------------------------------------------------
 
-## Delegate Information Pack{#delegate_pack}
+## Delegate Information Pack {#delegate_pack}
 
 ### 🕌 Venue details
 
@@ -116,8 +114,7 @@ Wellcome Trust, Gibbs Building, 215 Euston Road, London NW1 2BE
 
 Please refer to the [Wellcome Trust](https://wellcome.org/about-us/contact-us) website for travel and site accessibility advice.
 
-If you would like us to reserve you a seat in the main auditorium please email us
-at nhs.rcommunity@nhs.net.
+If you would like us to reserve you a seat in the main auditorium please email us at nhs.rcommunity\@nhs.net.
 
 ::: callout-important
 **Data Collection**
@@ -138,32 +135,17 @@ A photographer will be present at The Wellcome Trust, if you would NOT like to b
 ### Getting around the venue
 
 #### 👩‍✈️ Chaperone service
-The main conference hall is on Level 7. 
-We also have a quiet room, prayer room,
-and the Unconference, which will be held on Level 6. 
-Access to each floor in the
-building is strictly _by chaperone_, thus you will need to be escorted between
-floors, and in and out of the building. 
-We will be operating a separate Slack
-channel ([#rpysoc25_chaperone](https://nhsrcommunity.slack.com/archives/C09KJSUCWLW)) devoted to this.
-If you require to access a different floor, please make your way to the 
-Chaperone Waiting Station and add a message to the Slack channel to request a
-member of HDR UK to chaperone you. 
+
+The main conference hall is on Level 7. We also have a quiet room, prayer room, and the Unconference, which will be held on Level 6. Access to each floor in the building is strictly *by chaperone*, thus you will need to be escorted between floors, and in and out of the building. We will be operating a separate Slack channel ([#rpysoc25_chaperone](https://nhsrcommunity.slack.com/archives/C09KJSUCWLW)) devoted to this. If you require to access a different floor, please make your way to the Chaperone Waiting Station and add a message to the Slack channel to request a member of HDR UK to chaperone you.
 
 #### 🤐 Venue room access
-Please note that the Wellcome Trust is a busy working office building. 
-We have kindly been granted use of a number of rooms over the two days of the conference,
-but there will be some rooms marked as 'off limits' for delegates. 
-Please respect these signs and our generous sponsors by avoiding making excessive noise around
-these rooms or attempting to enter.
+
+Please note that the Wellcome Trust is a busy working office building. We have kindly been granted use of a number of rooms over the two days of the conference, but there will be some rooms marked as 'off limits' for delegates. Please respect these signs and our generous sponsors by avoiding making excessive noise around these rooms or attempting to enter.
 
 #### ☎️ Space for calls
-There are individual pods on the main conference floor which you can use to make
-phonecalls. 
+
+There are individual pods on the main conference floor which you can use to make phonecalls.
 
 #### 🎒 Cloakroom
-A cloakroom will also be available on level 7 for storing luggage, but please note, all
-items are left at the owners risk and neither NHS-R, HDR UK nor the Wellcome
-Trust accept any liability for items that may be lost, stolen or damaged.
 
-
+A cloakroom will also be available on level 7 for storing luggage, but please note, all items are left at the owners risk and neither NHS-R, HDR UK nor the Wellcome Trust accept any liability for items that may be lost, stolen or damaged.
