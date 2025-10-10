@@ -29,11 +29,11 @@ Please note that RPySOC 2025 will be hosted in partnership with [Health Data Res
 **Day 1 - Thursday 13th November**
 
 |  |  |  |
-|-------------------|-----------------------------------|-------------------|
+|-------------------|----------------------------------|-------------------|
 | 09:00 | Registration and refreshments |  |
 | 10:00 | Welcome and safety briefing | Dr Claire Welsh |
 | 10:20 | Total Eclipse of the Excel Chart - A reflection on 12 years of teaching modelling and data science in the NHS | Dr Dan Chalk |
-| 10:50 | TBC | Cara Thompson |
+| 10:50 | Beautifully reproducible dataviz: lessons learnt from building data-to-viz pipelines | Cara Thompson |
 | 11:20 | **BREAK** |  |
 | 11:40 | Using open data and open source code to create an open elective waiting lists modelling tool (RTT Planner) | Sebastian Fox |
 | 12:00 | Using APIs in R to obtain Health indicators for interactive visualizations | Pablo Leon-Rodenas |
@@ -63,7 +63,7 @@ Please note that RPySOC 2025 will be hosted in partnership with [Health Data Res
 :::
 
 |  |  |  |
-|-------------------|-----------------------------------|-------------------|
+|-------------------|----------------------------------|-------------------|
 | 09:00 | Registration and refreshments |  |
 | 10:00 | Welcome and safety brief | Dr Claire Welsh and HDR UK |
 | 10:20 | Reusable by Default: Reflections on Building Sustainable Open Tools and Knowledge for Healthcare | Dr Sammi Rosser |
