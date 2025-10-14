@@ -24,7 +24,7 @@ All tickets are free, and lunch and refreshments are provided to all in person d
 Please note that RPySOC 2025 will be hosted in partnership with [Health Data Research UK](https://www.hdruk.ac.uk/) and [The Wellcome Trust](https://wellcome.org/about-us/contact-us). The information you provide when registering to attend the conference will be used to set-up your access to the in-person and/or virtual event and will be visible to the Conference Team (NHS-R Community, NHS Python Community, The Strategy Unit), Health Data Research UK, The Wellcome Trust and other registered participants for conference-related purposes, such as session participation, networking, and presenter engagement.
 :::
 
-## Programme {#programme}
+## Programme {#sec-programme}
 
 **Day 1 - Thursday 13th November**
 
