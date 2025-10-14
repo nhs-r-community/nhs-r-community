@@ -5,7 +5,7 @@ format: html
 
 ::: {.panel-tabset}
 
-## Conference {#conference}
+## Conference {#sec-conference}
 
 ![](img/RPYSOC25_banner.png)
 
@@ -25,7 +25,7 @@ We would be honoured to incorporate your work into the conference.
 Thank you for being part of the community during a time of change—we appreciate your engagement!
 
 
-## Webinars and Workshops {#webinars_and_workshops}
+## Webinars and Workshops {#sec-webinars_and_workshops}
 
 Please note:
 
@@ -53,7 +53,7 @@ Please note:
   + 09:00 - 13:00 (GMT)
   + 🔗 [Registration Link](https://forms.office.com/Pages/ResponsePage.aspx?id=slTDN7CF9UeyIge0jXdO44XdMKUqFgROnUm4_TKex1xUOE9XTEM3RFZNWFY2Qlg5TUpZQ0YxT0IxVi4u)
   
-## Coffee & Coding {#coffee-and-code}
+## Coffee & Coding {#sec-coffee-and-code}
 
 Please note:
 
