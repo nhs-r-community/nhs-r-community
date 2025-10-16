@@ -16,7 +16,7 @@ Conference dates:
 
 Registration for RPySOC 2025 is now **OPEN**, and will close at 23:59 on the 3rd November 2025.
 
-To register for either in person or online tickets, please [CLICK HERE](https://www.hdruk.ac.uk/events/rpysoc-2025-nhs-r-nhs-pycom-open-source-conference/).
+If you're attending in person or online, please [register for tickets online](https://www.hdruk.ac.uk/events/rpysoc-2025-nhs-r-nhs-pycom-open-source-conference/).
 
 All tickets are free, and lunch and refreshments are provided to all in person delegates.
 
@@ -26,7 +26,7 @@ Please note that RPySOC 2025 will be hosted in partnership with [Health Data Res
 
 ## Programme {#sec-programme}
 
-**Day 1 - Thursday 13th November**
+### **Day 1 - Thursday 13th November**
 
 |  |  |  |
 |-------------------|----------------------------------|-------------------|
@@ -56,7 +56,9 @@ Please note that RPySOC 2025 will be hosted in partnership with [Health Data Res
 | 16:50 | Day 1 closing remarks | HDR UK |
 | 17:00 | **CLOSE of day 1** |  |
 
-**Day 2 - Friday 14th November**
+
+
+### **Day 2 - Friday 14th November**
 
 ::: callout-note
 **Please note** - we will be running the Unconference throughout day 2 on level 6 of the Wellcome Trust (see signage for directions or contact a member of the conference staff for details)
