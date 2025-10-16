@@ -3,7 +3,7 @@ title: "RPySOC 2025"
 subtitle: "NHS-R/NHS.pycom Open Source Conference"
 ---
 
-![](img/RPYSOC25_banner.png)
+![](img/RPYSOC Website Banner - SU + HDRUK + HF (1920 x 658 mm).png)
 
 We are pleased to announce that the RPYSOC 2025 conference will be held at the Wellcome Trust, London, offering both 🏃‍♀️ in-person and 💻 virtual attendance options! 
  
