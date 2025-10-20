@@ -3,3 +3,4 @@
 # @primary-owner and @secondary-owner will be requested for
 # review when someone opens a pull request.
 *       @DCEW @ChrisBeeley
+.github/ @nhs-r-community/security
