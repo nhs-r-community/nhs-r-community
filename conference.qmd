@@ -136,7 +136,7 @@ A photographer will be present at The Wellcome Trust, if you would NOT like to b
 
 #### 👩‍✈️ Chaperone service
 
-The main conference hall is on Level 7. We also have a quiet room, prayer room, and the Unconference, which will be held on Level 6. Access to each floor in the building is strictly *by chaperone*, thus you will need to be escorted between floors, and in and out of the building. We will be operating a separate Slack channel ([#rpysoc25_chaperone](https://nhsrcommunity.slack.com/archives/C09KJSUCWLW)) devoted to this. If you require to access a different floor, please make your way to the Chaperone Waiting Station and add a message to the Slack channel to request a member of HDR UK to chaperone you.
+The main conference hall is on Level 6. We also have a quiet room, prayer room, and the Unconference, which will be held on different levels. Access to each floor in the building is strictly *by chaperone*, thus you will need to be escorted between floors, and in and out of the building. We will be operating a separate Slack channel ([#rpysoc25_chaperone](https://nhsrcommunity.slack.com/archives/C09KJSUCWLW)) devoted to this. If you require to access a different floor, please make your way to the Chaperone Waiting Station and add a message to the Slack channel to request a member of HDR UK to chaperone you.
 
 #### 🤐 Venue room access
 
@@ -148,4 +148,4 @@ There are individual pods on the main conference floor which you can use to make
 
 #### 🎒 Cloakroom
 
-A cloakroom will also be available on level 7 for storing luggage, but please note, all items are left at the owners risk and neither NHS-R, HDR UK nor the Wellcome Trust accept any liability for items that may be lost, stolen or damaged.
+A cloakroom will also be available for storing luggage, but please note, all items are left at the owners risk and neither NHS-R, HDR UK nor the Wellcome Trust accept any liability for items that may be lost, stolen or damaged.
