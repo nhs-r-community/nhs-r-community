@@ -36,13 +36,13 @@ Please note that RPySOC 2025 will be hosted in partnership with [Health Data Res
 | 10:50 | Beautifully reproducible dataviz: lessons learnt from building data-to-viz pipelines | Cara Thompson |
 | 11:20 | **BREAK** |  |
 | 11:40 | Using open data and open source code to create an open elective waiting lists modelling tool (RTT Planner) | Sebastian Fox |
-| 12:00 | Using APIs in R to obtain Health indicators for interactive visualizations | Pablo Leon-Rodenas |
+| 12:00 | TBC | TBC |
 | 12:20 | opencodecounts: An R package and Shiny app exploring NHS clinical coding data | Milan Wiedemann |
 | 12:30 | DES-igning Better Flow: Modelling Non-Elective Admissions | Helena Robinson |
 | 12:40 | Mapping Accessibility: Using R5py and GTFS Data to Optimise Women’s Health Hub Locations in the Sussex | Karrie Liu |
 | 12:50 | A Short Story of a Short Course - Natural Language Processing in R for Health and Social Care | Pawel Orzechowski and Brittany Blankinship |
 | 13:00 | **LUNCH** |  |
-| 14:00 | Design a model for Community pharmacy workforce with open source data | Chaeyoon Kim |
+| 14:00 | TBC | TBC |
 | 14:20 | Word is better than Quarto? | Jacqueline Grout and Matt Dray |
 | 14:40 | Deploying Python in production: containers, kubernetes and embracing yaml | Amadeus Stevenson |
 | 15:00 | Modelling Community waiting lists with NHS-R waiting list library | Simon Wellesley-Miller |
@@ -56,8 +56,6 @@ Please note that RPySOC 2025 will be hosted in partnership with [Health Data Res
 | 16:50 | Day 1 closing remarks | HDR UK |
 | 17:00 | **CLOSE of day 1** |  |
 
-
-
 ### **Day 2 - Friday 14th November**
 
 ::: callout-note
@@ -65,7 +63,7 @@ Please note that RPySOC 2025 will be hosted in partnership with [Health Data Res
 :::
 
 |  |  |  |
-|-------------------|----------------------------------|-------------------|
+|--------------------|----------------------------------|-------------------|
 | 09:00 | Registration and refreshments |  |
 | 10:00 | Welcome and safety brief | Dr Claire Welsh and HDR UK |
 | 10:20 | Reusable by Default: Reflections on Building Sustainable Open Tools and Knowledge for Healthcare | Dr Sammi Rosser |
@@ -74,13 +72,13 @@ Please note that RPySOC 2025 will be hosted in partnership with [Health Data Res
 | 11:20 | **BREAK** |  |
 | 11:40 | How we delivered the OpenSAFELY platform to analyse the whole population's GP records securely, transparently, with open code | Prof Ben Goldacre |
 | 12:10 | Patient-Level Analytics That Work: Using R to Achieve Rapid, Sustained MRSA Screening Compliance Improvements | Daniel Weiand |
-| 12:30 | Using simulation to evaluate a service: what to do when you've got no data, no clear questions, and no clue if it's working: | Chris Mainey |
+| 12:30 | TBC | TBC |
 | 12:50 | Making national cancer audit reporting Shiny: a journey from Excel to web-based apps using R and Reproducible Analytical Pipelines. | Ella Barber |
 | 13:00 | **LUNCH** |  |
 | 14:00 | Data Querying using Natural Language | Abhinav Jindal (Jin) |
 | 14:10 | MetaInsight - an R shiny app for network meta-analysis | Simon Smart |
 | 14:20 | Better together: lessons from RAP drop-ins | YiWen Hon |
-| 14:30 | Predicting Outpatient Non-Attendance | Peter Andrews |
+| 14:30 | TBC | TBC |
 | 14:40 | Learnings from implementing machine learning models on NHS Federated Data Platform for predicting operational pressures escalation levels. | Kenneth Quan |
 | 14:50 | Introduction to Causal Inference for R and Python users | Nathan Thomas |
 | 15:10 | Publishing reproducible websites using R Quarto: Camden's JSNA Hub | Annie Yu |
