@@ -23,8 +23,8 @@
       "/blog/apha-blog-august-2023.html",
       "/blog/july-blog.html",
       "/blog/apha-june-blog.html",
-      "/blog/nhs-r-newscast-20th-july-2023.html",
       "/blog/nhs-r-newscast-25th-may-2023.html",
+      "/blog/nhs-r-newscast-20th-july-2023.html",
       "/blog/the-data-science-assembly.html",
       "/blog/apha-blog-may-2023.html",
       "/blog/rstudio-and-git-selecting-many-files.html",
@@ -34,8 +34,8 @@
       "/blog/code-snippets-regular-expressions.html",
       "/blog/a-roundup-from-the-2022-nhs-r-conference-part-1.html",
       "/blog/a-roundup-from-the-2022-nhs-r-conference-part-2.html",
-      "/blog/fuzzy_joining_tables.html",
       "/blog/guest-blogger-chatgpt.html",
+      "/blog/fuzzy_joining_tables.html",
       "/blog/16th-january-newscast.html",
       "/blog/reflections-on-the-nhs-r-community-conference.html",
       "/blog/nhs-r-workshop-development-and-validation-of-clinical-prediction-models-using-r.html",
@@ -48,8 +48,8 @@
       "/blog/the-nhsnumber-package-and-the-joy-of-sharing-your-niche.html",
       "/blog/new-year-new-laptop-new-library-location-new-version-of-r.html",
       "/blog/alignment-cheatsheet.html",
-      "/blog/success-story-william-bryant.html",
       "/blog/success-story-lydia-briggs.html",
+      "/blog/success-story-william-bryant.html",
       "/blog/success-story-kate-cheema.html",
       "/blog/nhs-low-income-scheme.html",
       "/blog/join-the-fun-join-nhs-r.html",
@@ -107,8 +107,8 @@
       "/blog/animating-a-graph-over-time-in-shiny.html",
       "/blog/a-run-chart-is-not-a-run-chart-is-not-a-run-chart.html",
       "/blog/a-simple-function-to-create-nice-correlation-plots.html",
-      "/blog/roadmap-to-collaborative-working-using-r-in-the-nhs-part-i-workflows.html",
       "/blog/from-script-based-development-to-function-based-development-and-onwards-to-package-based-development-part-2.html",
+      "/blog/roadmap-to-collaborative-working-using-r-in-the-nhs-part-i-workflows.html",
       "/blog/but-this-worked-the-last-time-i-ran-it.html",
       "/blog/local-public-health-joins-the-party.html",
       "/blog/thoughts-on-the-nhs-r-conference.html",
@@ -122,23 +122,17 @@
       "/blog/evolution-of-the-r-user.html",
       "/blog/even-simpler-sql.html",
       "/blog/simpler-sql-with-dplyr.html",
-      "/blog/why-government-needs-sustainable-software-too.html",
       "/blog/histogram-with-auto-binning-in-ggplot2.html",
-      "/blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html",
       "/blog/diverging-bar-charts-plotting-variance-with-ggplot2.html",
-      "/blog/the-operator.html",
+      "/blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html",
+      "/blog/why-government-needs-sustainable-software-too.html",
       "/blog/r-studio-shortcuts.html",
+      "/blog/the-operator.html",
       "/blog/importing-and-exporting-data.html",
       "/blog/the-joy-of-r.html",
       "/blog/pareto-chart-in-ggplot2.html",
       "/blog/aiming-for-a-wrangle-free-or-reduced-world.html",
       "/blog/nhs-meets-r.html"
-    ]
-  },
-  {
-    "listing": "/reports/index.html",
-    "items": [
-      "/reports/reports/NHS-R_questionnaire_2025/index.html"
     ]
   },
   {
@@ -170,8 +164,8 @@
       "/blog/apha-blog-august-2023.html",
       "/blog/july-blog.html",
       "/blog/apha-june-blog.html",
-      "/blog/nhs-r-newscast-20th-july-2023.html",
       "/blog/nhs-r-newscast-25th-may-2023.html",
+      "/blog/nhs-r-newscast-20th-july-2023.html",
       "/blog/the-data-science-assembly.html",
       "/blog/apha-blog-may-2023.html",
       "/blog/rstudio-and-git-selecting-many-files.html",
@@ -181,8 +175,8 @@
       "/blog/code-snippets-regular-expressions.html",
       "/blog/a-roundup-from-the-2022-nhs-r-conference-part-1.html",
       "/blog/a-roundup-from-the-2022-nhs-r-conference-part-2.html",
-      "/blog/fuzzy_joining_tables.html",
       "/blog/guest-blogger-chatgpt.html",
+      "/blog/fuzzy_joining_tables.html",
       "/blog/16th-january-newscast.html",
       "/blog/reflections-on-the-nhs-r-community-conference.html",
       "/blog/nhs-r-workshop-development-and-validation-of-clinical-prediction-models-using-r.html",
@@ -195,8 +189,8 @@
       "/blog/the-nhsnumber-package-and-the-joy-of-sharing-your-niche.html",
       "/blog/new-year-new-laptop-new-library-location-new-version-of-r.html",
       "/blog/alignment-cheatsheet.html",
-      "/blog/success-story-william-bryant.html",
       "/blog/success-story-lydia-briggs.html",
+      "/blog/success-story-william-bryant.html",
       "/blog/success-story-kate-cheema.html",
       "/blog/nhs-low-income-scheme.html",
       "/blog/join-the-fun-join-nhs-r.html",
@@ -254,8 +248,8 @@
       "/blog/animating-a-graph-over-time-in-shiny.html",
       "/blog/a-run-chart-is-not-a-run-chart-is-not-a-run-chart.html",
       "/blog/a-simple-function-to-create-nice-correlation-plots.html",
-      "/blog/roadmap-to-collaborative-working-using-r-in-the-nhs-part-i-workflows.html",
       "/blog/from-script-based-development-to-function-based-development-and-onwards-to-package-based-development-part-2.html",
+      "/blog/roadmap-to-collaborative-working-using-r-in-the-nhs-part-i-workflows.html",
       "/blog/but-this-worked-the-last-time-i-ran-it.html",
       "/blog/local-public-health-joins-the-party.html",
       "/blog/thoughts-on-the-nhs-r-conference.html",
@@ -269,12 +263,12 @@
       "/blog/evolution-of-the-r-user.html",
       "/blog/even-simpler-sql.html",
       "/blog/simpler-sql-with-dplyr.html",
-      "/blog/why-government-needs-sustainable-software-too.html",
       "/blog/histogram-with-auto-binning-in-ggplot2.html",
-      "/blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html",
       "/blog/diverging-bar-charts-plotting-variance-with-ggplot2.html",
-      "/blog/the-operator.html",
+      "/blog/diverging-dot-plot-and-lollipop-charts-plotting-variance-with-ggplot2.html",
+      "/blog/why-government-needs-sustainable-software-too.html",
       "/blog/r-studio-shortcuts.html",
+      "/blog/the-operator.html",
       "/blog/importing-and-exporting-data.html",
       "/blog/the-joy-of-r.html",
       "/blog/pareto-chart-in-ggplot2.html",
@@ -283,12 +277,18 @@
     ]
   },
   {
+    "listing": "/reports/index.html",
+    "items": [
+      "/reports/reports/NHS-R_questionnaire_2025/index.html"
+    ]
+  },
+  {
     "listing": "/books/index.html",
     "items": [
       "/books/posts/NHSR-way/index.html",
       "/books/posts/statement-on-tools/index.html",
-      "/books/posts/open-analytics-resources/index.html",
-      "/books/posts/health-inequalities/index.html"
+      "/books/posts/health-inequalities/index.html",
+      "/books/posts/open-analytics-resources/index.html"
     ]
   }
 ]
