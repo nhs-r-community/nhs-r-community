@@ -21,6 +21,8 @@ format:
     embed-resources: true
 ---
 
+![](img/git_rebase_preview.png){fig-alt="Dark screen highlighting the commit history from a Git repository."}
+
 Maintaining a clean Git history is essential for collaboration and reproducibility in data science projects. 
 This blog explores how `git rebase` can help you create a professional, linear project history that enhances collaboration and reproducibility in your NHS-R projects.
 
@@ -129,6 +131,45 @@ Once you've completed the rebase:
 3. **Verify with git log**: In the Terminal, run `git log --oneline` to see your single, clean commit instead of the four messy ones
 4. **Test your code** - Run your R scripts to make sure everything still works correctly
 
+### Step 5: Push Your Rebased Changes
+
+After successfully rebasing your local commits, you need to push them to the remote repository. **This step applies when you've rebased commits that were already pushed to your feature branch.**
+
+If you only rebased local (unpushed) commits, a regular `git push` will work fine. But when you've rewritten commits that are already on `origin/<your-branch>`, you'll see a scary error message like:
+
+```
+On branch example
+Your branch and 'origin/example' have diverged,
+and have 6 and 2 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+```
+
+**⚠️ DO NOT run `git pull` at this point!** Doing so will merge the old remote commits back into your branch, undoing all your lovely rebase work.
+
+Instead, you need to use:
+
+```bash
+git push --force-with-lease
+```
+
+**Why `--force-with-lease` instead of `--force`?**
+
+- `--force` will overwrite the remote branch regardless of what's there
+- `--force-with-lease` is safer - it checks that nobody else has pushed changes to the remote branch since you last fetched it
+- If someone else has pushed changes, `--force-with-lease` will reject your push and warn you, preventing accidental overwrites
+
+**In RStudio:**
+
+1. Open the **Terminal** tab
+2. Run `git push --force-with-lease`
+3. Check the **Git pane** - your branch should now be in sync with the remote
+
+::: {.callout-important}
+**Only use `--force-with-lease` on your own feature branch.** Never force-push to shared branches like `main` or branches where others are actively collaborating. See "The Golden Rule of Rebase" below for the full picture.
+
+If your branch is protected on the remote, the push will be rejected. This is expected. Instead, open a pull request and merge through the normal review process.
+:::
+
 ## The Golden Rule of Rebase
 
 **⚠️ Never rebase commits that have been pushed to a shared repository.**
@@ -136,11 +177,13 @@ Once you've completed the rebase:
 This is the most important rule to remember. Rebasing rewrites commit history by changing commit hashes. If you rebase commits that others have already pulled, you'll create divergent histories that are difficult to reconcile.
 
 **Safe to rebase:**
+
 - Local commits that haven't been pushed yet
 - Feature branches that only you are working on
 - Commits on your personal fork before creating a pull request
 
 **Never rebase:**
+
 - The `main` or `master` branch
 - Any branch that others have pulled from
 - Commits that have been pushed to a shared repository
@@ -161,6 +204,7 @@ This is the most important rule to remember. Rebasing rewrites commit history by
 4. **Your R files remain safe** - rebase only changes commit history, not your actual code
 
 **Before rebasing, always:**
+
 - Ensure your working directory is clean (no uncommitted changes in the Git pane)
 - Make sure you're on the correct branch
 - Consider making a backup branch: `git branch backup-branch-name`
