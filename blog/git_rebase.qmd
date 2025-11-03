@@ -9,6 +9,8 @@ authors:
       - name: NHS England
 date: "2025-09-18"
 categories: [Git, RStudio]
+image: img/git_rebase_preview.png
+image-alt: "Dark screen highlighting the commit history from a Git repository."
 editor: 
   markdown: 
     wrap: sentence
