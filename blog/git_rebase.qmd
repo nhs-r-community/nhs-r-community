@@ -1,0 +1,214 @@
+---
+title: "Git Rebase Demystified: Clean Up Your R Project History"
+subtitle: ""
+authors:
+  - name: Kaung Myat Wai Yan
+    orcid: 0009-0007-4739-6347
+    email: kaung.yan@nhs.net
+    affiliation:
+      - name: NHS England
+date: "2025-09-18"
+categories: [Git, RStudio]
+editor: 
+  markdown: 
+    wrap: sentence
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-summary: "Show code"
+    embed-resources: true
+---
+
+![](img/git_rebase_preview.png){fig-alt="Dark screen highlighting the commit history from a Git repository."}
+
+Maintaining a clean Git history is essential for collaboration and reproducibility in data science projects. 
+This blog explores how `git rebase` can help you create a professional, linear project history that enhances collaboration and reproducibility in your NHS-R projects.
+
+## Introduction
+
+Have you ever found yourself in "commit hell" with a tangled Git history? It happens to the best of us! When you're working on a project, it's easy to create many small, redundant commits. This can make it difficult for you and your collaborators to understand the progression of your work. 
+
+## What's the Difference Between `merge` and `rebase`?
+
+Think of a project's commit history as a timeline.
+
+* **`git merge`** combines branches by creating a new **merge commit**. It's like adding a new chapter to a book without editing the old ones. This can lead to a "tangled" history with multiple branching paths.
+
+* **`git rebase`** moves or combines a sequence of commits to a new starting point. It's like rewriting and polishing a draft to make the story flow better. It creates a **cleaner, linear history** that's much easier to read.
+
+## A Practical Use Case: Cleaning Up Commits
+
+Let's imagine you've been working on a new feature for your analysis, and you've made several small commits:
+
+1.  "feat: add patient ID column"
+2.  "fix: corrected patient ID"
+3.  "temp: working on EDA"
+4.  "feat: EDA for patient demographics"
+
+These commits are all related to a single logical feature. We can use `git rebase` to **squash** them into a single, meaningful commit.
+
+### Step 1: Start an Interactive Rebase in RStudio
+
+First, make sure you're on the correct branch. Check the **Git pane** in RStudio (usually top-right panel) to confirm your current branch.
+
+1. **Open RStudio's Terminal**: Click on the **Terminal** tab (next to the Console tab at the bottom of RStudio)
+2. **Run the rebase command**: Type the following command to start an interactive rebase for the last 4 commits:
+
+```bash
+git rebase -i HEAD~4
+```
+
+The `HEAD~4` tells Git to look at the last four commits on your current branch. 
+
+**Alternative**: If you want to squash all commits since your last pull from main, use:
+```bash
+git rebase -i main
+```
+
+3. **Text editor opens**: RStudio will open your default text editor (often nano, vim, or VS Code) with a list of commits that looks like this:
+
+```
+pick a46f23b feat: add patient ID column
+pick b71a5c1 fix: corrected patient ID
+pick 8c9e0d1 temp: working on EDA
+pick 3d4b6c8 feat: EDA for patient demographics
+```
+
+### Step 2: Edit the Rebase Instructions in Your Editor
+
+The editor shows your commits in **chronological order** (oldest first). Here's how to squash them:
+
+1. **Keep the first commit as `pick`** - This will be your main commit
+2. **Change the others to `squash`** - These will be combined into the first commit
+3. **Edit the file** to look like this:
+
+```
+pick a46f23b feat: add patient ID column
+squash b71a5c1 fix: corrected patient ID
+squash 8c9e0d1 temp: working on EDA
+squash 3d4b6c8 feat: EDA for patient demographics
+```
+
+4. **Save and close** the editor:
+   - **If using nano**: Press `Ctrl+X`, then `Y`, then `Enter`
+   - **If using vim**: Press `Esc`, type `:wq`, then `Enter`
+   - **If using VS Code**: Save with `Ctrl+S` (or `Cmd+S` on Mac) and close the tab
+
+| Command | Shorthand | Description | When to Use It |
+| :--- | :--- | :--- | :--- |
+| `pick` | `p` | Keep the commit as is | For commits you want to preserve |
+| `squash` | `s` | Combine with the commit above, keep both messages | When you want to merge commits but review the messages |
+| `fixup` | `f` | Combine with the commit above, discard this message | For quick fixes where the message isn't important |
+| `drop` | `d` | Remove the commit entirely | For commits you want to delete |
+
+### Step 3: Write Your New Commit Message
+
+After closing the first editor, Git will automatically open another editor window showing all the commit messages from your squashed commits. Here's what to do:
+
+1. **Review the existing messages** - You'll see all four commit messages listed
+2. **Delete or edit** the messages to create one clear, comprehensive message
+3. **Lines starting with `#` are comments** - Git will ignore these
+4. **Write your new message**:
+
+```
+feat: Add patient demographics EDA
+
+- Added patient ID column with validation
+- Implemented exploratory data analysis for patient demographics  
+- Includes data cleaning and initial visualizations
+```
+
+5. **Save and close** the editor using the same method as Step 2
+
+### Step 4: Verify Your Work in RStudio
+
+Once you've completed the rebase:
+
+1. **Check the Terminal output** - You should see "Successfully rebased and updated refs/heads/your-branch-name"
+2. **Look at the Git pane** - RStudio will automatically refresh and show your new, clean commit history
+3. **Verify with git log**: In the Terminal, run `git log --oneline` to see your single, clean commit instead of the four messy ones
+4. **Test your code** - Run your R scripts to make sure everything still works correctly
+
+### Step 5: Push Your Rebased Changes
+
+After successfully rebasing your local commits, you need to push them to the remote repository. **This step applies when you've rebased commits that were already pushed to your feature branch.**
+
+If you only rebased local (unpushed) commits, a regular `git push` will work fine. But when you've rewritten commits that are already on `origin/<your-branch>`, you'll see a scary error message like:
+
+```
+On branch example
+Your branch and 'origin/example' have diverged,
+and have 6 and 2 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+```
+
+**⚠️ DO NOT run `git pull` at this point!** Doing so will merge the old remote commits back into your branch, undoing all your lovely rebase work.
+
+Instead, you need to use:
+
+```bash
+git push --force-with-lease
+```
+
+**Why `--force-with-lease` instead of `--force`?**
+
+- `--force` will overwrite the remote branch regardless of what's there
+- `--force-with-lease` is safer - it checks that nobody else has pushed changes to the remote branch since you last fetched it
+- If someone else has pushed changes, `--force-with-lease` will reject your push and warn you, preventing accidental overwrites
+
+**In RStudio:**
+
+1. Open the **Terminal** tab
+2. Run `git push --force-with-lease`
+3. Check the **Git pane** - your branch should now be in sync with the remote
+
+::: {.callout-important}
+**Only use `--force-with-lease` on your own feature branch.** Never force-push to shared branches like `main` or branches where others are actively collaborating. See "The Golden Rule of Rebase" below for the full picture.
+
+If your branch is protected on the remote, the push will be rejected. This is expected. Instead, open a pull request and merge through the normal review process.
+:::
+
+## The Golden Rule of Rebase
+
+**⚠️ Never rebase commits that have been pushed to a shared repository.**
+
+This is the most important rule to remember. Rebasing rewrites commit history by changing commit hashes. If you rebase commits that others have already pulled, you'll create divergent histories that are difficult to reconcile.
+
+**Safe to rebase:**
+
+- Local commits that haven't been pushed yet
+- Feature branches that only you are working on
+- Commits on your personal fork before creating a pull request
+
+**Never rebase:**
+
+- The `main` or `master` branch
+- Any branch that others have pulled from
+- Commits that have been pushed to a shared repository
+
+**RStudio tip**: In the Git pane, you can see which commits have been pushed (they appear differently from unpushed commits), helping you follow the golden rule safely.
+
+## Troubleshooting in RStudio
+
+**If something goes wrong during rebase:**
+
+1. **Don't panic!** Git keeps a history of all operations
+2. **In RStudio's Terminal**, you can undo the rebase:
+   ```bash
+   git reflog
+   git reset --hard HEAD@{1}
+   ```
+3. **The Git pane will refresh** to show your original commit history
+4. **Your R files remain safe** - rebase only changes commit history, not your actual code
+
+**Before rebasing, always:**
+
+- Ensure your working directory is clean (no uncommitted changes in the Git pane)
+- Make sure you're on the correct branch
+- Consider making a backup branch: `git branch backup-branch-name`
+
+## Conclusion
+
+`git rebase` is a powerful tool for maintaining a clean and clear commit history, which in turn leads to better collaboration and more robust data science projects. By using it to squash your smaller, work-in-progress commits, you can ensure that your project's history is a readable and accurate record of your progress. It's a key practice for any data scientist aiming for **reproducibility** and a professional workflow.
