@@ -1,0 +1,153 @@
+---
+title: "The RTT Planner tool for elective waitlist modelling – a collaboration success story!"
+subtitle: ""
+authors:
+  - name: Sebastian Fox
+    orcid: 0000-0002-2832-773X
+    email: 
+      - "sebastian.fox@dhsc.gov.uk"
+    affiliation:
+      - name: NHS Bristol, North Somerset, South Gloucestershire ICB
+      - name: Department of Health and Social Care
+date: "2025-11-06"
+categories: [Git, Shiny, Collaboration]
+image: img/waiting-list-timeseries.png
+image-alt: "Bar chart depicting the growing monthly elective waiting list size, along with the increasing number of long waiting times."
+editor: 
+  markdown: 
+    wrap: sentence
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-summary: "Show code"
+    embed-resources: true
+---
+
+*What makes a successful analytics project?* Early stakeholder engagement is a determinant that is often cited: if the target customers of the analysis are invested in it from the start, then there is more chance the outputs will resonate as intended.
+How does this apply to endeavours in scalable – or ‘federated’ – analytics?
+These are tools that are designed to be created once, used and re-used, across different settings and for slightly different purposes or questions.
+The Goldacre Review claims the “complex methodological challenges” in delivering these solutions “cannot be met by closed working in siloes”.
+In this blog, we address not just the collaborative efforts required to engage the customer, but also the need for more technical collaboration across organisational boundaries in creating the solution.
+The solution through which we discuss these matters is the RTT Planner tool, which has been developed in R within South West England through a multi-disciplinary team.
+
+The project started in November 2024, following conversations between Devon and Bristol, North Somerset and South Gloucestershire (BNSSG) Integrated Care Boards (ICBs) on how models could be used to predict the size and shape of future waiting lists, including under different demand and capacity related scenarios.
+Both ICBs already had R-based predictive models that they used to explore such scenarios, although there was some concern and curiosity regarding the different assumptions and construct of these models – after all, the waiting list problem has such common characteristics that should surely traverse these geographical footprints.
+Recognising their common challenge and vision, the two ICBs engaged the South West Decision Support Network (DSN) for support
+
+The South West DSN is a regional initiative launched in 2023 and based on its Midlands namesake.
+The DSN provided a Data Scientist and gave access to further Integrated Care Systems (ICSs) within the region.
+Conversations with this extended group led to the scoping of a project which set out to develop an interactive and user-friendly R-based scalable analytics product that would be sufficiently generalisable to reliably model a wide range of scenarios for any trust or specialty or combination thereof.
+Some examples of use would be: predicting future waiting list size on a ‘do nothing’ basis for a particular specialty at a particular trust; modelling the effect of different trajectories for future demand given various demographic projections; and determining the annual level of capacity growth required to meet a given performance metric for waiting times.
+The intended customer base – and so, a large contingent of the project stakeholders – consisted of planners and managers at both a trust, ICB, and regional level, and typically those with a more strategic than operational remit.
+
+As interest in the project ramped up – not least due to the Government’s Reforming elective care for patients plan published in early January 2025, which pledged to restore waiting times to target by March 2029 – three additional analysts joined the team.
+Each brought different skills and experience, ensured breadth across various NHS organisations, and helped widen the pool of potential end-user customers.
+
+## Collaboration for scalable analytics projects – some recipes for success
+
+Finding effective ways for NHS analysts to collaborate across organisational boundaries can be a challenge.
+Aligning the different skills, experience, tooling and capacity of each contributor while still meeting project deadlines is not always straightforward.
+Moreover, the relative lack of scalable analytics efforts to date has meant that work has naturally resided in separate NHS organisations, each developing separate models and tools.
+However, this way of working is especially unsatisfactory for products intended to be scalable across the NHS.
+Developing such a product in isolation risks ‘overfitting’ it to the particular circumstances of one area: from a customer perspective, this could mean considering only the problems and questions existing in that trust or ICS; and from a technical perspective, this could mean considering only data structures or data quality issues bespoke to that area.
+All this can significantly limit the level of generalisability required.
+Here, we describe some ways that have worked which we believe have been key for the RTT Planner project to reach its potential:
+
+#### 1. Multi-disciplinary team
+
+In this project, with contributors from NHS England, multiple ICBs and acute trusts, as well as academia, we have had the necessary foundations to help ensure that any developed product was conceptually appropriate.
+Contributions from these groups have meant the team has had a sufficiently extensive understanding of the problem, as captured from the analysts’ grasp of the data and the customers’ experience on what assumptions can legitimately be made; what dynamics are important; and what types of scenarios are most valuable to model.
+
+#### 2. Open source and RAP principles
+
+Collaboration in the RTT Planner project has been enabled by adopting open-source software and [code](https://github.com/nhs-bnssg-analytics/RTT_compartmental_modelling/).
+The tool uses public data and methods published in peer-reviewed journals.
+The tool is developed in RShiny – a web application framework for R, allowing users to build interactive web applications directly from R.
+The code follows Reproducible Analytical Pipeline (RAP) principles, including project structures using the golem framework, modular programming, heavy documentation and unit testing.
+Working on GitHub has allowed the team to use [GitHub Issues](https://github.com/nhs-bnssg-analytics/RTT_compartmental_modelling/issues) where detailed discussions and decisions are recorded.
+
+##### a. Packaging code
+
+The initial stages of the project focussed on making the methodology that underpins the tool available.
+This was done through the [NHSRtt](https://github.com/nhs-bnssg-analytics/NHSRtt) package, which is stored on GitHub.
+This code can be used in isolation and provides the flexibility to allow R programmers to apply to methodological theory to their own data, rather than the restrictions described under “Developing a User Interface”.
+
+##### b. Standard file structures
+
+The RShiny interface is developed in a separate package, called [RTTshiny](https://github.com/nhs-bnssg-analytics/RTT_compartmental_modelling/blob/dev/NEWS.md).
+The [golem](https://golemverse.org/) framework is used to enable better collaboration.
+The golem package structures Shiny projects so that each tab within the tool has its own user interface and server script, and hence, its own contained environment.
+There are downsides to the modular approach too.
+It makes the process of getting up to speed with the code difficult.
+Understanding what nested functions are doing, where those functions are held in scripts throughout the project is not easy.
+This is more complex compared to traditional RShiny applications, where all of the code is held in one or two long scripts.
+
+#### 3. Coding in the open
+
+We quickly agreed on a Git workflow to enable the team to work cohesively (see Figure 1).
+Using a pre-agreed workflow of branching and merging has allowed analysts to work safely on their own development areas – with freedom to experiment – without the worry of affecting the code that others are working on.
+
+![Figure 1. Visualisation of the Git workflow we used in the project. Source: https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow](img/git-workflow.png){fig-alt="Visualisation of the Git workflow we used in the project."}
+
+#### 4. Developing a user interface
+
+The ambitions of the project were to bring the methodology to a wider audience, which is why we decided to develop an RShiny application.
+The trade-off here is that, while more people can use the methods, there is less flexibility in how they can be used.
+This means the development team has had to make decisions on what functionality is surfaced in the tool, while ensuring the interface isn’t too overwhelming or complex.
+
+#### 5. Using agile working practices
+
+Agile ways of working were used to ensure we all move forwards together.
+During the peak of the project, before its first release, the team met daily for a short standup.
+Here we discussed progress, blockers, and where possible, offered support and troubleshot issues.
+Less frequently, the team meets with “product owners”, who ensured the developments keep track with expectations.
+We also regularly engage with key stakeholders to ensure they are kept abreast of project developments.
+The daily standup frequency reduced after the first release of the tool to allow our stakeholders time to use it and reflect on development requirements.
+
+#### 6. Peer reviewed methods
+
+The methods underpinning the package and tool went through rigorous peer review processes before being published in academic journals.
+This gives the user confidence in the underlying mechanics of the tool.
+The paper describing the multi-compartmental model can be found [here](https://rdcu.be/elVEq).
+
+#### 7. Use of AI
+
+RShiny is a complex language and is constantly evolving.
+Adopting the use of Large Language Models (LLMs) to support interface developments has allowed the team to rapidly introduce features that otherwise wouldn’t be possible in such a short space of time.
+It also adds robustness to the tool as LLM are excellent at writing unit tests, which are often cited as a big overhead for software development.
+
+## Measuring success
+
+Success is often measured by impact.
+Ultimately, the team want the tool to contribute to bringing down the size of waiting lists and help local teams meet patient requirements within shorter timescales.
+Anyone involved in waiting list management will say that getting there takes time and there is no silver bullet.
+The first step on that journey which the tool supports is to simplify the complexities around the dynamics of the waiting list to allow local teams to understand how the planning choices they make are likely to impact the waiting list size and shape.
+The next niche the tool fills is to allow different levels of organisations to agree to plans using the same software and data, enabling better joint working.
+
+Unfortunately, the team haven’t worked out a way to track the usage of the tool – though the growing development backlog resulting from user demands is a sign that activity is high.
+
+The simple and explainable methods alongside the accessible and free tool means that the team have reached audiences of the hundreds through local and national webinars.
+The methods have also sparked an interest from Number 10 and the Cabinet Office to support their waiting list management policy activities.
+With the next planning rounds underway, the team have been in conversations with trusts to compare locally derived plans with tool outputs.
+Our hope is that these conversations can help local teams build trust in the tool’s results and will lead to teams using the tool for planning rounds.
+
+## Concluding remarks and future plans
+
+The output of this collaboration is the [RTT Planner tool](https://connect.strategyunitwm.nhs.uk/rtt_compartmental_modelling/).
+
+The tool was initially released in May 2025 to our South West stakeholders, though the tool has national coverage and can be used to model any trust or region in England.
+Continued conversations with local teams have made it clear what developments the tool needs to enable incorporation into regular, local usage.
+The stakeholder engagement in the project and willingness to guide the development of the tool has helped make it as useful as possible.
+This collaborative approach gives us the best chance of producing a successful tool that can support Trusts, ICBs and central teams to meet waiting list targets in the longer term and enable patients to have a better elective experience of the NHS.
+
+The project still has a long way to go to cover all the planning needs expressed by our stakeholders – with the major one being how the tool can bridge the gap between planning and operational needs.
+The progress made to date, and the engagement that we have received, provides a great template for future at-scale projects.
+This should be a major consideration for the future of analytics in the NHS.
+Many analytical challenges are not unique to a particular organisation and can be solved once for all.
+This project was only feasible because of the excellent, detailed public data that have been published for over 10 years.
+With the emergence of centralised data platforms, such as the Federated Data Platform, the NHS must strategically move towards more efficient ways of working.
+Adopting open practices, multi-disciplinary teams and collaborative techniques, as described in this blog, is a sure way of achieving this.
+
+*We would like to mention and thank those that have contributed to this project. The development team were Seb Fox and Rich Wood (BNSSG ICB), Simon Wellesley-Miller and Euan Ives (NHS England SW), Nick Cooper (Gloucestershire ICB/Gloucestershire Hospitals NHS Foundation Trust), Richard Blackwell (Health Innovation South West) and Claire Rudler (Devon ICB). The trusts that have contributed were Royal Devon University Healthcare, Torbay and South Devon, Dorset County Hospital, University Hospitals Bristol and Weston, Royal Cornwall Hospitals, University Hospitals Plymouth and North Bristol Trust. ICBs that have contributed were BNSSG, Devon, Gloucestershire, Cornwall and Dorset. We are now working with The Strategy Unit, Nottingham University Hospitals, Bradford Teaching Hospitals and Professor Neil Walton, from Durham University to develop the tool further.*
