@@ -5,26 +5,6 @@ format: html
 
 ::: {.panel-tabset}
 
-## Conference {#sec-conference}
-
-![](img/RPYSOC25_banner.png)
-
-We are pleased to announce that the RPYSOC 2025 conference will be held at the Wellcome Trust (215 Euston Road, London), offering both in-person and virtual attendance options! 
- 
-Conference dates: 
-Thursday 13th November 2025
-Friday 14th November 2025
-
-Registration to open shortly – **so watch this space!**
- 
-To submit an abstract, please complete [this form](https://www.smartsurvey.co.uk/s/YQAO3E/). 
- 
-Please note that the abstract submission deadline is **Monday 15th September 2025**. 
-We would be honoured to incorporate your work into the conference.
-
-Thank you for being part of the community during a time of change—we appreciate your engagement!
-
-
 ## Webinars and Workshops {#sec-webinars_and_workshops}
 
 Please note:
@@ -40,26 +20,8 @@ Please note:
 - Coffee & Code sessions are a chance for like-minded coders to get together and chat, share tips, code snippets, and watch show-and-tells about useful or new R stuff. These sessions are run by Simon Wellesley-Miller (NHS England), and recordings are made available [here](https://future.nhs.uk/NHSERcommunity/view?objectID=41908688).
 
 
-### October 2025
-  
-📆 31st **Coffee and Coding**:
-
-  + 11:00 - 12:00 (GMT)
-  + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
-  + Meeting ID: 331 945 876 23
-  + Passcode: Po2nEx
-  
--------
-
 ### November 2025
 
-📆 13th **Coffee and Coding**:
-
-  + 14:00 - 15:00 (GMT)
-  + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
-  + Meeting ID: 331 945 876 23
-  + Passcode: Po2nEx
-  
 📆 26th **Coffee and Coding**:
 
   + 14:00 - 15:00 (GMT)
