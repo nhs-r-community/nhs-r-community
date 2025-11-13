@@ -36,7 +36,6 @@ Please note that RPySOC 2025 will be hosted in partnership with [Health Data Res
 | 10:50 | Beautifully reproducible dataviz: lessons learnt from building data-to-viz pipelines | Cara Thompson |
 | 11:20 | **BREAK** |  |
 | 11:40 | Using open data and open source code to create an open elective waiting lists modelling tool (RTT Planner) | Sebastian Fox |
-| 12:00 | Using APIs in R to obtain Health indicators for interactive visualizations | Pablo Leon-Rodenas |
 | 12:20 | opencodecounts: An R package and Shiny app exploring NHS clinical coding data | Milan Wiedemann |
 | 12:30 | DES-igning Better Flow: Modelling Non-Elective Admissions | Helena Robinson |
 | 12:40 | Mapping Accessibility: Using R5py and GTFS Data to Optimise Women’s Health Hub Locations in the Sussex | Karrie Liu |
@@ -47,7 +46,7 @@ Please note that RPySOC 2025 will be hosted in partnership with [Health Data Res
 | 14:40 | Deploying Python in production: containers, kubernetes and embracing yaml | Amadeus Stevenson |
 | 15:00 | Modelling Community waiting lists with NHS-R waiting list library | Simon Wellesley-Miller |
 | 15:10 | Transforming Health Needs Assessments: Reproducible Insights for Smarter NHS Planning | Rachel Christie |
-| 15:20 | Building QA into everyday workflows with GitHub | Rhian Davies |
+| 15:20 | Using APIs in R to obtain Health indicators for interactive visualizations | Pablo Leon-Rodenas |
 | 15:30 | **BREAK** |  |
 | 15:50 | The story of patientflow: from hospital prototype to Python package | Zella King |
 | 16:10 | Going for Gold: Adopting RAP-by-default to Create Analysts from Nowhere. | Joe Wilson |
@@ -83,7 +82,8 @@ Please note that RPySOC 2025 will be hosted in partnership with [Health Data Res
 | 14:50 | Introduction to Causal Inference for R and Python users | Nathan Thomas |
 | 15:10 | Publishing reproducible websites using R Quarto: Camden's JSNA Hub | Annie Yu |
 | 15:20 | What Patients Ask: Harnessing Free-Text Data for Patient-Centred Care | Mimi Reyburn |
-| 15:30 | Closing remarks | Dr Claire Welsh and HDR UK |
+| 15:30 | Ditch the Spreadsheets: Make QA work for you | Rhian Davies |
+| 15:40 | Closing remarks | Dr Claire Welsh and HDR UK |
 | 16:00 | **CLOSE of day 2** |  |
 
 ------------------------------------------------------------------------
