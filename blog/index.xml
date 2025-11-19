@@ -11,7 +11,191 @@
 <description>Blogs are submitted from NHS-R Community members.&lt;br&gt;
 </description>
 <generator>quarto-1.8.26</generator>
-<lastBuildDate>Thu, 06 Nov 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 07 Nov 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Quality Assurance without the spreadsheets</title>
+  <dc:creator>Rhian Davies</dc:creator>
+  <link>https://nhsrcommunity.com/blog/2025-11-qa.html</link>
+  <description><![CDATA[ 
+
+
+<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
+<!--
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+-->
+<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
+<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
+
+
+
+<p>When I started my job at <a href="https://www.strategyunitwm.nhs.uk/">The Strategy Unit</a>, the first task I was given was:</p>
+<blockquote class="blockquote">
+<p>Can you build some QA processes for our model?</p>
+</blockquote>
+<p>My <a href="https://the-strategy-unit.github.io/data_science/">team</a> develops and maintains a large, open source statistical model used to estimate <a href="https://www.strategyunitwm.nhs.uk/news/transforming-hospital-planning-open-source-demand-and-capacity-model">how big hospitals of the future should be</a>. The code was well structured, documentated and tested, but hardly anyone had thought about QA formally.</p>
+<p>I’d worked with <a href="https://www.iso.org/standard/62085.html">ISO 9001</a> before, but I’d never tried to design QA for a statistical model. So I went on a journey trying to figure out what processes we needed, and how we could integrate QA into the way the team was already working.</p>
+<section id="what-do-i-mean-by-qa" class="level2">
+<h2 class="anchored" data-anchor-id="what-do-i-mean-by-qa">What do I mean by QA?</h2>
+<p>Quality work is about how we build models. Choosing appropriate methods, writing clean code and making sure everything is reproducible.</p>
+<p>Quality assurance, on the other hand, is about <em>building trust</em>. It ensures the right processes are followed, results are checked, and outputs are credible and interpretable.</p>
+</section>
+<section id="why-does-qa-matter" class="level2">
+<h2 class="anchored" data-anchor-id="why-does-qa-matter">Why does QA matter?</h2>
+<p>Public organisations often rely heavily on models to make decisions. If a model has errors, unrealistic assumptions, or poor documentation, it can result in wasted resources, bad decisions and loss of public confidence.</p>
+<p>The National Audit Office (NAO) found<sup>1</sup> that common problems include:</p>
+<ul>
+<li>Poor data or unrealistic assumptions</li>
+<li>No uncertainty or sensitivity testing</li>
+<li>Weak documentation and governance</li>
+</ul>
+<p>Our model influences hospital planning across the NHS, so it’s vital that people can trust it.</p>
+</section>
+<section id="what-was-missing" class="level2">
+<h2 class="anchored" data-anchor-id="what-was-missing">What was missing?</h2>
+<blockquote class="blockquote">
+<p>Quality assurance effort should be appropriate to the risk associated with the intended use of the analysis</p>
+</blockquote>
+<p>To find the missing pieces, I turned to existing guidance across governement and auditing organisations:</p>
+<ul>
+<li><a href="https://www.nao.org.uk/insights/framework-to-review-models/">Framework to review models, NAO</a></li>
+<li>HM Treasury’s <a href="https://www.gov.uk/guidance/the-aqua-book">AQuA book</a></li>
+<li><a href="https://www.nao.org.uk/wp-content/uploads/2023/05/quality-assurance-of-models.pdf">Quality assurance of models: a guide for audit committees, NAO</a></li>
+<li>The Department for Energy Security &amp; Net Zero (DESNZ) and Department for Business, Energy &amp; Industrial Strategy (BEIS) <a href="">Modelling Quality Assurance tools and guidance</a></li>
+<li><a href="https://best-practice-and-impact.github.io/qa-of-code-guidance/intro.html">Duck book</a></li>
+</ul>
+<p>Turns out, we were already doing a lot of what they recommend:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>QA Component</th>
+<th>Already Have?</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Change log</td>
+<td>✅</td>
+<td>GitHub</td>
+</tr>
+<tr class="even">
+<td>Technical guide</td>
+<td>✅</td>
+<td>Code documentation</td>
+</tr>
+<tr class="odd">
+<td>User guide</td>
+<td>✅</td>
+<td>Quarto website</td>
+</tr>
+<tr class="even">
+<td>Roles/responsibilities</td>
+<td>✅</td>
+<td>Quarto website</td>
+</tr>
+<tr class="odd">
+<td>Assumptions log</td>
+<td>✅</td>
+<td>Quarto website</td>
+</tr>
+<tr class="even">
+<td>QA plan</td>
+<td>❌</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>QA log</td>
+<td>❌</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>All our code was version-controlled, so we already had a change log. We maintained a <a href="https://connect.strategyunitwm.nhs.uk/nhp/project_information/">Quarto website</a> with user guidance, and wrote documentation alongside the code, which served as our technical guide.</p>
+<p>The main pieces missing were a <strong>QA plan</strong> and a <strong>QA log</strong>.</p>
+</section>
+<section id="not-another-spreadsheet" class="level2">
+<h2 class="anchored" data-anchor-id="not-another-spreadsheet">Not another spreadsheet</h2>
+<p>A <strong>QA plan</strong> is simply a list of the tasks you intend to do to improve the quality of your model.<br>
+A <strong>QA log</strong> is a record of what you’ve already done, who did it, and when they did it.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://nhsrcommunity.com/blog/img/qa-inspection.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="A toilet inspection sign. Listing when inspections are planned, when they were completed, and by whom. This one only has two inspections due, 1999 and 2004! The inspection was apparently completed by 'Ye Ma' (A classic your mum joke.)"></p>
+</figure>
+</div>
+<p>I scoured the internet looking for examples from other organisations. Almost everything I found was in spreadsheets.</p>
+<p>The most comprehensive example I came across was from the Department for Energy Security and Net Zero (DESNZ) in their <a href="https://www.gov.uk/government/publications/energy-security-and-net-zero-modelling-quality-assurance-qa-tools-and-guidance">Quality Assurance (QA) tools and guidance</a>.<br>
+However, the templates were mostly designed for Excel-based models and still just big, colour-coded spr.jpgeadsheets.</p>
+<p>My heart sank at the thought of having to manage QA with an ugly spreadsheet. There had to be a better way.</p>
+</section>
+<section id="github-to-the-rescue" class="level2">
+<h2 class="anchored" data-anchor-id="github-to-the-rescue">GitHub to the rescue</h2>
+<p>Our team was already using Git and GitHub for the model code and had just started experimenting with using <a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects">GitHub projects</a> for planning.</p>
+<p>So I thought: <em>what if we used a GitHub project for our QA plan and log too?</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://nhsrcommunity.com/blog/img/qa-yeah-nah.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" data-fig-height="100px" alt="Drake Nah-Yeah meme. Nah is a colourful spreadsheet, Yeah is a number of QA tasks in GitHub."></p>
+</figure>
+</div>
+<p>I set up a <a href="https://github.com/orgs/The-Strategy-Unit/projects/6">new GitHub project</a> with two views:</p>
+<ul>
+<li>Open issues ➡️ QA plan</li>
+<li>Complete issues ➡️ QA log</li>
+</ul>
+<p>Then I browsed our repositories and added any quality assurance related issues to the board.</p>
+<p>Our model spans multiple repos, mostly public, but some private. The project board handles this seamlessly, showing public issues to everyone and private ones only to those with access.</p>
+<p>I also decided to add labels to the QA issues, based on the QA type.</p>
+<ul>
+<li>📝 Documentation</li>
+<li>🗃️ Data &amp; Assumptions</li>
+<li>🧪 Verification</li>
+<li>❓Validation</li>
+<li>📁 Structure &amp; Clarity</li>
+</ul>
+<p>People<sup>2</sup> often get verification and validation muddled up. <strong>Verification</strong> checks that the model solves the equations <em>correctly</em>. <strong>Validation</strong> is checks that it’s solving the <em>right equations</em>.</p>
+</section>
+<section id="qa-in-practice" class="level2">
+<h2 class="anchored" data-anchor-id="qa-in-practice">QA in practice</h2>
+<p>Now, whenever I’m working on something QA related, I simply add it to <a href="https://github.com/orgs/The-Strategy-Unit/projects/6">the project board</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://nhsrcommunity.com/blog/img/qa-screenshot-github.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Screenshot of the GitHub project board used to track QA for our model. Link in previous sentence."></p>
+</figure>
+</div>
+<p>When we prepare our monthly model releases, we use a GitHub issue template work through a release QA checklist.</p>
+<p>Every six months, I also do an internal QA review using another issue template.</p>
+</section>
+<section id="remove-the-friction" class="level2">
+<h2 class="anchored" data-anchor-id="remove-the-friction">Remove the friction</h2>
+<p>This works because <em>QA happens where the work happens</em>. Our developers already live in GitHub. Asking them to open a spreadsheet every time they make a model improvement just doesn’t fit how our team works. But asking them to add metadata to an issue they’re already working on, does.</p>
+<p>Instead of a static row in an abandoned spreadsheet, each QA item has its own discussion thread, links to relevant code or analysis, and version history.</p>
+</section>
+<section id="qa-as-a-habit-not-a-chore" class="level2">
+<h2 class="anchored" data-anchor-id="qa-as-a-habit-not-a-chore">QA as a habit, not a chore</h2>
+<blockquote class="blockquote">
+<p>Creating and maintaining a strong culture of quality assurance is vital for ensuring analysis is robust and of a high quality. The AQuA book.</p>
+</blockquote>
+<p>QA isn’t about ticking boxes. It’s about building <em>trust</em>.</p>
+<p>There’s still plenty more to do, but moving our QA plan into GitHub has made QA part of daily coding, not an extra task at the end.</p>
+<p>If you’ve found other ways of managing QA (without the colour-coded spreadsheets!), I’d love to hear from you.</p>
+
+
+</section>
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://www.nao.org.uk/wp-content/uploads/2016/03/11018-002-Framework-to-review-models_External_4DP.pdf">Framework to review models, page 3</a>↩︎</p></li>
+<li id="fn2"><p>myself included↩︎</p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
+  <category>R</category>
+  <category>QA</category>
+  <category>github</category>
+  <guid>https://nhsrcommunity.com/blog/2025-11-qa.html</guid>
+  <pubDate>Fri, 07 Nov 2025 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>The RTT Planner tool for elective waitlist modelling – a collaboration success story!</title>
   <link>https://nhsrcommunity.com/blog/collaborative-working-rtt-planner.html</link>
@@ -5166,85 +5350,6 @@ font-style: inherit;">)</span></span></code></pre></div></div>
   <guid>https://nhsrcommunity.com/blog/what-was-the-unconference.html</guid>
   <pubDate>Mon, 30 Oct 2023 00:00:00 GMT</pubDate>
   <media:content url="https://nhsrcommunity.com/blog/img/unconferencing-notes.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>NHS-R Community needs help</title>
-  <dc:creator>Zoë Turner</dc:creator>
-  <link>https://nhsrcommunity.com/blog/nhs-r-community-needs-help.html</link>
-  <description><![CDATA[ 
-
-
-<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
-<!--
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
--->
-<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
-<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
-
-
-
-<p>I’ve been an analyst for over a decade in the NHS and for the most part I’d never been to a conference related to my work. Partly it was that they didn’t really exist but also that there is a cost involved for tickets, travel, sometimes hotel, and there was never any budget. Then in 2018 things changed for me. NHS-R Community was set up and I went to one of the first free training sessions in Leeds and because it was free I got a rare agreement for the Trust to cover the costs for travel and hotel. Also in 2018 we had the first (still free!) NHS-R Community conference and I got a lift there so the only cost was the of me being away from my work.</p>
-<p>Since 2020 the conference has been either fully in person or streamed so more people can join <sup><a href="http://localhost:6380/#fn1">1</a></sup> and one of the great side effects of going virtual is that things are recorded so we have a <a href="https://www.youtube.com/c/nhsrcommunity">YouTube channel</a> full of wonderful content from the NHS-R Community. And we also have increasing opportunity to go to other conferences like <a href="https://uobevents.eventsair.com/haca-2023/">HACA</a> and <a href="https://www.aphanalysts.org/">AphA</a> but with greater choice it can become even harder to justify the time out of the job to attend or catch up on conferences.</p>
-<p>This year’s NHS-R/NHS.pycom conference was a success for those that could attend and partly that’s because we tried things out:</p>
-<ul>
-<li><p>we did QR codes to sign in and <a href="https://github.com/nhs-r-community/conf-23-checkin">the code</a> is in the open</p></li>
-<li><p>we gave <a href="https://resources.nhsrcommunity.com/forum-groups.html#slack">Slack</a> a go for questions and got really great conversations and connections</p></li>
-<li><p>we tried <a href="https://soundcloud.com/nhs-r-community/nhs-r-nhs-pycom-conference-newscast-10th-october-2023">unconferencing</a> where people made suggestions for round table talks.</p></li>
-</ul>
-<p>But we got things wrong:</p>
-<ul>
-<li><p>we don’t have subtitles on our streamed recordings</p></li>
-<li><p>we didn’t collate presentation links or share them in advance of the talks</p></li>
-<li><p>we didn’t promote the conference as well as we’ve done in previous years.</p></li>
-</ul>
-<p>We can do better.</p>
-<p>But what is it that we want to be better at?<br>
-Is it putting on a better conference?<br>
-Is it producing more output that convinces managers who are not sure of the uses of open source programming?<br>
-Is it changing our name as it suggests we are just “NHS” and “R” – which we aren’t?<br>
-Have we done enough?</p>
-<p>We might have a lot of work to do but one thing I do know is that if we are going to do more we are going to do this together because all that we’ve built has been by us: the NHS-R Community.</p>
-<p>And how do we do better? I think we need to start with a new Committee to help shape the next 3 years. We have questions around rebranding and promotion of the work we do, how do we measure how successful we are (which helps with funding opportunities), what shall we do with our space at the <a href="https://uobevents.eventsair.com/haca-2023/">HACA conference</a> 2024, and of course there is our own conference to plan.</p>
-<section id="can-you-help" class="level2">
-<h2 class="anchored" data-anchor-id="can-you-help"><strong>Can you help?</strong></h2>
-<p>Would you come to the Committee and share your views? The more diverse the better.</p>
-<p>We need commitment of your time and, more importantly, we need your enthusiasm and desire to keep the NHS-R Community going so in the next few weeks I’ll be setting up Committee meeting where our first task will be to shape what we, as a Committee and a Community, will do.</p>
-<p>If you are interested in being involved with the Committee please contact me via our Slack group or email <a href="mailto:zoe.turner3@nhs.net">zoe.turner3@nhs.net</a></p>
-</section>
-<section id="join-the-slack-groups" class="level2">
-<h2 class="anchored" data-anchor-id="join-the-slack-groups"><strong>Join the Slack groups</strong></h2>
-<p>Details are in the <a href="https://resources.nhsrcommunity.com/forum-groups.html#slack">Open Analytics Resources</a> and feel free to contact NHS-R Community via email at <a href="mailto:nhs.rcommunity@nhs.net">nhs.rcommunity@nhs.net</a></p>
-</section>
-<section id="footnotes" class="level2">
-<h2 class="anchored" data-anchor-id="footnotes"><strong>Footnotes</strong></h2>
-<ol type="1">
-<li><p>Hybrid is a tricky label to give a conference as you need to have both participants and speakers to be in person and virtual so I can’t say that we’ve done that in NHS-R Community..<a href="http://localhost:6380/#fnref1">↩︎</a></p>
-<h3 id="comments" class="anchored">Comments</h3></li>
-</ol>
-<!-- -->
-<ol type="1">
-<li><p><strong>Calum Polwart</strong></p>
-<p>20 October 2023</p>
-<p>Sorry I didn’t attend this year. I attended for the first time last year, because I had something to share. I’m sure I will be picking up some video too. I’m sure everyone will be different but some off the cuff thoughts from me - It’s hard until you go, to know quite how geeky it will/will not be (answer as geeky as you want!) Timing. I don’t know why but Oct-Dec for me seems to be peak conference season! This isn’t my only part of my job and so I need to balance things. Posters. To me posters are a big thing at conferences. You can get ‘up close and personal’ with the presenter. Is there scope for poster presentation as well as stage? And what about opportunities to critique… Bring your last graph… We will tell you what could be better? I’m there to learn so I need to know how to improve. Any opportunities for a Hackathon?</p></li>
-<li><p><strong>Zoë Turner</strong></p>
-<p>20 October 2023</p>
-<p>Thanks for these comments! Much appreciated and we will be definitely be talking about some of these (posters, timing, hackathons) at the Committee. You’d be very welcome to join in :) Details are in the blog.</p></li>
-<li><p><strong>Charlotte Foster</strong></p>
-<p>26 October 2023</p>
-<p>Is this a call for help to analysts in all departments? I’d be interested in having a conversation! :)</p></li>
-<li><p><strong>Zoë Turner</strong></p>
-<p>30 October 2023</p>
-<p>Absolutely yes it’s a call for anyone in the NHS-R Community and that includes all public sector and Government organisations. Please do get in touch! Thanks</p></li>
-</ol>
-
-
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
-  <category>NHS-R</category>
-  <guid>https://nhsrcommunity.com/blog/nhs-r-community-needs-help.html</guid>
-  <pubDate>Fri, 20 Oct 2023 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
