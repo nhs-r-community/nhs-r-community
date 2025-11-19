@@ -809,7 +809,7 @@
     "href": "blog/2025-11-qa.html#not-another-spreadsheet",
     "title": "Quality Assurance without the spreadsheets",
     "section": "Not another spreadsheet",
-    "text": "Not another spreadsheet\nA QA plan is simply a list of the tasks you intend to do to improve the quality of your model.\nA QA log is a record of what you’ve already done, who did it, and when they did it.\n\n\n\n\n\nI scoured the internet looking for examples from other organisations. Almost everything I found was in spreadsheets.\nThe most comprehensive example I came across was from the Department for Energy Security and Net Zero (DESNZ) in their Quality Assurance (QA) tools and guidance.\nHowever, the templates were mostly designed for Excel-based models and still just big, colour-coded spreadsheets.\nMy heart sank at the thought of having to manage QA with an ugly spreadsheet. There had to be a better way."
+    "text": "Not another spreadsheet\nA QA plan is simply a list of the tasks you intend to do to improve the quality of your model.\nA QA log is a record of what you’ve already done, who did it, and when they did it.\n\n\n\n\n\nI scoured the internet looking for examples from other organisations. Almost everything I found was in spreadsheets.\nThe most comprehensive example I came across was from the Department for Energy Security and Net Zero (DESNZ) in their Quality Assurance (QA) tools and guidance.\nHowever, the templates were mostly designed for Excel-based models and still just big, colour-coded spr.jpgeadsheets.\nMy heart sank at the thought of having to manage QA with an ugly spreadsheet. There had to be a better way."
   },
   {
     "objectID": "blog/2025-11-qa.html#github-to-the-rescue",

@@ -120,12 +120,12 @@
 A <strong>QA log</strong> is a record of what you’ve already done, who did it, and when they did it.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://nhsrcommunity.com/blog/inspection.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="A toilet inspection sign. Listing when inspections are planned, when they were completed, and by whom. This one only has two inspections due, 1999 and 2004! The inspection was apparently completed by 'Ye Ma' (A classic your mum joke.)"></p>
+<p><img src="https://nhsrcommunity.com/blog/img/qa-inspection.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="A toilet inspection sign. Listing when inspections are planned, when they were completed, and by whom. This one only has two inspections due, 1999 and 2004! The inspection was apparently completed by 'Ye Ma' (A classic your mum joke.)"></p>
 </figure>
 </div>
 <p>I scoured the internet looking for examples from other organisations. Almost everything I found was in spreadsheets.</p>
 <p>The most comprehensive example I came across was from the Department for Energy Security and Net Zero (DESNZ) in their <a href="https://www.gov.uk/government/publications/energy-security-and-net-zero-modelling-quality-assurance-qa-tools-and-guidance">Quality Assurance (QA) tools and guidance</a>.<br>
-However, the templates were mostly designed for Excel-based models and still just big, colour-coded spreadsheets.</p>
+However, the templates were mostly designed for Excel-based models and still just big, colour-coded spr.jpgeadsheets.</p>
 <p>My heart sank at the thought of having to manage QA with an ugly spreadsheet. There had to be a better way.</p>
 </section>
 <section id="github-to-the-rescue" class="level2">
@@ -134,7 +134,7 @@ However, the templates were mostly designed for Excel-based models and still jus
 <p>So I thought: <em>what if we used a GitHub project for our QA plan and log too?</em></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://nhsrcommunity.com/blog/qa-yeah-nah.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" data-fig-height="100px" alt="Drake Nah-Yeah meme. Nah is a colourful spreadsheet, Yeah is a number of QA tasks in GitHub."></p>
+<p><img src="https://nhsrcommunity.com/blog/img/qa-yeah-nah.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" data-fig-height="100px" alt="Drake Nah-Yeah meme. Nah is a colourful spreadsheet, Yeah is a number of QA tasks in GitHub."></p>
 </figure>
 </div>
 <p>I set up a <a href="https://github.com/orgs/The-Strategy-Unit/projects/6">new GitHub project</a> with two views:</p>
@@ -159,7 +159,7 @@ However, the templates were mostly designed for Excel-based models and still jus
 <p>Now, whenever I’m working on something QA related, I simply add it to <a href="https://github.com/orgs/The-Strategy-Unit/projects/6">the project board</a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://nhsrcommunity.com/blog/screenshot-github.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Screenshot of the GitHub project board used to track QA for our model. Link in previous sentence."></p>
+<p><img src="https://nhsrcommunity.com/blog/img/qa-screenshot-github.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Screenshot of the GitHub project board used to track QA for our model. Link in previous sentence."></p>
 </figure>
 </div>
 <p>When we prepare our monthly model releases, we use a GitHub issue template work through a release QA checklist.</p>
