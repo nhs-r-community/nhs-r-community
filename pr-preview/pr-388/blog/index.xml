@@ -134,7 +134,7 @@ However, the templates were mostly designed for Excel-based models and still jus
 <p>So I thought: <em>what if we used a GitHub project for our QA plan and log too?</em></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://nhsrcommunity.com/blog/yeah-nah-qa.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" data-fig-height="100px" alt="Drake Nah-Yeah meme. Nah is a colourful spreadsheet, Yeah is a number of QA tasks in GitHub."></p>
+<p><img src="https://nhsrcommunity.com/blog/qa-yeah-nah.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" data-fig-height="100px" alt="Drake Nah-Yeah meme. Nah is a colourful spreadsheet, Yeah is a number of QA tasks in GitHub."></p>
 </figure>
 </div>
 <p>I set up a <a href="https://github.com/orgs/The-Strategy-Unit/projects/6">new GitHub project</a> with two views:</p>
