@@ -8,3 +8,9 @@ Please note:
 - Workshop attendance is restricted to employees of the NHS, public sector, civil servants, voluntary sector, charities and academia, or who are retirees from any of these sectors.
 - Webinars are free to all to attend, and recordings are stored on our [YouTube Channel](https://www.youtube.com/@NHSRCommunity)
 
+## December 2025
+
+📆 11th **Breaking it up: an approach to reproducible analytical pipelines (RAPs) with Georgina Anderson**:
+
+  + 13:00 - 14:00 (GMT)
+  + 🔗 [Meeting Link](https://events.teams.microsoft.com/event/4e5285c8-c0fc-4c04-b6bb-f8e7683a7a66@37c354b2-85b0-47f5-b222-07b48d774ee3)
