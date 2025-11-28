@@ -5,6 +5,7 @@
 <meta name="generator" content="quarto-1.8.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Bashir Abubakar">
+<meta name="dcterms.date" content="2025-11-11">
 <title>Lightweight Contextual Entity Extraction for Radiology Notes using R – NHS-R Community Quarto website</title>
 <style>
 code{white-space: pre-wrap;}
@@ -381,14 +382,14 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Invalid Date</p>
+      <p class="date">November 11, 2025</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">November 28, 2026</p>
+      <p class="date-modified">November 28, 2025</p>
     </div>
   </div>
     
@@ -416,9 +417,9 @@ gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
 <p>“The lungs are clear without focal consolidation, pleural effusion or pneumothorax.”</p>
 <p>contains the words consolidation, effusion, and pneumothorax, but all three are absent. A purely lexical match would incorrectly record them as present. Context understanding is therefore essential for accuracy.</p>
 <p>That problem distinguishing what was said from what was meant became the centrepiece of my work and as can be seen in <a href="#fig-pipeline" class="quarto-xref">Figure&nbsp;1</a> below which highlights the architectural design of my pipeline.</p>
-<div id="fig-pipeline" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-pipeline" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Flow chart showing the NLP flow for radiology reports. The flow is radiology reports -> entity detection -> context interpretation -> structured output.">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-pipeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="img/abubakar_1.png" class="img-fluid figure-img">
+<img src="img/abubakar_1.png" class="img-fluid figure-img" alt="Flow chart showing the NLP flow for radiology reports. The flow is radiology reports -> entity detection -> context interpretation -> structured output.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pipeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: NLP entity extraction pipeline
@@ -438,9 +439,14 @@ Figure&nbsp;1: NLP entity extraction pipeline
 </ul>
 <p>These lists are easily extended or localised for NHS reporting styles. Each term is converted into a case-insensitive regular expression. The extractor then scans every sentence for matches and records start and end character offsets so that downstream systems can link the structured output back to the original text.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">anatomy_terms</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lungs"</span>,<span class="st">"pleura"</span>,<span class="st">"heart"</span>,<span class="st">"mediastinum"</span>,<span class="st">"diaphragm"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">anatomy_terms</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lungs"</span>, <span class="st">"pleura"</span>, <span class="st">"heart"</span>, <span class="st">"mediastinum"</span>, <span class="st">"diaphragm"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">observation_terms</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"consolidation"</span>,<span class="st">"pleural effusion"</span>,<span class="st">"pneumothorax"</span>,<span class="st">"opacity"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span><span class="va">observation_terms</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>  <span class="st">"consolidation"</span>,</span>
+<span>  <span class="st">"pleural effusion"</span>,</span>
+<span>  <span class="st">"pneumothorax"</span>,</span>
+<span>  <span class="st">"opacity"</span></span>
+<span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="context-interpretation" class="level3"><h3 class="anchored" data-anchor-id="context-interpretation">2) Context interpretation</h3>
 <p>Next, I implemented a lightweight contextual layer inspired by the ConText algorithm used in clinical NLP research. Rather than classifying with machine learning, it uses a set of linguistic rules negation, uncertainty, and termination triggers that define the scope of meaning within a sentence.</p>
@@ -454,19 +460,49 @@ Figure&nbsp;1: NLP entity extraction pipeline
 <p>These rules are applied through regular-expression spans. Each observation term within the influence of a negation trigger is marked as absent; those under uncertainty cues are uncertain; all others default to present.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">context_triggers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
-<span>  pre_neg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"no"</span>,<span class="st">"without"</span>,<span class="st">"free of"</span>,<span class="st">"absent"</span>,<span class="st">"negative for"</span>,<span class="st">"not seen"</span>,<span class="st">"lack of"</span><span class="op">)</span>,</span>
-<span>  post_neg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ruled out"</span>,<span class="st">"excluded"</span><span class="op">)</span>,</span>
-<span>  pre_uncert <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"possible"</span>,<span class="st">"possibly"</span>,<span class="st">"likely"</span>,<span class="st">"cannot exclude"</span>,<span class="st">"suspicious for"</span>,</span>
-<span>                 <span class="st">"consistent with"</span>,<span class="st">"in keeping with"</span>,<span class="st">"questionable"</span>,<span class="st">"equivocal"</span><span class="op">)</span>,</span>
-<span>  post_uncert <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"may represent"</span>,<span class="st">"may reflect"</span>,<span class="st">"could represent"</span>,<span class="st">"could reflect"</span>,</span>
-<span>                  <span class="st">"suggesting"</span>,<span class="st">"suggests"</span>,<span class="st">"suggestive of"</span>,<span class="st">"compatible with"</span><span class="op">)</span>,</span>
-<span>  terminate <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"but"</span>,<span class="st">"however"</span>,<span class="st">"yet"</span>,<span class="st">"although"</span>,<span class="st">"except"</span>,<span class="st">"though"</span><span class="op">)</span>,</span>
-<span>  pseudo_neg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"no change"</span>,<span class="st">"no interval change"</span>,<span class="st">"no significant change"</span>,</span>
-<span>                 <span class="st">"no appreciable change"</span>,<span class="st">"no substantial change"</span><span class="op">)</span></span>
+<span>  pre_neg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>    <span class="st">"no"</span>,</span>
+<span>    <span class="st">"without"</span>,</span>
+<span>    <span class="st">"free of"</span>,</span>
+<span>    <span class="st">"absent"</span>,</span>
+<span>    <span class="st">"negative for"</span>,</span>
+<span>    <span class="st">"not seen"</span>,</span>
+<span>    <span class="st">"lack of"</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  post_neg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ruled out"</span>, <span class="st">"excluded"</span><span class="op">)</span>,</span>
+<span>  pre_uncert <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>    <span class="st">"possible"</span>,</span>
+<span>    <span class="st">"possibly"</span>,</span>
+<span>    <span class="st">"likely"</span>,</span>
+<span>    <span class="st">"cannot exclude"</span>,</span>
+<span>    <span class="st">"suspicious for"</span>,</span>
+<span>    <span class="st">"consistent with"</span>,</span>
+<span>    <span class="st">"in keeping with"</span>,</span>
+<span>    <span class="st">"questionable"</span>,</span>
+<span>    <span class="st">"equivocal"</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  post_uncert <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>    <span class="st">"may represent"</span>,</span>
+<span>    <span class="st">"may reflect"</span>,</span>
+<span>    <span class="st">"could represent"</span>,</span>
+<span>    <span class="st">"could reflect"</span>,</span>
+<span>    <span class="st">"suggesting"</span>,</span>
+<span>    <span class="st">"suggests"</span>,</span>
+<span>    <span class="st">"suggestive of"</span>,</span>
+<span>    <span class="st">"compatible with"</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  terminate <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"but"</span>, <span class="st">"however"</span>, <span class="st">"yet"</span>, <span class="st">"although"</span>, <span class="st">"except"</span>, <span class="st">"though"</span><span class="op">)</span>,</span>
+<span>  pseudo_neg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>    <span class="st">"no change"</span>,</span>
+<span>    <span class="st">"no interval change"</span>,</span>
+<span>    <span class="st">"no significant change"</span>,</span>
+<span>    <span class="st">"no appreciable change"</span>,</span>
+<span>    <span class="st">"no substantial change"</span></span>
+<span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">assign_context_certainty_sentence</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">sent_text</span>, <span class="va">ents_sentence_df</span><span class="op">)</span><span class="op">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">assign_context_certainty_sentence</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">sent_text</span>, <span class="va">ents_sentence_df</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="co"># detect negation/uncertainty cues and adjust certainty labels</span></span>
 <span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -483,23 +519,23 @@ Figure&nbsp;1: NLP entity extraction pipeline
 Table&nbsp;1: Structured output schema for contextual entity extraction from radiology reports
 </figcaption><div aria-describedby="tbl-descriptions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="kaseorhmbl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#kaseorhmbl table {
+<div id="wjflocgnrz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wjflocgnrz table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#kaseorhmbl thead, #kaseorhmbl tbody, #kaseorhmbl tfoot, #kaseorhmbl tr, #kaseorhmbl td, #kaseorhmbl th {
+#wjflocgnrz thead, #wjflocgnrz tbody, #wjflocgnrz tfoot, #wjflocgnrz tr, #wjflocgnrz td, #wjflocgnrz th {
   border-style: none;
 }
 
-#kaseorhmbl p {
+#wjflocgnrz p {
   margin: 0;
   padding: 0;
 }
 
-#kaseorhmbl .gt_table {
+#wjflocgnrz .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -525,12 +561,12 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   border-left-color: #D3D3D3;
 }
 
-#kaseorhmbl .gt_caption {
+#wjflocgnrz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#kaseorhmbl .gt_title {
+#wjflocgnrz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -542,7 +578,7 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   border-bottom-width: 0;
 }
 
-#kaseorhmbl .gt_subtitle {
+#wjflocgnrz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -554,7 +590,7 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   border-top-width: 0;
 }
 
-#kaseorhmbl .gt_heading {
+#wjflocgnrz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -566,13 +602,13 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   border-right-color: #D3D3D3;
 }
 
-#kaseorhmbl .gt_bottom_border {
+#wjflocgnrz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#kaseorhmbl .gt_col_headings {
+#wjflocgnrz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -587,7 +623,7 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   border-right-color: #D3D3D3;
 }
 
-#kaseorhmbl .gt_col_heading {
+#wjflocgnrz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -607,7 +643,7 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   overflow-x: hidden;
 }
 
-#kaseorhmbl .gt_column_spanner_outer {
+#wjflocgnrz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -619,15 +655,15 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   padding-right: 4px;
 }
 
-#kaseorhmbl .gt_column_spanner_outer:first-child {
+#wjflocgnrz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#kaseorhmbl .gt_column_spanner_outer:last-child {
+#wjflocgnrz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#kaseorhmbl .gt_column_spanner {
+#wjflocgnrz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -639,11 +675,11 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   width: 100%;
 }
 
-#kaseorhmbl .gt_spanner_row {
+#wjflocgnrz .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#kaseorhmbl .gt_group_heading {
+#wjflocgnrz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -669,7 +705,7 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   text-align: left;
 }
 
-#kaseorhmbl .gt_empty_group_heading {
+#wjflocgnrz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -684,15 +720,15 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   vertical-align: middle;
 }
 
-#kaseorhmbl .gt_from_md > :first-child {
+#wjflocgnrz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#kaseorhmbl .gt_from_md > :last-child {
+#wjflocgnrz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#kaseorhmbl .gt_row {
+#wjflocgnrz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -711,7 +747,7 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   overflow-x: hidden;
 }
 
-#kaseorhmbl .gt_stub {
+#wjflocgnrz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -724,7 +760,7 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   padding-right: 5px;
 }
 
-#kaseorhmbl .gt_stub_row_group {
+#wjflocgnrz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -738,15 +774,15 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   vertical-align: top;
 }
 
-#kaseorhmbl .gt_row_group_first td {
+#wjflocgnrz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#kaseorhmbl .gt_row_group_first th {
+#wjflocgnrz .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#kaseorhmbl .gt_summary_row {
+#wjflocgnrz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -756,16 +792,16 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   padding-right: 5px;
 }
 
-#kaseorhmbl .gt_first_summary_row {
+#wjflocgnrz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#kaseorhmbl .gt_first_summary_row.thick {
+#wjflocgnrz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#kaseorhmbl .gt_last_summary_row {
+#wjflocgnrz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -775,7 +811,7 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   border-bottom-color: #D3D3D3;
 }
 
-#kaseorhmbl .gt_grand_summary_row {
+#wjflocgnrz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -785,7 +821,7 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   padding-right: 5px;
 }
 
-#kaseorhmbl .gt_first_grand_summary_row {
+#wjflocgnrz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -795,7 +831,7 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   border-top-color: #D3D3D3;
 }
 
-#kaseorhmbl .gt_last_grand_summary_row_top {
+#wjflocgnrz .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -805,11 +841,11 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   border-bottom-color: #D3D3D3;
 }
 
-#kaseorhmbl .gt_striped {
+#wjflocgnrz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#kaseorhmbl .gt_table_body {
+#wjflocgnrz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -818,7 +854,7 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   border-bottom-color: #D3D3D3;
 }
 
-#kaseorhmbl .gt_footnotes {
+#wjflocgnrz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -832,7 +868,7 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   border-right-color: #D3D3D3;
 }
 
-#kaseorhmbl .gt_footnote {
+#wjflocgnrz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -841,7 +877,7 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   padding-right: 5px;
 }
 
-#kaseorhmbl .gt_sourcenotes {
+#wjflocgnrz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -855,7 +891,7 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   border-right-color: #D3D3D3;
 }
 
-#kaseorhmbl .gt_sourcenote {
+#wjflocgnrz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -863,72 +899,72 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
   padding-right: 5px;
 }
 
-#kaseorhmbl .gt_left {
+#wjflocgnrz .gt_left {
   text-align: left;
 }
 
-#kaseorhmbl .gt_center {
+#wjflocgnrz .gt_center {
   text-align: center;
 }
 
-#kaseorhmbl .gt_right {
+#wjflocgnrz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#kaseorhmbl .gt_font_normal {
+#wjflocgnrz .gt_font_normal {
   font-weight: normal;
 }
 
-#kaseorhmbl .gt_font_bold {
+#wjflocgnrz .gt_font_bold {
   font-weight: bold;
 }
 
-#kaseorhmbl .gt_font_italic {
+#wjflocgnrz .gt_font_italic {
   font-style: italic;
 }
 
-#kaseorhmbl .gt_super {
+#wjflocgnrz .gt_super {
   font-size: 65%;
 }
 
-#kaseorhmbl .gt_footnote_marks {
+#wjflocgnrz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#kaseorhmbl .gt_asterisk {
+#wjflocgnrz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#kaseorhmbl .gt_indent_1 {
+#wjflocgnrz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#kaseorhmbl .gt_indent_2 {
+#wjflocgnrz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#kaseorhmbl .gt_indent_3 {
+#wjflocgnrz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#kaseorhmbl .gt_indent_4 {
+#wjflocgnrz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#kaseorhmbl .gt_indent_5 {
+#wjflocgnrz .gt_indent_5 {
   text-indent: 25px;
 }
 
-#kaseorhmbl .katex-display {
+#wjflocgnrz .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#kaseorhmbl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#wjflocgnrz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -986,23 +1022,23 @@ Table&nbsp;1: Structured output schema for contextual entity extraction from rad
 Table&nbsp;2: Example report extraction
 </figcaption><div aria-describedby="tbl-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="yxaifyjlur" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#yxaifyjlur table {
+<div id="ffxofknrib" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ffxofknrib table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#yxaifyjlur thead, #yxaifyjlur tbody, #yxaifyjlur tfoot, #yxaifyjlur tr, #yxaifyjlur td, #yxaifyjlur th {
+#ffxofknrib thead, #ffxofknrib tbody, #ffxofknrib tfoot, #ffxofknrib tr, #ffxofknrib td, #ffxofknrib th {
   border-style: none;
 }
 
-#yxaifyjlur p {
+#ffxofknrib p {
   margin: 0;
   padding: 0;
 }
 
-#yxaifyjlur .gt_table {
+#ffxofknrib .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1028,12 +1064,12 @@ Table&nbsp;2: Example report extraction
   border-left-color: #D3D3D3;
 }
 
-#yxaifyjlur .gt_caption {
+#ffxofknrib .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#yxaifyjlur .gt_title {
+#ffxofknrib .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1045,7 +1081,7 @@ Table&nbsp;2: Example report extraction
   border-bottom-width: 0;
 }
 
-#yxaifyjlur .gt_subtitle {
+#ffxofknrib .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1057,7 +1093,7 @@ Table&nbsp;2: Example report extraction
   border-top-width: 0;
 }
 
-#yxaifyjlur .gt_heading {
+#ffxofknrib .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1069,13 +1105,13 @@ Table&nbsp;2: Example report extraction
   border-right-color: #D3D3D3;
 }
 
-#yxaifyjlur .gt_bottom_border {
+#ffxofknrib .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yxaifyjlur .gt_col_headings {
+#ffxofknrib .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1090,7 +1126,7 @@ Table&nbsp;2: Example report extraction
   border-right-color: #D3D3D3;
 }
 
-#yxaifyjlur .gt_col_heading {
+#ffxofknrib .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1110,7 +1146,7 @@ Table&nbsp;2: Example report extraction
   overflow-x: hidden;
 }
 
-#yxaifyjlur .gt_column_spanner_outer {
+#ffxofknrib .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1122,15 +1158,15 @@ Table&nbsp;2: Example report extraction
   padding-right: 4px;
 }
 
-#yxaifyjlur .gt_column_spanner_outer:first-child {
+#ffxofknrib .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yxaifyjlur .gt_column_spanner_outer:last-child {
+#ffxofknrib .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yxaifyjlur .gt_column_spanner {
+#ffxofknrib .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1142,11 +1178,11 @@ Table&nbsp;2: Example report extraction
   width: 100%;
 }
 
-#yxaifyjlur .gt_spanner_row {
+#ffxofknrib .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#yxaifyjlur .gt_group_heading {
+#ffxofknrib .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1172,7 +1208,7 @@ Table&nbsp;2: Example report extraction
   text-align: left;
 }
 
-#yxaifyjlur .gt_empty_group_heading {
+#ffxofknrib .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1187,15 +1223,15 @@ Table&nbsp;2: Example report extraction
   vertical-align: middle;
 }
 
-#yxaifyjlur .gt_from_md > :first-child {
+#ffxofknrib .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yxaifyjlur .gt_from_md > :last-child {
+#ffxofknrib .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yxaifyjlur .gt_row {
+#ffxofknrib .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1214,7 +1250,7 @@ Table&nbsp;2: Example report extraction
   overflow-x: hidden;
 }
 
-#yxaifyjlur .gt_stub {
+#ffxofknrib .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1227,7 +1263,7 @@ Table&nbsp;2: Example report extraction
   padding-right: 5px;
 }
 
-#yxaifyjlur .gt_stub_row_group {
+#ffxofknrib .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1241,15 +1277,15 @@ Table&nbsp;2: Example report extraction
   vertical-align: top;
 }
 
-#yxaifyjlur .gt_row_group_first td {
+#ffxofknrib .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#yxaifyjlur .gt_row_group_first th {
+#ffxofknrib .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#yxaifyjlur .gt_summary_row {
+#ffxofknrib .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1259,16 +1295,16 @@ Table&nbsp;2: Example report extraction
   padding-right: 5px;
 }
 
-#yxaifyjlur .gt_first_summary_row {
+#ffxofknrib .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#yxaifyjlur .gt_first_summary_row.thick {
+#ffxofknrib .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#yxaifyjlur .gt_last_summary_row {
+#ffxofknrib .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1278,7 +1314,7 @@ Table&nbsp;2: Example report extraction
   border-bottom-color: #D3D3D3;
 }
 
-#yxaifyjlur .gt_grand_summary_row {
+#ffxofknrib .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1288,7 +1324,7 @@ Table&nbsp;2: Example report extraction
   padding-right: 5px;
 }
 
-#yxaifyjlur .gt_first_grand_summary_row {
+#ffxofknrib .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1298,7 +1334,7 @@ Table&nbsp;2: Example report extraction
   border-top-color: #D3D3D3;
 }
 
-#yxaifyjlur .gt_last_grand_summary_row_top {
+#ffxofknrib .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1308,11 +1344,11 @@ Table&nbsp;2: Example report extraction
   border-bottom-color: #D3D3D3;
 }
 
-#yxaifyjlur .gt_striped {
+#ffxofknrib .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yxaifyjlur .gt_table_body {
+#ffxofknrib .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1321,7 +1357,7 @@ Table&nbsp;2: Example report extraction
   border-bottom-color: #D3D3D3;
 }
 
-#yxaifyjlur .gt_footnotes {
+#ffxofknrib .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1335,7 +1371,7 @@ Table&nbsp;2: Example report extraction
   border-right-color: #D3D3D3;
 }
 
-#yxaifyjlur .gt_footnote {
+#ffxofknrib .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1344,7 +1380,7 @@ Table&nbsp;2: Example report extraction
   padding-right: 5px;
 }
 
-#yxaifyjlur .gt_sourcenotes {
+#ffxofknrib .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1358,7 +1394,7 @@ Table&nbsp;2: Example report extraction
   border-right-color: #D3D3D3;
 }
 
-#yxaifyjlur .gt_sourcenote {
+#ffxofknrib .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1366,72 +1402,72 @@ Table&nbsp;2: Example report extraction
   padding-right: 5px;
 }
 
-#yxaifyjlur .gt_left {
+#ffxofknrib .gt_left {
   text-align: left;
 }
 
-#yxaifyjlur .gt_center {
+#ffxofknrib .gt_center {
   text-align: center;
 }
 
-#yxaifyjlur .gt_right {
+#ffxofknrib .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yxaifyjlur .gt_font_normal {
+#ffxofknrib .gt_font_normal {
   font-weight: normal;
 }
 
-#yxaifyjlur .gt_font_bold {
+#ffxofknrib .gt_font_bold {
   font-weight: bold;
 }
 
-#yxaifyjlur .gt_font_italic {
+#ffxofknrib .gt_font_italic {
   font-style: italic;
 }
 
-#yxaifyjlur .gt_super {
+#ffxofknrib .gt_super {
   font-size: 65%;
 }
 
-#yxaifyjlur .gt_footnote_marks {
+#ffxofknrib .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#yxaifyjlur .gt_asterisk {
+#ffxofknrib .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#yxaifyjlur .gt_indent_1 {
+#ffxofknrib .gt_indent_1 {
   text-indent: 5px;
 }
 
-#yxaifyjlur .gt_indent_2 {
+#ffxofknrib .gt_indent_2 {
   text-indent: 10px;
 }
 
-#yxaifyjlur .gt_indent_3 {
+#ffxofknrib .gt_indent_3 {
   text-indent: 15px;
 }
 
-#yxaifyjlur .gt_indent_4 {
+#ffxofknrib .gt_indent_4 {
   text-indent: 20px;
 }
 
-#yxaifyjlur .gt_indent_5 {
+#ffxofknrib .gt_indent_5 {
   text-indent: 25px;
 }
 
-#yxaifyjlur .katex-display {
+#ffxofknrib .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#yxaifyjlur div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ffxofknrib div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1474,7 +1510,7 @@ Table&nbsp;2: Example report extraction
 </section><section id="integration-possibilities" class="level2"><h2 class="anchored" data-anchor-id="integration-possibilities">Integration possibilities</h2>
 <p>The structured output from this method essentially a long table of findings with certainty labels can feed into SQL databases, Power BI dashboards, or R Shiny apps. For example, analysts could summarise all radiology mentions of pneumonia marked as “present” across an entire hospital trust, or measure how often “pleural effusion” was reported in specific cohorts. The same pattern could also be adapted to ambulance ePCR narratives, mental-health crisis notes, or pathology reports.</p>
 </section><section id="code-availability" class="level2"><h2 class="anchored" data-anchor-id="code-availability">Code availability</h2>
-<p>Full code is publicly available in my GitHub account and accessible via this link: https://github.com/bashir-abubakar/radiology-nlp-r</p>
+<p>Full code is <a href="https://github.com/bashir-abubakar/radiology-nlp-r">publicly available in my GitHub account</a>.</p>
 
 
 </section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
