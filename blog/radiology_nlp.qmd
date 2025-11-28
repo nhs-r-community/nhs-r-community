@@ -1,7 +1,7 @@
 ---
 title: "Lightweight Contextual Entity Extraction for Radiology Notes using R"
-date: "11th November 2026"
-date-modified: "28 November 2026"
+date: "11th November 2025"
+date-modified: "28 November 2025"
 categories:
   - NHS
   - NLP
