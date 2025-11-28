@@ -43,7 +43,7 @@ Context understanding is therefore essential for accuracy.
 
 That problem distinguishing what was said from what was meant became the centrepiece of my work and as can be seen in @fig-pipeline below which highlights the architectural design of my pipeline.
 
-![NLP entity extraction pipeline](img/abubakar_1.png){#fig-pipeline}
+![NLP entity extraction pipeline](img/abubakar_1.png){#fig-pipeline fig-alt = "Flow chart showing the NLP flow for radiology reports. The flow is radiology reports -> entity detection -> context interpretation -> structured output."}
 
 ## Designing a contextual extractor
 
