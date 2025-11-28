@@ -7,7 +7,7 @@ categories:
   - NLP
 author: Bashir Abubakar
 image: img/abubakar_1.png
-image-alt: "NLP entity extraction pipeline"
+image-alt: "Flow chart showing the NLP flow for radiology reports. The flow is radiology reports -> entity detection -> context interpretation -> structured output."
 subtitle: >
 execute:
     eval: false
