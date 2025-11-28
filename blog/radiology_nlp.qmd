@@ -43,7 +43,7 @@ Context understanding is therefore essential for accuracy.
 
 That problem distinguishing what was said from what was meant became the centrepiece of my work and as can be seen in @fig-pipeline below which highlights the architectural design of my pipeline.
 
-![NLP entity extraction pipeline](img/abubakar_1.png){#fig-pipeline fig-alt = "Flow chart showing the NLP flow for radiology reports. The flow is radiology reports -> entity detection -> context interpretation -> structured output."}
+![NLP entity extraction pipeline](img/abubakar_1.png){#fig-pipeline fig-alt="Flow chart showing the NLP flow for radiology reports. The flow is radiology reports -> entity detection -> context interpretation -> structured output."}
 
 ## Designing a contextual extractor
 
@@ -68,9 +68,14 @@ The extractor then scans every sentence for matches and records start and end ch
 #| eval: false
 #| echo: true
 
-anatomy_terms <- c("lungs","pleura","heart","mediastinum","diaphragm")
+anatomy_terms <- c("lungs", "pleura", "heart", "mediastinum", "diaphragm")
 
-observation_terms <- c("consolidation","pleural effusion","pneumothorax","opacity")
+observation_terms <- c(
+  "consolidation",
+  "pleural effusion",
+  "pneumothorax",
+  "opacity"
+)
 ```
 
 ### 2) Context interpretation
@@ -93,15 +98,45 @@ Each observation term within the influence of a negation trigger is marked as ab
 #| echo: true
 
 context_triggers <- list(
-  pre_neg = c("no","without","free of","absent","negative for","not seen","lack of"),
-  post_neg = c("ruled out","excluded"),
-  pre_uncert = c("possible","possibly","likely","cannot exclude","suspicious for",
-                 "consistent with","in keeping with","questionable","equivocal"),
-  post_uncert = c("may represent","may reflect","could represent","could reflect",
-                  "suggesting","suggests","suggestive of","compatible with"),
-  terminate = c("but","however","yet","although","except","though"),
-  pseudo_neg = c("no change","no interval change","no significant change",
-                 "no appreciable change","no substantial change")
+  pre_neg = c(
+    "no",
+    "without",
+    "free of",
+    "absent",
+    "negative for",
+    "not seen",
+    "lack of"
+  ),
+  post_neg = c("ruled out", "excluded"),
+  pre_uncert = c(
+    "possible",
+    "possibly",
+    "likely",
+    "cannot exclude",
+    "suspicious for",
+    "consistent with",
+    "in keeping with",
+    "questionable",
+    "equivocal"
+  ),
+  post_uncert = c(
+    "may represent",
+    "may reflect",
+    "could represent",
+    "could reflect",
+    "suggesting",
+    "suggests",
+    "suggestive of",
+    "compatible with"
+  ),
+  terminate = c("but", "however", "yet", "although", "except", "though"),
+  pseudo_neg = c(
+    "no change",
+    "no interval change",
+    "no significant change",
+    "no appreciable change",
+    "no substantial change"
+  )
 )
 ```
 
@@ -110,7 +145,7 @@ context_triggers <- list(
 #| eval: false
 #| echo: true
 
-assign_context_certainty_sentence <- function(sent_text, ents_sentence_df){
+assign_context_certainty_sentence <- function(sent_text, ents_sentence_df) {
   # detect negation/uncertainty cues and adjust certainty labels
 }
 ```
@@ -137,17 +172,30 @@ As seen in @tbl-descriptions below the radiology report processed through the ex
 
 library(gt)
 
-data <- data.frame(Column = c("entity_id", "doc_id", "sent_id", "entity_text", "entity_type", "certainty", "start_char", "end_char"),
-Description = c("Unique sequential identifier for each extracted entity.",
-"Name or ID of the source document (e.g., radiology report file).",
-"Sentence number within the document where the entity appears.",
-"Exact phrase matched from the report text (e.g., consolidation, pleural effusion).",
-"Category of the term — either Anatomy or Observation.",
-"Contextual interpretation derived from nearby linguistic cues: present, absent, or uncertain.",
-"Starting character position of the entity in the original text.",
-"Ending character position of the entity in the original text."))
+data <- data.frame(
+  Column = c(
+    "entity_id",
+    "doc_id",
+    "sent_id",
+    "entity_text",
+    "entity_type",
+    "certainty",
+    "start_char",
+    "end_char"
+  ),
+  Description = c(
+    "Unique sequential identifier for each extracted entity.",
+    "Name or ID of the source document (e.g., radiology report file).",
+    "Sentence number within the document where the entity appears.",
+    "Exact phrase matched from the report text (e.g., consolidation, pleural effusion).",
+    "Category of the term — either Anatomy or Observation.",
+    "Contextual interpretation derived from nearby linguistic cues: present, absent, or uncertain.",
+    "Starting character position of the entity in the original text.",
+    "Ending character position of the entity in the original text."
+  )
+)
 
-data |> gt::gt() 
+data |> gt::gt()
 ```
 
 For example, the report in @tbl-example below: 
@@ -162,9 +210,11 @@ The cardiac and mediastinal silhouettes are unremarkable.”
 #| tbl-cap: "Example report extraction"
 #| label: tbl-example
 
-example <- data.frame(entity_text = c("consolidation","pleural effusion","pneumothorax"),
-entity_type = c("Observation", "Observation", "Observation"),
-certainty = c("absent", "absent", "absent"))
+example <- data.frame(
+  entity_text = c("consolidation", "pleural effusion", "pneumothorax"),
+  entity_type = c("Observation", "Observation", "Observation"),
+  certainty = c("absent", "absent", "absent")
+)
 
 example |> gt::gt()
 ```
@@ -197,4 +247,4 @@ The same pattern could also be adapted to ambulance ePCR narratives, mental-heal
 
 ## Code availability
 
-Full code is publicly available in my GitHub account and accessible via this link: https://github.com/bashir-abubakar/radiology-nlp-r
+Full code is [publicly available in my GitHub account](https://github.com/bashir-abubakar/radiology-nlp-r).
