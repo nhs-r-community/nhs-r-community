@@ -20,3 +20,4 @@ site_libs/
 renv/
 .Rprofile
 renv.lock
+**/*.quarto_ipynb
