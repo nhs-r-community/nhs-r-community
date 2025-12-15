@@ -20,6 +20,8 @@ execute:
 The RPySOC 2025 hybrid Conference was held online and in person at the Wellcome Trust, London, on 13th and 14th Novemeber 2025.  During the event, a QR code, posted around the venue and online, allowed attendees to give feedback on all aspects of the conference experience. This report summarises that feeback.
 
 ```{r}
+library(tidyverse)
+
 data <- read.csv("RPySOC 2025_Feedback Form_Responses_deidentified.csv")
 
 names(data) <- c("id",
@@ -69,7 +71,7 @@ names(data) <- c("id",
 "data_collection")
 
 data <- data |>
-    dplyr::filter(!is.na(id))
+    filter(!is.na(id))
 
 ```
 
