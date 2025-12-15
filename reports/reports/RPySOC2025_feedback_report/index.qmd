@@ -1,0 +1,212 @@
+---
+title: "RPySOC 2025 Conference Feedback"
+format: 
+    html:
+        embed-resources: true
+output:
+  html_document:
+    css: "NHS_report_theme.css"
+execute:
+    eval: true
+    echo: false
+    message: false
+    warning: false
+---
+
+![](HDRUK NHS-R NOV'25 (36).jpg)
+
+The RPySOC 2025 hybrid Conference was held online and in person at the Wellcome Trust, London, on 13th and 14th Novemeber 2025.  During the event, a QR code, posted around the venue and online, allowed attendees to give feedback on all aspects of the conference experience. This report summarises that feeback.
+
+```{r}
+library(tidyverse)
+
+data <- read.csv("RPySOC 2025_Feedback Form_Responses_deidentified.csv")
+
+names(data) <- c("id",
+"no",
+"name",
+"email",
+"funded",
+"session:ip_1","session:v_1","session:ip_2","session:v_2","session:NA",
+"org_type",
+"region",
+"overall_experience",
+"abstract_ease_submit",
+"registration",
+"comms_before",
+"themes",
+"n_talks",
+"quality_talks",
+"slack_qs",
+"breaks",
+"access",
+"loos",
+"check-in",
+"signage",
+"location",
+"menu",
+"refreshments",
+"seating",
+"visual_display",
+"plugs",
+"stands",
+"join_live",
+"increased_knowledge","knowledge_comments",
+"apply_often","use_learning_how",
+"plenary",
+"lightning",
+"slack_use","slack_comment",
+"unconf","unconf_comment",
+"unconf_again",
+"recommend", "recommend_comments",
+"liked_most",
+"could_improve",
+"attend_next_year",
+"testimonial",
+"audio", "audio_comments",
+"video_quality", "video_comments",
+"hear_about",
+"data_collection")
+
+data <- data |>
+    filter(!is.na(id))
+
+```
+
+::: {.callout}
+📢 **Headline** 📢
+
+The 2025 RPySOC conference was a **highly successful** event. 
+
+The open analytics community found it well orgainsed and extremely valuable for upskilling attendees, fostering an enthusiastic and supportive community, disseminating best practice and novel approaches. This conference constitutes a key element of how the recommendations from the Goldacre report[^1] should be implemented, for the benefit of patients and the public.
+
+[^1]:https://www.gov.uk/government/publications/better-broader-safer-using-health-data-for-research-and-analysis 
+
+:::
+
+## Attendance and Respondents
+
+In total, there were 125 in person attendees and 353 people joined online.
+
+```{r attendance}
+data |>
+    select('In-person day 1' = `session:ip_1`,
+    'Virtual day 1' = `session:v_1`,
+    'In-person day 2' = `session:ip_2`,
+    'Virtual day 2' = `session:v_2`)|>
+    pivot_longer(cols = `In-person day 1`:`Virtual day 2`, names_to = "session", values_to = "value") |>
+    mutate(value = case_when(value == "Yes" ~ 1,
+    value == "No" ~ 0)) |>
+        group_by(session) |>
+        summarise('Count of respondents' = sum(value)) |>
+        mutate(type = case_when(grepl("In", session) ~ "In-person",
+                                grepl("V", session) ~ "Virtual")) |>
+        ggplot(aes(x = session, y = `Count of respondents`, fill = type)) +
+        geom_bar(stat = "identity") +
+        theme(axis.title.x = element_blank(),
+    axis.title.y = element_text(angle = 90),
+        legend.title = element_blank()) 
+        
+```
+
+In total `r nrow(data)` attendees completed the feedback form, representing a large range of employer types from all over the UK and further afield.
+Feedback was submitted mostly by in-person attendees.
+
+There were `r nrow(data[data$'session:ip_1' == "Yes" & data$'session:ip_2' == "Yes",])` responders that attended both days in person.
+Of virtual attendees, `r nrow(data[data$'session:v_1' == "Yes" & data$'session:v_2' == "Yes",])` attended both days virtually.
+`r nrow(data[(data$'session:ip_1' == "Yes" & data$'session:v_2' == "Yes")|(data$'session:ip_2' == "Yes" & data$'session:v_1' == "Yes"),])` person attended a mixture of in-person and virtual events.
+
+Of those responders who attended at least one day in person, `r (nrow(data[(data$'session:ip_1' == "Yes" | data$'session:ip_2' == "Yes") & data$funded == "Funded by your employer",]))`/`r (nrow(data[(data$'session:ip_1' == "Yes" | data$'session:ip_2' == "Yes"),]))` were funded by their employer to attend. `r (nrow(data[(data$'session:ip_1' == "Yes" | data$'session:ip_2' == "Yes") & data$funded == "Self funded",]))`/`r (nrow(data[(data$'session:ip_1' == "Yes" | data$'session:ip_2' == "Yes"),]))` attendees self-funded their attendance.
+
+## Communications
+
+Respondents heard about the conferenece through a mix of channels, the most numerous being Slack, NHS-R community website and word of mouth.
+
+#### _All respondents rated pre-conference communications as good, very good or excellent._
+
+## Accessibility
+
+Respondents rated the registration process as good to excellent, and the number of breaks and the check-in process as good to excellent in almost all cases. 
+
+To maximise accessibility of speaker questions in the hybrid event, all questions for speakers and their responses were housed on Slack.  Respondents were asked about the ease of submitting questions on Slack, how suitable that medium was. 
+
+The use of Slack for speaker questions recieved a mixed response.  
+Twelve respondents rated its use as not effective or only somewhat effective, compared to 29 respondents reporting Slack use as very or extremely effective. 
+One comment was submitted to explain the "Not at all effective" response to Slack use. 
+This comment described the respondent's frustration with using Slack through the browser, since their organisation does not allow its installation on managed devices.  
+
+`r paste0(round((nrow(data[data$slack_qs == "Excellent"|data$slack_qs == "Very Good"|data$slack_qs == "Good",])/nrow(data[!is.na(data$slack_qs),])*100)), "%")` of respondents rated the ease of submitting questions on Slack as good, very good or excellent.
+
+## In-Person experience
+
+Elements of the in-person conference experience that were rated positively (fair to excellent) included the check-in process efficiency, seating, toilets access, refreshments and visual display quality. 
+One person rated the availability of suitable signage as poor, one rated the location as poor, two rated the availability of power outlets for charging devices as poor, and two respondents rated the menu options as poor, whereas all other respondents rated these elements positively (largest group rating each as `Excellent`).
+
+#### _The unconference session was rated as extremely valuable by most respondents (18/34), and only one respondent rated it 'Not so valuable'. 31/43 respondents would consider attenging the unconference again in future._
+
+## Virtual experience
+
+#### _The ease of joining the live stream was rated as good to excellent by all respondents._
+The video quality experienced some initial technical issues on day 1, which were soon rectified. 
+This was reflected in the ratings and comments for this aspect of the conference.  Audio quality was rated positively throughout.
+
+## Content
+
+Those respondents that submitted abstracts for consideration rated the ease of submission as good to excellent in almost all cases. 
+
+#### _The themes and topics covered were universally positively received._
+
+ The number of talks was considered good to excellent, as was the quality of talks overall. 
+ Most respondents reported that the number of plenary (20min) talks was about right (40/43), similarly the number of lightning talks (10m) was considered about right by most (37/43).
+
+All but two respondents agreed that attending the conference had increased their knowledge of their specific topic area. 
+One of the two respondents who disagreed may have voted accidentally as they left a positive comment. 
+
+#### _All respondents felt they were likely to apply what they had learned to their work sometimes, usually or always._ 
+
+
+The areas that respondents felt enabled to apply in their work included; use of new R packages and creation of their own packages, unit testing, devOps, and many other aspects of Reproducible Analytical Pipeline best practice, including code quality, sharing their learning, version control, peer programming with GitHub and elements of reproducibility more broadly.
+
+
+## Organisation
+
+Comments were left about what could be improved in future years. These included mention of:
+
+- Adding in a 'Work in Progress' section
+- simplify the sign-up process
+- more formal speaker introductions by chairs
+- 'speed dating' for networking
+- consider reducing the number of talks on day 1 to encourage more networking
+
+#### _All 43 respondents said they were likely or very likely to recommend the RPySOC conference to others and would be attending next year (37 in person, and 6 virtually)._
+Elements of the conference that respondents said they liked most included:
+
+- learning practical new skills
+- the community of inclusive, open, friendly, like-minded people
+- organisation
+- time keeping, the pace of the event
+- consistent narrative
+- open code, shared slides
+- brilliant key note speakers
+- Unconference
+
+
+::: {.callout-note}
+_"It’s just full of great people doing interesting work "_
+
+_"Meeting people in the same boat undergoing the same challenges, i felt so inspired afterwards "_
+
+_"The conference content and unconference were top notch as usual. And I thought the venue and food were brilliant!"_
+
+_"Meeting so many great people. I found my people, finally."_
+:::
+
+## Testimonials
+
+Fourteen respondents chose to leave a testimonial. These were extremely positive. Examples are included below:
+
+🎤 _Best conference I've attended._
+
+🎤 _This is by far and away the best conference I have ever attended. Every year I come away with knowledge I can apply immediately, bags of inspiration for improving the quality of my work and most importantly new friends I can call on whenever I’m stuck or struggling._
+
+🎤 _I wrote my first R package because of this conference!_
