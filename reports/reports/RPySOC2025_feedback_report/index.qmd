@@ -6,6 +6,8 @@ format:
 output:
   html_document:
     css: "NHS_report_theme.css"
+image: HDRUK NHS-R NOV'25 (36).jpg
+image-alt: Picture of Conference Attendees.
 execute:
     eval: true
     echo: false
