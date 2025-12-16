@@ -13,6 +13,7 @@ execute:
     echo: false
     message: false
     warning: false
+embed-resources: true
 ---
 
 ![](HDRUK NHS-R NOV'25 (36).jpg)
