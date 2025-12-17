@@ -1,8 +1,16 @@
 [
   {
+    "listing": "/reports/index.html",
+    "items": [
+      "/reports/reports/NHS-R_questionnaire_2025/index.html",
+      "/reports/reports/RPySOC2025_feedback_report/index.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/reports/reports/NHS-R_questionnaire_2025/index.html",
+      "/reports/reports/RPySOC2025_feedback_report/index.html",
       "/books/posts/health-inequalities/index.html",
       "/books/posts/NHSR-way/index.html",
       "/books/posts/open-analytics-resources/index.html",
@@ -142,12 +150,6 @@
       "/blog/pareto-chart-in-ggplot2.html",
       "/blog/aiming-for-a-wrangle-free-or-reduced-world.html",
       "/blog/nhs-meets-r.html"
-    ]
-  },
-  {
-    "listing": "/reports/index.html",
-    "items": [
-      "/reports/reports/NHS-R_questionnaire_2025/index.html"
     ]
   },
   {
