@@ -7,12 +7,59 @@ Please note:
 - Coffee & Code sessions are a chance for like-minded coders to get together and chat, share tips, code snippets, and watch show-and-tells about useful or new R stuff. These sessions are run by Simon Wellesley-Miller (NHS England), and recordings are made available [here](https://future.nhs.uk/NHSERcommunity/view?objectID=41908688).
 
 
-## December 2025
+## January 2026
 
-📆 12th **Coffee and Coding**:
+📆 07th **Coffee and Coding**:
+
+  + 14:00 - 15:00 (GMT)
+  + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
+  + Meeting ID: 331 945 876 23
+  + Passcode: Po2nEx
+
+📆 23rd **Coffee and Coding**:
 
   + 11:00 - 12:00 (GMT)
   + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
   + Meeting ID: 331 945 876 23
   + Passcode: Po2nEx
-  
+
+## February 2026
+
+📆 05th **Coffee and Coding**:
+
+  + 14:00 - 15:00 (GMT)
+  + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
+  + Meeting ID: 331 945 876 23
+  + Passcode: Po2nEx
+
+📆 18th **Coffee and Coding**:
+
+  + 14:00 - 15:00 (GMT)
+  + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
+  + Meeting ID: 331 945 876 23
+  + Passcode: Po2nEx
+
+## March 2026
+
+📆 06th **Coffee and Coding**:
+
+  + 11:00 - 12:00 (GMT)
+  + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
+  + Meeting ID: 331 945 876 23
+  + Passcode: Po2nEx
+
+📆 19th **Coffee and Coding**:
+
+  + 14:00 - 15:00 (GMT)
+  + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
+  + Meeting ID: 331 945 876 23
+  + Passcode: Po2nEx
+
+## April 2026
+
+📆 01st **Coffee and Coding**:
+
+  + 14:00 - 15:00 (GMT)
+  + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
+  + Meeting ID: 331 945 876 23
+  + Passcode: Po2nEx
