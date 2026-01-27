@@ -10,7 +10,7 @@
 <atom:link href="https://nhsrcommunity.com/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>Blogs are submitted from NHS-R Community members.&lt;br&gt;
 </description>
-<generator>quarto-1.8.26</generator>
+<generator>quarto-1.8.27</generator>
 <lastBuildDate>Tue, 11 Nov 2025 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Lightweight Contextual Entity Extraction for Radiology Notes using R</title>
