@@ -5,7 +5,7 @@ format: html
 
 Please note:
 
-- Workshop attendance is restricted to employees of the NHS, public sector, civil servants, voluntary sector, charities and academia, or who are retirees from any of these sectors.
+- Workshop attendance is restricted to employees of the NHS, public sector, civil service, voluntary sector, charities and academia, or who are retirees from any of these sectors.
 - Webinars are free to all to attend, and recordings are stored on our [YouTube Channel](https://www.youtube.com/@NHSRCommunity)
 
 ## January 2026
@@ -23,3 +23,11 @@ Please note:
   + Workshop - limited to 25 attendees
   + 09:00 - 13:00 (GMT)
   + 🔗 [Request a place on the course here](https://forms.office.com/Pages/ResponsePage.aspx?id=slTDN7CF9UeyIge0jXdO44XdMKUqFgROnUm4_TKex1xUNENQQ01KU0ZHSDRHQTVOVlNGMzdHMFpRSC4u)
+
+## March 2026
+
+📆 17th & 18th **Introduction to R and R Studio with Dr Claire Welsh**:
+
+  + Workshop - limited to 25 attendees
+  + 09:00 - 13:00 (GMT)
+  + 🔗 [Request a place on the course here](https://forms.office.com/Pages/ResponsePage.aspx?id=slTDN7CF9UeyIge0jXdO44XdMKUqFgROnUm4_TKex1xURU5GMENKUkJGT0FLSlhQTTFYN1ZENzBaQS4u)
