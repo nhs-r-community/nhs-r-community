@@ -8,14 +8,6 @@ Please note:
 - Workshop attendance is restricted to employees of the NHS, public sector, civil service, voluntary sector, charities and academia, or who are retirees from any of these sectors.
 - Webinars are free to all to attend, and recordings are stored on our [YouTube Channel](https://www.youtube.com/@NHSRCommunity)
 
-## January 2026
-
-📆 20th & 21st **Introduction to R and R Studio with Simon Wellesley-Miller**:
-
-  + Workshop - limited to 25 attendees
-  + 09:00 - 13:00 (GMT)
-  + 🔗 [Request a place on the course here](https://forms.office.com/Pages/ResponsePage.aspx?id=slTDN7CF9UeyIge0jXdO44XdMKUqFgROnUm4_TKex1xUNkNBMEhGVDBFUVdXTEw5MjI5UDE1UTNXVi4u)
-
 ## February 2026
 
 📆 10th & 11th **Intermediate R with Simon Wellesley-Miller**:
