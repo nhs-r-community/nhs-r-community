@@ -12,7 +12,7 @@ We are now collectively known as the **NHS-Open Analytics Community** (NHS-OA fo
 
 For the next few months we will be gradually migrating our content to this new organisation, while ensuring continuity of our support for the community. You will see our name and logo change across our platforms as this merger progresses, but we'll keep you updated via this page, and on our [SubStack monthly newsletter](https://nhsrcommunity.substack.com/).
 
-For now, please note our **new email address**: openanalytics.community@nhs.net
+For now, please note our **new email address**: [openanalytics.community@nhs.net](mailto:openanalytics.community@nhs.net)
 
 Feel free to contact us to offer feedback, help or suggestions on how we can improve our offer.
 
