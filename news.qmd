@@ -4,7 +4,7 @@ format: html
 ---
 
 ### Community merger!
-![](img/18.png)
+![](img/nhs-oa-logo-white.png)
 
 We are very excited to announce that NHS-R and NHS.pycom communities have merged! 
 
