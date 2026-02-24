@@ -11,7 +11,7 @@ title-block-banner: true
 
 - **GitHub:** [@nhs-r-community](https://github.com/nhs-r-community)
 
-- **LinkedIn:** [NHS-R Community](https://www.linkedin.com/search/results/all/?fetchDeterministicClustersOnly=true&heroEntityKey=urn%3Ali%3Aorganization%3A98205916&keywords=nhs-r%20community&origin=RICH_QUERY_SUGGESTION&position=1&sid=GfV)
+- **LinkedIn:** [NHS-R Community](https://www.linkedin.com/company/nhs-r-community)
 
 - **Fosstodon (Mastodon):** [@NHSrCommunity@fosstodon.org](https://fosstodon.org/@NHSrCommunity)
 
