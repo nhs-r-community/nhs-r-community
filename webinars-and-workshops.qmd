@@ -10,7 +10,7 @@ Please note:
 
 ## March 2026
 
-📆 17th & 18th **Introduction to R and R Studio with Dr Claire Welsh**:
+📆 17th & 18th **Introduction to R and RStudio with Dr Claire Welsh**:
 
 _From ‘Hello World’ to producing a basic report.
 This introduction takes you from no knowledge of R to teaching you the basics of the RStudio environment, then loading in some data, some common data wrangling tasks, some charting and finishing with pulling it all together to produce a simple automated report.  
