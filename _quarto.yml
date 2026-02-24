@@ -42,7 +42,7 @@ website:
         - conference.qmd
         - webinars-and-workshops.qmd 
         - coffee-and-code.qmd 
-        - training.qmd 
+        #- training.qmd 
       - text: "Resources"
         menu:
         - text: "Books"

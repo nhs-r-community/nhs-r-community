@@ -10,7 +10,7 @@ We have used the [Web Accessibility Evaluation Tool](https://wave.webaim.org/) t
 
 # Reporting accessibility problems with this website
 
-We are always looking to improve the accessibility of this website. Please let us know if you find any problems not listed on this page or if we are not meeting accessibility requirements, email [nhs.rcommunity@nhs.net](mailto:nhs.rcommunity@nhs.net).
+We are always looking to improve the accessibility of this website. Please let us know if you find any problems not listed on this page or if we are not meeting accessibility requirements, email [openanalytics.community@nhs.net](mailto:openanalytics.community@nhs.net).
 
 ## Website practices
 

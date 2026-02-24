@@ -51,7 +51,7 @@ We will not link to websites that contain racist, sexual or misleading content; 
 
 The decision of NHS-R Community is final on publishing of content and no correspondence will be entered into. 
 
-If you wish to report a concern, please email [nhs.rcommunity@nhs.net](nhs.rcommunity@nhs.net).
+If you wish to report a concern, please email [openanalytics.community@nhs.net](mailto:openanalytics.community@nhs.net).
 
 ## Software and services
 

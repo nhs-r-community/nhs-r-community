@@ -3,12 +3,18 @@ title: "NHS-R Community News"
 format: html
 ---
 
-### RPySOC 2025 Conference Registration is now OPEN!
+### Community merger!
+![](img/nhs-oa-logo-white.png)
 
-![](img/RPYSOC25_banner.png)
+We are very excited to announce that NHS-R and NHS.pycom communities have merged! 
 
-Please see the [conference](conference.qmd) page for details
+We are now collectively known as the **NHS-Open Analytics Community** (NHS-OA for short)!
 
-Registration for in person tickets will close at 23:59 on 2nd November 2025.
+For the next few months we will be gradually migrating our content to this new organisation, while ensuring continuity of our support for the community. You will see our name and logo change across our platforms as this merger progresses, but we'll keep you updated via this page, and on our [SubStack monthly newsletter](https://nhsrcommunity.substack.com/).
+
+For now, please note our **new email address**: [openanalytics.community@nhs.net](mailto:openanalytics.community@nhs.net)
+
+Feel free to contact us to offer feedback, help or suggestions on how we can improve our offer.
+
 
 

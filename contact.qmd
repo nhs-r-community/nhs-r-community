@@ -7,11 +7,11 @@ title-block-banner: true
 
 ## Contact us
 
-- **Email:** [nhs.rcommunity@nhs.net](mailto:nhs.rcommunity@nhs.net)
+- **Email:** [openanalytics.community@nhs.net](mailto:openanalytics.community@nhs.net)
 
 - **GitHub:** [@nhs-r-community](https://github.com/nhs-r-community)
 
-- **LinkedIn:** [NHS-R Community](https://www.linkedin.com/in/nhs-r-community-2555a6282/)
+- **LinkedIn:** [NHS-R Community](https://www.linkedin.com/company/nhs-r-community)
 
 - **Fosstodon (Mastodon):** [@NHSrCommunity@fosstodon.org](https://fosstodon.org/@NHSrCommunity)
 
