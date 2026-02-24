@@ -13,7 +13,7 @@ Please note:
 📆 17th & 18th **Introduction to R and R Studio with Dr Claire Welsh**:
 
 _From ‘Hello World’ to producing a basic report.
-This introduction takes you from no knowledge of R to teaching you the basics of the R studio environment, then loading in some data, some common data wrangling tasks, some charting and finishing with pulling it all together to produce a simple automated report.  
+This introduction takes you from no knowledge of R to teaching you the basics of the RStudio environment, then loading in some data, some common data wrangling tasks, some charting and finishing with pulling it all together to produce a simple automated report.  
 No previous knowledge is required. This workshop will utilise the cloud, with all datasets provided as part of the course material, so no specialist set up is required._
 
   + Workshop - limited to 25 attendees
