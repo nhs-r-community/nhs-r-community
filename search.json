@@ -4,7 +4,7 @@
     "href": "news.html",
     "title": "NHS-R Community News",
     "section": "",
-    "text": "RPySOC 2025 Conference Registration is now OPEN!\n\nPlease see the conference page for details\nRegistration for in person tickets will close at 23:59 on 2nd November 2025.\n\n\n\n\n Back to top"
+    "text": "Community merger!\n\nWe are very excited to announce that NHS-R and NHS.pycom communities have merged!\nWe are now collectively known as the NHS-Open Analytics Community (NHS-OA for short)!\nFor the next few months we will be gradually migrating our content to this new organisation, while ensuring continuity of our support for the community. You will see our name and logo change across our platforms as this merger progresses, but we’ll keep you updated via this page, and on our SubStack monthly newsletter.\nFor now, please note our new email address: openanalytics.community@nhs.net\nFeel free to contact us to offer feedback, help or suggestions on how we can improve our offer.\n\n\n\n\n Back to top"
   },
   {
     "objectID": "accessibility.html",
@@ -1418,7 +1418,7 @@
     "href": "ts-and-cs.html#what-websites-will-we-not-link-to",
     "title": "Terms and conditions",
     "section": "What websites will we not link to?",
-    "text": "What websites will we not link to?\nWe will not link to websites that contain racist, sexual or misleading content; that promote violence; that are in breach of any UK law; which are otherwise offensive to individuals or to groups of people.\nThe decision of NHS-R Community is final on publishing of content and no correspondence will be entered into.\nIf you wish to report a concern, please email nhs.rcommunity@nhs.net."
+    "text": "What websites will we not link to?\nWe will not link to websites that contain racist, sexual or misleading content; that promote violence; that are in breach of any UK law; which are otherwise offensive to individuals or to groups of people.\nThe decision of NHS-R Community is final on publishing of content and no correspondence will be entered into.\nIf you wish to report a concern, please email openanalytics.community@nhs.net."
   },
   {
     "objectID": "ts-and-cs.html#software-and-services",
@@ -1449,25 +1449,18 @@
     "text": "Please note:"
   },
   {
-    "objectID": "webinars-and-workshops.html#february-2026",
-    "href": "webinars-and-workshops.html#february-2026",
-    "title": "Webinars and Workshops",
-    "section": "February 2026",
-    "text": "February 2026\n📆 10th & 11th Intermediate R with Simon Wellesley-Miller:\n\nWorkshop - limited to 25 attendees\n09:00 - 13:00 (GMT)\n🔗 Request a place on the course here"
-  },
-  {
     "objectID": "webinars-and-workshops.html#march-2026",
     "href": "webinars-and-workshops.html#march-2026",
     "title": "Webinars and Workshops",
     "section": "March 2026",
-    "text": "March 2026\n📆 17th & 18th Introduction to R and R Studio with Dr Claire Welsh:\n\nWorkshop - limited to 25 attendees\n09:00 - 13:00 (GMT)\n🔗 Request a place on the course here"
+    "text": "March 2026\n📆 17th & 18th Introduction to R and RStudio with Dr Claire Welsh:\nFrom ‘Hello World’ to producing a basic report. This introduction takes you from no knowledge of R to teaching you the basics of the RStudio environment, then loading in some data, some common data wrangling tasks, some charting and finishing with pulling it all together to produce a simple automated report.\nNo previous knowledge is required. This workshop will utilise the cloud, with all datasets provided as part of the course material, so no specialist set up is required.\n\nWorkshop - limited to 25 attendees\n09:00 - 13:00 (GMT)\n🔗 Request a place on the course here"
   },
   {
     "objectID": "webinars-and-workshops.html#april-2026",
     "href": "webinars-and-workshops.html#april-2026",
     "title": "Webinars and Workshops",
     "section": "April 2026",
-    "text": "April 2026\n📆 28th & 29th Intermediate R with Dr Claire Welsh:\n\nWorkshop - limited to 25 attendees\n09:00 - 13:00 (GMT)\n🔗 Request a place on the course here"
+    "text": "April 2026\n📆 28th & 29th Intermediate R with Dr Claire Welsh:\nThis course is designed to follow on from the Introduction to R and RStudio course, noting that attendees should be familiar with the basics covered in the workshop. Please be advised that this session will go into more depth and complex wrangling tasks, explore how to use the NHS-R SPC plot the dots library and cover in very simple terms an understanding of some functional programming. This workshop will utilise the cloud, with all datasets provided as part of the course material, so no specialist set up is required.\n\nWorkshop - limited to 25 attendees\n09:00 - 13:00 (GMT)\n🔗 Request a place on the course here"
   },
   {
     "objectID": "coffee-and-code.html",
@@ -1475,13 +1468,6 @@
     "title": "Coffee & Coding",
     "section": "",
     "text": "Please note:"
-  },
-  {
-    "objectID": "coffee-and-code.html#february-2026",
-    "href": "coffee-and-code.html#february-2026",
-    "title": "Coffee & Coding",
-    "section": "February 2026",
-    "text": "February 2026\n📆 05th Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n📆 18th Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx"
   },
   {
     "objectID": "coffee-and-code.html#march-2026",
@@ -1572,28 +1558,7 @@
     "href": "conference.html",
     "title": "RPySOC 2025",
     "section": "",
-    "text": "We are pleased to announce that the RPYSOC 2025 conference will be held at the Wellcome Trust, London, offering both 🏃‍♀️ in-person and 💻 virtual attendance options!\nConference dates:"
-  },
-  {
-    "objectID": "conference.html#registration",
-    "href": "conference.html#registration",
-    "title": "RPySOC 2025",
-    "section": "Registration",
-    "text": "Registration\nRegistration for RPySOC 2025 is now FULLY BOOKED for in person tickets, but online places are still available. If you are a presenter planning to present in person, but have not yet booked an in person ticket, please contact us at nhs.rcommunity@nhs.net as soon as possible.\nTo book an online-only ticket, please click here.\nAll tickets are free, and lunch and refreshments are provided to all in person delegates.\n\n\n\n\n\n\nNote\n\n\n\nPlease note that RPySOC 2025 will be hosted in partnership with Health Data Research UK and The Wellcome Trust. The information you provide when registering to attend the conference will be used to set-up your access to the in-person and/or virtual event and will be visible to the Conference Team (NHS-R Community, NHS Python Community, The Strategy Unit), Health Data Research UK, The Wellcome Trust and other registered participants for conference-related purposes, such as session participation, networking, and presenter engagement."
-  },
-  {
-    "objectID": "conference.html#sec-programme",
-    "href": "conference.html#sec-programme",
-    "title": "RPySOC 2025",
-    "section": "Programme",
-    "text": "Programme\n\nDay 1 - Thursday 13th November\n\n\n\n\n\n\n\n\n09:00\nRegistration and refreshments\n\n\n\n10:00\nWelcome and safety briefing\nDr Claire Welsh\n\n\n10:20\nTotal Eclipse of the Excel Chart - A reflection on 12 years of teaching modelling and data science in the NHS\nDr Dan Chalk\n\n\n10:50\nBeautifully reproducible dataviz: lessons learnt from building data-to-viz pipelines\nCara Thompson\n\n\n11:20\nBREAK\n\n\n\n11:40\nUsing open data and open source code to create an open elective waiting lists modelling tool (RTT Planner)\nSebastian Fox\n\n\n12:20\nopencodecounts: An R package and Shiny app exploring NHS clinical coding data\nMilan Wiedemann\n\n\n12:30\nDES-igning Better Flow: Modelling Non-Elective Admissions\nHelena Robinson\n\n\n12:40\nMapping Accessibility: Using R5py and GTFS Data to Optimise Women’s Health Hub Locations in the Sussex\nKarrie Liu\n\n\n12:50\nA Short Story of a Short Course - Natural Language Processing in R for Health and Social Care\nPawel Orzechowski and Brittany Blankinship\n\n\n13:00\nLUNCH\n\n\n\n14:00\nDesign a model for Community pharmacy workforce with open source data\nChaeyoon Kim\n\n\n14:20\nWord is better than Quarto?\nJacqueline Grout and Matt Dray\n\n\n14:40\nDeploying Python in production: containers, kubernetes and embracing yaml\nAmadeus Stevenson\n\n\n15:00\nModelling Community waiting lists with NHS-R waiting list library\nSimon Wellesley-Miller\n\n\n15:10\nTransforming Health Needs Assessments: Reproducible Insights for Smarter NHS Planning\nRachel Christie\n\n\n15:20\nUsing APIs in R to obtain Health indicators for interactive visualizations\nPablo Leon-Rodenas\n\n\n15:30\nBREAK\n\n\n\n15:50\nThe story of patientflow: from hospital prototype to Python package\nZella King\n\n\n16:10\nGoing for Gold: Adopting RAP-by-default to Create Analysts from Nowhere.\nJoe Wilson\n\n\n16:30\nZhuzhing custom error messages with {cli}\nFran Barton\n\n\n16:40\nShattered pottery and cancer data: using R to rejoin the pieces\nJoe Shaw\n\n\n16:50\nDay 1 closing remarks\nHDR UK\n\n\n17:00\nCLOSE of day 1\n\n\n\n\n\n\nDay 2 - Friday 14th November\n\n\n\n\n\n\nNote\n\n\n\nPlease note - we will be running the Unconference throughout day 2 on level 6 of the Wellcome Trust (see signage for directions or contact a member of the conference staff for details)\n\n\n\n\n\n\n\n\n\n\n09:00\nRegistration and refreshments\n\n\n\n10:00\nWelcome and safety brief\nDr Claire Welsh and HDR UK\n\n\n10:20\nReusable by Default: Reflections on Building Sustainable Open Tools and Knowledge for Healthcare\nSammi Rosser\n\n\n10:50\n3 years on NHS-RPy Unconference: open, self-organising exchange of ideas\nPawel Orzechowski and Brittany Blankinship\n\n\n11:00\nPractical Testing for Reproducible Analytical Pipelines\nThomas Jemmett\n\n\n11:20\nBREAK\n\n\n\n11:40\nHow we delivered the OpenSAFELY platform to analyse the whole population’s GP records securely, transparently, with open code\nProf Ben Goldacre\n\n\n12:10\nPatient-Level Analytics That Work: Using R to Achieve Rapid, Sustained MRSA Screening Compliance Improvements\nDaniel Weiand\n\n\n12:30\nUsing simulation to evaluate a service: what to do when you’ve got no data, no clear questions, and no clue if it’s working:\nChris Mainey\n\n\n12:50\nMaking national cancer audit reporting Shiny: a journey from Excel to web-based apps using R and Reproducible Analytical Pipelines.\nElla Barber\n\n\n13:00\nLUNCH\n\n\n\n14:00\nData Querying using Natural Language\nAbhinav Jindal (Jin)\n\n\n14:10\nMetaInsight - an R shiny app for network meta-analysis\nSimon Smart\n\n\n14:20\nBetter together: lessons from RAP drop-ins\nYiWen Hon\n\n\n14:30\nPredicting Outpatient Non-Attendance\nPeter Andrews\n\n\n14:40\nLearnings from implementing machine learning models on NHS Federated Data Platform for predicting operational pressures escalation levels.\nKenneth Quan\n\n\n14:50\nIntroduction to Causal Inference for R and Python users\nNathan Thomas\n\n\n15:10\nPublishing reproducible websites using R Quarto: Camden’s JSNA Hub\nAnnie Yu\n\n\n15:20\nWhat Patients Ask: Harnessing Free-Text Data for Patient-Centred Care\nMimi Reyburn\n\n\n15:30\nDitch the Spreadsheets: Make QA work for you\nRhian Davies\n\n\n15:40\nClosing remarks\nDr Claire Welsh and HDR UK\n\n\n16:00\nCLOSE of day 2\n\n\n\n\n\nWe are excited to announce that the following keynote speakers will be presenting at RPySOC 2025!\n\n\n\n\n\n\nProfessor Ben Goldacre is Bennett Professor of Evidence Based Medicine at the University of Oxford, and Director of the Bennett Institute for Applied Data Science. Recent projects include OpenPrescribing.net and OpenSAFELY.org, an open source secure data platform that has delivered high impact research analyses across 58 million patients’ GP records, developed in close collaboration with electronic health record system suppliers TPP and Optum (formerly EMIS). He is also a best selling writer of popular science books, and author of the Goldacre Review (“Better, Broader, Safer Uses of Health Data”) for Secretary of State for Health and Social Care, published in April 2022.\n\n\n\n\n\n\n\nSammi Rosser is a researcher and teacher with an interest in how data science and operational research approaches can be used to improve the lives of patients. As a trainer on the Health Service Modelling Associates (HSMA) program, she is passionate about spreading the word about open approaches and empowering people to learn Python and apply it to healthcare problems. Her work focuses on pathway simulation modelling, geographic optimization, and data visualisation, and she has developed a range of tools, packages and eBooks designed to make reproducible healthcare analytics more accessible. Drawing on her experience from her time in the NHS and from advising on NHS data science projects across the country, she emphasises practical and pragmatic approaches for advancing the way the NHS uses data to support better decision-making.\n\n\n\n\n\n\n\n\n\nDr Dan Chalk is a Senior Research Fellow at the NIHR Applied Research Collaboration for the South West Peninsula (PenARC), Director of the Health Service Modelling Associates (HSMA) Programme since its inception, and former chair of the PenCHORD research team.  He has nearly 15 years of experience collaborating with the NHS to apply Operational Research and Data Science methods to improve service delivery, with particular expertise in Discrete Event Simulation and Agent Based Simulation, and his work has led to reductions in cancer waiting times, supported end of life care resource planning, and fed into national policy making on diabetic retinopathy screening.  He has spent the last 12 years teaching and mentoring NHS staff to develop and apply skills in modelling and data science, and is a firm believer that anyone can be taught how to code and how to develop models with the right support.  He is a passionate advocate of open science and the use of Free and Open Source solutions.\n\n\n\n\n\n\n\nCara Thompson is an Edinburgh-based data visualisation consultant. She specialises in helping teams of data folks make the most of dataviz to communicate their insights to non specialist audiences. Alongside training and commisions, a lot of her work revolves around creating and automating dataviz design systems - a set of rules for colours and fonts which allow analysts to create on-brand and accessible visualisations that also look good, without all the soul searching normally involved in doing that. She is passionate about equipping others to make the most of dataviz, and always looks forward to hearing what others are up to!\n\n\n\n\n\nPlease post all questions for speakers in the conference Slack channel. Check back regularly as speakers will respond when they can."
-  },
-  {
-    "objectID": "conference.html#sec-delegate_pack",
-    "href": "conference.html#sec-delegate_pack",
-    "title": "RPySOC 2025",
-    "section": "Delegate Information Pack",
-    "text": "Delegate Information Pack\n\n🕌 Venue details\nWellcome Trust, Gibbs Building, 215 Euston Road, London NW1 2BE\n\n🚗 Travel and accessibility\nPlease refer to the Wellcome Trust website for travel and site accessibility advice.\nIf you would like us to reserve you a seat in the main auditorium please email us at nhs.rcommunity@nhs.net.\n\n\n\n\n\n\nImportant\n\n\n\nData Collection\nPlease be advised that any data/information collected (from you) before, during and after RPySOC 2025 will be used for the purpose of administration within the NHS-R Community, NHS Python Community, The Strategy Unit and event co-sponsors. Your data/information will not be disclosed to any third party, except within the terms of UK General Data Protection Regulation (UK GDPR) and the UK Data Protection Act 2018. The data/information will also be used to support the NHS-R Community’s, NHS Python Community’s, The Strategy Unit’s and event co-sponsors’ event management, marketing and market research activities.\nTo see our host organisation’s (NHS Midlands and Lancashire) Privacy Policy please CLICK HERE\nRecordings and Photography\nWhere possible, conference talks and activities will be recorded and published online. If you would NOT like to be recorded, please make the Conference Team aware via the event registration form, an email to nhs.rcommunity@nhs.net, by direct message on Slack and/or to the Conference Team in-person.\nA photographer will be present at The Wellcome Trust, if you would NOT like to be photographed and have your image published online, please make the Conference Team aware via the event registration form, an email to nhs.rcommunity@nhs.net, by direct message on Slack and/or to the Conference Team in-person.\nIf for any reason you wish to withdraw your consent for any of the aforementioned, please email the Conference Team via nhs.rcommunity@nhs.net.\n\n\n\n\n\nGetting around the venue\n\n👩‍✈️ Chaperone service\nThe main conference hall is on Level 6. We also have a quiet room and prayer room for your use, which will be held on a different level (all accessed via lift). Access to each floor in the building is strictly by chaperone, thus you will need to be escorted between floors, and in and out of the building. We will be operating a separate Slack channel (#rpysoc25_chaperone) devoted to this. If you require to access a different floor, please make your way to the Chaperone Waiting Station and add a message to the Slack channel to request a member of HDR UK to chaperone you.\n\n\n🤐 Venue room access\nPlease note that the Wellcome Trust is a busy working office building. We have kindly been granted use of a number of rooms over the two days of the conference, but there will be some rooms marked as ‘off limits’ for delegates. Please respect these signs and our generous sponsors by avoiding making excessive noise around these rooms or attempting to enter.\n\n\n☎️ Space for calls\nThere are individual pods on the main conference floor which you can use to make phonecalls.\n\n\n🎒 Cloakroom\nA cloakroom will also be available for storing luggage, but please note, all items are left at the owners risk and neither NHS-R, HDR UK nor the Wellcome Trust accept any liability for items that may be lost, stolen or damaged."
+    "text": "The conference took place on Thursday 13th and Friday 14th November 2025 in the Wellcome Trust, London. We welcomed around 120 people in person, and up to 300 attendees joined our live stream. It was a fantastic event, with a huge collection of fascinating and practical talks delivered in person and online, a vibrant and stimulating Unconference session, and a lot of delicious food!\nThank you again to everyone who attended, helped organise, presented, gave feedback, or were involved in any other way!\nYou can read our report on conference feedback here.\nTo watch the recordings of the conference, visit our YouTube\nYou can also access all the slides, and where available, the code used to create them, from our conference repository on GitHub.\n\n\n\n Back to top"
   },
   {
     "objectID": "training.html",
@@ -1645,13 +1610,6 @@
     "text": "This website, its content and code are released under a CC0 1.0 Universal.\nBlogs that are published through this site will also be under this license and can be referenced to personal sites if the author wishes.\n\n  \n\nFor more information on the licences used by NHS-R Community go to the chapter Style Guide for code in the NHS-R Way book.\n\n\n\n Back to top"
   },
   {
-    "objectID": "events.html",
-    "href": "events.html",
-    "title": "Events and Training",
-    "section": "",
-    "text": "Webinars and WorkshopsCoffee & Coding\n\n\nPlease note:\n\nWorkshop attendance is restricted to employees of the NHS, public sector, civil servants, voluntary sector, charities and academia, or who are retirees from any of these sectors.\nWebinars are free to all to attend, and recordings are stored on our YouTube Channel\n\n\n\nPlease note:\n\nCoffee & Code sessions are a chance for like-minded coders to get together and chat, share tips, code snippets, and watch show-and-tells about useful or new R stuff. These sessions are run by Simon Wellesley-Miller (NHS England), and recordings are made available here.\n\n\nNovember 2025\n📆 26th Coffee and Coding:\n\n14:00 - 15:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n\n\n\nDecember 2025\n📆 12th Coffee and Coding:\n\n11:00 - 12:00 (GMT)\n🔗 Meeting Link\nMeeting ID: 331 945 876 23\nPasscode: Po2nEx\n\n\n\n\n\n\n\n\n Back to top"
-  },
-  {
     "objectID": "fellowship.html",
     "href": "fellowship.html",
     "title": "NHS-R Community Fellowships",
@@ -1663,14 +1621,14 @@
     "href": "contact.html",
     "title": "NHS-R Community Quarto website",
     "section": "",
-    "text": "Email: nhs.rcommunity@nhs.net\nGitHub: @nhs-r-community\nLinkedIn: NHS-R Community\nFosstodon (Mastodon): @NHSrCommunity@fosstodon.org\nBluesky: nhsrcommunity.bsky.social\nSlack: postcard.nhsrcommunity.com\n\nFor details on how NHS-R Community use social media can be found in the NHS-R Way book."
+    "text": "Email: openanalytics.community@nhs.net\nGitHub: @nhs-r-community\nLinkedIn: NHS-R Community\nFosstodon (Mastodon): @NHSrCommunity@fosstodon.org\nBluesky: nhsrcommunity.bsky.social\nSlack: postcard.nhsrcommunity.com\n\nFor details on how NHS-R Community use social media can be found in the NHS-R Way book."
   },
   {
     "objectID": "contact.html#contact-us",
     "href": "contact.html#contact-us",
     "title": "NHS-R Community Quarto website",
     "section": "",
-    "text": "Email: nhs.rcommunity@nhs.net\nGitHub: @nhs-r-community\nLinkedIn: NHS-R Community\nFosstodon (Mastodon): @NHSrCommunity@fosstodon.org\nBluesky: nhsrcommunity.bsky.social\nSlack: postcard.nhsrcommunity.com\n\nFor details on how NHS-R Community use social media can be found in the NHS-R Way book."
+    "text": "Email: openanalytics.community@nhs.net\nGitHub: @nhs-r-community\nLinkedIn: NHS-R Community\nFosstodon (Mastodon): @NHSrCommunity@fosstodon.org\nBluesky: nhsrcommunity.bsky.social\nSlack: postcard.nhsrcommunity.com\n\nFor details on how NHS-R Community use social media can be found in the NHS-R Way book."
   },
   {
     "objectID": "supporters.html",
