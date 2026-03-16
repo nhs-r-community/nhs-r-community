@@ -1,0 +1,325 @@
+---
+title: "Why Open Data Matters"
+date: "16 March 2026"
+date-modified: "16 March 2026"
+author: 
+    name: Mattia Ficarelli 
+    degrees: PhD
+    url: https://www.linkedin.com/in/mattia-ficarelli300395/
+subtitle: "Building the Foundations for Reproducible Health Analytics"
+---
+
+I have been fortunate to build my career as a data professional in a country 
+where data is increasingly shared rather than locked away. 
+In the UK, the NHS, government departments, and the wider public sector have made 
+significant progress in publishing datasets as open data.
+
+For data professionals, researchers, clinicians, journalists, and citizens, this 
+openness is transformative. 
+It allows anyone to explore how public services operate, enables independent 
+scrutiny that strengthens trust in public institutions, and ensures that insights 
+about public systems are not limited to those working within them.
+
+Large public institutions rarely have the time or analytical capacity to explore 
+every question hidden within their own data.
+When datasets are open, thousands of analysts across sectors can collectively 
+examine problems, generate insights, and identify opportunities for improvement 
+that might otherwise remain unseen.
+
+Healthcare is a particularly powerful example. 
+Health systems generate vast amounts of operational, clinical, and financial 
+data every day. 
+When this information is appropriately anonymised and responsibly published, it 
+becomes a foundation for population health analytics, policy evaluation, and 
+service improvement at a scale that was previously impossible.
+
+As the open data ecosystem continues to grow, an important question emerges: 
+_what does good open data actually look like?_
+
+### What Is Open Data?
+
+Open data is simply data that anyone can access, use, and share, provided 
+appropriate safeguards around privacy and confidentiality are in place.
+
+In the UK, open data is published across government, the NHS, and the wider 
+public sector. 
+One of the main entry points is data.gov.uk, the UK government’s central open 
+data portal. 
+It hosts nearly 25,000 datasets from central government departments, local 
+authorities, and other public sector bodies, providing a single place where 
+analysts, researchers, journalists, and developers can discover and access public 
+data.
+
+Healthcare is a major contributor to this ecosystem. 
+The NHS publishes a substantial volume of statistical outputs and datasets each 
+year through its official statistics programme. 
+More than 250 statistical publications are produced annually, most of which 
+include underlying datasets that allow analysts to explore patterns in healthcare 
+activity, prescribing, service performance, and population health outcomes.
+
+Licensing plays a critical role in making open data usable. 
+Most UK public sector datasets are released under the Open Government Licence 
+(OGL), which allows anyone to copy, analyse, adapt, and reuse public sector 
+information - including for commercial purposes - provided the source is 
+acknowledged. 
+Some datasets are also released under Creative Commons licences such as CC‑BY, 
+which operate on similar principles of open reuse with attribution.
+
+### Principles for Publishing Open Data
+
+If open data is to reach its full potential, it must be published thoughtfully. 
+Releasing a dataset alone is not enough; it must also be accessible, 
+understandable, and usable. 
+The following principles help define what good open health data looks like.
+
+#### 1. Publish Data by Default
+
+Open publication should be the default unless there is a clear reason not to 
+publish. 
+Privacy, confidentiality, and national security considerations will always apply, 
+but routine administrative datasets should be released whenever possible.
+
+Because open data is publicly accessible, it must never contain information that 
+could identify individuals. 
+Published statistics must be carefully anonymised or aggregated, following 
+strict disclosure control policies such as the suppression of small numbers.
+
+The goal is always to maximise transparency while protecting individual 
+confidentiality.
+
+#### 2. Use Open Licences
+
+Datasets should be released under licences that clearly permit reuse.
+
+Licences such as the Open Government Licence (OGL) and Creative Commons CC‑BY 
+provide well‑established frameworks that allow anyone to analyse, reuse, and 
+build upon public data, provided the source is acknowledged.
+
+Without clear licensing, datasets may technically be accessible but remain 
+practically unusable.
+
+#### 3. Publish Data in Machine‑Readable Formats
+
+Data should be released in formats suitable for analysis.
+
+While PDFs or formatted spreadsheets are useful for presenting statistics to 
+readers, they make secondary analysis difficult. 
+Datasets should therefore be published in machine‑readable formats such as CSV, 
+Parquet, or other structured formats.
+
+Where publications include tables, charts, or visualisations, the underlying 
+data should also be released as downloadable files. 
+This facilitates scalable and reproducible analysis. 
+
+#### 4. Keep Data Clean, Structured, and Consistent
+
+Open datasets should prioritise clarity and consistency. 
+Files should be structured in ways that support programmatic analysis and 
+reproducible workflows.
+
+This means avoiding formatting that interferes with analysis, such as merged 
+cells, embedded macros, logos, or explanatory text within the dataset itself. 
+Open datasets should contain data only, not presentation elements.
+
+Well‑structured datasets typically follow a few simple principles:
+
+- One row per observation  
+- One column per variable  
+- No merged cells or embedded formatting  
+- Clear, plain‑English column names  
+- Consistent data types within each column  
+
+Maintaining a stable data schema over time is equally important. 
+Column names, structures, and data types should remain consistent across releases 
+wherever possible. 
+Frequent structural changes can break automated analytical pipelines and 
+complicate longitudinal analysis.
+Simple and consistent column naming conventions - such as 
+UPPERCASE_WITH_UNDERSCORES - also help avoid issues and improve usability.
+
+#### 5. Provide Clear Metadata and Documentation
+
+Metadata is just as important as the dataset itself. 
+
+Good documentation should explain:
+- What each variable represents  
+- How the data was collected  
+- How frequently it is updated  
+- Known data quality issues or limitations  
+
+A well‑maintained data dictionary that defines each field is often one of the 
+most valuable resources for analysts. 
+Without clear documentation, analysts are forced to reverse‑engineer datasets, 
+increasing effort and the risk of misinterpretation.
+
+#### 6. Use Consistent Identifiers
+
+Stable identifiers are essential for linking datasets together.
+
+Within the NHS, Organisation Data Service (ODS) codes are used to identify 
+organisations across care settings. For geographical data, Office for National 
+Statistics (ONS) geographic codes provide consistent identifiers for 
+administrative areas such as local authorities, regions, and statistical 
+geographies.
+
+Where health datasets relate to geographical areas - such as Integrated Care 
+Boards (ICBs) - including both the ODS organisation identifier and the relevant 
+ONS geographic code significantly improves interoperability.
+Datasets should prioritise unique identifiers rather than relying solely on 
+organisation or geography names.
+
+#### 7. Publish Data at the Lowest Practical Granularity
+
+Whenever possible, datasets should be published at the lowest level of detail 
+that remains safe and appropriately anonymised.
+
+Granular data enables richer analysis and allows insights to be generated at 
+local and regional levels. 
+Publishing data at the level of individual providers or organisations, where 
+appropriate, allows analysts to aggregate data into different geographical or 
+administrative groupings as needed.
+
+This flexibility is particularly important in healthcare because different parts 
+of the system operate across overlapping geographic boundaries. 
+Integrated Care Boards, local authorities, NHS providers, and census geographies 
+often do not align perfectly.
+
+Publishing data at smaller units makes it easier to reconcile these differences 
+and combine datasets across sectors.
+
+Granular data is also more resilient to organisational changes. 
+NHS administrative structures evolve regularly, and publishing data at the 
+lowest practical level allows analysts to reconstruct historical trends and 
+maintain consistent longitudinal analysis.
+
+#### 8. Publish Data Regularly and Predictably
+
+Open data becomes far more valuable when it is released on a consistent schedule.
+
+Many NHS datasets follow monthly or quarterly publication cycles. 
+Regular releases allow analysts to monitor trends, track service performance, 
+and build analytical pipelines that depend on a steady flow of new data.
+Irregular publication significantly reduces the usefulness of open datasets. 
+Delays, inconsistent intervals, or unexplained gaps make it harder to analyse 
+trends or produce timely insights. 
+Whenever possible, datasets should therefore be released according to a clearly 
+defined schedule with transparent release calendars.
+
+#### 9. Preserve Historical Data
+
+Open datasets should preserve historical records rather than replacing or 
+overwriting previous releases.
+
+Longitudinal data is essential for understanding how systems evolve over time. 
+It enables analysts to examine long‑term trends in healthcare activity, 
+prescribing behaviour, and population health outcomes.
+
+Historical data also supports reproducibility. 
+Analysts should be able to access the same data that was available when earlier 
+analyses were conducted. Maintaining accessible historical releases makes it 
+possible to replicate findings and verify past work.
+
+#### 10. Make Data Discoverable and Usable
+
+Publishing data only creates value if people can find and use it.
+
+Datasets should be indexed in public catalogues and published through 
+accessible data portals. 
+Platforms such as data.gov.uk play an important role by providing a central 
+location where datasets from across government can be searched and accessed.
+
+However, discoverability alone is not enough. 
+Data should also be easy to integrate into analytical workflows.
+
+Where possible, datasets should support programmatic access, such as through 
+APIs or structured downloads that can be accessed automatically. 
+This enables analysts to incorporate datasets into reproducible pipelines, 
+dashboards, and research workflows.
+
+Even when APIs are unavailable, clear file structures, predictable URLs, and 
+stable naming conventions allow analysts to retrieve new releases automatically.
+
+### Case Study: OpenPrescribing and NHS Prescribing Data
+
+One of the clearest demonstrations of the impact of open health data is 
+OpenPrescribing, developed by the Bennett Institute for Applied Data Science at 
+the University of Oxford.
+
+The platform is built entirely on openly published NHS prescribing datasets. 
+Each month, the NHS releases detailed anonymised data on medicines prescribed by 
+general practitioners across England through the English Prescribing Dataset. 
+More recently, transparency has expanded further with the publication of the 
+Secondary Care Medicines Dataset, which provides similar insights into hospital 
+prescribing.
+
+These datasets are extremely large. 
+Each monthly release contains tens of millions of rows describing which medicines 
+were prescribed, where they were prescribed, and the associated costs to the NHS.
+
+OpenPrescribing transforms this raw data into a searchable, interactive platform 
+that allows clinicians, commissioners, researchers, and analysts to explore 
+prescribing patterns across practices, regions, and time.
+
+The platform integrates prescribing data with reference datasets such as the NHS 
+Dictionary of Medicines and Devices, enabling medicines to be grouped and 
+analysed in clinically meaningful ways. 
+Users can examine prescribing variation, identify opportunities to improve 
+prescribing practices, and understand how 
+prescribing behaviour differs across the health system.
+
+Importantly, OpenPrescribing is more than a visualisation tool. 
+It provides actionable insights that clinicians and healthcare organisations can 
+use to improve prescribing decisions. 
+Research from the OpenPrescribing team has demonstrated significant variation in 
+prescribing behaviour across the NHS, often highlighting opportunities for safer 
+or more cost‑effective prescribing.
+
+The impact has been substantial. 
+Analyses based on these open datasets have identified prescribing practices that 
+cost the NHS millions of pounds unnecessarily each year. 
+By highlighting these patterns and providing tools to address them, 
+OpenPrescribing has supported changes in prescribing behaviour that have led to 
+significant savings while maintaining high standards of patient care.
+
+This is a powerful example of what happens when open data is combined with 
+thoughtful analytics and accessible tools. 
+The NHS publishes the data, researchers build platforms that make it 
+interpretable, and clinicians use those insights to improve practice.
+
+None of this would have been possible without the NHS publishing the underlying 
+prescribing data in the first place. 
+OpenPrescribing demonstrates how open health data can move beyond transparency 
+and become a catalyst for real‑world change in clinical practice and health 
+system efficiency.
+
+### Closing Thoughts
+
+Open data is not just a technical exercise; it represents a cultural commitment 
+to transparency, collaboration, and shared learning.
+
+When data is published openly, researchers, clinicians, journalists, and 
+analysts can ask new questions of the health system. 
+Analyses can be reproduced, methods scrutinised, and insights generated beyond 
+the institutions that originally collected the data.
+
+For health analytics, reproducibility is essential. 
+Policies, interventions, and resource allocation decisions often rely on 
+quantitative analysis. 
+When the underlying data is open, analyses can be independently verified, 
+improved, and extended. 
+This leads to stronger evidence, faster innovation, and greater accountability 
+across the health system.
+
+Ultimately, open data is a public good. 
+It deepens our understanding of how health systems function and provides the 
+foundation for better, evidence‑based decision‑making.
+
+Finally, a heartfelt thank you to the thousands of analysts, statisticians, and 
+data professionals across the NHS and wider public sector who prepare, 
+quality‑assure, and publish these datasets. 
+Their work often happens quietly behind the scenes, but its impact is profound. 
+By making data accessible to the wider world, they enable research, 
+accountability, and innovation that ultimately improves health systems for 
+everyone.
+
+
