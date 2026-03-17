@@ -11,7 +11,150 @@
 <description>Blogs are submitted from NHS-R Community members.&lt;br&gt;
 </description>
 <generator>quarto-1.8.27</generator>
-<lastBuildDate>Tue, 11 Nov 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 16 Mar 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Why Open Data Matters</title>
+  <dc:creator>Mattia Ficarelli</dc:creator>
+  <link>https://nhsrcommunity.com/blog/why-open-data-matters.html</link>
+  <description><![CDATA[ 
+
+
+<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
+<!--
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+-->
+<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
+<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
+
+
+
+<p><img src="https://nhsrcommunity.com/blog/img/Why Open Data Matters Blog Image.png" class="img-fluid" alt="Ten Guiding Principles for Publishing High-Quality Open Health Data"></p>
+<p>I have been fortunate to build my career as a data professional in a country where data is increasingly shared rather than locked away. In the UK, the NHS, government departments, and the wider public sector have made significant progress in publishing datasets as open data.</p>
+<p>For data professionals, researchers, clinicians, journalists, and citizens, this openness is transformative. It allows anyone to explore how public services operate, enables independent scrutiny that strengthens trust in public institutions, and ensures that insights about public systems are not limited to those working within them.</p>
+<p>Large public institutions rarely have the time or analytical capacity to explore every question hidden within their own data. When datasets are open, thousands of analysts across sectors can collectively examine problems, generate insights, and identify opportunities for improvement that might otherwise remain unseen.</p>
+<p>Healthcare is a particularly powerful example. Health systems generate vast amounts of operational, clinical, and financial data every day. When this information is appropriately anonymised and responsibly published, it becomes a foundation for population health analytics, policy evaluation, and service improvement at a scale that was previously impossible.</p>
+<p>As the open data ecosystem continues to grow, an important question emerges: <em>what does good open data actually look like?</em></p>
+<section id="what-is-open-data" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-open-data">What Is Open Data?</h3>
+<p>Open data is simply data that anyone can access, use, and share, provided appropriate safeguards around privacy and confidentiality are in place.</p>
+<p>In the UK, open data is published across government, the NHS, and the wider public sector. One of the main entry points is data.gov.uk, the UK government’s central open data portal. It hosts nearly 25,000 datasets from central government departments, local authorities, and other public sector bodies, providing a single place where analysts, researchers, journalists, and developers can discover and access public data.</p>
+<p>Healthcare is a major contributor to this ecosystem. The NHS publishes a substantial volume of statistical outputs and datasets each year through its official statistics programme. More than 250 statistical publications are produced annually, most of which include underlying datasets that allow analysts to explore patterns in healthcare activity, prescribing, service performance, and population health outcomes.</p>
+<p>Licensing plays a critical role in making open data usable. Most UK public sector datasets are released under the Open Government Licence (OGL), which allows anyone to copy, analyse, adapt, and reuse public sector information - including for commercial purposes - provided the source is acknowledged. Some datasets are also released under Creative Commons licences such as CC‑BY, which operate on similar principles of open reuse with attribution.</p>
+</section>
+<section id="principles-for-publishing-open-data" class="level3">
+<h3 class="anchored" data-anchor-id="principles-for-publishing-open-data">Principles for Publishing Open Data</h3>
+<p>If open data is to reach its full potential, it must be published thoughtfully. Releasing a dataset alone is not enough; it must also be accessible, understandable, and usable. The following principles help define what good open health data looks like.</p>
+<section id="publish-data-by-default" class="level4">
+<h4 class="anchored" data-anchor-id="publish-data-by-default">1. Publish Data by Default</h4>
+<p>Open publication should be the default unless there is a clear reason not to publish. Privacy, confidentiality, and national security considerations will always apply, but routine administrative datasets should be released whenever possible.</p>
+<p>Because open data is publicly accessible, it must never contain information that could identify individuals. Published statistics must be carefully anonymised or aggregated, following strict disclosure control policies such as the suppression of small numbers.</p>
+<p>The goal is always to maximise transparency while protecting individual confidentiality.</p>
+</section>
+<section id="use-open-licences" class="level4">
+<h4 class="anchored" data-anchor-id="use-open-licences">2. Use Open Licences</h4>
+<p>Datasets should be released under licences that clearly permit reuse.</p>
+<p>Licences such as the Open Government Licence (OGL) and Creative Commons CC‑BY provide well‑established frameworks that allow anyone to analyse, reuse, and build upon public data, provided the source is acknowledged.</p>
+<p>Without clear licensing, datasets may technically be accessible but remain practically unusable.</p>
+</section>
+<section id="publish-data-in-machinereadable-formats" class="level4">
+<h4 class="anchored" data-anchor-id="publish-data-in-machinereadable-formats">3. Publish Data in Machine‑Readable Formats</h4>
+<p>Data should be released in formats suitable for analysis.</p>
+<p>While PDFs or formatted spreadsheets are useful for presenting statistics to readers, they make secondary analysis difficult. Datasets should therefore be published in machine‑readable formats such as CSV, Parquet, or other structured formats.</p>
+<p>Where publications include tables, charts, or visualisations, the underlying data should also be released as downloadable files. This facilitates scalable and reproducible analysis.</p>
+</section>
+<section id="keep-data-clean-structured-and-consistent" class="level4">
+<h4 class="anchored" data-anchor-id="keep-data-clean-structured-and-consistent">4. Keep Data Clean, Structured, and Consistent</h4>
+<p>Open datasets should prioritise clarity and consistency. Files should be structured in ways that support programmatic analysis and reproducible workflows.</p>
+<p>This means avoiding formatting that interferes with analysis, such as merged cells, embedded macros, logos, or explanatory text within the dataset itself. Open datasets should contain data only, not presentation elements.</p>
+<p>Well‑structured datasets typically follow a few simple principles:</p>
+<ul>
+<li>One row per observation<br>
+</li>
+<li>One column per variable<br>
+</li>
+<li>No merged cells or embedded formatting<br>
+</li>
+<li>Clear, plain‑English column names<br>
+</li>
+<li>Consistent data types within each column</li>
+</ul>
+<p>Maintaining a stable data schema over time is equally important. Column names, structures, and data types should remain consistent across releases wherever possible. Frequent structural changes can break automated analytical pipelines and complicate longitudinal analysis. Simple and consistent column naming conventions - such as UPPERCASE_WITH_UNDERSCORES - also help avoid issues and improve usability.</p>
+</section>
+<section id="provide-clear-metadata-and-documentation" class="level4">
+<h4 class="anchored" data-anchor-id="provide-clear-metadata-and-documentation">5. Provide Clear Metadata and Documentation</h4>
+<p>Metadata is just as important as the dataset itself.</p>
+<p>Good documentation should explain: - What each variable represents<br>
+- How the data was collected<br>
+- How frequently it is updated<br>
+- Known data quality issues or limitations</p>
+<p>A well‑maintained data dictionary that defines each field is often one of the most valuable resources for analysts. Without clear documentation, analysts are forced to reverse‑engineer datasets, increasing effort and the risk of misinterpretation.</p>
+</section>
+<section id="use-consistent-identifiers" class="level4">
+<h4 class="anchored" data-anchor-id="use-consistent-identifiers">6. Use Consistent Identifiers</h4>
+<p>Stable identifiers are essential for linking datasets together.</p>
+<p>Within the NHS, Organisation Data Service (ODS) codes are used to identify organisations across care settings. For geographical data, Office for National Statistics (ONS) geographic codes provide consistent identifiers for administrative areas such as local authorities, regions, and statistical geographies.</p>
+<p>Where health datasets relate to geographical areas - such as Integrated Care Boards (ICBs) - including both the ODS organisation identifier and the relevant ONS geographic code significantly improves interoperability. Datasets should prioritise unique identifiers rather than relying solely on organisation or geography names.</p>
+</section>
+<section id="publish-data-at-the-lowest-practical-granularity" class="level4">
+<h4 class="anchored" data-anchor-id="publish-data-at-the-lowest-practical-granularity">7. Publish Data at the Lowest Practical Granularity</h4>
+<p>Whenever possible, datasets should be published at the lowest level of detail that remains safe and appropriately anonymised.</p>
+<p>Granular data enables richer analysis and allows insights to be generated at local and regional levels. Publishing data at the level of individual providers or organisations, where appropriate, allows analysts to aggregate data into different geographical or administrative groupings as needed.</p>
+<p>This flexibility is particularly important in healthcare because different parts of the system operate across overlapping geographic boundaries. Integrated Care Boards, local authorities, NHS providers, and census geographies often do not align perfectly.</p>
+<p>Publishing data at smaller units makes it easier to reconcile these differences and combine datasets across sectors.</p>
+<p>Granular data is also more resilient to organisational changes. NHS administrative structures evolve regularly, and publishing data at the lowest practical level allows analysts to reconstruct historical trends and maintain consistent longitudinal analysis.</p>
+</section>
+<section id="publish-data-regularly-and-predictably" class="level4">
+<h4 class="anchored" data-anchor-id="publish-data-regularly-and-predictably">8. Publish Data Regularly and Predictably</h4>
+<p>Open data becomes far more valuable when it is released on a consistent schedule.</p>
+<p>Many NHS datasets follow monthly or quarterly publication cycles. Regular releases allow analysts to monitor trends, track service performance, and build analytical pipelines that depend on a steady flow of new data. Irregular publication significantly reduces the usefulness of open datasets. Delays, inconsistent intervals, or unexplained gaps make it harder to analyse trends or produce timely insights. Whenever possible, datasets should therefore be released according to a clearly defined schedule with transparent release calendars.</p>
+</section>
+<section id="preserve-historical-data" class="level4">
+<h4 class="anchored" data-anchor-id="preserve-historical-data">9. Preserve Historical Data</h4>
+<p>Open datasets should preserve historical records rather than replacing or overwriting previous releases.</p>
+<p>Longitudinal data is essential for understanding how systems evolve over time. It enables analysts to examine long‑term trends in healthcare activity, prescribing behaviour, and population health outcomes.</p>
+<p>Historical data also supports reproducibility. Analysts should be able to access the same data that was available when earlier analyses were conducted. Maintaining accessible historical releases makes it possible to replicate findings and verify past work.</p>
+</section>
+<section id="make-data-discoverable-and-usable" class="level4">
+<h4 class="anchored" data-anchor-id="make-data-discoverable-and-usable">10. Make Data Discoverable and Usable</h4>
+<p>Publishing data only creates value if people can find and use it.</p>
+<p>Datasets should be indexed in public catalogues and published through accessible data portals. Platforms such as data.gov.uk play an important role by providing a central location where datasets from across government can be searched and accessed.</p>
+<p>However, discoverability alone is not enough. Data should also be easy to integrate into analytical workflows.</p>
+<p>Where possible, datasets should support programmatic access, such as through APIs or structured downloads that can be accessed automatically. This enables analysts to incorporate datasets into reproducible pipelines, dashboards, and research workflows.</p>
+<p>Even when APIs are unavailable, clear file structures, predictable URLs, and stable naming conventions allow analysts to retrieve new releases automatically.</p>
+</section>
+</section>
+<section id="case-study-openprescribing-and-nhs-prescribing-data" class="level3">
+<h3 class="anchored" data-anchor-id="case-study-openprescribing-and-nhs-prescribing-data">Case Study: OpenPrescribing and NHS Prescribing Data</h3>
+<p>One of the clearest demonstrations of the impact of open health data is OpenPrescribing, developed by the Bennett Institute for Applied Data Science at the University of Oxford.</p>
+<p>The platform is built entirely on openly published NHS prescribing datasets. Each month, the NHS releases detailed anonymised data on medicines prescribed by general practitioners across England through the English Prescribing Dataset. More recently, transparency has expanded further with the publication of the Secondary Care Medicines Dataset, which provides similar insights into hospital prescribing.</p>
+<p>These datasets are extremely large. Each monthly release contains tens of millions of rows describing which medicines were prescribed, where they were prescribed, and the associated costs to the NHS.</p>
+<p>OpenPrescribing transforms this raw data into a searchable, interactive platform that allows clinicians, commissioners, researchers, and analysts to explore prescribing patterns across practices, regions, and time.</p>
+<p>The platform integrates prescribing data with reference datasets such as the NHS Dictionary of Medicines and Devices, enabling medicines to be grouped and analysed in clinically meaningful ways. Users can examine prescribing variation, identify opportunities to improve prescribing practices, and understand how prescribing behaviour differs across the health system.</p>
+<p>Importantly, OpenPrescribing is more than a visualisation tool. It provides actionable insights that clinicians and healthcare organisations can use to improve prescribing decisions. Research from the OpenPrescribing team has demonstrated significant variation in prescribing behaviour across the NHS, often highlighting opportunities for safer or more cost‑effective prescribing.</p>
+<p>The impact has been substantial. Analyses based on these open datasets have identified prescribing practices that cost the NHS millions of pounds unnecessarily each year. By highlighting these patterns and providing tools to address them, OpenPrescribing has supported changes in prescribing behaviour that have led to significant savings while maintaining high standards of patient care.</p>
+<p>This is a powerful example of what happens when open data is combined with thoughtful analytics and accessible tools. The NHS publishes the data, researchers build platforms that make it interpretable, and clinicians use those insights to improve practice.</p>
+<p>None of this would have been possible without the NHS publishing the underlying prescribing data in the first place. OpenPrescribing demonstrates how open health data can move beyond transparency and become a catalyst for real‑world change in clinical practice and health system efficiency.</p>
+</section>
+<section id="closing-thoughts" class="level3">
+<h3 class="anchored" data-anchor-id="closing-thoughts">Closing Thoughts</h3>
+<p>Open data is not just a technical exercise; it represents a cultural commitment to transparency, collaboration, and shared learning.</p>
+<p>When data is published openly, researchers, clinicians, journalists, and analysts can ask new questions of the health system. Analyses can be reproduced, methods scrutinised, and insights generated beyond the institutions that originally collected the data.</p>
+<p>For health analytics, reproducibility is essential. Policies, interventions, and resource allocation decisions often rely on quantitative analysis. When the underlying data is open, analyses can be independently verified, improved, and extended. This leads to stronger evidence, faster innovation, and greater accountability across the health system.</p>
+<p>Ultimately, open data is a public good. It deepens our understanding of how health systems function and provides the foundation for better, evidence‑based decision‑making.</p>
+<p>Finally, a heartfelt thank you to the thousands of analysts, statisticians, and data professionals across the NHS and wider public sector who prepare, quality‑assure, and publish these datasets. Their work often happens quietly behind the scenes, but its impact is profound. By making data accessible to the wider world, they enable research, accountability, and innovation that ultimately improves health systems for everyone.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
+  <category>Open Health Data</category>
+  <category>Reproducible Analytics</category>
+  <category>Population Health</category>
+  <category>Data Standards</category>
+  <guid>https://nhsrcommunity.com/blog/why-open-data-matters.html</guid>
+  <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Lightweight Contextual Entity Extraction for Radiology Notes using R</title>
   <dc:creator>Bashir Abubakar</dc:creator>
@@ -5949,6 +6092,211 @@ font-style: inherit;">)</span></span></code></pre></div></div>
   <media:content url="https://nhsrcommunity.com/blog/img/screenshot-github-settings.PNG" medium="image"/>
 </item>
 <item>
+  <title>Showcasing a function - separate()
+</title>
+  <dc:creator>Zoë Turner</dc:creator>
+  <link>https://nhsrcommunity.com/blog/showcasing-functions-separate.html</link>
+  <description><![CDATA[ <!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html --><!--
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+--><!-- <header id="title-block-header" class="quarto-title-block default page-columns"> --><!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> --><section id="create-data" class="level2"><h2 class="anchored" data-anchor-id="create-data">Create data</h2>
+<p>This was written originally in an Excel spreadsheet and used {datapasta} to copy into R as code to build the same data frame. {datapasta} can be access through RStudio as an Addin as well as code. Find out more about {datapasta} from the <a href="https://intro-r-rstudio.nhsrcommunity.com/session-datapasta.html#/title-slide">Introduction to R and R Studio course</a>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">data</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tibble</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tribble</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span></span>
+<span>    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Patient</span>,          <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Codes</span>,</span>
+<span>  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientA"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"A01, A02, A03"</span>,</span>
+<span>  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientB"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B01; B02; B03"</span>,</span>
+<span>  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientC"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"C01; C03"</span>,</span>
+<span>  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PatientD"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"D01. D02. D03"</span></span>
+<span>  <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div></div>
+</div>
+</section><section id="separate-codes-by-position" class="level2"><h2 class="anchored" data-anchor-id="separate-codes-by-position">Separate codes by position</h2>
+<p>Separate into columns in the order data appears</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">data</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tidyr</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">separate</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Codes</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col1"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col2"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col3"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+  Patient  col1  col2  col3 
+  &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+1 PatientA A01   A02   A03  
+2 PatientB B01   B02   B03  
+3 PatientC C01   C03   &lt;NA&gt; 
+4 PatientD D01   D02   D03  </code></pre>
+</div>
+</div>
+<p><a href="https://tidyr.tidyverse.org/reference/separate.html">https://tidyr.tidyverse.org/reference/separate.html</a></p>
+</section><section id="add-a-pivot" class="level2"><h2 class="anchored" data-anchor-id="add-a-pivot">Add a pivot</h2>
+<p>To move wide data to longer:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">data</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tidyr</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">separate</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">Codes</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col1"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col2"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col3"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tidyr</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pivot_longer</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>cols <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">starts_with</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"col"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>,</span>
+<span>               names_to <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"type"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 3
+   Patient  type  value
+   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;
+ 1 PatientA col1  A01  
+ 2 PatientA col2  A02  
+ 3 PatientA col3  A03  
+ 4 PatientB col1  B01  
+ 5 PatientB col2  B02  
+ 6 PatientB col3  B03  
+ 7 PatientC col1  C01  
+ 8 PatientC col2  C03  
+ 9 PatientC col3  &lt;NA&gt; 
+10 PatientD col1  D01  
+11 PatientD col2  D02  
+12 PatientD col3  D03  </code></pre>
+</div>
+</div>
+
+
+</section><a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
+  <category>R tips</category>
+  <guid>https://nhsrcommunity.com/blog/showcasing-functions-separate.html</guid>
+  <pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://nhsrcommunity.com/blog/img/screenshot-separate-code.png" medium="image" type="image/png" height="91" width="144"/>
+</item>
+<item>
   <title>Recoding an NA and back again</title>
   <dc:creator>Zoë Turner</dc:creator>
   <link>https://nhsrcommunity.com/blog/coding-to-and-from-NA.html</link>
@@ -6191,211 +6539,6 @@ font-style: inherit;">1000</span>))</span></code></pre></div></div>
   <pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>Showcasing a function - separate()
-</title>
-  <dc:creator>Zoë Turner</dc:creator>
-  <link>https://nhsrcommunity.com/blog/showcasing-functions-separate.html</link>
-  <description><![CDATA[ <!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html --><!--
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
---><!-- <header id="title-block-header" class="quarto-title-block default page-columns"> --><!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> --><section id="create-data" class="level2"><h2 class="anchored" data-anchor-id="create-data">Create data</h2>
-<p>This was written originally in an Excel spreadsheet and used {datapasta} to copy into R as code to build the same data frame. {datapasta} can be access through RStudio as an Addin as well as code. Find out more about {datapasta} from the <a href="https://intro-r-rstudio.nhsrcommunity.com/session-datapasta.html#/title-slide">Introduction to R and R Studio course</a>.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">data</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tibble</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tribble</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span></span>
-<span>    <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">Patient</span>,          <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">Codes</span>,</span>
-<span>  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"PatientA"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"A01, A02, A03"</span>,</span>
-<span>  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"PatientB"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B01; B02; B03"</span>,</span>
-<span>  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"PatientC"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"C01; C03"</span>,</span>
-<span>  <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"PatientD"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"D01. D02. D03"</span></span>
-<span>  <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span></code></pre></div></div>
-</div>
-</section><section id="separate-codes-by-position" class="level2"><h2 class="anchored" data-anchor-id="separate-codes-by-position">Separate codes by position</h2>
-<p>Separate into columns in the order data appears</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span></span>
-<span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">data</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|&gt;</span> </span>
-<span>  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tidyr</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">separate</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">Codes</span>, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col1"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col2"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col3"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span></code></pre></div></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 4
-  Patient  col1  col2  col3 
-  &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
-1 PatientA A01   A02   A03  
-2 PatientB B01   B02   B03  
-3 PatientC C01   C03   &lt;NA&gt; 
-4 PatientD D01   D02   D03  </code></pre>
-</div>
-</div>
-<p><a href="https://tidyr.tidyverse.org/reference/separate.html">https://tidyr.tidyverse.org/reference/separate.html</a></p>
-</section><section id="add-a-pivot" class="level2"><h2 class="anchored" data-anchor-id="add-a-pivot">Add a pivot</h2>
-<p>To move wide data to longer:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">data</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|&gt;</span> </span>
-<span>  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tidyr</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">separate</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">Codes</span>, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col1"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col2"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col3"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|&gt;</span> </span>
-<span>  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tidyr</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">pivot_longer</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>cols <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">starts_with</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"col"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>,</span>
-<span>               names_to <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"type"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span></code></pre></div></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 12 × 3
-   Patient  type  value
-   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;
- 1 PatientA col1  A01  
- 2 PatientA col2  A02  
- 3 PatientA col3  A03  
- 4 PatientB col1  B01  
- 5 PatientB col2  B02  
- 6 PatientB col3  B03  
- 7 PatientC col1  C01  
- 8 PatientC col2  C03  
- 9 PatientC col3  &lt;NA&gt; 
-10 PatientD col1  D01  
-11 PatientD col2  D02  
-12 PatientD col3  D03  </code></pre>
-</div>
-</div>
-
-
-</section><a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
-  <category>R tips</category>
-  <guid>https://nhsrcommunity.com/blog/showcasing-functions-separate.html</guid>
-  <pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://nhsrcommunity.com/blog/img/screenshot-separate-code.png" medium="image" type="image/png" height="91" width="144"/>
-</item>
-<item>
   <title>Building a Quarto website for NHS-R Community</title>
   <dc:creator>Zoë Turner</dc:creator>
   <link>https://nhsrcommunity.com/blog/building-a-quarto-website.html</link>
@@ -6548,68 +6691,6 @@ font-style: inherit;">)</span></span></code></pre></div></div>
   <category>NHS-R</category>
   <guid>https://nhsrcommunity.com/blog/what-is-a-proper-data-scientist-anyway.html</guid>
   <pubDate>Mon, 08 Jan 2024 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Coffee and Code</title>
-  <dc:creator>Simon Wellesley-Miller</dc:creator>
-  <link>https://nhsrcommunity.com/blog/coffee-and-code.html</link>
-  <description><![CDATA[ 
-
-
-<!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html -->
-<!--
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
--->
-<!-- <header id="title-block-header" class="quarto-title-block default page-columns"> -->
-<!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> -->
-
-
-
-<p>Coffee and Code is an informal community gathering where people can come together to learn, share, and collaborate on all things R. People can give presentations on their work, ask questions, and share resources. The goal of Coffee and Code is to create a supportive and inclusive environment where everyone can feel comfortable asking for help and sharing their knowledge.</p>
-<p>Coffee and Code is open to people of all skill levels, from beginners to experienced R users. The sessions are a great way to learn new things, meet other people who are interested in R, and get help with your own projects.</p>
-<p><strong>When is coffee and code?</strong></p>
-<p>It is an hour every other Friday at 11:00 – 12:00.</p>
-<p><strong>Who is it aimed at?</strong></p>
-<p>Everyone of course. We did a rough and self-determined straw poll. About 40% said they were beginners, 45% intermediate and 15% advanced. So please don’t feel that it is any way elitist.</p>
-<p><strong>What do the sessions look like</strong>?</p>
-<p>They are all different, the whole thing is organic, and we don’t have a strict agenda.</p>
-<p><strong>A rough agenda</strong></p>
-<ul>
-<li><p>5 mins at the start to say hello and provide any updates.</p></li>
-<li><p>35 – 45 mins as show and tells, this may be one or several demos of things that people have been doing.</p></li>
-<li><p>5 mins for quick tip or library of the week.</p></li>
-<li><p>Whatever time is left is then open to general discussion and going over the chat questions. This is a great place for people to post queries or ask for assistance. Hopefully this discussion will inform what will happen at the next session and get some volunteers to come forward.</p></li>
-</ul>
-<p><strong>We have a set of rules</strong></p>
-<ul>
-<li><p>First rule of C&amp;C club – Tell everyone about Coffee and Code.</p></li>
-<li><p>Training sessions will be recorded, but general discussion will not.</p></li>
-<li><p>Vegas Rules – what happens and C&amp;C stays in C&amp;C.</p></li>
-<li><p>We share code and ideas, never patient data.</p></li>
-<li><p>Be open and honest with a willingness to participate.</p></li>
-</ul>
-<p>No subject is too simple, and we all know there are many ways to program and quite often someone will post a link to a shortcut or a library to make life easier.</p>
-<p>It is a very friendly atmosphere, and we try to be as inclusive as possible to whatever level you are at. This is all about sharing those little hints, tips and discoveries to make life easier.</p>
-<p>When we do run tutorials we publish our code, with reproducible examples if possible.</p>
-<p><strong>What are our goals?</strong></p>
-<p>We want to have set space where we can get together as a community. This also means we link with other communities such as Analyst X, RAP and NHS-R. This helps to maintain the strong networking and positive momentum that are hallmarks of the NHS R community.</p>
-<p>A strong community also gives us a strong voice. This is important to support those struggling with installation issues or getting the right training or all the weird and wonderful things that challenge us. It means we can identify training needs and help commission new courses.</p>
-<p>Going to say it again three times because it is super important – community, community and community!</p>
-<p><strong>What have you missed?</strong></p>
-<p>We have run sessions on how to write and use loops, how to make choropleth (heat) maps, how to make pretty tables, how to create CSS templates for markdown and quarto, how to create dynamic commentary for reports, how to send and read emails and many other things.</p>
-<p><strong>Join us!</strong></p>
-<p>That’s my final plea, come and join us and keep this wonderful community alive and be proud to be part of it.</p>
-<p>If you want an invite, ping me an email at <a href="mailto:simon.wellesley-miller@nhs.net">simon.wellesley-miller@nhs.net</a></p>
-<p>Simon Wellesley-Miller, Senior Analytical Manager</p>
-
-
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
-  <category>NHS-R</category>
-  <guid>https://nhsrcommunity.com/blog/coffee-and-code.html</guid>
-  <pubDate>Tue, 14 Nov 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://nhsrcommunity.com/blog/img/startup.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
