@@ -29,6 +29,7 @@
 
 
 
+<p><img src="https://nhsrcommunity.com/blog/img/Why Open Data Matters Blog Image.png" class="img-fluid" alt="Ten Guiding Principles for Publishing High-Quality Open Health Data"></p>
 <p>I have been fortunate to build my career as a data professional in a country where data is increasingly shared rather than locked away. In the UK, the NHS, government departments, and the wider public sector have made significant progress in publishing datasets as open data.</p>
 <p>For data professionals, researchers, clinicians, journalists, and citizens, this openness is transformative. It allows anyone to explore how public services operate, enables independent scrutiny that strengthens trust in public institutions, and ensures that insights about public systems are not limited to those working within them.</p>
 <p>Large public institutions rarely have the time or analytical capacity to explore every question hidden within their own data. When datasets are open, thousands of analysts across sectors can collectively examine problems, generate insights, and identify opportunities for improvement that might otherwise remain unseen.</p>
@@ -147,6 +148,10 @@
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div> ]]></description>
+  <category>Open Health Data</category>
+  <category>Reproducible Analytics</category>
+  <category>Population Health</category>
+  <category>Data Standards</category>
   <guid>https://nhsrcommunity.com/blog/why-open-data-matters.html</guid>
   <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
 </item>
