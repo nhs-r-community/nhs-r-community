@@ -7,7 +7,14 @@ author:
     degrees: PhD
     url: https://www.linkedin.com/in/mattia-ficarelli300395/
 subtitle: "Building the Foundations for Reproducible Health Analytics"
+categories:
+    - Open Health Data
+    - Reproducible Analytics
+    - Population Health
+    - Data Standards
 ---
+
+![](img/Why%20Open%20Data%20Matters%20Blog%20Image.png){fig-alt="Ten Guiding Principles for Publishing High-Quality Open Health Data"}
 
 I have been fortunate to build my career as a data professional in a country 
 where data is increasingly shared rather than locked away. 
