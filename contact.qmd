@@ -9,9 +9,9 @@ title-block-banner: true
 
 - **Email:** [openanalytics.community@nhs.net](mailto:openanalytics.community@nhs.net)
 
-- **GitHub:** [@nhs-r-community](https://github.com/nhs-r-community)
+- **GitHub:** [@nhs-oa-community](https://github.com/nhs-oa-community)
 
-- **LinkedIn:** [NHS-R Community](https://www.linkedin.com/company/nhs-r-community)
+- **LinkedIn:** [NHS-OA Community](https://www.linkedin.com/company/nhs-r-community)
 
 - **Fosstodon (Mastodon):** [@NHSrCommunity@fosstodon.org](https://fosstodon.org/@NHSrCommunity)
 
