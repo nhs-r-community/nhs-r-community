@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Zoë Turner">
+<meta name="dcterms.date" content="2019-09-03">
+<title>Dygraphs – NHS-R Community Quarto website</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//img/nhsr-logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-c166655de03adf68aad4b5618a757ad4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-b4f67bb8eaec099bfd72791d26dee5b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-c166655de03adf68aad4b5618a757ad4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1T1K3D1BKL"></script><script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-1T1K3D1BKL', { 'anonymize_ip': true});
+</script><link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="../site_libs/jquery-1.11.1/jquery.min.js"></script><link href="../site_libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="../site_libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="../site_libs/dygraphs-1.1.1/shapes.js"></script><script src="../site_libs/moment-2.8.4/moment.js"></script><script src="../site_libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="../site_libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="../site_libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><link rel="stylesheet" href="../assets/nhsr.css">
+</head>
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="https://nhsrcommunity.com/" class="navbar-brand navbar-brand-logo">
+    <img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo light-content"><img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png" alt="NHS-R Community Logo which consists of the words and incorporating the R logo" class="navbar-logo dark-content"></a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../news.html"> 
+<span class="menu-text">News</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blog/index.html"> 
+<span class="menu-text">Blogs</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-events-and-training" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Events and Training</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-events-and-training">
+<li>
+    <a class="dropdown-item" href="../conference.html">
+ <span class="dropdown-text">RPySOC 2025</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../webinars-and-workshops.html">
+ <span class="dropdown-text">Webinars and Workshops</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../coffee-and-code.html">
+ <span class="dropdown-text">Coffee &amp; Coding</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-resources">
+<li>
+    <a class="dropdown-item" href="../books/index.html">
+ <span class="dropdown-text">Books</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../videos.html">
+ <span class="dropdown-text">Videos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../r-packages.html">
+ <span class="dropdown-text">R packages</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item">
+    <a class="nav-link" href="../fellowship.html"> 
+<span class="menu-text">Fellowships</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contact.html"> 
+<span class="menu-text">Contact Us</span></a>
+  </li>  
+</ul>
+</div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/nhs-r-community" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns"><div id="title-block-header-title" class="quarto-title page-columns page-full page-layout-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);">
+<h1 class="title">Dygraphs</h1>
+<p class="subtitle lead"></p>
+<p>“Interactive charts for mortality surveillance”</p>
+    <div class="quarto-categories">
+        <div class="quarto-category">dygraphs</div>
+        <div class="quarto-category">dplyr</div>
+        <div class="quarto-category">base R</div>
+      </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Zoë Turner </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 3, 2019</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">July 10, 2024</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+
+</header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content"><!-- source: https://github.com/gadenbuie/garrickadenbuie-com/blob/main/_partials/title-block-link-buttons/title-block.html --><!--
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+--><!-- <header id="title-block-header" class="quarto-title-block default page-columns"> --><!-- <div class="quarto-title page-columns page-full featured-image p-4" style="background-image: url(featured.png), url(featured.jpg), url(../featured.jpg);"> --><p>I recently presented some of the mortality surveillance charts we use to <span class="citation" data-cites="RLadiesLondon">@RLadiesLondon</span> (a very welcoming group!) and one that got some interest was a chart of Nottinghamshire Healthcare NHS Foundation Trust deaths compared to ONS Provisionally Registered deaths. The chart looks good because it’s interactive but this type of chart can be confusing because of the 2 y axes.</p>
+<p>When I show this report I make it clear that the two axes units are very different and that its purpose is to show that the pattern of the deaths in the wider population matches that of the deaths recorded by the Trust. It’s well known within Public Health that the pattern of deaths is seasonal, with a peak around January in the UK. However, this Public Health knowledge is not necessarily common knowledge in Secondary Care Trusts and it was one of the great benefits of having <span class="citation" data-cites="IantheBee">@IantheBee</span> both create and present this report.</p>
+<section id="getting-ons-provisional-data" class="level1"><h1>Getting ONS Provisional Data</h1>
+<p>I wrote about getting and formatting the spreadsheets from ONS for the East Midlands Provisionally Registered deaths:</p>
+<p><a href="https://nhsrcommunity.com/blog/format-ons-spreadsheet/" class="uri">https://nhsrcommunity.com/blog/format-ons-spreadsheet/</a></p>
+<p>but for the purposes of the mortality surveillance report I’ve used several years data and I normally keep the spreadsheets, save the merged data and then load that each time I need to run the R markdown report.</p>
+<p>For the purposes of this blog I’ve amended the formatting code by adding functions so each year can be transformed and is available to plot:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor">janitor</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Download ONS spreadsheets Function-----------------------------------------------</span></span>
+<span></span>
+<span><span class="va">GetData_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">www</span>, <span class="va">file</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span><span class="op">(</span><span class="va">www</span>,</span>
+<span>    destfile <span class="op">=</span> <span class="va">file</span>,</span>
+<span>    method <span class="op">=</span> <span class="st">"wininet"</span>, <span class="co"># use "curl" for OS X / Linux, "wininet" for Windows</span></span>
+<span>    mode <span class="op">=</span> <span class="st">"wb"</span></span>
+<span>  <span class="op">)</span> <span class="co"># wb means "write binary" }</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># 2019</span></span>
+<span><span class="fu">GetData_function</span><span class="op">(</span></span>
+<span>  <span class="st">"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2019/publishedweek282019.xls"</span>,</span>
+<span>  <span class="st">"DeathsDownload2019.xls"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 2018</span></span>
+<span><span class="fu">GetData_function</span><span class="op">(</span></span>
+<span>  <span class="st">"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2018/publishedweek522018withupdatedrespiratoryrow.xls"</span>,</span>
+<span>  <span class="st">"DeathsDownload2018.xls"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 2017</span></span>
+<span><span class="fu">GetData_function</span><span class="op">(</span></span>
+<span>  <span class="st">"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2017/publishedweek522017.xls"</span>,</span>
+<span>  <span class="st">"DeathsDownload2017.xls"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 2016</span></span>
+<span><span class="fu">GetData_function</span><span class="op">(</span></span>
+<span>  <span class="st">"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2016/publishedweek522016.xls"</span>,</span>
+<span>  <span class="st">"DeathsDownload2016.xls"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Import correct sheets ---------------------------------------------------</span></span>
+<span><span class="va">Deaths_Now</span> <span class="op">&lt;-</span> <span class="fu">read_excel</span><span class="op">(</span><span class="st">"DeathsDownload2019.xls "</span>,</span>
+<span>  sheet <span class="op">=</span> <span class="fl">4</span>,</span>
+<span>  skip <span class="op">=</span> <span class="fl">2</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">Deaths_2018</span> <span class="op">&lt;-</span> <span class="fu">read_excel</span><span class="op">(</span><span class="st">"DeathsDownload2018.xls "</span>,</span>
+<span>  sheet <span class="op">=</span> <span class="fl">4</span>,</span>
+<span>  skip <span class="op">=</span> <span class="fl">2</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">Deaths_2017</span> <span class="op">&lt;-</span> <span class="fu">read_excel</span><span class="op">(</span><span class="st">"DeathsDownload2017.xls "</span>,</span>
+<span>  sheet <span class="op">=</span> <span class="fl">4</span>,</span>
+<span>  skip <span class="op">=</span> <span class="fl">2</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">Deaths_2016</span> <span class="op">&lt;-</span> <span class="fu">read_excel</span><span class="op">(</span><span class="st">"DeathsDownload2016.xls "</span>,</span>
+<span>  sheet <span class="op">=</span> <span class="fl">4</span>,</span>
+<span>  skip <span class="op">=</span> <span class="fl">2</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Look up code to remove excess rows --------------------------------------</span></span>
+<span><span class="va">LookupList</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>  <span class="st">"Week ended"</span>,</span>
+<span>  <span class="st">"Total deaths, all ages"</span>,</span>
+<span>  <span class="st">"Total deaths: average of corresponding"</span>,</span>
+<span>  <span class="st">"E12000004"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Function for formatting data --------------------------------------------</span></span>
+<span><span class="va">Transform_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dataframe</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="co"># Format data frames</span></span>
+<span>  <span class="va">df</span> <span class="op">&lt;-</span> <span class="va">dataframe</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">clean_names</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">remove_empty</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"rows"</span>, <span class="st">"cols"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">week_number</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">LookupList</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co"># Transpose table</span></span>
+<span>  <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co"># Whilst this is a matrix make the top row the header</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">df</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span></span>
+<span></span>
+<span>  <span class="co"># Make this object a data.frame</span></span>
+<span>  <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co"># Function to find 'not in'</span></span>
+<span>  <span class="st">"%!ni%"</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">!</span><span class="op">(</span><span class="st">"%in%"</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co"># List of things to remove to tidy the data.frame</span></span>
+<span>  <span class="va">remove</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"E12000004"</span>, <span class="st">"East Midlands"</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co"># remove the rows and ensure dates are in the correct format</span></span>
+<span>  <span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">E12000004</span> <span class="op">%!ni%</span> <span class="va">remove</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>serialdate <span class="op">=</span> <span class="fu">excel_numeric_to_date</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">`Week ended`</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>      date_system <span class="op">=</span> <span class="st">"modern"</span></span>
+<span>    <span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">df</span><span class="op">$</span><span class="va">`Week ended`</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">`Week ended`</span>, format <span class="op">=</span> <span class="st">"%Y-%m-%d"</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>date <span class="op">=</span> <span class="fu">if_else</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">`Week ended`</span><span class="op">)</span>, <span class="va">serialdate</span>, <span class="va">`Week ended`</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co"># Final transformation of data</span></span>
+<span>  <span class="va">df</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">select</span><span class="op">(</span><span class="va">`Total deaths, all ages`</span>, <span class="va">date</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">`Total deaths, all ages`</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>`Total deaths, all ages` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">`Total deaths, all ages`</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="co"># To match other data.frames</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># Run functions -----------------------------------------------------------</span></span>
+<span><span class="va">DeathsNow</span> <span class="op">&lt;-</span> <span class="fu">Transform_function</span><span class="op">(</span><span class="va">Deaths_Now</span><span class="op">)</span></span>
+<span><span class="va">Deaths2018</span> <span class="op">&lt;-</span> <span class="fu">Transform_function</span><span class="op">(</span><span class="va">Deaths_2018</span><span class="op">)</span></span>
+<span><span class="va">Deaths2017</span> <span class="op">&lt;-</span> <span class="fu">Transform_function</span><span class="op">(</span><span class="va">Deaths_2017</span><span class="op">)</span></span>
+<span><span class="va">Deaths2016</span> <span class="op">&lt;-</span> <span class="fu">Transform_function</span><span class="op">(</span><span class="va">Deaths_2016</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Merge data -----------------------------------------------------</span></span>
+<span><span class="va">Deaths</span> <span class="op">&lt;-</span> <span class="fu">bind_rows</span><span class="op">(</span></span>
+<span>  <span class="va">DeathsNow</span>,</span>
+<span>  <span class="va">Deaths2018</span>,</span>
+<span>  <span class="va">Deaths2017</span>,</span>
+<span>  <span class="va">Deaths2016</span></span>
+<span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span></span>
+<span>    date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">date</span><span class="op">)</span>,</span>
+<span>    `Total deaths, all ages` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">`Total deaths, all ages`</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This code may give a few warnings saying that NAs have been introduced by coercion which is because there are many cells in the spreadsheets that have no data in them at all. It’s a good thing they have nothing (and effectively NAs) as having 0s could confuse analysis as it isn’t clear if the 0 is a real 0 or missing data.</p>
+<p>To suppress warnings in R Markdown add <code>warning = FALSE</code> to the header, however, I like to keep the warnings just in case.</p>
+<p>If you want to keep all the data after merging it together use:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ycphs.github.io/openxlsx/index.html">openxlsx</a></span><span class="op">)</span> <span class="co"># To write to xls if required.</span></span>
+<span></span>
+<span><span class="co"># Export complete list to excel for future</span></span>
+<span><span class="fu">write.xlsx</span><span class="op">(</span><span class="va">Deaths</span>, <span class="st">"ImportProvisionalDeaths.xlsx"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>If you’ve saved the combined file, to call it again in a script use the following code:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">Deaths</span> <span class="op">&lt;-</span> <span class="fu">read_excel</span><span class="op">(</span><span class="st">"ImportProvisionalDeaths.xlsx"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="dygraph-chart" class="level1 page-columns page-full"><h1>Dygraph chart</h1>
+<p>The following data is randomly generated as an example:</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Using <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code> changes the computer’s random number and this might have an affect in other programs or systems. Functions like <code><a href="https://withr.r-lib.org/reference/with_seed.html">withr::with_preserve_seed()</a></code> can help with setting it for the code and resetting the seed when finished.</p>
+</div></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/dygraphs">dygraphs</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://joshuaulrich.github.io/xts/">xts</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Fix the randomly generated numbers set.seed(178)</span></span>
+<span></span>
+<span><span class="va">Alldeaths</span> <span class="op">&lt;-</span> <span class="va">Deaths</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">date</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fu">n</span><span class="op">(</span><span class="op">)</span>, mean <span class="op">=</span> <span class="fl">150</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Merge the two data frames together:</span></span>
+<span></span>
+<span><span class="va">ONSAlldeaths</span> <span class="op">&lt;-</span> <span class="va">Deaths</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">left_join</span><span class="op">(</span><span class="va">Alldeaths</span>, by <span class="op">=</span> <span class="st">"date"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>ds <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html">as.POSIXct</a></span><span class="op">(</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">ds</span>, y2 <span class="op">=</span> <span class="va">n</span>, y <span class="op">=</span> <span class="va">`Total deaths, all ages`</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">arrange</span><span class="op">(</span><span class="va">ds</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>{dygraphs} require dates to be in a time series format and the package {xts} can convert it:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ONSAlldeaths_series</span> <span class="op">&lt;-</span> <span class="fu">xts</span><span class="op">(</span><span class="va">ONSAlldeaths</span>, order.by <span class="op">=</span> <span class="va">ONSAlldeaths</span><span class="op">$</span><span class="va">ds</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The date column is no longer needed so can be removed but this needs to be done using <code>base R</code> and not {dplyr}:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Remove duplicate date column ONSAlldeaths_series &lt;-</span></span>
+<span><span class="va">ONSAlldeaths_series</span><span class="op">[</span>, <span class="op">-</span><span class="fl">1</span><span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 y2     y
+2016-01-08 149.8720 13045
+2016-01-15 149.8883 11501
+2016-01-22 149.8568 11473
+2016-01-29 151.4292 11317
+2016-02-05 150.0193 11052
+2016-02-12 149.6231 11170
+2016-02-19 150.7557 10590
+2016-02-26 149.6230 11056
+2016-03-04 150.9004 11285
+2016-03-11 150.9368 11010
+       ...               
+2019-05-10 150.3396  9055
+2019-05-17 148.2407 10272
+2019-05-24 149.2737 10284
+2019-05-31 149.0598  8260
+2019-06-07 149.9367 10140
+2019-06-14 151.5180  9445
+2019-06-21 149.7602  9458
+2019-06-28 148.9243  9511
+2019-07-05 152.8544  9062
+2019-07-12 149.5628  9179</code></pre>
+</div>
+</div>
+<p>Finally, the {xts} can be plotted:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">dygraph</span><span class="op">(</span><span class="va">ONSAlldeaths_series</span>, main <span class="op">=</span> <span class="st">"East Midlands Weekly Deaths/Randomly generated numbers"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">dySeries</span><span class="op">(</span><span class="st">"y"</span>, axis <span class="op">=</span> <span class="st">"y"</span>, label <span class="op">=</span> <span class="st">"East Midlands"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">dySeries</span><span class="op">(</span><span class="st">"y2"</span>, axis <span class="op">=</span> <span class="st">"y2"</span>, label <span class="op">=</span> <span class="st">"Random numbers"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">dyAxis</span><span class="op">(</span><span class="st">"x"</span>, drawGrid <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">dyAxis</span><span class="op">(</span><span class="st">"y"</span>, drawGrid <span class="op">=</span> <span class="cn">FALSE</span>, label <span class="op">=</span> <span class="st">"East Midlands"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">dyAxis</span><span class="op">(</span><span class="st">"y2"</span>, independentTicks <span class="op">=</span> <span class="cn">TRUE</span>, drawGrid <span class="op">=</span> <span class="cn">FALSE</span>, label <span class="op">=</span> <span class="st">"Random numbers"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">dyOptions</span><span class="op">(</span>stepPlot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">dyRangeSelector</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="dygraphs html-widget html-fill-item" id="htmlwidget-ff62e5b23bbb13f112f9" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-ff62e5b23bbb13f112f9">{"x":{"attrs":{"axes":{"x":{"pixelsPerLabel":60,"drawGrid":false,"drawAxis":true},"y":{"drawGrid":false,"drawAxis":true},"y2":{"drawGrid":false,"independentTicks":true}},"series":{"East Midlands":{"axis":"y"},"Random numbers":{"axis":"y2"}},"title":"East Midlands Weekly Deaths/Randomly generated numbers","labels":["week","ds","East Midlands","Random numbers"],"legend":"auto","retainDateWindow":false,"ylabel":"East Midlands","y2label":"Random numbers","stackedGraph":false,"fillGraph":false,"fillAlpha":0.15,"stepPlot":true,"drawPoints":false,"pointSize":1,"drawGapEdgePoints":false,"connectSeparatedPoints":false,"strokeWidth":1,"strokeBorderColor":"white","colorValue":0.5,"colorSaturation":1,"includeZero":false,"drawAxesAtZero":false,"logscale":false,"axisTickSize":3,"axisLineColor":"black","axisLineWidth":0.3,"axisLabelColor":"black","axisLabelFontSize":14,"axisLabelWidth":60,"drawGrid":true,"gridLineWidth":0.3,"rightGap":5,"digitsAfterDecimal":2,"labelsKMB":false,"labelsKMG2":false,"labelsUTC":false,"maxNumberWidth":6,"animatedZooms":false,"mobileDisableYTouch":true,"disableZoom":false,"showRangeSelector":true,"rangeSelectorHeight":40,"rangeSelectorPlotFillColor":" #A7B1C4","rangeSelectorPlotStrokeColor":"#808FAB","interactionModel":"Dygraph.Interaction.defaultModel"},"scale":"weekly","annotations":[],"shadings":[],"events":[],"format":"date","data":[["2016-01-08T00:00:00.000Z","2016-01-15T00:00:00.000Z","2016-01-22T00:00:00.000Z","2016-01-29T00:00:00.000Z","2016-02-05T00:00:00.000Z","2016-02-12T00:00:00.000Z","2016-02-19T00:00:00.000Z","2016-02-26T00:00:00.000Z","2016-03-04T00:00:00.000Z","2016-03-11T00:00:00.000Z","2016-03-18T00:00:00.000Z","2016-03-25T00:00:00.000Z","2016-04-01T00:00:00.000Z","2016-04-08T00:00:00.000Z","2016-04-15T00:00:00.000Z","2016-04-22T00:00:00.000Z","2016-04-29T00:00:00.000Z","2016-05-06T00:00:00.000Z","2016-05-13T00:00:00.000Z","2016-05-20T00:00:00.000Z","2016-05-27T00:00:00.000Z","2016-06-03T00:00:00.000Z","2016-06-10T00:00:00.000Z","2016-06-17T00:00:00.000Z","2016-06-24T00:00:00.000Z","2016-07-01T00:00:00.000Z","2016-07-08T00:00:00.000Z","2016-07-15T00:00:00.000Z","2016-07-22T00:00:00.000Z","2016-07-29T00:00:00.000Z","2016-08-05T00:00:00.000Z","2016-08-12T00:00:00.000Z","2016-08-19T00:00:00.000Z","2016-08-26T00:00:00.000Z","2016-09-02T00:00:00.000Z","2016-09-09T00:00:00.000Z","2016-09-16T00:00:00.000Z","2016-09-23T00:00:00.000Z","2016-09-30T00:00:00.000Z","2016-10-07T00:00:00.000Z","2016-10-14T00:00:00.000Z","2016-10-21T00:00:00.000Z","2016-10-28T00:00:00.000Z","2016-11-04T00:00:00.000Z","2016-11-11T00:00:00.000Z","2016-11-18T00:00:00.000Z","2016-11-25T00:00:00.000Z","2016-12-02T00:00:00.000Z","2016-12-09T00:00:00.000Z","2016-12-16T00:00:00.000Z","2016-12-23T00:00:00.000Z","2016-12-30T00:00:00.000Z","2017-01-06T00:00:00.000Z","2017-01-13T00:00:00.000Z","2017-01-20T00:00:00.000Z","2017-01-27T00:00:00.000Z","2017-02-03T00:00:00.000Z","2017-02-10T00:00:00.000Z","2017-02-17T00:00:00.000Z","2017-02-24T00:00:00.000Z","2017-03-03T00:00:00.000Z","2017-03-10T00:00:00.000Z","2017-03-17T00:00:00.000Z","2017-03-24T00:00:00.000Z","2017-03-31T00:00:00.000Z","2017-04-07T00:00:00.000Z","2017-04-14T00:00:00.000Z","2017-04-21T00:00:00.000Z","2017-04-28T00:00:00.000Z","2017-05-05T00:00:00.000Z","2017-05-12T00:00:00.000Z","2017-05-19T00:00:00.000Z","2017-05-26T00:00:00.000Z","2017-06-02T00:00:00.000Z","2017-06-09T00:00:00.000Z","2017-06-16T00:00:00.000Z","2017-06-23T00:00:00.000Z","2017-06-30T00:00:00.000Z","2017-07-07T00:00:00.000Z","2017-07-14T00:00:00.000Z","2017-07-21T00:00:00.000Z","2017-07-28T00:00:00.000Z","2017-08-04T00:00:00.000Z","2017-08-11T00:00:00.000Z","2017-08-18T00:00:00.000Z","2017-08-25T00:00:00.000Z","2017-09-01T00:00:00.000Z","2017-09-08T00:00:00.000Z","2017-09-15T00:00:00.000Z","2017-09-22T00:00:00.000Z","2017-09-29T00:00:00.000Z","2017-10-06T00:00:00.000Z","2017-10-13T00:00:00.000Z","2017-10-20T00:00:00.000Z","2017-10-27T00:00:00.000Z","2017-11-03T00:00:00.000Z","2017-11-10T00:00:00.000Z","2017-11-17T00:00:00.000Z","2017-11-24T00:00:00.000Z","2017-12-01T00:00:00.000Z","2017-12-08T00:00:00.000Z","2017-12-15T00:00:00.000Z","2017-12-22T00:00:00.000Z","2017-12-29T00:00:00.000Z","2018-01-05T00:00:00.000Z","2018-01-12T00:00:00.000Z","2018-01-19T00:00:00.000Z","2018-01-26T00:00:00.000Z","2018-02-02T00:00:00.000Z","2018-02-09T00:00:00.000Z","2018-02-16T00:00:00.000Z","2018-02-23T00:00:00.000Z","2018-03-02T00:00:00.000Z","2018-03-09T00:00:00.000Z","2018-03-16T00:00:00.000Z","2018-03-23T00:00:00.000Z","2018-03-30T00:00:00.000Z","2018-04-06T00:00:00.000Z","2018-04-13T00:00:00.000Z","2018-04-20T00:00:00.000Z","2018-04-27T00:00:00.000Z","2018-05-04T00:00:00.000Z","2018-05-11T00:00:00.000Z","2018-05-18T00:00:00.000Z","2018-05-25T00:00:00.000Z","2018-06-01T00:00:00.000Z","2018-06-08T00:00:00.000Z","2018-06-15T00:00:00.000Z","2018-06-22T00:00:00.000Z","2018-06-29T00:00:00.000Z","2018-07-06T00:00:00.000Z","2018-07-13T00:00:00.000Z","2018-07-20T00:00:00.000Z","2018-07-27T00:00:00.000Z","2018-08-03T00:00:00.000Z","2018-08-10T00:00:00.000Z","2018-08-17T00:00:00.000Z","2018-08-24T00:00:00.000Z","2018-08-31T00:00:00.000Z","2018-09-07T00:00:00.000Z","2018-09-14T00:00:00.000Z","2018-09-21T00:00:00.000Z","2018-09-28T00:00:00.000Z","2018-10-05T00:00:00.000Z","2018-10-12T00:00:00.000Z","2018-10-19T00:00:00.000Z","2018-10-26T00:00:00.000Z","2018-11-02T00:00:00.000Z","2018-11-09T00:00:00.000Z","2018-11-16T00:00:00.000Z","2018-11-23T00:00:00.000Z","2018-11-30T00:00:00.000Z","2018-12-07T00:00:00.000Z","2018-12-14T00:00:00.000Z","2018-12-21T00:00:00.000Z","2018-12-28T00:00:00.000Z","2019-01-04T00:00:00.000Z","2019-01-11T00:00:00.000Z","2019-01-18T00:00:00.000Z","2019-01-25T00:00:00.000Z","2019-02-01T00:00:00.000Z","2019-02-08T00:00:00.000Z","2019-02-15T00:00:00.000Z","2019-02-22T00:00:00.000Z","2019-03-01T00:00:00.000Z","2019-03-08T00:00:00.000Z","2019-03-15T00:00:00.000Z","2019-03-22T00:00:00.000Z","2019-03-29T00:00:00.000Z","2019-04-05T00:00:00.000Z","2019-04-12T00:00:00.000Z","2019-04-19T00:00:00.000Z","2019-04-26T00:00:00.000Z","2019-05-03T00:00:00.000Z","2019-05-10T00:00:00.000Z","2019-05-17T00:00:00.000Z","2019-05-24T00:00:00.000Z","2019-05-31T00:00:00.000Z","2019-06-07T00:00:00.000Z","2019-06-14T00:00:00.000Z","2019-06-21T00:00:00.000Z","2019-06-28T00:00:00.000Z","2019-07-05T00:00:00.000Z","2019-07-12T00:00:00.000Z"],["2016-01-08","2016-01-15","2016-01-22","2016-01-29","2016-02-05","2016-02-12","2016-02-19","2016-02-26","2016-03-04","2016-03-11","2016-03-18","2016-03-25","2016-04-01","2016-04-08","2016-04-15","2016-04-22","2016-04-29","2016-05-06","2016-05-13","2016-05-20","2016-05-27","2016-06-03","2016-06-10","2016-06-17","2016-06-24","2016-07-01","2016-07-08","2016-07-15","2016-07-22","2016-07-29","2016-08-05","2016-08-12","2016-08-19","2016-08-26","2016-09-02","2016-09-09","2016-09-16","2016-09-23","2016-09-30","2016-10-07","2016-10-14","2016-10-21","2016-10-28","2016-11-04","2016-11-11","2016-11-18","2016-11-25","2016-12-02","2016-12-09","2016-12-16","2016-12-23","2016-12-30","2017-01-06","2017-01-13","2017-01-20","2017-01-27","2017-02-03","2017-02-10","2017-02-17","2017-02-24","2017-03-03","2017-03-10","2017-03-17","2017-03-24","2017-03-31","2017-04-07","2017-04-14","2017-04-21","2017-04-28","2017-05-05","2017-05-12","2017-05-19","2017-05-26","2017-06-02","2017-06-09","2017-06-16","2017-06-23","2017-06-30","2017-07-07","2017-07-14","2017-07-21","2017-07-28","2017-08-04","2017-08-11","2017-08-18","2017-08-25","2017-09-01","2017-09-08","2017-09-15","2017-09-22","2017-09-29","2017-10-06","2017-10-13","2017-10-20","2017-10-27","2017-11-03","2017-11-10","2017-11-17","2017-11-24","2017-12-01","2017-12-08","2017-12-15","2017-12-22","2017-12-29","2018-01-05","2018-01-12","2018-01-19","2018-01-26","2018-02-02","2018-02-09","2018-02-16","2018-02-23","2018-03-02","2018-03-09","2018-03-16","2018-03-23","2018-03-30","2018-04-06","2018-04-13","2018-04-20","2018-04-27","2018-05-04","2018-05-11","2018-05-18","2018-05-25","2018-06-01","2018-06-08","2018-06-15","2018-06-22","2018-06-29","2018-07-06","2018-07-13","2018-07-20","2018-07-27","2018-08-03","2018-08-10","2018-08-17","2018-08-24","2018-08-31","2018-09-07","2018-09-14","2018-09-21","2018-09-28","2018-10-05","2018-10-12","2018-10-19","2018-10-26","2018-11-02","2018-11-09","2018-11-16","2018-11-23","2018-11-30","2018-12-07","2018-12-14","2018-12-21","2018-12-28","2019-01-04","2019-01-11","2019-01-18","2019-01-25","2019-02-01","2019-02-08","2019-02-15","2019-02-22","2019-03-01","2019-03-08","2019-03-15","2019-03-22","2019-03-29","2019-04-05","2019-04-12","2019-04-19","2019-04-26","2019-05-03","2019-05-10","2019-05-17","2019-05-24","2019-05-31","2019-06-07","2019-06-14","2019-06-21","2019-06-28","2019-07-05","2019-07-12"],["13045","11501","11473","11317","11052","11170","10590","11056","11285","11010","11022"," 9635","10286","11599","11417","10925","10413"," 9137","10637"," 9953"," 9739"," 7909"," 9873"," 9386"," 9365"," 9228"," 9138"," 9388"," 9350"," 9335"," 9182"," 9172"," 9070"," 9319"," 7923"," 9399"," 9124"," 8945"," 8994"," 9291"," 9719"," 9768"," 9724","10152","10470","10694","10603","10439","11223","10533","11493"," 8003","11991","13715","13610","12877","12485","12269","11644","11794","11248","11077","10697","10325","10027"," 9939"," 8493"," 9644","10908"," 9064","10693","10288","10040"," 8332"," 9766"," 9367"," 9627"," 9334"," 9263"," 9376"," 9113"," 8882"," 8941"," 9038"," 9299"," 9382"," 8149"," 9497"," 9454"," 9534"," 9689"," 9778"," 9940","10031"," 9739"," 9984","10346","10275","10621","10538","10781","11217","12517"," 8487","12723","15050","14256","13935","13285","12495","12246","12142","10854","12997","12788","11913"," 9941","10794","12301","11223","10306","10153"," 8624","10141"," 9636"," 8147"," 9950"," 9343"," 9256"," 9212"," 9258"," 9293"," 9127"," 9141"," 9161"," 9319"," 8830"," 8978"," 7865"," 9445"," 9191"," 9305"," 9150"," 9503"," 9649"," 9864"," 9603"," 9529","10151","10193"," 9957","10033","10287","10550","11116"," 7131","10955","12609","11860","11740","11297","11660","11824","11295","11044","10898","10567","10402"," 9867","10126","10291"," 9025","10059","11207"," 9055","10272","10284"," 8260","10140"," 9445"," 9458"," 9511"," 9062"," 9179"],["149.8720","149.8883","149.8568","151.4292","150.0193","149.6231","150.7557","149.6230","150.9004","150.9368","150.6170","150.0988","150.6797","150.6462","147.8572","152.2546","149.8892","149.7056","149.4734","150.4154","150.2240","149.2089","148.4788","150.3314","149.5693","149.7354","149.2768","149.4483","150.4379","150.6595","150.7171","149.6038","150.4036","148.1837","150.6082","147.1880","150.3164","150.6979","150.3868","150.6334","149.6540","150.0223","148.7053","150.9966","150.6428","150.0105","148.5529","149.0501","149.0456","150.4275","148.4176","149.4535","150.2806","150.2012","150.8605","151.6756","148.6720","149.9537","150.9202","150.5046","148.5321","149.9957","151.0834","151.9813","150.1079","149.8213","149.9679","150.1160","149.1459","151.4487","151.2383","151.2509","149.7156","149.2881","149.9867","149.4205","149.6816","150.4373","150.0002","149.1225","151.0720","149.9228","149.5182","149.4006","150.1044","151.4615","148.5892","151.1470","150.0104","151.0877","150.0446","149.6297","151.1086","149.2978","148.8498","149.1204","150.1795","150.8853","150.2826","149.7863","150.0874","148.4288","150.1482","150.1860","148.8087","150.4319","149.1593","150.1394","150.7712","150.3593","149.8468","150.4845","150.0817","150.7866","150.7951","151.4495","151.0035","148.8928","151.3985","151.0238","149.8409","151.0052","151.5582","149.8922","151.1578","149.3090","150.1440","149.0935","149.6660","150.1647","147.0943","149.1078","152.2022","150.1874","150.4728","149.1520","151.5888","149.5579","149.0153","150.9575","150.8516","149.9370","149.0306","151.0483","149.5312","151.7878","149.4295","151.1639","151.2203","150.7979","150.2585","150.2446","150.3007","150.5800","148.4684","151.5903","152.0251","150.0190","150.0573","150.1175","149.6025","151.3140","149.4342","151.2513","149.7715","150.6949","149.5970","151.0055","150.3824","151.0500","148.6578","150.8980","150.2552","150.9773","150.3396","148.2407","149.2737","149.0598","149.9367","151.5180","149.7602","148.9243","152.8544","149.5628"]],"fixedtz":false,"tzone":"UTC"},"evals":["attrs.interactionModel"],"jsHooks":[]}</script>
+</div>
+</div>
+<p>When you’ve plotted the chart if you wave the cursor over the points you will see information about those points, you are also able to zoom in by using the scrolling bar at the bottom of the chart (this was from the <code>dyRangeSelector()</code> code.</p>
+<p>Other options are detailed here: <a href="https://rstudio.github.io/dygraphs/index.html" class="uri">https://rstudio.github.io/dygraphs/index.html</a></p>
+</section><section id="ons-provisional-data" class="level1"><h1>ONS Provisional data</h1>
+<p>One of the things that may stand out in the chart for the are the big dips around 29-31 December time each year and we presume that these relate to the week where Registrations may be delayed from GP practices to ONS because of the public holidays around Christmas.</p>
+<p>Unfortunately, only provisionally recorded deaths are available by week as confirmed are monthly: <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/monthlyfiguresondeathsregisteredbyareaofusualresidence" class="uri">https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/monthlyfiguresondeathsregisteredbyareaofusualresidence</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">dygraph</span><span class="op">(</span><span class="va">ONSAlldeaths_series</span>, main <span class="op">=</span> <span class="st">"East Midlands Weekly Deaths"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">dyAxis</span><span class="op">(</span><span class="st">"y"</span>, independentTicks <span class="op">=</span> <span class="cn">TRUE</span>, drawGrid <span class="op">=</span> <span class="cn">FALSE</span>, label <span class="op">=</span> <span class="st">"East Midlands"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">dyAxis</span><span class="op">(</span><span class="st">"x"</span>, drawGrid <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">dyOptions</span><span class="op">(</span>stepPlot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">dyRangeSelector</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="dygraphs html-widget html-fill-item" id="htmlwidget-37c277675a6b0aff9aba" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-37c277675a6b0aff9aba">{"x":{"attrs":{"axes":{"x":{"pixelsPerLabel":60,"drawGrid":false,"drawAxis":true},"y":{"drawGrid":false,"independentTicks":true,"drawAxis":true}},"title":"East Midlands Weekly Deaths","labels":["week","ds","y2","y"],"legend":"auto","retainDateWindow":false,"ylabel":"East Midlands","stackedGraph":false,"fillGraph":false,"fillAlpha":0.15,"stepPlot":true,"drawPoints":false,"pointSize":1,"drawGapEdgePoints":false,"connectSeparatedPoints":false,"strokeWidth":1,"strokeBorderColor":"white","colorValue":0.5,"colorSaturation":1,"includeZero":false,"drawAxesAtZero":false,"logscale":false,"axisTickSize":3,"axisLineColor":"black","axisLineWidth":0.3,"axisLabelColor":"black","axisLabelFontSize":14,"axisLabelWidth":60,"drawGrid":true,"gridLineWidth":0.3,"rightGap":5,"digitsAfterDecimal":2,"labelsKMB":false,"labelsKMG2":false,"labelsUTC":false,"maxNumberWidth":6,"animatedZooms":false,"mobileDisableYTouch":true,"disableZoom":false,"showRangeSelector":true,"rangeSelectorHeight":40,"rangeSelectorPlotFillColor":" #A7B1C4","rangeSelectorPlotStrokeColor":"#808FAB","interactionModel":"Dygraph.Interaction.defaultModel"},"scale":"weekly","annotations":[],"shadings":[],"events":[],"format":"date","data":[["2016-01-08T00:00:00.000Z","2016-01-15T00:00:00.000Z","2016-01-22T00:00:00.000Z","2016-01-29T00:00:00.000Z","2016-02-05T00:00:00.000Z","2016-02-12T00:00:00.000Z","2016-02-19T00:00:00.000Z","2016-02-26T00:00:00.000Z","2016-03-04T00:00:00.000Z","2016-03-11T00:00:00.000Z","2016-03-18T00:00:00.000Z","2016-03-25T00:00:00.000Z","2016-04-01T00:00:00.000Z","2016-04-08T00:00:00.000Z","2016-04-15T00:00:00.000Z","2016-04-22T00:00:00.000Z","2016-04-29T00:00:00.000Z","2016-05-06T00:00:00.000Z","2016-05-13T00:00:00.000Z","2016-05-20T00:00:00.000Z","2016-05-27T00:00:00.000Z","2016-06-03T00:00:00.000Z","2016-06-10T00:00:00.000Z","2016-06-17T00:00:00.000Z","2016-06-24T00:00:00.000Z","2016-07-01T00:00:00.000Z","2016-07-08T00:00:00.000Z","2016-07-15T00:00:00.000Z","2016-07-22T00:00:00.000Z","2016-07-29T00:00:00.000Z","2016-08-05T00:00:00.000Z","2016-08-12T00:00:00.000Z","2016-08-19T00:00:00.000Z","2016-08-26T00:00:00.000Z","2016-09-02T00:00:00.000Z","2016-09-09T00:00:00.000Z","2016-09-16T00:00:00.000Z","2016-09-23T00:00:00.000Z","2016-09-30T00:00:00.000Z","2016-10-07T00:00:00.000Z","2016-10-14T00:00:00.000Z","2016-10-21T00:00:00.000Z","2016-10-28T00:00:00.000Z","2016-11-04T00:00:00.000Z","2016-11-11T00:00:00.000Z","2016-11-18T00:00:00.000Z","2016-11-25T00:00:00.000Z","2016-12-02T00:00:00.000Z","2016-12-09T00:00:00.000Z","2016-12-16T00:00:00.000Z","2016-12-23T00:00:00.000Z","2016-12-30T00:00:00.000Z","2017-01-06T00:00:00.000Z","2017-01-13T00:00:00.000Z","2017-01-20T00:00:00.000Z","2017-01-27T00:00:00.000Z","2017-02-03T00:00:00.000Z","2017-02-10T00:00:00.000Z","2017-02-17T00:00:00.000Z","2017-02-24T00:00:00.000Z","2017-03-03T00:00:00.000Z","2017-03-10T00:00:00.000Z","2017-03-17T00:00:00.000Z","2017-03-24T00:00:00.000Z","2017-03-31T00:00:00.000Z","2017-04-07T00:00:00.000Z","2017-04-14T00:00:00.000Z","2017-04-21T00:00:00.000Z","2017-04-28T00:00:00.000Z","2017-05-05T00:00:00.000Z","2017-05-12T00:00:00.000Z","2017-05-19T00:00:00.000Z","2017-05-26T00:00:00.000Z","2017-06-02T00:00:00.000Z","2017-06-09T00:00:00.000Z","2017-06-16T00:00:00.000Z","2017-06-23T00:00:00.000Z","2017-06-30T00:00:00.000Z","2017-07-07T00:00:00.000Z","2017-07-14T00:00:00.000Z","2017-07-21T00:00:00.000Z","2017-07-28T00:00:00.000Z","2017-08-04T00:00:00.000Z","2017-08-11T00:00:00.000Z","2017-08-18T00:00:00.000Z","2017-08-25T00:00:00.000Z","2017-09-01T00:00:00.000Z","2017-09-08T00:00:00.000Z","2017-09-15T00:00:00.000Z","2017-09-22T00:00:00.000Z","2017-09-29T00:00:00.000Z","2017-10-06T00:00:00.000Z","2017-10-13T00:00:00.000Z","2017-10-20T00:00:00.000Z","2017-10-27T00:00:00.000Z","2017-11-03T00:00:00.000Z","2017-11-10T00:00:00.000Z","2017-11-17T00:00:00.000Z","2017-11-24T00:00:00.000Z","2017-12-01T00:00:00.000Z","2017-12-08T00:00:00.000Z","2017-12-15T00:00:00.000Z","2017-12-22T00:00:00.000Z","2017-12-29T00:00:00.000Z","2018-01-05T00:00:00.000Z","2018-01-12T00:00:00.000Z","2018-01-19T00:00:00.000Z","2018-01-26T00:00:00.000Z","2018-02-02T00:00:00.000Z","2018-02-09T00:00:00.000Z","2018-02-16T00:00:00.000Z","2018-02-23T00:00:00.000Z","2018-03-02T00:00:00.000Z","2018-03-09T00:00:00.000Z","2018-03-16T00:00:00.000Z","2018-03-23T00:00:00.000Z","2018-03-30T00:00:00.000Z","2018-04-06T00:00:00.000Z","2018-04-13T00:00:00.000Z","2018-04-20T00:00:00.000Z","2018-04-27T00:00:00.000Z","2018-05-04T00:00:00.000Z","2018-05-11T00:00:00.000Z","2018-05-18T00:00:00.000Z","2018-05-25T00:00:00.000Z","2018-06-01T00:00:00.000Z","2018-06-08T00:00:00.000Z","2018-06-15T00:00:00.000Z","2018-06-22T00:00:00.000Z","2018-06-29T00:00:00.000Z","2018-07-06T00:00:00.000Z","2018-07-13T00:00:00.000Z","2018-07-20T00:00:00.000Z","2018-07-27T00:00:00.000Z","2018-08-03T00:00:00.000Z","2018-08-10T00:00:00.000Z","2018-08-17T00:00:00.000Z","2018-08-24T00:00:00.000Z","2018-08-31T00:00:00.000Z","2018-09-07T00:00:00.000Z","2018-09-14T00:00:00.000Z","2018-09-21T00:00:00.000Z","2018-09-28T00:00:00.000Z","2018-10-05T00:00:00.000Z","2018-10-12T00:00:00.000Z","2018-10-19T00:00:00.000Z","2018-10-26T00:00:00.000Z","2018-11-02T00:00:00.000Z","2018-11-09T00:00:00.000Z","2018-11-16T00:00:00.000Z","2018-11-23T00:00:00.000Z","2018-11-30T00:00:00.000Z","2018-12-07T00:00:00.000Z","2018-12-14T00:00:00.000Z","2018-12-21T00:00:00.000Z","2018-12-28T00:00:00.000Z","2019-01-04T00:00:00.000Z","2019-01-11T00:00:00.000Z","2019-01-18T00:00:00.000Z","2019-01-25T00:00:00.000Z","2019-02-01T00:00:00.000Z","2019-02-08T00:00:00.000Z","2019-02-15T00:00:00.000Z","2019-02-22T00:00:00.000Z","2019-03-01T00:00:00.000Z","2019-03-08T00:00:00.000Z","2019-03-15T00:00:00.000Z","2019-03-22T00:00:00.000Z","2019-03-29T00:00:00.000Z","2019-04-05T00:00:00.000Z","2019-04-12T00:00:00.000Z","2019-04-19T00:00:00.000Z","2019-04-26T00:00:00.000Z","2019-05-03T00:00:00.000Z","2019-05-10T00:00:00.000Z","2019-05-17T00:00:00.000Z","2019-05-24T00:00:00.000Z","2019-05-31T00:00:00.000Z","2019-06-07T00:00:00.000Z","2019-06-14T00:00:00.000Z","2019-06-21T00:00:00.000Z","2019-06-28T00:00:00.000Z","2019-07-05T00:00:00.000Z","2019-07-12T00:00:00.000Z"],["2016-01-08","2016-01-15","2016-01-22","2016-01-29","2016-02-05","2016-02-12","2016-02-19","2016-02-26","2016-03-04","2016-03-11","2016-03-18","2016-03-25","2016-04-01","2016-04-08","2016-04-15","2016-04-22","2016-04-29","2016-05-06","2016-05-13","2016-05-20","2016-05-27","2016-06-03","2016-06-10","2016-06-17","2016-06-24","2016-07-01","2016-07-08","2016-07-15","2016-07-22","2016-07-29","2016-08-05","2016-08-12","2016-08-19","2016-08-26","2016-09-02","2016-09-09","2016-09-16","2016-09-23","2016-09-30","2016-10-07","2016-10-14","2016-10-21","2016-10-28","2016-11-04","2016-11-11","2016-11-18","2016-11-25","2016-12-02","2016-12-09","2016-12-16","2016-12-23","2016-12-30","2017-01-06","2017-01-13","2017-01-20","2017-01-27","2017-02-03","2017-02-10","2017-02-17","2017-02-24","2017-03-03","2017-03-10","2017-03-17","2017-03-24","2017-03-31","2017-04-07","2017-04-14","2017-04-21","2017-04-28","2017-05-05","2017-05-12","2017-05-19","2017-05-26","2017-06-02","2017-06-09","2017-06-16","2017-06-23","2017-06-30","2017-07-07","2017-07-14","2017-07-21","2017-07-28","2017-08-04","2017-08-11","2017-08-18","2017-08-25","2017-09-01","2017-09-08","2017-09-15","2017-09-22","2017-09-29","2017-10-06","2017-10-13","2017-10-20","2017-10-27","2017-11-03","2017-11-10","2017-11-17","2017-11-24","2017-12-01","2017-12-08","2017-12-15","2017-12-22","2017-12-29","2018-01-05","2018-01-12","2018-01-19","2018-01-26","2018-02-02","2018-02-09","2018-02-16","2018-02-23","2018-03-02","2018-03-09","2018-03-16","2018-03-23","2018-03-30","2018-04-06","2018-04-13","2018-04-20","2018-04-27","2018-05-04","2018-05-11","2018-05-18","2018-05-25","2018-06-01","2018-06-08","2018-06-15","2018-06-22","2018-06-29","2018-07-06","2018-07-13","2018-07-20","2018-07-27","2018-08-03","2018-08-10","2018-08-17","2018-08-24","2018-08-31","2018-09-07","2018-09-14","2018-09-21","2018-09-28","2018-10-05","2018-10-12","2018-10-19","2018-10-26","2018-11-02","2018-11-09","2018-11-16","2018-11-23","2018-11-30","2018-12-07","2018-12-14","2018-12-21","2018-12-28","2019-01-04","2019-01-11","2019-01-18","2019-01-25","2019-02-01","2019-02-08","2019-02-15","2019-02-22","2019-03-01","2019-03-08","2019-03-15","2019-03-22","2019-03-29","2019-04-05","2019-04-12","2019-04-19","2019-04-26","2019-05-03","2019-05-10","2019-05-17","2019-05-24","2019-05-31","2019-06-07","2019-06-14","2019-06-21","2019-06-28","2019-07-05","2019-07-12"],["149.8720","149.8883","149.8568","151.4292","150.0193","149.6231","150.7557","149.6230","150.9004","150.9368","150.6170","150.0988","150.6797","150.6462","147.8572","152.2546","149.8892","149.7056","149.4734","150.4154","150.2240","149.2089","148.4788","150.3314","149.5693","149.7354","149.2768","149.4483","150.4379","150.6595","150.7171","149.6038","150.4036","148.1837","150.6082","147.1880","150.3164","150.6979","150.3868","150.6334","149.6540","150.0223","148.7053","150.9966","150.6428","150.0105","148.5529","149.0501","149.0456","150.4275","148.4176","149.4535","150.2806","150.2012","150.8605","151.6756","148.6720","149.9537","150.9202","150.5046","148.5321","149.9957","151.0834","151.9813","150.1079","149.8213","149.9679","150.1160","149.1459","151.4487","151.2383","151.2509","149.7156","149.2881","149.9867","149.4205","149.6816","150.4373","150.0002","149.1225","151.0720","149.9228","149.5182","149.4006","150.1044","151.4615","148.5892","151.1470","150.0104","151.0877","150.0446","149.6297","151.1086","149.2978","148.8498","149.1204","150.1795","150.8853","150.2826","149.7863","150.0874","148.4288","150.1482","150.1860","148.8087","150.4319","149.1593","150.1394","150.7712","150.3593","149.8468","150.4845","150.0817","150.7866","150.7951","151.4495","151.0035","148.8928","151.3985","151.0238","149.8409","151.0052","151.5582","149.8922","151.1578","149.3090","150.1440","149.0935","149.6660","150.1647","147.0943","149.1078","152.2022","150.1874","150.4728","149.1520","151.5888","149.5579","149.0153","150.9575","150.8516","149.9370","149.0306","151.0483","149.5312","151.7878","149.4295","151.1639","151.2203","150.7979","150.2585","150.2446","150.3007","150.5800","148.4684","151.5903","152.0251","150.0190","150.0573","150.1175","149.6025","151.3140","149.4342","151.2513","149.7715","150.6949","149.5970","151.0055","150.3824","151.0500","148.6578","150.8980","150.2552","150.9773","150.3396","148.2407","149.2737","149.0598","149.9367","151.5180","149.7602","148.9243","152.8544","149.5628"],["13045","11501","11473","11317","11052","11170","10590","11056","11285","11010","11022"," 9635","10286","11599","11417","10925","10413"," 9137","10637"," 9953"," 9739"," 7909"," 9873"," 9386"," 9365"," 9228"," 9138"," 9388"," 9350"," 9335"," 9182"," 9172"," 9070"," 9319"," 7923"," 9399"," 9124"," 8945"," 8994"," 9291"," 9719"," 9768"," 9724","10152","10470","10694","10603","10439","11223","10533","11493"," 8003","11991","13715","13610","12877","12485","12269","11644","11794","11248","11077","10697","10325","10027"," 9939"," 8493"," 9644","10908"," 9064","10693","10288","10040"," 8332"," 9766"," 9367"," 9627"," 9334"," 9263"," 9376"," 9113"," 8882"," 8941"," 9038"," 9299"," 9382"," 8149"," 9497"," 9454"," 9534"," 9689"," 9778"," 9940","10031"," 9739"," 9984","10346","10275","10621","10538","10781","11217","12517"," 8487","12723","15050","14256","13935","13285","12495","12246","12142","10854","12997","12788","11913"," 9941","10794","12301","11223","10306","10153"," 8624","10141"," 9636"," 8147"," 9950"," 9343"," 9256"," 9212"," 9258"," 9293"," 9127"," 9141"," 9161"," 9319"," 8830"," 8978"," 7865"," 9445"," 9191"," 9305"," 9150"," 9503"," 9649"," 9864"," 9603"," 9529","10151","10193"," 9957","10033","10287","10550","11116"," 7131","10955","12609","11860","11740","11297","11660","11824","11295","11044","10898","10567","10402"," 9867","10126","10291"," 9025","10059","11207"," 9055","10272","10284"," 8260","10140"," 9445"," 9458"," 9511"," 9062"," 9179"]],"fixedtz":false,"tzone":"UTC"},"evals":["attrs.interactionModel"],"jsHooks":[]}</script>
+</div>
+</div>
+</section><section id="the-case-of-the-mysteriously-disappearing-interactive-graph-in-r-markdown-html-output" class="level1"><h1>The case of the mysteriously disappearing interactive graph in R Markdown html output</h1>
+<p>I’d rendered (knit or run) the html reports with the interactive graphs and it had all worked so I emailed the report to people as promised and then the emails came back: “Some of the graphs are missing, can you resend?”. Perplexed, I opened the saved file from the server and, yes, indeed some of the charts had disappeared! Where there should be lovely interactive charts were vast swathes of blank screen. What had happened? The code ran fine, looked fine and how do you even Google this mystery?</p>
+<p>Turns out my default browser, and I suspect it is throughout most of the NHS because lots of NHS systems depend on it, is Microsoft Explorer. Whilst I have the latest version these reports have never opened properly in Explorer.</p>
+<p>The solution: Chrome (or some other browser). I ask people to copy the link from the Explorer web address bar after opening it from the email and simply paste it to Chrome.</p>
+<p>This blog was written by Zoë Turner, Senior Information Analyst at Nottinghamshire Healthcare NHS Trust.</p>
+<p>This blog has been edited for <a href="https://nhsrway.nhsrcommunity.com/style-guides.html#referencing-r-packages-and-functions-in-text">NHS-R Style</a>.</p>
+
+
+</section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nhsrcommunity\.com\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+<p>2026 NHS-R Community ∙ Made with <a href="https://quarto.org/"><img src="https://quarto.org/quarto.png" class="img-fluid" alt="Quarto logo blue round circle with a cross within the circumference" width="65"></a></p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="https://fosstodon.org/@NHSrCommunity" aria-label="Go to NHSR's Fosstodon page" title="mastodon" target="_blank" rel="noopener"> <i class="link-dark me-1" aria-hidden="true"></i> <i class="fa-brands fa-mastodon" aria-label="mastodon"></i></a> <a href="https://bsky.app/profile/nhsrcommunity.bsky.social" aria-label="Go to NHSR's Bluesky page" title="bluesky" target="_blank" rel="noopener"> <i class="link-dark me-1" aria-hidden="true"></i> <iconify-icon role="img" inline="" icon="fa6-brands:bluesky" aria-label="Icon bluesky from fa6-brands Iconify.design set." title="Icon bluesky from fa6-brands Iconify.design set."></iconify-icon></a> <a href="https://github.com/nhs-r-community" aria-label="Go to NHSR's GitHub" title="github" target="_blank" rel="noopener"> <i class="link-dark me-1" aria-hidden="true"></i> <i class="fa-brands fa-github" aria-label="github"></i></a> <a href="https://soundcloud.com/nhs-r-community" aria-label="Go to NHSR's SoundCloud" title="soundcloud" target="_blank" rel="noopener"> <i class="link-dark me-1" aria-hidden="true"></i> <i class="fa-brands fa-soundcloud" aria-label="soundcloud"></i></a> <a href="https://www.linkedin.com/in/nhs-r-community-2555a6282/" aria-label="Go to NHSR's LinkedIn" title="LinkedIn" target="_blank" rel="noopener"> <i class="link-dark me-1" aria-hidden="true"></i> <i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a></p>
+<div class="toc-actions"><ul><li><a href="https://github.com/nhs-r-community/nhs-r-community/edit/main/blog/dygraphs.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nhs-r-community/nhs-r-community/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+<li class="nav-item">
+    <a class="nav-link" href="../accessibility.html">
+<p>Accessibility</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../ts-and-cs.html">
+<p>Terms and Conditions</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../contact.html">
+<p>Contact</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../licence.html">
+<p>Licence</p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../blog/index.xml">
+      <i class="bi bi-rss" role="img" aria-label="RSS blog feed">
+</i> 
+    </a>
+  </li>  
+</ul>
+</div>
+  </div>
+</footer>
+
+
+</body></html>
