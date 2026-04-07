@@ -18,14 +18,14 @@
     "href": "webinars-and-workshops.html#may-2026",
     "title": "Webinars and Workshops",
     "section": "May 2026",
-    "text": "May 2026"
+    "text": "May 2026\n📆 21st Building Reproducible Pipelines for Open Health Data: From Ingestion to Geographical Analysis and Visualisation with Mattia Ficarelli, PhD:\nThis webinar will explore how to design reproducible, automated pipelines for working with open health data, covering data ingestion, reuse of public datasets, and scalable approaches to processing and analysis. It will focus on managing geographical complexity, including mapping across NHS and statistical geographies over time, and demonstrate practical methods for analysing and presenting results clearly.\n\nWebinar\n13:00 - 14:00 (GMT)\n🔗 Register to attend here"
   },
   {
     "objectID": "webinars-and-workshops.html#june-2026",
     "href": "webinars-and-workshops.html#june-2026",
     "title": "Webinars and Workshops",
     "section": "June 2026",
-    "text": "June 2026\n📆 18th Building a Reproducible Analytical Pipeline (RAP) for Simulation with Python and R with Amy Heather:\nReproducible Analytical Pipelines (RAPs) are becoming essential in the NHS for producing transparent, trustworthy analysis and modelling at scale. In this webinar, we’ll walk through a full RAP built around a discrete‑event simulation (DES) model, using examples from the DES RAP Book (https://pythonhealthdatascience.github.io/des_rap_book/). We’ll show how we created DES models in both SimPy (Python) and simmer (R), while meeting the NHS Levels of RAP criteria at gold status. We’ll highlight practical steps you can take to make your own work more reproducible and robust.\n\nwebinar\n13:00 - 14:00 (GMT)\n🔗 Register to attend here"
+    "text": "June 2026\n📆 18th Building a Reproducible Analytical Pipeline (RAP) for Simulation with Python and R with Amy Heather:\nReproducible Analytical Pipelines (RAPs) are becoming essential in the NHS for producing transparent, trustworthy analysis and modelling at scale. In this webinar, we’ll walk through a full RAP built around a discrete‑event simulation (DES) model, using examples from the DES RAP Book (https://pythonhealthdatascience.github.io/des_rap_book/). We’ll show how we created DES models in both SimPy (Python) and simmer (R), while meeting the NHS Levels of RAP criteria at gold status. We’ll highlight practical steps you can take to make your own work more reproducible and robust.\n\nWebinar\n13:00 - 14:00 (GMT)\n🔗 Register to attend here"
   },
   {
     "objectID": "contact.html",
