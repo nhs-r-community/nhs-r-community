@@ -8,17 +8,6 @@ Please note:
 - Workshop attendance is restricted to UK employees of the NHS, public sector, civil service, voluntary sector, charities and academia, or who are retirees from any of these sectors. Please note you must sign up with a work email address to verify your credentials.
 - Webinars are free to all to attend, and recordings are stored on our [YouTube Channel](https://www.youtube.com/@NHSRCommunity)
 
-## March 2026
-
-📆 17th & 18th **Introduction to R and RStudio with Dr Claire Welsh**:
-
-_From ‘Hello World’ to producing a basic report.
-This introduction takes you from no knowledge of R to teaching you the basics of the RStudio environment, then loading in some data, some common data wrangling tasks, some charting and finishing with pulling it all together to produce a simple automated report.  
-No previous knowledge is required. This workshop will utilise the cloud, with all datasets provided as part of the course material, so no specialist set up is required._
-
-  + Workshop - limited to 25 attendees
-  + 09:00 - 13:00 (GMT)
-  + 🔗 [Request a place on the course here](https://forms.office.com/Pages/ResponsePage.aspx?id=slTDN7CF9UeyIge0jXdO44XdMKUqFgROnUm4_TKex1xURU5GMENKUkJGT0FLSlhQTTFYN1ZENzBaQS4u)
 
 ## April 2026
 
@@ -30,3 +19,17 @@ Please be advised that this session will go into more depth and complex wranglin
   + Workshop - limited to 25 attendees
   + 09:00 - 13:00 (GMT)
   + 🔗 [Request a place on the course here](https://forms.office.com/Pages/ResponsePage.aspx?id=slTDN7CF9UeyIge0jXdO44XdMKUqFgROnUm4_TKex1xUOU1ZSUw1UTRESUxCSUZCRjZTV1FJTDNIUy4u)
+
+## May 2026
+
+
+
+## June 2026
+
+📆 18th **Building a Reproducible Analytical Pipeline (RAP) for Simulation with Python and R with Amy Heather**:
+
+_Reproducible Analytical Pipelines (RAPs) are becoming essential in the NHS for producing transparent, trustworthy analysis and modelling at scale. In this webinar, we’ll walk through a full RAP built around a discrete‑event simulation (DES) model, using examples from the DES RAP Book (https://pythonhealthdatascience.github.io/des_rap_book/). We’ll show how we created DES models in both SimPy (Python) and simmer (R), while meeting the NHS Levels of RAP criteria at gold status. We’ll highlight practical steps you can take to make your own work more reproducible and robust._
+
+  + webinar
+  + 13:00 - 14:00 (GMT)
+  + 🔗 [Register to attend here](https://events.teams.microsoft.com/event/dca1d76e-e746-4de4-946e-75cf68e759c9@37c354b2-85b0-47f5-b222-07b48d774ee3)
