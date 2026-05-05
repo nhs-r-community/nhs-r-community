@@ -2,31 +2,77 @@
 title: "Coffee & Coding"
 ---
 
-Please note:
+:::{.callout-important}
+Coffee & Coding is changing! 
 
-- Coffee & Code sessions are a chance for like-minded coders to get together and chat, share tips, code snippets, and watch show-and-tells about useful or new R stuff. These sessions are run by Simon Wellesley-Miller (NHS England), and recordings are made available [here](https://future.nhs.uk/NHSERcommunity/view?objectID=41908688).
+We are merging our sessions with DHSC colleagues and making some tweaks to how we run these sessions. Please see below for further details.
+:::
 
-## March 2026
+To register your interest in attending future Coffee & Coding session, please
+complete [this short form](https://forms.office.com/Pages/ResponsePage.aspx?id=slTDN7CF9UeyIge0jXdO49xonCqYusFJh3y-kXmKM_1UQTVJUjlZVVFUN1RNMjlMM0NUQkk5NTczMS4u).
 
-📆 06th **Coffee and Coding**:
 
-  + 11:00 - 12:00 (GMT)
-  + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
-  + Meeting ID: 331 945 876 23
-  + Passcode: Po2nEx
+## May 2026
 
-📆 19th **Coffee and Coding**:
+📆 20th **Coffee and Coding**:
+  
+  + Host: Simon Wellesley-Miller (NHSE)
+  + 11:30 - 12:30 (GMT)
 
+📆 28th **Coffee and Coding**:
+
+  + Host: Lucy Spencer (DHSC)
   + 14:00 - 15:00 (GMT)
-  + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
-  + Meeting ID: 331 945 876 23
-  + Passcode: Po2nEx
 
-## April 2026
+## What is Coffee & Coding?
 
-📆 01st **Coffee and Coding**:
+Coffee and Coding is a core initiative of the NHS-OA Community, designed to provide an informal, supportive space for NHS, DHSC and the wider health and social care sector to share knowledge about Open Source open-source analytics (mainly R & Python).
 
-  + 14:00 - 15:00 (GMT)
-  + 🔗 [Meeting Link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2RjNTk0ZjItZmYzMS00ZTNlLTgyNzgtNWIzNjE1MmUyNTM3%40thread.v2/0?context=%7b%22Tid%22%3a%2237c354b2-85b0-47f5-b222-07b48d774ee3%22%2c%22Oid%22%3a%22a530dd85-162a-4e04-9d49-b8fd329ec75c%22%7d)
-  + Meeting ID: 331 945 876 23
-  + Passcode: Po2nEx
+It’s essentially a "community of practice" where the focus is on learning from peers rather than formal classroom instruction.
+
+## What Happens in a Session?
+
+The sessions typically last an hour and are held virtually (via MS Teams). While they are organic and informal, they generally follow a loose structure:
+
+- **Show and Tell**: One or more members demonstrate a piece of code they’ve written, a new package they’ve discovered, or a dashboard they’ve built.
+
+- **Library/Tip of the Week**: A quick highlight of a useful tool or shortcut that makes analytical life easier.
+
+- **Code Surgery**: A space for members to bring "code dilemmas." You can share your screen and get live help from the community on a specific bug, logic problem or just general advice.
+
+- **General Discussion**: Open floor for networking and discussing broader topics like RAP (Reproducible Analytical Pipelines), visualisation techniques, data science etc.
+
+## Key Rules and Ethos
+
+The community operates on a few specific principles to keep the environment safe and productive:
+
+- "Vegas Rules": While training demos are often recorded, the general discussions and Q&A are typically not recorded (or the recording is stopped) to ensure people feel comfortable asking "simple" questions or admitting they are stuck. 
+(Vegas Rules – what happens in Vegas – stays in Vegas)
+
+- No Patient Data: This is strictly enforced. 
+Code is shared using "dummy" or synthetic data; real patient data is never shown.
+
+- Inclusivity: It is aimed at all skill levels. 
+A typical session is roughly 40% beginners, 45% intermediate, and 15% advanced users.
+
+- First Rule of C&C: "Tell everyone about Coffee and Code"—the goal is to grow the open-source movement within the healthcare sector.
+
+## How to Join
+
+- Frequency: Sessions usually happen every weeks, rotating between different days (Wednesdays & Thursdays) to ensure people with different shift patterns or part-time schedules can attend.
+
+- Booking: See above links.
+
+- Slack: Much of the follow-up and resource sharing happens on the [NHS-R Community Slack channel](https://postcard.nhsrcommunity.com/), which is a great place to stay connected between sessions.
+
+## Why go?
+
+If you are an analyst in the NHS, it’s one of the best ways to break out of your silo. 
+You’ll find that someone else has almost always faced the same problem you’re currently struggling with, and they’ve likely already written a script to solve it.
+
+Its always great to see what other people are up to and be inspired and share ideas, you just don’t know what you don’t know – this is a safe space to find out.
+
+We want to share the cool stuff we are doing and help the community to thrive to support patient care.
+
+Previous recorded sessions (from before the merger with DHSC Coffee & Code) can be found [here](https://future.nhs.uk/NHSERcommunity/view?objectID=41908688).
+
