@@ -9,17 +9,6 @@ Please note:
 - Webinars are free to all to attend, and recordings are stored on our [YouTube Channel](https://www.youtube.com/@NHSRCommunity)
 
 
-## April 2026
-
-📆 28th & 29th **Intermediate R with Dr Claire Welsh**:
-
-_This course is designed to follow on from the Introduction to R and RStudio course, noting that attendees should be familiar with the basics covered in the workshop.
-Please be advised that this session will go into more depth and complex wrangling tasks, explore how to use the NHS-R SPC plot the dots library and cover in very simple terms an understanding of some functional programming. This workshop will utilise the cloud, with all datasets provided as part of the course material, so no specialist set up is required._
-
-  + Workshop - limited to 25 attendees
-  + 09:00 - 13:00 (GMT)
-  + 🔗 [Request a place on the course here](https://forms.office.com/Pages/ResponsePage.aspx?id=slTDN7CF9UeyIge0jXdO44XdMKUqFgROnUm4_TKex1xUOU1ZSUw1UTRESUxCSUZCRjZTV1FJTDNIUy4u)
-
 ## May 2026
 
 📆 21st **Building Reproducible Pipelines for Open Health Data: From Ingestion to Geographical Analysis and Visualisation with Mattia Ficarelli, PhD**:
