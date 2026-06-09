@@ -29,6 +29,14 @@ _We will cover the why, what and how of using cookiecutter templates for project
   + 13:00 - 14:00 (BST)
   + 🔗 [Register to attend here](https://events.teams.microsoft.com/event/741d74cf-5a6c-4c19-a138-c09783f2e2b7@37c354b2-85b0-47f5-b222-07b48d774ee3)
 
+📆 16th **Modelling renal care using a hybrid simulation approach with Dr Lucy Morgan**:
+
+_In this webinar we will go under the hood of The Strategy Unit's renal model (Kidney-SCOPE). We will explore how alongside, Midlands Kidney Network, we were able to built a model that considers demand for kidney services across the entire kidney pathway and allows interventions to be explored in a risk-free environment._
+
+  + Webinar
+  + 13:00 - 14:00 (BST)
+  + 🔗 [Register to attend here](https://events.teams.microsoft.com/event/0a3246b9-1499-41bd-8bef-e559b8b2922d@37c354b2-85b0-47f5-b222-07b48d774ee3?utm_source=substack&utm_medium=email)
+
 ## September 2026
 
 📆 10th **UK Address Matcher: High performance free address matching software with 
