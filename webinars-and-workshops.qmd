@@ -31,7 +31,7 @@ _We will cover the why, what and how of using cookiecutter templates for project
 
 📆 16th **Modelling renal care using a hybrid simulation approach with Dr Lucy Morgan**:
 
-_In this webinar we will go under the hood of The Strategy Unit's renal model (Kidney-SCOPE). We will explore how alongside, Midlands Kidney Network, we were able to built a model that considers demand for kidney services across the entire kidney pathway and allows interventions to be explored in a risk-free environment._
+_In this webinar we will go under the hood of The Strategy Unit's renal model (Kidney-SCOPE). We will explore how alongside Midlands Kidney Network, we were able to build a model that considers demand for kidney services across the entire kidney pathway and allows interventions to be explored in a risk-free environment._
 
   + Webinar
   + 13:00 - 14:00 (BST)
