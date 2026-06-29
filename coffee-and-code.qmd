@@ -46,7 +46,9 @@ The sessions typically last an hour and are held virtually (via MS Teams). While
 
 The community operates on a few specific principles to keep the environment safe and productive:
 
-- "Vegas Rules": While training demos are often recorded, the general discussions and Q&A are typically not recorded (or the recording is stopped) to ensure people feel comfortable asking "simple" questions or admitting they are stuck. 
+- Recording: We record and publish our Coffee and Coding sessions. By joining the session, you consent to your voice, image and any questions you submit being recorded and subsequently published. 
+
+- "Vegas rules": If we decide not to record a session, "vegas rules" are applied to ensure people feel comfortable asking "simple" questions or admitting they are stuck. 
 (Vegas Rules – what happens in Vegas – stays in Vegas)
 
 - No Patient Data: This is strictly enforced. 
@@ -56,6 +58,10 @@ Code is shared using "dummy" or synthetic data; real patient data is never shown
 A typical session is roughly 40% beginners, 45% intermediate, and 15% advanced users.
 
 - First Rule of C&C: "Tell everyone about Coffee and Code"—the goal is to grow the open-source movement within the healthcare sector.
+
+:::{.callout-important}
+If you would like to request the removal of a recording, please contact the [NHS Open Analytics Community mailbox](mailto:openanalytics.community@nhs.net).
+:::
 
 ## How to Join
 
