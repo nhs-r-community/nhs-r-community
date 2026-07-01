@@ -161,18 +161,11 @@
     "text": "Please note:"
   },
   {
-    "objectID": "webinars-and-workshops.html#june-2026",
-    "href": "webinars-and-workshops.html#june-2026",
-    "title": "Webinars and Workshops",
-    "section": "June 2026",
-    "text": "June 2026\n📆 18th Building a Reproducible Analytical Pipeline (RAP) for Simulation with Python and R with Amy Heather:\nReproducible Analytical Pipelines (RAPs) are becoming essential in the NHS for producing transparent, trustworthy analysis and modelling at scale. In this webinar, we’ll walk through a full RAP built around a discrete‑event simulation (DES) model, using examples from the DES RAP Book (https://pythonhealthdatascience.github.io/des_rap_book/). We’ll show how we created DES models in both SimPy (Python) and simmer (R), while meeting the NHS Levels of RAP criteria at gold status. We’ll highlight practical steps you can take to make your own work more reproducible and robust.\n\nWebinar\n13:00 - 14:00 (BST)\n🔗 Register to attend here"
-  },
-  {
     "objectID": "webinars-and-workshops.html#july-2026",
     "href": "webinars-and-workshops.html#july-2026",
     "title": "Webinars and Workshops",
     "section": "July 2026",
-    "text": "July 2026\n📆 02nd Cookiecutter Webinar - How to embed consistent best practice when setting projects up at speed! with Joe Wilson and Dr Rosemary Walmsley:\nWe will cover the why, what and how of using cookiecutter templates for projects. Cookiecutter is a package that makes it easy to set up a project using a template. This webinar is for you if you already code, and want to save time, set up projects more easily, and effortlessly follow good practice. If you have a team, it can help you increase consistency and share learning within the team. Cookiecutter can be used on projects in any language, but needs Python to run, so this session is relevant for all but especially so for Python users.\n\nWebinar\n13:00 - 14:00 (BST)\n🔗 Register to attend here\n\n📆 16th Modelling renal care using a hybrid simulation approach with Dr Lucy Morgan:\nIn this webinar we will go under the hood of The Strategy Unit’s renal model (Kidney-SCOPE). We will explore how alongside Midlands Kidney Network, we were able to build a model that considers demand for kidney services across the entire kidney pathway and allows interventions to be explored in a risk-free environment.\n\nWebinar\n13:00 - 14:00 (BST)\n🔗 Register to attend here"
+    "text": "July 2026\n📆 02nd Cookiecutter Webinar - How to embed consistent best practice when setting projects up at speed! with Joe Wilson and Dr Rosemary Walmsley:\nWe will cover the why, what and how of using cookiecutter templates for projects. Cookiecutter is a package that makes it easy to set up a project using a template. This webinar is for you if you already code, and want to save time, set up projects more easily, and effortlessly follow good practice. If you have a team, it can help you increase consistency and share learning within the team. Cookiecutter can be used on projects in any language, but needs Python to run, so this session is relevant for all but especially so for Python users.\n\nWebinar\n13:00 - 14:00 (BST)\n🔗 Register to attend here"
   },
   {
     "objectID": "webinars-and-workshops.html#september-2026",
