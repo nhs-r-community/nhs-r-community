@@ -14,6 +14,10 @@ complete [this short form](https://forms.office.com/Pages/ResponsePage.aspx?id=s
 NB. Completing this form will allow you to be sent invitations to all future
 Coffee & Coding events (both the Wednesday and Thursday sessions).
 
+:::{.callout-important}
+Please be advised that our Coffee and Coding sessions are taking a short break over the summer but will return with lots of exciting presentations, discussions and top tips in September 2026.
+:::
+
 📆 WEDNESDAYS **Coffee and Coding**:
   
   + Host: Simon Wellesley-Miller (NHSE)
