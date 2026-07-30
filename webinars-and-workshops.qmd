@@ -8,16 +8,6 @@ Please note:
 - Workshop attendance is restricted to UK employees of the NHS, public sector, civil service, voluntary sector, charities and academia, or who are retirees from any of these sectors. Please note you must sign up with a work email address to verify your credentials.
 - Webinars are free to all to attend, and recordings are stored on our [YouTube Channel](https://www.youtube.com/@NHSRCommunity)
 
-## July 2026
-
-📆 02nd **Cookiecutter Webinar - How to embed consistent best practice when setting projects up at speed! with Joe Wilson and Dr Rosemary Walmsley**:
-
-_We will cover the why, what and how of using cookiecutter templates for projects. Cookiecutter is a package that makes it easy to set up a project using a template. This webinar is for you if you already code, and want to save time, set up projects more easily, and effortlessly follow good practice. If you have a team, it can help you increase consistency and share learning within the team. Cookiecutter can be used on projects in any language, but needs Python to run, so this session is relevant for all but especially so for Python users._
-
-  + Webinar
-  + 13:00 - 14:00 (BST)
-  + 🔗 [Register to attend here](https://events.teams.microsoft.com/event/741d74cf-5a6c-4c19-a138-c09783f2e2b7@37c354b2-85b0-47f5-b222-07b48d774ee3)
-
 ## September 2026
 
 📆 10th **UK Address Matcher: High performance free address matching software with 
@@ -32,3 +22,27 @@ https://github.com/moj-analytical-services/ukam_os_builder_
   + Webinar
   + 10:30 - 11:30 (BST)
   + 🔗 [Register to attend here](https://events.teams.microsoft.com/event/f4913672-0d1a-4509-b1b5-35ec2d96dc30@37c354b2-85b0-47f5-b222-07b48d774ee3)
+
+📆 15th & 16th **Introduction to R and R Studio with Zoë Turner**:
+
+_From ‘Hello World’ to producing a basic report.
+
+This introduction takes you from no knowledge of R to teaching you the basics of the R studio environment, then loading in some data, some common data wrangling tasks, some charting and finishing with pulling it all together to produce a simple automated report.  
+
+No previous knowledge is required. This workshop will utilise the cloud, with all datasets provided as part of the course material, so no specialist set up is required._
+
+  + Workshop
+  + 09:00 - 13:00 (BST)
+  + 🔗 [Register to attend here](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=slTDN7CF9UeyIge0jXdO49xonCqYusFJh3y-kXmKM_1UM0pRTVZLVVJDSzVVWjFXRTI1VTFXVFVVSS4u)
+
+## October 2026
+
+📆 13th & 14th **Intermediate R with Zoë Turner**:
+
+_This course is designed to follow on from the Introduction to R and R Studio course, noting that attendees should be familiar with the basics covered in the workshop. 
+
+Please be advised that this session will go into more depth and complex wrangling tasks, explore how to use the NHS-R SPC plot the dots library and cover in very simple terms an understanding of some functional programming. This workshop will utilise the cloud, with all datasets provided as part of the course material, so no specialist set up is required._
+
+  + Workshop
+  + 09:00 - 13:00 (BST)
+  + 🔗 [Register to attend here](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=slTDN7CF9UeyIge0jXdO49xonCqYusFJh3y-kXmKM_1UMzU2SDYwWEgxS0lIQjhSNjJKQk40R08zMi4u)
