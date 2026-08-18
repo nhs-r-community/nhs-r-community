@@ -42,11 +42,11 @@ _Discrete Event Simulation (DES) is a simulation modelling technique that allows
 The team behind the ARC South West Health Service Modelling Associates (HSMA) Programme invite you to a brand new standalone workshop “Let’s Go!  An Introduction to Discrete Event Simulation and SimPy”, designed for the NHS-OA community. 
 
 In this workshop, participants will learn:
-•	The principles of Discrete Event Simulation and the kinds of problems this modelling approach can be used to tackle
-•	The importance of variability and stochasticity in simulation modelling
-•	How to design reproducible stochastic models
-•	How these models can be built in Python using the SimPy package, including how to use Python Generator Functions and how to structure code using Object Oriented Programming
-•	How animated visualisations can be added to SimPy models using the vidigi package.
++ The principles of Discrete Event Simulation and the kinds of problems this modelling approach can be used to tackle
++ The importance of variability and stochasticity in simulation modelling
++ How to design reproducible stochastic models
++ How these models can be built in Python using the SimPy package, including how to use Python Generator Functions and how to structure code using Object Oriented Programming
++ How animated visualisations can be added to SimPy models using the vidigi package.
 
 Whilst participants should have some prior coding experience, this does not need to be in Python.  We will assume no prior Python experience in this workshop.  Instead, participants will be introduced to the components of a SimPy model and shown the code that write these elements in Python.  Participants will also have a chance to adapt the code to write their own SimPy models.  In addition, no local software installation of Python is required - instead, we will use Google CoLab as a way of writing and running code, which requires only a free Google account.
 
