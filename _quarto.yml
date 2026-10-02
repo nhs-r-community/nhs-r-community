@@ -10,7 +10,7 @@ website:
     type: warning
     dismissable: true
     position: above-navbar
-    content: "<strong>Warning:</strong> This site is no longer maintenaned. The community is now located at [nhsoa.uk](https://nhsoa.uk/)"
+    content: "<strong>Warning:</strong> This site is no longer maintained. The community is now located at [nhsoa.uk](https://nhsoa.uk/)"
   description: "Promoting the Use of R in the UK Health & Care System"
   site-url: https://nhsrcommunity.com/
   page-navigation: true
